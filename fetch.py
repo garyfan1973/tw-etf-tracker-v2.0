@@ -371,12 +371,16 @@ def parse_holdings(page_html):
     return holdings
 
 
-def save_snapshot(etf_id, holdings, date):
-    """依「資料日期」儲存快照（同一交易日覆蓋）。回傳快照 dict。"""
+def save_snapshot(etf_id, holdings, date, self_quote=None):
+    """依「資料日期」儲存快照（同一交易日覆蓋）。回傳快照 dict。
+
+    self_quote：ETF 自身當日行情（供個人持股算市值/損益用）。
+    """
     snapshot = {
         "date": date,
         "fetched_at": datetime.datetime.now(TZ_TAIPEI).isoformat(timespec="seconds"),
         "count": len(holdings),
+        "self": self_quote,
         "holdings": holdings,
     }
     path = os.path.join(DATA_DIR, "{}_{}.json".format(etf_id, date))
@@ -416,27 +420,35 @@ def load_supabase_config():
     return url, key
 
 
-def fetch_member_codes():
-    """呼叫 Supabase RPC all_watchlist_codes() 取得所有會員關注的 ETF 代號。
+def _rpc_codes(url, key, fn):
+    """呼叫 Supabase security definer 函式，回傳字串陣列（代號）；失敗回 None。"""
+    endpoint = url.rstrip("/") + "/rest/v1/rpc/" + fn
+    out = subprocess.run(
+        ["curl", "-s", "-m", "20", "-X", "POST", endpoint,
+         "-H", "apikey: " + key, "-H", "Authorization: Bearer " + key,
+         "-H", "Content-Type: application/json", "-d", "{}"],
+        capture_output=True, timeout=25,
+    )
+    data = json.loads(out.stdout.decode("utf-8", errors="ignore"))
+    if isinstance(data, list):
+        return [str(c).upper() for c in data if c]
+    return None
 
-    用公開 anon key + security definer 函式即可（不需 service_role 密鑰）。
-    未設定或函式不存在時回空清單，退回只抓內建 ETFS。
+
+def fetch_member_codes():
+    """取得所有會員相關的 ETF 代號（關注清單＋個人持股）。
+
+    優先呼叫 all_member_codes()（watchlist ∪ holdings），沒有就退回
+    all_watchlist_codes()。用公開 anon key + security definer，不需 service_role。
     """
     url, key = load_supabase_config()
     if not url:
         return []
-    endpoint = url.rstrip("/") + "/rest/v1/rpc/all_watchlist_codes"
     try:
-        out = subprocess.run(
-            ["curl", "-s", "-m", "20", "-X", "POST", endpoint,
-             "-H", "apikey: " + key, "-H", "Authorization: Bearer " + key,
-             "-H", "Content-Type: application/json", "-d", "{}"],
-            capture_output=True, timeout=25,
-        )
-        data = json.loads(out.stdout.decode("utf-8", errors="ignore"))
-        if isinstance(data, list):
-            return [str(c).upper() for c in data if c]
-        print("  ! 讀取會員關注代號：{}".format(str(data)[:120]))
+        for fn in ("all_member_codes", "all_watchlist_codes"):
+            codes = _rpc_codes(url, key, fn)
+            if codes is not None:
+                return codes
     except Exception as exc:
         print("  ! 讀取會員關注代號失敗：{}".format(exc))
     return []
@@ -596,7 +608,8 @@ def main():
         # 取「資料日期」之前最近一天的快照來比對（避免同一交易日自我比對）
         prev = [s for s in load_snapshots(etf_id) if s["date"] < data_date]
         prev_holdings = prev[-1]["holdings"] if prev else []
-        snapshot = save_snapshot(etf_id, holdings, data_date)
+        self_quote = quotes.get(etf_id)  # ETF 自身當日行情（個人持股用）
+        snapshot = save_snapshot(etf_id, holdings, data_date, self_quote)
         print("  已存 {} 檔持股（資料日期 {}）".format(snapshot["count"], snapshot["date"]))
 
         # 配息紀錄（歷次＋已公告未來）

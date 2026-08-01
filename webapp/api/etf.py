@@ -196,6 +196,7 @@ def fetch_etf(code):
     # 台股報價：先抓上市，未命中的（上櫃）才再抓 TPEx，降低延遲
     tw = [h for h in holdings if h.get("market") == "TW"]
     twse = fetch_twse_quotes()
+    tpex = None
     missing = []
     for h in tw:
         q = twse.get(h["code"])
@@ -209,11 +210,17 @@ def fetch_etf(code):
             q = tpex.get(h["code"])
             if q:
                 h.update(q)
+    # ETF 自身當日行情（個人持股算市值/損益用）
+    self_quote = twse.get(code)
+    if self_quote is None:
+        if tpex is None:
+            tpex = fetch_tpex_quotes()
+        self_quote = tpex.get(code)
     try:
         dividends = parse_dividends(curl_text(MDJ_DIV.format(c=code)))
     except Exception:
         dividends = []
-    snapshot = {"date": data_date, "count": len(holdings), "holdings": holdings}
+    snapshot = {"date": data_date, "count": len(holdings), "self": self_quote, "holdings": holdings}
     return {"ok": True, "code": code, "name": name,
             "snapshots": [snapshot], "dividends": dividends}
 

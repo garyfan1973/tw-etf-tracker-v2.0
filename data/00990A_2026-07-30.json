@@ -1,7 +1,18 @@
 {
   "date": "2026-07-30",
-  "fetched_at": "2026-08-01T16:38:07+08:00",
+  "fetched_at": "2026-08-02T07:15:16+08:00",
   "count": 45,
+  "self": {
+    "open": 15.1,
+    "high": 15.56,
+    "low": 15.1,
+    "close": 15.56,
+    "prevClose": 13.65,
+    "change": 1.91,
+    "changePct": 13.99,
+    "amplitude": 3.37,
+    "volume": 38119529.0
+  },
   "holdings": [
     {
       "code": "AMD",

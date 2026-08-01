@@ -1,7 +1,18 @@
 {
   "date": "2026-07-31",
-  "fetched_at": "2026-08-01T16:38:12+08:00",
+  "fetched_at": "2026-08-02T07:15:24+08:00",
   "count": 50,
+  "self": {
+    "open": 100.0,
+    "high": 102.85,
+    "low": 99.8,
+    "close": 102.85,
+    "prevClose": 93.5,
+    "change": 9.35,
+    "changePct": 10.0,
+    "amplitude": 3.26,
+    "volume": 345660955.0
+  },
   "holdings": [
     {
       "code": "2330",

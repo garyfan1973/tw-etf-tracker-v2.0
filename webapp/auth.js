@@ -18,6 +18,12 @@ import { createClient } from "https://cdn.jsdelivr.net/npm/@supabase/supabase-js
     list: () => [...state.watch],
     toggle: toggleWatch,
   };
+  // 給「我的持股」頁共用 Supabase client 與登入狀態
+  window.ETFAuth = {
+    isConfigured: () => configured,
+    client: () => sb,
+    user: () => state.user,
+  };
 
   function emit() {
     document.dispatchEvent(new CustomEvent("etfwatch:change"));
@@ -94,15 +100,21 @@ import { createClient } from "https://cdn.jsdelivr.net/npm/@supabase/supabase-js
     document.dispatchEvent(new CustomEvent("etf-added", { detail: { code } }));
   }
 
+  // 確保某代號的 ETF 資料已在記憶體（沒有就即時抓後併入），供各頁共用
+  async function ensureEtf(code) {
+    const etfs = window.DATA && window.DATA.etfs;
+    if (!etfs) return null;
+    if (etfs[code]) return etfs[code];
+    const r = await apiFetchEtf(code);
+    if (r && r.ok) { mergeEtf(code, r); emit(); return etfs[code]; }
+    return null;
+  }
+  window.ETFData = { ensure: ensureEtf, fetch: apiFetchEtf };
+
   // 載入時補抓「已關注但還沒進 data.js」的代號，讓重整後也立即看得到
   async function hydrateMissing() {
-    const etfs = window.DATA && window.DATA.etfs;
-    if (!etfs) return;
     for (const code of [...state.watch]) {
-      if (!etfs[code]) {
-        const r = await apiFetchEtf(code);
-        if (r && r.ok) { mergeEtf(code, r); emit(); }
-      }
+      await ensureEtf(code);
     }
   }
 
