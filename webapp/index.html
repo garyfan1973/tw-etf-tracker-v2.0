@@ -5,17 +5,24 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>主動式 ETF 每日加減碼查詢</title>
   <style>
-    :root {
+    /* 淺色（預設）；--detail 為展開明細的底色，刻意跟 --card 區隔 */
+    :root, :root[data-theme="light"] {
       --bg: #f5f6f8; --card: #ffffff; --text: #1c2430; --muted: #6b7684;
       --border: #e3e7ec; --up: #d64545; --down: #1f9d55; --new: #2563eb;
-      --removed: #8a8f98; --accent: #3b5bdb;
+      --removed: #8a8f98; --accent: #3b5bdb; --detail: #eaeefb; --chip: #eef1f6;
     }
+    /* 深色變數（供系統偏好與手動切換共用） */
     @media (prefers-color-scheme: dark) {
-      :root {
+      :root:not([data-theme="light"]) {
         --bg: #14181d; --card: #1c2229; --text: #e6e9ed; --muted: #98a2b0;
         --border: #2a323b; --up: #ff6b6b; --down: #51cf82; --new: #4d8dff;
-        --removed: #7a828c; --accent: #6c8cff;
+        --removed: #7a828c; --accent: #6c8cff; --detail: #222c3b; --chip: #262d36;
       }
+    }
+    :root[data-theme="dark"] {
+      --bg: #14181d; --card: #1c2229; --text: #e6e9ed; --muted: #98a2b0;
+      --border: #2a323b; --up: #ff6b6b; --down: #51cf82; --new: #4d8dff;
+      --removed: #7a828c; --accent: #6c8cff; --detail: #222c3b; --chip: #262d36;
     }
     * { box-sizing: border-box; }
     body {
@@ -76,25 +83,39 @@
     @media (prefers-color-scheme: dark) { .mkt { background: #2a323b; } }
     .price-up { color: var(--up); }
     .price-down { color: var(--down); }
-    .detail-row td { padding: 0; border-bottom: 1px solid var(--border); }
+    /* 展開明細：用 --detail 底色 + 左側強調線，與收合列明顯區隔 */
+    #full tbody tr.main.open td { background: var(--detail); }
+    .detail-row td { padding: 0; border-bottom: 2px solid var(--accent); box-shadow: inset 3px 0 0 var(--accent); }
     .detail {
       display: grid; grid-template-columns: repeat(4, 1fr); gap: 1px;
-      background: var(--border);
+      background: var(--border); padding: 2px 0;
     }
-    .detail div { background: var(--card); padding: 10px 12px; }
+    .detail div { background: var(--detail); padding: 10px 12px; }
     .detail .k { font-size: 11px; color: var(--muted); }
     .detail .v { font-size: 15px; font-variant-numeric: tabular-nums; margin-top: 2px; }
+    .theme-toggle {
+      margin-left: auto; width: 36px; height: 36px; border-radius: 50%;
+      border: 1px solid var(--border); background: var(--card); color: var(--text);
+      font-size: 16px; line-height: 1; cursor: pointer; display: inline-flex;
+      align-items: center; justify-content: center;
+    }
+    .theme-toggle:hover { border-color: var(--accent); }
     @media (max-width: 640px) {
       .cards { grid-template-columns: repeat(2, 1fr); }
       .detail { grid-template-columns: repeat(2, 1fr); }
     }
   </style>
+  <script>
+    // 進頁前先套用已存的主題，避免閃爍
+    (function () { var t = localStorage.getItem("etf-theme"); if (t) document.documentElement.dataset.theme = t; })();
+  </script>
 </head>
 <body>
   <div class="wrap">
-    <nav style="display:flex;gap:8px;margin-bottom:14px;">
+    <nav style="display:flex;gap:8px;margin-bottom:14px;align-items:center;">
       <a href="index.html" style="text-decoration:none;font-size:14px;padding:6px 12px;border-radius:8px;color:#fff;background:var(--accent);">持股 / 加減碼</a>
       <a href="dividends.html" style="text-decoration:none;font-size:14px;padding:6px 12px;border-radius:8px;color:var(--muted);border:1px solid var(--border);">配息日曆</a>
+      <button id="themeToggle" class="theme-toggle" aria-label="切換主題">🌙</button>
     </nav>
     <h1>主動式 ETF 每日加減碼查詢</h1>
     <div class="sub" id="sub">載入中…</div>
@@ -151,6 +172,7 @@
     </div>
   </div>
 
+  <script src="theme.js"></script>
   <script src="data.js"></script>
   <script>
     // 若 data.js 尚未產生，給出友善提示

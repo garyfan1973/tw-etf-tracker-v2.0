@@ -5,17 +5,22 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>ETF 配息日曆</title>
   <style>
-    :root {
+    :root, :root[data-theme="light"] {
       --bg: #f5f6f8; --card: #ffffff; --text: #1c2430; --muted: #6b7684;
       --border: #e3e7ec; --ex: #3b5bdb; --pay: #1f9d55; --accent: #3b5bdb;
       --today: #ffb020; --chip: #eef1f6;
     }
     @media (prefers-color-scheme: dark) {
-      :root {
+      :root:not([data-theme="light"]) {
         --bg: #14181d; --card: #1c2229; --text: #e6e9ed; --muted: #98a2b0;
         --border: #2a323b; --ex: #6c8cff; --pay: #51cf82; --accent: #6c8cff;
         --today: #ffc247; --chip: #262d36;
       }
+    }
+    :root[data-theme="dark"] {
+      --bg: #14181d; --card: #1c2229; --text: #e6e9ed; --muted: #98a2b0;
+      --border: #2a323b; --ex: #6c8cff; --pay: #51cf82; --accent: #6c8cff;
+      --today: #ffc247; --chip: #262d36;
     }
     * { box-sizing: border-box; }
     body {
@@ -94,13 +99,25 @@
       .day { min-height: 62px; }
       .cal-title { min-width: 96px; font-size: 14px; }
     }
+    .theme-toggle {
+      margin-left: auto; width: 36px; height: 36px; border-radius: 50%;
+      border: 1px solid var(--border); background: var(--card); color: var(--text);
+      font-size: 16px; line-height: 1; cursor: pointer; display: inline-flex;
+      align-items: center; justify-content: center;
+    }
+    .theme-toggle:hover { border-color: var(--accent); }
   </style>
+  <script>
+    // 進頁前先套用已存的主題，避免閃爍
+    (function () { var t = localStorage.getItem("etf-theme"); if (t) document.documentElement.dataset.theme = t; })();
+  </script>
 </head>
 <body>
   <div class="wrap">
-    <nav>
+    <nav style="align-items:center;">
       <a href="index.html">持股 / 加減碼</a>
       <a href="dividends.html" class="active">配息日曆</a>
+      <button id="themeToggle" class="theme-toggle" aria-label="切換主題">🌙</button>
     </nav>
     <h1>ETF 配息日曆</h1>
     <div class="sub" id="sub">載入中…</div>
@@ -135,6 +152,7 @@
     </div>
   </div>
 
+  <script src="theme.js"></script>
   <script src="data.js"></script>
   <script>
     if (typeof window.DATA === "undefined") {
