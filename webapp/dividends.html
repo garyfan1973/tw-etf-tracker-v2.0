@@ -129,7 +129,11 @@
     </div>
 
     <div class="panel">
-      <h2>顯示哪些 ETF</h2>
+      <h2 style="display:flex;align-items:center;gap:14px;flex-wrap:wrap;">顯示哪些 ETF
+        <label id="mineWrap" style="display:none;font-size:13px;font-weight:400;color:var(--text);align-items:center;gap:6px;cursor:pointer;">
+          <input type="checkbox" id="onlyMineDiv"> ⭐ 只看我的關注
+        </label>
+      </h2>
       <div class="chips" id="chips"></div>
     </div>
 
@@ -183,17 +187,55 @@
       // ETF 篩選狀態（預設全開）
       const active = new Set(Object.keys(D.etfs));
       const chips = document.getElementById("chips");
-      Object.keys(D.etfs).forEach(id => {
-        const c = document.createElement("span");
-        c.className = "chip on";
-        c.textContent = id + " " + D.etfs[id].name;
-        c.onclick = () => {
-          if (active.has(id)) { active.delete(id); c.classList.remove("on"); }
-          else { active.add(id); c.classList.add("on"); }
-          renderAll();
-        };
-        chips.appendChild(c);
+      let mineOnly = false;  // 「只看我的關注」是否啟用
+
+      function setActive(codes) { active.clear(); codes.forEach(c => active.add(c)); }
+
+      // 依 active 重建晶片；mineOnly 時鎖定不可手動點
+      function renderChips() {
+        chips.innerHTML = "";
+        Object.keys(D.etfs).forEach(id => {
+          const c = document.createElement("span");
+          c.className = "chip" + (active.has(id) ? " on" : "");
+          c.textContent = id + " " + D.etfs[id].name;
+          if (mineOnly) { c.style.opacity = ".45"; c.style.pointerEvents = "none"; }
+          else c.onclick = () => {
+            if (active.has(id)) active.delete(id); else active.add(id);
+            renderChips(); renderAll();
+          };
+          chips.appendChild(c);
+        });
+      }
+
+      // 套用「只看我的關注」：把 active 設為關注清單（與已追蹤 ETF 的交集）
+      function applyMine() {
+        if (mineOnly && window.ETFWatch && window.ETFWatch.user()) {
+          const mine = window.ETFWatch.list().filter(c => D.etfs[c]);
+          setActive(mine.length ? mine : Object.keys(D.etfs));
+        } else {
+          setActive(Object.keys(D.etfs));
+        }
+        renderChips();
+        renderAll();
+      }
+
+      // 只有設定了 Supabase 才顯示「只看我的」選項
+      function updateMineVisibility() {
+        const wrap = document.getElementById("mineWrap");
+        if (wrap) wrap.style.display =
+          (window.ETFWatch && window.ETFWatch.isConfigured()) ? "inline-flex" : "none";
+      }
+
+      document.getElementById("onlyMineDiv").addEventListener("change", (e) => {
+        mineOnly = e.target.checked;
+        applyMine();
       });
+      document.addEventListener("etfwatch:change", () => {
+        updateMineVisibility();
+        if (mineOnly) applyMine();   // 登入/清單變動時同步
+      });
+
+      renderChips();
 
       const TYPE = { ex: "除息", pay: "發放" };
       const pad = n => String(n).padStart(2, "0");
@@ -315,6 +357,7 @@
       document.getElementById("next").onclick = () => { if (++viewM > 11) { viewM = 0; viewY++; } renderCalendar(); };
       document.getElementById("todayBtn").onclick = () => { viewY = todayObj.getFullYear(); viewM = todayObj.getMonth(); selDate = todayStr; renderCalendar(); renderDetail(); };
 
+      updateMineVisibility();
       renderAll();
     }
   </script>
