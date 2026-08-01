@@ -126,6 +126,17 @@ git push                        # 5. 推上去 → Vercel 自動重新部署
 若在**別台電腦**：先 `git clone https://github.com/garyfan1973/tw-etf-tracker.git`
 （要 push 回去，該台需有 GitHub 登入權限）。
 
+## 會員功能（Supabase，Email + 密碼）
+
+登入後可建立個人「關注 ETF」清單，並用「⭐ 只看我的」快速篩選。純前端，
+靠 Supabase Auth + RLS（每人只能存取自己的資料），網站仍是靜態、照放 Vercel。
+
+- 設定檔：`webapp/config.js` 放 Supabase **Project URL** 與 **publishable(anon) key**
+  （公開金鑰，可安全放前端；**切勿**放 service_role/secret key）。未設定時會員功能自動關閉。
+- 資料表：`watchlist(user_id, etf_code)`，已開 RLS，政策為使用者只能讀寫自己的列。
+- 相關檔案：`webapp/auth.js`（登入/註冊/登出、關注清單 CRUD）。
+- 目前個人清單只能從「已追蹤的 ETF」中挑選（方案 A）；未來要支援自訂任意代號再擴充。
+
 ## 注意
 
 - 僅供個人研究參考，非投資建議；資料以官方揭露為準。

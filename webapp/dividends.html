@@ -117,7 +117,8 @@
     <nav style="align-items:center;">
       <a href="index.html">持股 / 加減碼</a>
       <a href="dividends.html" class="active">配息日曆</a>
-      <button id="themeToggle" class="theme-toggle" aria-label="切換主題">🌙</button>
+      <span id="authBox" style="margin-left:auto;display:flex;align-items:center;gap:6px;"></span>
+      <button id="themeToggle" class="theme-toggle" style="margin-left:8px;" aria-label="切換主題">🌙</button>
     </nav>
     <h1>ETF 配息日曆</h1>
     <div class="sub" id="sub">載入中…</div>
@@ -153,7 +154,9 @@
   </div>
 
   <script src="theme.js"></script>
+  <script src="config.js"></script>
   <script src="data.js"></script>
+  <script type="module" src="auth.js"></script>
   <script>
     if (typeof window.DATA === "undefined") {
       document.getElementById("sub").textContent =

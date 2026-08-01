@@ -93,6 +93,11 @@
     .detail div { background: var(--detail); padding: 10px 12px; }
     .detail .k { font-size: 11px; color: var(--muted); }
     .detail .v { font-size: 15px; font-variant-numeric: tabular-nums; margin-top: 2px; }
+    .watch-chip {
+      font-size: 12px; padding: 5px 10px; border-radius: 999px; cursor: pointer;
+      background: var(--chip); color: var(--muted); border: 1px solid transparent; user-select: none;
+    }
+    .watch-chip.on { color: #fff; background: var(--accent); border-color: var(--accent); }
     .theme-toggle {
       margin-left: auto; width: 36px; height: 36px; border-radius: 50%;
       border: 1px solid var(--border); background: var(--card); color: var(--text);
@@ -115,7 +120,8 @@
     <nav style="display:flex;gap:8px;margin-bottom:14px;align-items:center;">
       <a href="index.html" style="text-decoration:none;font-size:14px;padding:6px 12px;border-radius:8px;color:#fff;background:var(--accent);">持股 / 加減碼</a>
       <a href="dividends.html" style="text-decoration:none;font-size:14px;padding:6px 12px;border-radius:8px;color:var(--muted);border:1px solid var(--border);">配息日曆</a>
-      <button id="themeToggle" class="theme-toggle" aria-label="切換主題">🌙</button>
+      <span id="authBox" style="margin-left:auto;display:flex;align-items:center;gap:6px;"></span>
+      <button id="themeToggle" class="theme-toggle" style="margin-left:8px;" aria-label="切換主題">🌙</button>
     </nav>
     <h1>主動式 ETF 每日加減碼查詢</h1>
     <div class="sub" id="sub">載入中…</div>
@@ -137,7 +143,15 @@
         <label>搜尋個股 / 代號</label>
         <input type="search" id="q" placeholder="例如 台積電 或 2330" style="width:100%;">
       </div>
+      <div style="display:flex;align-items:flex-end;">
+        <label style="display:flex;align-items:center;gap:6px;cursor:pointer;font-size:13px;color:var(--text);margin-bottom:2px;">
+          <input type="checkbox" id="onlyMine"> ⭐ 只看我的
+        </label>
+      </div>
     </div>
+
+    <!-- 會員：我的關注 ETF（登入後顯示；未設定 Supabase 時隱藏）-->
+    <div class="controls" id="memberPanel" style="display:none;"></div>
 
     <div class="cards">
       <div class="card new"><div class="n" id="c-new">0</div><div class="l">新增</div></div>
@@ -173,7 +187,9 @@
   </div>
 
   <script src="theme.js"></script>
+  <script src="config.js"></script>
   <script src="data.js"></script>
+  <script type="module" src="auth.js"></script>
   <script>
     // 若 data.js 尚未產生，給出友善提示
     if (typeof window.DATA === "undefined") {
@@ -193,17 +209,31 @@
       document.getElementById("sub").textContent =
         "資料更新時間：" + D.generated_at + "　來源：MoneyDJ 每日持股揭露";
 
-      // 填入 ETF 下拉
-      Object.keys(D.etfs).forEach(id => {
-        const o = document.createElement("option");
-        o.value = id; o.textContent = id + " " + D.etfs[id].name;
-        etfSel.appendChild(o);
-      });
+      // 填入 ETF 下拉（勾「只看我的」且有登入關注清單時，只列關注的）
+      function fillEtfOptions() {
+        const onlyMine = document.getElementById("onlyMine");
+        const mine = (onlyMine && onlyMine.checked && window.ETFWatch && window.ETFWatch.user())
+          ? window.ETFWatch.list() : [];
+        const allow = mine.length ? new Set(mine) : null;  // 空清單視為不篩選
+        const prev = etfSel.value;
+        etfSel.innerHTML = "";
+        Object.keys(D.etfs).forEach(id => {
+          if (allow && !allow.has(id)) return;
+          const o = document.createElement("option");
+          o.value = id; o.textContent = id + " " + D.etfs[id].name;
+          etfSel.appendChild(o);
+        });
+        const vals = [...etfSel.options].map(o => o.value);
+        etfSel.value = vals.includes(prev) ? prev : (vals[0] || "");
+      }
 
       let sortState = { diff: { k: "sharesDelta", asc: false }, full: { k: "weight", asc: false } };
       const expandedFull = new Set();  // 記住展開了哪些個股，重繪時保留
 
-      function currentSnapshots() { return D.etfs[etfSel.value].snapshots; }
+      function currentSnapshots() {
+        const e = D.etfs[etfSel.value];
+        return e ? e.snapshots : [];
+      }
 
       function fillDates() {
         const snaps = currentSnapshots();
@@ -396,7 +426,11 @@
       toSel.addEventListener("change", render);
       q.addEventListener("input", render);
 
-      etfSel.value = Object.keys(D.etfs)[0];
+      // 「只看我的」切換、或關注清單有變動時，重建 ETF 選單
+      document.getElementById("onlyMine").addEventListener("change", () => { fillEtfOptions(); fillDates(); render(); });
+      document.addEventListener("etfwatch:change", () => { fillEtfOptions(); fillDates(); render(); });
+
+      fillEtfOptions();
       fillDates();
       render();
     }
