@@ -429,6 +429,15 @@
       // 「只看我的」切換、或關注清單有變動時，重建 ETF 選單
       document.getElementById("onlyMine").addEventListener("change", () => { fillEtfOptions(); fillDates(); render(); });
       document.addEventListener("etfwatch:change", () => { fillEtfOptions(); fillDates(); render(); });
+      // 剛新增的代號：即時切換到它並顯示資料
+      document.addEventListener("etf-added", (e) => {
+        const code = e.detail && e.detail.code;
+        if (!code || !D.etfs[code]) return;
+        fillEtfOptions();
+        if ([...etfSel.options].some(o => o.value === code)) {
+          etfSel.value = code; fillDates(); render();
+        }
+      });
 
       fillEtfOptions();
       fillDates();

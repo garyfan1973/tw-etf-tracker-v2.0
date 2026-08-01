@@ -30,6 +30,7 @@ import { createClient } from "https://cdn.jsdelivr.net/npm/@supabase/supabase-js
       if (!error) (data || []).forEach((r) => state.watch.add(r.etf_code));
     }
     emit();
+    hydrateMissing();  // 補抓還沒進 data.js 的關注代號
   }
 
   async function toggleWatch(code) {
@@ -51,6 +52,58 @@ import { createClient } from "https://cdn.jsdelivr.net/npm/@supabase/supabase-js
     state.watch.add(code);
     emit();
     await sb.from("watchlist").insert({ user_id: state.user.id, etf_code: code });
+  }
+
+  // 即時查詢單一 ETF（後端 /api/etf）
+  async function apiFetchEtf(code) {
+    try {
+      const res = await fetch("/api/etf?code=" + encodeURIComponent(code));
+      return await res.json();
+    } catch (e) {
+      return { ok: false, error: "查詢失敗（網路或伺服器）" };
+    }
+  }
+
+  // 把即時查到的資料併入前端記憶體，讓現有畫面立即顯示
+  function mergeEtf(code, data) {
+    if (!window.DATA || !window.DATA.etfs) return;
+    window.DATA.etfs[code] = {
+      name: data.name || code,
+      snapshots: data.snapshots || [],
+      dividends: data.dividends || [],
+    };
+  }
+
+  // 新增代號：先即時查驗，查無就報錯不加入，查到就併入＋加入清單＋通知頁面顯示
+  async function addWithLookup(code, msg) {
+    code = (code || "").trim().toUpperCase();
+    if (state.watch.has(code)) {
+      if (msg) { msg.style.color = "var(--muted)"; msg.textContent = "已在關注清單"; }
+      return;
+    }
+    const known = window.DATA && window.DATA.etfs && window.DATA.etfs[code];
+    if (msg) { msg.style.color = "var(--muted)"; msg.textContent = "查詢中…"; }
+    const data = known ? { ok: true } : await apiFetchEtf(code);
+    if (!data.ok) {
+      if (msg) { msg.style.color = "var(--up)"; msg.textContent = data.error || "查無此 ETF"; }
+      return;
+    }
+    if (!known) mergeEtf(code, data);
+    if (msg) msg.textContent = "";
+    await addWatch(code);
+    document.dispatchEvent(new CustomEvent("etf-added", { detail: { code } }));
+  }
+
+  // 載入時補抓「已關注但還沒進 data.js」的代號，讓重整後也立即看得到
+  async function hydrateMissing() {
+    const etfs = window.DATA && window.DATA.etfs;
+    if (!etfs) return;
+    for (const code of [...state.watch]) {
+      if (!etfs[code]) {
+        const r = await apiFetchEtf(code);
+        if (r && r.ok) { mergeEtf(code, r); emit(); }
+      }
+    }
   }
 
   // ---- 登入 / 註冊 Modal ----
@@ -189,9 +242,10 @@ import { createClient } from "https://cdn.jsdelivr.net/npm/@supabase/supabase-js
     const msg = panel.querySelector("#watchAddMsg");
     function submit() {
       const raw = (inp.value || "").trim().toUpperCase();
-      if (!/^[0-9A-Z]{4,6}$/.test(raw)) { msg.textContent = "代號格式怪怪的（4–6 碼英數）"; return; }
-      inp.value = ""; msg.textContent = "";
-      addWatch(raw);
+      if (!/^[0-9A-Z]{4,6}$/.test(raw)) {
+        msg.style.color = "var(--up)"; msg.textContent = "代號格式不正確（4–6 碼英數）"; return;
+      }
+      addWithLookup(raw, msg);  // 即時查驗＋顯示
     }
     panel.querySelector("#watchAddBtn").onclick = submit;
     inp.onkeydown = (e) => { if (e.key === "Enter") { e.preventDefault(); submit(); } };

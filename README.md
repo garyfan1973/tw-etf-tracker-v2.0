@@ -135,9 +135,11 @@ git push                        # 5. 推上去 → Vercel 自動重新部署
   （公開金鑰，可安全放前端；**切勿**放 service_role/secret key）。未設定時會員功能自動關閉。
 - 資料表：`watchlist(user_id, etf_code)`，已開 RLS，政策為使用者只能讀寫自己的列。
 - 相關檔案：`webapp/auth.js`（登入/註冊/登出、關注清單 CRUD）。
-- 個人清單可加入**任意 ETF 代號**（方案 B）：不在內建清單的代號會由雲端排程的
-  `fetch.py` 自動一起抓（讀 Supabase RPC `all_watchlist_codes()`，用公開 anon key，
-  不需 service_role 密鑰）。新加入的代號在下次更新後才會有資料。
+- 個人清單可加入**任意 ETF 代號**（方案 B）。新增時會**即時**呼叫後端
+  `/api/etf?code=XXXX`（Vercel Serverless Function，`webapp/api/etf.py`）當場查驗：
+  查無就跳錯不加入、查到就當下抓出持股/台股報價/配息並顯示，不必等隔天。
+- 之後由雲端排程的 `fetch.py` 把所有會員關注的代號一起納入每日更新（含海外報價與
+  歷史快照），讀 Supabase RPC `all_watchlist_codes()`（公開 anon key，不需 service_role）。
 - 需在 Supabase 建立這個唯讀函式（只回傳代號、不外洩誰關注什麼）：
 
   ```sql

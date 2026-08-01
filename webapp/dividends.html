@@ -176,13 +176,17 @@
 
       // 展開成事件：每筆配息拆成「除息」與「發放」兩個事件
       const events = [];   // {date, type:'ex'|'pay', etf, name, amount, yield}
-      Object.keys(D.etfs).forEach(id => {
-        const e = D.etfs[id];
-        (e.dividends || []).forEach(d => {
-          if (d.ex) events.push({ date: d.ex, type: "ex", etf: id, name: e.name, amount: d.amount, yield: d.yield });
-          if (d.pay) events.push({ date: d.pay, type: "pay", etf: id, name: e.name, amount: d.amount, yield: d.yield });
+      function buildEvents() {
+        events.length = 0;
+        Object.keys(D.etfs).forEach(id => {
+          const e = D.etfs[id];
+          (e.dividends || []).forEach(d => {
+            if (d.ex) events.push({ date: d.ex, type: "ex", etf: id, name: e.name, amount: d.amount, yield: d.yield });
+            if (d.pay) events.push({ date: d.pay, type: "pay", etf: id, name: e.name, amount: d.amount, yield: d.yield });
+          });
         });
-      });
+      }
+      buildEvents();
 
       // ETF 篩選狀態（預設全開）
       const active = new Set(Object.keys(D.etfs));
@@ -230,9 +234,17 @@
         mineOnly = e.target.checked;
         applyMine();
       });
+      let knownKeys = new Set(Object.keys(D.etfs));
       document.addEventListener("etfwatch:change", () => {
         updateMineVisibility();
+        // 有即時新增/補抓進來的 ETF：預設也一起顯示
+        let grew = false;
+        Object.keys(D.etfs).forEach(id => {
+          if (!knownKeys.has(id)) { knownKeys.add(id); if (!mineOnly) active.add(id); grew = true; }
+        });
+        if (grew) buildEvents();
         if (mineOnly) applyMine();   // 登入/清單變動時同步
+        else if (grew) { renderChips(); renderAll(); }
       });
 
       renderChips();
