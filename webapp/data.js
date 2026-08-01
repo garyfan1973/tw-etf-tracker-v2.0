@@ -1,12 +1,12 @@
 window.DATA = {
-  "generated_at": "2026-08-01T16:05:45+08:00",
+  "generated_at": "2026-08-01T16:38:22+08:00",
   "etfs": {
     "00981A": {
       "name": "主動統一台股增長",
       "snapshots": [
         {
           "date": "2026-07-31",
-          "fetched_at": "2026-08-01T15:52:22+08:00",
+          "fetched_at": "2026-08-01T16:38:00+08:00",
           "count": 37,
           "holdings": [
             {
@@ -626,7 +626,7 @@ window.DATA = {
       "snapshots": [
         {
           "date": "2026-07-31",
-          "fetched_at": "2026-08-01T15:52:24+08:00",
+          "fetched_at": "2026-08-01T16:38:02+08:00",
           "count": 55,
           "holdings": [
             {
@@ -1548,7 +1548,7 @@ window.DATA = {
       "snapshots": [
         {
           "date": "2026-07-30",
-          "fetched_at": "2026-08-01T16:05:43+08:00",
+          "fetched_at": "2026-08-01T16:38:07+08:00",
           "count": 45,
           "holdings": [
             {
@@ -2329,7 +2329,7 @@ window.DATA = {
       "snapshots": [
         {
           "date": "2026-07-31",
-          "fetched_at": "2026-08-01T15:52:30+08:00",
+          "fetched_at": "2026-08-01T16:38:09+08:00",
           "count": 37,
           "holdings": [
             {
@@ -2942,7 +2942,7 @@ window.DATA = {
       "snapshots": [
         {
           "date": "2026-07-31",
-          "fetched_at": "2026-08-01T15:52:33+08:00",
+          "fetched_at": "2026-08-01T16:38:11+08:00",
           "count": 51,
           "holdings": [
             {
@@ -3786,7 +3786,7 @@ window.DATA = {
       "snapshots": [
         {
           "date": "2026-07-31",
-          "fetched_at": "2026-08-01T15:52:36+08:00",
+          "fetched_at": "2026-08-01T16:38:12+08:00",
           "count": 50,
           "holdings": [
             {
@@ -4628,7 +4628,7 @@ window.DATA = {
       "snapshots": [
         {
           "date": "2026-07-31",
-          "fetched_at": "2026-08-01T15:52:40+08:00",
+          "fetched_at": "2026-08-01T16:38:14+08:00",
           "count": 72,
           "holdings": [
             {
@@ -5808,7 +5808,7 @@ window.DATA = {
       "snapshots": [
         {
           "date": "2026-07-31",
-          "fetched_at": "2026-08-01T15:52:43+08:00",
+          "fetched_at": "2026-08-01T16:38:15+08:00",
           "count": 50,
           "holdings": [
             {
@@ -6678,7 +6678,7 @@ window.DATA = {
       "snapshots": [
         {
           "date": "2026-07-31",
-          "fetched_at": "2026-08-01T15:52:46+08:00",
+          "fetched_at": "2026-08-01T16:38:17+08:00",
           "count": 30,
           "holdings": [
             {
@@ -7235,7 +7235,7 @@ window.DATA = {
       "snapshots": [
         {
           "date": "2026-07-31",
-          "fetched_at": "2026-08-01T15:52:49+08:00",
+          "fetched_at": "2026-08-01T16:38:18+08:00",
           "count": 30,
           "holdings": [
             {
@@ -7757,7 +7757,7 @@ window.DATA = {
       "snapshots": [
         {
           "date": "2026-07-31",
-          "fetched_at": "2026-08-01T15:52:52+08:00",
+          "fetched_at": "2026-08-01T16:38:20+08:00",
           "count": 40,
           "holdings": [
             {
@@ -8467,7 +8467,7 @@ window.DATA = {
       "snapshots": [
         {
           "date": "2026-07-31",
-          "fetched_at": "2026-08-01T15:52:55+08:00",
+          "fetched_at": "2026-08-01T16:38:21+08:00",
           "count": 50,
           "holdings": [
             {
