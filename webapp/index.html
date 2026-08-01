@@ -178,6 +178,7 @@
       <table id="full">
         <thead><tr>
           <th data-k="name">個股</th><th data-k="weight">權重%</th>
+          <th data-k="shares">持有股數</th>
           <th data-k="close">收盤</th><th data-k="changePct">漲跌幅</th>
           <th data-k="volume">成交量(張)</th>
         </tr></thead>
@@ -353,6 +354,7 @@
           tr.innerHTML =
             '<td><span class="caret">▸</span> ' + h.name + codeTxt + mktTag(h) + '</td>' +
             '<td class="num barcell"><span class="bar" style="width:' + (h.weight / maxW * 100) + '%"></span>' + h.weight.toFixed(2) + '</td>' +
+            '<td class="num">' + h.shares.toLocaleString("en-US") + '</td>' +
             '<td class="num">' + px(h.close) + '</td>' +
             '<td class="num ' + pctCls + '">' + (h.changePct == null ? "—" : arrow + " " + signW(h.changePct) + "%") + '</td>' +
             '<td class="num">' + vol(h.volume) + '</td>';
@@ -368,7 +370,7 @@
             dtr.className = "detail-row";
             const chCls = pxCls(h.change);
             const cur = h.currency || (h.market === "TW" ? "TWD" : "—");
-            dtr.innerHTML = '<td colspan="5"><div class="detail">' +
+            dtr.innerHTML = '<td colspan="6"><div class="detail">' +
               cell("市場", marketName(h)) +
               cell("幣別", cur) +
               cell("開盤", px(h.open)) +
@@ -377,7 +379,6 @@
               cell("前日收盤", px(h.prevClose)) +
               cell("漲跌", h.change == null ? "—" : signW(h.change), chCls) +
               cell("振幅", h.amplitude == null ? "—" : h.amplitude.toFixed(2) + "%") +
-              cell("持有股數", h.shares.toLocaleString("en-US")) +
               (h.quoteDate ? cell("行情日", h.quoteDate) : "") +
               '</div></td>';
             fbody.appendChild(dtr);
