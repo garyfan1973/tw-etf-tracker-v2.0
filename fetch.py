@@ -399,21 +399,112 @@ def load_snapshots(etf_id):
     return snapshots
 
 
+# ---- 會員關注代號（B 方案：自動納入所有會員關注的 ETF）----
+
+def load_supabase_config():
+    """從 webapp/config.js 讀 Supabase URL 與 anon key；未設定回 (None, None)。"""
+    path = os.path.join(WEBAPP_DIR, "config.js")
+    if not os.path.exists(path):
+        return None, None
+    txt = open(path, encoding="utf-8").read()
+    u = re.search(r'SUPABASE_URL\s*=\s*"([^"]+)"', txt)
+    k = re.search(r'SUPABASE_ANON_KEY\s*=\s*"([^"]+)"', txt)
+    url = u.group(1) if u else ""
+    key = k.group(1) if k else ""
+    if not url or not key or "YOUR_" in url or "YOUR_" in key:
+        return None, None
+    return url, key
+
+
+def fetch_member_codes():
+    """呼叫 Supabase RPC all_watchlist_codes() 取得所有會員關注的 ETF 代號。
+
+    用公開 anon key + security definer 函式即可（不需 service_role 密鑰）。
+    未設定或函式不存在時回空清單，退回只抓內建 ETFS。
+    """
+    url, key = load_supabase_config()
+    if not url:
+        return []
+    endpoint = url.rstrip("/") + "/rest/v1/rpc/all_watchlist_codes"
+    try:
+        out = subprocess.run(
+            ["curl", "-s", "-m", "20", "-X", "POST", endpoint,
+             "-H", "apikey: " + key, "-H", "Authorization: Bearer " + key,
+             "-H", "Content-Type: application/json", "-d", "{}"],
+            capture_output=True, timeout=25,
+        )
+        data = json.loads(out.stdout.decode("utf-8", errors="ignore"))
+        if isinstance(data, list):
+            return [str(c).upper() for c in data if c]
+        print("  ! 讀取會員關注代號：{}".format(str(data)[:120]))
+    except Exception as exc:
+        print("  ! 讀取會員關注代號失敗：{}".format(exc))
+    return []
+
+
+def parse_etf_name(page_html):
+    """從 MoneyDJ 頁面 <title> 取 ETF 名稱（去掉網站後綴）。"""
+    m = re.search(r"<title>(.*?)</title>", page_html, re.S)
+    if not m:
+        return ""
+    return re.split(r"[-|｜]", html.unescape(m.group(1)).strip())[0].strip()
+
+
+def load_names():
+    """讀 data/etf_names.json（code->name），內建 ETFS 名稱優先。"""
+    names = {}
+    p = os.path.join(DATA_DIR, "etf_names.json")
+    if os.path.exists(p):
+        try:
+            names.update(json.load(open(p, encoding="utf-8")))
+        except Exception:
+            pass
+    names.update(ETFS)
+    return names
+
+
+def save_names(names):
+    p = os.path.join(DATA_DIR, "etf_names.json")
+    json.dump(names, open(p, "w", encoding="utf-8"), ensure_ascii=False, indent=2)
+
+
+def load_tracked():
+    """目前追蹤清單（內建 ∪ 會員關注），由 main 寫入 data/tracked.json。"""
+    p = os.path.join(DATA_DIR, "tracked.json")
+    if os.path.exists(p):
+        try:
+            return set(json.load(open(p, encoding="utf-8")))
+        except Exception:
+            pass
+    return set(ETFS)
+
+
+def save_tracked(codes):
+    p = os.path.join(DATA_DIR, "tracked.json")
+    json.dump(sorted(codes), open(p, "w", encoding="utf-8"), ensure_ascii=False, indent=2)
+
+
 def build_data_js():
-    """把所有 ETF 的歷史快照輸出成 webapp/data.js 供網頁讀取。"""
+    """把追蹤中且有快照的 ETF 輸出成 webapp/data.js 供網頁讀取。"""
+    names = load_names()
+    tracked = load_tracked()
+    # 內建 ETFS 依原順序在前，會員新增的代號排在後面
+    ordered = list(ETFS.keys()) + sorted(c for c in tracked if c not in ETFS)
     payload = {
         "generated_at": datetime.datetime.now(TZ_TAIPEI).isoformat(timespec="seconds"),
         "etfs": {},
     }
-    for etf_id, etf_name in ETFS.items():
+    for etf_id in ordered:
         snapshots = load_snapshots(etf_id)
+        if not snapshots:
+            continue  # 尚無資料（例如剛加入、還沒更新過）的代號先不輸出
         div_path = os.path.join(DATA_DIR, "{}_dividends.json".format(etf_id))
         dividends = []
         if os.path.exists(div_path):
             with open(div_path, encoding="utf-8") as f:
                 dividends = json.load(f)
         payload["etfs"][etf_id] = {
-            "name": etf_name, "snapshots": snapshots, "dividends": dividends,
+            "name": names.get(etf_id, etf_id), "snapshots": snapshots, "dividends": dividends,
         }
 
     os.makedirs(WEBAPP_DIR, exist_ok=True)
@@ -448,7 +539,17 @@ def summarize_diff(prev, curr):
 
 def main():
     os.makedirs(DATA_DIR, exist_ok=True)
-    etf_ids = sys.argv[1:] or list(ETFS.keys())
+
+    # 會員關注代號（B 方案）：把大家關注、但不在內建清單的 ETF 一起納入追蹤
+    member = fetch_member_codes()
+    if member:
+        print("== 會員關注代號 {} 檔：{} ==".format(len(member), ", ".join(member)))
+    tracked = list(dict.fromkeys(list(ETFS.keys()) + member))
+    save_tracked(tracked)
+
+    args = [a.upper() for a in sys.argv[1:]]
+    etf_ids = args or tracked
+    names = load_names()
 
     print("== 抓取當日全市場行情（上市＋上櫃）==")
     quotes = fetch_quotes()
@@ -456,10 +557,7 @@ def main():
 
     for etf_id in etf_ids:
         etf_id = etf_id.upper()
-        if etf_id not in ETFS:
-            print("[略過] 未在 ETFS 清單中：{}".format(etf_id))
-            continue
-        print("== 抓取 {} {} ==".format(etf_id, ETFS[etf_id]))
+        print("== 抓取 {} {} ==".format(etf_id, names.get(etf_id, etf_id)))
         try:
             page = fetch_html(etf_id)
             holdings = parse_holdings(page)
@@ -468,8 +566,14 @@ def main():
             print("  ! 抓取失敗：{}".format(exc))
             continue
         if not holdings:
-            print("  ! 未解析到持股，可能來源改版或非交易日尚未更新")
+            print("  ! 查無持股（可能非 ETF 或代號有誤），略過")
             continue
+
+        # 非內建代號：從頁面標題自動補上 ETF 名稱
+        if etf_id not in ETFS:
+            nm = parse_etf_name(page)
+            if nm:
+                names[etf_id] = nm
 
         # 併入當日行情（僅台股；海外股無 TWSE/TPEx 報價）
         tw = [h for h in holdings if h.get("market") == "TW"]
@@ -510,6 +614,7 @@ def main():
         else:
             print("  （首日資料，尚無可比對的前一交易日）")
 
+    save_names(names)
     out = build_data_js()
     print("已更新網頁資料：{}".format(out))
     print("用瀏覽器開啟 webapp/index.html 即可查詢")

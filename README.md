@@ -135,7 +135,18 @@ git push                        # 5. 推上去 → Vercel 自動重新部署
   （公開金鑰，可安全放前端；**切勿**放 service_role/secret key）。未設定時會員功能自動關閉。
 - 資料表：`watchlist(user_id, etf_code)`，已開 RLS，政策為使用者只能讀寫自己的列。
 - 相關檔案：`webapp/auth.js`（登入/註冊/登出、關注清單 CRUD）。
-- 目前個人清單只能從「已追蹤的 ETF」中挑選（方案 A）；未來要支援自訂任意代號再擴充。
+- 個人清單可加入**任意 ETF 代號**（方案 B）：不在內建清單的代號會由雲端排程的
+  `fetch.py` 自動一起抓（讀 Supabase RPC `all_watchlist_codes()`，用公開 anon key，
+  不需 service_role 密鑰）。新加入的代號在下次更新後才會有資料。
+- 需在 Supabase 建立這個唯讀函式（只回傳代號、不外洩誰關注什麼）：
+
+  ```sql
+  create or replace function public.all_watchlist_codes()
+  returns setof text language sql security definer set search_path = public
+  as $$ select distinct etf_code from public.watchlist; $$;
+  grant execute on function public.all_watchlist_codes() to anon, authenticated;
+  ```
+- 追蹤清單與名稱快取：`data/tracked.json`、`data/etf_names.json`（自動維護）。
 
 ## 注意
 

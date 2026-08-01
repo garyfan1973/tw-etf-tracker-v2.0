@@ -45,6 +45,14 @@ import { createClient } from "https://cdn.jsdelivr.net/npm/@supabase/supabase-js
     }
   }
 
+  async function addWatch(code) {
+    code = (code || "").trim().toUpperCase();
+    if (!sb || !state.user || !code || state.watch.has(code)) return;
+    state.watch.add(code);
+    emit();
+    await sb.from("watchlist").insert({ user_id: state.user.id, etf_code: code });
+  }
+
   // ---- 登入 / 註冊 Modal ----
   function ensureModal() {
     if (document.getElementById("authModal")) return;
@@ -132,24 +140,61 @@ import { createClient } from "https://cdn.jsdelivr.net/npm/@supabase/supabase-js
     panel.style.display = "block";
     if (!state.user) {
       panel.innerHTML =
-        '<div style="color:var(--muted);font-size:13px;">登入後可建立個人關注清單，並用上方「⭐ 只看我的」快速篩選。</div>';
+        '<div style="color:var(--muted);font-size:13px;">登入後可建立個人關注清單（可加入任何 ETF 代號），並用上方「⭐ 只看我的」快速篩選。</div>';
       return;
     }
     const etfs = (window.DATA && window.DATA.etfs) || {};
-    let html =
-      '<div style="font-size:13px;color:var(--muted);margin-bottom:8px;">勾選要關注的 ETF（點一下切換）：</div>' +
-      '<div style="display:flex;flex-wrap:wrap;gap:6px;">';
-    Object.keys(etfs).forEach((id) => {
-      const on = state.watch.has(id);
-      html +=
-        '<label class="watch-chip' + (on ? " on" : "") + '" data-code="' + id + '">' +
-        (on ? "★ " : "") + id + " " + etfs[id].name + "</label>";
-    });
-    html += "</div>";
+    const list = [...state.watch].sort();
+    const inputStyle = "padding:7px 10px;border:1px solid var(--border);border-radius:8px;background:var(--bg);color:var(--text);font-size:14px;width:160px;";
+    const btnStyle = "padding:7px 12px;border:none;border-radius:8px;background:var(--accent);color:#fff;cursor:pointer;font-size:14px;";
+
+    let html = "";
+    // 新增任意代號
+    html +=
+      '<div style="display:flex;gap:8px;align-items:center;flex-wrap:wrap;margin-bottom:12px;">' +
+      '<span style="font-size:13px;color:var(--muted);">新增 ETF 代號：</span>' +
+      '<input id="watchAddInput" placeholder="例如 00980A、0056" style="' + inputStyle + '">' +
+      '<button id="watchAddBtn" style="' + btnStyle + '">新增</button>' +
+      '<span id="watchAddMsg" style="font-size:12px;color:var(--up);"></span></div>';
+    // 我的關注（可移除）
+    html += '<div style="font-size:13px;color:var(--muted);margin-bottom:6px;">我的關注（點 × 移除）：</div>';
+    if (!list.length) {
+      html += '<div style="color:var(--muted);font-size:13px;">還沒有關注任何 ETF，用上面的輸入框新增。</div>';
+    } else {
+      html += '<div style="display:flex;flex-wrap:wrap;gap:6px;">';
+      list.forEach((code) => {
+        const known = etfs[code];
+        const label = known ? (code + " " + known.name) : (code + "（下次更新後有資料）");
+        html +=
+          '<span class="watch-chip on" style="display:inline-flex;align-items:center;gap:7px;">' +
+          label + '<span data-remove="' + code + '" title="移除" style="cursor:pointer;font-weight:700;">×</span></span>';
+      });
+      html += "</div>";
+    }
+    // 快速加入已追蹤的 ETF
+    const quick = Object.keys(etfs).filter((id) => !state.watch.has(id));
+    if (quick.length) {
+      html += '<div style="font-size:13px;color:var(--muted);margin:12px 0 6px;">快速加入（已追蹤的 ETF）：</div>' +
+        '<div style="display:flex;flex-wrap:wrap;gap:6px;">';
+      quick.forEach((id) => {
+        html += '<span class="watch-chip" data-add="' + id + '" style="cursor:pointer;">＋ ' + id + " " + etfs[id].name + "</span>";
+      });
+      html += "</div>";
+    }
     panel.innerHTML = html;
-    panel.querySelectorAll(".watch-chip").forEach((el) => {
-      el.onclick = () => toggleWatch(el.dataset.code);
-    });
+
+    panel.querySelectorAll("[data-remove]").forEach((el) => { el.onclick = () => toggleWatch(el.dataset.remove); });
+    panel.querySelectorAll("[data-add]").forEach((el) => { el.onclick = () => addWatch(el.dataset.add); });
+    const inp = panel.querySelector("#watchAddInput");
+    const msg = panel.querySelector("#watchAddMsg");
+    function submit() {
+      const raw = (inp.value || "").trim().toUpperCase();
+      if (!/^[0-9A-Z]{4,6}$/.test(raw)) { msg.textContent = "代號格式怪怪的（4–6 碼英數）"; return; }
+      inp.value = ""; msg.textContent = "";
+      addWatch(raw);
+    }
+    panel.querySelector("#watchAddBtn").onclick = submit;
+    inp.onkeydown = (e) => { if (e.key === "Enter") { e.preventDefault(); submit(); } };
   }
 
   function renderAll() { renderAuthBox(); renderMemberPanel(); }
