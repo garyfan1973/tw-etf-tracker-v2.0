@@ -1,0 +1,44 @@
+name: 更新 ETF 資料
+
+on:
+  # 台灣交易日傍晚 17:30（= UTC 09:30，週一到五）
+  schedule:
+    - cron: "30 9 * * 1-5"
+  # 允許在 GitHub 網頁手動觸發（Actions 分頁 → Run workflow）
+  workflow_dispatch:
+
+# 讓預設 token 有權限把更新後的資料 commit 回 repo
+permissions:
+  contents: write
+
+# 避免多次執行同時 push 造成衝突
+concurrency:
+  group: update-data
+  cancel-in-progress: false
+
+jobs:
+  update:
+    runs-on: ubuntu-latest
+    steps:
+      - name: 取出 repo（含過往資料快照）
+        uses: actions/checkout@v4
+
+      - name: 安裝 Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: 抓取並更新資料
+        run: python3 fetch.py
+
+      - name: 有變更才 commit 回 repo
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git add data webapp/data.js
+          if git diff --cached --quiet; then
+            echo "資料無變更，略過 commit"
+          else
+            git commit -m "chore(data)：自動更新 ETF 持股/行情/配息 $(date -u +%Y-%m-%d)"
+            git push
+          fi

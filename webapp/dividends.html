@@ -1,0 +1,301 @@
+<!DOCTYPE html>
+<html lang="zh-Hant-tw">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>ETF 配息日曆</title>
+  <style>
+    :root {
+      --bg: #f5f6f8; --card: #ffffff; --text: #1c2430; --muted: #6b7684;
+      --border: #e3e7ec; --ex: #3b5bdb; --pay: #1f9d55; --accent: #3b5bdb;
+      --today: #ffb020; --chip: #eef1f6;
+    }
+    @media (prefers-color-scheme: dark) {
+      :root {
+        --bg: #14181d; --card: #1c2229; --text: #e6e9ed; --muted: #98a2b0;
+        --border: #2a323b; --ex: #6c8cff; --pay: #51cf82; --accent: #6c8cff;
+        --today: #ffc247; --chip: #262d36;
+      }
+    }
+    * { box-sizing: border-box; }
+    body {
+      margin: 0; background: var(--bg); color: var(--text);
+      font-family: -apple-system, "PingFang TC", "Microsoft JhengHei", sans-serif;
+      line-height: 1.5; padding: 20px;
+    }
+    .wrap { max-width: 1000px; margin: 0 auto; }
+    nav { display: flex; gap: 8px; margin-bottom: 14px; }
+    nav a {
+      text-decoration: none; color: var(--muted); font-size: 14px;
+      padding: 6px 12px; border-radius: 8px; border: 1px solid var(--border);
+    }
+    nav a.active { color: #fff; background: var(--accent); border-color: var(--accent); }
+    h1 { font-size: 20px; margin: 0 0 4px; }
+    .sub { color: var(--muted); font-size: 13px; margin-bottom: 16px; }
+    .panel {
+      background: var(--card); border: 1px solid var(--border);
+      border-radius: 12px; padding: 14px; margin-bottom: 16px;
+    }
+    h2 { font-size: 15px; margin: 0 0 10px; }
+    /* 即將到來 */
+    .up-row {
+      display: flex; align-items: center; gap: 10px; padding: 8px 0;
+      border-bottom: 1px solid var(--border); font-size: 14px;
+    }
+    .up-row:last-child { border-bottom: none; }
+    .up-date { font-variant-numeric: tabular-nums; white-space: nowrap; min-width: 92px; }
+    .up-in { color: var(--muted); font-size: 12px; white-space: nowrap; }
+    .badge { font-size: 11px; padding: 1px 7px; border-radius: 999px; color: #fff; white-space: nowrap; }
+    .badge.ex { background: var(--ex); }
+    .badge.pay { background: var(--pay); }
+    .up-amt { margin-left: auto; font-variant-numeric: tabular-nums; white-space: nowrap; }
+    /* ETF 篩選 */
+    .chips { display: flex; flex-wrap: wrap; gap: 6px; }
+    .chip {
+      font-size: 12px; padding: 4px 10px; border-radius: 999px; cursor: pointer;
+      background: var(--chip); color: var(--muted); border: 1px solid transparent; user-select: none;
+    }
+    .chip.on { color: var(--text); border-color: var(--accent); }
+    /* 日曆 */
+    .cal-head { display: flex; align-items: center; gap: 10px; margin-bottom: 10px; }
+    .cal-head button {
+      background: var(--card); color: var(--text); border: 1px solid var(--border);
+      border-radius: 8px; padding: 6px 12px; font-size: 14px; cursor: pointer;
+    }
+    .cal-title { font-size: 16px; font-weight: 700; min-width: 140px; text-align: center; }
+    .grid { display: grid; grid-template-columns: repeat(7, 1fr); gap: 1px; background: var(--border); border: 1px solid var(--border); border-radius: 10px; overflow: hidden; }
+    .dow { background: var(--card); text-align: center; font-size: 12px; color: var(--muted); padding: 6px 0; }
+    .dow.sun, .day.sun .dnum { color: #d64545; }
+    .dow.sat, .day.sat .dnum { color: #2f7fd6; }
+    .day { background: var(--card); min-height: 78px; padding: 4px 5px; cursor: pointer; position: relative; }
+    .day.blank { background: transparent; cursor: default; }
+    .day:hover:not(.blank) { background: rgba(127,127,127,.06); }
+    .day.today { outline: 2px solid var(--today); outline-offset: -2px; }
+    .day.sel { background: rgba(59,91,219,.10); }
+    .dnum { font-size: 12px; font-variant-numeric: tabular-nums; }
+    .pills { display: flex; flex-direction: column; gap: 2px; margin-top: 3px; }
+    .pill { font-size: 10px; line-height: 1.5; padding: 0 5px; border-radius: 4px; color: #fff; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+    .pill.ex { background: var(--ex); }
+    .pill.pay { background: var(--pay); }
+    .more { font-size: 10px; color: var(--muted); }
+    .legend { display: flex; gap: 14px; margin: 10px 2px 0; font-size: 12px; color: var(--muted); }
+    .legend span::before { content: ""; display: inline-block; width: 10px; height: 10px; border-radius: 3px; margin-right: 4px; vertical-align: -1px; }
+    .legend .ex::before { background: var(--ex); }
+    .legend .pay::before { background: var(--pay); }
+    /* 選取日明細 */
+    .detail-list .d-row { padding: 10px 0; border-bottom: 1px solid var(--border); font-size: 14px; }
+    .detail-list .d-row:last-child { border-bottom: none; }
+    .d-top { display: flex; align-items: center; gap: 8px; }
+    .d-name { font-weight: 600; }
+    .d-meta { color: var(--muted); font-size: 13px; margin-top: 3px; }
+    .d-meta b { color: var(--text); font-weight: 600; font-variant-numeric: tabular-nums; }
+    .empty { color: var(--muted); font-size: 14px; padding: 6px 0; }
+    @media (max-width: 640px) {
+      .day { min-height: 62px; }
+      .cal-title { min-width: 96px; font-size: 14px; }
+    }
+  </style>
+</head>
+<body>
+  <div class="wrap">
+    <nav>
+      <a href="index.html">持股 / 加減碼</a>
+      <a href="dividends.html" class="active">配息日曆</a>
+    </nav>
+    <h1>ETF 配息日曆</h1>
+    <div class="sub" id="sub">載入中…</div>
+
+    <div class="panel">
+      <h2>📌 即將到來</h2>
+      <div id="upcoming"></div>
+    </div>
+
+    <div class="panel">
+      <h2>顯示哪些 ETF</h2>
+      <div class="chips" id="chips"></div>
+    </div>
+
+    <div class="panel">
+      <div class="cal-head">
+        <button id="prev">‹</button>
+        <div class="cal-title" id="calTitle"></div>
+        <button id="next">›</button>
+        <button id="todayBtn">今天</button>
+      </div>
+      <div class="grid" id="grid"></div>
+      <div class="legend">
+        <span class="ex">除息日（買在此日前一天才領得到）</span>
+        <span class="pay">發放日（現金入帳）</span>
+      </div>
+    </div>
+
+    <div class="panel" id="detailPanel" style="display:none;">
+      <h2 id="detailTitle"></h2>
+      <div class="detail-list" id="detail"></div>
+    </div>
+  </div>
+
+  <script src="data.js"></script>
+  <script>
+    if (typeof window.DATA === "undefined") {
+      document.getElementById("sub").textContent =
+        "尚無資料。請先執行 python3 fetch.py 產生 data.js。";
+    } else {
+      init();
+    }
+
+    function init() {
+      const D = window.DATA;
+      const sub = document.getElementById("sub");
+      sub.textContent = "資料更新時間：" + D.generated_at + "　來源：MoneyDJ 配息揭露";
+
+      // 展開成事件：每筆配息拆成「除息」與「發放」兩個事件
+      const events = [];   // {date, type:'ex'|'pay', etf, name, amount, yield}
+      Object.keys(D.etfs).forEach(id => {
+        const e = D.etfs[id];
+        (e.dividends || []).forEach(d => {
+          if (d.ex) events.push({ date: d.ex, type: "ex", etf: id, name: e.name, amount: d.amount, yield: d.yield });
+          if (d.pay) events.push({ date: d.pay, type: "pay", etf: id, name: e.name, amount: d.amount, yield: d.yield });
+        });
+      });
+
+      // ETF 篩選狀態（預設全開）
+      const active = new Set(Object.keys(D.etfs));
+      const chips = document.getElementById("chips");
+      Object.keys(D.etfs).forEach(id => {
+        const c = document.createElement("span");
+        c.className = "chip on";
+        c.textContent = id + " " + D.etfs[id].name;
+        c.onclick = () => {
+          if (active.has(id)) { active.delete(id); c.classList.remove("on"); }
+          else { active.add(id); c.classList.add("on"); }
+          renderAll();
+        };
+        chips.appendChild(c);
+      });
+
+      const TYPE = { ex: "除息", pay: "發放" };
+      const pad = n => String(n).padStart(2, "0");
+      const todayObj = new Date();
+      const todayStr = todayObj.getFullYear() + "-" + pad(todayObj.getMonth() + 1) + "-" + pad(todayObj.getDate());
+      const fmtAmt = a => a == null ? "—" : a.toFixed(2);
+
+      // 目前檢視的月份
+      let viewY = todayObj.getFullYear();
+      let viewM = todayObj.getMonth();   // 0-based
+      let selDate = null;
+
+      function activeEvents() { return events.filter(e => active.has(e.etf)); }
+
+      function daysBetween(dateStr) {
+        const d = new Date(dateStr + "T00:00:00");
+        const t = new Date(todayStr + "T00:00:00");
+        return Math.round((d - t) / 86400000);
+      }
+
+      // 即將到來（今天含以後，取最近 10 筆）
+      function renderUpcoming() {
+        const box = document.getElementById("upcoming");
+        const up = activeEvents().filter(e => e.date >= todayStr)
+          .sort((a, b) => a.date < b.date ? -1 : a.date > b.date ? 1 : 0).slice(0, 10);
+        box.innerHTML = "";
+        if (!up.length) { box.innerHTML = '<div class="empty">目前所選 ETF 沒有已公告的未來配息</div>'; return; }
+        up.forEach(e => {
+          const days = daysBetween(e.date);
+          const inTxt = days === 0 ? "今天" : "還有 " + days + " 天";
+          const row = document.createElement("div");
+          row.className = "up-row";
+          row.innerHTML =
+            '<span class="up-date">' + e.date.slice(5) + '</span>' +
+            '<span class="up-in">' + inTxt + '</span>' +
+            '<span class="badge ' + e.type + '">' + TYPE[e.type] + '</span>' +
+            '<span>' + e.etf + ' ' + e.name + '</span>' +
+            '<span class="up-amt">' + (e.type === "ex" ? "每單位 " + fmtAmt(e.amount) + " 元" : "入帳 " + fmtAmt(e.amount) + " 元") + '</span>';
+          row.onclick = () => { jumpTo(e.date); };
+          row.style.cursor = "pointer";
+          box.appendChild(row);
+        });
+      }
+
+      function jumpTo(dateStr) {
+        viewY = +dateStr.slice(0, 4); viewM = +dateStr.slice(5, 7) - 1;
+        selDate = dateStr;
+        renderCalendar(); renderDetail();
+      }
+
+      // 日曆
+      function renderCalendar() {
+        document.getElementById("calTitle").textContent = viewY + " 年 " + (viewM + 1) + " 月";
+        const grid = document.getElementById("grid");
+        grid.innerHTML = "";
+        const dows = ["日", "一", "二", "三", "四", "五", "六"];
+        dows.forEach((d, i) => {
+          const el = document.createElement("div");
+          el.className = "dow" + (i === 0 ? " sun" : i === 6 ? " sat" : "");
+          el.textContent = d;
+          grid.appendChild(el);
+        });
+        // 依日期把事件分組
+        const byDate = {};
+        activeEvents().forEach(e => { (byDate[e.date] = byDate[e.date] || []).push(e); });
+
+        const first = new Date(viewY, viewM, 1);
+        const startDow = first.getDay();
+        const daysInMonth = new Date(viewY, viewM + 1, 0).getDate();
+        for (let i = 0; i < startDow; i++) {
+          const b = document.createElement("div"); b.className = "day blank"; grid.appendChild(b);
+        }
+        for (let d = 1; d <= daysInMonth; d++) {
+          const ds = viewY + "-" + pad(viewM + 1) + "-" + pad(d);
+          const dow = new Date(viewY, viewM, d).getDay();
+          const cell = document.createElement("div");
+          cell.className = "day" + (dow === 0 ? " sun" : dow === 6 ? " sat" : "") +
+            (ds === todayStr ? " today" : "") + (ds === selDate ? " sel" : "");
+          let html = '<div class="dnum">' + d + '</div><div class="pills">';
+          const evs = byDate[ds] || [];
+          evs.slice(0, 3).forEach(e => {
+            html += '<span class="pill ' + e.type + '" title="' + e.name + ' ' + TYPE[e.type] + '">' + e.etf + '</span>';
+          });
+          if (evs.length > 3) html += '<span class="more">+' + (evs.length - 3) + '</span>';
+          html += '</div>';
+          cell.innerHTML = html;
+          cell.onclick = () => { selDate = ds; renderCalendar(); renderDetail(); };
+          grid.appendChild(cell);
+        }
+      }
+
+      // 選取日明細
+      function renderDetail() {
+        const panel = document.getElementById("detailPanel");
+        if (!selDate) { panel.style.display = "none"; return; }
+        const evs = activeEvents().filter(e => e.date === selDate)
+          .sort((a, b) => a.type < b.type ? -1 : 1);
+        document.getElementById("detailTitle").textContent = selDate + " 配息明細";
+        const box = document.getElementById("detail");
+        box.innerHTML = "";
+        if (!evs.length) { box.innerHTML = '<div class="empty">這天沒有配息事件</div>'; panel.style.display = "block"; return; }
+        evs.forEach(e => {
+          const row = document.createElement("div");
+          row.className = "d-row";
+          const y = e.yield == null ? "" : "　年化配息率 <b>" + e.yield.toFixed(2) + "%</b>";
+          row.innerHTML =
+            '<div class="d-top"><span class="badge ' + e.type + '">' + TYPE[e.type] + '</span>' +
+            '<span class="d-name">' + e.etf + ' ' + e.name + '</span></div>' +
+            '<div class="d-meta">每單位配息 <b>' + fmtAmt(e.amount) + '</b> 元' + y +
+            (e.type === "ex" ? '　（買進要在除息日前一交易日持有才領得到）' : '　（現金入帳日）') + '</div>';
+          box.appendChild(row);
+        });
+        panel.style.display = "block";
+      }
+
+      function renderAll() { renderUpcoming(); renderCalendar(); renderDetail(); }
+
+      document.getElementById("prev").onclick = () => { if (--viewM < 0) { viewM = 11; viewY--; } renderCalendar(); };
+      document.getElementById("next").onclick = () => { if (++viewM > 11) { viewM = 0; viewY++; } renderCalendar(); };
+      document.getElementById("todayBtn").onclick = () => { viewY = todayObj.getFullYear(); viewM = todayObj.getMonth(); selDate = todayStr; renderCalendar(); renderDetail(); };
+
+      renderAll();
+    }
+  </script>
+</body>
+</html>

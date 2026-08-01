@@ -1,0 +1,15 @@
+# 執行紀錄與暫存
+cron.log
+*.log
+
+# Python
+__pycache__/
+*.pyc
+
+# macOS
+.DS_Store
+
+# Vercel
+.vercel
+
+# 注意：data/ 與 webapp/data.js 要進版控（那是資料本體），不要忽略

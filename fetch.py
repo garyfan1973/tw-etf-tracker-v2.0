@@ -1,0 +1,519 @@
+#!/usr/bin/env python3
+# -*- coding: utf-8 -*-
+"""主動式 ETF 每日持股抓取與加減碼比對工具。
+
+資料來源：MoneyDJ ETF 持股明細（伺服器端渲染，含完整每日持股）
+  https://www.moneydj.com/ETF/X/Basic/Basic0007B.xdjhtm?etfid=<代號>.tw
+
+流程：
+  1. 抓取指定 ETF 的當日完整持股（個股、投資比例%、持有股數）。
+  2. 存成 data/<代號>_<日期>.json 快照（同一天覆蓋）。
+  3. 讀取所有歷史快照，產生 webapp/data.js 給查詢網頁使用。
+
+比對邏輯（以「持有股數」判定經理人加減碼，最能反映實際操作）：
+  - 新增：今天有、前一交易日沒有
+  - 剔除：前一交易日有、今天沒有
+  - 加碼：持有股數增加
+  - 減碼：持有股數減少
+"""
+
+import datetime
+import html
+import json
+import os
+import re
+import subprocess
+import sys
+import urllib.request
+import zoneinfo
+
+# 要追蹤的 ETF 清單，之後要加 00980A、00982A 直接加進來即可
+ETFS = {
+    # 主動式 ETF
+    "00981A": "主動統一台股增長",
+    "00982A": "主動群益台灣強棒",
+    "00990A": "主動元大AI新經濟",
+    "00992A": "主動群益科技創新",
+    "00400A": "主動國泰動能高息",
+    # 被動式 ETF
+    "0050": "元大台灣50",
+    "0052": "富邦科技",
+    "0056": "元大高股息",
+    "00878": "國泰永續高股息",
+    "00881": "國泰台灣5G+",
+    "00919": "群益台灣精選高息",
+    "00922": "國泰台灣領袖50",
+}
+
+BASE_DIR = os.path.dirname(os.path.abspath(__file__))
+DATA_DIR = os.path.join(BASE_DIR, "data")
+WEBAPP_DIR = os.path.join(BASE_DIR, "webapp")
+
+SOURCE_URL = "https://www.moneydj.com/ETF/X/Basic/Basic0007B.xdjhtm?etfid={etfid}.tw"
+# 配息狀況（歷次＋已公告未來配息）
+DIV_URL = "https://www.moneydj.com/ETF/X/Basic/Basic0005.xdjhtm?etfid={etfid}.tw"
+# 每日行情：TWSE 上市個股日成交(全部) + TPEx 上櫃個股日成交
+TWSE_QUOTE_URL = "https://openapi.twse.com.tw/v1/exchangeReport/STOCK_DAY_ALL"
+TPEX_QUOTE_URL = "https://www.tpex.org.tw/openapi/v1/tpex_mainboard_quotes"
+# 海外行情：Yahoo Finance（免金鑰）。市場別 -> Yahoo 代號後綴
+YAHOO_URL = "https://query1.finance.yahoo.com/v8/finance/chart/{sym}?interval=1d&range=10d"
+YAHOO_SUFFIX = {"US": "", "JP": ".T", "KS": ".KS", "HK": ".HK"}
+USER_AGENT = "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36"
+TZ_TAIPEI = zoneinfo.ZoneInfo("Asia/Taipei")
+
+
+def today_str():
+    """回傳台北時區的今日日期字串（YYYY-MM-DD）。"""
+    return datetime.datetime.now(TZ_TAIPEI).strftime("%Y-%m-%d")
+
+
+def curl_text(url):
+    """抓取網頁 HTML 原始碼。
+
+    優先用系統 curl（macOS 上比 Python 的 LibreSSL 對憑證相容性更好），
+    失敗才退回 urllib。
+    """
+    try:
+        out = subprocess.run(
+            ["curl", "-s", "-m", "30", "-A", USER_AGENT, url],
+            capture_output=True, timeout=35,
+        )
+        if out.returncode == 0 and out.stdout:
+            return out.stdout.decode("utf-8", errors="ignore")
+    except (FileNotFoundError, subprocess.TimeoutExpired):
+        pass
+    req = urllib.request.Request(url, headers={"User-Agent": USER_AGENT})
+    with urllib.request.urlopen(req, timeout=30) as resp:
+        return resp.read().decode("utf-8", errors="ignore")
+
+
+def fetch_html(etf_id):
+    """抓取某 ETF 的 MoneyDJ 持股頁 HTML。"""
+    return curl_text(SOURCE_URL.format(etfid=etf_id))
+
+
+def fetch_json(url):
+    """用 curl 抓 JSON（避開 macOS LibreSSL 憑證問題），失敗退回 urllib。"""
+    try:
+        out = subprocess.run(
+            ["curl", "-s", "-m", "30", "-A", USER_AGENT, url],
+            capture_output=True, timeout=35,
+        )
+        if out.returncode == 0 and out.stdout:
+            return json.loads(out.stdout.decode("utf-8", errors="ignore"))
+    except (FileNotFoundError, subprocess.TimeoutExpired, json.JSONDecodeError):
+        pass
+    req = urllib.request.Request(url, headers={"User-Agent": USER_AGENT})
+    with urllib.request.urlopen(req, timeout=30) as resp:
+        return json.loads(resp.read().decode("utf-8", errors="ignore"))
+
+
+def _num(value):
+    """把 '2,425.00' / '--' / '' / '+0.17' 轉成 float，無效回 None。"""
+    if value is None:
+        return None
+    s = str(value).replace(",", "").strip()
+    if s in ("", "--", "---", "N/A"):
+        return None
+    try:
+        return float(s)
+    except ValueError:
+        return None
+
+
+def _quote_fields(open_p, high, low, close, change):
+    """由開高低收與漲跌，組出統一的行情欄位（含前日收盤、漲跌幅、振幅）。"""
+    prev_close = None
+    change_pct = None
+    if close is not None and change is not None:
+        prev_close = round(close - change, 4)
+        if prev_close:
+            change_pct = round(change / prev_close * 100, 2)
+    amplitude = None
+    if high is not None and low is not None and prev_close:
+        amplitude = round((high - low) / prev_close * 100, 2)
+    return {
+        "open": open_p, "high": high, "low": low, "close": close,
+        "prevClose": prev_close, "change": change,
+        "changePct": change_pct, "amplitude": amplitude,
+    }
+
+
+def fetch_quotes():
+    """抓當日全市場行情，回傳 {股票代號: {open, high, low, close, prevClose,
+    change, changePct, amplitude, volume}}。上市(TWSE)＋上櫃(TPEx)合併。"""
+    quotes = {}
+    # 上市
+    try:
+        for r in fetch_json(TWSE_QUOTE_URL):
+            code = r.get("Code")
+            if not code:
+                continue
+            q = _quote_fields(
+                _num(r.get("OpeningPrice")), _num(r.get("HighestPrice")),
+                _num(r.get("LowestPrice")), _num(r.get("ClosingPrice")),
+                _num(r.get("Change")),
+            )
+            q["volume"] = _num(r.get("TradeVolume"))  # 成交股數
+            quotes[code] = q
+    except Exception as exc:
+        print("  ! 上市行情抓取失敗：{}".format(exc))
+    # 上櫃
+    try:
+        for r in fetch_json(TPEX_QUOTE_URL):
+            code = r.get("SecuritiesCompanyCode")
+            if not code:
+                continue
+            q = _quote_fields(
+                _num(r.get("Open")), _num(r.get("High")),
+                _num(r.get("Low")), _num(r.get("Close")),
+                _num(r.get("Change")),
+            )
+            q["volume"] = _num(r.get("TradingShares"))
+            quotes.setdefault(code, q)  # 不覆蓋已有的上市資料
+    except Exception as exc:
+        print("  ! 上櫃行情抓取失敗：{}".format(exc))
+    return quotes
+
+
+def _iso_date(s):
+    """2026/07/21 -> 2026-07-21，無效回空字串。"""
+    m = re.match(r"(20\d{2})/(\d{1,2})/(\d{1,2})", s or "")
+    if not m:
+        return ""
+    return "{}-{:02d}-{:02d}".format(int(m.group(1)), int(m.group(2)), int(m.group(3)))
+
+
+def parse_dividends(page_html):
+    """從 MoneyDJ 配息頁解析歷次＋已公告配息。
+
+    回傳：[{ex, pay, base, amount, yield}, ...]（日期為 YYYY-MM-DD）
+    """
+    grid = []
+    for row in re.findall(r"<tr[^>]*>(.*?)</tr>", page_html, re.S):
+        cells = [
+            html.unescape(re.sub(r"<[^>]+>", "", c)).strip()
+            for c in re.findall(r"<t[dh][^>]*>(.*?)</t[dh]>", row, re.S)
+        ]
+        grid.append(cells)
+    # 找含「除息日」的表頭，之後依欄位位置對齊（登記日常空白，不能濾空格）
+    header = hi = None
+    for i, cells in enumerate(grid):
+        if "除息日" in cells:
+            header, hi = cells, i
+            break
+    if hi is None:
+        return []
+    col = {name: j for j, name in enumerate(header)}
+
+    def g(cells, name):
+        j = col.get(name)
+        return cells[j] if (j is not None and j < len(cells)) else ""
+
+    out = []
+    for cells in grid[hi + 1:]:
+        if len(cells) < len(header):
+            continue
+        ex = _iso_date(g(cells, "除息日"))
+        if not ex:  # 遇到附註等非資料列就停止
+            continue
+        out.append({
+            "ex": ex,
+            "pay": _iso_date(g(cells, "發放日")),
+            "base": _iso_date(g(cells, "配息基準日")),
+            "amount": _num(g(cells, "配息總額")),
+            "yield": _num(g(cells, "年化配息率(%)") or g(cells, "年化配息率")),
+        })
+    return out
+
+
+def fetch_dividends(etf_id):
+    """抓取並解析某 ETF 的配息紀錄。"""
+    try:
+        return parse_dividends(curl_text(DIV_URL.format(etfid=etf_id)))
+    except Exception as exc:
+        print("  ! 配息抓取失敗：{}".format(exc))
+        return []
+
+
+def yahoo_symbol(holding):
+    """由持股的市場別組出 Yahoo 代號；不支援或無代號回 None。"""
+    suffix = YAHOO_SUFFIX.get(holding.get("market"))
+    if suffix is None or not holding.get("code"):
+        return None
+    return holding["code"] + suffix
+
+
+def fetch_oversea_quote(symbol, data_date):
+    """抓 Yahoo 單一海外標的、挑「資料日或之前最近一個交易日」的日行情。
+
+    回傳統一欄位（含 currency、quoteDate），失敗回 None。
+    """
+    d = fetch_json(YAHOO_URL.format(sym=symbol))
+    res = d["chart"]["result"][0]
+    meta = res["meta"]
+    off = meta.get("gmtoffset", 0) or 0
+    ts = res.get("timestamp") or []
+    q = res["indicators"]["quote"][0]
+    # 依當地時區換算每列的日期
+    rows = []
+    for i in range(len(ts)):
+        local = datetime.datetime.utcfromtimestamp(ts[i] + off).strftime("%Y-%m-%d")
+        rows.append((local, q["open"][i], q["high"][i], q["low"][i],
+                     q["close"][i], q["volume"][i]))
+    if not rows:
+        return None
+    # 選資料日；沒有就取 <= 資料日、且有收盤的最近一列
+    idx = None
+    for i, r in enumerate(rows):
+        if r[0] == data_date and r[4] is not None:
+            idx = i
+            break
+    if idx is None:
+        cand = [i for i, r in enumerate(rows) if r[0] <= data_date and r[4] is not None]
+        idx = cand[-1] if cand else None
+    if idx is None:
+        return None
+    local, o, hi, lo, cl, vol = rows[idx]
+    r2 = lambda v: round(v, 2) if isinstance(v, (int, float)) else None
+    # 前一個有效收盤當作前日收盤
+    prev = None
+    for j in range(idx - 1, -1, -1):
+        if rows[j][4] is not None:
+            prev = rows[j][4]
+            break
+    if prev is None:
+        prev = meta.get("chartPreviousClose")
+    close = r2(cl)
+    change = round(close - prev, 2) if (close is not None and prev) else None
+    fields = _quote_fields(r2(o), r2(hi), r2(lo), close, change)
+    fields["volume"] = vol
+    fields["currency"] = meta.get("currency")
+    fields["quoteDate"] = local
+    return fields
+
+
+def fetch_oversea(holdings, data_date):
+    """對海外持股逐一補上 Yahoo 行情，回傳成功筆數。"""
+    matched = 0
+    for h in holdings:
+        sym = yahoo_symbol(h)
+        if not sym:
+            continue
+        try:
+            q = fetch_oversea_quote(sym, data_date)
+        except Exception:
+            q = None
+        if q:
+            h.update(q)
+            matched += 1
+    return matched
+
+
+def parse_data_date(page_html):
+    """從頁面擷取真實「資料日期」（交易日），回傳 YYYY-MM-DD。
+
+    來源頁面格式：資料日期：2026/07/31
+    抓不到時退回台北時區今日日期。
+    """
+    m = re.search(r"資料日期[：:]\s*(20\d{2})[/-](\d{1,2})[/-](\d{1,2})", page_html)
+    if m:
+        return "{}-{:02d}-{:02d}".format(int(m.group(1)), int(m.group(2)), int(m.group(3)))
+    return today_str()
+
+
+def parse_holdings(page_html):
+    """從 HTML 解析出持股清單（含海外市場）。
+
+    來源同一頁除了持股，還有一個「相關 ETF」小工具（表頭含 ETF代碼），
+    以及跨市場持股：台積電(2330.TW)、NVIDIA(NVDA.US)、Kioxia(285A.JP)、
+    Samsung Elec Mech(009150.KS)，也有無代號的海外股（INFINEON TECHNOLOGIES AG）。
+    因此改採「區段解析」：從『個股名稱』表頭開始，遇到『ETF代碼』即停止。
+
+    回傳：[{code, name, market, weight, shares}, ...]
+    market 為市場別（TW/US/JP/KS/…），無代號者為空字串。
+    """
+    holdings = []
+    in_section = False
+    for row in re.findall(r"<tr[^>]*>(.*?)</tr>", page_html, re.S):
+        cells = [
+            html.unescape(re.sub(r"<[^>]+>", "", c)).strip()
+            for c in re.findall(r"<t[dh][^>]*>(.*?)</t[dh]>", row, re.S)
+        ]
+        cells = [c for c in cells if c]
+        if not cells:
+            continue
+        joined = " ".join(cells)
+        if "個股名稱" in joined:      # 進入持股區段
+            in_section = True
+            continue
+        if "ETF代碼" in joined:       # 相關 ETF 小工具，持股區段結束
+            break
+        if not in_section or len(cells) < 3:
+            continue
+        weight = _num(cells[1])
+        if weight is None:            # 頁尾導覽等非資料列
+            continue
+        try:
+            shares = int(cells[2].replace(",", ""))
+        except ValueError:
+            continue
+        # 名稱可能含代號：名稱(代號.市場)，市場如 TW/US/JP/KS
+        m = re.match(r"^(.*?)\(([0-9A-Za-z]+)\.([A-Za-z]{2,3})\)\s*$", cells[0])
+        if m:
+            name, code, market = m.group(1).strip(), m.group(2), m.group(3).upper()
+        else:
+            name, code, market = cells[0].strip(), "", ""  # 無代號的海外股
+        holdings.append({
+            "code": code, "name": name, "market": market,
+            "weight": weight, "shares": shares,
+        })
+    return holdings
+
+
+def save_snapshot(etf_id, holdings, date):
+    """依「資料日期」儲存快照（同一交易日覆蓋）。回傳快照 dict。"""
+    snapshot = {
+        "date": date,
+        "fetched_at": datetime.datetime.now(TZ_TAIPEI).isoformat(timespec="seconds"),
+        "count": len(holdings),
+        "holdings": holdings,
+    }
+    path = os.path.join(DATA_DIR, "{}_{}.json".format(etf_id, date))
+    with open(path, "w", encoding="utf-8") as f:
+        json.dump(snapshot, f, ensure_ascii=False, indent=2)
+    return snapshot
+
+
+def load_snapshots(etf_id):
+    """讀取某 ETF 全部歷史快照，依日期排序（舊 -> 新）。"""
+    snapshots = []
+    prefix = "{}_".format(etf_id)
+    for name in os.listdir(DATA_DIR):
+        if name.endswith("_dividends.json"):
+            continue  # 配息檔不是持股快照
+        if name.startswith(prefix) and name.endswith(".json"):
+            with open(os.path.join(DATA_DIR, name), encoding="utf-8") as f:
+                snapshots.append(json.load(f))
+    snapshots.sort(key=lambda s: s["date"])
+    return snapshots
+
+
+def build_data_js():
+    """把所有 ETF 的歷史快照輸出成 webapp/data.js 供網頁讀取。"""
+    payload = {
+        "generated_at": datetime.datetime.now(TZ_TAIPEI).isoformat(timespec="seconds"),
+        "etfs": {},
+    }
+    for etf_id, etf_name in ETFS.items():
+        snapshots = load_snapshots(etf_id)
+        div_path = os.path.join(DATA_DIR, "{}_dividends.json".format(etf_id))
+        dividends = []
+        if os.path.exists(div_path):
+            with open(div_path, encoding="utf-8") as f:
+                dividends = json.load(f)
+        payload["etfs"][etf_id] = {
+            "name": etf_name, "snapshots": snapshots, "dividends": dividends,
+        }
+
+    os.makedirs(WEBAPP_DIR, exist_ok=True)
+    out = os.path.join(WEBAPP_DIR, "data.js")
+    with open(out, "w", encoding="utf-8") as f:
+        f.write("window.DATA = ")
+        json.dump(payload, f, ensure_ascii=False, indent=2)
+        f.write(";\n")
+    return out
+
+
+def _hkey(h):
+    """持股識別鍵：有代號用代號，無代號（海外股）用名稱。"""
+    return h.get("code") or h["name"]
+
+
+def summarize_diff(prev, curr):
+    """比對兩份持股，回傳加減碼摘要（只給終端機印出用，網頁端另有計算）。"""
+    prev_map = {_hkey(h): h for h in prev}
+    curr_map = {_hkey(h): h for h in curr}
+    added = [h for c, h in curr_map.items() if c not in prev_map]
+    removed = [h for c, h in prev_map.items() if c not in curr_map]
+    increased = decreased = 0
+    for code in curr_map.keys() & prev_map.keys():
+        d = curr_map[code]["shares"] - prev_map[code]["shares"]
+        if d > 0:
+            increased += 1
+        elif d < 0:
+            decreased += 1
+    return added, removed, increased, decreased
+
+
+def main():
+    os.makedirs(DATA_DIR, exist_ok=True)
+    etf_ids = sys.argv[1:] or list(ETFS.keys())
+
+    print("== 抓取當日全市場行情（上市＋上櫃）==")
+    quotes = fetch_quotes()
+    print("  取得 {} 檔個股行情".format(len(quotes)))
+
+    for etf_id in etf_ids:
+        etf_id = etf_id.upper()
+        if etf_id not in ETFS:
+            print("[略過] 未在 ETFS 清單中：{}".format(etf_id))
+            continue
+        print("== 抓取 {} {} ==".format(etf_id, ETFS[etf_id]))
+        try:
+            page = fetch_html(etf_id)
+            holdings = parse_holdings(page)
+            data_date = parse_data_date(page)
+        except Exception as exc:  # 網路或解析錯誤時不中斷其他 ETF
+            print("  ! 抓取失敗：{}".format(exc))
+            continue
+        if not holdings:
+            print("  ! 未解析到持股，可能來源改版或非交易日尚未更新")
+            continue
+
+        # 併入當日行情（僅台股；海外股無 TWSE/TPEx 報價）
+        tw = [h for h in holdings if h.get("market") == "TW"]
+        matched = 0
+        for h in tw:
+            q = quotes.get(h["code"])
+            if q:
+                h.update(q)
+                matched += 1
+        print("  行情對應（台股）：{}/{} 檔".format(matched, len(tw)))
+
+        # 海外行情（美股/日股/韓股…，走 Yahoo）
+        oversea = [h for h in holdings if h.get("market") not in (None, "", "TW")]
+        if oversea:
+            ok = fetch_oversea(oversea, data_date)
+            no_code = sum(1 for h in holdings if not h.get("code"))
+            note = "，另 {} 檔無代號無法查".format(no_code) if no_code else ""
+            print("  海外行情：{}/{} 檔（Yahoo）{}".format(ok, len(oversea), note))
+
+        # 取「資料日期」之前最近一天的快照來比對（避免同一交易日自我比對）
+        prev = [s for s in load_snapshots(etf_id) if s["date"] < data_date]
+        prev_holdings = prev[-1]["holdings"] if prev else []
+        snapshot = save_snapshot(etf_id, holdings, data_date)
+        print("  已存 {} 檔持股（資料日期 {}）".format(snapshot["count"], snapshot["date"]))
+
+        # 配息紀錄（歷次＋已公告未來）
+        dividends = fetch_dividends(etf_id)
+        div_path = os.path.join(DATA_DIR, "{}_dividends.json".format(etf_id))
+        with open(div_path, "w", encoding="utf-8") as f:
+            json.dump(dividends, f, ensure_ascii=False, indent=2)
+        upcoming = sum(1 for d in dividends if d["ex"] >= today_str())
+        print("  配息紀錄 {} 筆（未來 {} 筆）".format(len(dividends), upcoming))
+
+        if prev_holdings:
+            added, removed, inc, dec = summarize_diff(prev_holdings, holdings)
+            print("  加減碼：新增 {} / 加碼 {} / 減碼 {} / 剔除 {}".format(
+                len(added), inc, dec, len(removed)))
+        else:
+            print("  （首日資料，尚無可比對的前一交易日）")
+
+    out = build_data_js()
+    print("已更新網頁資料：{}".format(out))
+    print("用瀏覽器開啟 webapp/index.html 即可查詢")
+
+
+if __name__ == "__main__":
+    main()
