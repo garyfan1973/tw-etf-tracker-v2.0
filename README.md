@@ -100,6 +100,32 @@ crontab -e
 3. Framework Preset 保持 Other、不用 build。按 Deploy。
 4. 完成後每次 repo 有新 commit（含雲端排程的自動更新）就會自動重新部署。
 
+## 之後要改功能（修改流程）
+
+可以直接開新的對話請 Claude 幫忙改，不必回到原本那次對話。只要告訴它：
+本地路徑 `~/00981A-tracker`（或 repo `garyfan1973/tw-etf-tracker`）＋你想改什麼。
+
+> ⚠️ **一定要先 `git pull`**：GitHub Actions 每個交易日會自動 commit 更新資料，
+> 所以本地會落後於雲端。不先 pull 就改容易產生衝突。
+
+標準步驟：
+
+```bash
+cd ~/00981A-tracker
+git pull origin main            # 1. 先同步雲端的自動更新（重要）
+# 2. 改程式或網頁（fetch.py / webapp/*）
+python3 fetch.py                # 3. 需要的話重新產生資料，本地驗證
+open webapp/index.html          #    用瀏覽器看結果
+git add -A
+git commit -m "feat(scope)：說明"  # 4. 提交（type 用 feat/fix/docs/refactor/chore）
+git push                        # 5. 推上去 → Vercel 自動重新部署
+```
+
+推上去後 Vercel 會自動重新部署，所有裝置看到新版，不用額外動作。
+
+若在**別台電腦**：先 `git clone https://github.com/garyfan1973/tw-etf-tracker.git`
+（要 push 回去，該台需有 GitHub 登入權限）。
+
 ## 注意
 
 - 僅供個人研究參考，非投資建議；資料以官方揭露為準。
