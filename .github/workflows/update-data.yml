@@ -33,6 +33,14 @@ jobs:
           python3 fetch_etf_list.py
           python3 fetch.py
           python3 fetch_company_profiles.py
+          if [ -n "${SUPABASE_SERVICE_ROLE_KEY:-}" ]; then
+            python3 record_daily_snapshots.py
+          else
+            echo "未設定 SUPABASE_SERVICE_ROLE_KEY，略過每日績效快照"
+          fi
+        env:
+          SUPABASE_URL: ${{ secrets.SUPABASE_URL }}
+          SUPABASE_SERVICE_ROLE_KEY: ${{ secrets.SUPABASE_SERVICE_ROLE_KEY }}
 
       - name: 有變更才 commit 回 repo
         run: |

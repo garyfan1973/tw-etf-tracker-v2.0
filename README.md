@@ -152,6 +152,16 @@ git push                        # 5. 推上去 → Vercel 自動重新部署
   ```
 - 追蹤清單與名稱快取：`data/tracked.json`、`data/etf_names.json`（自動維護）。
 
+## 每日績效快照與走勢
+
+- SQL：請先將 `supabase_portfolio_daily_snapshots.sql` 貼到 Supabase SQL Editor 執行。
+- GitHub Actions 會在每日行情更新後執行 `record_daily_snapshots.py`，把每位使用者、每支 ETF、每個交易日的績效快照寫入 Supabase。
+- 請在 GitHub repo 的 Settings → Secrets and variables → Actions 新增：
+  - `SUPABASE_URL`：Supabase Project URL
+  - `SUPABASE_SERVICE_ROLE_KEY`：Supabase service role key（只放 GitHub Secret，不可放進前端）
+- 前端頁面：`webapp/performance.html`，可查日期區間、選 ETF、切換含息／不含息，並查看報酬率曲線與每日明細。
+- 含息報酬率會加入依除息資格股數與公告股利推算的估算已領配息，欄位名稱會明確標示「估算」。
+
 ## 注意
 
 - 僅供個人研究參考，非投資建議；資料以官方揭露為準。

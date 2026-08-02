@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="zh-Hant-tw">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>投資績效走勢</title>
+  <style>
+    :root, :root[data-theme="light"] { --bg:#f5f6f8; --card:#fff; --text:#1c2430; --muted:#6b7684; --border:#e3e7ec; --accent:#3b5bdb; --key:#7c3aed; }
+    @media (prefers-color-scheme: dark) { :root:not([data-theme="light"]) { --bg:#14181d; --card:#1c2229; --text:#e6e9ed; --muted:#98a2b0; --border:#2a323b; --accent:#6c8cff; --key:#c4b5fd; } }
+    :root[data-theme="dark"] { --bg:#14181d; --card:#1c2229; --text:#e6e9ed; --muted:#98a2b0; --border:#2a323b; --accent:#6c8cff; --key:#c4b5fd; }
+    * { box-sizing:border-box; } body { margin:0; padding:20px; background:var(--bg); color:var(--text); font-family:-apple-system,"PingFang TC","Microsoft JhengHei",sans-serif; }
+    .wrap { max-width:1100px; margin:0 auto; } nav { display:flex; gap:8px; align-items:center; margin-bottom:14px; }
+    nav a { text-decoration:none; color:var(--muted); font-size:14px; padding:6px 12px; border:1px solid var(--border); border-radius:8px; }
+    nav a.active { color:#fff; background:var(--accent); border-color:var(--accent); }
+    .theme-toggle { margin-left:8px; width:36px; height:36px; border-radius:50%; border:1px solid var(--border); background:var(--card); color:var(--text); cursor:pointer; }
+    h1 { font-size:20px; margin:0 0 4px; } .sub { color:var(--muted); font-size:13px; margin-bottom:16px; }
+    .panel { background:var(--card); border:1px solid var(--border); border-radius:12px; padding:14px; margin-bottom:16px; }
+    .filters { display:flex; flex-wrap:wrap; gap:10px; align-items:end; } label { display:flex; flex-direction:column; gap:4px; color:var(--muted); font-size:12px; }
+    input, button { font:inherit; } input[type=date] { padding:8px; border:1px solid var(--border); border-radius:8px; background:var(--bg); color:var(--text); }
+    button.action { padding:8px 14px; border:0; border-radius:8px; color:#fff; background:var(--accent); cursor:pointer; }
+    .mode { display:flex; gap:8px; align-items:center; color:var(--text); font-size:13px; padding-bottom:7px; }
+    .choices { display:flex; flex-wrap:wrap; gap:6px; margin-top:12px; } .choice { padding:5px 9px; border:1px solid var(--border); border-radius:999px; color:var(--muted); cursor:pointer; font-size:12px; }
+    .choice.on { color:var(--text); border-color:var(--accent); background:rgba(59,91,219,.1); }
+    .chart-wrap { overflow-x:auto; } svg { display:block; width:100%; min-width:720px; height:330px; }
+    .chart-grid { stroke:var(--border); stroke-width:1; } .axis-label { fill:var(--muted); font-size:11px; }
+    .legend { display:flex; flex-wrap:wrap; gap:10px 16px; margin-top:8px; font-size:12px; color:var(--muted); }
+    .legend i { display:inline-block; width:10px; height:10px; border-radius:50%; margin-right:4px; }
+    .table-scroll { overflow-x:auto; } table { width:100%; border-collapse:collapse; font-size:13px; white-space:nowrap; }
+    th,td { padding:8px 10px; border-bottom:1px solid var(--border); text-align:right; font-variant-numeric:tabular-nums; } th:first-child,td:first-child,th:nth-child(2),td:nth-child(2){text-align:left;} th{color:var(--muted);font-weight:600;}
+    .summary { display:grid; grid-template-columns:repeat(4,1fr); gap:10px; } .metric { padding:10px; border:1px solid var(--border); border-radius:10px; } .metric .k{font-size:12px;color:var(--muted)} .metric .v{font-size:20px;font-weight:700;margin-top:3px;color:var(--key);}
+    .empty { color:var(--muted); padding:10px 0; font-size:14px; } .msg { color:var(--up,#d64545); font-size:13px; min-height:18px; }
+    @media(max-width:700px){.summary{grid-template-columns:repeat(2,1fr)} nav{flex-wrap:wrap}}
+  </style>
+  <script>(function(){var t=localStorage.getItem("etf-theme");if(t)document.documentElement.dataset.theme=t;})();</script>
+</head>
+<body>
+  <div class="wrap">
+    <nav>
+      <a href="index.html">持股 / 加減碼</a><a href="dividends.html">配息日曆</a><a href="portfolio.html">我的持股</a>
+      <a href="transactions.html">交易紀錄</a><a href="performance.html" class="active">績效走勢</a>
+      <span id="authBox" style="margin-left:auto;display:flex;align-items:center;gap:6px;"></span>
+      <button id="themeToggle" class="theme-toggle" aria-label="切換主題">🌙</button>
+    </nav>
+    <h1>投資績效走勢</h1><div class="sub">依每日收盤快照查看各支 ETF 的含息／不含息報酬率變化。</div>
+    <div id="gate" class="panel" style="display:none;"></div>
+    <div id="app" style="display:none;">
+      <div class="panel">
+        <div class="filters">
+          <label>開始日期<input id="start" type="date"></label><label>結束日期<input id="end" type="date"></label>
+          <div class="mode"><label><input type="radio" name="mode" value="ex" checked> 不含息</label><label><input type="radio" name="mode" value="inc"> 含息</label></div>
+          <button class="action" id="query">查詢</button>
+        </div>
+        <div class="msg" id="msg"></div><div class="choices" id="choices"></div>
+      </div>
+      <div class="panel"><h2>報酬率曲線</h2><div class="chart-wrap"><svg id="chart" viewBox="0 0 1000 330" role="img" aria-label="ETF 報酬率曲線"></svg></div><div class="legend" id="legend"></div></div>
+      <div class="panel"><h2>區間最後一日彙總</h2><div class="summary" id="summary"></div></div>
+      <div class="panel"><h2>每日明細</h2><div class="table-scroll"><table><thead><tr><th>日期</th><th>ETF</th><th>持有股數</th><th>現值</th><th>未實現損益</th><th>已實現損益</th><th>估算已領配息</th><th id="returnHead">不含息報酬率</th></tr></thead><tbody id="rows"></tbody></table></div></div>
+    </div>
+  </div>
+  <script src="theme.js"></script><script src="config.js"></script><script type="module" src="auth.js"></script><script src="performance.js"></script>
+</body>
+</html>
