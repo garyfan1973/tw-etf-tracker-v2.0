@@ -161,8 +161,8 @@
     const plp = (pl != null && cost) ? pl / cost * 100 : null;
     const divs = (etf && etf.dividends) || [];
     const t = today();
-    const past = divs.filter((d) => d.ex && d.ex <= t).sort((a, b) => a.ex < b.ex ? 1 : -1);
-    const fut = divs.filter((d) => d.ex && d.ex > t).sort((a, b) => a.ex < b.ex ? -1 : 1);
+    const past = divs.filter((d) => d.ex && d.ex < t).sort((a, b) => a.ex < b.ex ? 1 : -1);
+    const fut = divs.filter((d) => d.ex && d.ex >= t).sort((a, b) => a.ex < b.ex ? -1 : 1);
     const last = past[0] || null, next = fut[0] || null;
     const ya = minus365(t);
     const ttmPer = divs.filter((d) => d.ex && d.ex <= t && d.ex >= ya && d.amount != null).reduce((s, d) => s + d.amount, 0);
@@ -172,22 +172,18 @@
   }
 
   function renderSummary(rows) {
-    let tCost = 0, tValue = 0, tTtm = 0, hasCost = false, hasValue = false;
+    let tCost = 0, tValue = 0, hasCost = false, hasValue = false;
     rows.forEach((r) => {
       if (r.cost != null) { tCost += r.cost; hasCost = true; }
       if (r.currentValue != null) { tValue += r.currentValue; hasValue = true; }
-      tTtm += r.ttm || 0;
     });
     const tPl = (hasValue && hasCost) ? tValue - tCost : null;
     const tPlp = (tPl != null && tCost) ? tPl / tCost * 100 : null;
-    const wYield = tCost ? tTtm / tCost * 100 : null;
     const kpi = (n, l, cls) => '<div class="kpi"><div class="n ' + (cls || "") + '">' + n + '</div><div class="l">' + l + '</div></div>';
     $("summary").innerHTML =
       kpi(hasValue ? money(tValue) : "—", "總現值") +
       kpi(hasCost ? money(tCost) : "—", "總成本") +
-      kpi(tPl != null ? (tPl > 0 ? "+" : "") + money(tPl) : "—", "總損益" + (tPlp != null ? "（" + pct(tPlp) + "）" : ""), plCls(tPl)) +
-      kpi(money(tTtm), "預估年配息") +
-      kpi(wYield != null ? wYield.toFixed(2) + "%" : "—", "加權殖利率");
+      kpi(tPl != null ? (tPl > 0 ? "+" : "") + money(tPl) : "—", "總損益" + (tPlp != null ? "（" + pct(tPlp) + "）" : ""), plCls(tPl));
   }
 
   // 依 ETF 分組：配息資訊只顯示一次，各筆買入列在下方，另附該檔合計
@@ -215,10 +211,12 @@
       '<span class="cd" style="margin-left:auto;">現價 ' + price(first.priceNow) +
       (first.chPct != null ? ' <span class="' + plCls(first.chPct) + '">' + pct(first.chPct) + "</span>" : "") + "</span></div>";
     // 配息資訊（每檔一次）
+    const expected = next && next.amount != null ? shares * Number(next.amount) : null;
     html += '<div class="divline">配息｜最近除息 <b>' + (last ? last.ex : "—") + "</b>・發放 <b>" +
       (last && last.pay ? last.pay : "—") + "</b>・每股 <b>" + (last && last.amount != null ? price(last.amount) + " 元" : "—") +
       "</b>　下次除息 <b>" + (next ? next.ex : "—") + "</b>・發放 <b>" + (next && next.pay ? next.pay : "—") +
-      "</b>・每股 <b>" + (next && next.amount != null ? price(next.amount) + " 元" : "—") + "</b></div>";
+      "</b>・每股 <b>" + (next && next.amount != null ? price(next.amount) + " 元" : "—") + "</b>" +
+      (expected != null ? "・預計可配息 <b>" + money(expected) + " 元</b>" : "") + "</div>";
     // 該檔合計
     html += '<div class="sec"><div class="h">合計（' + rs.length + " 筆）</div><div class=\"grid\">" +
       g("持有股數", num(shares), "", "key-field") +

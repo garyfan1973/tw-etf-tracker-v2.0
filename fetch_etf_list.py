@@ -18,6 +18,7 @@ TPEX_URL = "https://www.tpex.org.tw/openapi/v1/tpex_mainboard_quotes"
 USER_AGENT = "Mozilla/5.0 (ETF Tracker; +https://github.com/garyfan1973/tw-etf-tracker-v2.0)"
 BASE_DIR = os.path.dirname(os.path.abspath(__file__))
 OUT = os.path.join(BASE_DIR, "webapp", "etf_directory.json")
+EXCLUDED_CODES = {"00730"}
 
 
 def fetch_json(url):
@@ -31,14 +32,14 @@ def main():
     for row in fetch_json(TWSE_URL):
         code = str(row.get("基金代號", "")).strip().upper()
         name = str(row.get("基金簡稱", "")).strip()
-        if re.fullmatch(r"[0-9A-Z]{4,6}", code) and name:
+        if code not in EXCLUDED_CODES and re.fullmatch(r"[0-9A-Z]{4,6}", code) and name:
             items[code] = {"code": code, "name": name, "market": "上市"}
 
     # TPEx 的主板行情同時包含一般股票；ETF 證券代號使用 00 開頭的編碼。
     for row in fetch_json(TPEX_URL):
         code = str(row.get("SecuritiesCompanyCode", "")).strip().upper()
         name = str(row.get("CompanyName", "")).strip()
-        if re.fullmatch(r"00[0-9A-Z]{2,4}", code) and name and code not in items:
+        if code not in EXCLUDED_CODES and re.fullmatch(r"00[0-9A-Z]{2,4}", code) and name and code not in items:
             items[code] = {"code": code, "name": name, "market": "上櫃"}
 
     result = {

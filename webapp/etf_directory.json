@@ -1,5 +1,5 @@
 {
-  "updated_at": "2026-08-02T12:34:35+08:00",
+  "updated_at": "2026-08-02T15:23:50+08:00",
   "sources": [
     "https://openapi.twse.com.tw/v1/opendata/t187ap47_L",
     "https://www.tpex.org.tw/openapi/v1/tpex_mainboard_quotes"
@@ -658,11 +658,6 @@
     {
       "code": "00729R",
       "name": "第一金工業30反一",
-      "market": "上市"
-    },
-    {
-      "code": "00730",
-      "name": "富邦臺灣優質高息",
       "market": "上市"
     },
     {
