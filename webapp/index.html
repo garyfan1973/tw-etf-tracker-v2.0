@@ -80,6 +80,7 @@
     tr.open .caret { transform: rotate(90deg); }
     .mkt { display: inline-block; font-size: 10px; padding: 0 6px; border-radius: 4px;
       background: #e6edf8; color: #334155; border: 1px solid #cbd8ea; vertical-align: 1px; }
+    .market-flag { display: inline-block; margin-left: 4px; font-size: 15px; line-height: 1; vertical-align: -1px; }
     @media (prefers-color-scheme: dark) {
       .mkt { background: #2a323b; color: #e6e9ed; border-color: #3b4653; }
     }
@@ -356,7 +357,7 @@
           const tr = document.createElement("tr");
           tr.className = "main" + (opened ? " open" : "");
           tr.innerHTML =
-            '<td><span class="caret">▸</span> ' + h.name + codeTxt + mktTag(h) + '</td>' +
+            '<td><span class="caret">▸</span> ' + h.name + codeTxt + mktTag(h, etfSel.value) + '</td>' +
             '<td class="num barcell"><span class="bar" style="width:' + (h.weight / maxW * 100) + '%"></span>' + h.weight.toFixed(2) + '</td>' +
             '<td class="num">' + h.shares.toLocaleString("en-US") + '</td>' +
             '<td class="num">' + px(h.close) + '</td>' +
@@ -399,9 +400,16 @@
       const MKT = { TW: "台股", US: "美股", JP: "日股", KS: "韓股", HK: "港股", CN: "陸股", DE: "德股", GB: "英股" };
       const MARKET_FLAGS = { TW: "🇹🇼", US: "🇺🇸", JP: "🇯🇵", KS: "🇰🇷", HK: "🇭🇰", CN: "🇨🇳", DE: "🇩🇪", GB: "🇬🇧" };
       const marketName = h => h.market ? (MKT[h.market] || h.market) : "海外";
-      const mktTag = h => h.market
-        ? ' <span class="mkt">' + (MARKET_FLAGS[h.market] || "") + " " + marketName(h) + '</span>'
-        : ' <span class="mkt">海外</span>';
+      const mktTag = (h, etfCode) => {
+        if (etfCode === "00990A") {
+          return h.market && h.market !== "TW"
+            ? ' <span class="market-flag" title="' + marketName(h) + '" aria-label="' + marketName(h) + '">' + (MARKET_FLAGS[h.market] || "") + '</span>'
+            : "";
+        }
+        return h.market && h.market !== "TW"
+          ? ' <span class="mkt">' + marketName(h) + '</span>'
+          : (!h.market ? ' <span class="mkt">海外</span>' : "");
+      };
 
       function sortRows(rows, st) {
         rows.sort((a, b) => {
