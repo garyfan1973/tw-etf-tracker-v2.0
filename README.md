@@ -40,6 +40,7 @@
    - 預設是「最新一天 vs 前一天」。
    - 可搜尋個股或代號、點表頭排序。
    - 頂端可切換到 **配息日曆**（`dividends.html`）。
+   - 個人交易表單可用 ETF 代號或名稱搜尋，清單由官方上市／上櫃 ETF 資料建立。
 
 ## 配息日曆（dividends.html）
 
@@ -90,7 +91,7 @@ crontab -e
 
 - **持久化**：`data/*.json` 快照與 `webapp/data.js` 都進版控，GitHub repo 就是資料庫。
 - **自動更新**：`.github/workflows/update-data.yml` 每個交易日 17:30（台灣）在 GitHub
-  雲端跑 `fetch.py`，把新資料 commit 回 repo。
+  雲端先更新 `webapp/etf_directory.json`，再跑 `fetch.py`，把新資料 commit 回 repo。
 - **自動部署**：Vercel 綁定此 repo，一有 push 就自動重新部署，任何裝置都看到最新。
 
 ### Vercel 首次設定（一次性）

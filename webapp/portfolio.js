@@ -9,6 +9,7 @@
     securities_transaction_tax: { rate: 0.001, enabled: true }
   };
   const configReady = loadPortfolioConfig();
+  let etfDirectory = [];
 
   const auth = () => window.ETFAuth;
   const sb = () => auth() && auth().client();
@@ -58,6 +59,23 @@
 
   async function ensureData(codes) {
     for (const c of codes) { if (window.ETFData) await window.ETFData.ensure(c); }
+  }
+
+  async function loadEtfDirectory() {
+    try {
+      const res = await fetch("etf_directory.json", { cache: "no-store" });
+      if (res.ok) {
+        const data = await res.json();
+        etfDirectory = Array.isArray(data.etfs) ? data.etfs : [];
+      }
+    } catch (e) { /* 清單尚未產生時使用 data.js 退回清單 */ }
+    if (!etfDirectory.length && window.DATA && window.DATA.etfs) {
+      etfDirectory = Object.entries(window.DATA.etfs).map(([code, etf]) => ({ code, name: etf.name || code }));
+    }
+    $("etfOptions").innerHTML = etfDirectory.flatMap((x) => [
+      '<option value="' + x.code + '" label="' + x.name + '"></option>',
+      '<option value="' + x.name + '" label="' + x.code + '"></option>'
+    ]).join("");
   }
 
   async function loadHoldings() {
@@ -216,8 +234,8 @@
     rs.forEach((r) => {
       const h = r.h;
       html += '<div class="lot"><div class="lot-top"><span class="cd">買入 ' + (h.buy_date || "—") + "</span>" +
-        '<span class="sp"><a class="small" data-edit="' + h.id + '">編輯</a>' +
-        '<a class="small" data-del="' + h.id + '" style="color:var(--up);">刪除</a></span></div>' +
+        '<span class="sp"><button class="icon-btn" type="button" data-edit="' + h.id + '" title="編輯這筆買入" aria-label="編輯這筆買入">✎</button>' +
+        '<button class="icon-btn delete" type="button" data-del="' + h.id + '" title="刪除這筆買入" aria-label="刪除這筆買入">🗑</button></span></div>' +
         '<div class="grid">' +
         g("持有股數", num(r.shares), "", "key-field") +
         g("買入均價", h.avg_cost != null ? price(h.avg_cost) : "—", "", "key-field") +
@@ -227,21 +245,20 @@
         g("報酬率%", pct(r.plp), plCls(r.plp)) +
         "</div>" + (h.note ? '<div class="note">📝 ' + h.note + "</div>" : "") + "</div>";
     });
-    html += "</div></div></div>";
     if (sales && sales.length) {
-      html += '<div class="sec lot-section sale-section"><div class="lot-top"><div class="h" style="margin:0;">賣出紀錄（' + sales.length + " 筆）</div>" +
-        '<button class="lot-toggle" type="button" data-toggle-sales="' + code + '" aria-expanded="false">展開</button></div>' +
-        '<div class="trade-history" data-sales="' + code + '" hidden>';
+      html += '<div class="sale-subhead">賣出紀錄（' + sales.length + " 筆）</div>" +
+        '<div class="trade-history" data-sales="' + code + '">';
       sales.slice().sort((a, b) => String(b.t.trade_date || "").localeCompare(String(a.t.trade_date || ""))).forEach((s) => {
         const t = s.t;
         html += '<div class="trade-row"><span class="sell">賣出</span>　' + (t.trade_date || "—") +
           "　" + num(t.shares) + " 股　成交均價 " + (t.price != null ? price(t.price) : "—") + " 元" +
           (s.realized != null ? '　已實現損益 <span class="' + plCls(s.realized) + '">' + (s.realized > 0 ? "+" : "") + money(s.realized) + " 元</span>" : "") +
-          '　<a class="small" data-del="' + t.id + '" style="color:var(--up);">刪除</a>' +
+          '　<button class="icon-btn delete" type="button" data-del="' + t.id + '" title="刪除這筆賣出" aria-label="刪除這筆賣出">🗑</button>' +
           (t.note ? '<div class="note">📝 ' + t.note + "</div>" : "") + "</div>";
       });
-      html += "</div></div>";
+      html += "</div>";
     }
+    html += "</div></div></div>";
     return html;
   }
 
@@ -279,19 +296,12 @@
       el.setAttribute("aria-expanded", String(open));
       el.textContent = open ? "收合" : "展開";
     });
-    list.querySelectorAll("[data-toggle-sales]").forEach((el) => el.onclick = () => {
-      const box = list.querySelector('[data-sales="' + el.dataset.toggleSales + '"]');
-      const open = box.hidden;
-      box.hidden = !open;
-      el.setAttribute("aria-expanded", String(open));
-      el.textContent = open ? "收合" : "展開";
-    });
   }
 
   function resetForm() {
     editingId = null;
     ["fCode", "fShares", "fDate", "fPrice", "fNote"].forEach((id) => $(id).value = "");
-    $("fSide").value = "buy"; $("fSide").disabled = false;
+    $("fSideBuy").checked = true; $("fSideBuy").disabled = false; $("fSideSell").disabled = false;
     $("fMsg").textContent = ""; $("formTitle").textContent = "新增交易";
     $("fSubmit").textContent = "新增買入"; $("fCancel").style.display = "none";
     $("fCode").disabled = false; $("fDate").value = today(); updateFormMode();
@@ -306,7 +316,7 @@
       return;
     }
     editingId = id;
-    $("fSide").value = "buy"; $("fSide").disabled = true;
+    $("fSideBuy").checked = true; $("fSideBuy").disabled = true; $("fSideSell").disabled = true;
     $("fCode").value = h.etf_code; $("fCode").disabled = true;
     $("fShares").value = h.shares; $("fDate").value = h.trade_date || "";
     $("fPrice").value = h.price != null ? h.price : ""; $("fNote").value = h.note || "";
@@ -317,7 +327,7 @@
   }
 
   function updateFormMode() {
-    const sell = $("fSide").value === "sell";
+    const sell = $("fSideSell").checked;
     $("fSharesLabel").textContent = sell ? "賣出股數" : "買入股數";
     $("fDateLabel").textContent = sell ? "賣出日期" : "買入日期";
     $("fPriceLabel").textContent = sell ? "賣出均價" : "買入均價（選填）";
@@ -328,8 +338,10 @@
   async function submit() {
     const c = sb(); if (!c || !user()) return;
     const msg = $("fMsg"); msg.style.color = "var(--up)";
-    const side = $("fSide").value;
-    const code = ($("fCode").value || "").trim().toUpperCase();
+    const side = $("fSideSell").checked ? "sell" : "buy";
+    const rawCode = ($("fCode").value || "").trim();
+    const matchedEtf = etfDirectory.find((x) => x.code === rawCode.toUpperCase() || x.name === rawCode);
+    const code = matchedEtf ? matchedEtf.code : rawCode.toUpperCase();
     const shares = Number($("fShares").value);
     const date = $("fDate").value || null;
     const tradePrice = $("fPrice").value !== "" ? Number($("fPrice").value) : null;
@@ -380,9 +392,11 @@
   document.addEventListener("DOMContentLoaded", () => {
     $("fSubmit").onclick = submit;
     $("fCancel").onclick = resetForm;
-    $("fSide").onchange = updateFormMode;
+    $("fSideBuy").onchange = updateFormMode;
+    $("fSideSell").onchange = updateFormMode;
     $("fDate").value = today();
     updateFormMode();
+    loadEtfDirectory();
   });
 
   // 登入狀態或 ETF 資料變動 → 載入/重繪
