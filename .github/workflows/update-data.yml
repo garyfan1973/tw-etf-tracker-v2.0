@@ -1,9 +1,9 @@
 name: 更新 ETF 資料
 
 on:
-  # 台灣交易日傍晚 17:30（= UTC 09:30，週一到五）
+  # 每天台灣時間傍晚 17:30（= UTC 09:30）；非交易日會依資料來源日期覆蓋最新快照
   schedule:
-    - cron: "30 9 * * 1-5"
+    - cron: "30 9 * * *"
   # 允許在 GitHub 網頁手動觸發（Actions 分頁 → Run workflow）
   workflow_dispatch:
 
