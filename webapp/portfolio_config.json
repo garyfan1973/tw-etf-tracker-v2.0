@@ -1,0 +1,7 @@
+{
+  "brokerage": {
+    "name": "國泰證券",
+    "fee_rate": 0.000399,
+    "minimum_fee": 1
+  }
+}

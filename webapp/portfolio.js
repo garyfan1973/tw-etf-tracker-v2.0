@@ -4,6 +4,8 @@
   let holdings = [];
   let editingId = null;
   let loadedFor = null;   // 已載入哪個 user 的資料
+  let portfolioConfig = { brokerage: { fee_rate: 0.000399, minimum_fee: 1 } };
+  const configReady = loadPortfolioConfig();
 
   const auth = () => window.ETFAuth;
   const sb = () => auth() && auth().client();
@@ -18,6 +20,27 @@
   const price = (n) => (n == null || isNaN(n)) ? "—" : Number(n).toLocaleString("en-US", { minimumFractionDigits: 2, maximumFractionDigits: 2 });
   const pct = (n) => (n == null || isNaN(n)) ? "—" : (n > 0 ? "+" : "") + Number(n).toFixed(2) + "%";
   const plCls = (n) => n > 0 ? "up" : n < 0 ? "down" : "";
+
+  async function loadPortfolioConfig() {
+    try {
+      const res = await fetch("portfolio_config.json", { cache: "no-store" });
+      if (res.ok) {
+        const data = await res.json();
+        const b = data && data.brokerage;
+        if (b && Number.isFinite(Number(b.fee_rate)) && Number.isFinite(Number(b.minimum_fee))) {
+          portfolioConfig = { brokerage: { fee_rate: Number(b.fee_rate), minimum_fee: Number(b.minimum_fee) } };
+        }
+      }
+    } catch (e) {
+      // 直接以 file:// 開啟時可能無法 fetch JSON，使用上方預設值即可。
+    }
+  }
+
+  function feeFor(shares, avgCost) {
+    if (avgCost == null || !Number.isFinite(Number(avgCost))) return null;
+    const b = portfolioConfig.brokerage;
+    return Math.max(Number(b.minimum_fee), shares * Number(avgCost) * Number(b.fee_rate));
+  }
 
   async function ensureData(codes) {
     for (const c of codes) { if (window.ETFData) await window.ETFData.ensure(c); }
@@ -39,7 +62,9 @@
     const priceNow = self ? self.close : null;
     const chPct = self ? self.changePct : null;
     const shares = Number(h.shares) || 0;
-    const cost = (h.avg_cost != null) ? shares * Number(h.avg_cost) : null;
+    const tradeValue = (h.avg_cost != null) ? shares * Number(h.avg_cost) : null;
+    const fee = feeFor(shares, h.avg_cost);
+    const cost = (tradeValue != null && fee != null) ? tradeValue + fee : null;
     const mkt = (priceNow != null) ? shares * priceNow : null;
     const pl = (mkt != null && cost != null) ? mkt - cost : null;
     const plp = (pl != null && cost) ? pl / cost * 100 : null;
@@ -52,9 +77,7 @@
     const ttmPer = divs.filter((d) => d.ex && d.ex <= t && d.ex >= ya && d.amount != null).reduce((s, d) => s + d.amount, 0);
     const ttm = shares * ttmPer;
     const yoc = cost ? ttm / cost * 100 : null;
-    const lastAmt = (last && last.amount != null) ? shares * last.amount : null;
-    const nextAmt = (next && next.amount != null) ? shares * next.amount : null;
-    return { h, name, priceNow, chPct, shares, cost, mkt, pl, plp, last, next, ttm, yoc, lastAmt, nextAmt };
+    return { h, name, priceNow, chPct, shares, tradeValue, fee, cost, mkt, pl, plp, last, next, ttm, yoc };
   }
 
   function renderSummary(rows) {
@@ -80,13 +103,13 @@
   function etfCard(code, rs) {
     const first = rs[0];
     const g = (k, v, cls) => '<div><div class="k">' + k + '</div><div class="v ' + (cls || "") + '">' + v + '</div></div>';
-    let shares = 0, cost = 0, mkt = 0, ttm = 0, lastAmt = 0, hasCost = false, hasMkt = false;
+    let shares = 0, fee = 0, cost = 0, mkt = 0, ttm = 0, hasCost = false, hasFee = false, hasMkt = false;
     rs.forEach((r) => {
       shares += r.shares;
+      if (r.fee != null) { fee += r.fee; hasFee = true; }
       if (r.cost != null) { cost += r.cost; hasCost = true; }
       if (r.mkt != null) { mkt += r.mkt; hasMkt = true; }
       ttm += r.ttm || 0;
-      if (r.lastAmt != null) lastAmt += r.lastAmt;
     });
     const pl = (hasMkt && hasCost) ? mkt - cost : null;
     const plp = (pl != null && cost) ? pl / cost * 100 : null;
@@ -98,23 +121,26 @@
     html += '<div class="top"><span class="nm">' + first.name + '</span><span class="cd">' + code + '</span>' +
       '<span class="cd" style="margin-left:auto;">現價 ' + price(first.priceNow) +
       (first.chPct != null ? ' <span class="' + plCls(first.chPct) + '">' + pct(first.chPct) + "</span>" : "") + "</span></div>";
-    // 配息資訊（每檔一次，只放日期與每股，金額因股數而異放各筆）
+    // 配息資訊（每檔一次）
     html += '<div class="divline">配息｜最近除息 <b>' + (last ? last.ex : "—") + "</b>・發放 <b>" +
       (last && last.pay ? last.pay : "—") + "</b>・每股 <b>" + (last && last.amount != null ? price(last.amount) + " 元" : "—") +
-      "</b>　下次除息 <b>" + (next ? next.ex : "—") + "</b>・發放 <b>" + (next && next.pay ? next.pay : "—") + "</b></div>";
+      "</b>　下次除息 <b>" + (next ? next.ex : "—") + "</b>・發放 <b>" + (next && next.pay ? next.pay : "—") +
+      "</b>・每股 <b>" + (next && next.amount != null ? price(next.amount) + " 元" : "—") + "</b></div>";
     // 該檔合計
     html += '<div class="sec"><div class="h">合計（' + rs.length + " 筆）</div><div class=\"grid\">" +
       g("持有股數", num(shares)) +
       g("投入成本", hasCost ? money(cost) + " 元" : "—") +
+      g("手續費", hasFee ? money(fee) + " 元" : "—") +
       g("市值", hasMkt ? money(mkt) + " 元" : "—") +
       g("損益", pl != null ? (pl > 0 ? "+" : "") + money(pl) + " 元" : "—", plCls(pl)) +
       g("損益%", pct(plp), plCls(plp)) +
-      g("本次發放金額", lastAmt ? money(lastAmt) + " 元" : "—") +
       g("過去12月年配息", ttm ? money(ttm) + " 元" : "—") +
       g("個人殖利率", yoc != null ? yoc.toFixed(2) + "%" : "—") +
       "</div></div>";
-    // 各筆買入
-    html += '<div class="sec"><div class="h">各筆買入</div>';
+    // 各筆買入：預設收合，需要時逐檔展開
+    html += '<div class="sec"><div class="lot-top"><div class="h" style="margin:0;">各筆買入（' + rs.length + " 筆）</div>" +
+      '<button class="lot-toggle" type="button" data-toggle-lots="' + code + '" aria-expanded="false">展開</button></div>' +
+      '<div class="lots" data-lots="' + code + '" hidden>';
     rs.forEach((r) => {
       const h = r.h;
       html += '<div class="lot"><div class="lot-top"><span class="cd">買入 ' + (h.buy_date || "—") + "</span>" +
@@ -123,10 +149,11 @@
         '<div class="grid">' +
         g("持有股數", num(r.shares)) +
         g("買入均價", h.avg_cost != null ? price(h.avg_cost) : "—") +
+        g("手續費", r.fee != null ? money(r.fee) + " 元" : "—") +
         g("投入成本", r.cost != null ? money(r.cost) + " 元" : "—") +
         g("市值", r.mkt != null ? money(r.mkt) + " 元" : "—") +
         g("損益", r.pl != null ? (r.pl > 0 ? "+" : "") + money(r.pl) + " 元" : "—", plCls(r.pl)) +
-        g("本次發放金額", r.lastAmt != null ? money(r.lastAmt) + " 元" : "—") +
+        g("損益%", pct(r.plp), plCls(r.plp)) +
         "</div>" + (h.note ? '<div class="note">📝 ' + h.note + "</div>" : "") + "</div>";
     });
     html += "</div></div>";
@@ -159,6 +186,13 @@
     }
     list.querySelectorAll("[data-edit]").forEach((el) => el.onclick = () => startEdit(el.dataset.edit));
     list.querySelectorAll("[data-del]").forEach((el) => el.onclick = () => del(el.dataset.del));
+    list.querySelectorAll("[data-toggle-lots]").forEach((el) => el.onclick = () => {
+      const box = list.querySelector('[data-lots="' + el.dataset.toggleLots + '"]');
+      const open = box.hidden;
+      box.hidden = !open;
+      el.setAttribute("aria-expanded", String(open));
+      el.textContent = open ? "收合" : "展開";
+    });
   }
 
   function resetForm() {
@@ -221,7 +255,7 @@
   // 登入狀態或 ETF 資料變動 → 載入/重繪
   document.addEventListener("etfwatch:change", () => {
     const uid = user() && user().id;
-    if (uid && uid !== loadedFor) { loadedFor = uid; loadHoldings(); }
+    if (uid && uid !== loadedFor) { loadedFor = uid; configReady.then(loadHoldings); }
     else if (!uid) { loadedFor = null; render(); }
     else render();
   });
@@ -229,6 +263,6 @@
   // 保險：auth 若已就緒但事件已錯過
   setTimeout(() => {
     const uid = user() && user().id;
-    if (uid && uid !== loadedFor) { loadedFor = uid; loadHoldings(); } else render();
+    if (uid && uid !== loadedFor) { loadedFor = uid; configReady.then(loadHoldings); } else configReady.then(render);
   }, 500);
 })();
