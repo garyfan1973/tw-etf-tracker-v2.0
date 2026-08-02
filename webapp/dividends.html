@@ -53,6 +53,8 @@
     .badge { font-size: 11px; padding: 1px 7px; border-radius: 999px; color: #fff; white-space: nowrap; }
     .badge.ex { background: var(--ex); }
     .badge.pay { background: var(--pay); }
+    .badge.tw-holiday { background: #d97706; }
+    .badge.us-holiday { background: #7c3aed; }
     .up-amt { margin-left: auto; font-variant-numeric: tabular-nums; white-space: nowrap; }
     /* ETF 篩選 */
     .chips { display: flex; flex-wrap: wrap; gap: 6px; }
@@ -82,11 +84,17 @@
     .pill { font-size: 10px; line-height: 1.5; padding: 0 5px; border-radius: 4px; color: #fff; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
     .pill.ex { background: var(--ex); }
     .pill.pay { background: var(--pay); }
+    .holiday-pill { font-size: 10px; line-height: 1.5; padding: 0 5px; border-radius: 4px; color: #fff;
+      white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+    .holiday-pill.tw { background: #d97706; }
+    .holiday-pill.us { background: #7c3aed; }
     .more { font-size: 10px; color: var(--muted); }
     .legend { display: flex; gap: 14px; margin: 10px 2px 0; font-size: 12px; color: var(--muted); }
     .legend span::before { content: ""; display: inline-block; width: 10px; height: 10px; border-radius: 3px; margin-right: 4px; vertical-align: -1px; }
     .legend .ex::before { background: var(--ex); }
     .legend .pay::before { background: var(--pay); }
+    .legend .tw::before { background: #d97706; }
+    .legend .us::before { background: #7c3aed; }
     /* 選取日明細 */
     .detail-list .d-row { padding: 10px 0; border-bottom: 1px solid var(--border); font-size: 14px; }
     .detail-list .d-row:last-child { border-bottom: none; }
@@ -150,6 +158,8 @@
       <div class="legend">
         <span class="ex">除息日（買在此日前一天才領得到）</span>
         <span class="pay">發放日（現金入帳）</span>
+        <span class="tw">台灣國定假日</span>
+        <span class="us">美國聯邦假日</span>
       </div>
     </div>
 
@@ -168,7 +178,15 @@
       document.getElementById("sub").textContent =
         "尚無資料。請先執行 python3 fetch.py 產生 data.js。";
     } else {
-      init();
+      loadHolidays().then(init);
+    }
+
+    let HOLIDAYS = [];
+    async function loadHolidays() {
+      try {
+        const r = await fetch("holidays.json", { cache: "no-store" });
+        if (r.ok) HOLIDAYS = await r.json();
+      } catch (_) { /* 節日資料載入失敗時仍可使用配息日曆 */ }
     }
 
     function init() {
@@ -189,6 +207,8 @@
         });
       }
       buildEvents();
+      const holidayByDate = {};
+      HOLIDAYS.forEach(h => { (holidayByDate[h.date] = holidayByDate[h.date] || []).push(h); });
 
       // ETF 篩選狀態（預設全開）
       const active = new Set(Object.keys(D.etfs));
@@ -329,6 +349,11 @@
           cell.className = "day" + (dow === 0 ? " sun" : dow === 6 ? " sat" : "") +
             (ds === todayStr ? " today" : "") + (ds === selDate ? " sel" : "");
           let html = '<div class="dnum">' + d + '</div><div class="pills">';
+          const holidays = holidayByDate[ds] || [];
+          holidays.forEach(h => {
+            html += '<span class="holiday-pill ' + (h.country === "US" ? "us" : "tw") + '" title="' + h.name + '">' +
+              (h.country === "US" ? "🇺🇸 " : "🇹🇼 ") + h.name + '</span>';
+          });
           const evs = byDate[ds] || [];
           evs.slice(0, 3).forEach(e => {
             html += '<span class="pill ' + e.type + '" title="' + e.name + ' ' + TYPE[e.type] + '">' + e.etf + '</span>';
@@ -347,10 +372,18 @@
         if (!selDate) { panel.style.display = "none"; return; }
         const evs = activeEvents().filter(e => e.date === selDate)
           .sort((a, b) => a.type < b.type ? -1 : 1);
+        const holidays = holidayByDate[selDate] || [];
         document.getElementById("detailTitle").textContent = selDate + " 配息明細";
         const box = document.getElementById("detail");
         box.innerHTML = "";
-        if (!evs.length) { box.innerHTML = '<div class="empty">這天沒有配息事件</div>'; panel.style.display = "block"; return; }
+        holidays.forEach(h => {
+          const row = document.createElement("div");
+          row.className = "d-row";
+          row.innerHTML = '<div class="d-top"><span class="badge ' + (h.country === "US" ? "us-holiday" : "tw-holiday") + '">' +
+            (h.country === "US" ? "美國假日" : "台灣假日") + '</span><span class="d-name">' + h.name + '</span></div>';
+          box.appendChild(row);
+        });
+        if (!evs.length && !holidays.length) { box.innerHTML = '<div class="empty">這天沒有配息或國定假日</div>'; panel.style.display = "block"; return; }
         evs.forEach(e => {
           const row = document.createElement("div");
           row.className = "d-row";
