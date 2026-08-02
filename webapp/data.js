@@ -1,12 +1,12 @@
 window.DATA = {
-  "generated_at": "2026-08-02T23:23:06+08:00",
+  "generated_at": "2026-08-02T23:42:52+08:00",
   "etfs": {
     "00981A": {
       "name": "主動統一台股增長",
       "snapshots": [
         {
           "date": "2026-07-31",
-          "fetched_at": "2026-08-02T23:22:38+08:00",
+          "fetched_at": "2026-08-02T23:42:17+08:00",
           "count": 37,
           "self": {
             "open": 26.06,
@@ -637,7 +637,7 @@ window.DATA = {
       "snapshots": [
         {
           "date": "2026-07-31",
-          "fetched_at": "2026-08-02T23:22:39+08:00",
+          "fetched_at": "2026-08-02T23:42:18+08:00",
           "count": 55,
           "self": {
             "open": 20.14,
@@ -1570,7 +1570,7 @@ window.DATA = {
       "snapshots": [
         {
           "date": "2026-07-30",
-          "fetched_at": "2026-08-02T23:22:45+08:00",
+          "fetched_at": "2026-08-02T23:42:27+08:00",
           "count": 45,
           "self": {
             "open": 15.1,
@@ -2362,7 +2362,7 @@ window.DATA = {
       "snapshots": [
         {
           "date": "2026-07-31",
-          "fetched_at": "2026-08-02T23:22:47+08:00",
+          "fetched_at": "2026-08-02T23:42:29+08:00",
           "count": 37,
           "self": {
             "open": 14.7,
@@ -2986,7 +2986,7 @@ window.DATA = {
       "snapshots": [
         {
           "date": "2026-07-31",
-          "fetched_at": "2026-08-02T23:22:48+08:00",
+          "fetched_at": "2026-08-02T23:42:31+08:00",
           "count": 51,
           "self": {
             "open": 12.7,
@@ -3841,7 +3841,7 @@ window.DATA = {
       "snapshots": [
         {
           "date": "2026-07-31",
-          "fetched_at": "2026-08-02T23:22:50+08:00",
+          "fetched_at": "2026-08-02T23:42:32+08:00",
           "count": 50,
           "self": {
             "open": 100.0,
@@ -4694,7 +4694,7 @@ window.DATA = {
       "snapshots": [
         {
           "date": "2026-07-31",
-          "fetched_at": "2026-08-02T23:22:51+08:00",
+          "fetched_at": "2026-08-02T23:42:34+08:00",
           "count": 72,
           "self": {
             "open": 58.3,
@@ -5885,7 +5885,7 @@ window.DATA = {
       "snapshots": [
         {
           "date": "2026-07-31",
-          "fetched_at": "2026-08-02T23:22:53+08:00",
+          "fetched_at": "2026-08-02T23:42:36+08:00",
           "count": 50,
           "self": {
             "open": 48.7,
@@ -6766,7 +6766,7 @@ window.DATA = {
       "snapshots": [
         {
           "date": "2026-07-31",
-          "fetched_at": "2026-08-02T23:22:55+08:00",
+          "fetched_at": "2026-08-02T23:42:38+08:00",
           "count": 30,
           "self": {
             "open": 32.09,
@@ -7334,7 +7334,7 @@ window.DATA = {
       "snapshots": [
         {
           "date": "2026-07-31",
-          "fetched_at": "2026-08-02T23:22:56+08:00",
+          "fetched_at": "2026-08-02T23:42:40+08:00",
           "count": 30,
           "self": {
             "open": 49.71,
@@ -7867,7 +7867,7 @@ window.DATA = {
       "snapshots": [
         {
           "date": "2026-07-31",
-          "fetched_at": "2026-08-02T23:22:58+08:00",
+          "fetched_at": "2026-08-02T23:42:42+08:00",
           "count": 40,
           "self": {
             "open": 29.31,
@@ -8588,7 +8588,7 @@ window.DATA = {
       "snapshots": [
         {
           "date": "2026-07-31",
-          "fetched_at": "2026-08-02T23:22:59+08:00",
+          "fetched_at": "2026-08-02T23:42:43+08:00",
           "count": 50,
           "self": {
             "open": 37.83,
@@ -9441,7 +9441,7 @@ window.DATA = {
       "snapshots": [
         {
           "date": "2026-07-30",
-          "fetched_at": "2026-08-02T23:23:05+08:00",
+          "fetched_at": "2026-08-02T23:42:51+08:00",
           "count": 30,
           "self": {
             "open": 83.2,
