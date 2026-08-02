@@ -140,6 +140,32 @@
     };
   }
 
+  // 依除息日前的交易狀態計算符合配息資格的股數。
+  // 沒有買入日期的定期定額批次仍參與 FIFO 的消耗順序，但不列入資格股數。
+  function dividendEligibleShares(code, exDate) {
+    const txs = transactions.filter((t) => t.etf_code === code && (!t.trade_date || String(t.trade_date) < String(exDate))).slice().sort((a, b) => {
+      const d = String(a.trade_date || "").localeCompare(String(b.trade_date || ""));
+      return d || String(a.created_at || "").localeCompare(String(b.created_at || ""));
+    });
+    const lots = [];
+    txs.forEach((t) => {
+      const qty = Number(t.shares) || 0;
+      if (t.side === "buy") {
+        lots.push({ shares: qty, eligible: !!t.trade_date });
+        return;
+      }
+      let left = qty;
+      while (left > 0) {
+        const lot = lots.find((x) => x.shares > 0);
+        if (!lot) break;
+        const take = Math.min(left, lot.shares);
+        lot.shares -= take;
+        left -= take;
+      }
+    });
+    return lots.reduce((sum, lot) => sum + (lot.eligible ? lot.shares : 0), 0);
+  }
+
   function compute(h) {
     const D = window.DATA, etf = D && D.etfs && D.etfs[h.etf_code];
     const name = etf ? etf.name : h.etf_code;
@@ -212,9 +238,12 @@
       (first.chPct != null ? ' <span class="' + plCls(first.chPct) + '">' + pct(first.chPct) + "</span>" : "") + "</span></div>";
     // 配息資訊（每檔一次）
     const expected = next && next.amount != null ? shares * Number(next.amount) : null;
+    const recentEligibleShares = last && last.ex ? dividendEligibleShares(code, last.ex) : 0;
+    const recentPayout = last && last.amount != null ? recentEligibleShares * Number(last.amount) : null;
     html += '<div class="divline">配息｜最近除息 <b>' + (last ? last.ex : "—") + "</b>・發放 <b>" +
       (last && last.pay ? last.pay : "—") + "</b>・每股 <b>" + (last && last.amount != null ? price(last.amount) + " 元" : "—") +
-      "</b>　下次除息 <b>" + (next ? next.ex : "—") + "</b>・發放 <b>" + (next && next.pay ? next.pay : "—") +
+      (recentPayout != null ? "・配息金額 <b>" + money(recentPayout) + " 元</b>" : "") +
+      "　下次除息 <b>" + (next ? next.ex : "—") + "</b>・發放 <b>" + (next && next.pay ? next.pay : "—") +
       "</b>・每股 <b>" + (next && next.amount != null ? price(next.amount) + " 元" : "—") + "</b>" +
       (expected != null ? '<span class="expected-payout">預計可配息 <b>' + money(expected) + " 元</b></span>" : "") + "</div>";
     // 該檔合計
