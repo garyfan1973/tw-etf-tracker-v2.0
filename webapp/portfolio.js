@@ -155,12 +155,12 @@
       g("現值", hasValue ? money(value) + " 元" : "—") +
       g("預估賣出成本", hasSellCosts ? money(sellCosts) + " 元" : "—") +
       g("損益", pl != null ? (pl > 0 ? "+" : "") + money(pl) + " 元" : "—", plCls(pl)) +
-      g("損益%", pct(plp), plCls(plp)) +
+      g("報酬率%", pct(plp), plCls(plp)) +
       g("過去12月年配息", ttm ? money(ttm) + " 元" : "—") +
       g("個人殖利率", yoc != null ? yoc.toFixed(2) + "%" : "—") +
       "</div></div>";
     // 各筆買入：預設收合，需要時逐檔展開
-    html += '<div class="sec"><div class="lot-top"><div class="h" style="margin:0;">各筆買入（' + rs.length + " 筆）</div>" +
+    html += '<div class="sec lot-section"><div class="lot-top"><div class="h" style="margin:0;">各筆買入（' + rs.length + " 筆）</div>" +
       '<button class="lot-toggle" type="button" data-toggle-lots="' + code + '" aria-expanded="false">展開</button></div>' +
       '<div class="lots" data-lots="' + code + '" hidden>';
     rs.forEach((r) => {
@@ -176,7 +176,7 @@
         g("現值", r.currentValue != null ? money(r.currentValue) + " 元" : "—") +
         g("預估賣出成本", r.sellCosts != null ? money(r.sellCosts) + " 元" : "—") +
         g("損益", r.pl != null ? (r.pl > 0 ? "+" : "") + money(r.pl) + " 元" : "—", plCls(r.pl)) +
-        g("損益%", pct(r.plp), plCls(r.plp)) +
+        g("報酬率%", pct(r.plp), plCls(r.plp)) +
         "</div>" + (h.note ? '<div class="note">📝 ' + h.note + "</div>" : "") + "</div>";
     });
     html += "</div></div>";
