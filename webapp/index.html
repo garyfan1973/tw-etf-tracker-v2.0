@@ -79,8 +79,10 @@
     .caret { display: inline-block; width: 14px; color: var(--muted); transition: transform .15s; }
     tr.open .caret { transform: rotate(90deg); }
     .mkt { display: inline-block; font-size: 10px; padding: 0 6px; border-radius: 4px;
-      background: var(--chip, #eef1f6); color: var(--muted); vertical-align: 1px; }
-    @media (prefers-color-scheme: dark) { .mkt { background: #2a323b; } }
+      background: #e6edf8; color: #334155; border: 1px solid #cbd8ea; vertical-align: 1px; }
+    @media (prefers-color-scheme: dark) {
+      .mkt { background: #2a323b; color: #e6e9ed; border-color: #3b4653; }
+    }
     .price-up { color: var(--up); }
     .price-down { color: var(--down); }
     /* 展開明細：用 --detail 底色 + 左側強調線，與收合列明顯區隔 */
