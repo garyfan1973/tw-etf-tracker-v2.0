@@ -240,9 +240,14 @@
     const expected = next && next.amount != null ? shares * Number(next.amount) : null;
     const recentEligibleShares = last && last.ex ? dividendEligibleShares(code, last.ex) : 0;
     const recentPayout = last && last.amount != null ? recentEligibleShares * Number(last.amount) : null;
+    const recentPending = !!(last && last.pay && String(last.pay) >= today());
     html += '<div class="divline">配息｜最近除息 <b>' + (last ? last.ex : "—") + "</b>・發放 <b>" +
       (last && last.pay ? last.pay : "—") + "</b>・每股 <b>" + (last && last.amount != null ? price(last.amount) + " 元" : "—") +
-      (recentPayout != null ? "・配息金額 <b>" + money(recentPayout) + " 元</b>" : "") +
+      (recentPayout != null
+        ? (recentPending
+          ? '<span class="expected-payout">預計可配息 <b>' + money(recentPayout) + " 元</b></span>"
+          : "・配息金額 <b>" + money(recentPayout) + " 元</b>")
+        : "") +
       "　下次除息 <b>" + (next ? next.ex : "—") + "</b>・發放 <b>" + (next && next.pay ? next.pay : "—") +
       "</b>・每股 <b>" + (next && next.amount != null ? price(next.amount) + " 元" : "—") + "</b>" +
       (expected != null ? '<span class="expected-payout">預計可配息 <b>' + money(expected) + " 元</b></span>" : "") + "</div>";
