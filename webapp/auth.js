@@ -174,6 +174,14 @@ import { createClient } from "https://cdn.jsdelivr.net/npm/@supabase/supabase-js
   function renderAuthBox() {
     const box = document.getElementById("authBox");
     if (!box) return;
+    const watchOpen = document.getElementById("watchOpen");
+    if (watchOpen) {
+      watchOpen.style.display = configured ? "inline-block" : "none";
+      watchOpen.onclick = () => {
+        const modal = document.getElementById("watchModal");
+        if (modal) modal.style.display = "flex";
+      };
+    }
     box.innerHTML = "";
     if (!configured) return;
     if (state.user) {
@@ -264,6 +272,10 @@ import { createClient } from "https://cdn.jsdelivr.net/npm/@supabase/supabase-js
   }
 
   function renderAll() { renderAuthBox(); renderMemberPanel(); }
+  const watchModal = document.getElementById("watchModal");
+  const watchClose = document.getElementById("watchClose");
+  if (watchClose) watchClose.onclick = () => { watchModal.style.display = "none"; };
+  if (watchModal) watchModal.onclick = (e) => { if (e.target === watchModal) watchModal.style.display = "none"; };
   document.addEventListener("etfwatch:change", renderMemberPanel);
 
   function boot() {

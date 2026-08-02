@@ -101,6 +101,17 @@
       background: var(--chip); color: var(--muted); border: 1px solid transparent; user-select: none;
     }
     .watch-chip.on { color: #fff; background: var(--accent); border-color: var(--accent); }
+    .watch-open { padding: 6px 11px; border: 1px solid var(--accent); border-radius: 8px;
+      background: var(--card); color: var(--accent); cursor: pointer; font-size: 13px; }
+    .watch-open:hover { background: rgba(59, 91, 219, .08); }
+    .watch-modal { display: none; position: fixed; inset: 0; z-index: 90; padding: 24px;
+      background: rgba(0, 0, 0, .45); align-items: flex-start; justify-content: center; overflow-y: auto; }
+    .watch-dialog { width: min(920px, 100%); margin-top: 7vh; background: var(--card); color: var(--text);
+      border: 1px solid var(--border); border-radius: 14px; padding: 18px; box-shadow: 0 16px 40px rgba(0,0,0,.2); }
+    .watch-dialog-head { display: flex; align-items: center; justify-content: space-between; margin-bottom: 12px; }
+    .watch-dialog-head h2 { margin: 0; font-size: 18px; color: var(--text); }
+    .watch-close { border: 1px solid var(--border); background: var(--bg); color: var(--muted);
+      border-radius: 8px; padding: 4px 10px; cursor: pointer; font-size: 18px; line-height: 1; }
     .theme-toggle {
       margin-left: auto; width: 36px; height: 36px; border-radius: 50%;
       border: 1px solid var(--border); background: var(--card); color: var(--text);
@@ -127,6 +138,7 @@
       <a href="portfolio.html" style="text-decoration:none;font-size:14px;padding:6px 12px;border-radius:8px;color:var(--muted);border:1px solid var(--border);">我的持股</a>
       <a href="transactions.html" style="text-decoration:none;font-size:14px;padding:6px 12px;border-radius:8px;color:var(--muted);border:1px solid var(--border);">交易紀錄</a>
       <span id="authBox" style="margin-left:auto;display:flex;align-items:center;gap:6px;"></span>
+      <button id="watchOpen" class="watch-open" style="display:none;">⭐ 我的關注</button>
       <button id="themeToggle" class="theme-toggle" style="margin-left:8px;" aria-label="切換主題">🌙</button>
     </nav>
     <h1>主動式 ETF 每日加減碼查詢</h1>
@@ -156,8 +168,15 @@
       </div>
     </div>
 
-    <!-- 會員：我的關注 ETF（登入後顯示；未設定 Supabase 時隱藏）-->
-    <div class="controls" id="memberPanel" style="display:none;"></div>
+    <div id="watchModal" class="watch-modal" role="dialog" aria-modal="true" aria-labelledby="watchTitle">
+      <div class="watch-dialog">
+        <div class="watch-dialog-head">
+          <h2 id="watchTitle">我的關注 ETF</h2>
+          <button id="watchClose" class="watch-close" aria-label="關閉">×</button>
+        </div>
+        <div id="memberPanel" style="display:none;"></div>
+      </div>
+    </div>
 
     <div class="cards">
       <div class="card new"><div class="n" id="c-new">0</div><div class="l">新增</div></div>
