@@ -90,10 +90,12 @@
     #full tbody tr.main.open td { background: var(--detail); }
     .detail-row td { padding: 0; border-bottom: 2px solid var(--accent); box-shadow: inset 3px 0 0 var(--accent); }
     .detail {
-      display: grid; grid-template-columns: repeat(4, 1fr); gap: 1px;
+      display: flex; flex-wrap: nowrap; gap: 1px; overflow-x: auto;
       background: var(--border); padding: 2px 0;
     }
-    .detail div { background: var(--detail); padding: 10px 12px; }
+    .detail div { flex: 1 0 74px; min-width: 74px; background: var(--detail); padding: 10px 12px; }
+    .detail .business-cell { flex: 2 0 180px; }
+    .detail .business-cell .v { white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
     .detail .k { font-size: 11px; color: var(--muted); }
     .detail .v { font-size: 15px; font-variant-numeric: tabular-nums; margin-top: 2px; }
     .watch-chip {
@@ -110,7 +112,8 @@
     .theme-toggle:hover { border-color: var(--accent); }
     @media (max-width: 640px) {
       .cards { grid-template-columns: repeat(2, 1fr); }
-      .detail { grid-template-columns: repeat(2, 1fr); }
+      .detail { display: grid; grid-template-columns: repeat(2, 1fr); overflow-x: visible; }
+      .detail div, .detail .business-cell { min-width: 0; flex: initial; }
     }
   </style>
   <script>
@@ -202,7 +205,15 @@
       document.getElementById("sub").textContent =
         "尚無資料。請先在終端機執行：python3 fetch.py，產生 data.js 後重新整理。";
     } else {
-      init();
+      loadCompanyProfiles().then(init);
+    }
+
+    let COMPANY_PROFILES = {};
+    async function loadCompanyProfiles() {
+      try {
+        const r = await fetch("company_profiles.json", { cache: "no-store" });
+        if (r.ok) COMPANY_PROFILES = await r.json();
+      } catch (_) { /* 公司資料不是主行情資料，載入失敗時仍可正常使用 */ }
     }
 
     function init() {
@@ -375,6 +386,8 @@
             dtr.className = "detail-row";
             const chCls = pxCls(h.change);
             const cur = h.currency || (h.market === "TW" ? "TWD" : "—");
+            const profile = COMPANY_PROFILES[h.code || h.name] || {};
+            const industry = [profile.sector, profile.industry].filter(Boolean).join("／") || "—";
             dtr.innerHTML = '<td colspan="6"><div class="detail">' +
               cell("市場", marketName(h)) +
               cell("幣別", cur) +
@@ -385,6 +398,8 @@
               cell("漲跌", h.change == null ? "—" : signW(h.change), chCls) +
               cell("振幅", h.amplitude == null ? "—" : h.amplitude.toFixed(2) + "%") +
               (h.quoteDate ? cell("行情日", h.quoteDate) : "") +
+              profileCell("產業別", industry) +
+              '<div class="business-cell" title="' + esc(profile.business || "—") + '"><div class="k">主要產品／業務</div><div class="v">' + esc(shortBusiness(profile.business)) + '</div></div>' +
               '</div></td>';
             fbody.appendChild(dtr);
           }
@@ -396,6 +411,9 @@
       const vol = v => v == null ? "—" : Math.round(v / 1000).toLocaleString("en-US");
       const pxCls = v => v > 0 ? "price-up" : v < 0 ? "price-down" : "";
       const cell = (k, v, cls) => '<div><div class="k">' + k + '</div><div class="v ' + (cls || "") + '">' + v + '</div></div>';
+      const esc = v => String(v == null ? "" : v).replaceAll("&", "&amp;").replaceAll("<", "&lt;").replaceAll(">", "&gt;").replaceAll('"', "&quot;").replaceAll("'", "&#39;");
+      const profileCell = (k, v) => cell(k, esc(v || "—"));
+      const shortBusiness = v => { const s = String(v || "—"); return s.length > 90 ? s.slice(0, 88) + "…" : s; };
       // 市場別
       const MKT = { TW: "台股", US: "美股", JP: "日股", KS: "韓股", HK: "港股", CN: "陸股", DE: "德股", GB: "英股" };
       const MARKET_FLAGS = { TW: "🇹🇼", US: "🇺🇸", JP: "🇯🇵", KS: "🇰🇷", HK: "🇭🇰", CN: "🇨🇳", DE: "🇩🇪", GB: "🇬🇧" };

@@ -1,0 +1,1527 @@
+{
+  "009150": {
+    "name": "Samsung Elec Mech",
+    "market": "KS",
+    "industry": "電子零組件",
+    "business": "生產相機模組、封裝基板與高頻元件等電子零組件。",
+    "source": "公司公開資料整理"
+  },
+  "1102": {
+    "name": "亞泥",
+    "market": "TW",
+    "industry": "水泥工業",
+    "business": "臺灣上市公司；主要業務請參考公司網站。",
+    "source": "臺灣證券交易所"
+  },
+  "1210": {
+    "name": "大成",
+    "market": "TW",
+    "industry": "食品工業",
+    "business": "臺灣上市公司；主要業務請參考公司網站。",
+    "source": "臺灣證券交易所"
+  },
+  "1216": {
+    "name": "統一",
+    "market": "TW",
+    "industry": "食品工業",
+    "business": "臺灣上市公司；主要業務請參考公司網站。",
+    "source": "臺灣證券交易所"
+  },
+  "1303": {
+    "name": "南亞",
+    "market": "TW",
+    "industry": "塑膠工業",
+    "business": "臺灣上市公司；主要業務請參考公司網站。",
+    "source": "臺灣證券交易所"
+  },
+  "1319": {
+    "name": "東陽",
+    "market": "TW",
+    "industry": "汽車工業",
+    "business": "臺灣上市公司；主要業務請參考公司網站。",
+    "source": "臺灣證券交易所"
+  },
+  "1402": {
+    "name": "遠東新",
+    "market": "TW",
+    "industry": "紡織纖維",
+    "business": "臺灣上市公司；主要業務請參考公司網站。",
+    "source": "臺灣證券交易所"
+  },
+  "1477": {
+    "name": "聚陽",
+    "market": "TW",
+    "industry": "紡織纖維",
+    "business": "臺灣上市公司；主要業務請參考公司網站。",
+    "source": "臺灣證券交易所"
+  },
+  "1513": {
+    "name": "中興電",
+    "market": "TW",
+    "industry": "電機機械",
+    "business": "臺灣上市公司；主要業務請參考公司網站。",
+    "source": "臺灣證券交易所"
+  },
+  "1519": {
+    "name": "華城",
+    "market": "TW",
+    "industry": "電機機械",
+    "business": "臺灣上市公司；主要業務請參考公司網站。",
+    "source": "臺灣證券交易所"
+  },
+  "1590": {
+    "name": "亞德客-KY",
+    "market": "TW",
+    "industry": "電機機械",
+    "business": "臺灣上市公司；主要業務請參考公司網站。",
+    "source": "臺灣證券交易所"
+  },
+  "1785": {
+    "name": "光洋科",
+    "market": "TW",
+    "industry": "",
+    "business": "無代號海外成分股，暫無可用公開摘要。",
+    "source": ""
+  },
+  "2002": {
+    "name": "中鋼",
+    "market": "TW",
+    "industry": "鋼鐵工業",
+    "business": "臺灣上市公司；主要業務請參考公司網站。",
+    "source": "臺灣證券交易所"
+  },
+  "2027": {
+    "name": "大成鋼",
+    "market": "TW",
+    "industry": "鋼鐵工業",
+    "business": "臺灣上市公司；主要業務請參考公司網站。",
+    "source": "臺灣證券交易所"
+  },
+  "2059": {
+    "name": "川湖",
+    "market": "TW",
+    "industry": "電子零組件業",
+    "business": "臺灣上市公司；主要業務請參考公司網站。",
+    "source": "臺灣證券交易所"
+  },
+  "2105": {
+    "name": "正新",
+    "market": "TW",
+    "industry": "橡膠工業",
+    "business": "臺灣上市公司；主要業務請參考公司網站。",
+    "source": "臺灣證券交易所"
+  },
+  "2211": {
+    "name": "長榮鋼",
+    "market": "TW",
+    "industry": "鋼鐵工業",
+    "business": "臺灣上市公司；主要業務請參考公司網站。",
+    "source": "臺灣證券交易所"
+  },
+  "2301": {
+    "name": "光寶科",
+    "market": "TW",
+    "industry": "電腦及週邊設備業",
+    "business": "臺灣上市公司；主要業務請參考公司網站。",
+    "source": "臺灣證券交易所"
+  },
+  "2303": {
+    "name": "聯電",
+    "market": "TW",
+    "industry": "半導體業",
+    "business": "臺灣上市公司；主要業務請參考公司網站。",
+    "source": "臺灣證券交易所"
+  },
+  "2308": {
+    "name": "台達電",
+    "market": "TW",
+    "industry": "電子零組件業",
+    "business": "臺灣上市公司；主要業務請參考公司網站。",
+    "source": "臺灣證券交易所"
+  },
+  "2313": {
+    "name": "華通",
+    "market": "TW",
+    "industry": "電子零組件業",
+    "business": "臺灣上市公司；主要業務請參考公司網站。",
+    "source": "臺灣證券交易所"
+  },
+  "2316": {
+    "name": "楠梓電",
+    "market": "TW",
+    "industry": "電子零組件業",
+    "business": "臺灣上市公司；主要業務請參考公司網站。",
+    "source": "臺灣證券交易所"
+  },
+  "2317": {
+    "name": "鴻海",
+    "market": "TW",
+    "industry": "其他電子業",
+    "business": "臺灣上市公司；主要業務請參考公司網站。",
+    "source": "臺灣證券交易所"
+  },
+  "2324": {
+    "name": "仁寶",
+    "market": "TW",
+    "industry": "電腦及週邊設備業",
+    "business": "臺灣上市公司；主要業務請參考公司網站。",
+    "source": "臺灣證券交易所"
+  },
+  "2327": {
+    "name": "國巨*",
+    "market": "TW",
+    "industry": "電子零組件業",
+    "business": "臺灣上市公司；主要業務請參考公司網站。",
+    "source": "臺灣證券交易所"
+  },
+  "2330": {
+    "name": "台積電",
+    "market": "TW",
+    "industry": "半導體業",
+    "business": "臺灣上市公司；主要業務請參考公司網站。",
+    "source": "臺灣證券交易所"
+  },
+  "2337": {
+    "name": "旺宏",
+    "market": "TW",
+    "industry": "半導體業",
+    "business": "臺灣上市公司；主要業務請參考公司網站。",
+    "source": "臺灣證券交易所"
+  },
+  "2344": {
+    "name": "華邦電",
+    "market": "TW",
+    "industry": "半導體業",
+    "business": "臺灣上市公司；主要業務請參考公司網站。",
+    "source": "臺灣證券交易所"
+  },
+  "2345": {
+    "name": "智邦",
+    "market": "TW",
+    "industry": "通信網路業",
+    "business": "臺灣上市公司；主要業務請參考公司網站。",
+    "source": "臺灣證券交易所"
+  },
+  "2347": {
+    "name": "聯強",
+    "market": "TW",
+    "industry": "電子通路業",
+    "business": "臺灣上市公司；主要業務請參考公司網站。",
+    "source": "臺灣證券交易所"
+  },
+  "2351": {
+    "name": "順德",
+    "market": "TW",
+    "industry": "半導體業",
+    "business": "臺灣上市公司；主要業務請參考公司網站。",
+    "source": "臺灣證券交易所"
+  },
+  "2353": {
+    "name": "宏碁",
+    "market": "TW",
+    "industry": "電腦及週邊設備業",
+    "business": "臺灣上市公司；主要業務請參考公司網站。",
+    "source": "臺灣證券交易所"
+  },
+  "2354": {
+    "name": "鴻準",
+    "market": "TW",
+    "industry": "其他電子業",
+    "business": "臺灣上市公司；主要業務請參考公司網站。",
+    "source": "臺灣證券交易所"
+  },
+  "2356": {
+    "name": "英業達",
+    "market": "TW",
+    "industry": "電腦及週邊設備業",
+    "business": "臺灣上市公司；主要業務請參考公司網站。",
+    "source": "臺灣證券交易所"
+  },
+  "2357": {
+    "name": "華碩",
+    "market": "TW",
+    "industry": "電腦及週邊設備業",
+    "business": "臺灣上市公司；主要業務請參考公司網站。",
+    "source": "臺灣證券交易所"
+  },
+  "2360": {
+    "name": "致茂",
+    "market": "TW",
+    "industry": "其他電子業",
+    "business": "臺灣上市公司；主要業務請參考公司網站。",
+    "source": "臺灣證券交易所"
+  },
+  "2368": {
+    "name": "金像電",
+    "market": "TW",
+    "industry": "電子零組件業",
+    "business": "臺灣上市公司；主要業務請參考公司網站。",
+    "source": "臺灣證券交易所"
+  },
+  "2376": {
+    "name": "技嘉",
+    "market": "TW",
+    "industry": "電腦及週邊設備業",
+    "business": "臺灣上市公司；主要業務請參考公司網站。",
+    "source": "臺灣證券交易所"
+  },
+  "2377": {
+    "name": "微星",
+    "market": "TW",
+    "industry": "電腦及週邊設備業",
+    "business": "臺灣上市公司；主要業務請參考公司網站。",
+    "source": "臺灣證券交易所"
+  },
+  "2379": {
+    "name": "瑞昱",
+    "market": "TW",
+    "industry": "半導體業",
+    "business": "臺灣上市公司；主要業務請參考公司網站。",
+    "source": "臺灣證券交易所"
+  },
+  "2382": {
+    "name": "廣達",
+    "market": "TW",
+    "industry": "電腦及週邊設備業",
+    "business": "臺灣上市公司；主要業務請參考公司網站。",
+    "source": "臺灣證券交易所"
+  },
+  "2383": {
+    "name": "台光電",
+    "market": "TW",
+    "industry": "電子零組件業",
+    "business": "臺灣上市公司；主要業務請參考公司網站。",
+    "source": "臺灣證券交易所"
+  },
+  "2385": {
+    "name": "群光",
+    "market": "TW",
+    "industry": "電子零組件業",
+    "business": "臺灣上市公司；主要業務請參考公司網站。",
+    "source": "臺灣證券交易所"
+  },
+  "2395": {
+    "name": "研華",
+    "market": "TW",
+    "industry": "電腦及週邊設備業",
+    "business": "臺灣上市公司；主要業務請參考公司網站。",
+    "source": "臺灣證券交易所"
+  },
+  "2408": {
+    "name": "南亞科",
+    "market": "TW",
+    "industry": "半導體業",
+    "business": "臺灣上市公司；主要業務請參考公司網站。",
+    "source": "臺灣證券交易所"
+  },
+  "2409": {
+    "name": "友達",
+    "market": "TW",
+    "industry": "光電業",
+    "business": "臺灣上市公司；主要業務請參考公司網站。",
+    "source": "臺灣證券交易所"
+  },
+  "2412": {
+    "name": "中華電",
+    "market": "TW",
+    "industry": "通信網路業",
+    "business": "臺灣上市公司；主要業務請參考公司網站。",
+    "source": "臺灣證券交易所"
+  },
+  "2449": {
+    "name": "京元電子",
+    "market": "TW",
+    "industry": "半導體業",
+    "business": "臺灣上市公司；主要業務請參考公司網站。",
+    "source": "臺灣證券交易所"
+  },
+  "2451": {
+    "name": "創見",
+    "market": "TW",
+    "industry": "半導體業",
+    "business": "臺灣上市公司；主要業務請參考公司網站。",
+    "source": "臺灣證券交易所"
+  },
+  "2454": {
+    "name": "聯發科",
+    "market": "TW",
+    "industry": "半導體業",
+    "business": "臺灣上市公司；主要業務請參考公司網站。",
+    "source": "臺灣證券交易所"
+  },
+  "2455": {
+    "name": "全新",
+    "market": "TW",
+    "industry": "通信網路業",
+    "business": "臺灣上市公司；主要業務請參考公司網站。",
+    "source": "臺灣證券交易所"
+  },
+  "2458": {
+    "name": "義隆",
+    "market": "TW",
+    "industry": "半導體業",
+    "business": "臺灣上市公司；主要業務請參考公司網站。",
+    "source": "臺灣證券交易所"
+  },
+  "2467": {
+    "name": "志聖",
+    "market": "TW",
+    "industry": "電子零組件業",
+    "business": "臺灣上市公司；主要業務請參考公司網站。",
+    "source": "臺灣證券交易所"
+  },
+  "2472": {
+    "name": "立隆電",
+    "market": "TW",
+    "industry": "電子零組件業",
+    "business": "臺灣上市公司；主要業務請參考公司網站。",
+    "source": "臺灣證券交易所"
+  },
+  "2474": {
+    "name": "可成",
+    "market": "TW",
+    "industry": "其他電子業",
+    "business": "臺灣上市公司；主要業務請參考公司網站。",
+    "source": "臺灣證券交易所"
+  },
+  "2492": {
+    "name": "華新科",
+    "market": "TW",
+    "industry": "電子零組件業",
+    "business": "臺灣上市公司；主要業務請參考公司網站。",
+    "source": "臺灣證券交易所"
+  },
+  "2504": {
+    "name": "國產",
+    "market": "TW",
+    "industry": "建材營造業",
+    "business": "臺灣上市公司；主要業務請參考公司網站。",
+    "source": "臺灣證券交易所"
+  },
+  "2542": {
+    "name": "興富發",
+    "market": "TW",
+    "industry": "建材營造業",
+    "business": "臺灣上市公司；主要業務請參考公司網站。",
+    "source": "臺灣證券交易所"
+  },
+  "2597": {
+    "name": "潤弘",
+    "market": "TW",
+    "industry": "建材營造業",
+    "business": "臺灣上市公司；主要業務請參考公司網站。",
+    "source": "臺灣證券交易所"
+  },
+  "2603": {
+    "name": "長榮",
+    "market": "TW",
+    "industry": "航運業",
+    "business": "臺灣上市公司；主要業務請參考公司網站。",
+    "source": "臺灣證券交易所"
+  },
+  "2606": {
+    "name": "裕民",
+    "market": "TW",
+    "industry": "航運業",
+    "business": "臺灣上市公司；主要業務請參考公司網站。",
+    "source": "臺灣證券交易所"
+  },
+  "2618": {
+    "name": "長榮航",
+    "market": "TW",
+    "industry": "航運業",
+    "business": "臺灣上市公司；主要業務請參考公司網站。",
+    "source": "臺灣證券交易所"
+  },
+  "2637": {
+    "name": "慧洋-KY",
+    "market": "TW",
+    "industry": "航運業",
+    "business": "臺灣上市公司；主要業務請參考公司網站。",
+    "source": "臺灣證券交易所"
+  },
+  "2645": {
+    "name": "長榮航太",
+    "market": "TW",
+    "industry": "航運業",
+    "business": "臺灣上市公司；主要業務請參考公司網站。",
+    "source": "臺灣證券交易所"
+  },
+  "2855": {
+    "name": "統一證",
+    "market": "TW",
+    "industry": "金融保險業",
+    "business": "臺灣上市公司；主要業務請參考公司網站。",
+    "source": "臺灣證券交易所"
+  },
+  "285A": {
+    "name": "Kioxia Holdings",
+    "market": "JP",
+    "industry": "",
+    "business": "無代號海外成分股，暫無可用公開摘要。",
+    "source": ""
+  },
+  "2880": {
+    "name": "華南金",
+    "market": "TW",
+    "industry": "金融保險業",
+    "business": "臺灣上市公司；主要業務請參考公司網站。",
+    "source": "臺灣證券交易所"
+  },
+  "2881": {
+    "name": "富邦金",
+    "market": "TW",
+    "industry": "金融保險業",
+    "business": "臺灣上市公司；主要業務請參考公司網站。",
+    "source": "臺灣證券交易所"
+  },
+  "2882": {
+    "name": "國泰金",
+    "market": "TW",
+    "industry": "金融保險業",
+    "business": "臺灣上市公司；主要業務請參考公司網站。",
+    "source": "臺灣證券交易所"
+  },
+  "2883": {
+    "name": "凱基金",
+    "market": "TW",
+    "industry": "金融保險業",
+    "business": "臺灣上市公司；主要業務請參考公司網站。",
+    "source": "臺灣證券交易所"
+  },
+  "2884": {
+    "name": "玉山金",
+    "market": "TW",
+    "industry": "金融保險業",
+    "business": "臺灣上市公司；主要業務請參考公司網站。",
+    "source": "臺灣證券交易所"
+  },
+  "2885": {
+    "name": "元大金",
+    "market": "TW",
+    "industry": "金融保險業",
+    "business": "臺灣上市公司；主要業務請參考公司網站。",
+    "source": "臺灣證券交易所"
+  },
+  "2886": {
+    "name": "兆豐金",
+    "market": "TW",
+    "industry": "金融保險業",
+    "business": "臺灣上市公司；主要業務請參考公司網站。",
+    "source": "臺灣證券交易所"
+  },
+  "2887": {
+    "name": "台新新光金",
+    "market": "TW",
+    "industry": "金融保險業",
+    "business": "臺灣上市公司；主要業務請參考公司網站。",
+    "source": "臺灣證券交易所"
+  },
+  "2890": {
+    "name": "永豐金",
+    "market": "TW",
+    "industry": "金融保險業",
+    "business": "臺灣上市公司；主要業務請參考公司網站。",
+    "source": "臺灣證券交易所"
+  },
+  "2891": {
+    "name": "中信金",
+    "market": "TW",
+    "industry": "金融保險業",
+    "business": "臺灣上市公司；主要業務請參考公司網站。",
+    "source": "臺灣證券交易所"
+  },
+  "2892": {
+    "name": "第一金",
+    "market": "TW",
+    "industry": "金融保險業",
+    "business": "臺灣上市公司；主要業務請參考公司網站。",
+    "source": "臺灣證券交易所"
+  },
+  "2912": {
+    "name": "統一超",
+    "market": "TW",
+    "industry": "貿易百貨業",
+    "business": "臺灣上市公司；主要業務請參考公司網站。",
+    "source": "臺灣證券交易所"
+  },
+  "3005": {
+    "name": "神基",
+    "market": "TW",
+    "industry": "電腦及週邊設備業",
+    "business": "臺灣上市公司；主要業務請參考公司網站。",
+    "source": "臺灣證券交易所"
+  },
+  "3008": {
+    "name": "大立光",
+    "market": "TW",
+    "industry": "光電業",
+    "business": "臺灣上市公司；主要業務請參考公司網站。",
+    "source": "臺灣證券交易所"
+  },
+  "3017": {
+    "name": "奇鋐",
+    "market": "TW",
+    "industry": "電腦及週邊設備業",
+    "business": "臺灣上市公司；主要業務請參考公司網站。",
+    "source": "臺灣證券交易所"
+  },
+  "3023": {
+    "name": "信邦",
+    "market": "TW",
+    "industry": "電子零組件業",
+    "business": "臺灣上市公司；主要業務請參考公司網站。",
+    "source": "臺灣證券交易所"
+  },
+  "3026": {
+    "name": "禾伸堂",
+    "market": "TW",
+    "industry": "電子零組件業",
+    "business": "臺灣上市公司；主要業務請參考公司網站。",
+    "source": "臺灣證券交易所"
+  },
+  "3030": {
+    "name": "德律",
+    "market": "TW",
+    "industry": "其他電子業",
+    "business": "臺灣上市公司；主要業務請參考公司網站。",
+    "source": "臺灣證券交易所"
+  },
+  "3034": {
+    "name": "聯詠",
+    "market": "TW",
+    "industry": "半導體業",
+    "business": "臺灣上市公司；主要業務請參考公司網站。",
+    "source": "臺灣證券交易所"
+  },
+  "3036": {
+    "name": "文曄",
+    "market": "TW",
+    "industry": "電子通路業",
+    "business": "臺灣上市公司；主要業務請參考公司網站。",
+    "source": "臺灣證券交易所"
+  },
+  "3037": {
+    "name": "欣興",
+    "market": "TW",
+    "industry": "電子零組件業",
+    "business": "臺灣上市公司；主要業務請參考公司網站。",
+    "source": "臺灣證券交易所"
+  },
+  "3044": {
+    "name": "健鼎",
+    "market": "TW",
+    "industry": "電子零組件業",
+    "business": "臺灣上市公司；主要業務請參考公司網站。",
+    "source": "臺灣證券交易所"
+  },
+  "3045": {
+    "name": "台灣大",
+    "market": "TW",
+    "industry": "通信網路業",
+    "business": "臺灣上市公司；主要業務請參考公司網站。",
+    "source": "臺灣證券交易所"
+  },
+  "3090": {
+    "name": "日電貿",
+    "market": "TW",
+    "industry": "電子零組件業",
+    "business": "臺灣上市公司；主要業務請參考公司網站。",
+    "source": "臺灣證券交易所"
+  },
+  "3105": {
+    "name": "穩懋",
+    "market": "TW",
+    "industry": "",
+    "business": "無代號海外成分股，暫無可用公開摘要。",
+    "source": ""
+  },
+  "3189": {
+    "name": "景碩",
+    "market": "TW",
+    "industry": "半導體業",
+    "business": "臺灣上市公司；主要業務請參考公司網站。",
+    "source": "臺灣證券交易所"
+  },
+  "3211": {
+    "name": "順達",
+    "market": "TW",
+    "industry": "",
+    "business": "無代號海外成分股，暫無可用公開摘要。",
+    "source": ""
+  },
+  "3231": {
+    "name": "緯創",
+    "market": "TW",
+    "industry": "電腦及週邊設備業",
+    "business": "臺灣上市公司；主要業務請參考公司網站。",
+    "source": "臺灣證券交易所"
+  },
+  "3260": {
+    "name": "威剛",
+    "market": "TW",
+    "industry": "",
+    "business": "無代號海外成分股，暫無可用公開摘要。",
+    "source": ""
+  },
+  "3264": {
+    "name": "欣銓",
+    "market": "TW",
+    "industry": "",
+    "business": "無代號海外成分股，暫無可用公開摘要。",
+    "source": ""
+  },
+  "3293": {
+    "name": "鈊象",
+    "market": "TW",
+    "industry": "",
+    "business": "無代號海外成分股，暫無可用公開摘要。",
+    "source": ""
+  },
+  "3363": {
+    "name": "上詮",
+    "market": "TW",
+    "industry": "",
+    "business": "無代號海外成分股，暫無可用公開摘要。",
+    "source": ""
+  },
+  "3374": {
+    "name": "精材",
+    "market": "TW",
+    "industry": "",
+    "business": "無代號海外成分股，暫無可用公開摘要。",
+    "source": ""
+  },
+  "3376": {
+    "name": "新日興",
+    "market": "TW",
+    "industry": "電子零組件業",
+    "business": "臺灣上市公司；主要業務請參考公司網站。",
+    "source": "臺灣證券交易所"
+  },
+  "3443": {
+    "name": "創意",
+    "market": "TW",
+    "industry": "半導體業",
+    "business": "臺灣上市公司；主要業務請參考公司網站。",
+    "source": "臺灣證券交易所"
+  },
+  "3481": {
+    "name": "群創",
+    "market": "TW",
+    "industry": "光電業",
+    "business": "臺灣上市公司；主要業務請參考公司網站。",
+    "source": "臺灣證券交易所"
+  },
+  "3491": {
+    "name": "昇達科",
+    "market": "TW",
+    "industry": "",
+    "business": "無代號海外成分股，暫無可用公開摘要。",
+    "source": ""
+  },
+  "3529": {
+    "name": "力旺",
+    "market": "TW",
+    "industry": "",
+    "business": "無代號海外成分股，暫無可用公開摘要。",
+    "source": ""
+  },
+  "3532": {
+    "name": "台勝科",
+    "market": "TW",
+    "industry": "半導體業",
+    "business": "臺灣上市公司；主要業務請參考公司網站。",
+    "source": "臺灣證券交易所"
+  },
+  "3533": {
+    "name": "嘉澤",
+    "market": "TW",
+    "industry": "電子零組件業",
+    "business": "臺灣上市公司；主要業務請參考公司網站。",
+    "source": "臺灣證券交易所"
+  },
+  "3583": {
+    "name": "辛耘",
+    "market": "TW",
+    "industry": "半導體業",
+    "business": "臺灣上市公司；主要業務請參考公司網站。",
+    "source": "臺灣證券交易所"
+  },
+  "3653": {
+    "name": "健策",
+    "market": "TW",
+    "industry": "電子零組件業",
+    "business": "臺灣上市公司；主要業務請參考公司網站。",
+    "source": "臺灣證券交易所"
+  },
+  "3661": {
+    "name": "世芯-KY",
+    "market": "TW",
+    "industry": "半導體業",
+    "business": "臺灣上市公司；主要業務請參考公司網站。",
+    "source": "臺灣證券交易所"
+  },
+  "3665": {
+    "name": "貿聯-KY",
+    "market": "TW",
+    "industry": "其他電子業",
+    "business": "臺灣上市公司；主要業務請參考公司網站。",
+    "source": "臺灣證券交易所"
+  },
+  "3702": {
+    "name": "大聯大",
+    "market": "TW",
+    "industry": "電子通路業",
+    "business": "臺灣上市公司；主要業務請參考公司網站。",
+    "source": "臺灣證券交易所"
+  },
+  "3706": {
+    "name": "神達",
+    "market": "TW",
+    "industry": "電腦及週邊設備業",
+    "business": "臺灣上市公司；主要業務請參考公司網站。",
+    "source": "臺灣證券交易所"
+  },
+  "3711": {
+    "name": "日月光投控",
+    "market": "TW",
+    "industry": "半導體業",
+    "business": "臺灣上市公司；主要業務請參考公司網站。",
+    "source": "臺灣證券交易所"
+  },
+  "4441": {
+    "name": "振大環球",
+    "market": "TW",
+    "industry": "紡織纖維",
+    "business": "臺灣上市公司；主要業務請參考公司網站。",
+    "source": "臺灣證券交易所"
+  },
+  "4763": {
+    "name": "材料*-KY",
+    "market": "TW",
+    "industry": "化學工業",
+    "business": "臺灣上市公司；主要業務請參考公司網站。",
+    "source": "臺灣證券交易所"
+  },
+  "4904": {
+    "name": "遠傳",
+    "market": "TW",
+    "industry": "通信網路業",
+    "business": "臺灣上市公司；主要業務請參考公司網站。",
+    "source": "臺灣證券交易所"
+  },
+  "4915": {
+    "name": "致伸",
+    "market": "TW",
+    "industry": "電子零組件業",
+    "business": "臺灣上市公司；主要業務請參考公司網站。",
+    "source": "臺灣證券交易所"
+  },
+  "4919": {
+    "name": "新唐",
+    "market": "TW",
+    "industry": "半導體業",
+    "business": "臺灣上市公司；主要業務請參考公司網站。",
+    "source": "臺灣證券交易所"
+  },
+  "4938": {
+    "name": "和碩",
+    "market": "TW",
+    "industry": "電腦及週邊設備業",
+    "business": "臺灣上市公司；主要業務請參考公司網站。",
+    "source": "臺灣證券交易所"
+  },
+  "4958": {
+    "name": "臻鼎-KY",
+    "market": "TW",
+    "industry": "電子零組件業",
+    "business": "臺灣上市公司；主要業務請參考公司網站。",
+    "source": "臺灣證券交易所"
+  },
+  "4966": {
+    "name": "譜瑞-KY",
+    "market": "TW",
+    "industry": "",
+    "business": "無代號海外成分股，暫無可用公開摘要。",
+    "source": ""
+  },
+  "4979": {
+    "name": "華星光",
+    "market": "TW",
+    "industry": "",
+    "business": "無代號海外成分股，暫無可用公開摘要。",
+    "source": ""
+  },
+  "5269": {
+    "name": "祥碩",
+    "market": "TW",
+    "industry": "半導體業",
+    "business": "臺灣上市公司；主要業務請參考公司網站。",
+    "source": "臺灣證券交易所"
+  },
+  "5274": {
+    "name": "信驊",
+    "market": "TW",
+    "industry": "",
+    "business": "無代號海外成分股，暫無可用公開摘要。",
+    "source": ""
+  },
+  "5289": {
+    "name": "宜鼎",
+    "market": "TW",
+    "industry": "",
+    "business": "無代號海外成分股，暫無可用公開摘要。",
+    "source": ""
+  },
+  "5347": {
+    "name": "世界",
+    "market": "TW",
+    "industry": "",
+    "business": "無代號海外成分股，暫無可用公開摘要。",
+    "source": ""
+  },
+  "5434": {
+    "name": "崇越",
+    "market": "TW",
+    "industry": "電子通路業",
+    "business": "臺灣上市公司；主要業務請參考公司網站。",
+    "source": "臺灣證券交易所"
+  },
+  "5522": {
+    "name": "遠雄",
+    "market": "TW",
+    "industry": "建材營造業",
+    "business": "臺灣上市公司；主要業務請參考公司網站。",
+    "source": "臺灣證券交易所"
+  },
+  "5536": {
+    "name": "聖暉*",
+    "market": "TW",
+    "industry": "",
+    "business": "無代號海外成分股，暫無可用公開摘要。",
+    "source": ""
+  },
+  "5871": {
+    "name": "中租-KY",
+    "market": "TW",
+    "industry": "其他業",
+    "business": "臺灣上市公司；主要業務請參考公司網站。",
+    "source": "臺灣證券交易所"
+  },
+  "5876": {
+    "name": "上海商銀",
+    "market": "TW",
+    "industry": "金融保險業",
+    "business": "臺灣上市公司；主要業務請參考公司網站。",
+    "source": "臺灣證券交易所"
+  },
+  "5880": {
+    "name": "合庫金",
+    "market": "TW",
+    "industry": "金融保險業",
+    "business": "臺灣上市公司；主要業務請參考公司網站。",
+    "source": "臺灣證券交易所"
+  },
+  "6121": {
+    "name": "新普",
+    "market": "TW",
+    "industry": "",
+    "business": "無代號海外成分股，暫無可用公開摘要。",
+    "source": ""
+  },
+  "6139": {
+    "name": "亞翔",
+    "market": "TW",
+    "industry": "其他電子業",
+    "business": "臺灣上市公司；主要業務請參考公司網站。",
+    "source": "臺灣證券交易所"
+  },
+  "6147": {
+    "name": "頎邦",
+    "market": "TW",
+    "industry": "",
+    "business": "無代號海外成分股，暫無可用公開摘要。",
+    "source": ""
+  },
+  "6177": {
+    "name": "達麗",
+    "market": "TW",
+    "industry": "建材營造業",
+    "business": "臺灣上市公司；主要業務請參考公司網站。",
+    "source": "臺灣證券交易所"
+  },
+  "6187": {
+    "name": "萬潤",
+    "market": "TW",
+    "industry": "",
+    "business": "無代號海外成分股，暫無可用公開摘要。",
+    "source": ""
+  },
+  "6191": {
+    "name": "精成科",
+    "market": "TW",
+    "industry": "電子零組件業",
+    "business": "臺灣上市公司；主要業務請參考公司網站。",
+    "source": "臺灣證券交易所"
+  },
+  "6196": {
+    "name": "帆宣",
+    "market": "TW",
+    "industry": "其他電子業",
+    "business": "臺灣上市公司；主要業務請參考公司網站。",
+    "source": "臺灣證券交易所"
+  },
+  "6213": {
+    "name": "聯茂",
+    "market": "TW",
+    "industry": "電子零組件業",
+    "business": "臺灣上市公司；主要業務請參考公司網站。",
+    "source": "臺灣證券交易所"
+  },
+  "6223": {
+    "name": "旺矽",
+    "market": "TW",
+    "industry": "",
+    "business": "無代號海外成分股，暫無可用公開摘要。",
+    "source": ""
+  },
+  "6239": {
+    "name": "力成",
+    "market": "TW",
+    "industry": "半導體業",
+    "business": "臺灣上市公司；主要業務請參考公司網站。",
+    "source": "臺灣證券交易所"
+  },
+  "6257": {
+    "name": "矽格",
+    "market": "TW",
+    "industry": "半導體業",
+    "business": "臺灣上市公司；主要業務請參考公司網站。",
+    "source": "臺灣證券交易所"
+  },
+  "6271": {
+    "name": "同欣電",
+    "market": "TW",
+    "industry": "半導體業",
+    "business": "臺灣上市公司；主要業務請參考公司網站。",
+    "source": "臺灣證券交易所"
+  },
+  "6274": {
+    "name": "台燿",
+    "market": "TW",
+    "industry": "",
+    "business": "無代號海外成分股，暫無可用公開摘要。",
+    "source": ""
+  },
+  "6278": {
+    "name": "台表科",
+    "market": "TW",
+    "industry": "光電業",
+    "business": "臺灣上市公司；主要業務請參考公司網站。",
+    "source": "臺灣證券交易所"
+  },
+  "6285": {
+    "name": "啟碁",
+    "market": "TW",
+    "industry": "通信網路業",
+    "business": "臺灣上市公司；主要業務請參考公司網站。",
+    "source": "臺灣證券交易所"
+  },
+  "6415": {
+    "name": "矽力*-KY",
+    "market": "TW",
+    "industry": "半導體業",
+    "business": "臺灣上市公司；主要業務請參考公司網站。",
+    "source": "臺灣證券交易所"
+  },
+  "6442": {
+    "name": "光聖",
+    "market": "TW",
+    "industry": "通信網路業",
+    "business": "臺灣上市公司；主要業務請參考公司網站。",
+    "source": "臺灣證券交易所"
+  },
+  "6446": {
+    "name": "藥華藥",
+    "market": "TW",
+    "industry": "生技醫療業",
+    "business": "臺灣上市公司；主要業務請參考公司網站。",
+    "source": "臺灣證券交易所"
+  },
+  "6488": {
+    "name": "環球晶",
+    "market": "TW",
+    "industry": "",
+    "business": "無代號海外成分股，暫無可用公開摘要。",
+    "source": ""
+  },
+  "6505": {
+    "name": "台塑化",
+    "market": "TW",
+    "industry": "油電燃氣業",
+    "business": "臺灣上市公司；主要業務請參考公司網站。",
+    "source": "臺灣證券交易所"
+  },
+  "6510": {
+    "name": "精測",
+    "market": "TW",
+    "industry": "",
+    "business": "無代號海外成分股，暫無可用公開摘要。",
+    "source": ""
+  },
+  "6515": {
+    "name": "穎崴",
+    "market": "TW",
+    "industry": "半導體業",
+    "business": "臺灣上市公司；主要業務請參考公司網站。",
+    "source": "臺灣證券交易所"
+  },
+  "6526": {
+    "name": "達發",
+    "market": "TW",
+    "industry": "半導體業",
+    "business": "臺灣上市公司；主要業務請參考公司網站。",
+    "source": "臺灣證券交易所"
+  },
+  "6531": {
+    "name": "愛普*",
+    "market": "TW",
+    "industry": "半導體業",
+    "business": "臺灣上市公司；主要業務請參考公司網站。",
+    "source": "臺灣證券交易所"
+  },
+  "6584": {
+    "name": "南俊國際",
+    "market": "TW",
+    "industry": "",
+    "business": "無代號海外成分股，暫無可用公開摘要。",
+    "source": ""
+  },
+  "6669": {
+    "name": "緯穎",
+    "market": "TW",
+    "industry": "電腦及週邊設備業",
+    "business": "臺灣上市公司；主要業務請參考公司網站。",
+    "source": "臺灣證券交易所"
+  },
+  "6670": {
+    "name": "復盛應用",
+    "market": "TW",
+    "industry": "運動休閒業",
+    "business": "臺灣上市公司；主要業務請參考公司網站。",
+    "source": "臺灣證券交易所"
+  },
+  "6715": {
+    "name": "嘉基",
+    "market": "TW",
+    "industry": "電子零組件業",
+    "business": "臺灣上市公司；主要業務請參考公司網站。",
+    "source": "臺灣證券交易所"
+  },
+  "6723": {
+    "name": "Renesas Electronics",
+    "market": "JP",
+    "industry": "",
+    "business": "無代號海外成分股，暫無可用公開摘要。",
+    "source": ""
+  },
+  "6770": {
+    "name": "力積電",
+    "market": "TW",
+    "industry": "半導體業",
+    "business": "臺灣上市公司；主要業務請參考公司網站。",
+    "source": "臺灣證券交易所"
+  },
+  "6789": {
+    "name": "采鈺",
+    "market": "TW",
+    "industry": "半導體業",
+    "business": "臺灣上市公司；主要業務請參考公司網站。",
+    "source": "臺灣證券交易所"
+  },
+  "6805": {
+    "name": "富世達",
+    "market": "TW",
+    "industry": "電子零組件業",
+    "business": "臺灣上市公司；主要業務請參考公司網站。",
+    "source": "臺灣證券交易所"
+  },
+  "6831": {
+    "name": "邁科",
+    "market": "TW",
+    "industry": "電腦及週邊設備業",
+    "business": "臺灣上市公司；主要業務請參考公司網站。",
+    "source": "臺灣證券交易所"
+  },
+  "6890": {
+    "name": "來億-KY",
+    "market": "TW",
+    "industry": "運動休閒業",
+    "business": "臺灣上市公司；主要業務請參考公司網站。",
+    "source": "臺灣證券交易所"
+  },
+  "6976": {
+    "name": "TAIYO YUDEN",
+    "market": "JP",
+    "industry": "",
+    "business": "無代號海外成分股，暫無可用公開摘要。",
+    "source": ""
+  },
+  "6981": {
+    "name": "Murata Mfg.",
+    "market": "JP",
+    "industry": "",
+    "business": "無代號海外成分股，暫無可用公開摘要。",
+    "source": ""
+  },
+  "7734": {
+    "name": "印能科技",
+    "market": "TW",
+    "industry": "",
+    "business": "無代號海外成分股，暫無可用公開摘要。",
+    "source": ""
+  },
+  "7751": {
+    "name": "竑騰",
+    "market": "TW",
+    "industry": "",
+    "business": "無代號海外成分股，暫無可用公開摘要。",
+    "source": ""
+  },
+  "7769": {
+    "name": "鴻勁",
+    "market": "TW",
+    "industry": "半導體業",
+    "business": "臺灣上市公司；主要業務請參考公司網站。",
+    "source": "臺灣證券交易所"
+  },
+  "8016": {
+    "name": "矽創",
+    "market": "TW",
+    "industry": "半導體業",
+    "business": "臺灣上市公司；主要業務請參考公司網站。",
+    "source": "臺灣證券交易所"
+  },
+  "8021": {
+    "name": "尖點",
+    "market": "TW",
+    "industry": "其他電子業",
+    "business": "臺灣上市公司；主要業務請參考公司網站。",
+    "source": "臺灣證券交易所"
+  },
+  "8035": {
+    "name": "Tokyo Electron",
+    "market": "JP",
+    "industry": "半導體設備",
+    "business": "生產半導體製造設備與相關電子設備。",
+    "source": "公司公開資料整理"
+  },
+  "8046": {
+    "name": "南電",
+    "market": "TW",
+    "industry": "電子零組件業",
+    "business": "臺灣上市公司；主要業務請參考公司網站。",
+    "source": "臺灣證券交易所"
+  },
+  "8112": {
+    "name": "至上",
+    "market": "TW",
+    "industry": "電子通路業",
+    "business": "臺灣上市公司；主要業務請參考公司網站。",
+    "source": "臺灣證券交易所"
+  },
+  "8210": {
+    "name": "勤誠",
+    "market": "TW",
+    "industry": "電腦及週邊設備業",
+    "business": "臺灣上市公司；主要業務請參考公司網站。",
+    "source": "臺灣證券交易所"
+  },
+  "8299": {
+    "name": "群聯",
+    "market": "TW",
+    "industry": "",
+    "business": "無代號海外成分股，暫無可用公開摘要。",
+    "source": ""
+  },
+  "8358": {
+    "name": "金居",
+    "market": "TW",
+    "industry": "",
+    "business": "無代號海外成分股，暫無可用公開摘要。",
+    "source": ""
+  },
+  "8454": {
+    "name": "富邦媒",
+    "market": "TW",
+    "industry": "數位雲端業",
+    "business": "臺灣上市公司；主要業務請參考公司網站。",
+    "source": "臺灣證券交易所"
+  },
+  "8996": {
+    "name": "高力",
+    "market": "TW",
+    "industry": "電機機械",
+    "business": "臺灣上市公司；主要業務請參考公司網站。",
+    "source": "臺灣證券交易所"
+  },
+  "9904": {
+    "name": "寶成",
+    "market": "TW",
+    "industry": "運動休閒業",
+    "business": "臺灣上市公司；主要業務請參考公司網站。",
+    "source": "臺灣證券交易所"
+  },
+  "9910": {
+    "name": "豐泰",
+    "market": "TW",
+    "industry": "運動休閒業",
+    "business": "臺灣上市公司；主要業務請參考公司網站。",
+    "source": "臺灣證券交易所"
+  },
+  "9939": {
+    "name": "宏全",
+    "market": "TW",
+    "industry": "其他業",
+    "business": "臺灣上市公司；主要業務請參考公司網站。",
+    "source": "臺灣證券交易所"
+  },
+  "9941": {
+    "name": "裕融",
+    "market": "TW",
+    "industry": "其他業",
+    "business": "臺灣上市公司；主要業務請參考公司網站。",
+    "source": "臺灣證券交易所"
+  },
+  "AMAT": {
+    "name": "Applied Materials",
+    "market": "US",
+    "industry": "Semiconductor Equipment & Materials",
+    "business": "Applied Materials, Inc. provides materials engineering solutions, equipment, services, and software to the semiconductor and related industries in the United States, China, Korea, Taiwan, Japan, Southeast Asia, Europe, and internationally. The company operates through Semiconductor Systems and Applied Global Services (AGS) segments. The Semiconductor Systems segment includes semiconductor capital equipment to enable materials engineering steps, including etch, rapid thermal processing, deposition, chemical mechanical planarization, metrology and inspection, wafer packaging, and ion implantation. The AGS segment offers integrated solutions to optimize equipment and fab performance and productivity comprising spares, upgrades, services, and 200 millimeter and other equipment and factory automation software for semiconductor and other products. It serves manufacturers of semiconductor wafers and chips, and other electronic devices. Applied Materials, Inc. was incorporated in 1967 and is headquartered in Santa Clara, California.",
+    "source": "Stock Analysis",
+    "sector": "Technology"
+  },
+  "AMD": {
+    "name": "AMD",
+    "market": "US",
+    "industry": "Semiconductors",
+    "business": "Advanced Micro Devices, Inc. operates as a semiconductor company internationally. It operates in three segments: Data Center, Client and Gaming, and Embedded. The company offers artificial intelligence (AI) accelerators, microprocessors, and graphics processing units (GPUs) as standalone devices or as incorporated into accelerated processing units, chipsets, and data center and professional GPUs; and embedded processors and semi-custom system-on-chip (SoC) products, microprocessor and SoC development services and technology, data processing units, field programmable gate arrays (FPGA), system on modules, AI network interface cards, and adaptive SoC products. It provides processors under the AMD Ryzen, AMD Ryzen AI, AMD Ryzen PRO, AMD Ryzen Threadripper, AMD Ryzen Threadripper PRO, AMD Athlon, and AMD PRO A-Series brands; graphics under the AMD Radeon graphics and AMD Embedded Radeon graphics; professional graphics under the AMD Radeon Pro graphics brand; and AI and general-purpose compute infrastructure for hyperscale providers. The company offers data center graphics under the AMD Instinct accelerators and Radeon PRO V-series brands; server microprocessors under the AMD EPYC brand; low power solutions under the AMD Athlon, AMD Geode, AMD Ryzen, AMD EPYC, and AMD R-Series and G-Series brands; FPGA products under the Virtex-6, Virtex-7, Virtex UltraScale+, Kintex-7, Kintex UltraScale, Kintex UltraScale+, Artix-7, Artix UltraScale+, Spartan-6, and Spartan-7 brands; adaptive SOCs under the Zynq-7000, Zynq UltraScale+ MPSoC, Zynq UltraScale+ RFSoCs, Versal HBM, Versal Premium, Versal Prime, Versal AI Core, Versal AI Edge, Vitis, and Vivado brands; and compute and network acceleration board products under the Alveo and Pensando brands. It serves original equipment and design manufacturers, public cloud service providers, system integrators, distributors, and add-in-board manufacturers. The company was incorporated in 1969 and is headquartered in Santa Clara, California.",
+    "source": "Stock Analysis",
+    "sector": "Technology"
+  },
+  "AMZN": {
+    "name": "Amazon",
+    "market": "US",
+    "industry": "Internet Retail",
+    "business": "Amazon.com, Inc. engages in the retail sale of consumer products, advertising, and subscriptions service through online and physical stores in North America and internationally. The company operates through three segments: North America, International, and Amazon Web Services (AWS). It also manufactures and sells electronic devices, including Kindle, fire tablets, fire TVs, echo, ring, blink, and eero; and develops and produces media content. In addition, the company offers programs that enable sellers to sell their products in its stores; and programs that allow authors, independent publishers, musicians, filmmakers, Twitch streamers, skill and app developers, and others to publish and sell content. Further, it provides compute, storage, Artificial intelligence, database, analytics, machine learning, and other services, as well as advertising services through programs, such as sponsored ads, display, and video advertising. Additionally, the company offers Amazon Prime, a membership program. The company’s products offered through its stores include merchandise and content purchased for resale and products offered by third-party sellers. It serves consumers, sellers, developers, enterprises, content creators, advertisers, and employees. The company was incorporated in 1994 and is headquartered in Seattle, Washington.",
+    "source": "Stock Analysis",
+    "sector": "Consumer Discretionary"
+  },
+  "ANET": {
+    "name": "Arista Networks",
+    "market": "US",
+    "industry": "Computer Hardware",
+    "business": "Arista Networks, Inc. engages in the development, marketing, and sale of data-driven, client to cloud networking solutions for AI, data center, campus, and routing environments in the Americas, Europe, the Middle East, Africa, and the Asia-Pacific. Its cloud networking solutions consist of Extensible Operating System (EOS), a publish-subscribe state-sharing networking operating system offered in combination with a set of network applications. The company offers data center, cloud and AI networking, cognitive adjacencies, and cognitive network software and services. It also provides post contract customer support services, such as technical support, hardware repair and replacement parts beyond standard warranty, bug fixes, patches, and upgrade services. The company serves a range of industries comprising internet companies, cloud service providers, financial services organizations, government agencies, media and entertainment, healthcare, oil and gas, education, manufacturing, industrial, and others. It markets and sells its products through distributors, system integrators, value-added resellers, and original equipment manufacturer partners, as well as through its direct sales force. Arista Networks, Inc. was formerly known as Arastra, Inc. and changed its name to Arista Networks, Inc. in October 2008. The company was incorporated in 2004 and is headquartered in Santa Clara, California.",
+    "source": "Stock Analysis",
+    "sector": "Technology"
+  },
+  "AVGO": {
+    "name": "Broadcom",
+    "market": "US",
+    "industry": "Semiconductors",
+    "business": "Broadcom Inc. designs, develops, and supplies various semiconductor devices and infrastructure software solutions internationally. The company operates in two segments: Semiconductor Solutions and Infrastructure Software. The company offers networking connectivity, such as custom silicon solutions, ethernet switching & routing, ethernet NIC controllers, physical layer devices, and fiber optic components; wireless device connectivity, including RF semiconductor devices, connectivity solutions, custom touch controllers, and inductive charging ASICS; servers and storage system solutions, such as PCIE switches, SAS & raid products, fibre channel products, and HDD & SSD solutions; broadband solutions, includes set-top box, and broadband access; and industrial. The company also offers a private cloud software portfolio, including the VMware Cloud Foundation, Edge, vSphere foundation, telco cloud platform, private AI, live recovery, application networking and security, application development and data services; mainframe software, such as AIOPS & automation, database & data management, DEVX & DEVOPS, cybersecurity & compliance management, beyond code programs, foundational & open mainframe solutions; cybersecurity, such as endpoint, network, information, application security, and identity & access management; enterprise software; and fc san management. Its products are used in various applications in enterprise and data center networking, including artificial intelligence networking and connectivity, home connectivity, set-top boxes, broadband access, telecommunication equipment, wireless device and base stations, data center servers and storage systems, factory automation, power generation and alternative energy systems, and electronic displays. Broadcom Inc. was founded in 1961 and is headquartered in Palo Alto, California.",
+    "source": "Stock Analysis",
+    "sector": "Technology"
+  },
+  "BE": {
+    "name": "Bloom Energy",
+    "market": "US",
+    "industry": "Electrical Equipment & Parts",
+    "business": "Bloom Energy Corporation designs, manufactures, sells, and installs solid oxide fuel cell systems for on-site power generation in the United States and internationally. It offers Bloom Energy Server, an energy server platform to convert fuel, such as natural gas, biogas, hydrogen, or a blend of these fuels, into electricity through a non-combustion electrochemical process. The company also provides Bloom Electrolyzer for producing hydrogen. It sells its products through direct and indirect sales channels to utilities, data centers, retail, healthcare, education, telecom, manufacturing, and other industries. The company was formerly known as Ion America Corp. and changed its name to Bloom Energy Corporation in 2006. Bloom Energy Corporation was incorporated in 2001 and is headquartered in San Jose, California.",
+    "source": "Stock Analysis",
+    "sector": "Industrials"
+  },
+  "CRDO": {
+    "name": "Credo",
+    "market": "US",
+    "industry": "Semiconductors",
+    "business": "Credo Technology Group Holding Ltd provides various high-speed connectivity solutions for optical and electrical Ethernet and PCIe applications in the United States, Taiwan, Mainland China, Hong Kong, and other international markets. The company offers ZeroFlap (ZF) active electrical cables and ZF optical transceivers, OmniConnect memory solutions, and a suite of retimers and DSPs for optical and copper Ethernet and PCIe, as well as integrated circuits, active electrical cables, and SerDes chiplets. It also provides intellectual property (IP) solutions, including SerDes IP licensing. The company offers was founded in 2008 and is headquartered in Grand Cayman, the Cayman Islands.",
+    "source": "Stock Analysis",
+    "sector": "Technology"
+  },
+  "DDOG": {
+    "name": "Datadog",
+    "market": "US",
+    "industry": "Software - Application",
+    "business": "Datadog, Inc. operates an observability and security platform for cloud applications in the United States and internationally. The company’s products comprise infrastructure and application performance monitoring, log management, observability pipelines, synthetics, real user monitoring, product analytics, continuous profiler, database monitoring, data observability, LLM observability, error tracking, network monitoring, incident response, workflow automation and App builder, event management, bits AI SRE, cloud cost management, cloud security, code security, cloud SIEM, threat management, sensitive data scanner, and CI visibility. Datadog, Inc. was incorporated in 2010 and is headquartered in New York, New York.",
+    "source": "Stock Analysis",
+    "sector": "Technology"
+  },
+  "DELL": {
+    "name": "Dell",
+    "market": "US",
+    "industry": "Computer Hardware",
+    "business": "Dell Technologies Inc. designs, develops, manufactures, markets, sells, and supports various comprehensive and integrated solutions, products, and services in the Americas, Europe, the Middle East, Asia, and internationally. The company operates through Infrastructure Solutions Group (ISG) and Client Solutions Group (CSG) segments. The ISG segment provides modern and traditional storage solutions, including all-flash, purpose-built, hyper-converged infrastructure, software-defined storage, and general-purpose and AI-optimized servers. This segment also offers networking products and services comprising wide area network infrastructure, data center and edge networking switches, and cables and optics that help its business customers to transform and modernize their infrastructure and complementing its server and storage solutions; and software, peripherals, and services, including consulting and support, and deployment. The CSG segment provides notebooks, desktops, and workstations and branded peripherals that include displays, docking stations, keyboards, mice, webcam and audio devices, and third-party software and peripherals; and configuration, and extended warranties services. The company is involved in originating, collecting, and servicing customer financing arrangements and offers payment and consumption solutions and services, such utility, subscription, as-a-service, leases, and loans, as well as fixed-term leases and loans. It serves enterprises, governmental agencies and other public institutions, educational institutions, healthcare organizations, small and medium-sized businesses, and consumers. The company has a strategic alliance with Rafay Systems for the development of AI infrastructure solutions. The company was formerly known as Denali Holding Inc. and changed its name to Dell Technologies Inc. in March 2013. Dell Technologies Inc. was founded in 1984 and is headquartered in Round Rock, Texas.",
+    "source": "Stock Analysis",
+    "sector": "Technology"
+  },
+  "GLW": {
+    "name": "Corning",
+    "market": "US",
+    "industry": "Electronic Components",
+    "business": "Corning Incorporated operates in optical communications, display, specialty materials, automotive, and life sciences businesses in the United States, Canada, Mexico, Japan, Taiwan, China, South Korea, Germany, and internationally. The company provides optical fibers and cables; and hardware and equipment products, such as cable assemblies, fiber optic hardware and connectors, optical components and couplers, closures, network interface devices, and other accessories for the telecommunications industry, businesses, governments, and individuals. It also offers glass substrates for flat panel displays, including liquid crystal displays and organic light-emitting diodes that are used in televisions, notebook computers, desktop monitors, tablets, and handheld devices. In addition, it manufactures products that offer material formulations for glass, glass ceramics, crystals, precision metrology instruments, and software, as well as glass wafers and substrates, tinted sunglasses, and radiation shielding products for markets, such as mobile consumer electronics, semiconductor equipment optics and consumables, aerospace and defense optics, radiation shielding products, sunglasses, and telecommunications components. Further, the company provides ceramic substrates and filter products for emissions control in mobile, gasoline, and diesel applications, as well as technical glass and optic products and solutions for the interior and exterior of vehicles. Additionally, it offers laboratory products, including plastic vessels, liquid handling plastics, specialty surfaces, cell culture media, and serum, as well as general labware, and glassware and equipment under the Corning, Falcon, PYREX, and Axygen brands. It also offers polysilicon products and pharmaceutical glass tubing and vials. The company was formerly known as Corning Glass Works and changed its name to Corning Incorporated in April 1989. Corning Incorporated was founded in 1851 and is headquartered in Corning, New York.",
+    "source": "Stock Analysis",
+    "sector": "Technology"
+  },
+  "GOOGL": {
+    "name": "Alphabet - Class A Common Stock",
+    "market": "US",
+    "industry": "Internet Content & Information",
+    "business": "Alphabet Inc. offers various products and platforms in the United States, Europe, the Middle East, Africa, the Asia-Pacific, Canada, and Latin America. It operates through Google Services, Google Cloud, and Other Bets segments. The Google Services segment provides products and services, including ads, Android, Chrome, devices, Gmail, Google Drive, Google Maps, Google Photos, Google Play, Search, and YouTube. It is also involved in the sale of apps and in-app purchases and digital content in Google Play and YouTube; and devices, as well as the provision of YouTube consumer subscription services, such as YouTube TV, YouTube Music and Premium, NFL Sunday Ticket, and Google One. The Google Cloud segment offers consumption-based fees and subscriptions for AI solutions, including AI infrastructure, Vertex AI platform, and Gemini enterprise. It also provides cybersecurity, and data and analytics services; Google Workspace that include cloud-based communication and collaboration tools for enterprises, such as Calendar, Gmail, Docs, Drive, and Meet; and other enterprise services. The Other Bets segment sells transportation and internet services. Alphabet Inc. was incorporated in 1998 and is headquartered in Mountain View, California.",
+    "source": "Stock Analysis",
+    "sector": "Communication Services"
+  },
+  "INFINEON TECHNOLOGIES AG": {
+    "name": "INFINEON TECHNOLOGIES AG",
+    "market": "",
+    "industry": "",
+    "business": "無代號海外成分股，暫無可用公開摘要。",
+    "source": ""
+  },
+  "LITE": {
+    "name": "Lumentum",
+    "market": "US",
+    "industry": "Communication Equipment",
+    "business": "Lumentum Holdings Inc. manufactures and sells optical and photonic products in the Americas, the Asia-Pacific, Europe, the Middle East, and Africa. It operates through two segments, Cloud & Networking and Industrial Tech. The Cloud & Networking segment offers optical and photonic chips, components, modules, and subsystems supplied to cloud data center operators, AI/ML infrastructure providers, and network equipment manufacturer customers that are building cloud data centers and network infrastructures. Its Industrial Tech segment provides short-pulse solid-state lasers, kilowatt-class fiber lasers, diode lasers, and gas lasers that serves the semiconductor device, solar cell, display, and electric vehicle and battery manufacturing markets. The company was incorporated in 2015 and is headquartered in San Jose, California.",
+    "source": "Stock Analysis",
+    "sector": "Technology"
+  },
+  "META": {
+    "name": "Meta",
+    "market": "US",
+    "industry": "Internet Content & Information",
+    "business": "Meta Platforms, Inc. engages in the development of products that enable people to connect and share with friends and family through mobile devices, personal computers, virtual reality (VR) headsets, and AI glasses in the United States, Canada, Europe, Asia-Pacific, and internationally. It operates through two segments, Family of Apps (FoA) and Reality Labs (RL). The FoA segment offers Facebook, which enables people to build community through feed, reels, stories, groups, marketplace, and other; Instagram that brings people closer through Instagram feed, stories, reels, live, and messaging; Messenger, a messaging application for people to connect with friends, family, communities, and businesses across platforms and devices through text, audio, and video calls; Meta AI, an assistant that's available across apps, as a stand-alone app, on AI glasses, and on the web; Threads, an application for text-based updates and public conversations; and WhatsApp, a messaging application that is used by people and businesses to communicate and transact. The RL segment provides virtual and augmented reality products, including consumer hardware, software, and content that help people feel connected, as well as Meta Quest devices that enable social experiences across gaming, fitness, entertainment, and more. The segment also includes wearables such as AI glasses like Ray Ban Meta and Oakley Meta glasses; and the Meta Ray Ban Display, which combines AI glasses with an integrated lens display and the Meta Neural Band, a wrist worn device using electromyography that lets people control their AI glasses through neuromuscular signals. Meta Platforms, Inc. has a collaboration with Microsoft Corporation, NVIDIA Corporation, Advanced Micro Devices, Inc., Broadcom Inc., and OpenAI, L.L.C. The company was formerly known as Facebook, Inc. and changed its name to Meta Platforms, Inc. in October 2021. The company was incorporated in 2004 and is headquartered in Menlo Park, California.",
+    "source": "Stock Analysis",
+    "sector": "Communication Services"
+  },
+  "MRVL": {
+    "name": "Marvell",
+    "market": "US",
+    "industry": "Semiconductors",
+    "business": "Marvell Technology, Inc., together with its subsidiaries, provides data infrastructure semiconductor solutions and spanning the data center core to network edge in the United States, Argentina, China, India, Israel, Japan, Singapore, South Korea, Taiwan, Vietnam, and internationally. The company develops and scales system-on-a-chip architectures, integrating analog, mixed-signal, and digital signal processing functionality. It offers a portfolio of ethernet solutions, including spanning controllers, network adapters, physical transceivers, and switches; single or multiple core processors; and custom application specific integrated circuits, interconnects, fibre channel adapters, and processors. The company also provides interconnect products, including pulse amplitude modulation, coherent and coherent-lite digital signal processors (DSPs), laser drivers, trans-impedance amplifiers, silicon photonics, co-packaged optics, linear pluggable optics chipsets, data center interconnect, active electrical cable DSPs and peripheral component interconnect express retimer solutions; fibre channel products comprising host bus adapters and controllers for server and storage system connectivity; storage controllers for hard disk drives and solid-state-drives; host system interfaces, including serial advanced technology attachment and serial attached SCSI, peripheral component interconnect express, compute express link switches, non-volatile memory express (NVMe), and NVMe over fabrics; and develops ultra accelerator linkTM switches and ethernet for scale-up networking switches. The company serves data centers, communications, and other markets. It offers its products through direct customers and distributors. Marvell Technology, Inc. was incorporated in 1995 and is headquartered in Wilmington, Delaware.",
+    "source": "Stock Analysis",
+    "sector": "Technology"
+  },
+  "MSFT": {
+    "name": "Microsoft",
+    "market": "US",
+    "industry": "Software - Infrastructure",
+    "business": "Microsoft Corporation develops and supports software, services, devices, and solutions worldwide. The Productivity and Business Processes segment offers Microsoft 365 commercial, enterprise mobility + security, windows commercial, power BI, exchange, sharepoint, Microsoft teams, security and compliance, and copilot; Microsoft 365 commercial products, such as Windows commercial on-premises and office licensed services; Microsoft 365 consumer products and cloud services, including Microsoft 365 consumer subscriptions, office licensed on-premises, and other consumer services; LinkedIn; dynamics products and cloud services, such as dynamics 365, cloud-based applications, and on-premises ERP and CRM applications. Its Intelligent Cloud segment provides Server products and cloud services comprising Azure and other cloud services, GitHub, Nuance Healthcare, virtual desktop offerings, and other cloud services; server products, including SQL and windows server, visual studio and system center related client access licenses, and other on-premises offerings; enterprise and partner services, such as enterprise support and nuance professional services, industry solutions, Microsoft partner network, and learning experience. The Personal Computing segment provides windows and devices, such as Windows OEM licensing and devices and surface and PC accessories; gaming services and solutions, such as Xbox hardware, content, and services, first- and third-party content Xbox game pass, subscriptions, and cloud gaming, advertising, and other cloud services; search and news advertising services. It sells its products through OEMs, distributors, and resellers; and online and retail stores. The company has a strategic collaboration with Mayo Clinic, Inc. for the development of a frontier AI model for healthcare; and Global Objects, Inc. to build a retrieval-grounded generative AI world model. The company was founded in 1975 and is headquartered in Redmond, Washington.",
+    "source": "Stock Analysis",
+    "sector": "Technology"
+  },
+  "MU": {
+    "name": "Micron",
+    "market": "US",
+    "industry": "Semiconductors",
+    "business": "Micron Technology, Inc. designs, develops, manufactures, and sells memory and storage products in the United States, Taiwan, Japan, Mainland China, Hong Kong, Europe, and internationally. It operates through the Cloud Memory Business Unit; Core Data Center Business Unit; Mobile and Client Business Unit; and Automotive and Embedded Business Unit segments. The company provides memory products, including dynamic random access memory components and modules, CXL-based memory, LPDDR components and modules, graphics memory, high-bandwidth memory, and data center memory products; multichip packages (MCP) comprising embedded multimedia card-based, universal flash storage-based, and NAND-based MCPs; and technology leadership products that include 1y DRAM and G9 NAND technologies. It also offers storage products, such as data center solid-state drives (SSD), client SSD storage, and auto and industrial SSD storage; managed NAND; NAND flash; NOR flash; and memory cards. In addition, the company provides design tools, including FBGA and part decoders; DRAM power calculators; NAND power calculators; simulation models; chipset compatibility guides; serial presence-detection tools; cross-reference tools; UFSparm; SSD firmware; software and drivers; storage executive software; and obsolete part catalogs. It markets its semiconductor memory and storage products under the Micron and Crucial brands. The company serves the data center, PC, graphics, networking, automotive, industrial, and consumer embedded markets, as well as the smartphone and other mobile-device markets. It sells its products through its direct sales force, independent sales representatives, distributors, and retailers; web-based customer direct sales channel; and channel and distribution partners. Micron Technology, Inc. was founded in 1978 and is headquartered in Boise, Idaho.",
+    "source": "Stock Analysis",
+    "sector": "Technology"
+  },
+  "NVDA": {
+    "name": "NVIDIA",
+    "market": "US",
+    "industry": "Semiconductors",
+    "business": "NVIDIA Corporation operates as a data center scale AI infrastructure company in the United States, Taiwan, China, Hong Kong, Europe, and internationally. It operates through Compute & Networking, and Graphics segments. The Compute & Networking segment provides data center accelerated computing and networking platforms and artificial intelligence solutions and software, and automotive platforms and autonomous and electric vehicle solutions, including software. The Graphics segment offers GeForce GPUs for gaming and PCs; Quadro/NVIDIA RTX GPUs for enterprise workstation graphics. The company’s products are used in gaming, professional visualization, data center, and automotive markets. It sells its products to original equipment manufacturers, original device manufacturers, system integrators and distributors, independent software vendors, cloud service providers, add-in board manufacturers, distributors, automotive manufacturers and tier-1 automotive suppliers, and other ecosystem participants. NVIDIA Corporation was incorporated in 1993 and is headquartered in Santa Clara, California.",
+    "source": "Stock Analysis",
+    "sector": "Technology"
+  },
+  "ON": {
+    "name": "ON Semiconductor",
+    "market": "US",
+    "industry": "Semiconductors",
+    "business": "ON Semiconductor Corporation provides intelligent sensing and power solutions in Hong Kong, Singapore, the United Kingdom, the United States, and internationally. It operates through three segments: Power Solutions Group, Analog and Mixed-Signal Group, and Intelligent Sensing Group. The Power Solutions Group segment offers discrete, module, and integrated semiconductor devices designed to enable power conversion, including power switching, signal conditioning, and circuit protection technologies. Its Analog and Mixed-Signal Group segment designs and develops analog and mixed-signal solutions, including power management, sensor interface, connectivity, and standard products for automotive, industrial automation, AI data centers, computing, and mobile end markets. The Intelligent Sensing Group segment develops complementary metal-oxide-semiconductor image sensors, image signal processors, short-wave infrared sensors, and other products, as well as photon-counting technologies, including single-photon avalanche diode arrays and silicon photomultiplier devices for depth sensing, factory automation, safety systems, and robotics industries. ON Semiconductor Corporation was incorporated in 1992 and is headquartered in Scottsdale, Arizona.",
+    "source": "Stock Analysis",
+    "sector": "Technology"
+  },
+  "ONTO": {
+    "name": "Onto Innovation",
+    "market": "US",
+    "industry": "Semiconductor Equipment & Materials",
+    "business": "Onto Innovation Inc. engages in the design, development, manufacture, and support of process control tools that perform macro-defect inspection and metrology in the United States, Taiwan, South Korea, Japan, China, Southeast Asia, Asia, and Europe. The company offers lithography systems and process control analytical software; and automated and integrated metrology systems, silicon wafer all-surface inspection, macro defect inspection, automated defect classification and pattern analysis, yield analysis, opaque film metrology, 4D business, advanced packaging lithography, process control software, and yield management software products. It also provides process and yield management solutions, and device packaging and test facilities through standalone systems for optical metrology, macro-defect inspection, packaging lithography, and transparent and opaque thin film measurements. In addition, the company offers process control software portfolio that includes solutions for standalone tools, groups of tools, and factory-wide suites. Further, it engages in systems and software, spare parts, and other services, as well as offers software licensing services; and provides advanced product lines, such as FAaST, CnCV, and MBIR. The company’s products are used in semiconductor and advanced packaging device manufacturers; silicon wafers; semiconductor integrated circuit fabricators; light emitting diodes; vertical-cavity surface-emitting lasers; micro-electromechanical systems; CMOS image sensors; silicon and compound semiconductor power devices; analog devices; RF filters; data storage; and various industrial and scientific applications. Onto Innovation Inc. was founded in 1940 and is headquartered in Wilmington, Massachusetts.",
+    "source": "Stock Analysis",
+    "sector": "Technology"
+  },
+  "PANW": {
+    "name": "Palo Alto",
+    "market": "US",
+    "industry": "Software - Infrastructure",
+    "business": "Palo Alto Networks, Inc. provides cybersecurity solutions in the Americas, Europe, the Middle East, Africa, the Asia Pacific, and Japan. It offers Prisma Access, a secure access service edge solution; Strata Cloud Manager, a network security management solution; and Prisma AIRS to protect customers’ entire AI ecosystem. It provides a comprehensive cloud native application protection platform; and Code to Cloud platform, as well as offers VM-Series and CN-Series virtual firewalls for inline network security on multi- and hybrid-cloud environments. It provides security operation solutions through the Cortex platform that includes Cortex XSIAM, an AI-driven security operations platform; Cortex XDR to prevent, detect, and respond to cybersecurity attacks; and Cortex XSOAR for security orchestration, automation, and response; and Cortex Xpanse for attack surface management, as well as offers threat intelligence and advisory services under the Unit 42 name. It provides subscription services covering the areas of threat prevention, malware and persistent threat, URL filtering, laptop and mobile device protection, DNS security, Internet of Things security, SaaS security API, and SaaS security inline; and threat intelligence, data loss prevention, services to resolve network disruptions, and sensitive data protection. It offers professional services, including architecture design and planning, implementation, configuration, and firewall migration; education services, such as certifications, as well as online and in-classroom training; and support services. It sells its products and services through its channel partners, as well as directly to enterprises, service providers, and government entities operating in various industries, including education, energy, financial services, government entities, healthcare, Internet and media, manufacturing, public sector, and telecommunications. The company was incorporated in 2005 and is headquartered in Santa Clara, California.",
+    "source": "Stock Analysis",
+    "sector": "Technology"
+  },
+  "SERVICENOW INC": {
+    "name": "SERVICENOW INC",
+    "market": "",
+    "industry": "",
+    "business": "無代號海外成分股，暫無可用公開摘要。",
+    "source": ""
+  },
+  "SHOP": {
+    "name": "Shopify",
+    "market": "US",
+    "industry": "Software - Application",
+    "business": "Shopify Inc., a commerce technology company, provides tools to start, scale, market, and run a business of various sizes in Canada, the United States, Europe, the Middle East, Africa, the Asia Pacific, and Latin America. The Company offers Shopify platform that enables merchants to manage products and inventory, process orders and payments, fulfill and ship orders, build customer relationships, source products, leverage analytics, and reporting and access financing for running their business across all of their sales channels, including web and mobile storefronts, physical retail locations, social media storefronts, and marketplaces. It also provides Shopify Payments, a fully integrated payment processing service that allows merchants to accept and process payment cards online and offline. In addition, the company engages in the sale of themes and apps; shipping labels through Shopify Shipping; point-of-sale hardware; advertising on the Shopify App Store; and Shop Campaigns for buyer acquisitions, as well as registration of domain names. The company was formerly known as Jaded Pixel Technologies Inc. and changed its name to Shopify Inc. in November 2011. Shopify Inc. was incorporated in 2004 and is based in Ottawa, Canada.",
+    "source": "Stock Analysis",
+    "sector": "Technology"
+  },
+  "SMTC": {
+    "name": "Semtech",
+    "market": "US",
+    "industry": "Semiconductors",
+    "business": "Semtech Corporation provides semiconductor, Internet of Things systems, and cloud connectivity service solutions in the Asia- Pacific, North America, and Europe. The company operates in three segments: Signal Integrity, Analog Mixed Signal and Wireless, and IoT Systems and Connectivity. It provides signal integrity products, including a portfolio of optical and copper data communications and video transport products used in various infrastructure, and industrial applications; a portfolio of integrated circuits for data centers, enterprise networks, passive optical networks, wireless base station optical transceivers, and interface applications; and video products for broadcast applications, as well as video-over-IP technology for professional audio video applications. The company also offers analog mixed signal and wireless products; protection devices, such as filter and termination devices which protect electronic systems from voltage spikes; and designs, develops, manufactures, and markets radio frequency products used in industrial, medical, and communications applications, as well as specialized sensing products. In addition, it provides switching voltage regulators, combination switching and linear regulators, smart regulators, isolated switches, and wireless charging related products. Further, the company offers a portfolio of IoT systems and connectivity solutions, such as modules, gateways, routers, and connected services, including wireless connectivity and cloud-based services for industrial, medical, and communications applications. It serves original equipment manufacturers, solution providers, commercial applications, infrastructure, high-end consumer, and industrial end markets. The company sells its products through direct sales personnel, independent sales representative firms, and independent distributors. Semtech Corporation was incorporated in 1960 and is headquartered in Camarillo, California.",
+    "source": "Stock Analysis",
+    "sector": "Technology"
+  },
+  "SNDK": {
+    "name": "Sandisk",
+    "market": "US",
+    "industry": "Computer Hardware",
+    "business": "Sandisk Corporation develops, manufactures, and sells data storage devices and solutions using NAND flash technology in the United States, Europe, the Middle East, Africa, Asia, and internationally. The company offers solid state drives for desktop and notebook PCs, gaming consoles, and set top boxes; and flash-based embedded storage products for mobile phones, tablets, notebook PCs and other portable and wearable devices, automotive applications, Internet of Things, industrial, and connected home applications, as well as removable cards, universal serial bus drives, and wafers and components. It sells its products to computer manufacturers and original equipment manufacturers, datacenters, private cloud customers, cloud service providers, resellers, distributors, and retailers through its sales personnel, dealers, distributors, retailers, and subsidiaries. Sandisk Corporation was incorporated in 2024 and is based in Milpitas, California.",
+    "source": "Stock Analysis",
+    "sector": "Technology"
+  },
+  "SNOW": {
+    "name": "Snowflake",
+    "market": "US",
+    "industry": "Software - Application",
+    "business": "Snowflake Inc. provides a cloud-based data platform for various organizations in the United States and internationally. The company’s platform includes artificial intelligence (AI) Data Cloud, which enables customers to consolidate data into a single source of truth to drive meaningful business insights, build data applications, and share data and data products, as well as applies AI for solving business problems. It serves financial services, advertising, media and entertainment, retail and consumer goods, healthcare and life sciences, manufacturing, technology, telecom, travel and hospitality, and government and defense industries, as well as the public sector. the company has a collaboration with OpenAI, L.L.C. for the development of AI solutions for joint enterprise customers that deliver tangible return on investment. The company was formerly known as Snowflake Computing, Inc. and changed its name to Snowflake Inc. in April 2019. Snowflake Inc. was incorporated in 2012 and is based in Menlo Park, California.",
+    "source": "Stock Analysis",
+    "sector": "Technology"
+  },
+  "TSEM": {
+    "name": "Tower Semiconductor",
+    "market": "US",
+    "industry": "Semiconductors",
+    "business": "Tower Semiconductor Ltd., an independent semiconductor foundry, provides technology, development, and process platforms for integrated circuits in the United States, Japan, rest of Asia, and Europe. The company provides customizable process technologies, including SiGe, SiPho, mixed signal CMOS, RF CMOS, CMOS image sensor, non-imaging sensors, wafers, and integrated power management. It also offers a design enablement platform for a design cycle, as well as transfer optimization and development process services to integrated device manufacturers and fabless companies. The company serves consumer applications, personal computers, communications, handsets and smartphones, automotive, industrial, aerospace, and medical devices. Tower Semiconductor Ltd. was incorporated in 1993 and is headquartered in Migdal Haemek, Israel",
+    "source": "Stock Analysis",
+    "sector": "Technology"
+  },
+  "WDAY": {
+    "name": "Workday",
+    "market": "US",
+    "industry": "Software - Application",
+    "business": "Workday, Inc. provides enterprise cloud applications in the United States and internationally. The company offers a suite of financial management applications to maintain accounting information; manage financial processes, such as payables and receivables; identify real-time financial, operational, and management insights; perform financial consolidation; reduce time-to-close; promote internal control and auditability; and achieve consistency across finance operations. It also provides spend management solutions that help organizations to streamline supplier selection and contract management, build and execute sourcing events, such as requests for proposals, and manage indirect spend; expense management solutions to submit and approve expenses; and a suite of human capital management applications that enables HR teams to hire, onboard, pay, develop, reskill, and provide employee experiences. In addition, the company offers planning applications. Further, it provides supply chain and inventory solutions to healthcare organizations; solutions to manage the end-to-end student and faculty lifecycle; Workday Extend for customers and their developers to build custom applications. The company serves the professional and business services, financial services, healthcare, manufacturing, media, education, government, technology, media, retail, and hospitality industries. It sells its solutions through its direct sales organization. The company was formerly known as North Tahoe Power Tools, Inc. and changed its name to Workday, Inc. in July 2005. Workday, Inc. was incorporated in 2005 and is headquartered in Pleasanton, California.",
+    "source": "Stock Analysis",
+    "sector": "Technology"
+  },
+  "WDC": {
+    "name": "Western Digital",
+    "market": "US",
+    "industry": "Computer Hardware",
+    "business": "Western Digital Corporation develops, manufactures, and sells data storage devices and solutions based on hard disk drive (HDD) technology in the United States, Asia, Europe, the Middle East, and Africa. The company offers internal HDDs, data center drives, data center platforms, external drives, portable drives, NAS for home and office, and accessories. It sells its data storage devices and solutions through its computer manufacturers, sales personnel, dealers, distributors, and retailers. The company has a collaboration with Open Quantum Design for the development of quantum error correction technology and related systems to advance reliable quantum computing. Western Digital Corporation was founded in 1970 and is headquartered in San Jose, California.",
+    "source": "Stock Analysis",
+    "sector": "Technology"
+  }
+}
