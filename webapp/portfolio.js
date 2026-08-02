@@ -1,10 +1,13 @@
-// 我的持股：記錄個人部位，配息/市值/損益全部即時計算（存 Supabase holdings 表）
+// 我的持股：記錄個人部位，配息/現值/損益全部即時計算（存 Supabase holdings 表）
 (function () {
   const $ = (id) => document.getElementById(id);
   let holdings = [];
   let editingId = null;
   let loadedFor = null;   // 已載入哪個 user 的資料
-  let portfolioConfig = { brokerage: { fee_rate: 0.000399, minimum_fee: 1 } };
+  let portfolioConfig = {
+    brokerage: { fee_rate: 0.000399, sell_fee_rate: 0.000399, minimum_fee: 1 },
+    securities_transaction_tax: { rate: 0.001, enabled: true }
+  };
   const configReady = loadPortfolioConfig();
 
   const auth = () => window.ETFAuth;
@@ -27,8 +30,19 @@
       if (res.ok) {
         const data = await res.json();
         const b = data && data.brokerage;
+        const tax = data && data.securities_transaction_tax;
         if (b && Number.isFinite(Number(b.fee_rate)) && Number.isFinite(Number(b.minimum_fee))) {
-          portfolioConfig = { brokerage: { fee_rate: Number(b.fee_rate), minimum_fee: Number(b.minimum_fee) } };
+          portfolioConfig = {
+            brokerage: {
+              fee_rate: Number(b.fee_rate),
+              sell_fee_rate: Number.isFinite(Number(b.sell_fee_rate)) ? Number(b.sell_fee_rate) : Number(b.fee_rate),
+              minimum_fee: Number(b.minimum_fee)
+            },
+            securities_transaction_tax: {
+              rate: tax && Number.isFinite(Number(tax.rate)) ? Number(tax.rate) : 0.001,
+              enabled: !(tax && tax.enabled === false)
+            }
+          };
         }
       }
     } catch (e) {
@@ -36,10 +50,10 @@
     }
   }
 
-  function feeFor(shares, avgCost) {
-    if (avgCost == null || !Number.isFinite(Number(avgCost))) return null;
+  function feeFor(shares, unitPrice, rate) {
+    if (unitPrice == null || !Number.isFinite(Number(unitPrice))) return null;
     const b = portfolioConfig.brokerage;
-    return Math.max(Number(b.minimum_fee), shares * Number(avgCost) * Number(b.fee_rate));
+    return Math.max(Number(b.minimum_fee), Math.round(shares * Number(unitPrice) * Number(rate)));
   }
 
   async function ensureData(codes) {
@@ -63,10 +77,15 @@
     const chPct = self ? self.changePct : null;
     const shares = Number(h.shares) || 0;
     const tradeValue = (h.avg_cost != null) ? shares * Number(h.avg_cost) : null;
-    const fee = feeFor(shares, h.avg_cost);
+    const fee = feeFor(shares, h.avg_cost, portfolioConfig.brokerage.fee_rate);
     const cost = (tradeValue != null && fee != null) ? tradeValue + fee : null;
     const mkt = (priceNow != null) ? shares * priceNow : null;
-    const pl = (mkt != null && cost != null) ? mkt - cost : null;
+    const sellFee = feeFor(shares, priceNow, portfolioConfig.brokerage.sell_fee_rate);
+    const taxConfig = portfolioConfig.securities_transaction_tax;
+    const sellTax = (mkt != null && taxConfig.enabled) ? Math.round(mkt * Number(taxConfig.rate)) : 0;
+    const sellCosts = (mkt != null && sellFee != null) ? sellFee + sellTax : null;
+    const currentValue = (mkt != null && sellCosts != null) ? mkt - sellCosts : null;
+    const pl = (currentValue != null && cost != null) ? currentValue - cost : null;
     const plp = (pl != null && cost) ? pl / cost * 100 : null;
     const divs = (etf && etf.dividends) || [];
     const t = today();
@@ -77,22 +96,22 @@
     const ttmPer = divs.filter((d) => d.ex && d.ex <= t && d.ex >= ya && d.amount != null).reduce((s, d) => s + d.amount, 0);
     const ttm = shares * ttmPer;
     const yoc = cost ? ttm / cost * 100 : null;
-    return { h, name, priceNow, chPct, shares, tradeValue, fee, cost, mkt, pl, plp, last, next, ttm, yoc };
+    return { h, name, priceNow, chPct, shares, tradeValue, fee, cost, mkt, sellFee, sellTax, sellCosts, currentValue, pl, plp, last, next, ttm, yoc };
   }
 
   function renderSummary(rows) {
-    let tCost = 0, tMkt = 0, tTtm = 0, hasCost = false, hasMkt = false;
+    let tCost = 0, tValue = 0, tTtm = 0, hasCost = false, hasValue = false;
     rows.forEach((r) => {
       if (r.cost != null) { tCost += r.cost; hasCost = true; }
-      if (r.mkt != null) { tMkt += r.mkt; hasMkt = true; }
+      if (r.currentValue != null) { tValue += r.currentValue; hasValue = true; }
       tTtm += r.ttm || 0;
     });
-    const tPl = (hasMkt && hasCost) ? tMkt - tCost : null;
+    const tPl = (hasValue && hasCost) ? tValue - tCost : null;
     const tPlp = (tPl != null && tCost) ? tPl / tCost * 100 : null;
     const wYield = tCost ? tTtm / tCost * 100 : null;
     const kpi = (n, l, cls) => '<div class="kpi"><div class="n ' + (cls || "") + '">' + n + '</div><div class="l">' + l + '</div></div>';
     $("summary").innerHTML =
-      kpi(hasMkt ? money(tMkt) : "—", "總市值") +
+      kpi(hasValue ? money(tValue) : "—", "總現值") +
       kpi(hasCost ? money(tCost) : "—", "總成本") +
       kpi(tPl != null ? (tPl > 0 ? "+" : "") + money(tPl) : "—", "總損益" + (tPlp != null ? "（" + pct(tPlp) + "）" : ""), plCls(tPl)) +
       kpi(money(tTtm), "預估年配息") +
@@ -103,15 +122,17 @@
   function etfCard(code, rs) {
     const first = rs[0];
     const g = (k, v, cls) => '<div><div class="k">' + k + '</div><div class="v ' + (cls || "") + '">' + v + '</div></div>';
-    let shares = 0, fee = 0, cost = 0, mkt = 0, ttm = 0, hasCost = false, hasFee = false, hasMkt = false;
+    let shares = 0, fee = 0, cost = 0, value = 0, sellCosts = 0, ttm = 0;
+    let hasCost = false, hasFee = false, hasValue = false, hasSellCosts = false;
     rs.forEach((r) => {
       shares += r.shares;
       if (r.fee != null) { fee += r.fee; hasFee = true; }
       if (r.cost != null) { cost += r.cost; hasCost = true; }
-      if (r.mkt != null) { mkt += r.mkt; hasMkt = true; }
+      if (r.currentValue != null) { value += r.currentValue; hasValue = true; }
+      if (r.sellCosts != null) { sellCosts += r.sellCosts; hasSellCosts = true; }
       ttm += r.ttm || 0;
     });
-    const pl = (hasMkt && hasCost) ? mkt - cost : null;
+    const pl = (hasValue && hasCost) ? value - cost : null;
     const plp = (pl != null && cost) ? pl / cost * 100 : null;
     const yoc = cost ? ttm / cost * 100 : null;
     const last = first.last, next = first.next;
@@ -131,7 +152,8 @@
       g("持有股數", num(shares)) +
       g("投入成本", hasCost ? money(cost) + " 元" : "—") +
       g("手續費", hasFee ? money(fee) + " 元" : "—") +
-      g("市值", hasMkt ? money(mkt) + " 元" : "—") +
+      g("現值", hasValue ? money(value) + " 元" : "—") +
+      g("預估賣出成本", hasSellCosts ? money(sellCosts) + " 元" : "—") +
       g("損益", pl != null ? (pl > 0 ? "+" : "") + money(pl) + " 元" : "—", plCls(pl)) +
       g("損益%", pct(plp), plCls(plp)) +
       g("過去12月年配息", ttm ? money(ttm) + " 元" : "—") +
@@ -151,7 +173,8 @@
         g("買入均價", h.avg_cost != null ? price(h.avg_cost) : "—") +
         g("手續費", r.fee != null ? money(r.fee) + " 元" : "—") +
         g("投入成本", r.cost != null ? money(r.cost) + " 元" : "—") +
-        g("市值", r.mkt != null ? money(r.mkt) + " 元" : "—") +
+        g("現值", r.currentValue != null ? money(r.currentValue) + " 元" : "—") +
+        g("預估賣出成本", r.sellCosts != null ? money(r.sellCosts) + " 元" : "—") +
         g("損益", r.pl != null ? (r.pl > 0 ? "+" : "") + money(r.pl) + " 元" : "—", plCls(r.pl)) +
         g("損益%", pct(r.plp), plCls(r.plp)) +
         "</div>" + (h.note ? '<div class="note">📝 ' + h.note + "</div>" : "") + "</div>";

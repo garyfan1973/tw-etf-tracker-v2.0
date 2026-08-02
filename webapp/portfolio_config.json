@@ -2,6 +2,11 @@
   "brokerage": {
     "name": "國泰證券",
     "fee_rate": 0.000399,
+    "sell_fee_rate": 0.000399,
     "minimum_fee": 1
+  },
+  "securities_transaction_tax": {
+    "rate": 0.001,
+    "enabled": true
   }
 }
