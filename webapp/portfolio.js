@@ -141,7 +141,7 @@
   }
 
   // 依除息日前的交易狀態計算符合配息資格的股數。
-  // 沒有買入日期的定期定額批次仍參與 FIFO 的消耗順序，但不列入資格股數。
+  // 沒有買入日期的定期定額批次也納入計算，並一樣參與 FIFO 的消耗順序。
   function dividendEligibleShares(code, exDate) {
     const txs = transactions.filter((t) => t.etf_code === code && (!t.trade_date || String(t.trade_date) < String(exDate))).slice().sort((a, b) => {
       const d = String(a.trade_date || "").localeCompare(String(b.trade_date || ""));
@@ -151,7 +151,7 @@
     txs.forEach((t) => {
       const qty = Number(t.shares) || 0;
       if (t.side === "buy") {
-        lots.push({ shares: qty, eligible: !!t.trade_date });
+        lots.push({ shares: qty, eligible: true });
         return;
       }
       let left = qty;
