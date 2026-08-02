@@ -229,7 +229,7 @@
       '<div class="expand-cell"><button class="lot-toggle" type="button" data-toggle-lots="' + code + '" aria-expanded="false">展開</button></div>' +
       "</div></div>";
     // 各筆買入：預設收合，需要時逐檔展開
-    html += '<div class="lot-section"><div class="lots" data-lots="' + code + '" hidden>' +
+    html += '<div class="lots lot-section" data-lots="' + code + '" hidden>' +
       '<div class="detail-heading">各筆買入（' + rs.length + " 筆）</div>";
     rs.forEach((r) => {
       const h = r.h;
@@ -258,7 +258,7 @@
       });
       html += "</div>";
     }
-    html += "</div></div></div>";
+    html += "</div></div>";
     return html;
   }
 
@@ -349,7 +349,7 @@
     if (!/^[0-9A-Z]{4,6}$/.test(code)) { msg.textContent = "代號格式不正確（4–6 碼英數）"; return; }
     if (!shares || shares <= 0) { msg.textContent = "請填入正確的股數"; return; }
     if (side === "sell" && (tradePrice == null || tradePrice < 0)) { msg.textContent = "賣出時請填入實際成交均價"; return; }
-    if (side === "buy" && tradePrice != null && tradePrice < 0) { msg.textContent = "買入均價不可小於 0"; return; }
+    if (side === "buy" && (tradePrice == null || tradePrice < 0)) { msg.textContent = "買入時請填入成交均價"; return; }
     msg.style.color = "var(--muted)"; msg.textContent = "處理中…";
     const d = await window.ETFData.ensure(code);
     if (!d) { msg.style.color = "var(--up)"; msg.textContent = "查無此 ETF 代號"; return; }

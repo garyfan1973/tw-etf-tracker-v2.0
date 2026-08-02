@@ -43,16 +43,16 @@
     .kpi .n { font-size: 20px; font-weight: 700; font-variant-numeric: tabular-nums; }
     .kpi .l { font-size: 12px; color: var(--muted); margin-top: 2px; }
     /* 表單 */
-    .form-row { display: flex; flex-wrap: nowrap; gap: 10px; align-items: flex-end; }
+    .form-row { display: flex; flex-wrap: nowrap; gap: 6px; align-items: flex-end; }
     .form-row .fld { display: flex; flex-direction: column; }
-    .form-row label { font-size: 12px; color: var(--muted); margin-bottom: 3px; }
+    .form-row label { font-size: 12px; color: var(--muted); margin-bottom: 3px; white-space: nowrap; }
     .side-radios { display: flex; gap: 6px; }
     .side-radio { position: relative; }
     .side-radio input { position: absolute; opacity: 0; pointer-events: none; }
     .side-radio label { display: inline-flex; align-items: center; gap: 5px; margin: 0; padding: 8px 11px; border: 1px solid var(--border); border-radius: 8px; background: var(--bg); color: var(--muted); cursor: pointer; font-size: 14px; }
     .side-radio input:checked + label { color: var(--text); border-color: var(--accent); background: rgba(59, 91, 219, .10); box-shadow: 0 0 0 1px var(--accent) inset; }
     .side-radio input:focus-visible + label { outline: 2px solid var(--accent); outline-offset: 2px; }
-    input, button.act { font-size: 14px; padding: 8px 10px; border-radius: 8px; border: 1px solid var(--border); background: var(--bg); color: var(--text); }
+    input, button.act { font-size: 14px; padding: 8px 8px; border-radius: 8px; border: 1px solid var(--border); background: var(--bg); color: var(--text); }
     button.act { background: var(--accent); color: #fff; border: none; cursor: pointer; }
     button.ghost { background: none; border: 1px solid var(--border); color: var(--muted); cursor: pointer; border-radius: 8px; padding: 8px 10px; font-size: 14px; }
     .msg { font-size: 12px; color: var(--up); min-height: 16px; }
@@ -124,11 +124,11 @@
             <div class="side-radio"><input id="fSideBuy" type="radio" name="fSide" value="buy" checked><label for="fSideBuy">🛒 買入</label></div>
             <div class="side-radio"><input id="fSideSell" type="radio" name="fSide" value="sell"><label for="fSideSell">💰 賣出</label></div>
           </div></div>
-          <div class="fld"><label>ETF 代號</label><input id="fCode" list="etfOptions" autocomplete="off" placeholder="輸入代號或名稱" style="width:150px;"><datalist id="etfOptions"></datalist></div>
-          <div class="fld"><label id="fSharesLabel">股數</label><input id="fShares" type="number" min="0" placeholder="例如 5000" style="width:120px;"></div>
-          <div class="fld"><label id="fDateLabel">交易日期</label><input id="fDate" type="date" style="width:150px;"></div>
-          <div class="fld"><label id="fPriceLabel">成交均價（選填）</label><input id="fPrice" type="number" step="0.01" min="0" placeholder="例如 35.2" style="width:130px;"></div>
-          <div class="fld" style="flex:1;min-width:140px;"><label>備註（選填）</label><input id="fNote" placeholder="例如 定期定額" style="width:100%;"></div>
+          <div class="fld"><label>ETF 代號</label><input id="fCode" list="etfOptions" autocomplete="off" required placeholder="代號或名稱" style="width:135px;"><datalist id="etfOptions"></datalist></div>
+          <div class="fld"><label id="fSharesLabel">股數</label><input id="fShares" type="number" min="0" required placeholder="例如 5000" style="width:98px;"></div>
+          <div class="fld"><label id="fDateLabel">交易日期</label><input id="fDate" type="date" style="width:132px;"></div>
+          <div class="fld"><label id="fPriceLabel">成交均價</label><input id="fPrice" type="number" step="0.01" min="0" required placeholder="例如 35.2" style="width:112px;"></div>
+          <div class="fld" style="flex:1;min-width:100px;"><label>備註</label><input id="fNote" placeholder="例如 定期定額" style="width:100%;"></div>
           <button class="act" id="fSubmit">新增</button>
           <button class="ghost" id="fCancel" style="display:none;">取消</button>
         </div>

@@ -5,6 +5,8 @@
   let loadedFor = null;
   let fromDate = "";
   let toDate = "";
+  let etfFilter = "";
+  let etfDirectory = [];
   let config = { feeRate: 0.000399, minFee: 1 };
 
   const auth = () => window.ETFAuth;
@@ -14,6 +16,28 @@
   const price = (n) => n == null ? "—" : Number(n).toLocaleString("en-US", { minimumFractionDigits: 2, maximumFractionDigits: 2 });
   const num = (n) => Number(n || 0).toLocaleString("en-US");
   const esc = (s) => String(s == null ? "" : s).replace(/[&<>"']/g, (c) => ({"&":"&amp;","<":"&lt;",">":"&gt;","\"":"&quot;","'":"&#39;"}[c]));
+
+  async function loadEtfDirectory() {
+    try {
+      const r = await fetch("etf_directory.json", { cache: "no-store" });
+      if (r.ok) {
+        const d = await r.json();
+        etfDirectory = Array.isArray(d.etfs) ? d.etfs : [];
+      }
+    } catch (e) { /* 使用 data.js 退回清單 */ }
+    if (!etfDirectory.length && window.DATA && window.DATA.etfs) {
+      etfDirectory = Object.entries(window.DATA.etfs).map(([code, etf]) => ({ code, name: etf.name || code }));
+    }
+    $("txEtfOptions").innerHTML = etfDirectory.flatMap((x) => [
+      '<option value="' + x.code + '" label="' + x.name + '"></option>',
+      '<option value="' + x.name + '" label="' + x.code + '"></option>'
+    ]).join("");
+  }
+
+  function etfName(code) {
+    const item = etfDirectory.find((x) => x.code === code);
+    return item ? item.name : (window.DATA && window.DATA.etfs && window.DATA.etfs[code] ? window.DATA.etfs[code].name : code);
+  }
 
   async function loadConfig() {
     try {
@@ -65,14 +89,16 @@
     if (!a.user()) { $("gate").style.display = "block"; $("app").style.display = "none"; $("gate").innerHTML = '<div class="empty">請先用右上角「登入 / 註冊」登入，即可查看交易紀錄。</div>'; return; }
     $("gate").style.display = "none"; $("app").style.display = "block";
     const body = $("rows");
-    const visible = transactions.filter((t) => (!fromDate || String(t.trade_date || "") >= fromDate) && (!toDate || String(t.trade_date || "") <= toDate));
+    const matchedEtf = etfDirectory.find((x) => x.code === etfFilter.toUpperCase() || x.name === etfFilter);
+    const codeFilter = matchedEtf ? matchedEtf.code : etfFilter.toUpperCase();
+    const visible = transactions.filter((t) => (!fromDate || String(t.trade_date || "") >= fromDate) && (!toDate || String(t.trade_date || "") <= toDate) && (!codeFilter || t.etf_code === codeFilter));
     $("empty").style.display = visible.length ? "none" : "block";
     $("filterSummary").textContent = visible.length + " / " + transactions.length + " 筆";
     body.innerHTML = visible.map((t) => {
       const gross = Number(t.shares || 0) * Number(t.price || 0);
       const net = t.side === "sell" ? gross - Number(t.fee || 0) - Number(t.tax || 0) : gross + Number(t.fee || 0);
       return '<tr><td>' + esc(t.trade_date || "—") + '</td><td class="' + (t.side === "sell" ? "sell" : "buy") + '">' + (t.side === "sell" ? "賣出" : "買入") +
-        '</td><td>' + esc(t.etf_code) + '</td><td class="num">' + num(t.shares) + '</td><td class="num">' + price(t.price) +
+        '</td><td>' + esc(t.etf_code) + '</td><td>' + esc(etfName(t.etf_code)) + '</td><td class="num">' + num(t.shares) + '</td><td class="num">' + price(t.price) +
         '</td><td class="num">' + money(t.fee) + ' 元</td><td class="num">' + money(t.tax) + ' 元</td><td class="num">' + money(net) + ' 元</td><td class="note" title="' + esc(t.note || "") + '">' + esc(t.note || "—") +
         '</td><td><a class="delete" data-delete="' + esc(t.id) + '">刪除</a></td></tr>';
     }).join("");
@@ -101,6 +127,7 @@
     $("filterBtn").onclick = () => {
       fromDate = $("fromDate").value || "";
       toDate = $("toDate").value || "";
+      etfFilter = $("etfFilter").value.trim();
       if (fromDate && toDate && fromDate > toDate) {
         alert("開始日期不可晚於結束日期。");
         return;
@@ -110,9 +137,11 @@
     $("clearFilterBtn").onclick = () => {
       $("fromDate").value = "";
       $("toDate").value = "";
-      fromDate = ""; toDate = "";
+      $("etfFilter").value = "";
+      fromDate = ""; toDate = ""; etfFilter = "";
       render();
     };
+    loadEtfDirectory();
   });
   setTimeout(() => {
     const uid = user() && user().id;

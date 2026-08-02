@@ -60,12 +60,13 @@
         <div class="filters">
           <div class="field"><label for="fromDate">開始日期</label><input id="fromDate" type="date"></div>
           <div class="field"><label for="toDate">結束日期</label><input id="toDate" type="date"></div>
+          <div class="field"><label for="etfFilter">ETF 代號</label><input id="etfFilter" list="txEtfOptions" autocomplete="off" placeholder="例如 00981A"><datalist id="txEtfOptions"></datalist></div>
           <button id="filterBtn" class="primary" type="button">查詢</button>
           <button id="clearFilterBtn" type="button">清除</button>
           <span id="filterSummary" class="sub" style="margin:0;"></span>
         </div>
         <div class="table-wrap"><table>
-          <thead><tr><th>日期</th><th>類型</th><th>ETF</th><th class="num">股數</th><th class="num">成交均價</th><th class="num">手續費</th><th class="num">交易稅</th><th class="num">成交金額</th><th>備註</th><th></th></tr></thead>
+          <thead><tr><th>日期</th><th>類型</th><th>ETF 代號</th><th>ETF 名稱</th><th class="num">股數</th><th class="num">成交均價</th><th class="num">手續費</th><th class="num">交易稅</th><th class="num">成交金額</th><th>備註</th><th></th></tr></thead>
           <tbody id="rows"></tbody>
         </table></div>
         <div id="empty" class="empty" style="display:none;">目前沒有交易紀錄。</div>
