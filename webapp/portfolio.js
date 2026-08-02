@@ -76,37 +76,61 @@
       kpi(wYield != null ? wYield.toFixed(2) + "%" : "—", "加權殖利率");
   }
 
-  function card(r) {
-    const h = r.h;
+  // 依 ETF 分組：配息資訊只顯示一次，各筆買入列在下方，另附該檔合計
+  function etfCard(code, rs) {
+    const first = rs[0];
     const g = (k, v, cls) => '<div><div class="k">' + k + '</div><div class="v ' + (cls || "") + '">' + v + '</div></div>';
-    const divSec =
-      '<div class="sec"><div class="h">配息</div><div class="grid">' +
-      g("最近除息", r.last ? r.last.ex : "—") +
-      g("最近發放", (r.last && r.last.pay) ? r.last.pay : "—") +
-      g("最近每股配息", (r.last && r.last.amount != null) ? price(r.last.amount) + " 元" : "—") +
-      g("最近發放金額", r.lastAmt != null ? money(r.lastAmt) + " 元" : "—") +
-      g("下次除息", r.next ? r.next.ex : "—") +
-      g("下次發放", (r.next && r.next.pay) ? r.next.pay : "—") +
-      g("下次預估金額", r.nextAmt != null ? money(r.nextAmt) + " 元" : "—") +
-      g("個人殖利率", r.yoc != null ? r.yoc.toFixed(2) + "%" : "—") +
+    let shares = 0, cost = 0, mkt = 0, ttm = 0, lastAmt = 0, hasCost = false, hasMkt = false;
+    rs.forEach((r) => {
+      shares += r.shares;
+      if (r.cost != null) { cost += r.cost; hasCost = true; }
+      if (r.mkt != null) { mkt += r.mkt; hasMkt = true; }
+      ttm += r.ttm || 0;
+      if (r.lastAmt != null) lastAmt += r.lastAmt;
+    });
+    const pl = (hasMkt && hasCost) ? mkt - cost : null;
+    const plp = (pl != null && cost) ? pl / cost * 100 : null;
+    const yoc = cost ? ttm / cost * 100 : null;
+    const last = first.last, next = first.next;
+
+    let html = '<div class="hcard">';
+    // 標題 + 現價（每檔一次）
+    html += '<div class="top"><span class="nm">' + first.name + '</span><span class="cd">' + code + '</span>' +
+      '<span class="cd" style="margin-left:auto;">現價 ' + price(first.priceNow) +
+      (first.chPct != null ? ' <span class="' + plCls(first.chPct) + '">' + pct(first.chPct) + "</span>" : "") + "</span></div>";
+    // 配息資訊（每檔一次，只放日期與每股，金額因股數而異放各筆）
+    html += '<div class="divline">配息｜最近除息 <b>' + (last ? last.ex : "—") + "</b>・發放 <b>" +
+      (last && last.pay ? last.pay : "—") + "</b>・每股 <b>" + (last && last.amount != null ? price(last.amount) + " 元" : "—") +
+      "</b>　下次除息 <b>" + (next ? next.ex : "—") + "</b>・發放 <b>" + (next && next.pay ? next.pay : "—") + "</b></div>";
+    // 該檔合計
+    html += '<div class="sec"><div class="h">合計（' + rs.length + " 筆）</div><div class=\"grid\">" +
+      g("持有股數", num(shares)) +
+      g("投入成本", hasCost ? money(cost) + " 元" : "—") +
+      g("市值", hasMkt ? money(mkt) + " 元" : "—") +
+      g("損益", pl != null ? (pl > 0 ? "+" : "") + money(pl) + " 元" : "—", plCls(pl)) +
+      g("損益%", pct(plp), plCls(plp)) +
+      g("本次發放金額", lastAmt ? money(lastAmt) + " 元" : "—") +
+      g("過去12月年配息", ttm ? money(ttm) + " 元" : "—") +
+      g("個人殖利率", yoc != null ? yoc.toFixed(2) + "%" : "—") +
       "</div></div>";
-    return '<div class="hcard">' +
-      '<div class="top"><span class="nm">' + r.name + '</span><span class="cd">' + h.etf_code + '</span>' +
-        '<span class="cd">· 買入 ' + (h.buy_date || "—") + '</span>' +
+    // 各筆買入
+    html += '<div class="sec"><div class="h">各筆買入</div>';
+    rs.forEach((r) => {
+      const h = r.h;
+      html += '<div class="lot"><div class="lot-top"><span class="cd">買入 ' + (h.buy_date || "—") + "</span>" +
         '<span class="sp"><a class="small" data-edit="' + h.id + '">編輯</a>' +
         '<a class="small" data-del="' + h.id + '" style="color:var(--up);">刪除</a></span></div>' +
-      '<div class="grid">' +
+        '<div class="grid">' +
         g("持有股數", num(r.shares)) +
         g("買入均價", h.avg_cost != null ? price(h.avg_cost) : "—") +
         g("投入成本", r.cost != null ? money(r.cost) + " 元" : "—") +
-        g("現價", price(r.priceNow) + (r.chPct != null ? ' <span class="' + plCls(r.chPct) + '" style="font-size:12px;">' + pct(r.chPct) + "</span>" : "")) +
         g("市值", r.mkt != null ? money(r.mkt) + " 元" : "—") +
         g("損益", r.pl != null ? (r.pl > 0 ? "+" : "") + money(r.pl) + " 元" : "—", plCls(r.pl)) +
-        g("損益%", pct(r.plp), plCls(r.plp)) +
-        g("過去12月年配息", r.ttm ? money(r.ttm) + " 元" : "—") +
-      "</div>" + divSec +
-      (h.note ? '<div class="note">📝 ' + h.note + "</div>" : "") +
-      "</div>";
+        g("本次發放金額", r.lastAmt != null ? money(r.lastAmt) + " 元" : "—") +
+        "</div>" + (h.note ? '<div class="note">📝 ' + h.note + "</div>" : "") + "</div>";
+    });
+    html += "</div></div>";
+    return html;
   }
 
   function render() {
@@ -126,9 +150,13 @@
     const rows = holdings.map(compute);
     renderSummary(rows);
     const list = $("list");
-    list.innerHTML = rows.length
-      ? rows.map(card).join("")
-      : '<div class="panel empty">還沒有持股記錄，用上方表單新增第一筆。</div>';
+    if (!rows.length) {
+      list.innerHTML = '<div class="panel empty">還沒有持股記錄，用上方表單新增第一筆。</div>';
+    } else {
+      const groups = {};
+      rows.forEach((r) => { (groups[r.h.etf_code] = groups[r.h.etf_code] || []).push(r); });
+      list.innerHTML = Object.keys(groups).map((code) => etfCard(code, groups[code])).join("");
+    }
     list.querySelectorAll("[data-edit]").forEach((el) => el.onclick = () => startEdit(el.dataset.edit));
     list.querySelectorAll("[data-del]").forEach((el) => el.onclick = () => del(el.dataset.del));
   }
