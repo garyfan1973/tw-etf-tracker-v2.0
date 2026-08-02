@@ -179,7 +179,7 @@
         g("報酬率%", pct(r.plp), plCls(r.plp)) +
         "</div>" + (h.note ? '<div class="note">📝 ' + h.note + "</div>" : "") + "</div>";
     });
-    html += "</div></div>";
+    html += "</div></div></div>";
     return html;
   }
 
