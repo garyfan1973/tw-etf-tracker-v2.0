@@ -7,6 +7,8 @@
   let toDate = "";
   let etfFilter = "";
   let etfDirectory = [];
+  let sortKey = "trade_date";
+  let sortDir = -1;
   let config = { feeRate: 0.000399, minFee: 1 };
 
   const auth = () => window.ETFAuth;
@@ -37,6 +39,20 @@
   function etfName(code) {
     const item = etfDirectory.find((x) => x.code === code);
     return item ? item.name : (window.DATA && window.DATA.etfs && window.DATA.etfs[code] ? window.DATA.etfs[code].name : code);
+  }
+
+  function sortValue(t, key) {
+    if (key === "etf_name") return etfName(t.etf_code);
+    if (key === "amount") return Number(t.shares || 0) * Number(t.price || 0);
+    if (key === "side") return t.side === "sell" ? "賣出" : "買入";
+    if (key === "trade_date" || key === "etf_code") return String(t[key] || "");
+    return Number(t[key] || 0);
+  }
+
+  function updateSortHeaders() {
+    document.querySelectorAll("[data-sort]").forEach((button) => {
+      button.setAttribute("aria-sort", button.dataset.sort === sortKey ? (sortDir > 0 ? "ascending" : "descending") : "none");
+    });
   }
 
   async function loadConfig() {
@@ -92,6 +108,13 @@
     const matchedEtf = etfDirectory.find((x) => x.code === etfFilter.toUpperCase() || x.name === etfFilter);
     const codeFilter = matchedEtf ? matchedEtf.code : etfFilter.toUpperCase();
     const visible = transactions.filter((t) => (!fromDate || String(t.trade_date || "") >= fromDate) && (!toDate || String(t.trade_date || "") <= toDate) && (!codeFilter || t.etf_code === codeFilter));
+    visible.sort((a, b) => {
+      const av = sortValue(a, sortKey), bv = sortValue(b, sortKey);
+      if (av < bv) return -1 * sortDir;
+      if (av > bv) return 1 * sortDir;
+      return String(b.created_at || "").localeCompare(String(a.created_at || ""));
+    });
+    updateSortHeaders();
     $("empty").style.display = visible.length ? "none" : "block";
     $("filterSummary").textContent = visible.length + " / " + transactions.length + " 筆";
     body.innerHTML = visible.map((t) => {
@@ -124,6 +147,11 @@
     else if (!uid) { loadedFor = null; render(); }
   });
   document.addEventListener("DOMContentLoaded", () => {
+    document.querySelectorAll("[data-sort]").forEach((button) => button.onclick = () => {
+      if (sortKey === button.dataset.sort) sortDir *= -1;
+      else { sortKey = button.dataset.sort; sortDir = sortKey === "trade_date" ? -1 : 1; }
+      render();
+    });
     $("filterBtn").onclick = () => {
       fromDate = $("fromDate").value || "";
       toDate = $("toDate").value || "";

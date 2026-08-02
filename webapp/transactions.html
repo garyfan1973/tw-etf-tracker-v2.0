@@ -32,6 +32,11 @@
     table { width:100%; border-collapse:collapse; min-width:760px; font-size:13px; }
     th, td { padding:9px 8px; border-bottom:1px solid var(--border); text-align:left; white-space:nowrap; }
     th { color:var(--muted); font-weight:600; font-size:12px; }
+    th button.sort { border:0; padding:0; background:none; color:inherit; font:inherit; cursor:pointer; white-space:nowrap; }
+    th button.sort:hover { color:var(--accent); }
+    th button.sort::after { content:" ↕"; color:var(--border); }
+    th button.sort[aria-sort="ascending"]::after { content:" ↑"; color:var(--accent); }
+    th button.sort[aria-sort="descending"]::after { content:" ↓"; color:var(--accent); }
     tr:last-child td { border-bottom:none; }
     .buy { color:var(--down); font-weight:700; }
     .sell { color:var(--up); font-weight:700; }
@@ -66,7 +71,18 @@
           <span id="filterSummary" class="sub" style="margin:0;"></span>
         </div>
         <div class="table-wrap"><table>
-          <thead><tr><th>日期</th><th>類型</th><th>ETF 代號</th><th>ETF 名稱</th><th class="num">股數</th><th class="num">成交均價</th><th class="num">手續費</th><th class="num">交易稅</th><th class="num">成交金額</th><th>備註</th><th></th></tr></thead>
+          <thead><tr>
+            <th><button class="sort" type="button" data-sort="trade_date">日期</button></th>
+            <th><button class="sort" type="button" data-sort="side">類型</button></th>
+            <th><button class="sort" type="button" data-sort="etf_code">ETF 代號</button></th>
+            <th><button class="sort" type="button" data-sort="etf_name">ETF 名稱</button></th>
+            <th class="num"><button class="sort" type="button" data-sort="shares">股數</button></th>
+            <th class="num"><button class="sort" type="button" data-sort="price">成交均價</button></th>
+            <th class="num"><button class="sort" type="button" data-sort="fee">手續費</button></th>
+            <th class="num"><button class="sort" type="button" data-sort="tax">交易稅</button></th>
+            <th class="num"><button class="sort" type="button" data-sort="amount">成交金額</button></th>
+            <th>備註</th><th></th>
+          </tr></thead>
           <tbody id="rows"></tbody>
         </table></div>
         <div id="empty" class="empty" style="display:none;">目前沒有交易紀錄。</div>
