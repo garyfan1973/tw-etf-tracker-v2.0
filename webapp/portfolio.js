@@ -1,7 +1,7 @@
-// 我的持股：記錄個人部位，配息/現值/損益全部即時計算（存 Supabase holdings 表）
+// 我的持股：以交易紀錄計算持股、現值與損益（FIFO）
 (function () {
   const $ = (id) => document.getElementById(id);
-  let holdings = [];
+  let transactions = [];
   let editingId = null;
   let loadedFor = null;   // 已載入哪個 user 的資料
   let portfolioConfig = {
@@ -62,10 +62,58 @@
 
   async function loadHoldings() {
     const c = sb(); if (!c) return;
-    const { data, error } = await c.from("holdings").select("*").order("buy_date", { ascending: false });
-    holdings = error ? [] : (data || []);
-    await ensureData([...new Set(holdings.map((h) => h.etf_code))]);
+    const { data, error } = await c.from("portfolio_transactions").select("*").order("trade_date", { ascending: false }).order("created_at", { ascending: false });
+    transactions = error ? [] : (data || []);
+    await ensureData([...new Set(transactions.map((t) => t.etf_code))]);
     render();
+  }
+
+  // 依交易日期與建立時間排序，將賣出按 FIFO 分配到最早尚未結清的買入批次。
+  function derivePortfolio() {
+    const byCode = {};
+    transactions.forEach((t) => { (byCode[t.etf_code] = byCode[t.etf_code] || []).push(t); });
+    const lotsByCode = {}, sales = [];
+    Object.keys(byCode).forEach((code) => {
+      const txs = byCode[code].slice().sort((a, b) => {
+        const d = String(a.trade_date || "").localeCompare(String(b.trade_date || ""));
+        return d || String(a.created_at || "").localeCompare(String(b.created_at || ""));
+      });
+      const lots = [];
+      txs.forEach((t) => {
+        const qty = Number(t.shares) || 0;
+        if (t.side === "buy") {
+          lots.push({ tx: t, original: qty, remaining: qty, feeRemaining: Number(t.fee) || 0 });
+          return;
+        }
+        let left = qty, basis = 0, valid = true;
+        while (left > 0) {
+          const lot = lots.find((x) => x.remaining > 0);
+          if (!lot) { valid = false; break; }
+          const take = Math.min(left, lot.remaining);
+          const unit = lot.tx.price == null ? null : Number(lot.tx.price);
+          if (unit == null || !Number.isFinite(unit)) valid = false;
+          else basis += take * unit + lot.feeRemaining * (take / lot.remaining);
+          const oldRemaining = lot.remaining;
+          const oldFeeRemaining = lot.feeRemaining;
+          lot.remaining = oldRemaining - take;
+          lot.feeRemaining = oldRemaining > 0
+            ? oldFeeRemaining * (lot.remaining / oldRemaining)
+            : 0;
+          left -= take;
+        }
+        const proceeds = t.price == null ? null : qty * Number(t.price) - (Number(t.fee) || 0) - (Number(t.tax) || 0);
+        sales.push({ t, basis: valid && proceeds != null ? basis : null, realized: valid && proceeds != null ? proceeds - basis : null });
+      });
+      lotsByCode[code] = lots.filter((lot) => lot.remaining > 0).map((lot) => ({
+        ...lot.tx,
+        buy_date: lot.tx.trade_date,
+        avg_cost: lot.tx.price,
+        shares: lot.remaining,
+        fee: lot.feeRemaining,
+        original_shares: lot.original
+      }));
+    });
+    return { lotsByCode, sales: sales.sort((a, b) => String(b.t.trade_date || "").localeCompare(String(a.t.trade_date || ""))) };
   }
 
   function compute(h) {
@@ -77,7 +125,7 @@
     const chPct = self ? self.changePct : null;
     const shares = Number(h.shares) || 0;
     const tradeValue = (h.avg_cost != null) ? shares * Number(h.avg_cost) : null;
-    const fee = feeFor(shares, h.avg_cost, portfolioConfig.brokerage.fee_rate);
+    const fee = h.fee != null ? Number(h.fee) : feeFor(shares, h.avg_cost, portfolioConfig.brokerage.fee_rate);
     const cost = (tradeValue != null && fee != null) ? tradeValue + fee : null;
     const mkt = (priceNow != null) ? shares * priceNow : null;
     const sellFee = feeFor(shares, priceNow, portfolioConfig.brokerage.sell_fee_rate);
@@ -177,6 +225,21 @@
     return html;
   }
 
+  function renderHistory(sales) {
+    const box = $("history");
+    if (!sales.length) { box.innerHTML = ""; return; }
+    let html = '<div class="panel trade-history"><div class="h">賣出紀錄</div>';
+    sales.forEach((s) => {
+      const t = s.t;
+      html += '<div class="trade-row"><span class="sell">賣出</span>　' + t.etf_code +
+        "　" + (t.trade_date || "—") + "　" + num(t.shares) + " 股" +
+        "　成交均價 " + (t.price != null ? price(t.price) : "—") + " 元" +
+        (s.realized != null ? '　已實現損益 <span class="' + plCls(s.realized) + '">' + (s.realized > 0 ? "+" : "") + money(s.realized) + " 元</span>" : "") +
+        (t.note ? '<div class="note">📝 ' + t.note + "</div>" : "") + "</div>";
+    });
+    box.innerHTML = html + "</div>";
+  }
+
   function render() {
     const a = auth();
     const gate = $("gate"), app = $("app");
@@ -191,16 +254,18 @@
       return;
     }
     gate.style.display = "none"; app.style.display = "block";
-    const rows = holdings.map(compute);
+    const portfolio = derivePortfolio();
+    const rows = Object.keys(portfolio.lotsByCode).flatMap((code) => portfolio.lotsByCode[code].map(compute));
     renderSummary(rows);
     const list = $("list");
     if (!rows.length) {
-      list.innerHTML = '<div class="panel empty">還沒有持股記錄，用上方表單新增第一筆。</div>';
+      list.innerHTML = '<div class="panel empty">目前沒有未結清持股，可用上方表單新增買入。</div>';
     } else {
       const groups = {};
       rows.forEach((r) => { (groups[r.h.etf_code] = groups[r.h.etf_code] || []).push(r); });
       list.innerHTML = Object.keys(groups).map((code) => etfCard(code, groups[code])).join("");
     }
+    renderHistory(portfolio.sales);
     list.querySelectorAll("[data-edit]").forEach((el) => el.onclick = () => startEdit(el.dataset.edit));
     list.querySelectorAll("[data-del]").forEach((el) => el.onclick = () => del(el.dataset.del));
     list.querySelectorAll("[data-toggle-lots]").forEach((el) => el.onclick = () => {
@@ -214,51 +279,89 @@
 
   function resetForm() {
     editingId = null;
-    ["fCode", "fShares", "fDate", "fCost", "fNote"].forEach((id) => $(id).value = "");
-    $("fMsg").textContent = ""; $("formTitle").textContent = "新增持股";
-    $("fSubmit").textContent = "新增"; $("fCancel").style.display = "none";
-    $("fCode").disabled = false; $("fDate").value = today();
+    ["fCode", "fShares", "fDate", "fPrice", "fNote"].forEach((id) => $(id).value = "");
+    $("fSide").value = "buy"; $("fSide").disabled = false;
+    $("fMsg").textContent = ""; $("formTitle").textContent = "新增交易";
+    $("fSubmit").textContent = "新增買入"; $("fCancel").style.display = "none";
+    $("fCode").disabled = false; $("fDate").value = today(); updateFormMode();
   }
 
   function startEdit(id) {
-    const h = holdings.find((x) => String(x.id) === String(id));
-    if (!h) return;
+    const h = transactions.find((x) => String(x.id) === String(id));
+    if (!h || h.side !== "buy") return;
+    const currentLot = (derivePortfolio().lotsByCode[h.etf_code] || []).find((x) => String(x.id) === String(id));
+    if (!currentLot || Number(currentLot.shares) < Number(h.shares)) {
+      alert("這筆買入已有部分或全部賣出，為保留 FIFO 歷史，目前不能編輯。");
+      return;
+    }
     editingId = id;
+    $("fSide").value = "buy"; $("fSide").disabled = true;
     $("fCode").value = h.etf_code; $("fCode").disabled = true;
-    $("fShares").value = h.shares; $("fDate").value = h.buy_date || "";
-    $("fCost").value = h.avg_cost != null ? h.avg_cost : ""; $("fNote").value = h.note || "";
-    $("formTitle").textContent = "編輯持股 " + h.etf_code;
+    $("fShares").value = h.shares; $("fDate").value = h.trade_date || "";
+    $("fPrice").value = h.price != null ? h.price : ""; $("fNote").value = h.note || "";
+    $("formTitle").textContent = "編輯買入 " + h.etf_code;
     $("fSubmit").textContent = "更新"; $("fCancel").style.display = "inline-block";
+    updateFormMode();
     window.scrollTo({ top: 0, behavior: "smooth" });
+  }
+
+  function updateFormMode() {
+    const sell = $("fSide").value === "sell";
+    $("fSharesLabel").textContent = sell ? "賣出股數" : "買入股數";
+    $("fDateLabel").textContent = sell ? "賣出日期" : "買入日期";
+    $("fPriceLabel").textContent = sell ? "賣出均價" : "買入均價（選填）";
+    $("fPrice").placeholder = sell ? "例如 35.2" : "例如 35.2";
+    if (!editingId) $("fSubmit").textContent = sell ? "新增賣出" : "新增買入";
   }
 
   async function submit() {
     const c = sb(); if (!c || !user()) return;
     const msg = $("fMsg"); msg.style.color = "var(--up)";
+    const side = $("fSide").value;
     const code = ($("fCode").value || "").trim().toUpperCase();
     const shares = Number($("fShares").value);
     const date = $("fDate").value || null;
-    const cost = $("fCost").value !== "" ? Number($("fCost").value) : null;
+    const tradePrice = $("fPrice").value !== "" ? Number($("fPrice").value) : null;
     const note = ($("fNote").value || "").trim() || null;
-    if (!editingId && !/^[0-9A-Z]{4,6}$/.test(code)) { msg.textContent = "代號格式不正確（4–6 碼英數）"; return; }
-    if (!shares || shares <= 0) { msg.textContent = "請填入正確的持有股數"; return; }
+    if (!/^[0-9A-Z]{4,6}$/.test(code)) { msg.textContent = "代號格式不正確（4–6 碼英數）"; return; }
+    if (!shares || shares <= 0) { msg.textContent = "請填入正確的股數"; return; }
+    if (side === "sell" && (tradePrice == null || tradePrice < 0)) { msg.textContent = "賣出時請填入實際成交均價"; return; }
+    if (side === "buy" && tradePrice != null && tradePrice < 0) { msg.textContent = "買入均價不可小於 0"; return; }
     msg.style.color = "var(--muted)"; msg.textContent = "處理中…";
-    if (!editingId) {
-      const d = await window.ETFData.ensure(code);
-      if (!d) { msg.style.color = "var(--up)"; msg.textContent = "查無此 ETF 代號"; return; }
+    const d = await window.ETFData.ensure(code);
+    if (!d) { msg.style.color = "var(--up)"; msg.textContent = "查無此 ETF 代號"; return; }
+    if (side === "sell") {
+      const available = derivePortfolio().lotsByCode[code] || [];
+      const totalAvailable = available.reduce((s, lot) => s + (Number(lot.shares) || 0), 0);
+      if (shares > totalAvailable) { msg.style.color = "var(--up)"; msg.textContent = "賣出股數超過目前可賣股數（" + num(totalAvailable) + " 股）"; return; }
     }
+    const feeRate = side === "sell" ? portfolioConfig.brokerage.sell_fee_rate : portfolioConfig.brokerage.fee_rate;
+    const fee = tradePrice == null ? 0 : feeFor(shares, tradePrice, feeRate);
+    const tax = side === "sell" && portfolioConfig.securities_transaction_tax.enabled
+      ? Math.round(shares * tradePrice * Number(portfolioConfig.securities_transaction_tax.rate)) : 0;
+    const payload = { etf_code: code, side, trade_date: date || today(), shares, price: tradePrice, fee, tax, note };
     const res = editingId
-      ? await c.from("holdings").update({ shares, avg_cost: cost, buy_date: date, note }).eq("id", editingId).eq("user_id", user().id)
-      : await c.from("holdings").insert({ user_id: user().id, etf_code: code, shares, avg_cost: cost, buy_date: date, note });
+      ? await c.from("portfolio_transactions").update(payload).eq("id", editingId).eq("user_id", user().id)
+      : await c.from("portfolio_transactions").insert({ ...payload, user_id: user().id });
     if (res.error) { msg.style.color = "var(--up)"; msg.textContent = "儲存失敗：" + res.error.message; return; }
     resetForm();
     await loadHoldings();
   }
 
   async function del(id) {
-    if (!confirm("確定刪除這筆持股記錄？")) return;
+    const t = transactions.find((x) => String(x.id) === String(id));
+    if (!t) return;
+    if (t.side === "sell") {
+      if (!confirm("確定刪除這筆賣出紀錄？刪除後 FIFO 持股會重新計算。")) return;
+    } else {
+      const lot = derivePortfolio().lotsByCode[t.etf_code] || [];
+      const current = lot.find((x) => String(x.id) === String(id));
+      const sold = !current || Number(current.shares) < Number(t.shares);
+      if (sold) { alert("這筆買入已有部分或全部賣出，為保留交易歷史，目前不能刪除。"); return; }
+      if (!confirm("確定刪除這筆買入紀錄？")) return;
+    }
     const c = sb();
-    await c.from("holdings").delete().eq("id", id).eq("user_id", user().id);
+    await c.from("portfolio_transactions").delete().eq("id", id).eq("user_id", user().id);
     if (String(editingId) === String(id)) resetForm();
     await loadHoldings();
   }
@@ -266,7 +369,9 @@
   document.addEventListener("DOMContentLoaded", () => {
     $("fSubmit").onclick = submit;
     $("fCancel").onclick = resetForm;
+    $("fSide").onchange = updateFormMode;
     $("fDate").value = today();
+    updateFormMode();
   });
 
   // 登入狀態或 ETF 資料變動 → 載入/重繪
