@@ -233,7 +233,8 @@
       '<div class="detail-heading">各筆買入（' + rs.length + " 筆）</div>";
     rs.forEach((r) => {
       const h = r.h;
-      html += '<div class="lot"><div class="lot-top"><span class="cd">買入 ' + (h.buy_date || "—") + "</span>" +
+      const buyLabel = h.buy_date ? "買入 " + h.buy_date : "買入日期（定期定額）";
+      html += '<div class="lot"><div class="lot-top"><span class="cd">' + buyLabel + "</span>" +
         '<span class="sp"><button class="icon-btn" type="button" data-edit="' + h.id + '" title="編輯這筆買入" aria-label="編輯這筆買入">✎</button>' +
         '<button class="icon-btn delete" type="button" data-del="' + h.id + '" title="刪除這筆買入" aria-label="刪除這筆買入">🗑</button></span></div>' +
         '<div class="grid">' +
@@ -304,7 +305,7 @@
     $("fSideBuy").checked = true; $("fSideBuy").disabled = false; $("fSideSell").disabled = false;
     $("fMsg").textContent = ""; $("formTitle").textContent = "新增交易";
     $("fSubmit").textContent = "新增買入"; $("fCancel").style.display = "none";
-    $("fCode").disabled = false; $("fDate").value = today(); updateFormMode();
+    $("fCode").disabled = false; updateFormMode();
   }
 
   function startEdit(id) {
@@ -329,7 +330,7 @@
   function updateFormMode() {
     const sell = $("fSideSell").checked;
     $("fSharesLabel").textContent = sell ? "賣出股數" : "買入股數";
-    $("fDateLabel").textContent = sell ? "賣出日期" : "買入日期";
+    $("fDateLabel").textContent = sell ? "賣出日期" : "買入日期（選填）";
     $("fPriceLabel").textContent = sell ? "賣出均價" : "買入均價（選填）";
     $("fPrice").placeholder = sell ? "例如 35.2" : "例如 35.2";
     if (!editingId) $("fSubmit").textContent = sell ? "新增賣出" : "新增買入";
@@ -350,6 +351,7 @@
     if (!shares || shares <= 0) { msg.textContent = "請填入正確的股數"; return; }
     if (side === "sell" && (tradePrice == null || tradePrice < 0)) { msg.textContent = "賣出時請填入實際成交均價"; return; }
     if (side === "buy" && (tradePrice == null || tradePrice < 0)) { msg.textContent = "買入時請填入成交均價"; return; }
+    if (side === "sell" && !date) { msg.textContent = "賣出時請填入賣出日期"; return; }
     msg.style.color = "var(--muted)"; msg.textContent = "處理中…";
     const d = await window.ETFData.ensure(code);
     if (!d) { msg.style.color = "var(--up)"; msg.textContent = "查無此 ETF 代號"; return; }
@@ -362,7 +364,7 @@
     const fee = tradePrice == null ? 0 : feeFor(shares, tradePrice, feeRate);
     const tax = side === "sell" && portfolioConfig.securities_transaction_tax.enabled
       ? Math.round(shares * tradePrice * Number(portfolioConfig.securities_transaction_tax.rate)) : 0;
-    const payload = { etf_code: code, side, trade_date: date || today(), shares, price: tradePrice, fee, tax, note };
+    const payload = { etf_code: code, side, trade_date: side === "buy" ? date : date || today(), shares, price: tradePrice, fee, tax, note };
     const res = editingId
       ? await c.from("portfolio_transactions").update(payload).eq("id", editingId).eq("user_id", user().id)
       : await c.from("portfolio_transactions").insert({ ...payload, user_id: user().id });
@@ -394,7 +396,6 @@
     $("fCancel").onclick = resetForm;
     $("fSideBuy").onchange = updateFormMode;
     $("fSideSell").onchange = updateFormMode;
-    $("fDate").value = today();
     updateFormMode();
     loadEtfDirectory();
   });
