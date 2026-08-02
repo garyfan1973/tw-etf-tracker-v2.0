@@ -94,8 +94,6 @@
       background: var(--border); padding: 2px 0;
     }
     .detail div { flex: 1 0 74px; min-width: 74px; background: var(--detail); padding: 10px 12px; }
-    .detail .business-cell { flex: 2 0 180px; }
-    .detail .business-cell .v { white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
     .detail .k { font-size: 11px; color: var(--muted); }
     .detail .v { font-size: 15px; font-variant-numeric: tabular-nums; margin-top: 2px; }
     .watch-chip {
@@ -113,7 +111,7 @@
     @media (max-width: 640px) {
       .cards { grid-template-columns: repeat(2, 1fr); }
       .detail { display: grid; grid-template-columns: repeat(2, 1fr); overflow-x: visible; }
-      .detail div, .detail .business-cell { min-width: 0; flex: initial; }
+      .detail div { min-width: 0; flex: initial; }
     }
   </style>
   <script>
@@ -376,7 +374,7 @@
             '<td class="num">' + vol(h.volume) + '</td>';
           tr.addEventListener("click", () => {
             if (expandedFull.has(key)) expandedFull.delete(key);
-            else expandedFull.add(key);
+            else { expandedFull.clear(); expandedFull.add(key); }
             render();
           });
           fbody.appendChild(tr);
@@ -399,7 +397,6 @@
               cell("振幅", h.amplitude == null ? "—" : h.amplitude.toFixed(2) + "%") +
               (h.quoteDate ? cell("行情日", h.quoteDate) : "") +
               profileCell("產業別", industry) +
-              '<div class="business-cell" title="' + esc(profile.business || "—") + '"><div class="k">主要產品／業務</div><div class="v">' + esc(shortBusiness(profile.business)) + '</div></div>' +
               '</div></td>';
             fbody.appendChild(dtr);
           }
@@ -413,7 +410,6 @@
       const cell = (k, v, cls) => '<div><div class="k">' + k + '</div><div class="v ' + (cls || "") + '">' + v + '</div></div>';
       const esc = v => String(v == null ? "" : v).replaceAll("&", "&amp;").replaceAll("<", "&lt;").replaceAll(">", "&gt;").replaceAll('"', "&quot;").replaceAll("'", "&#39;");
       const profileCell = (k, v) => cell(k, esc(v || "—"));
-      const shortBusiness = v => { const s = String(v || "—"); return s.length > 90 ? s.slice(0, 88) + "…" : s; };
       // 市場別
       const MKT = { TW: "台股", US: "美股", JP: "日股", KS: "韓股", HK: "港股", CN: "陸股", DE: "德股", GB: "英股" };
       const MARKET_FLAGS = { TW: "🇹🇼", US: "🇺🇸", JP: "🇯🇵", KS: "🇰🇷", HK: "🇭🇰", CN: "🇨🇳", DE: "🇩🇪", GB: "🇬🇧" };
