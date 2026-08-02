@@ -397,10 +397,11 @@
       const cell = (k, v, cls) => '<div><div class="k">' + k + '</div><div class="v ' + (cls || "") + '">' + v + '</div></div>';
       // 市場別
       const MKT = { TW: "台股", US: "美股", JP: "日股", KS: "韓股", HK: "港股", CN: "陸股", DE: "德股", GB: "英股" };
+      const MARKET_FLAGS = { TW: "🇹🇼", US: "🇺🇸", JP: "🇯🇵", KS: "🇰🇷", HK: "🇭🇰", CN: "🇨🇳", DE: "🇩🇪", GB: "🇬🇧" };
       const marketName = h => h.market ? (MKT[h.market] || h.market) : "海外";
-      const mktTag = h => (h.market && h.market !== "TW")
-        ? ' <span class="mkt">' + marketName(h) + '</span>'
-        : (!h.market ? ' <span class="mkt">海外</span>' : "");
+      const mktTag = h => h.market
+        ? ' <span class="mkt">' + (MARKET_FLAGS[h.market] || "") + " " + marketName(h) + '</span>'
+        : ' <span class="mkt">海外</span>';
 
       function sortRows(rows, st) {
         rows.sort((a, b) => {

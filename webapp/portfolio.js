@@ -216,7 +216,7 @@
       (last && last.pay ? last.pay : "—") + "</b>・每股 <b>" + (last && last.amount != null ? price(last.amount) + " 元" : "—") +
       "</b>　下次除息 <b>" + (next ? next.ex : "—") + "</b>・發放 <b>" + (next && next.pay ? next.pay : "—") +
       "</b>・每股 <b>" + (next && next.amount != null ? price(next.amount) + " 元" : "—") + "</b>" +
-      (expected != null ? "・預計可配息 <b>" + money(expected) + " 元</b>" : "") + "</div>";
+      (expected != null ? '<span class="expected-payout">預計可配息 <b>' + money(expected) + " 元</b></span>" : "") + "</div>";
     // 該檔合計
     html += '<div class="sec"><div class="h">合計（' + rs.length + " 筆）</div><div class=\"grid\">" +
       g("持有股數", num(shares), "", "key-field") +

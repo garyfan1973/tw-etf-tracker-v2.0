@@ -76,6 +76,15 @@
     .lot-section .lot:first-of-type { border-top: none; }
     .divline { margin-top: 8px; font-size: 13px; color: var(--muted); }
     .divline b { color: var(--text); font-weight: 600; }
+    .expected-payout { display: inline-block; margin-left: 4px; padding: 2px 8px; border-radius: 6px;
+      background: #fff2cc; color: #8a5a00; font-size: 14px; font-weight: 700; }
+    .expected-payout b { color: #8a5a00; font-size: 15px; }
+    @media (prefers-color-scheme: dark) {
+      .expected-payout { background: #4a3b1a; color: #ffd666; }
+      .expected-payout b { color: #ffd666; }
+    }
+    :root[data-theme="dark"] .expected-payout { background: #4a3b1a; color: #ffd666; }
+    :root[data-theme="dark"] .expected-payout b { color: #ffd666; }
     .lot { padding: 10px 0; border-top: 1px dashed var(--border); }
     .lot:first-of-type { border-top: none; }
     .lot-top { display: flex; align-items: center; }
