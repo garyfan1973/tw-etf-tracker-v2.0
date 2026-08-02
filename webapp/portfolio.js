@@ -241,16 +241,22 @@
     const recentEligibleShares = last && last.ex ? dividendEligibleShares(code, last.ex) : 0;
     const recentPayout = last && last.amount != null ? recentEligibleShares * Number(last.amount) : null;
     const recentPending = !!(last && last.pay && String(last.pay) >= today());
-    html += '<div class="divline">配息｜最近除息 <b>' + (last ? last.ex : "—") + "</b>・發放 <b>" +
-      (last && last.pay ? last.pay : "—") + "</b>・每股 <b>" + (last && last.amount != null ? price(last.amount) + " 元" : "—") +
-      (recentPayout != null
-        ? (recentPending
-          ? '<span class="expected-payout">預計可配息 <b>' + money(recentPayout) + " 元</b></span>"
-          : "・配息金額 <b>" + money(recentPayout) + " 元</b>")
-        : "") +
-      "　下次除息 <b>" + (next ? next.ex : "—") + "</b>・發放 <b>" + (next && next.pay ? next.pay : "—") +
-      "</b>・每股 <b>" + (next && next.amount != null ? price(next.amount) + " 元" : "—") + "</b>" +
-      (expected != null ? '<span class="expected-payout">預計可配息 <b>' + money(expected) + " 元</b></span>" : "") + "</div>";
+    const recentPayoutHtml = recentPayout != null
+      ? (recentPending
+        ? '<span class="expected-payout">預計可配息 <b>' + money(recentPayout) + " 元</b></span>"
+        : '<span class="payout-value">配息金額 <b>' + money(recentPayout) + " 元</b></span>")
+      : "";
+    const nextPayoutHtml = expected != null
+      ? '<span class="expected-payout">預計可配息 <b>' + money(expected) + " 元</b></span>"
+      : "";
+    html += '<div class="divline dividend-line"><span class="dividend-title">配息｜</span>' +
+      '<span class="dividend-group recent"><span class="group-label">最近除息</span><span>除息 <b>' + (last ? last.ex : "—") +
+      "</b></span><span>發放 <b>" + (last && last.pay ? last.pay : "—") + "</b></span><span>每股 <b>" +
+      (last && last.amount != null ? price(last.amount) + " 元" : "—") + "</b></span>" + recentPayoutHtml + "</span>" +
+      '<span class="dividend-separator" aria-hidden="true"></span>' +
+      '<span class="dividend-group next"><span class="group-label">下次除息</span><span>除息 <b>' + (next ? next.ex : "—") +
+      "</b></span><span>發放 <b>" + (next && next.pay ? next.pay : "—") + "</b></span><span>每股 <b>" +
+      (next && next.amount != null ? price(next.amount) + " 元" : "—") + "</b></span>" + nextPayoutHtml + "</span></div>";
     // 該檔合計
     html += '<div class="sec"><div class="h">合計（' + rs.length + " 筆）</div><div class=\"grid\">" +
       g("持有股數", num(shares), "", "key-field") +

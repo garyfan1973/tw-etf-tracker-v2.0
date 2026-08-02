@@ -76,6 +76,17 @@
     .lot-section .lot:first-of-type { border-top: none; }
     .divline { margin-top: 8px; font-size: 13px; color: var(--muted); }
     .divline b { color: var(--text); font-weight: 600; }
+    .dividend-line { display: flex; align-items: center; gap: 8px; flex-wrap: nowrap; white-space: nowrap; overflow-x: auto; }
+    .dividend-title { color: var(--text); font-weight: 700; }
+    .dividend-group { display: inline-flex; align-items: center; gap: 7px; padding: 5px 9px; border: 1px solid; border-radius: 8px; }
+    .dividend-group.recent { background: #eef3fb; border-color: #cbd8ea; }
+    .dividend-group.next { background: #fff8e1; border-color: #efd78a; }
+    .dividend-group .group-label { font-weight: 700; }
+    .dividend-group.recent .group-label { color: #36527a; }
+    .dividend-group.next .group-label { color: #8a5a00; }
+    .dividend-separator { height: 24px; border-left: 1px solid var(--border); }
+    .payout-value { font-weight: 700; color: var(--text); }
+    .dividend-group .expected-payout { margin-left: 0; }
     .expected-payout { display: inline-block; margin-left: 4px; padding: 2px 8px; border-radius: 6px;
       background: #fff2cc; color: #8a5a00; font-size: 14px; font-weight: 700; }
     .expected-payout b { color: #8a5a00; font-size: 15px; }
@@ -85,6 +96,16 @@
     }
     :root[data-theme="dark"] .expected-payout { background: #4a3b1a; color: #ffd666; }
     :root[data-theme="dark"] .expected-payout b { color: #ffd666; }
+    @media (prefers-color-scheme: dark) {
+      .dividend-group.recent { background: #222d3b; border-color: #3b4653; }
+      .dividend-group.next { background: #3c321d; border-color: #66552b; }
+      .dividend-group.recent .group-label { color: #b8c9e6; }
+      .dividend-group.next .group-label { color: #ffd666; }
+    }
+    :root[data-theme="dark"] .dividend-group.recent { background: #222d3b; border-color: #3b4653; }
+    :root[data-theme="dark"] .dividend-group.next { background: #3c321d; border-color: #66552b; }
+    :root[data-theme="dark"] .dividend-group.recent .group-label { color: #b8c9e6; }
+    :root[data-theme="dark"] .dividend-group.next .group-label { color: #ffd666; }
     .lot { padding: 10px 0; border-top: 1px dashed var(--border); }
     .lot:first-of-type { border-top: none; }
     .lot-top { display: flex; align-items: center; }
@@ -106,7 +127,12 @@
     .icon-btn.delete:hover { color: var(--up); border-color: var(--up); }
     .empty { color: var(--muted); font-size: 14px; padding: 8px 0; }
     a.small { color: var(--accent); cursor: pointer; text-decoration: none; }
-    @media (max-width: 720px) { .form-row { flex-wrap: wrap; } .cards { grid-template-columns: repeat(2, 1fr); } .grid { grid-template-columns: repeat(2, 1fr); } }
+    @media (max-width: 720px) {
+      .form-row { flex-wrap: wrap; } .cards { grid-template-columns: repeat(2, 1fr); } .grid { grid-template-columns: repeat(2, 1fr); }
+      .dividend-line { flex-wrap: wrap; white-space: normal; overflow-x: visible; }
+      .dividend-group { flex-wrap: wrap; }
+      .dividend-separator { display: none; }
+    }
   </style>
   <script>(function(){var t=localStorage.getItem("etf-theme");if(t)document.documentElement.dataset.theme=t;})();</script>
 </head>
