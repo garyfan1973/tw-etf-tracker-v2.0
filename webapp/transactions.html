@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="zh-Hant-tw">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>交易紀錄</title>
+  <style>
+    :root, :root[data-theme="light"] {
+      --bg:#f5f6f8; --card:#fff; --text:#1c2430; --muted:#6b7684;
+      --border:#e3e7ec; --up:#d64545; --down:#1f9d55; --accent:#3b5bdb;
+    }
+    @media (prefers-color-scheme: dark) { :root:not([data-theme="light"]) { --bg:#14181d; --card:#1c2229; --text:#e6e9ed; --muted:#98a2b0; --border:#2a323b; --up:#ff6b6b; --down:#51cf82; --accent:#6c8cff; } }
+    :root[data-theme="dark"] { --bg:#14181d; --card:#1c2229; --text:#e6e9ed; --muted:#98a2b0; --border:#2a323b; --up:#ff6b6b; --down:#51cf82; --accent:#6c8cff; }
+    * { box-sizing:border-box; }
+    body { margin:0; padding:20px; background:var(--bg); color:var(--text); font-family:-apple-system,"PingFang TC","Microsoft JhengHei",sans-serif; line-height:1.5; }
+    .wrap { max-width:1000px; margin:0 auto; }
+    nav { display:flex; gap:8px; margin-bottom:14px; align-items:center; flex-wrap:wrap; }
+    nav a { text-decoration:none; color:var(--muted); font-size:14px; padding:6px 12px; border-radius:8px; border:1px solid var(--border); }
+    nav a.active { color:#fff; background:var(--accent); border-color:var(--accent); }
+    .theme-toggle { margin-left:8px; width:36px; height:36px; border-radius:50%; border:1px solid var(--border); background:var(--card); color:var(--text); font-size:16px; cursor:pointer; }
+    h1 { font-size:20px; margin:0 0 4px; }
+    .sub { color:var(--muted); font-size:13px; margin-bottom:16px; }
+    .panel { background:var(--card); border:1px solid var(--border); border-radius:12px; padding:14px; margin-bottom:16px; }
+    .empty { color:var(--muted); font-size:14px; padding:8px 0; }
+    .table-wrap { overflow-x:auto; }
+    table { width:100%; border-collapse:collapse; min-width:760px; font-size:13px; }
+    th, td { padding:9px 8px; border-bottom:1px solid var(--border); text-align:left; white-space:nowrap; }
+    th { color:var(--muted); font-weight:600; font-size:12px; }
+    tr:last-child td { border-bottom:none; }
+    .buy { color:var(--down); font-weight:700; }
+    .sell { color:var(--up); font-weight:700; }
+    .num { text-align:right; font-variant-numeric:tabular-nums; }
+    .note { color:var(--muted); max-width:180px; overflow:hidden; text-overflow:ellipsis; }
+    a.delete { color:var(--up); cursor:pointer; text-decoration:none; }
+    @media (max-width:640px) { body { padding:14px; } nav a { font-size:13px; padding:5px 9px; } }
+  </style>
+  <script>(function(){var t=localStorage.getItem("etf-theme");if(t)document.documentElement.dataset.theme=t;})();</script>
+</head>
+<body>
+  <div class="wrap">
+    <nav>
+      <a href="index.html">持股 / 加減碼</a>
+      <a href="dividends.html">配息日曆</a>
+      <a href="portfolio.html">我的持股</a>
+      <a href="transactions.html" class="active">交易紀錄</a>
+      <span id="authBox" style="margin-left:auto;display:flex;align-items:center;gap:6px;"></span>
+      <button id="themeToggle" class="theme-toggle" aria-label="切換主題">🌙</button>
+    </nav>
+    <h1>交易紀錄</h1>
+    <div class="sub">依日期查看所有買入與賣出交易，類似券商對帳單。</div>
+    <div id="gate" class="panel" style="display:none;"></div>
+    <div id="app" style="display:none;">
+      <div class="panel">
+        <div class="table-wrap"><table>
+          <thead><tr><th>日期</th><th>類型</th><th>ETF</th><th class="num">股數</th><th class="num">成交均價</th><th class="num">手續費</th><th class="num">交易稅</th><th class="num">成交金額</th><th>備註</th><th></th></tr></thead>
+          <tbody id="rows"></tbody>
+        </table></div>
+        <div id="empty" class="empty" style="display:none;">目前沒有交易紀錄。</div>
+      </div>
+    </div>
+  </div>
+  <script src="theme.js"></script>
+  <script src="config.js"></script>
+  <script src="data.js"></script>
+  <script type="module" src="auth.js"></script>
+  <script src="transactions.js"></script>
+</body>
+</html>

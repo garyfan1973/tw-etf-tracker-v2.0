@@ -72,7 +72,7 @@
   function derivePortfolio() {
     const byCode = {};
     transactions.forEach((t) => { (byCode[t.etf_code] = byCode[t.etf_code] || []).push(t); });
-    const lotsByCode = {}, sales = [];
+    const lotsByCode = {}, sales = [], salesByCode = {};
     Object.keys(byCode).forEach((code) => {
       const txs = byCode[code].slice().sort((a, b) => {
         const d = String(a.trade_date || "").localeCompare(String(b.trade_date || ""));
@@ -102,7 +102,9 @@
           left -= take;
         }
         const proceeds = t.price == null ? null : qty * Number(t.price) - (Number(t.fee) || 0) - (Number(t.tax) || 0);
-        sales.push({ t, basis: valid && proceeds != null ? basis : null, realized: valid && proceeds != null ? proceeds - basis : null });
+        const sale = { t, basis: valid && proceeds != null ? basis : null, realized: valid && proceeds != null ? proceeds - basis : null };
+        sales.push(sale);
+        (salesByCode[code] = salesByCode[code] || []).push(sale);
       });
       lotsByCode[code] = lots.filter((lot) => lot.remaining > 0).map((lot) => ({
         ...lot.tx,
@@ -113,7 +115,11 @@
         original_shares: lot.original
       }));
     });
-    return { lotsByCode, sales: sales.sort((a, b) => String(b.t.trade_date || "").localeCompare(String(a.t.trade_date || ""))) };
+    return {
+      lotsByCode,
+      sales: sales.sort((a, b) => String(b.t.trade_date || "").localeCompare(String(a.t.trade_date || ""))),
+      salesByCode
+    };
   }
 
   function compute(h) {
@@ -167,7 +173,7 @@
   }
 
   // 依 ETF 分組：配息資訊只顯示一次，各筆買入列在下方，另附該檔合計
-  function etfCard(code, rs) {
+  function etfCard(code, rs, sales) {
     const first = rs[0];
     const g = (k, v, cls, boxCls) => '<div class="' + (boxCls || "") + '"><div class="k">' + k + '</div><div class="v ' + (cls || "") + '">' + v + '</div></div>';
     let shares = 0, fee = 0, cost = 0, value = 0, sellCosts = 0, ttm = 0;
@@ -222,22 +228,21 @@
         "</div>" + (h.note ? '<div class="note">📝 ' + h.note + "</div>" : "") + "</div>";
     });
     html += "</div></div></div>";
+    if (sales && sales.length) {
+      html += '<div class="sec lot-section sale-section"><div class="lot-top"><div class="h" style="margin:0;">賣出紀錄（' + sales.length + " 筆）</div>" +
+        '<button class="lot-toggle" type="button" data-toggle-sales="' + code + '" aria-expanded="false">展開</button></div>' +
+        '<div class="trade-history" data-sales="' + code + '" hidden>';
+      sales.slice().sort((a, b) => String(b.t.trade_date || "").localeCompare(String(a.t.trade_date || ""))).forEach((s) => {
+        const t = s.t;
+        html += '<div class="trade-row"><span class="sell">賣出</span>　' + (t.trade_date || "—") +
+          "　" + num(t.shares) + " 股　成交均價 " + (t.price != null ? price(t.price) : "—") + " 元" +
+          (s.realized != null ? '　已實現損益 <span class="' + plCls(s.realized) + '">' + (s.realized > 0 ? "+" : "") + money(s.realized) + " 元</span>" : "") +
+          '　<a class="small" data-del="' + t.id + '" style="color:var(--up);">刪除</a>' +
+          (t.note ? '<div class="note">📝 ' + t.note + "</div>" : "") + "</div>";
+      });
+      html += "</div></div>";
+    }
     return html;
-  }
-
-  function renderHistory(sales) {
-    const box = $("history");
-    if (!sales.length) { box.innerHTML = ""; return; }
-    let html = '<div class="panel trade-history"><div class="h">賣出紀錄</div>';
-    sales.forEach((s) => {
-      const t = s.t;
-      html += '<div class="trade-row"><span class="sell">賣出</span>　' + t.etf_code +
-        "　" + (t.trade_date || "—") + "　" + num(t.shares) + " 股" +
-        "　成交均價 " + (t.price != null ? price(t.price) : "—") + " 元" +
-        (s.realized != null ? '　已實現損益 <span class="' + plCls(s.realized) + '">' + (s.realized > 0 ? "+" : "") + money(s.realized) + " 元</span>" : "") +
-        (t.note ? '<div class="note">📝 ' + t.note + "</div>" : "") + "</div>";
-    });
-    box.innerHTML = html + "</div>";
   }
 
   function render() {
@@ -263,13 +268,19 @@
     } else {
       const groups = {};
       rows.forEach((r) => { (groups[r.h.etf_code] = groups[r.h.etf_code] || []).push(r); });
-      list.innerHTML = Object.keys(groups).map((code) => etfCard(code, groups[code])).join("");
+      list.innerHTML = Object.keys(groups).map((code) => etfCard(code, groups[code], portfolio.salesByCode[code] || [])).join("");
     }
-    renderHistory(portfolio.sales);
     list.querySelectorAll("[data-edit]").forEach((el) => el.onclick = () => startEdit(el.dataset.edit));
     list.querySelectorAll("[data-del]").forEach((el) => el.onclick = () => del(el.dataset.del));
     list.querySelectorAll("[data-toggle-lots]").forEach((el) => el.onclick = () => {
       const box = list.querySelector('[data-lots="' + el.dataset.toggleLots + '"]');
+      const open = box.hidden;
+      box.hidden = !open;
+      el.setAttribute("aria-expanded", String(open));
+      el.textContent = open ? "收合" : "展開";
+    });
+    list.querySelectorAll("[data-toggle-sales]").forEach((el) => el.onclick = () => {
+      const box = list.querySelector('[data-sales="' + el.dataset.toggleSales + '"]');
       const open = box.hidden;
       box.hidden = !open;
       el.setAttribute("aria-expanded", String(open));
