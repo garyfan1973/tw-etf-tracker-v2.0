@@ -1294,6 +1294,22 @@
     "business": "臺灣上市公司；主要業務請參考公司網站。",
     "source": "臺灣證券交易所"
   },
+  "ADI": {
+    "name": "Analog Devices",
+    "market": "US",
+    "industry": "Semiconductors",
+    "business": "Analog Devices, Inc. engages in the design, manufacture, testing, and marketing of integrated circuits (ICs), software, and subsystems products in the United States, rest of North and South America, Europe, Japan, China, and rest of Asia. It provides data converter products, which translate real-world analog signals into digital data, as well as translates digital data into analog signals; power management and reference products for power conversion, driver monitoring, sequencing, and energy management applications in the automotive, communications, industrial, and consumer markets; and power ICs that include performance, integration, and software design simulation tools for accurate power supply designs. The company also offers amplifiers to condition analog signals; and radio frequency and microwave ICs to support cellular infrastructure; and micro-electro-mechanical systems technology solutions, including accelerometers used to sense acceleration, gyroscopes for sense rotation, inertial measurement units to sense multiple degrees of freedom, and broadband switches for radio and instrument systems, as well as isolators. In addition, it provides digital signal processing and system products for numeric calculations. The company serves clients in the industrial, automotive, consumer, instrumentation, aerospace, defense and healthcare, and communications markets through a direct sales force, third-party distributors, and independent sales representatives, as well as online. The company was incorporated in 1965 and is headquartered in Wilmington, Massachusetts.",
+    "source": "Stock Analysis",
+    "sector": "Technology"
+  },
+  "ALAB": {
+    "name": "Astera Labs",
+    "market": "US",
+    "industry": "Semiconductors",
+    "business": "Astera Labs, Inc. designs, manufactures, and sells semiconductor-based connectivity solutions for cloud and AI infrastructure in Taiwan and the United States. It offers an intelligent connectivity platform, comprised of semiconductor-based, high-speed, mixed-signal connectivity products that integrate a matrix of microcontrollers and sensors, and COSMOS. The company provides COSMOS software suite, a connectivity system management and optimization software that enables management and optimization of resources for large fleets at cloud-scale via link, fleet, and RAS management capabilities. In addition, it offers PCIe/CXL smart DSP retimers and cable modules; ethernet smart cable modules for cloud and AI infrastructure; CXL memory connectivity controllers; and smart fabric switches. The company serves hyperscalers and system original equipment manufacturers. Astera Labs, Inc. was incorporated in 2017 and is based in San Jose, California.",
+    "source": "Stock Analysis",
+    "sector": "Technology"
+  },
   "AMAT": {
     "name": "Applied Materials",
     "market": "US",
@@ -1326,6 +1342,22 @@
     "source": "Stock Analysis",
     "sector": "Technology"
   },
+  "ARM": {
+    "name": "Arm",
+    "market": "US",
+    "industry": "Semiconductors",
+    "business": "Arm Holdings plc researches, develops, licenses, and markets central processing unit (CPU) intellectual property (IP), graphics processing unit IP, systems IP, compute subsystems (CSS), and associated software, tools and related services. The company provides a product portfolio, including CPU IP, GPU and neural processing unit (NPU) accelerators, system IP such as interconnects, compute platform products including pre-integrated CSSs, and development tools and software. The company serves semiconductor companies, original equipment manufacturers (OEMs), cloud service providers (CSPs), and organizations developing chips for end markets such as smartphones, consumer electronics, industrial IoT, embedded systems, cloud data centers, networking, automotive, and robotics. It provides its products and services in the United States, China, Japan, Taiwan, Korea, and internationally. The company was founded in 1990 and is based in Cambridge, United Kingdom. Arm Holdings plc operates as a subsidiary of SoftBank Group Corp.",
+    "source": "Stock Analysis",
+    "sector": "Technology"
+  },
+  "ASML": {
+    "name": "ASML Holding",
+    "market": "US",
+    "industry": "Semiconductor Equipment & Materials",
+    "business": "ASML Holding N.V. provides lithography solutions for the development, production, marketing, sales, upgrading, and servicing of advanced semiconductor equipment systems. The company offers lithography, metrology, and inspection systems. It also provides extreme ultraviolet lithography systems; and deep ultraviolet lithography systems comprising immersion and dry lithography systems solutions to manufacture various range of semiconductor nodes and technologies. In addition, the company offers metrology and inspection systems, including YieldStar optical metrology systems, a diffraction-based wafer metrology platform to assess the quality of patterns on the wafers; and HMI electron beam solutions to locate and analyze individual chip defects. Further, it provides computational lithography solutions, and lithography systems and control software solutions; and refurbishes and upgrades lithography systems, as well as offers customer support and related services. Additionally, the company offers hardware, software, and services to chipmakers to produce the patterns of integrated circuits. It operates in Japan, South Korea, Singapore, Taiwan, China, rest of Asia, the Netherlands, rest of Europe, the Middle East, Africa, and the United States. The company was formerly known as ASM Lithography Holding N.V. and changed its name to ASML Holding N.V. in 2001. ASML Holding N.V. was founded in 1984 and is headquartered in Veldhoven, the Netherlands.",
+    "source": "Stock Analysis",
+    "sector": "Technology"
+  },
   "AVGO": {
     "name": "Broadcom",
     "market": "US",
@@ -1341,6 +1373,14 @@
     "business": "Bloom Energy Corporation designs, manufactures, sells, and installs solid oxide fuel cell systems for on-site power generation in the United States and internationally. It offers Bloom Energy Server, an energy server platform to convert fuel, such as natural gas, biogas, hydrogen, or a blend of these fuels, into electricity through a non-combustion electrochemical process. The company also provides Bloom Electrolyzer for producing hydrogen. It sells its products through direct and indirect sales channels to utilities, data centers, retail, healthcare, education, telecom, manufacturing, and other industries. The company was formerly known as Ion America Corp. and changed its name to Bloom Energy Corporation in 2006. Bloom Energy Corporation was incorporated in 2001 and is headquartered in San Jose, California.",
     "source": "Stock Analysis",
     "sector": "Industrials"
+  },
+  "COHR": {
+    "name": "Coherent",
+    "market": "US",
+    "industry": "Scientific & Technical Instruments",
+    "business": "Coherent Corp. develops, manufactures, and markets engineered materials, optoelectronic components and devices, and laser systems for the use in the industrial, communications, electronics, and instrumentation markets worldwide. It operates through three segments: Networking, Materials, and Lasers. The Networking segment offers transceivers, systems, subsystems, modules, components, optics, and semiconductor devices for datacenter and communications applications. The Materials segment provides engineered materials, laser optics, thermoelectric components, and advanced ceramic and metal-matrix composite materials and products; and vertical-cavity surface-emitting laser, edge-emitting laser, pump lasers, high-power lasers for materials processing, and integrated circuit. The Laser segment offers excimer lasers, solid-state lasers, CO2 lasers, and laser systems for various industrial applications, including semiconductor capital equipment, display manufacturing, precision manufacturing, and scientific research; and laser systems and subsystems. It markets its products and services through direct sales force, representatives, and distributors. The company was formerly known as II-VI Incorporated and changed its name to Coherent Corp. in September 2022. Coherent Corp. was incorporated in 1971 and is headquartered in Saxonburg, Pennsylvania.",
+    "source": "Stock Analysis",
+    "sector": "Technology"
   },
   "CRDO": {
     "name": "Credo",
@@ -1363,6 +1403,22 @@
     "market": "US",
     "industry": "Computer Hardware",
     "business": "Dell Technologies Inc. designs, develops, manufactures, markets, sells, and supports various comprehensive and integrated solutions, products, and services in the Americas, Europe, the Middle East, Asia, and internationally. The company operates through Infrastructure Solutions Group (ISG) and Client Solutions Group (CSG) segments. The ISG segment provides modern and traditional storage solutions, including all-flash, purpose-built, hyper-converged infrastructure, software-defined storage, and general-purpose and AI-optimized servers. This segment also offers networking products and services comprising wide area network infrastructure, data center and edge networking switches, and cables and optics that help its business customers to transform and modernize their infrastructure and complementing its server and storage solutions; and software, peripherals, and services, including consulting and support, and deployment. The CSG segment provides notebooks, desktops, and workstations and branded peripherals that include displays, docking stations, keyboards, mice, webcam and audio devices, and third-party software and peripherals; and configuration, and extended warranties services. The company is involved in originating, collecting, and servicing customer financing arrangements and offers payment and consumption solutions and services, such utility, subscription, as-a-service, leases, and loans, as well as fixed-term leases and loans. It serves enterprises, governmental agencies and other public institutions, educational institutions, healthcare organizations, small and medium-sized businesses, and consumers. The company has a strategic alliance with Rafay Systems for the development of AI infrastructure solutions. The company was formerly known as Denali Holding Inc. and changed its name to Dell Technologies Inc. in March 2013. Dell Technologies Inc. was founded in 1984 and is headquartered in Round Rock, Texas.",
+    "source": "Stock Analysis",
+    "sector": "Technology"
+  },
+  "ENTG": {
+    "name": "Entegris",
+    "market": "US",
+    "industry": "Semiconductor Equipment & Materials",
+    "business": "Entegris, Inc. provides advanced materials and process solutions for the semiconductor and other high-technology industries in North America, Taiwan, South Korea, Japan, China, Europe, and Southeast Asia. It operates in two segments, Materials Solutions (MS) and Advanced Purity Solutions (APS). The MS segment provides materials-based solutions, such as chemical vapor and atomic layer deposition materials, chemical mechanical planarization slurries and pads, ion implantation specialty gases, formulated etch and clean materials, and other specialty materials. The APS segment offers filtration, purification, and contamination-control solutions for the semiconductor manufacturing processes, semiconductor ecosystem, and other high-technology industries. The company’s customers include logic and memory semiconductor device manufacturers, semiconductor equipment makers, gas and chemical manufacturing companies, and wafer grower companies; and outsourced semiconductor assembly and test facilities, flat panel display equipment makers, and manufacturers of hard disk drive components and devices. It serves manufacturers and suppliers in the solar and life science industries, electrical discharge machining customers, glass manufacturers, aerospace manufacturers, and manufacturers of biomedical implantation devices. Entegris, Inc. was founded in 1966 and is headquartered in Billerica, Massachusetts.",
+    "source": "Stock Analysis",
+    "sector": "Technology"
+  },
+  "GFS": {
+    "name": "GlobalFoundries",
+    "market": "US",
+    "industry": "Semiconductors",
+    "business": "GLOBALFOUNDRIES Inc., a semiconductor foundry, provides range of mainstream wafer fabrication services and technologies in the United States, Europe, the Middle East, Africa, and internationally. It offers semiconductor devices, including microprocessors, mobile application processors, baseband processors, network processors, radio frequency modems, microcontrollers, and power management units. The company also provides quantum technology solutions. GLOBALFOUNDRIES Inc. has a strategic partnership with the U.S. Department of Energy’s Genesis Mission to accelerate scientific discovery through artificial intelligence and advanced computing. The company was incorporated in 2008 and is headquartered in Malta, New York.",
     "source": "Stock Analysis",
     "sector": "Technology"
   },
@@ -1389,11 +1445,43 @@
     "business": "無代號海外成分股，暫無可用公開摘要。",
     "source": ""
   },
+  "INTC": {
+    "name": "Intel",
+    "market": "US",
+    "industry": "Semiconductors",
+    "business": "Intel Corporation designs, develops, manufactures, markets, sells, and services computing and related end products and services in the United States, Ireland, Israel, and internationally. It operates through three segments: CCG, DCAI, and Intel Foundry. The company offers client computing group products, including client and commercial CPUs, discrete client GPUs, edge computing, and connectivity products; data center and AI products, such as server CPUs, discrete GPUs, and networking products; and semiconductors comprising wafer fabrication, substrates, and other related products and services. It also provides driving assistance and self-driving solutions; and develops and manufactures multi-beam mask writing tools. The company sells its products through sales organizations, distributors, resellers, retailers, and OEM partners. It serves original equipment manufacturers, original design manufacturers, cloud service providers, and other manufacturers and service providers. Intel Corporation has a strategic collaboration with Infosys Limited to develop a multi-layer AI fabric that unifies infrastructure, models, data, applications, and workflows into a composable and agent-ready ecosystem. The company was incorporated in 1968 and is headquartered in Santa Clara, California.",
+    "source": "Stock Analysis",
+    "sector": "Technology"
+  },
+  "KLAC": {
+    "name": "KLA",
+    "market": "US",
+    "industry": "Semiconductor Equipment & Materials",
+    "business": "KLA Corporation, together with its subsidiaries, designs, manufactures, and markets process control, process-enabling, and yield management solutions for the semiconductor and related electronics industries worldwide. The company operates through three segments: Semiconductor Process Control; Specialty Semiconductor Process; and PCB and Component Inspection. It offers inspection and review tools to identify, locate, characterize, review, and analyze defects on various surfaces of patterned and unpatterned wafers; metrology systems to measure pattern dimensions, film thickness, film stress, layer-to-layer alignment, pattern placement, surface topography, and electro-optical properties for wafers; chemical process control equipment; wired and wireless sensor wafers and reticles; wafer defect inspection, review, and metrology systems; reticle inspection and metrology systems; wafer inspection and metrology systems; and semiconductor software solutions that provide run-time process control, defect excursion identification, process corrections, and defect classification to accelerate yield learning rates and reduce production risk. The company also provides etch, plasma dicing, deposition, and other wafer processing technologies and solutions for the semiconductor and microelectronics industry. In addition, it offers direct imaging, inspection, optical shaping, inkjet and additive printing, and computer-aided manufacturing and engineering solutions for the PCB market and inspection and metrology systems for quality control and yield improvement in advanced and traditional semiconductor packaging markets. The company was formerly known as KLA-Tencor Corporation and changed its name to KLA Corporation in July 2019. KLA Corporation was incorporated in 1975 and is headquartered in Milpitas, California.",
+    "source": "Stock Analysis",
+    "sector": "Technology"
+  },
   "LITE": {
     "name": "Lumentum",
     "market": "US",
     "industry": "Communication Equipment",
     "business": "Lumentum Holdings Inc. manufactures and sells optical and photonic products in the Americas, the Asia-Pacific, Europe, the Middle East, and Africa. It operates through two segments, Cloud & Networking and Industrial Tech. The Cloud & Networking segment offers optical and photonic chips, components, modules, and subsystems supplied to cloud data center operators, AI/ML infrastructure providers, and network equipment manufacturer customers that are building cloud data centers and network infrastructures. Its Industrial Tech segment provides short-pulse solid-state lasers, kilowatt-class fiber lasers, diode lasers, and gas lasers that serves the semiconductor device, solar cell, display, and electric vehicle and battery manufacturing markets. The company was incorporated in 2015 and is headquartered in San Jose, California.",
+    "source": "Stock Analysis",
+    "sector": "Technology"
+  },
+  "LRCX": {
+    "name": "Lam Research",
+    "market": "US",
+    "industry": "Semiconductor Equipment & Materials",
+    "business": "Lam Research Corporation designs, manufactures, markets, refurbishes, and services semiconductor processing equipment used in the fabrication of integrated circuits in the United States, China, Korea, Taiwan, Japan, Southeast Asia, and Europe. The company offers ALTUS systems to deposit conformal or selective films for tungsten or molybdenum metallization applications; SABRE electrochemical deposition products for copper interconnect transition that offers copper damascene manufacturing; SPEED gapfill high-density plasma chemical vapor deposition (CVD) products; Striker single-wafer atomic layer deposition products for dielectric film solutions; and VECTOR plasma-enhanced CVD products. It also provides Flex for dielectric etch applications; Vantex, a dielectric etch system that provides RF technology and repeatable wafer-to-wafer performance enabled by Equipment Intelligence solutions; Kiyo for conductor etch applications; Syndion for through-silicon via etch applications; and Versys metal products for metal etch processes. In addition, the company offers Coronus bevel clean products to enhance die yield; and Da Vinci, DV-Prime, EOS, and SP series products to address various wafer cleaning applications. Further, it provides Reliant deposition, etch, and clean products; and Sense.i platform products, as well as customer service, spares, and upgrades. Lam Research Corporation was incorporated in 1980 and is headquartered in Fremont, California.",
+    "source": "Stock Analysis",
+    "sector": "Technology"
+  },
+  "MCHP": {
+    "name": "Microchip Technology",
+    "market": "US",
+    "industry": "Semiconductors",
+    "business": "Microchip Technology Incorporated develops, manufactures, and sells smart, connected, and secure embedded control solutions in the Americas, Europe, and Asia. It operates in two segments, Semiconductor Products and Technology Licensing. The company offers general-purpose 8-bit, 16-bit, 32-bit, and 64-bit mixed-signal microcontrollers; 32-bit and 64-bit embedded mixed-signal microprocessors; and specialized mixed-signal microcontrollers for automotive, industrial, computing, communications, lighting, power supplies, motor control, human-machine interface, security, wired connectivity, and wireless connectivity applications. It also provides analog products, including power management, linear, mixed-signal, high voltage, thermal management, discrete diodes and MOSFETs, radio frequency (RF), gate drivers, safety, security, timing, application-specific standard products, USB, Ethernet, wireless, and other interface products; field-programmable gate array (FPGA) products; and application development tools that enable system designers to program mixed-signal microcontroller, FPGA, and microprocessor products. In addition, the company offers memory products consisting of serial electrically erasable programmable read-only memory, serial flash memories, parallel flash memories, serial static random-access memory, and electrically erasable random-access memory for footprint devices. Further, it licenses its SuperFlash embedded flash and non-volatile memory technologies to foundries, integrated device manufacturers, and design partners for use in the manufacture of microcontroller products, gate arrays, RF, analog, and neuromorphic compute products. Additionally, the company offers engineering services; wafer foundry, assembly, and test subcontracting manufacturing services; and timing systems, application-specific integrated circuits, and products for aerospace applications. The company was incorporated in 1989 and is headquartered in Chandler, Arizona.",
     "source": "Stock Analysis",
     "sector": "Technology"
   },
@@ -1404,6 +1492,14 @@
     "business": "Meta Platforms, Inc. engages in the development of products that enable people to connect and share with friends and family through mobile devices, personal computers, virtual reality (VR) headsets, and AI glasses in the United States, Canada, Europe, Asia-Pacific, and internationally. It operates through two segments, Family of Apps (FoA) and Reality Labs (RL). The FoA segment offers Facebook, which enables people to build community through feed, reels, stories, groups, marketplace, and other; Instagram that brings people closer through Instagram feed, stories, reels, live, and messaging; Messenger, a messaging application for people to connect with friends, family, communities, and businesses across platforms and devices through text, audio, and video calls; Meta AI, an assistant that's available across apps, as a stand-alone app, on AI glasses, and on the web; Threads, an application for text-based updates and public conversations; and WhatsApp, a messaging application that is used by people and businesses to communicate and transact. The RL segment provides virtual and augmented reality products, including consumer hardware, software, and content that help people feel connected, as well as Meta Quest devices that enable social experiences across gaming, fitness, entertainment, and more. The segment also includes wearables such as AI glasses like Ray Ban Meta and Oakley Meta glasses; and the Meta Ray Ban Display, which combines AI glasses with an integrated lens display and the Meta Neural Band, a wrist worn device using electromyography that lets people control their AI glasses through neuromuscular signals. Meta Platforms, Inc. has a collaboration with Microsoft Corporation, NVIDIA Corporation, Advanced Micro Devices, Inc., Broadcom Inc., and OpenAI, L.L.C. The company was formerly known as Facebook, Inc. and changed its name to Meta Platforms, Inc. in October 2021. The company was incorporated in 2004 and is headquartered in Menlo Park, California.",
     "source": "Stock Analysis",
     "sector": "Communication Services"
+  },
+  "MPWR": {
+    "name": "Monolithic Power Systems",
+    "market": "US",
+    "industry": "Semiconductors",
+    "business": "Monolithic Power Systems, Inc. provides semiconductor-based power electronics solutions in China, Taiwan, South Korea, Southeast Asia, Europe, the United States, Japan, and internationally. The company offers direct current (DC) to DC solutions to convert and control voltages within a range of electronic systems, such as cloud-based and on-premises CPU servers and workstations, AI systems, memory, storage solutions, notebooks, infotainment, power sources, home appliances, network infrastructure, and satellite communications. It also provides alternating current (AC) to DC; driver metal-oxide-semiconductor field-effect transistors; power management integrated circuits (ICs); and current limit switch and lighting control products. The company serves storage and computing, enterprise data, automotive, communications, consumer, and industrial end markets through third-party distributors and value-added resellers. Monolithic Power Systems, Inc. was incorporated in 1997 and is based in West Palm Beach, Florida.",
+    "source": "Stock Analysis",
+    "sector": "Technology"
   },
   "MRVL": {
     "name": "Marvell",
@@ -1421,6 +1517,14 @@
     "source": "Stock Analysis",
     "sector": "Technology"
   },
+  "MTSI": {
+    "name": "MACOM Technology Solutions",
+    "market": "US",
+    "industry": "Semiconductors",
+    "business": "MACOM Technology Solutions Holdings, Inc., together with its subsidiaries, provides analog semiconductor solutions for use in wireless and wireline applications across the radio frequency (RF), microwave, millimeter wave, and lightwave spectrum. The company offers a portfolio of standard and custom devices, including integrated circuits, multi-chip modules, diodes, amplifiers, switches and switch limiters, passive and active components, and subsystems. Its semiconductor products are electronic components that are incorporated in electronic systems, such as wireless base stations, optical networks, radar and medical systems, satellite networks, and test and measurement applications. The company serves carrier infrastructure, which comprise long-haul/metro, 5G and 6G infrastructure, satellite communications, and fiber-to-the-X/passive optical network; industrial and defense, including military and commercial radar, RF jammers, electronic countermeasures, and communication data links, as well as multi-market applications, such as industrial, medical, test and measurement, and scientific applications; and data centers. It sells its products through direct sales force, applications engineering staff, independent sales representatives, resellers, and distributors. The company operates in the United States, China, Japan, Singapore, South Korea, Taiwan, and internationally. MACOM Technology Solutions Holdings, Inc. was formerly known as M/A-Com Technology Solutions Holdings, Inc. and changed its name to MACOM Technology Solutions Holdings, Inc. in 2016. MACOM Technology Solutions Holdings, Inc. was founded in 1950 and is based in Lowell, Massachusetts.",
+    "source": "Stock Analysis",
+    "sector": "Technology"
+  },
   "MU": {
     "name": "Micron",
     "market": "US",
@@ -1434,6 +1538,22 @@
     "market": "US",
     "industry": "Semiconductors",
     "business": "NVIDIA Corporation operates as a data center scale AI infrastructure company in the United States, Taiwan, China, Hong Kong, Europe, and internationally. It operates through Compute & Networking, and Graphics segments. The Compute & Networking segment provides data center accelerated computing and networking platforms and artificial intelligence solutions and software, and automotive platforms and autonomous and electric vehicle solutions, including software. The Graphics segment offers GeForce GPUs for gaming and PCs; Quadro/NVIDIA RTX GPUs for enterprise workstation graphics. The company’s products are used in gaming, professional visualization, data center, and automotive markets. It sells its products to original equipment manufacturers, original device manufacturers, system integrators and distributors, independent software vendors, cloud service providers, add-in board manufacturers, distributors, automotive manufacturers and tier-1 automotive suppliers, and other ecosystem participants. NVIDIA Corporation was incorporated in 1993 and is headquartered in Santa Clara, California.",
+    "source": "Stock Analysis",
+    "sector": "Technology"
+  },
+  "NVMI": {
+    "name": "Nova",
+    "market": "US",
+    "industry": "Semiconductor Equipment & Materials",
+    "business": "Nova Ltd. engages in the design, development, production, and sale of process control systems used in the manufacture of semiconductors in Taiwan, the United States, China, Korea, and internationally. The company’s product portfolio includes a set of metrology platforms for dimensional, films, and materials and chemical metrology measurements for process control for various semiconductor manufacturing process steps, such as lithography, Etch, chemical mechanical planarization, deposition, electrochemical plating, and advanced packaging. It serves various sectors of the integrated circuit manufacturing industry, including logic, foundry, memory, and packaging sectors, as well as process equipment manufacturers. Nova Ltd. was formerly known as Nova Measuring Instruments Ltd. and changed its name to Nova Ltd. in July 2021. Nova Ltd. was incorporated in 1993 and is headquartered in Rehovot, Israel.",
+    "source": "Stock Analysis",
+    "sector": "Technology"
+  },
+  "NXPI": {
+    "name": "NXP Semiconductors",
+    "market": "US",
+    "industry": "Semiconductors",
+    "business": "NXP Semiconductors N.V. provides semiconductor products in the United States, Germany, Japan, South Korea, Taiwan, Singapore, the Netherlands, Mainland China, Hong Kong, and internationally. The company’s product portfolio includes microcontrollers; application processors; communication processors; wireless connectivity solutions, such as near field communications, ultra-wideband, Bluetooth low-energy, Zigbee, Thread, and Wi-Fi and Wi-Fi/Bluetooth integrated SoCs; analog and interface products; radio frequency devices, and security controllers, as well as semiconductor-based environmental and inertial sensors, including pressure, inertial, magnetic, and gyroscopic sensors. Its products are used in various applications, including automotive, industrial and Internet of Things, mobile, and communication infrastructure. The company markets its products to direct sales offices and independent distributors. NXP Semiconductors N.V. was incorporated in 2006 and is headquartered in Eindhoven, the Netherlands.",
     "source": "Stock Analysis",
     "sector": "Technology"
   },
@@ -1458,6 +1578,30 @@
     "market": "US",
     "industry": "Software - Infrastructure",
     "business": "Palo Alto Networks, Inc. provides cybersecurity solutions in the Americas, Europe, the Middle East, Africa, the Asia Pacific, and Japan. It offers Prisma Access, a secure access service edge solution; Strata Cloud Manager, a network security management solution; and Prisma AIRS to protect customers’ entire AI ecosystem. It provides a comprehensive cloud native application protection platform; and Code to Cloud platform, as well as offers VM-Series and CN-Series virtual firewalls for inline network security on multi- and hybrid-cloud environments. It provides security operation solutions through the Cortex platform that includes Cortex XSIAM, an AI-driven security operations platform; Cortex XDR to prevent, detect, and respond to cybersecurity attacks; and Cortex XSOAR for security orchestration, automation, and response; and Cortex Xpanse for attack surface management, as well as offers threat intelligence and advisory services under the Unit 42 name. It provides subscription services covering the areas of threat prevention, malware and persistent threat, URL filtering, laptop and mobile device protection, DNS security, Internet of Things security, SaaS security API, and SaaS security inline; and threat intelligence, data loss prevention, services to resolve network disruptions, and sensitive data protection. It offers professional services, including architecture design and planning, implementation, configuration, and firewall migration; education services, such as certifications, as well as online and in-classroom training; and support services. It sells its products and services through its channel partners, as well as directly to enterprises, service providers, and government entities operating in various industries, including education, energy, financial services, government entities, healthcare, Internet and media, manufacturing, public sector, and telecommunications. The company was incorporated in 2005 and is headquartered in Santa Clara, California.",
+    "source": "Stock Analysis",
+    "sector": "Technology"
+  },
+  "QCOM": {
+    "name": "QUALCOMM",
+    "market": "US",
+    "industry": "Semiconductors",
+    "business": "QUALCOMM Incorporated engages in the development and commercialization of foundational technologies for the wireless industry worldwide. It operates through three segments: Qualcomm CDMA Technologies (QCT); Qualcomm Technology Licensing (QTL); and Qualcomm Strategic Initiatives (QSI). The QCT segment develops and supplies integrated circuits and system software with connectivity and computing technologies for use in mobile devices; automotive systems for connectivity, digital cockpit, and ADAS/AD; and IoT, including consumer electronic devices, industrial devices, and edge networking products. The QTL segment grants licenses or provides rights to use portions of its intellectual property portfolio, which include various patent rights useful in the manufacture and sale of wireless products comprising products implementing LTE, and/or OFDMA-based 5G products and derivatives; to use cellular standard-essential patents, including 3G, 4G and 5G for cellular devices. The QSI segment invests in early-stage companies in various industries, including 5G, artificial intelligence, automotive, consumer, enterprise, cloud, IoT, and extended reality, and investments, including non-marketable equity securities and, to a lesser extent, marketable equity securities, and convertible debt instruments. It also provides development, and other services and sells related products to the United States government agencies and their contractors. In addition, the company is also involved in Qualcomm government technologies and data center businesses. Further, it provides security and intelligence services for unmanaged networks through software-based network security solutions. QUALCOMM Incorporated was incorporated in 1985 and is headquartered in San Diego, California.",
+    "source": "Stock Analysis",
+    "sector": "Technology"
+  },
+  "QRVO": {
+    "name": "Qorvo",
+    "market": "US",
+    "industry": "Semiconductors",
+    "business": "Qorvo, Inc. engages in development and commercialization of technologies and products for wireless, wired, and power markets in the United States, China, rest of Asia, Taiwan, and Europe. It operates through three segments: High Performance Analog (HPA), Connectivity and Sensors Group (CSG), and Advanced Cellular Group (ACG). The HPA segment supplies radio frequency, analog mixed signal, and power management solutions for defense and aerospace markets, as well as offers compound semiconductor foundry services, wafer processing, advanced packaging and heterogeneous integration solutions. The CSG segment supplies connectivity and sensor solutions featuring various technologies, such as UWB, Matter, Bluetooth Low Energy, Zigbee, Thread, Wi-Fi, and cellular solutions. It serves smart home, industrial automation, automotive, smartphones, wearables, gaming, and industrial and enterprise access points markets. The ACG segment supplies cellular solutions for smartphones, wearables, laptops, tablets, and various other devices. It also offers foundry services for defense primes and other defense and aerospace customers. The company sells its products directly to original equipment manufacturers and original design manufacturers, as well as through a network of sales representative firms and distributors. Qorvo, Inc. was founded in 1957 and is headquartered in Greensboro, North Carolina.",
+    "source": "Stock Analysis",
+    "sector": "Technology"
+  },
+  "RMBS": {
+    "name": "Rambus",
+    "market": "US",
+    "industry": "Semiconductors",
+    "business": "Rambus Inc. manufactures and sells semiconductor products in the United States, South Korea, Singapore, and internationally. It offers memory interface chips comprising DDR5 memory interface chips which include registering clock driver, multiplexed registering clock driver, multiplexed data buffer, power management integrated circuits, serial presence detect hubs, temperature sensors, and client clock driver products; and DDR4 memory interface chips. The company also provides silicon IP, such as interface and security IP solutions that move and protect data in advanced artificial intelligence, data center, government, and automotive applications; interface IP solutions for high-speed memory and chip-to-chip digital controller IP; security IP solutions, including crypto cores, hardware roots of trust, high-speed protocol engines, and chip provisioning technologies. In addition, it offers portfolio of patents that covers memory architecture, high-speed serial links, and security products. The company sells its products to memory module manufacturers, OEMs and hyperscalers, as well as to chip makers. It markets its products and services through its direct sales force and distributors. Rambus Inc. was incorporated in 1990 and is headquartered in San Jose, California.",
     "source": "Stock Analysis",
     "sector": "Technology"
   },
@@ -1500,11 +1644,43 @@
     "source": "Stock Analysis",
     "sector": "Technology"
   },
+  "SWKS": {
+    "name": "Skyworks Solutions",
+    "market": "US",
+    "industry": "Semiconductors",
+    "business": "Skyworks Solutions, Inc., together with its subsidiaries, develops, manufactures, and markets analog and mixed-signal semiconductor products and solutions in the United States, Taiwan, China, South Korea, Europe, the Middle East, Africa, and the Asia Pacific. The company offers amplifiers, antenna tuners, attenuators, automotive tuners and digital radios, wireless ASoC, DC/DC converters, demodulators, detectors, digital power isolators, diodes, directional couplers, diversity receive modules, filters, front-end modules, hybrids, light emitting diode drivers, low noise amplifiers, mixers, modulators, and optocouplers/optoisolators. It also provides phase locked loops, phase shifters, power dividers/combiners, power over ethernet, power isolators, ProSLIC family of subscriber line interface circuits, receivers, system in package, switches, synthesizers, timing devices, voltage-controlled oscillators/synthesizers, and voltage regulators. The company sells its products through direct sales force, electronic component distributors, and independent sales representatives. Its products are used in aerospace, automotive, broadband, cellular infrastructure, connected home, defense, entertainment and gaming, industrial, medical, smartphone, tablet, and wearables applications. The company was founded in 1962 and is headquartered in Irvine, California.",
+    "source": "Stock Analysis",
+    "sector": "Technology"
+  },
+  "TER": {
+    "name": "Teradyne",
+    "market": "US",
+    "industry": "Semiconductor Equipment & Materials",
+    "business": "Teradyne, Inc. engages in the design, development, manufacture, and sale of automated test systems and robotics products in the United States, Asia Pacific, Europe, the Middle East, and Africa. The company operates through Semiconductor Test, Robotics, and Other segments. The Semiconductor Test segment offers products and services for wafer level and device package testing, and system level testing of semiconductor devices in automotive, industrial, communications, consumer, smartphones, cloud, computer and electronic game, and other applications. This segment also provides FLEX test platform systems; J750 test system to address the volume semiconductor devices, including microcontrollers; Magnum platform that tests memory devices, such as flash memory and DRAM; and ETS platform for semiconductor manufacturers, and assembly and test subcontractors in the analog/mixed signal markets. It serves integrated device manufacturers that integrate the fabrication of silicon wafers into their business; fabless companies that outsource the manufacturing of silicon wafers; foundries; and semiconductor assembly and test providers. The Robotics segment provides collaborative robotic arms and autonomous mobile robots for manufacturing, logistics, and industrial customers. It also provides product test instruments which includes operations related to the design, manufacturing and marketing of products and services for defense/aerospace test, circuit-board test, wireless test systems, and silicon photonics testing. The company has a strategic collaboration with Tokyo Electron Limited for the development of a test cell solution for device screening in AI and data center applications. Teradyne, Inc. was incorporated in 1960 and is headquartered in North Reading, Massachusetts.",
+    "source": "Stock Analysis",
+    "sector": "Technology"
+  },
   "TSEM": {
     "name": "Tower Semiconductor",
     "market": "US",
     "industry": "Semiconductors",
     "business": "Tower Semiconductor Ltd., an independent semiconductor foundry, provides technology, development, and process platforms for integrated circuits in the United States, Japan, rest of Asia, and Europe. The company provides customizable process technologies, including SiGe, SiPho, mixed signal CMOS, RF CMOS, CMOS image sensor, non-imaging sensors, wafers, and integrated power management. It also offers a design enablement platform for a design cycle, as well as transfer optimization and development process services to integrated device manufacturers and fabless companies. The company serves consumer applications, personal computers, communications, handsets and smartphones, automotive, industrial, aerospace, and medical devices. Tower Semiconductor Ltd. was incorporated in 1993 and is headquartered in Migdal Haemek, Israel",
+    "source": "Stock Analysis",
+    "sector": "Technology"
+  },
+  "TSM": {
+    "name": "TSMC(ADR)",
+    "market": "US",
+    "industry": "Semiconductors",
+    "business": "Taiwan Semiconductor Manufacturing Company Limited, together with its subsidiaries, manufactures, packages, tests, and sells integrated circuits and other semiconductor devices in Taiwan, China, Europe, the Middle East, Africa, Japan, the United States, and internationally. It provides various wafer fabrication processes, such as processes to manufacture complementary metal- oxide-semiconductor (CMOS) logic, mixed-signal, radio frequency, embedded memory, bipolar CMOS mixed-signal, and others. The company also involved in providing customer and engineering support services; manufacturing of masks; investment in technology start-up companies; research, designing, developing, manufacturing, packaging, testing, and sale of color filters; and investment activities. Its products are used in high performance computing, smartphones, Internet of things, automotive, and digital consumer electronics. Taiwan Semiconductor Manufacturing Company Limited was incorporated in 1987 and is headquartered in Hsinchu City, Taiwan.",
+    "source": "Stock Analysis",
+    "sector": "Technology"
+  },
+  "TXN": {
+    "name": "Texas Instruments",
+    "market": "US",
+    "industry": "Semiconductors",
+    "business": "Texas Instruments Incorporated designs, manufactures, and sells semiconductors to electronics designers and manufacturers in the United States, China, the rest of Asia, Europe, the Middle East, Africa, Japan, and internationally. It operates through Analog and Embedded Processing segments. The Analog segment offers power products to manage power requirements across various voltage levels, including battery-management solutions, DC/DC switching regulators, AC/DC and isolated controllers and converters, power switches, linear regulators, voltage references, multiphase controllers and power stages, and lighting products. This segment also provides signal chain products that sense, condition, and measure real-world signals and convert them into data to be transferred or converted for further processing and control, such as amplifiers, data converters, interface products, motor drives, clocks, and logic and sensing products. The Embedded Processing segment offers microcontrollers, processors, wireless connectivity, and radar products; and applications processors for specific computing activity. It also provides DLP products primarily for use in projecting high-definition images; calculators; and application-specific integrated circuits. Its products are used in various markets, such as industrial, automotive, personal electronics, communications equipment, enterprise systems, calculators, and others. The company markets and sells its semiconductor products through direct sales and distributors, as well as through its website. Texas Instruments Incorporated was founded in 1930 and is headquartered in Dallas, Texas.",
     "source": "Stock Analysis",
     "sector": "Technology"
   },
