@@ -121,7 +121,7 @@
   // 依 ETF 分組：配息資訊只顯示一次，各筆買入列在下方，另附該檔合計
   function etfCard(code, rs) {
     const first = rs[0];
-    const g = (k, v, cls) => '<div><div class="k">' + k + '</div><div class="v ' + (cls || "") + '">' + v + '</div></div>';
+    const g = (k, v, cls, boxCls) => '<div class="' + (boxCls || "") + '"><div class="k">' + k + '</div><div class="v ' + (cls || "") + '">' + v + '</div></div>';
     let shares = 0, fee = 0, cost = 0, value = 0, sellCosts = 0, ttm = 0;
     let hasCost = false, hasFee = false, hasValue = false, hasSellCosts = false;
     rs.forEach((r) => {
@@ -149,15 +149,11 @@
       "</b>・每股 <b>" + (next && next.amount != null ? price(next.amount) + " 元" : "—") + "</b></div>";
     // 該檔合計
     html += '<div class="sec"><div class="h">合計（' + rs.length + " 筆）</div><div class=\"grid\">" +
-      g("持有股數", num(shares)) +
+      g("持有股數", num(shares), "", "key-field") +
       g("投入成本", hasCost ? money(cost) + " 元" : "—") +
-      g("手續費", hasFee ? money(fee) + " 元" : "—") +
       g("現值", hasValue ? money(value) + " 元" : "—") +
-      g("預估賣出成本", hasSellCosts ? money(sellCosts) + " 元" : "—") +
       g("損益", pl != null ? (pl > 0 ? "+" : "") + money(pl) + " 元" : "—", plCls(pl)) +
       g("報酬率%", pct(plp), plCls(plp)) +
-      g("過去12月年配息", ttm ? money(ttm) + " 元" : "—") +
-      g("個人殖利率", yoc != null ? yoc.toFixed(2) + "%" : "—") +
       "</div></div>";
     // 各筆買入：預設收合，需要時逐檔展開
     html += '<div class="sec lot-section"><div class="lot-top"><div class="h" style="margin:0;">各筆買入（' + rs.length + " 筆）</div>" +
@@ -169,12 +165,10 @@
         '<span class="sp"><a class="small" data-edit="' + h.id + '">編輯</a>' +
         '<a class="small" data-del="' + h.id + '" style="color:var(--up);">刪除</a></span></div>' +
         '<div class="grid">' +
-        g("持有股數", num(r.shares)) +
-        g("買入均價", h.avg_cost != null ? price(h.avg_cost) : "—") +
-        g("手續費", r.fee != null ? money(r.fee) + " 元" : "—") +
+        g("持有股數", num(r.shares), "", "key-field") +
+        g("買入均價", h.avg_cost != null ? price(h.avg_cost) : "—", "", "key-field") +
         g("投入成本", r.cost != null ? money(r.cost) + " 元" : "—") +
         g("現值", r.currentValue != null ? money(r.currentValue) + " 元" : "—") +
-        g("預估賣出成本", r.sellCosts != null ? money(r.sellCosts) + " 元" : "—") +
         g("損益", r.pl != null ? (r.pl > 0 ? "+" : "") + money(r.pl) + " 元" : "—", plCls(r.pl)) +
         g("報酬率%", pct(r.plp), plCls(r.plp)) +
         "</div>" + (h.note ? '<div class="note">📝 ' + h.note + "</div>" : "") + "</div>";
