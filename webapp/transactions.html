@@ -21,6 +21,12 @@
     h1 { font-size:20px; margin:0 0 4px; }
     .sub { color:var(--muted); font-size:13px; margin-bottom:16px; }
     .panel { background:var(--card); border:1px solid var(--border); border-radius:12px; padding:14px; margin-bottom:16px; }
+    .filters { display:flex; gap:10px; align-items:flex-end; flex-wrap:wrap; margin-bottom:12px; }
+    .filters .field { display:flex; flex-direction:column; gap:3px; }
+    .filters label { color:var(--muted); font-size:12px; }
+    .filters input, .filters button { font:inherit; padding:7px 9px; border:1px solid var(--border); border-radius:8px; background:var(--bg); color:var(--text); }
+    .filters button { cursor:pointer; }
+    .filters button.primary { background:var(--accent); color:#fff; border-color:var(--accent); }
     .empty { color:var(--muted); font-size:14px; padding:8px 0; }
     .table-wrap { overflow-x:auto; }
     table { width:100%; border-collapse:collapse; min-width:760px; font-size:13px; }
@@ -51,6 +57,13 @@
     <div id="gate" class="panel" style="display:none;"></div>
     <div id="app" style="display:none;">
       <div class="panel">
+        <div class="filters">
+          <div class="field"><label for="fromDate">開始日期</label><input id="fromDate" type="date"></div>
+          <div class="field"><label for="toDate">結束日期</label><input id="toDate" type="date"></div>
+          <button id="filterBtn" class="primary" type="button">查詢</button>
+          <button id="clearFilterBtn" type="button">清除</button>
+          <span id="filterSummary" class="sub" style="margin:0;"></span>
+        </div>
         <div class="table-wrap"><table>
           <thead><tr><th>日期</th><th>類型</th><th>ETF</th><th class="num">股數</th><th class="num">成交均價</th><th class="num">手續費</th><th class="num">交易稅</th><th class="num">成交金額</th><th>備註</th><th></th></tr></thead>
           <tbody id="rows"></tbody>

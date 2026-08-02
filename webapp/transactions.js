@@ -3,6 +3,8 @@
   const $ = (id) => document.getElementById(id);
   let transactions = [];
   let loadedFor = null;
+  let fromDate = "";
+  let toDate = "";
   let config = { feeRate: 0.000399, minFee: 1 };
 
   const auth = () => window.ETFAuth;
@@ -63,8 +65,10 @@
     if (!a.user()) { $("gate").style.display = "block"; $("app").style.display = "none"; $("gate").innerHTML = '<div class="empty">請先用右上角「登入 / 註冊」登入，即可查看交易紀錄。</div>'; return; }
     $("gate").style.display = "none"; $("app").style.display = "block";
     const body = $("rows");
-    $("empty").style.display = transactions.length ? "none" : "block";
-    body.innerHTML = transactions.map((t) => {
+    const visible = transactions.filter((t) => (!fromDate || String(t.trade_date || "") >= fromDate) && (!toDate || String(t.trade_date || "") <= toDate));
+    $("empty").style.display = visible.length ? "none" : "block";
+    $("filterSummary").textContent = visible.length + " / " + transactions.length + " 筆";
+    body.innerHTML = visible.map((t) => {
       const gross = Number(t.shares || 0) * Number(t.price || 0);
       const net = t.side === "sell" ? gross - Number(t.fee || 0) - Number(t.tax || 0) : gross + Number(t.fee || 0);
       return '<tr><td>' + esc(t.trade_date || "—") + '</td><td class="' + (t.side === "sell" ? "sell" : "buy") + '">' + (t.side === "sell" ? "賣出" : "買入") +
@@ -92,6 +96,23 @@
     const uid = user() && user().id;
     if (uid && uid !== loadedFor) { loadedFor = uid; loadConfig().then(load); }
     else if (!uid) { loadedFor = null; render(); }
+  });
+  document.addEventListener("DOMContentLoaded", () => {
+    $("filterBtn").onclick = () => {
+      fromDate = $("fromDate").value || "";
+      toDate = $("toDate").value || "";
+      if (fromDate && toDate && fromDate > toDate) {
+        alert("開始日期不可晚於結束日期。");
+        return;
+      }
+      render();
+    };
+    $("clearFilterBtn").onclick = () => {
+      $("fromDate").value = "";
+      $("toDate").value = "";
+      fromDate = ""; toDate = "";
+      render();
+    };
   });
   setTimeout(() => {
     const uid = user() && user().id;

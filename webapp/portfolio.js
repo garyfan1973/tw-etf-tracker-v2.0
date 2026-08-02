@@ -226,11 +226,11 @@
       g("現值", hasValue ? money(value) + " 元" : "—") +
       g("損益", pl != null ? (pl > 0 ? "+" : "") + money(pl) + " 元" : "—", plCls(pl)) +
       g("報酬率%", pct(plp), plCls(plp)) +
+      '<div class="expand-cell"><button class="lot-toggle" type="button" data-toggle-lots="' + code + '" aria-expanded="false">展開</button></div>' +
       "</div></div>";
     // 各筆買入：預設收合，需要時逐檔展開
-    html += '<div class="sec lot-section"><div class="lot-top"><div class="h" style="margin:0;">各筆買入（' + rs.length + " 筆）</div>" +
-      '<button class="lot-toggle" type="button" data-toggle-lots="' + code + '" aria-expanded="false">展開</button></div>' +
-      '<div class="lots" data-lots="' + code + '" hidden>';
+    html += '<div class="lot-section"><div class="lots" data-lots="' + code + '" hidden>' +
+      '<div class="detail-heading">各筆買入（' + rs.length + " 筆）</div>";
     rs.forEach((r) => {
       const h = r.h;
       html += '<div class="lot"><div class="lot-top"><span class="cd">買入 ' + (h.buy_date || "—") + "</span>" +
