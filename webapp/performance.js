@@ -68,7 +68,7 @@
     // 以觀測到的資料點作為 x 軸，不按日曆天數拉開；資料很少時壓縮點距。
     const pointGap = dates.length <= 6 ? 96 : plotW / (dates.length - 1);
     const usedW = dates.length === 1 ? 0 : Math.min(plotW, pointGap * (dates.length - 1));
-    const xStart = left + (plotW - usedW) / 2;
+    const xStart = left;
     const x = i => dates.length === 1 ? left + plotW / 2 : xStart + i * usedW / (dates.length - 1);
     const y = v => top + (max - v) * plotH / (max - min);
     [0, .25, .5, .75, 1].forEach(t => {
@@ -109,7 +109,8 @@
     const start = $("start").value, end = $("end").value;
     const result = await c.from("portfolio_daily_snapshots").select("*").gte("snapshot_date", start).lte("snapshot_date", end).order("snapshot_date", { ascending: true }).order("etf_code", { ascending: true });
     if (result.error) { $("msg").textContent = "查詢失敗：" + result.error.message; return; }
-    allRows = result.data || []; selected = new Set(codeSet()); $("msg").textContent = allRows.length ? "" : "此日期區間尚無每日快照；請先執行每日快照流程。";
+    // 舊版可能留下沒有行情價格的快照；這些列沒有可解釋的當日報酬率，先不呈現。
+    allRows = (result.data || []).filter(r => r.price != null); selected = new Set(codeSet()); $("msg").textContent = allRows.length ? "" : "此日期區間尚無每日快照；請先執行每日快照流程。";
     renderChoices(); render();
   }
 

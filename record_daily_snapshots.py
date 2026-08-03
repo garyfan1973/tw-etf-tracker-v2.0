@@ -145,6 +145,10 @@ def build_rows(data, txs, users, dates, cfg):
             for code, state in states.items():
                 shares = sum(x["shares"] for x in state["lots"])
                 close, source_date = price_at(data, code, snapshot_date)
+                # 沒有行情資料時不能用「已實現損益 ÷ 投入成本」冒充當日報酬率。
+                # 例如某 ETF 的第一筆行情是 7/31，不能替它建立 7/30 的假績效點。
+                if close is None:
+                    continue
                 cost_basis = sum((x["shares"] * x["price"] if x["price"] is not None else 0) + x["fee"] for x in state["lots"] if x["shares"] > 0)
                 gross = shares * close if close is not None else None
                 sell_fee = fee_for(shares, close, cfg["sell_rate"], cfg) if close is not None and shares else 0
@@ -186,6 +190,8 @@ def main():
         return
     rows = build_rows(data, txs, users, dates, load_config())
     url = base + "/rest/v1/portfolio_daily_snapshots?on_conflict=user_id,snapshot_date,etf_code"
+    # 清理舊版本留下的無行情快照，避免前端繼續讀到不具意義的報酬率。
+    http_json(base + "/rest/v1/portfolio_daily_snapshots?price=is.null", method="DELETE", headers=headers)
     for i in range(0, len(rows), 500):
         http_json(url, method="POST", payload=rows[i:i + 500],
                  headers={**headers, "Prefer": "resolution=merge-duplicates,return=minimal"})
