@@ -209,6 +209,25 @@ def fetch_quotes(data_date):
     return quotes
 
 
+def fetch_latest_quote(code, quote_cache, lookback_days=10):
+    """找某檔台股／台股 ETF 最近可取得的收盤行情。
+
+    ETF 持股頁的資料日期可能落後交易所行情（例如持股頁仍停在
+    7/31，但 ETF 本身在 8/3 仍有交易）。因此 ETF 自身行情不能綁定
+    持股快照日期，改由今天往前找最近一個有該代號的交易日。
+    """
+    end = datetime.date.fromisoformat(today_str())
+    for offset in range(lookback_days + 1):
+        data_date = (end - datetime.timedelta(days=offset)).isoformat()
+        if data_date not in quote_cache:
+            print("== 尋找 ETF 最新行情：{} ==".format(data_date))
+            quote_cache[data_date] = fetch_quotes(data_date)
+        quote = quote_cache[data_date].get(code)
+        if quote:
+            return quote
+    return None
+
+
 def _iso_date(s):
     """2026/07/21 -> 2026-07-21，無效回空字串。"""
     m = re.match(r"(20\d{2})/(\d{1,2})/(\d{1,2})", s or "")
@@ -652,9 +671,14 @@ def main():
             print("  海外行情：{}/{} 檔（Yahoo）{}".format(ok, len(oversea), note))
 
         prev_holdings = prev[-1]["holdings"] if prev else []
-        self_quote = quotes.get(etf_id)  # ETF 自身指定日期行情（個人持股用）
+        # ETF 自身行情獨立尋找最新交易日，不受 MoneyDJ 持股頁資料日期限制。
+        # 這可避免持股頁停在舊日期時，ETF 的現價／漲跌也一起停住。
+        self_quote = fetch_latest_quote(etf_id, quote_cache)
         if self_quote is None and prev_snapshot:
             self_quote = prev_snapshot.get("self")
+        if self_quote:
+            print("  ETF 自身行情：{}（行情日 {}）".format(
+                self_quote.get("close"), self_quote.get("quoteDate", "未知")))
         snapshot = save_snapshot(etf_id, holdings, data_date, self_quote)
         print("  已存 {} 檔持股（資料日期 {}）".format(snapshot["count"], snapshot["date"]))
 
