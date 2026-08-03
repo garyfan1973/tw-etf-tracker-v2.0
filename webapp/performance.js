@@ -71,6 +71,7 @@
     const xStart = left;
     const x = i => dates.length === 1 ? left + plotW / 2 : xStart + i * usedW / (dates.length - 1);
     const y = v => top + (max - v) * plotH / (max - min);
+    const hoverPoints = [];
     [0, .25, .5, .75, 1].forEach(t => {
       const yy = top + t * plotH, val = max - t * (max - min);
       svg.innerHTML += '<line x1="' + left + '" x2="' + (W - right) + '" y1="' + yy + '" y2="' + yy + '" class="chart-grid"/>' +
@@ -87,6 +88,7 @@
         return v == null ? null : { x: x(i), y: y(Number(v)), date: d, value: Number(v) };
       }).filter(Boolean);
       const color = COLORS[ci % COLORS.length];
+      pointData.forEach(p => hoverPoints.push({ ...p, code, name: (rows.find(r => r.etf_code === code) || {}).etf_name || code }));
       if (pointData.length > 1) svg.innerHTML += '<polyline points="' + pointData.map(p => p.x + "," + p.y).join(" ") + '" fill="none" stroke="' + color + '" stroke-width="2.5" stroke-linejoin="round" stroke-linecap="round"/>';
       pointData.forEach(p => {
         const rowName = (rows.find(r => r.etf_code === code) || {}).etf_name || code;
@@ -102,20 +104,24 @@
       }
     });
     const tooltip = $("chartTooltip");
-    svg.querySelectorAll(".chart-hit").forEach(hit => {
-      hit.addEventListener("mouseenter", e => {
-        const value = Number(hit.dataset.value);
-        tooltip.innerHTML = '<strong>' + hit.dataset.code + ' ' + hit.dataset.name + '</strong><br>' + hit.dataset.date + '　' + (mode === "inc" ? "含息" : "不含息") + '報酬率：<b>' + pct(value) + '</b>';
-        tooltip.style.display = "block";
-        tooltip.style.left = (e.clientX + 14) + "px";
-        tooltip.style.top = (e.clientY + 14) + "px";
+    // 直接在 SVG 容器上判斷最近的資料點，不依賴透明 SVG 圓點的事件穿透行為。
+    const hideTooltip = () => { tooltip.style.display = "none"; };
+    svg.onmousemove = e => {
+      const rect = svg.getBoundingClientRect();
+      const px = (e.clientX - rect.left) * W / rect.width;
+      const py = (e.clientY - rect.top) * H / rect.height;
+      let nearest = null, distance = Infinity;
+      hoverPoints.forEach(p => {
+        const d = Math.hypot(p.x - px, p.y - py);
+        if (d < distance) { distance = d; nearest = p; }
       });
-      hit.addEventListener("mousemove", e => {
-        tooltip.style.left = (e.clientX + 14) + "px";
-        tooltip.style.top = (e.clientY + 14) + "px";
-      });
-      hit.addEventListener("mouseleave", () => { tooltip.style.display = "none"; });
-    });
+      if (!nearest || distance > 28) { hideTooltip(); return; }
+      tooltip.innerHTML = '<strong>' + nearest.code + ' ' + nearest.name + '</strong><br>' + nearest.date + '　' + (mode === "inc" ? "含息" : "不含息") + '報酬率：<b>' + pct(nearest.value) + '</b>';
+      tooltip.style.display = "block";
+      tooltip.style.left = (e.clientX + 14) + "px";
+      tooltip.style.top = (e.clientY + 14) + "px";
+    };
+    svg.onmouseleave = hideTooltip;
   }
 
   function render() { renderChart(); renderSummary(); renderTable(); }
