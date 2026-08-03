@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="zh-Hant-tw">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>K 線圖</title>
+  <style>
+    :root, :root[data-theme="light"] { --bg:#f5f6f8; --card:#fff; --text:#1c2430; --muted:#6b7684; --border:#e3e7ec; --accent:#3b5bdb; --up:#e64949; --down:#2f9e44; --ma5:#f08c00; --ma20:#9c36b5; }
+    @media (prefers-color-scheme: dark) { :root:not([data-theme="light"]) { --bg:#14181d; --card:#1c2229; --text:#e6e9ed; --muted:#98a2b0; --border:#2a323b; --accent:#6c8cff; --up:#ff8787; --down:#69db7c; --ma5:#ffc078; --ma20:#d0bfff; } }
+    :root[data-theme="dark"] { --bg:#14181d; --card:#1c2229; --text:#e6e9ed; --muted:#98a2b0; --border:#2a323b; --accent:#6c8cff; --up:#ff8787; --down:#69db7c; --ma5:#ffc078; --ma20:#d0bfff; }
+    * { box-sizing:border-box; }
+    body { margin:0; padding:20px; background:var(--bg); color:var(--text); font-family:-apple-system,"PingFang TC","Microsoft JhengHei",sans-serif; }
+    .wrap { max-width:1180px; margin:0 auto; }
+    nav { display:flex; gap:8px; align-items:center; margin-bottom:14px; flex-wrap:wrap; }
+    nav a { text-decoration:none; color:var(--muted); font-size:14px; padding:6px 12px; border:1px solid var(--border); border-radius:8px; }
+    nav a.active { color:#fff; background:var(--accent); border-color:var(--accent); }
+    .theme-toggle { margin-left:8px; width:36px; height:36px; border-radius:50%; border:1px solid var(--border); background:var(--card); color:var(--text); cursor:pointer; }
+    h1 { font-size:22px; margin:0 0 4px; } .sub { color:var(--muted); font-size:13px; margin-bottom:16px; }
+    .panel { background:var(--card); border:1px solid var(--border); border-radius:12px; padding:16px; margin-bottom:16px; }
+    .controls { display:flex; gap:12px; align-items:end; flex-wrap:wrap; }
+    label { display:flex; flex-direction:column; gap:5px; color:var(--muted); font-size:12px; }
+    select { min-width:190px; padding:9px 11px; border:1px solid var(--border); border-radius:8px; background:var(--bg); color:var(--text); font:inherit; }
+    .status { margin-left:auto; color:var(--muted); font-size:12px; }
+    .chart-head { display:flex; justify-content:space-between; align-items:baseline; gap:12px; margin-bottom:8px; }
+    .chart-title { font-size:18px; font-weight:700; } .quote { color:var(--muted); font-size:13px; }
+    .legend { display:flex; gap:14px; flex-wrap:wrap; color:var(--muted); font-size:12px; margin:4px 0 8px; }
+    .legend span { display:inline-flex; align-items:center; gap:5px; } .swatch { width:18px; height:2px; display:inline-block; }
+    .chart-box { width:100%; overflow:hidden; } svg { display:block; width:100%; height:auto; min-height:360px; }
+    .grid { stroke:var(--border); stroke-width:1; } .axis { fill:var(--muted); font-size:11px; }
+    .crosshair { stroke:var(--muted); stroke-width:1; stroke-dasharray:4 4; opacity:.7; }
+    .tip { padding:8px 10px; border:1px solid var(--border); border-radius:8px; background:var(--bg); color:var(--text); font-size:12px; line-height:1.7; min-height:24px; }
+    .empty { color:var(--muted); padding:28px 0; text-align:center; }
+    .up { color:var(--up); } .down { color:var(--down); }
+    @media (max-width:700px) { body { padding:12px; } .status { width:100%; margin-left:0; } select { min-width:0; width:100%; } .chart-box { overflow-x:auto; } svg { min-width:720px; } }
+  </style>
+  <script>(function(){var t=localStorage.getItem("etf-theme");if(t)document.documentElement.dataset.theme=t;})();</script>
+</head>
+<body>
+  <div class="wrap">
+    <nav>
+      <a href="index.html">持股 / 加減碼</a><a href="dividends.html">配息日曆</a><a href="portfolio.html">我的持股</a>
+      <a href="transactions.html">交易紀錄</a><a href="performance.html">績效走勢</a><a href="kline.html" class="active">K 線圖</a>
+      <span id="authBox" style="margin-left:auto;display:flex;align-items:center;gap:6px;"></span>
+      <button id="themeToggle" class="theme-toggle" aria-label="切換主題">🌙</button>
+    </nav>
+    <h1>K 線圖</h1>
+    <div class="sub">查看 ETF 或其持股的每日開高低收、成交量與移動平均線。</div>
+    <div class="panel">
+      <div class="controls">
+        <label>ETF<select id="etfSelect"></select></label>
+        <label>標的<select id="securitySelect"></select></label>
+        <div id="status" class="status"></div>
+      </div>
+    </div>
+    <div class="panel">
+      <div class="chart-head"><div id="chartTitle" class="chart-title">—</div><div id="quote" class="quote">—</div></div>
+      <div class="legend"><span><i class="swatch" style="background:var(--ma5)"></i>MA5</span><span><i class="swatch" style="background:var(--ma20)"></i>MA20</span><span>紅漲／綠跌</span></div>
+      <div id="chartBox" class="chart-box"></div>
+      <div id="tip" class="tip" aria-live="polite">將滑鼠移到 K 線上查看每日資料。</div>
+    </div>
+  </div>
+  <script src="theme.js"></script><script src="config.js"></script><script src="data.js"></script><script src="kline.js"></script>
+</body>
+</html>
