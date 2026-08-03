@@ -1,6 +1,6 @@
 {
   "date": "2026-07-31",
-  "fetched_at": "2026-08-03T20:41:48+08:00",
+  "fetched_at": "2026-08-03T22:03:52+08:00",
   "count": 48,
   "self": {
     "open": 15.1,
@@ -11,7 +11,8 @@
     "change": 1.91,
     "changePct": 13.99,
     "amplitude": 3.37,
-    "volume": 38119529.0
+    "volume": 38119529.0,
+    "quoteDate": "2026-07-31"
   },
   "holdings": [
     {
@@ -100,7 +101,8 @@
       "change": 220.0,
       "changePct": 9.98,
       "amplitude": 3.63,
-      "volume": 69478145.0
+      "volume": 69478145.0,
+      "quoteDate": "2026-07-31"
     },
     {
       "code": "MU",
@@ -238,7 +240,8 @@
       "change": 110.0,
       "changePct": 7.19,
       "amplitude": 5.88,
-      "volume": 31456334.0
+      "volume": 31456334.0,
+      "quoteDate": "2026-07-31"
     },
     {
       "code": "PANW",
@@ -272,7 +275,8 @@
       "change": 71.0,
       "changePct": 9.92,
       "amplitude": 0.0,
-      "volume": 3163252.0
+      "volume": 3163252.0,
+      "quoteDate": "2026-07-31"
     },
     {
       "code": "TSEM",
@@ -360,7 +364,8 @@
       "change": 430.0,
       "changePct": 9.97,
       "amplitude": 0.0,
-      "volume": 1418920.0
+      "volume": 1418920.0,
+      "quoteDate": "2026-07-31"
     },
     {
       "code": "SNDK",
@@ -430,7 +435,8 @@
       "change": 320.0,
       "changePct": 9.89,
       "amplitude": 0.0,
-      "volume": 4033014.0
+      "volume": 4033014.0,
+      "quoteDate": "2026-07-31"
     },
     {
       "code": "MRVL",
@@ -590,7 +596,8 @@
       "change": 525.0,
       "changePct": 9.94,
       "amplitude": 6.72,
-      "volume": 505000.0
+      "volume": 537571.0,
+      "quoteDate": "2026-07-31"
     },
     {
       "code": "AMZN",
@@ -642,7 +649,8 @@
       "change": -0.5,
       "changePct": -0.33,
       "amplitude": 7.26,
-      "volume": 26332000.0
+      "volume": 26607386.0,
+      "quoteDate": "2026-07-31"
     },
     {
       "code": "6976",
@@ -719,7 +727,8 @@
       "change": 50.0,
       "changePct": 9.9,
       "amplitude": 0.0,
-      "volume": 8045972.0
+      "volume": 8045972.0,
+      "quoteDate": "2026-07-31"
     },
     {
       "code": "LRCX",
@@ -771,7 +780,8 @@
       "change": 11.0,
       "changePct": 10.0,
       "amplitude": 0.0,
-      "volume": 45464057.0
+      "volume": 45464057.0,
+      "quoteDate": "2026-07-31"
     },
     {
       "code": "8035",
@@ -805,7 +815,8 @@
       "change": 20.0,
       "changePct": 9.83,
       "amplitude": 0.0,
-      "volume": 6714788.0
+      "volume": 6714788.0,
+      "quoteDate": "2026-07-31"
     },
     {
       "code": "ON",

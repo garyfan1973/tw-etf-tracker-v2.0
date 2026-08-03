@@ -1,6 +1,6 @@
 {
   "date": "2026-07-31",
-  "fetched_at": "2026-08-03T20:42:13+08:00",
+  "fetched_at": "2026-08-03T22:04:19+08:00",
   "count": 30,
   "self": {
     "open": 83.2,
@@ -11,7 +11,8 @@
     "change": 8.15,
     "changePct": 10.74,
     "amplitude": 1.91,
-    "volume": 12663656.0
+    "volume": 12663656.0,
+    "quoteDate": "2026-07-31"
   },
   "holdings": [
     {
