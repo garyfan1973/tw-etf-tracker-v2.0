@@ -22,12 +22,13 @@
     .choices { display:flex; flex-wrap:wrap; gap:6px; margin-top:12px; } .choice { padding:5px 9px; border:1px solid var(--border); border-radius:999px; color:var(--muted); cursor:pointer; font-size:12px; }
     .choice.on { color:var(--text); border-color:var(--accent); background:rgba(59,91,219,.1); }
     .chart-wrap { overflow-x:auto; } svg { display:block; width:100%; min-width:720px; height:330px; }
-    .chart-grid { stroke:var(--border); stroke-width:1; } .zero-line { stroke:var(--muted); stroke-width:1.4; stroke-dasharray:4 4; opacity:.75; } .chart-point { stroke:var(--card); stroke-width:1.5; } .axis-label { fill:var(--muted); font-size:11px; }
+    .chart-grid { stroke:var(--border); stroke-width:1; } .zero-line { stroke:var(--muted); stroke-width:1.4; stroke-dasharray:4 4; opacity:.75; } .chart-point { stroke:var(--card); stroke-width:1.5; pointer-events:none; } .chart-hit { cursor:crosshair; } .axis-label { fill:var(--muted); font-size:11px; }
     .legend { display:flex; flex-wrap:wrap; gap:10px 16px; margin-top:8px; font-size:12px; color:var(--muted); }
     .legend i { display:inline-block; width:10px; height:10px; border-radius:50%; margin-right:4px; }
     .table-scroll { overflow-x:auto; } table { width:100%; border-collapse:collapse; font-size:13px; white-space:nowrap; }
     th,td { padding:8px 10px; border-bottom:1px solid var(--border); text-align:right; font-variant-numeric:tabular-nums; } th:first-child,td:first-child,th:nth-child(2),td:nth-child(2){text-align:left;} th{color:var(--muted);font-weight:600;}
     .summary { display:grid; grid-template-columns:repeat(4,1fr); gap:10px; } .metric { padding:10px; border:1px solid var(--border); border-radius:10px; } .metric .k{font-size:12px;color:var(--muted)} .metric .v{font-size:20px;font-weight:700;margin-top:3px;color:var(--key);}
+    #chartTooltip { display:none; position:fixed; z-index:10; max-width:280px; padding:9px 11px; border:1px solid var(--border); border-radius:9px; background:var(--card); color:var(--text); box-shadow:0 5px 18px rgba(0,0,0,.16); font-size:12px; line-height:1.55; pointer-events:none; }
     .empty { color:var(--muted); padding:10px 0; font-size:14px; } .msg { color:var(--up,#d64545); font-size:13px; min-height:18px; }
     @media(max-width:700px){.summary{grid-template-columns:repeat(2,1fr)} nav{flex-wrap:wrap}}
   </style>
@@ -57,6 +58,7 @@
       <div class="panel"><h2>每日明細</h2><div class="table-scroll"><table><thead><tr><th>日期</th><th>ETF</th><th>持有股數</th><th>現值</th><th>未實現損益</th><th>已實現損益</th><th>估算已領配息</th><th id="returnHead">不含息報酬率</th></tr></thead><tbody id="rows"></tbody></table></div></div>
     </div>
   </div>
+  <div id="chartTooltip" role="status" aria-live="polite"></div>
   <script src="theme.js"></script><script src="config.js"></script><script type="module" src="auth.js"></script><script src="performance.js"></script>
 </body>
 </html>

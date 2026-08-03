@@ -89,7 +89,9 @@
       const color = COLORS[ci % COLORS.length];
       if (pointData.length > 1) svg.innerHTML += '<polyline points="' + pointData.map(p => p.x + "," + p.y).join(" ") + '" fill="none" stroke="' + color + '" stroke-width="2.5" stroke-linejoin="round" stroke-linecap="round"/>';
       pointData.forEach(p => {
-        svg.innerHTML += '<circle cx="' + p.x + '" cy="' + p.y + '" r="3.5" fill="' + color + '" class="chart-point"><title>' + p.date + '　' + pct(p.value) + '</title></circle>';
+        const rowName = (rows.find(r => r.etf_code === code) || {}).etf_name || code;
+        svg.innerHTML += '<circle cx="' + p.x + '" cy="' + p.y + '" r="10" fill="transparent" class="chart-hit" data-code="' + code + '" data-name="' + rowName + '" data-date="' + p.date + '" data-value="' + p.value + '"></circle>' +
+          '<circle cx="' + p.x + '" cy="' + p.y + '" r="3.5" fill="' + color + '" class="chart-point"><title>' + p.date + '　' + pct(p.value) + '</title></circle>';
       });
       const row = rows.find(r => r.etf_code === code);
       legend.innerHTML += '<span><i style="background:' + color + '"></i>' + code + " " + (row.etf_name || "") + "</span>";
@@ -98,6 +100,21 @@
       if (dates.length <= 8 || i === 0 || i === dates.length - 1) {
         svg.innerHTML += '<text x="' + x(i) + '" y="' + (H - 10) + '" text-anchor="middle" class="axis-label">' + date + '</text>';
       }
+    });
+    const tooltip = $("chartTooltip");
+    svg.querySelectorAll(".chart-hit").forEach(hit => {
+      hit.addEventListener("mouseenter", e => {
+        const value = Number(hit.dataset.value);
+        tooltip.innerHTML = '<strong>' + hit.dataset.code + ' ' + hit.dataset.name + '</strong><br>' + hit.dataset.date + '　' + (mode === "inc" ? "含息" : "不含息") + '報酬率：<b>' + pct(value) + '</b>';
+        tooltip.style.display = "block";
+        tooltip.style.left = (e.clientX + 14) + "px";
+        tooltip.style.top = (e.clientY + 14) + "px";
+      });
+      hit.addEventListener("mousemove", e => {
+        tooltip.style.left = (e.clientX + 14) + "px";
+        tooltip.style.top = (e.clientY + 14) + "px";
+      });
+      hit.addEventListener("mouseleave", () => { tooltip.style.display = "none"; });
     });
   }
 
