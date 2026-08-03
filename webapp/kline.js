@@ -78,6 +78,8 @@
       const rect = event.currentTarget.getBoundingClientRect(), position = (event.clientX - rect.left) / rect.width * plotW + left;
       const point = candlePoints.reduce((best, p) => Math.abs(p.x - position) < Math.abs(best.x - position) ? p : best, candlePoints[0]);
       const r = point.row; $("hoverLine").setAttribute("x1", point.x); $("hoverLine").setAttribute("x2", point.x); $("hoverLine").setAttribute("visibility", "visible");
+      const chartRect = $("chartBox").getBoundingClientRect(), tip = $("tip");
+      tip.style.left = `${Math.max(8, Math.min(chartRect.width - tip.offsetWidth - 8, event.clientX - chartRect.left - tip.offsetWidth / 2))}px`;
       $("tip").innerHTML = `<strong>${esc(r.date)}</strong>　開 ${price(r.open)}　高 ${price(r.high)}　低 ${price(r.low)}　收 ${price(r.close)}　量 ${num(r.volume)}`;
     };
     $("chartHit").addEventListener("pointermove", updateTip);
