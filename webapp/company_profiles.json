@@ -1,4 +1,11 @@
 {
+  "005930": {
+    "name": "SAMSUNG ELEC",
+    "market": "KS",
+    "industry": "",
+    "business": "無代號海外成分股，暫無可用公開摘要。",
+    "source": ""
+  },
   "009150": {
     "name": "Samsung Elec Mech",
     "market": "KS",
@@ -83,6 +90,13 @@
     "business": "無代號海外成分股，暫無可用公開摘要。",
     "source": ""
   },
+  "1815": {
+    "name": "富喬",
+    "market": "TW",
+    "industry": "",
+    "business": "無代號海外成分股，暫無可用公開摘要。",
+    "source": ""
+  },
   "2002": {
     "name": "中鋼",
     "market": "TW",
@@ -94,6 +108,13 @@
     "name": "大成鋼",
     "market": "TW",
     "industry": "鋼鐵工業",
+    "business": "臺灣上市公司；主要業務請參考公司網站。",
+    "source": "臺灣證券交易所"
+  },
+  "2049": {
+    "name": "上銀",
+    "market": "TW",
+    "industry": "電機機械",
     "business": "臺灣上市公司；主要業務請參考公司網站。",
     "source": "臺灣證券交易所"
   },
@@ -902,6 +923,13 @@
     "business": "無代號海外成分股，暫無可用公開摘要。",
     "source": ""
   },
+  "5706": {
+    "name": "Mitsui Kinzoku",
+    "market": "JP",
+    "industry": "",
+    "business": "無代號海外成分股，暫無可用公開摘要。",
+    "source": ""
+  },
   "5871": {
     "name": "中租-KY",
     "market": "TW",
@@ -1153,6 +1181,13 @@
     "industry": "電腦及週邊設備業",
     "business": "臺灣上市公司；主要業務請參考公司網站。",
     "source": "臺灣證券交易所"
+  },
+  "6857": {
+    "name": "Advantest",
+    "market": "JP",
+    "industry": "",
+    "business": "無代號海外成分股，暫無可用公開摘要。",
+    "source": ""
   },
   "6890": {
     "name": "來億-KY",
@@ -1413,6 +1448,13 @@
     "business": "Entegris, Inc. provides advanced materials and process solutions for the semiconductor and other high-technology industries in North America, Taiwan, South Korea, Japan, China, Europe, and Southeast Asia. It operates in two segments, Materials Solutions (MS) and Advanced Purity Solutions (APS). The MS segment provides materials-based solutions, such as chemical vapor and atomic layer deposition materials, chemical mechanical planarization slurries and pads, ion implantation specialty gases, formulated etch and clean materials, and other specialty materials. The APS segment offers filtration, purification, and contamination-control solutions for the semiconductor manufacturing processes, semiconductor ecosystem, and other high-technology industries. The company’s customers include logic and memory semiconductor device manufacturers, semiconductor equipment makers, gas and chemical manufacturing companies, and wafer grower companies; and outsourced semiconductor assembly and test facilities, flat panel display equipment makers, and manufacturers of hard disk drive components and devices. It serves manufacturers and suppliers in the solar and life science industries, electrical discharge machining customers, glass manufacturers, aerospace manufacturers, and manufacturers of biomedical implantation devices. Entegris, Inc. was founded in 1966 and is headquartered in Billerica, Massachusetts.",
     "source": "Stock Analysis",
     "sector": "Technology"
+  },
+  "FURUKAWA ELECTRIC CO LTD": {
+    "name": "FURUKAWA ELECTRIC CO LTD",
+    "market": "",
+    "industry": "",
+    "business": "無代號海外成分股，暫無可用公開摘要。",
+    "source": ""
   },
   "GFS": {
     "name": "GlobalFoundries",
