@@ -156,7 +156,11 @@ def _twse_quote_rows(payload):
 def _signed_change(row):
     """解析 TWSE 的漲跌方向與價差欄位。"""
     value = _num(row.get("漲跌價差") or row.get("漲跌") or row.get("Change"))
-    sign = str(row.get("漲跌(+/-)") or row.get("漲跌符號") or "").strip()
+    # TWSE 的 MI_INDEX 回應會把符號包在 HTML 中，例如
+    # ``<p style= color:green>-</p>``；若直接比對字串，負號會被漏掉，
+    # 導致 2,370 - 55 被誤算成前收 2,315、漲幅 +2.38%。
+    sign = html.unescape(str(row.get("漲跌(+/-)") or row.get("漲跌符號") or ""))
+    sign = re.sub(r"<[^>]+>", "", sign).strip()
     if value is not None and sign in ("-", "－"):
         return -abs(value)
     return value
