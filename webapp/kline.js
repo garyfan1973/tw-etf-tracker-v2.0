@@ -54,12 +54,17 @@
     const values = currentRows.flatMap(r => [Number(r.low), Number(r.high)]).filter(Number.isFinite);
     let min = Math.min(...values), max = Math.max(...values); if (min === max) { min -= 1; max += 1; }
     const maxVol = Math.max(...currentRows.map(r => Number(r.volume) || 0), 1), plotW = W - left - right, priceH = priceBottom - top;
-    const x = i => left + (currentRows.length === 1 ? plotW / 2 : i * plotW / (currentRows.length - 1));
+    // X 軸使用交易日序號，不把週末／休市日當成空白時間。資料很少時，
+    // 讓 K 棒集中在圖中央並保持固定間距；資料變多後才逐步填滿圖寬。
+    const slot = Math.min(34, plotW / Math.max(currentRows.length - 1, 1));
+    const contentW = slot * Math.max(currentRows.length - 1, 0);
+    const startX = left + Math.max(0, (plotW - contentW) / 2);
+    const x = i => startX + i * slot;
     const y = v => top + (max - v) * priceH / (max - min);
     const vy = v => volumeTop + 94 - (Number(v || 0) / maxVol) * 94;
     let svg = `<svg viewBox="0 0 ${W} ${H}" role="img" aria-label="${esc($("chartTitle").textContent)} K 線圖">`;
     [0, .25, .5, .75, 1].forEach(t => { const yy = top + t * priceH, val = max - t * (max - min); svg += `<line x1="${left}" x2="${W - right}" y1="${yy}" y2="${yy}" class="grid"/><text x="4" y="${yy + 4}" class="axis">${price(val)}</text>`; });
-    svg += `<line x1="${left}" x2="${W - right}" y1="${volumeTop + 94}" y2="${volumeTop + 94}" class="grid"/><text x="${left}" y="${H - 8}" class="axis">${dateLabel(currentRows[0].date)}</text><text x="${W - right - 34}" y="${H - 8}" class="axis">${dateLabel(currentRows.at(-1).date)}</text>`;
+    svg += `<line x1="${left}" x2="${W - right}" y1="${volumeTop + 94}" y2="${volumeTop + 94}" class="grid"/><text x="${x(0)}" y="${H - 8}" text-anchor="middle" class="axis">${dateLabel(currentRows[0].date)}</text><text x="${x(currentRows.length - 1)}" y="${H - 8}" text-anchor="middle" class="axis">${dateLabel(currentRows.at(-1).date)}</text>`;
     currentRows.forEach((r, i) => {
       const cx = x(i), candleW = Math.max(4, Math.min(18, plotW / Math.max(currentRows.length, 1) * .56)), rising = Number(r.close) >= Number(r.open), color = rising ? "var(--up)" : "var(--down)";
       const bodyY = y(Math.max(r.open, r.close)), bodyH = Math.max(1.5, Math.abs(y(r.open) - y(r.close)));
