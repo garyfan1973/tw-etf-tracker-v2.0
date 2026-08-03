@@ -1,6 +1,6 @@
 (function () {
   const $ = id => document.getElementById(id);
-  const COLORS = ["#3b5bdb", "#e8590c", "#2f9e44", "#9c36b5", "#d6336c", "#0c8599", "#6741d9", "#f08c00"];
+  const COLORS = ["#4263eb", "#d9480f", "#2b8a3e", "#9c36b5", "#c2255c", "#0b7285", "#7048e8", "#e67700", "#087f5b", "#5f3dc4", "#364fc7", "#a61e4d"];
   let allRows = [], selected = new Set(), mode = "ex", initialized = false;
   const money = n => n == null ? "—" : Math.round(Number(n)).toLocaleString("en-US");
   const pct = n => n == null ? "—" : (n > 0 ? "+" : "") + Number(n).toFixed(2) + "%";
@@ -59,30 +59,46 @@
     const svg = $("chart"), legend = $("legend"); svg.innerHTML = ""; legend.innerHTML = "";
     const rows = visibleRows(), dates = [...new Set(rows.map(r => r.snapshot_date))].sort();
     if (!rows.length || !dates.length) { svg.innerHTML = '<text x="30" y="40" class="axis-label">尚無資料</text>'; return; }
-    const values = rows.map(r => mode === "inc" ? Number(r.return_with_dividend) : Number(r.return_ex_dividend)).filter(Number.isFinite);
+    // null 代表當日沒有可用報酬率，不能先轉成 Number(null) === 0，否則會扭曲縱軸。
+    const values = rows.map(r => mode === "inc" ? r.return_with_dividend : r.return_ex_dividend)
+      .filter(v => v != null && Number.isFinite(Number(v))).map(Number);
+    if (!values.length) { svg.innerHTML = '<text x="30" y="40" class="axis-label">目前沒有可用的報酬率資料</text>'; return; }
     let min = Math.min(0, ...values), max = Math.max(0, ...values); if (min === max) { min -= 1; max += 1; }
-    const W = 1000, H = 330, left = 58, right = 18, top = 18, bottom = 38, plotW = W - left - right, plotH = H - top - bottom;
-    const x = i => left + (dates.length === 1 ? plotW / 2 : i * plotW / (dates.length - 1));
+    const W = 1000, H = 330, left = 58, right = 18, top = 18, bottom = 46, plotW = W - left - right, plotH = H - top - bottom;
+    // 以觀測到的資料點作為 x 軸，不按日曆天數拉開；資料很少時壓縮點距。
+    const pointGap = dates.length <= 6 ? 96 : plotW / (dates.length - 1);
+    const usedW = dates.length === 1 ? 0 : Math.min(plotW, pointGap * (dates.length - 1));
+    const xStart = left + (plotW - usedW) / 2;
+    const x = i => dates.length === 1 ? left + plotW / 2 : xStart + i * usedW / (dates.length - 1);
     const y = v => top + (max - v) * plotH / (max - min);
     [0, .25, .5, .75, 1].forEach(t => {
       const yy = top + t * plotH, val = max - t * (max - min);
       svg.innerHTML += '<line x1="' + left + '" x2="' + (W - right) + '" y1="' + yy + '" y2="' + yy + '" class="chart-grid"/>' +
         '<text x="4" y="' + (yy + 4) + '" class="axis-label">' + val.toFixed(1) + "%</text>";
     });
+    if (min <= 0 && max >= 0) {
+      const zero = y(0);
+      svg.innerHTML += '<line x1="' + left + '" x2="' + (W - right) + '" y1="' + zero + '" y2="' + zero + '" class="zero-line"/>';
+    }
     codeSet().filter(c => selected.has(c)).forEach((code, ci) => {
       const byDate = Object.fromEntries(rows.filter(r => r.etf_code === code).map(r => [r.snapshot_date, r]));
-      const points = dates.map((d, i) => {
+      const pointData = dates.map((d, i) => {
         const r = byDate[d]; const v = r ? (mode === "inc" ? r.return_with_dividend : r.return_ex_dividend) : null;
-        return v == null ? null : x(i) + "," + y(Number(v));
-      }).filter(Boolean).join(" ");
-      if (points) svg.innerHTML += '<polyline points="' + points + '" fill="none" stroke="' + COLORS[ci % COLORS.length] + '" stroke-width="3" stroke-linejoin="round" stroke-linecap="round"/>';
+        return v == null ? null : { x: x(i), y: y(Number(v)), date: d, value: Number(v) };
+      }).filter(Boolean);
+      const color = COLORS[ci % COLORS.length];
+      if (pointData.length > 1) svg.innerHTML += '<polyline points="' + pointData.map(p => p.x + "," + p.y).join(" ") + '" fill="none" stroke="' + color + '" stroke-width="2.5" stroke-linejoin="round" stroke-linecap="round"/>';
+      pointData.forEach(p => {
+        svg.innerHTML += '<circle cx="' + p.x + '" cy="' + p.y + '" r="3.5" fill="' + color + '" class="chart-point"><title>' + p.date + '　' + pct(p.value) + '</title></circle>';
+      });
       const row = rows.find(r => r.etf_code === code);
-      legend.innerHTML += '<span><i style="background:' + COLORS[ci % COLORS.length] + '"></i>' + code + " " + (row.etf_name || "") + "</span>";
+      legend.innerHTML += '<span><i style="background:' + color + '"></i>' + code + " " + (row.etf_name || "") + "</span>";
     });
-    if (dates.length) {
-      svg.innerHTML += '<text x="' + left + '" y="' + (H - 10) + '" class="axis-label">' + dates[0] + '</text>' +
-        '<text x="' + (W - right - 70) + '" y="' + (H - 10) + '" class="axis-label">' + dates[dates.length - 1] + "</text>";
-    }
+    dates.forEach((date, i) => {
+      if (dates.length <= 8 || i === 0 || i === dates.length - 1) {
+        svg.innerHTML += '<text x="' + x(i) + '" y="' + (H - 10) + '" text-anchor="middle" class="axis-label">' + date + '</text>';
+      }
+    });
   }
 
   function render() { renderChart(); renderSummary(); renderTable(); }

@@ -22,7 +22,7 @@
     .choices { display:flex; flex-wrap:wrap; gap:6px; margin-top:12px; } .choice { padding:5px 9px; border:1px solid var(--border); border-radius:999px; color:var(--muted); cursor:pointer; font-size:12px; }
     .choice.on { color:var(--text); border-color:var(--accent); background:rgba(59,91,219,.1); }
     .chart-wrap { overflow-x:auto; } svg { display:block; width:100%; min-width:720px; height:330px; }
-    .chart-grid { stroke:var(--border); stroke-width:1; } .axis-label { fill:var(--muted); font-size:11px; }
+    .chart-grid { stroke:var(--border); stroke-width:1; } .zero-line { stroke:var(--muted); stroke-width:1.4; stroke-dasharray:4 4; opacity:.75; } .chart-point { stroke:var(--card); stroke-width:1.5; } .axis-label { fill:var(--muted); font-size:11px; }
     .legend { display:flex; flex-wrap:wrap; gap:10px 16px; margin-top:8px; font-size:12px; color:var(--muted); }
     .legend i { display:inline-block; width:10px; height:10px; border-radius:50%; margin-right:4px; }
     .table-scroll { overflow-x:auto; } table { width:100%; border-collapse:collapse; font-size:13px; white-space:nowrap; }
@@ -41,7 +41,7 @@
       <span id="authBox" style="margin-left:auto;display:flex;align-items:center;gap:6px;"></span>
       <button id="themeToggle" class="theme-toggle" aria-label="切換主題">🌙</button>
     </nav>
-    <h1>投資績效走勢</h1><div class="sub">依每日收盤快照查看各支 ETF 的含息／不含息報酬率變化。</div>
+    <h1>投資績效走勢</h1><div class="sub">依每日收盤快照查看各支 ETF 的累計含息／不含息報酬率。報酬率＝（未實現損益＋已實現損益；含息模式再加估算已領配息）÷累計投入成本。</div>
     <div id="gate" class="panel" style="display:none;"></div>
     <div id="app" style="display:none;">
       <div class="panel">
