@@ -51,5 +51,6 @@ jobs:
             echo "資料無變更，略過 commit"
           else
             git commit -m "chore(data)：自動更新 ETF 持股/行情/配息 $(date -u +%Y-%m-%d)"
+            git pull --rebase
             git push
           fi
