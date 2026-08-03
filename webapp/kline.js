@@ -71,13 +71,17 @@
     });
     function line(period, color) { const pts = currentRows.map((r, i) => { const v = movingAverage(currentRows, i, period); return v == null ? null : `${x(i)},${y(v)}`; }).filter(Boolean).join(" "); return pts ? `<polyline points="${pts}" fill="none" stroke="${color}" stroke-width="2" stroke-linejoin="round"/>` : ""; }
     svg += line(5, "var(--ma5)") + line(20, "var(--ma20)");
-    svg += `<rect id="chartHit" x="${left}" y="${top}" width="${plotW}" height="${priceBottom - top}" fill="transparent"/> </svg>`;
+    svg += `<line id="hoverLine" class="crosshair" x1="${left}" x2="${left}" y1="${top}" y2="${priceBottom}" visibility="hidden"/>`;
+    svg += `<rect id="chartHit" x="${left}" y="${top}" width="${plotW}" height="${priceBottom - top}" fill="transparent" pointer-events="all"/> </svg>`;
     $("chartBox").innerHTML = svg;
-    $("chartHit").addEventListener("mousemove", event => {
+    const updateTip = event => {
       const rect = event.currentTarget.getBoundingClientRect(), position = (event.clientX - rect.left) / rect.width * plotW + left;
       const point = candlePoints.reduce((best, p) => Math.abs(p.x - position) < Math.abs(best.x - position) ? p : best, candlePoints[0]);
-      const r = point.row; $("tip").innerHTML = `<strong>${esc(r.date)}</strong>　開 ${price(r.open)}　高 ${price(r.high)}　低 ${price(r.low)}　收 ${price(r.close)}　量 ${num(r.volume)}`;
-    });
+      const r = point.row; $("hoverLine").setAttribute("x1", point.x); $("hoverLine").setAttribute("x2", point.x); $("hoverLine").setAttribute("visibility", "visible");
+      $("tip").innerHTML = `<strong>${esc(r.date)}</strong>　開 ${price(r.open)}　高 ${price(r.high)}　低 ${price(r.low)}　收 ${price(r.close)}　量 ${num(r.volume)}`;
+    };
+    $("chartHit").addEventListener("pointermove", updateTip);
+    $("chartHit").addEventListener("pointerleave", () => $("hoverLine").setAttribute("visibility", "hidden"));
   }
   $("etfSelect").addEventListener("change", fillSecurities);
   $("securitySelect").addEventListener("change", render);
