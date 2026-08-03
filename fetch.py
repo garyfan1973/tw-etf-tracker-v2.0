@@ -52,9 +52,9 @@ WEBAPP_DIR = os.path.join(BASE_DIR, "webapp")
 SOURCE_URL = "https://www.moneydj.com/ETF/X/Basic/Basic0007B.xdjhtm?etfid={etfid}.tw"
 # 配息狀況（歷次＋已公告未來配息）
 DIV_URL = "https://www.moneydj.com/ETF/X/Basic/Basic0005.xdjhtm?etfid={etfid}.tw"
-# 每日行情：TWSE 上市個股日成交(全部) + TPEx 上櫃個股日成交
-TWSE_QUOTE_URL = "https://openapi.twse.com.tw/v1/exchangeReport/STOCK_DAY_ALL"
-TPEX_QUOTE_URL = "https://www.tpex.org.tw/openapi/v1/tpex_mainboard_quotes"
+# 每日行情：使用指定日期的盤後行情，避免「最新行情」端點回傳舊交易日資料
+TWSE_QUOTE_URL = "https://www.twse.com.tw/rwd/zh/afterTrading/MI_INDEX?date={date}&type=ALLBUT0999&response=json"
+TPEX_QUOTE_URL = "https://www.tpex.org.tw/openapi/v1/tpex_mainboard_daily_close_quotes?date={date}"
 # 海外行情：Yahoo Finance（免金鑰）。市場別 -> Yahoo 代號後綴
 YAHOO_URL = "https://query1.finance.yahoo.com/v8/finance/chart/{sym}?interval=1d&range=10d"
 YAHOO_SUFFIX = {"US": "", "JP": ".T", "KS": ".KS", "HK": ".HK"}
@@ -139,29 +139,56 @@ def _quote_fields(open_p, high, low, close, change):
     }
 
 
-def fetch_quotes():
-    """抓當日全市場行情，回傳 {股票代號: {open, high, low, close, prevClose,
-    change, changePct, amplitude, volume}}。上市(TWSE)＋上櫃(TPEx)合併。"""
+def _twse_quote_rows(payload):
+    """從 TWSE 指定日期盤後 JSON 找出個股行情表。"""
+    if not isinstance(payload, dict):
+        return []
+    rows = []
+    for table in payload.get("tables", []):
+        fields = table.get("fields", [])
+        data = table.get("data", [])
+        required = {"證券代號", "開盤價", "最高價", "最低價", "收盤價"}
+        if required.issubset(fields):
+            rows.extend(dict(zip(fields, row)) for row in data)
+    return rows
+
+
+def _signed_change(row):
+    """解析 TWSE 的漲跌方向與價差欄位。"""
+    value = _num(row.get("漲跌價差") or row.get("漲跌") or row.get("Change"))
+    sign = str(row.get("漲跌(+/-)") or row.get("漲跌符號") or "").strip()
+    if value is not None and sign in ("-", "－"):
+        return -abs(value)
+    return value
+
+
+def fetch_quotes(data_date):
+    """抓指定資料日全市場行情，回傳 {股票代號: 統一行情欄位}。
+
+    只接受指定日期的盤後資料；若來源回傳空資料，不拿最新端點的舊交易日資料冒充。
+    """
     quotes = {}
     # 上市
     try:
-        for r in fetch_json(TWSE_QUOTE_URL):
-            code = r.get("Code")
+        payload = fetch_json(TWSE_QUOTE_URL.format(date=data_date.replace("-", "")))
+        for r in _twse_quote_rows(payload):
+            code = str(r.get("證券代號", "")).strip()
             if not code:
                 continue
             q = _quote_fields(
-                _num(r.get("OpeningPrice")), _num(r.get("HighestPrice")),
-                _num(r.get("LowestPrice")), _num(r.get("ClosingPrice")),
-                _num(r.get("Change")),
+                _num(r.get("開盤價")), _num(r.get("最高價")),
+                _num(r.get("最低價")), _num(r.get("收盤價")),
+                _signed_change(r),
             )
-            q["volume"] = _num(r.get("TradeVolume"))  # 成交股數
+            q["volume"] = _num(r.get("成交股數"))  # 成交股數
+            q["quoteDate"] = data_date
             quotes[code] = q
     except Exception as exc:
         print("  ! 上市行情抓取失敗：{}".format(exc))
     # 上櫃
     try:
-        for r in fetch_json(TPEX_QUOTE_URL):
-            code = r.get("SecuritiesCompanyCode")
+        for r in fetch_json(TPEX_QUOTE_URL.format(date=data_date.replace("-", ""))):
+            code = str(r.get("SecuritiesCompanyCode", "")).strip()
             if not code:
                 continue
             q = _quote_fields(
@@ -170,9 +197,11 @@ def fetch_quotes():
                 _num(r.get("Change")),
             )
             q["volume"] = _num(r.get("TradingShares"))
+            q["quoteDate"] = data_date
             quotes.setdefault(code, q)  # 不覆蓋已有的上市資料
     except Exception as exc:
         print("  ! 上櫃行情抓取失敗：{}".format(exc))
+    print("  指定行情日 {}：取得 {} 檔個股行情".format(data_date, len(quotes)))
     return quotes
 
 
@@ -563,9 +592,7 @@ def main():
     etf_ids = args or tracked
     names = load_names()
 
-    print("== 抓取當日全市場行情（上市＋上櫃）==")
-    quotes = fetch_quotes()
-    print("  取得 {} 檔個股行情".format(len(quotes)))
+    quote_cache = {}
 
     for etf_id in etf_ids:
         etf_id = etf_id.upper()
@@ -581,6 +608,16 @@ def main():
             print("  ! 查無持股（可能非 ETF 或代號有誤），略過")
             continue
 
+        if data_date not in quote_cache:
+            print("== 抓取 {} 指定日期全市場行情（上市＋上櫃）==".format(data_date))
+            quote_cache[data_date] = fetch_quotes(data_date)
+        quotes = quote_cache[data_date]
+
+        # 取「資料日期」之前最近一天的快照來比對，也可在指定日期尚無行情時沿用行情欄位。
+        prev = [s for s in load_snapshots(etf_id) if s["date"] < data_date]
+        prev_snapshot = prev[-1] if prev else None
+        prev_map = {_hkey(h): h for h in (prev_snapshot or {}).get("holdings", [])}
+
         # 非內建代號：從頁面標題自動補上 ETF 名稱
         if etf_id not in ETFS:
             nm = parse_etf_name(page)
@@ -595,6 +632,11 @@ def main():
             if q:
                 h.update(q)
                 matched += 1
+            elif _hkey(h) in prev_map:
+                old = prev_map[_hkey(h)]
+                for field in ("open", "high", "low", "close", "prevClose", "change", "changePct", "amplitude", "volume", "quoteDate"):
+                    if old.get(field) is not None:
+                        h[field] = old[field]
         print("  行情對應（台股）：{}/{} 檔".format(matched, len(tw)))
 
         # 海外行情（美股/日股/韓股…，走 Yahoo）
@@ -605,10 +647,10 @@ def main():
             note = "，另 {} 檔無代號無法查".format(no_code) if no_code else ""
             print("  海外行情：{}/{} 檔（Yahoo）{}".format(ok, len(oversea), note))
 
-        # 取「資料日期」之前最近一天的快照來比對（避免同一交易日自我比對）
-        prev = [s for s in load_snapshots(etf_id) if s["date"] < data_date]
         prev_holdings = prev[-1]["holdings"] if prev else []
-        self_quote = quotes.get(etf_id)  # ETF 自身當日行情（個人持股用）
+        self_quote = quotes.get(etf_id)  # ETF 自身指定日期行情（個人持股用）
+        if self_quote is None and prev_snapshot:
+            self_quote = prev_snapshot.get("self")
         snapshot = save_snapshot(etf_id, holdings, data_date, self_quote)
         print("  已存 {} 檔持股（資料日期 {}）".format(snapshot["count"], snapshot["date"]))
 
