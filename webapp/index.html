@@ -384,10 +384,11 @@
         if (!items.length) return [];
         if (items.length === 1) return [{ item: items[0], x, y, w, h }];
         const total = items.reduce((s, i) => s + i.size, 0) || items.length;
-        let acc = 0, cut = 1;
-        for (; cut < items.length; cut++) {
-          if (acc + items[cut - 1].size >= total / 2) break;
-          acc += items[cut - 1].size;
+        // 至少保留一個項目給 right/bottom，避免切到空陣列後無限遞迴。
+        let cut = 1, acc = items[0].size;
+        while (cut < items.length - 1 && acc < total / 2) {
+          acc += items[cut].size;
+          cut++;
         }
         const first = items.slice(0, cut), rest = items.slice(cut);
         const ratio = first.reduce((s, i) => s + i.size, 0) / total;
