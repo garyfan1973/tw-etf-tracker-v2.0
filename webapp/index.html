@@ -89,6 +89,12 @@
     .view-switch { display:flex; gap:6px; align-items:center; margin:20px 0 8px; }
     .view-switch button { border:1px solid var(--border); background:var(--card); color:var(--muted); border-radius:8px; padding:6px 12px; cursor:pointer; font-size:13px; }
     .view-switch button.active { background:var(--accent); border-color:var(--accent); color:#fff; }
+    .selected-etf-summary { display:flex; flex-wrap:wrap; align-items:baseline; gap:8px 18px; margin:0 0 10px; padding:11px 14px; background:var(--card); border:1px solid var(--border); border-radius:10px; }
+    .selected-etf-summary .code { font-size:18px; font-weight:700; color:var(--text); }
+    .selected-etf-summary .name { color:var(--muted); font-size:15px; }
+    .selected-etf-summary .quote-label { color:var(--muted); font-size:12px; margin-left:auto; }
+    .selected-etf-summary .quote { font-size:18px; font-weight:700; font-variant-numeric:tabular-nums; }
+    @media (max-width:640px) { .selected-etf-summary .quote-label { margin-left:0; } }
     .treemap-panel { background:var(--card); border:1px solid var(--border); border-radius:14px; padding:14px; }
     .treemap-head { display:flex; justify-content:space-between; gap:12px; align-items:baseline; }
     .treemap-head h2 { margin:0; }
@@ -221,6 +227,7 @@
       <button id="chartViewBtn" class="active" type="button" role="tab" aria-selected="true">圖表</button>
       <button id="tableViewBtn" type="button" role="tab" aria-selected="false">表格</button>
     </div>
+    <div id="selectedEtfSummary" class="selected-etf-summary"></div>
     <section id="changeChartPanel" class="treemap-panel">
       <div class="treemap-head"><h2>加減碼圖</h2><span id="treemapMeta" class="treemap-meta"></span></div>
       <div id="treemapLegend" class="treemap-legend"></div>
@@ -462,10 +469,26 @@
         document.getElementById("tableViewBtn").setAttribute("aria-selected", mode === "table");
       }
 
+      function renderEtfSummary() {
+        const box = document.getElementById("selectedEtfSummary");
+        const etf = D.etfs[etfSel.value];
+        const latest = etf && etf.snapshots && etf.snapshots[etf.snapshots.length - 1];
+        const quote = latest && latest.self ? latest.self : {};
+        const pctValue = quote.changePct == null ? null : Number(quote.changePct);
+        const pctClass = pctValue > 0 ? "price-up" : pctValue < 0 ? "price-down" : "";
+        const arrow = pctValue > 0 ? "▲ " : pctValue < 0 ? "▼ " : "";
+        box.innerHTML = '<span class="code">' + esc(etfSel.value || "—") + '</span>' +
+          '<span class="name">' + esc(etf ? etf.name : "—") + '</span>' +
+          '<span class="quote-label">最新行情　現價</span>' +
+          '<span class="quote">' + px(quote.close) + '</span>' +
+          '<span class="quote ' + pctClass + '">' + (pctValue == null ? "—" : arrow + signW(pctValue) + "%") + '</span>';
+      }
+
       function render() {
         const currSnap = snapByDate(toSel.value);
         const prevSnap = snapByDate(fromSel.value);
         if (!currSnap) return;
+        renderEtfSummary();
         let diffRows = computeDiff(prevSnap, currSnap);
 
         // 統計卡
