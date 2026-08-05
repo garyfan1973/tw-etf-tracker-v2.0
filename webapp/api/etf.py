@@ -241,7 +241,6 @@ class handler(BaseHTTPRequestHandler):
         body = json.dumps(obj, ensure_ascii=False).encode("utf-8")
         self.send_response(200)
         self.send_header("Content-Type", "application/json; charset=utf-8")
-        # 這支 API 供頁面上方的最新行情使用，不讓瀏覽器/CDN 沿用舊報價。
-        self.send_header("Cache-Control", "no-store, no-cache, must-revalidate")
+        self.send_header("Cache-Control", "public, max-age=300")
         self.end_headers()
         self.wfile.write(body)

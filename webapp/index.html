@@ -315,9 +315,6 @@
 
       let sortState = { diff: { k: "sharesDelta", asc: false }, full: { k: "weight", asc: false } };
       let viewMode = "chart";
-      let latestEtfQuote = null;
-      let latestEtfQuoteCode = "";
-      let quoteRequestId = 0;
       const expandedFull = new Set();  // 記住展開了哪些個股，重繪時保留
 
       function currentSnapshots() {
@@ -476,41 +473,15 @@
         const box = document.getElementById("selectedEtfSummary");
         const etf = D.etfs[etfSel.value];
         const latest = etf && etf.snapshots && etf.snapshots[etf.snapshots.length - 1];
-        const quote = latestEtfQuoteCode === etfSel.value && latestEtfQuote
-          ? latestEtfQuote
-          : (latest && latest.self ? latest.self : {});
-        const quoteSource = latestEtfQuoteCode === etfSel.value && latestEtfQuote ? "即時行情" : "快照行情";
+        const quote = latest && latest.self ? latest.self : {};
         const pctValue = quote.changePct == null ? null : Number(quote.changePct);
         const pctClass = pctValue > 0 ? "price-up" : pctValue < 0 ? "price-down" : "";
         const arrow = pctValue > 0 ? "▲ " : pctValue < 0 ? "▼ " : "";
         box.innerHTML = '<span class="code">' + esc(etfSel.value || "—") + '</span>' +
           '<span class="name">' + esc(etf ? etf.name : "—") + '</span>' +
-          '<span class="quote-label">' + quoteSource + '　現價</span>' +
+          '<span class="quote-label">最新行情　現價</span>' +
           '<span class="quote">' + px(quote.close) + '</span>' +
           '<span class="quote ' + pctClass + '">' + (pctValue == null ? "—" : arrow + signW(pctValue) + "%") + '</span>';
-      }
-
-      // 只更新頁面上方的 ETF 現價／漲跌幅；查不到時保留原本快照資料。
-      async function refreshLatestEtfQuote() {
-        const code = etfSel.value;
-        const requestId = ++quoteRequestId;
-        latestEtfQuote = null;
-        latestEtfQuoteCode = "";
-        renderEtfSummary();
-        if (!code) return;
-        try {
-          const res = await fetch("/api/etf?code=" + encodeURIComponent(code) + "&t=" + Date.now(), { cache: "no-store" });
-          const data = await res.json();
-          if (requestId !== quoteRequestId || !data.ok) return;
-          const liveSnapshot = data.snapshots && data.snapshots[data.snapshots.length - 1];
-          if (liveSnapshot && liveSnapshot.self) {
-            latestEtfQuote = liveSnapshot.self;
-            latestEtfQuoteCode = code;
-            renderEtfSummary();
-          }
-        } catch (_) {
-          // 網路/API 失敗時維持快照行情，不影響圖表與表格。
-        }
       }
 
       function render() {
@@ -658,7 +629,7 @@
       document.getElementById("chartViewBtn").addEventListener("click", () => setViewMode("chart"));
       document.getElementById("tableViewBtn").addEventListener("click", () => setViewMode("table"));
 
-      etfSel.addEventListener("change", () => { fillDates(); render(); refreshLatestEtfQuote(); });
+      etfSel.addEventListener("change", () => { fillDates(); render(); });
       fromSel.addEventListener("change", render);
       toSel.addEventListener("change", render);
       q.addEventListener("input", render);
@@ -672,14 +643,13 @@
         if (!code || !D.etfs[code]) return;
         fillEtfOptions();
         if ([...etfSel.options].some(o => o.value === code)) {
-          etfSel.value = code; fillDates(); render(); refreshLatestEtfQuote();
+          etfSel.value = code; fillDates(); render();
         }
       });
 
       fillEtfOptions();
       fillDates();
       render();
-      refreshLatestEtfQuote();
     }
   </script>
 </body>
