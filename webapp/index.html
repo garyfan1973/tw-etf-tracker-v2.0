@@ -86,6 +86,30 @@
     }
     .price-up { color: var(--up); }
     .price-down { color: var(--down); }
+    .view-switch { display:flex; gap:6px; align-items:center; margin:20px 0 8px; }
+    .view-switch button { border:1px solid var(--border); background:var(--card); color:var(--muted); border-radius:8px; padding:6px 12px; cursor:pointer; font-size:13px; }
+    .view-switch button.active { background:var(--accent); border-color:var(--accent); color:#fff; }
+    .treemap-panel { background:var(--card); border:1px solid var(--border); border-radius:14px; padding:14px; }
+    .treemap-head { display:flex; justify-content:space-between; gap:12px; align-items:baseline; }
+    .treemap-head h2 { margin:0; }
+    .treemap-meta, .treemap-note { color:var(--muted); font-size:12px; }
+    .treemap-legend { display:flex; flex-wrap:wrap; gap:8px 16px; margin:10px 0; color:var(--muted); font-size:12px; }
+    .treemap-legend span { display:inline-flex; align-items:center; gap:5px; }
+    .treemap-legend i { width:10px; height:10px; border-radius:50%; display:inline-block; }
+    .treemap { position:relative; height:520px; overflow:hidden; border:1px solid var(--border); border-radius:10px; background:var(--bg); }
+    .treemap-group { position:absolute; overflow:hidden; padding:28px 4px 4px; border:1px solid var(--card); background:rgba(127,127,127,.08); }
+    .treemap-group-title { position:absolute; top:5px; left:8px; right:8px; overflow:hidden; white-space:nowrap; text-overflow:ellipsis; color:var(--text); font-size:12px; font-weight:700; }
+    .treemap-tile { position:absolute; overflow:hidden; padding:7px; border:2px solid var(--card); color:#fff; cursor:crosshair; transition:filter .12s, transform .12s; }
+    .treemap-tile:hover { filter:brightness(1.08); z-index:2; transform:scale(.99); }
+    .treemap-tile.new, .treemap-tile.up { background:#ef7467; }
+    .treemap-tile.down { background:#39a878; }
+    .treemap-tile.removed { background:#208454; }
+    .treemap-tile .code { font-size:13px; font-weight:700; white-space:nowrap; overflow:hidden; text-overflow:ellipsis; }
+    .treemap-tile .name { font-size:11px; white-space:nowrap; overflow:hidden; text-overflow:ellipsis; opacity:.92; }
+    .treemap-tile .amount { font-size:12px; font-weight:700; margin-top:4px; white-space:nowrap; }
+    .treemap-tile .status { font-size:11px; margin-top:2px; opacity:.92; }
+    #treemapTooltip { display:none; position:fixed; z-index:100; max-width:300px; padding:10px 12px; border:1px solid var(--border); border-radius:9px; background:var(--card); color:var(--text); box-shadow:0 8px 24px rgba(0,0,0,.18); font-size:12px; line-height:1.6; pointer-events:none; }
+    @media (max-width: 640px) { .treemap { height:620px; } .treemap-head { display:block; } .treemap-meta { display:block; margin-top:3px; } }
     /* 展開明細：用 --detail 底色 + 左側強調線，與收合列明顯區隔 */
     #full tbody tr.main.open td { background: var(--detail); }
     .detail-row td { padding: 0; border-bottom: 2px solid var(--accent); box-shadow: inset 3px 0 0 var(--accent); }
@@ -187,6 +211,17 @@
       <div class="card removed"><div class="n" id="c-rm">0</div><div class="l">剔除</div></div>
     </div>
 
+    <div class="view-switch" role="tablist" aria-label="加減碼檢視方式">
+      <button id="chartViewBtn" class="active" type="button" role="tab" aria-selected="true">圖表</button>
+      <button id="tableViewBtn" type="button" role="tab" aria-selected="false">表格</button>
+    </div>
+    <section id="changeChartPanel" class="treemap-panel">
+      <div class="treemap-head"><h2>加減碼圖</h2><span id="treemapMeta" class="treemap-meta"></span></div>
+      <div id="treemapLegend" class="treemap-legend"></div>
+      <div id="treemap"></div>
+      <div class="treemap-note">外框為產業別，方塊面積代表估算異動金額；移入方塊可查看股數、權重與價格明細。</div>
+    </section>
+    <section id="changeTablePanel" style="display:none;">
     <h2>加減碼明細（依股數變動）</h2>
     <div class="scroll">
       <table id="diff">
@@ -199,6 +234,7 @@
         <tbody></tbody>
       </table>
     </div>
+    </section>
 
     <h2>完整持股（目標日）<span style="font-size:12px;color:var(--muted);font-weight:400;">　點任一列展開開高低收明細</span></h2>
     <div class="scroll">
@@ -213,6 +249,7 @@
       </table>
     </div>
   </div>
+  <div id="treemapTooltip" role="status" aria-live="polite"></div>
 
   <script src="theme.js"></script>
   <script src="config.js"></script>
@@ -264,6 +301,7 @@
       }
 
       let sortState = { diff: { k: "sharesDelta", asc: false }, full: { k: "weight", asc: false } };
+      let viewMode = "chart";
       const expandedFull = new Set();  // 記住展開了哪些個股，重繪時保留
 
       function currentSnapshots() {
@@ -320,6 +358,9 @@
           sharesPrev: p ? p.shares : null,
           sharesNow: c ? c.shares : null,
           sharesDelta: (c ? c.shares : 0) - (p ? p.shares : 0),
+          pricePrev: p ? p.close : null,
+          priceNow: c ? c.close : null,
+          weightPrev: p ? p.weight : 0,
           weightNow: c ? c.weight : 0,
           weightDelta: (c ? c.weight : 0) - (p ? p.weight : 0),
         };
@@ -329,6 +370,88 @@
       const fmt = n => n === null ? "—" : n.toLocaleString("en-US");
       const sign = n => (n > 0 ? "+" : "") + n.toLocaleString("en-US");
       const signW = n => (n > 0 ? "+" : "") + n.toFixed(2);
+
+      function amountText(value) {
+        if (value == null) return "估算金額 —";
+        const signText = value > 0 ? "+" : value < 0 ? "−" : "";
+        const n = Math.abs(value);
+        if (n >= 100000000) return signText + (n / 100000000).toFixed(1) + " 億";
+        if (n >= 10000) return signText + Math.round(n / 10000).toLocaleString("en-US") + " 萬";
+        return signText + Math.round(n).toLocaleString("en-US") + " 元";
+      }
+
+      function rectLayout(items, x, y, w, h) {
+        if (!items.length) return [];
+        if (items.length === 1) return [{ item: items[0], x, y, w, h }];
+        const total = items.reduce((s, i) => s + i.size, 0) || items.length;
+        let acc = 0, cut = 1;
+        for (; cut < items.length; cut++) {
+          if (acc + items[cut - 1].size >= total / 2) break;
+          acc += items[cut - 1].size;
+        }
+        const first = items.slice(0, cut), rest = items.slice(cut);
+        const ratio = first.reduce((s, i) => s + i.size, 0) / total;
+        if (w >= h) {
+          const ww = w * ratio;
+          return rectLayout(first, x, y, ww, h).concat(rectLayout(rest, x + ww, y, w - ww, h));
+        }
+        const hh = h * ratio;
+        return rectLayout(first, x, y, w, hh).concat(rectLayout(rest, x, y + hh, w, h - hh));
+      }
+
+      function renderTreemap(rows, fromDate, toDate) {
+        const box = document.getElementById("treemap");
+        const legend = document.getElementById("treemapLegend");
+        const meta = document.getElementById("treemapMeta");
+        box.innerHTML = ""; legend.innerHTML = "";
+        meta.textContent = fromDate + " → " + toDate + "　共 " + rows.length + " 檔異動";
+        if (!rows.length) { box.innerHTML = '<div class="empty">此區間沒有可繪製的加減碼資料。</div>'; return; }
+        const groups = {};
+        rows.forEach(r => {
+          const p = COMPANY_PROFILES[r.code || r.name] || {};
+          r.industry = [p.sector, p.industry].filter(Boolean).join("／") || "未分類";
+          const price = r.sharesDelta > 0 ? r.priceNow : r.pricePrev;
+          r.estimatedAmount = price == null ? null : r.sharesDelta * price;
+          r.tileSize = Math.max(Math.abs(r.estimatedAmount || 0), Math.abs(r.weightDelta || 0) * 10000000, 1);
+          (groups[r.industry] ||= []).push(r);
+        });
+        const groupItems = Object.entries(groups).map(([name, items]) => ({ name, items, size: items.reduce((s, r) => s + r.tileSize, 0) })).sort((a,b) => b.size - a.size);
+        const outer = rectLayout(groupItems, 0, 0, 1000, 520);
+        const tooltip = document.getElementById("treemapTooltip");
+        const tag = { new: "新增", up: "加碼", down: "減碼", removed: "剔除" };
+        const dots = { new: "#d94b3d", up: "#ef7467", down: "#39a878", removed: "#208454" };
+        Object.keys(dots).forEach(k => { legend.innerHTML += '<span><i style="background:' + dots[k] + '"></i>' + tag[k] + '</span>'; });
+        outer.forEach(g => {
+          const group = document.createElement("div"); group.className = "treemap-group";
+          group.style.left = (g.x / 10) + "%"; group.style.top = (g.y / 520 * 100) + "%"; group.style.width = (g.w / 10) + "%"; group.style.height = (g.h / 520 * 100) + "%";
+          const title = document.createElement("div"); title.className = "treemap-group-title"; title.textContent = g.item.name; group.appendChild(title);
+          const inner = rectLayout(g.item.items.sort((a,b) => b.tileSize - a.tileSize), 0, 0, 100, 100);
+          inner.forEach(t => {
+            const tile = document.createElement("div"); tile.className = "treemap-tile " + t.item.status;
+            tile.style.left = t.x + "%"; tile.style.top = t.y + "%"; tile.style.width = t.w + "%"; tile.style.height = t.h + "%";
+            const code = t.item.code || "海外成分股";
+            tile.innerHTML = '<div class="code">' + esc(code) + '</div><div class="name">' + esc(t.item.name) + '</div><div class="amount">' + amountText(t.item.estimatedAmount) + '</div><div class="status">' + tag[t.item.status] + '</div>';
+            tile.addEventListener("mouseenter", e => {
+              tooltip.innerHTML = '<strong>' + esc(code + " " + t.item.name) + '</strong><br>' + esc(t.item.industry) + ' · ' + tag[t.item.status] + '<br>股數：' + fmt(t.item.sharesPrev) + ' → ' + fmt(t.item.sharesNow) + '（' + sign(t.item.sharesDelta) + '）<br>權重：' + (t.item.weightPrev || 0).toFixed(2) + '% → ' + (t.item.weightNow || 0).toFixed(2) + '%<br>估算異動：' + amountText(t.item.estimatedAmount) + '<br>參考價格：' + (t.item.sharesDelta > 0 ? px(t.item.priceNow) : px(t.item.pricePrev));
+              tooltip.style.display = "block"; tooltip.style.left = (e.clientX + 14) + "px"; tooltip.style.top = (e.clientY + 14) + "px";
+            });
+            tile.addEventListener("mousemove", e => { tooltip.style.left = (e.clientX + 14) + "px"; tooltip.style.top = (e.clientY + 14) + "px"; });
+            tile.addEventListener("mouseleave", () => { tooltip.style.display = "none"; });
+            group.appendChild(tile);
+          });
+          box.appendChild(group);
+        });
+      }
+
+      function setViewMode(mode) {
+        viewMode = mode;
+        document.getElementById("changeChartPanel").style.display = mode === "chart" ? "block" : "none";
+        document.getElementById("changeTablePanel").style.display = mode === "table" ? "block" : "none";
+        document.getElementById("chartViewBtn").classList.toggle("active", mode === "chart");
+        document.getElementById("tableViewBtn").classList.toggle("active", mode === "table");
+        document.getElementById("chartViewBtn").setAttribute("aria-selected", mode === "chart");
+        document.getElementById("tableViewBtn").setAttribute("aria-selected", mode === "table");
+      }
 
       function render() {
         const currSnap = snapByDate(toSel.value);
@@ -350,6 +473,8 @@
 
         // 加減碼表
         const dr = diffRows.filter(match);
+        renderTreemap(dr, fromSel.value, toSel.value);
+        setViewMode(viewMode);
         sortRows(dr, sortState.diff);
         const dbody = document.querySelector("#diff tbody");
         dbody.innerHTML = "";
@@ -469,6 +594,8 @@
       }
       bindSort("diff", "diff");
       bindSort("full", "full");
+      document.getElementById("chartViewBtn").addEventListener("click", () => setViewMode("chart"));
+      document.getElementById("tableViewBtn").addEventListener("click", () => setViewMode("table"));
 
       etfSel.addEventListener("change", () => { fillDates(); render(); });
       fromSel.addEventListener("change", render);
