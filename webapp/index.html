@@ -96,10 +96,11 @@
     .treemap-legend { display:flex; flex-wrap:wrap; gap:8px 16px; margin:10px 0; color:var(--muted); font-size:12px; }
     .treemap-legend span { display:inline-flex; align-items:center; gap:5px; }
     .treemap-legend i { width:10px; height:10px; border-radius:50%; display:inline-block; }
-    .treemap { position:relative; height:520px; overflow:hidden; border:1px solid var(--border); border-radius:10px; background:var(--bg); }
-    .treemap-group { position:absolute; overflow:hidden; padding:28px 4px 4px; border:1px solid var(--card); background:rgba(127,127,127,.08); }
+    .treemap { position:relative; display:flex; flex-direction:column; gap:3px; height:520px; overflow:hidden; padding:4px; border:1px solid var(--border); border-radius:10px; background:var(--bg); }
+    .treemap-group { position:relative; display:flex; flex-direction:column; min-height:58px; overflow:hidden; padding:26px 0 0; border:1px solid var(--border); background:rgba(127,127,127,.06); }
     .treemap-group-title { position:absolute; top:5px; left:8px; right:8px; overflow:hidden; white-space:nowrap; text-overflow:ellipsis; color:var(--text); font-size:12px; font-weight:700; }
-    .treemap-tile { position:absolute; overflow:hidden; padding:7px; border:2px solid var(--card); color:#fff; cursor:crosshair; transition:filter .12s, transform .12s; }
+    .treemap-group-body { display:flex; flex:1; min-height:0; gap:3px; }
+    .treemap-tile { position:relative; min-width:0; overflow:hidden; padding:7px; border:2px solid var(--card); color:#fff; cursor:crosshair; transition:filter .12s, transform .12s; }
     .treemap-tile:hover { filter:brightness(1.08); z-index:2; transform:scale(.99); }
     .treemap-tile.new, .treemap-tile.up { background:#ef7467; }
     .treemap-tile.down { background:#39a878; }
@@ -108,6 +109,9 @@
     .treemap-tile .name { font-size:11px; white-space:nowrap; overflow:hidden; text-overflow:ellipsis; opacity:.92; }
     .treemap-tile .amount { font-size:12px; font-weight:700; margin-top:4px; white-space:nowrap; }
     .treemap-tile .status { font-size:11px; margin-top:2px; opacity:.92; }
+    .treemap-tile.compact { padding:5px; }
+    .treemap-tile.compact .name, .treemap-tile.compact .status { display:none; }
+    .treemap-tile.micro .amount { display:none; }
     #treemapTooltip { display:none; position:fixed; z-index:100; max-width:300px; padding:10px 12px; border:1px solid var(--border); border-radius:9px; background:var(--card); color:var(--text); box-shadow:0 8px 24px rgba(0,0,0,.18); font-size:12px; line-height:1.6; pointer-events:none; }
     @media (max-width: 640px) { .treemap { height:620px; } .treemap-head { display:block; } .treemap-meta { display:block; margin-top:3px; } }
     /* 展開明細：用 --detail 底色 + 左側強調線，與收合列明顯區隔 */
@@ -417,28 +421,30 @@
           (groups[r.industry] ||= []).push(r);
         });
         const groupItems = Object.entries(groups).map(([name, items]) => ({ name, items, size: items.reduce((s, r) => s + r.tileSize, 0) })).sort((a,b) => b.size - a.size);
-        const outer = rectLayout(groupItems, 0, 0, 1000, 520);
         const tooltip = document.getElementById("treemapTooltip");
         const tag = { new: "新增", up: "加碼", down: "減碼", removed: "剔除" };
         const dots = { new: "#d94b3d", up: "#ef7467", down: "#39a878", removed: "#208454" };
         Object.keys(dots).forEach(k => { legend.innerHTML += '<span><i style="background:' + dots[k] + '"></i>' + tag[k] + '</span>'; });
-        outer.forEach(g => {
+        groupItems.forEach(g => {
           const group = document.createElement("div"); group.className = "treemap-group";
-          group.style.left = (g.x / 10) + "%"; group.style.top = (g.y / 520 * 100) + "%"; group.style.width = (g.w / 10) + "%"; group.style.height = (g.h / 520 * 100) + "%";
+          group.style.flex = g.size + " 1 1 0px";
           const title = document.createElement("div"); title.className = "treemap-group-title"; title.textContent = g.item.name; group.appendChild(title);
-          const inner = rectLayout(g.item.items.sort((a,b) => b.tileSize - a.tileSize), 0, 0, 100, 100);
-          inner.forEach(t => {
-            const tile = document.createElement("div"); tile.className = "treemap-tile " + t.item.status;
-            tile.style.left = t.x + "%"; tile.style.top = t.y + "%"; tile.style.width = t.w + "%"; tile.style.height = t.h + "%";
-            const code = t.item.code || "海外成分股";
-            tile.innerHTML = '<div class="code">' + esc(code) + '</div><div class="name">' + esc(t.item.name) + '</div><div class="amount">' + amountText(t.item.estimatedAmount) + '</div><div class="status">' + tag[t.item.status] + '</div>';
+          const body = document.createElement("div"); body.className = "treemap-group-body"; group.appendChild(body);
+          const groupTotal = g.item.items.reduce((s, r) => s + r.tileSize, 0);
+          g.item.items.sort((a,b) => b.tileSize - a.tileSize).forEach(item => {
+            const tile = document.createElement("div");
+            const share = item.tileSize / groupTotal;
+            tile.className = "treemap-tile " + item.status + (share < .14 ? " compact" : "") + (share < .06 ? " micro" : "");
+            tile.style.flex = item.tileSize + " 1 0px";
+            const code = item.code || "海外成分股";
+            tile.innerHTML = '<div class="code">' + esc(code) + '</div><div class="name">' + esc(item.name) + '</div><div class="amount">' + amountText(item.estimatedAmount) + '</div><div class="status">' + tag[item.status] + '</div>';
             tile.addEventListener("mouseenter", e => {
-              tooltip.innerHTML = '<strong>' + esc(code + " " + t.item.name) + '</strong><br>' + esc(t.item.industry) + ' · ' + tag[t.item.status] + '<br>股數：' + fmt(t.item.sharesPrev) + ' → ' + fmt(t.item.sharesNow) + '（' + sign(t.item.sharesDelta) + '）<br>權重：' + (t.item.weightPrev || 0).toFixed(2) + '% → ' + (t.item.weightNow || 0).toFixed(2) + '%<br>估算異動：' + amountText(t.item.estimatedAmount) + '<br>參考價格：' + (t.item.sharesDelta > 0 ? px(t.item.priceNow) : px(t.item.pricePrev));
+              tooltip.innerHTML = '<strong>' + esc(code + " " + item.name) + '</strong><br>' + esc(item.industry) + ' · ' + tag[item.status] + '<br>股數：' + fmt(item.sharesPrev) + ' → ' + fmt(item.sharesNow) + '（' + sign(item.sharesDelta) + '）<br>權重：' + (item.weightPrev || 0).toFixed(2) + '% → ' + (item.weightNow || 0).toFixed(2) + '%<br>估算異動：' + amountText(item.estimatedAmount) + '<br>參考價格：' + (item.sharesDelta > 0 ? px(item.priceNow) : px(item.pricePrev));
               tooltip.style.display = "block"; tooltip.style.left = (e.clientX + 14) + "px"; tooltip.style.top = (e.clientY + 14) + "px";
             });
             tile.addEventListener("mousemove", e => { tooltip.style.left = (e.clientX + 14) + "px"; tooltip.style.top = (e.clientY + 14) + "px"; });
             tile.addEventListener("mouseleave", () => { tooltip.style.display = "none"; });
-            group.appendChild(tile);
+            body.appendChild(tile);
           });
           box.appendChild(group);
         });
