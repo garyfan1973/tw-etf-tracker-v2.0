@@ -102,11 +102,11 @@
     .treemap-group-body { display:flex; flex:1; min-height:0; gap:3px; }
     .treemap-tile { position:relative; min-width:0; overflow:hidden; padding:7px; border:2px solid var(--card); color:#fff; cursor:crosshair; transition:filter .12s, transform .12s; }
     .treemap-tile:hover { filter:brightness(1.08); z-index:2; transform:scale(.99); }
-    /* 沿用網站藍紫／琥珀／灰階，不用紅綠色表示漲跌 */
-    .treemap-tile.new { background:#3b5bdb; }
-    .treemap-tile.up { background:#7048e8; }
-    .treemap-tile.down { background:#c27b16; }
-    .treemap-tile.removed { background:#64748b; }
+    /* 與上方統計卡及下方表格共用同一組狀態色 */
+    .treemap-tile.new { background:var(--new); }
+    .treemap-tile.up { background:var(--up); }
+    .treemap-tile.down { background:var(--down); }
+    .treemap-tile.removed { background:var(--removed); }
     .treemap-tile .code { font-size:13px; font-weight:700; white-space:nowrap; overflow:hidden; text-overflow:ellipsis; }
     .treemap-tile .name { font-size:11px; white-space:nowrap; overflow:hidden; text-overflow:ellipsis; opacity:.92; }
     .treemap-tile .amount { font-size:12px; font-weight:700; margin-top:4px; white-space:nowrap; }
@@ -425,7 +425,7 @@
         const groupItems = Object.entries(groups).map(([name, items]) => ({ name, items, size: items.reduce((s, r) => s + r.tileSize, 0) })).sort((a,b) => b.size - a.size);
         const tooltip = document.getElementById("treemapTooltip");
         const tag = { new: "新增", up: "加碼", down: "減碼", removed: "剔除" };
-        const dots = { new: "#3b5bdb", up: "#7048e8", down: "#c27b16", removed: "#64748b" };
+        const dots = { new: "var(--new)", up: "var(--up)", down: "var(--down)", removed: "var(--removed)" };
         Object.keys(dots).forEach(k => { legend.innerHTML += '<span><i style="background:' + dots[k] + '"></i>' + tag[k] + '</span>'; });
         groupItems.forEach(g => {
           const group = document.createElement("div"); group.className = "treemap-group";
