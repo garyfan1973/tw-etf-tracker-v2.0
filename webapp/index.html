@@ -428,10 +428,10 @@
         groupItems.forEach(g => {
           const group = document.createElement("div"); group.className = "treemap-group";
           group.style.flex = g.size + " 1 1 0px";
-          const title = document.createElement("div"); title.className = "treemap-group-title"; title.textContent = g.item.name; group.appendChild(title);
+          const title = document.createElement("div"); title.className = "treemap-group-title"; title.textContent = g.name; group.appendChild(title);
           const body = document.createElement("div"); body.className = "treemap-group-body"; group.appendChild(body);
-          const groupTotal = g.item.items.reduce((s, r) => s + r.tileSize, 0);
-          g.item.items.sort((a,b) => b.tileSize - a.tileSize).forEach(item => {
+          const groupTotal = g.items.reduce((s, r) => s + r.tileSize, 0);
+          g.items.sort((a,b) => b.tileSize - a.tileSize).forEach(item => {
             const tile = document.createElement("div");
             const share = item.tileSize / groupTotal;
             tile.className = "treemap-tile " + item.status + (share < .14 ? " compact" : "") + (share < .06 ? " micro" : "");
