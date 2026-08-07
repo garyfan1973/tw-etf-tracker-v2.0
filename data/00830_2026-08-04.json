@@ -555,5 +555,12 @@
       "currency": "USD",
       "quoteDate": "2026-08-04"
     }
-  ]
+  ],
+  "selfInstitutional": {
+    "foreign": -1432950,
+    "trust": 190000,
+    "dealer": -380098,
+    "total": -1623048,
+    "date": "2026-08-04"
+  }
 }

@@ -84,7 +84,14 @@
       "changePct": 3.66,
       "amplitude": 1.94,
       "volume": 36782301.0,
-      "quoteDate": "2026-08-05"
+      "quoteDate": "2026-08-05",
+      "inst": {
+        "foreign": 12251238,
+        "trust": -1204507,
+        "dealer": -1099016,
+        "total": 9947715,
+        "date": "2026-08-05"
+      }
     },
     {
       "code": "MU",
@@ -245,7 +252,14 @@
       "changePct": 3.49,
       "amplitude": 3.75,
       "volume": 12935125.0,
-      "quoteDate": "2026-08-05"
+      "quoteDate": "2026-08-05",
+      "inst": {
+        "foreign": 1846903,
+        "trust": -11107,
+        "dealer": -192104,
+        "total": 1643692,
+        "date": "2026-08-05"
+      }
     },
     {
       "code": "009150",
@@ -280,7 +294,14 @@
       "changePct": 4.87,
       "amplitude": 5.19,
       "volume": 44514982.0,
-      "quoteDate": "2026-08-05"
+      "quoteDate": "2026-08-05",
+      "inst": {
+        "foreign": 8712450,
+        "trust": 1817592,
+        "dealer": -181894,
+        "total": 10348148,
+        "date": "2026-08-05"
+      }
     },
     {
       "code": "2308",
@@ -297,7 +318,14 @@
       "changePct": 1.85,
       "amplitude": 4.63,
       "volume": 16778461.0,
-      "quoteDate": "2026-08-05"
+      "quoteDate": "2026-08-05",
+      "inst": {
+        "foreign": 117818,
+        "trust": -78077,
+        "dealer": 220757,
+        "total": 260498,
+        "date": "2026-08-05"
+      }
     },
     {
       "code": "DDOG",
@@ -368,7 +396,14 @@
       "changePct": 2.04,
       "amplitude": 5.06,
       "volume": 2477774.0,
-      "quoteDate": "2026-08-05"
+      "quoteDate": "2026-08-05",
+      "inst": {
+        "foreign": 101233,
+        "trust": -96859,
+        "dealer": -33475,
+        "total": -29101,
+        "date": "2026-08-05"
+      }
     },
     {
       "code": "",
@@ -508,7 +543,14 @@
       "amplitude": 6.49,
       "volume": 1505500,
       "currency": "JPY",
-      "quoteDate": "2026-08-05"
+      "quoteDate": "2026-08-05",
+      "inst": {
+        "foreign": -36600,
+        "trust": 0,
+        "dealer": 0,
+        "total": -36600,
+        "date": "2026-08-05"
+      }
     },
     {
       "code": "6857",
@@ -692,7 +734,14 @@
       "changePct": 1.37,
       "amplitude": 6.15,
       "volume": 32968894.0,
-      "quoteDate": "2026-08-05"
+      "quoteDate": "2026-08-05",
+      "inst": {
+        "foreign": -2332853,
+        "trust": 1710465,
+        "dealer": 649735,
+        "total": 27347,
+        "date": "2026-08-05"
+      }
     },
     {
       "code": "",
@@ -734,7 +783,14 @@
       "changePct": 2.39,
       "amplitude": 5.22,
       "volume": 3940517.0,
-      "quoteDate": "2026-08-05"
+      "quoteDate": "2026-08-05",
+      "inst": {
+        "foreign": 596198,
+        "trust": 131996,
+        "dealer": 5787,
+        "total": 733981,
+        "date": "2026-08-05"
+      }
     },
     {
       "code": "LRCX",
@@ -787,7 +843,14 @@
       "changePct": 2.95,
       "amplitude": 6.33,
       "volume": 279502812.0,
-      "quoteDate": "2026-08-05"
+      "quoteDate": "2026-08-05",
+      "inst": {
+        "foreign": -28026230,
+        "trust": 5713948,
+        "dealer": -1472921,
+        "total": -23785203,
+        "date": "2026-08-05"
+      }
     },
     {
       "code": "8035",
@@ -822,7 +885,14 @@
       "changePct": 0.61,
       "amplitude": 6.31,
       "volume": 19763740.0,
-      "quoteDate": "2026-08-05"
+      "quoteDate": "2026-08-05",
+      "inst": {
+        "foreign": -2081058,
+        "trust": 213052,
+        "dealer": -301666,
+        "total": -2169672,
+        "date": "2026-08-05"
+      }
     },
     {
       "code": "PLTR",
@@ -849,5 +919,12 @@
       "weight": 0.49,
       "shares": 20400
     }
-  ]
+  ],
+  "selfInstitutional": {
+    "foreign": 627750,
+    "trust": 0,
+    "dealer": 1501045,
+    "total": 2128795,
+    "date": "2026-08-05"
+  }
 }

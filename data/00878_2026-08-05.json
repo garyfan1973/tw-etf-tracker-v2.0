@@ -30,7 +30,14 @@
       "changePct": 1.85,
       "amplitude": 2.47,
       "volume": 33164030.0,
-      "quoteDate": "2026-08-05"
+      "quoteDate": "2026-08-05",
+      "inst": {
+        "foreign": 15924568,
+        "trust": -979876,
+        "dealer": -812573,
+        "total": 14132119,
+        "date": "2026-08-05"
+      }
     },
     {
       "code": "2382",
@@ -47,7 +54,14 @@
       "changePct": 1.16,
       "amplitude": 2.66,
       "volume": 19176092.0,
-      "quoteDate": "2026-08-05"
+      "quoteDate": "2026-08-05",
+      "inst": {
+        "foreign": -3355631,
+        "trust": -10065,
+        "dealer": -850937,
+        "total": -4216633,
+        "date": "2026-08-05"
+      }
     },
     {
       "code": "2882",
@@ -64,7 +78,14 @@
       "changePct": 1.31,
       "amplitude": 2.02,
       "volume": 13772994.0,
-      "quoteDate": "2026-08-05"
+      "quoteDate": "2026-08-05",
+      "inst": {
+        "foreign": 3166290,
+        "trust": -631512,
+        "dealer": -70526,
+        "total": 2464252,
+        "date": "2026-08-05"
+      }
     },
     {
       "code": "2357",
@@ -81,7 +102,14 @@
       "changePct": 3.97,
       "amplitude": 5.71,
       "volume": 5273869.0,
-      "quoteDate": "2026-08-05"
+      "quoteDate": "2026-08-05",
+      "inst": {
+        "foreign": 1976945,
+        "trust": -80347,
+        "dealer": 13224,
+        "total": 1909822,
+        "date": "2026-08-05"
+      }
     },
     {
       "code": "2303",
@@ -98,7 +126,14 @@
       "changePct": 2.95,
       "amplitude": 6.33,
       "volume": 279502812.0,
-      "quoteDate": "2026-08-05"
+      "quoteDate": "2026-08-05",
+      "inst": {
+        "foreign": -28026230,
+        "trust": 5713948,
+        "dealer": -1472921,
+        "total": -23785203,
+        "date": "2026-08-05"
+      }
     },
     {
       "code": "2603",
@@ -115,7 +150,14 @@
       "changePct": -0.49,
       "amplitude": 1.7,
       "volume": 5472120.0,
-      "quoteDate": "2026-08-05"
+      "quoteDate": "2026-08-05",
+      "inst": {
+        "foreign": -677802,
+        "trust": -73055,
+        "dealer": -227641,
+        "total": -978498,
+        "date": "2026-08-05"
+      }
     },
     {
       "code": "2887",
@@ -132,7 +174,14 @@
       "changePct": 0.42,
       "amplitude": 2.25,
       "volume": 36200595.0,
-      "quoteDate": "2026-08-05"
+      "quoteDate": "2026-08-05",
+      "inst": {
+        "foreign": 5982893,
+        "trust": -20782,
+        "dealer": -1162014,
+        "total": 4800097,
+        "date": "2026-08-05"
+      }
     },
     {
       "code": "2379",
@@ -149,7 +198,14 @@
       "changePct": 3.87,
       "amplitude": 3.46,
       "volume": 3793663.0,
-      "quoteDate": "2026-08-05"
+      "quoteDate": "2026-08-05",
+      "inst": {
+        "foreign": 821543,
+        "trust": 15724,
+        "dealer": 42043,
+        "total": 879310,
+        "date": "2026-08-05"
+      }
     },
     {
       "code": "2454",
@@ -166,7 +222,14 @@
       "changePct": 3.49,
       "amplitude": 3.75,
       "volume": 12935125.0,
-      "quoteDate": "2026-08-05"
+      "quoteDate": "2026-08-05",
+      "inst": {
+        "foreign": 1846903,
+        "trust": -11107,
+        "dealer": -192104,
+        "total": 1643692,
+        "date": "2026-08-05"
+      }
     },
     {
       "code": "2880",
@@ -183,7 +246,14 @@
       "changePct": 1.27,
       "amplitude": 2.77,
       "volume": 20929947.0,
-      "quoteDate": "2026-08-05"
+      "quoteDate": "2026-08-05",
+      "inst": {
+        "foreign": -5203755,
+        "trust": 6331000,
+        "dealer": -1129556,
+        "total": -2311,
+        "date": "2026-08-05"
+      }
     },
     {
       "code": "2886",
@@ -200,7 +270,14 @@
       "changePct": 0.99,
       "amplitude": 2.56,
       "volume": 30109399.0,
-      "quoteDate": "2026-08-05"
+      "quoteDate": "2026-08-05",
+      "inst": {
+        "foreign": -7854110,
+        "trust": 3718872,
+        "dealer": 221689,
+        "total": -3913549,
+        "date": "2026-08-05"
+      }
     },
     {
       "code": "3034",
@@ -217,7 +294,14 @@
       "changePct": 4.96,
       "amplitude": 6.49,
       "volume": 7764412.0,
-      "quoteDate": "2026-08-05"
+      "quoteDate": "2026-08-05",
+      "inst": {
+        "foreign": 2746894,
+        "trust": -399888,
+        "dealer": -45298,
+        "total": 2301708,
+        "date": "2026-08-05"
+      }
     },
     {
       "code": "2881",
@@ -234,7 +318,14 @@
       "changePct": 0.78,
       "amplitude": 2.72,
       "volume": 15360465.0,
-      "quoteDate": "2026-08-05"
+      "quoteDate": "2026-08-05",
+      "inst": {
+        "foreign": 5205578,
+        "trust": -749258,
+        "dealer": -141198,
+        "total": 4315122,
+        "date": "2026-08-05"
+      }
     },
     {
       "code": "2885",
@@ -251,7 +342,14 @@
       "changePct": 0.58,
       "amplitude": 2.17,
       "volume": 16914031.0,
-      "quoteDate": "2026-08-05"
+      "quoteDate": "2026-08-05",
+      "inst": {
+        "foreign": 513675,
+        "trust": 1361328,
+        "dealer": -677358,
+        "total": 1197645,
+        "date": "2026-08-05"
+      }
     },
     {
       "code": "3231",
@@ -268,7 +366,14 @@
       "changePct": -1.03,
       "amplitude": 6.41,
       "volume": 206766416.0,
-      "quoteDate": "2026-08-05"
+      "quoteDate": "2026-08-05",
+      "inst": {
+        "foreign": 35613026,
+        "trust": 5824909,
+        "dealer": -3332350,
+        "total": 38105585,
+        "date": "2026-08-05"
+      }
     },
     {
       "code": "2301",
@@ -285,7 +390,14 @@
       "changePct": -1.19,
       "amplitude": 8.53,
       "volume": 90355678.0,
-      "quoteDate": "2026-08-05"
+      "quoteDate": "2026-08-05",
+      "inst": {
+        "foreign": 29757994,
+        "trust": 470701,
+        "dealer": -220497,
+        "total": 30008198,
+        "date": "2026-08-05"
+      }
     },
     {
       "code": "3711",
@@ -302,7 +414,14 @@
       "changePct": 1.37,
       "amplitude": 6.15,
       "volume": 32968894.0,
-      "quoteDate": "2026-08-05"
+      "quoteDate": "2026-08-05",
+      "inst": {
+        "foreign": -2332853,
+        "trust": 1710465,
+        "dealer": 649735,
+        "total": 27347,
+        "date": "2026-08-05"
+      }
     },
     {
       "code": "5347",
@@ -336,7 +455,14 @@
       "changePct": -0.95,
       "amplitude": 1.76,
       "volume": 17477976.0,
-      "quoteDate": "2026-08-05"
+      "quoteDate": "2026-08-05",
+      "inst": {
+        "foreign": 2717656,
+        "trust": -64000,
+        "dealer": -508567,
+        "total": 2145089,
+        "date": "2026-08-05"
+      }
     },
     {
       "code": "4904",
@@ -353,7 +479,14 @@
       "changePct": 0.0,
       "amplitude": 2.48,
       "volume": 8077037.0,
-      "quoteDate": "2026-08-05"
+      "quoteDate": "2026-08-05",
+      "inst": {
+        "foreign": 1683573,
+        "trust": 229955,
+        "dealer": -150808,
+        "total": 1762720,
+        "date": "2026-08-05"
+      }
     },
     {
       "code": "3045",
@@ -370,7 +503,14 @@
       "changePct": -0.45,
       "amplitude": 0.9,
       "volume": 6505480.0,
-      "quoteDate": "2026-08-05"
+      "quoteDate": "2026-08-05",
+      "inst": {
+        "foreign": 113857,
+        "trust": -31845,
+        "dealer": -152762,
+        "total": -70750,
+        "date": "2026-08-05"
+      }
     },
     {
       "code": "4958",
@@ -387,7 +527,14 @@
       "changePct": 9.91,
       "amplitude": 5.97,
       "volume": 24359063.0,
-      "quoteDate": "2026-08-05"
+      "quoteDate": "2026-08-05",
+      "inst": {
+        "foreign": -2568586,
+        "trust": 230315,
+        "dealer": 394241,
+        "total": -1944030,
+        "date": "2026-08-05"
+      }
     },
     {
       "code": "2412",
@@ -404,7 +551,14 @@
       "changePct": 0.37,
       "amplitude": 1.47,
       "volume": 11911467.0,
-      "quoteDate": "2026-08-05"
+      "quoteDate": "2026-08-05",
+      "inst": {
+        "foreign": 1089905,
+        "trust": -1274,
+        "dealer": 153389,
+        "total": 1242020,
+        "date": "2026-08-05"
+      }
     },
     {
       "code": "2356",
@@ -421,7 +575,14 @@
       "changePct": -0.45,
       "amplitude": 3.48,
       "volume": 45447893.0,
-      "quoteDate": "2026-08-05"
+      "quoteDate": "2026-08-05",
+      "inst": {
+        "foreign": -5100029,
+        "trust": -80114,
+        "dealer": -828174,
+        "total": -6008317,
+        "date": "2026-08-05"
+      }
     },
     {
       "code": "2376",
@@ -438,7 +599,14 @@
       "changePct": 3.01,
       "amplitude": 2.71,
       "volume": 10360283.0,
-      "quoteDate": "2026-08-05"
+      "quoteDate": "2026-08-05",
+      "inst": {
+        "foreign": 4976009,
+        "trust": 31850,
+        "dealer": -44078,
+        "total": 4963781,
+        "date": "2026-08-05"
+      }
     },
     {
       "code": "2912",
@@ -455,7 +623,14 @@
       "changePct": 0.0,
       "amplitude": 1.58,
       "volume": 3383063.0,
-      "quoteDate": "2026-08-05"
+      "quoteDate": "2026-08-05",
+      "inst": {
+        "foreign": 1279381,
+        "trust": -14931,
+        "dealer": -3539,
+        "total": 1260911,
+        "date": "2026-08-05"
+      }
     },
     {
       "code": "2618",
@@ -472,7 +647,14 @@
       "changePct": 0.0,
       "amplitude": 2.28,
       "volume": 45129966.0,
-      "quoteDate": "2026-08-05"
+      "quoteDate": "2026-08-05",
+      "inst": {
+        "foreign": 23852111,
+        "trust": -133929,
+        "dealer": -1360465,
+        "total": 22357717,
+        "date": "2026-08-05"
+      }
     },
     {
       "code": "5876",
@@ -489,7 +671,14 @@
       "changePct": 0.0,
       "amplitude": 1.93,
       "volume": 6498684.0,
-      "quoteDate": "2026-08-05"
+      "quoteDate": "2026-08-05",
+      "inst": {
+        "foreign": -176883,
+        "trust": 279000,
+        "dealer": -327213,
+        "total": -225096,
+        "date": "2026-08-05"
+      }
     },
     {
       "code": "3293",
@@ -523,7 +712,21 @@
       "changePct": 0.45,
       "amplitude": 1.79,
       "volume": 5407681.0,
-      "quoteDate": "2026-08-05"
+      "quoteDate": "2026-08-05",
+      "inst": {
+        "foreign": 334797,
+        "trust": 25000,
+        "dealer": -9789,
+        "total": 350008,
+        "date": "2026-08-05"
+      }
     }
-  ]
+  ],
+  "selfInstitutional": {
+    "foreign": 3151208,
+    "trust": 0,
+    "dealer": -6142532,
+    "total": -2991324,
+    "date": "2026-08-05"
+  }
 }

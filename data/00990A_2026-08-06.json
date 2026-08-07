@@ -1,6 +1,6 @@
 {
   "date": "2026-08-06",
-  "fetched_at": "2026-08-07T23:15:04+08:00",
+  "fetched_at": "2026-08-07T23:20:04+08:00",
   "count": 48,
   "self": {
     "open": 15.9,
@@ -617,7 +617,14 @@
       "amplitude": 9.84,
       "volume": 1367900,
       "currency": "JPY",
-      "quoteDate": "2026-08-06"
+      "quoteDate": "2026-08-06",
+      "inst": {
+        "foreign": -16000,
+        "trust": 0,
+        "dealer": -4000,
+        "total": -20000,
+        "date": "2026-08-06"
+      }
     },
     {
       "code": "ANET",
