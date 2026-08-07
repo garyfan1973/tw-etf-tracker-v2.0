@@ -137,6 +137,25 @@
     #otherAssets { overflow-x: auto; }
     #otherAssets table { min-width: 600px; }
     .asset-type { color: var(--accent); font-weight: 600; }
+    .institutional-panel { margin-top: 24px; }
+    .institutional-note { color: var(--muted); font-size: 12px; margin: -3px 0 8px; }
+    #institutionalTable { overflow-x: auto; }
+    #institutionalTable table { min-width: 700px; }
+    #institutionalTable th { text-align: right; }
+    #institutionalTable th:first-child { text-align: left; }
+    #institutionalTable tbody tr.inst-main { cursor: pointer; }
+    #institutionalTable tbody tr.inst-main:hover td { background: rgba(127,127,127,.06); }
+    #institutionalTable tbody tr.inst-etf td { background: var(--detail); font-weight: 700; }
+    .inst-asset { text-align: left; white-space: nowrap; }
+    .inst-asset .code { color: var(--muted); font-size: 12px; margin-left: 5px; }
+    .inst-cell { white-space: nowrap; font-variant-numeric: tabular-nums; }
+    .inst-cell.missing { color: var(--muted); }
+    .inst-detail td { padding: 8px 12px; background: var(--detail); border-bottom: 2px solid var(--accent); }
+    .inst-breakdown { display: grid; grid-template-columns: repeat(3, minmax(180px, 1fr)); gap: 8px; text-align: left; }
+    .inst-breakdown > div { border: 1px solid var(--border); border-radius: 8px; padding: 7px 9px; background: var(--card); }
+    .inst-breakdown .date { color: var(--muted); font-size: 11px; margin-bottom: 3px; }
+    .inst-breakdown .line { display: flex; justify-content: space-between; gap: 8px; font-size: 12px; }
+    @media (max-width: 640px) { .inst-breakdown { grid-template-columns: 1fr; } }
     .watch-chip {
       font-size: 12px; padding: 5px 10px; border-radius: 999px; cursor: pointer;
       background: var(--chip); color: var(--muted); border: 1px solid transparent; user-select: none;
@@ -271,6 +290,11 @@
       <div class="other-assets-note">現金、期貨、債券等非股票部位會獨立列示，不會混入股票股數或股票加減碼計算。</div>
       <div id="otherAssets"></div>
     </section>
+    <section id="institutionalPanel" class="institutional-panel">
+      <h2>近三個交易日・三大法人買賣超金額</h2>
+      <div class="institutional-note">紅色＝買超、綠色＝賣超；金額以買賣超股數 × 當日收盤價估算。點擊列可查看外資、投信與自營商明細。</div>
+      <div id="institutionalTable"></div>
+    </section>
   </div>
   <div id="treemapTooltip" role="status" aria-live="polite"></div>
 
@@ -326,6 +350,7 @@
       let sortState = { diff: { k: "sharesDelta", asc: false }, full: { k: "weight", asc: false } };
       let viewMode = "chart";
       const expandedFull = new Set();  // 記住展開了哪些個股，重繪時保留
+      let expandedInstitutional = "";
 
       function currentSnapshots() {
         const e = D.etfs[etfSel.value];
@@ -404,6 +429,78 @@
         if (n >= 100000000) return signText + (n / 100000000).toFixed(1) + " 億";
         if (n >= 10000) return signText + Math.round(n / 10000).toLocaleString("en-US") + " 萬";
         return signText + Math.round(n).toLocaleString("en-US") + " 元";
+      }
+
+      function institutionalShares(inst) {
+        if (!inst) return null;
+        if (typeof inst.total === "number") return inst.total;
+        const values = [inst.foreign, inst.trust, inst.dealer].filter(v => typeof v === "number");
+        return values.length ? values.reduce((sum, v) => sum + v, 0) : null;
+      }
+
+      function institutionalMetric(inst, quote) {
+        const shares = institutionalShares(inst);
+        const close = quote && quote.close;
+        return {
+          shares,
+          amount: shares == null || close == null ? null : shares * close,
+        };
+      }
+
+      function renderInstitutionalTable() {
+        const box = document.getElementById("institutionalTable");
+        const snapshots = currentSnapshots().slice(-3);
+        box.innerHTML = "";
+        if (!snapshots.length) {
+          box.innerHTML = '<div class="empty">尚無三大法人資料。</div>';
+          return;
+        }
+        const latest = snapshots[snapshots.length - 1];
+        const latestHoldings = latest.holdings.filter(h => isStockAsset(h) && (h.shares || 0) > 0);
+        const rows = [{ key: "__etf__", name: etfSel.value + " " + (D.etfs[etfSel.value] || {}).name, isEtf: true }]
+          .concat(latestHoldings.sort((a, b) => (b.weight || 0) - (a.weight || 0)));
+        const table = document.createElement("table");
+        table.innerHTML = '<thead><tr><th>標的</th>' + snapshots.map(s => '<th>' + s.date.slice(5).replace("-", "/") + '</th>').join("") + '</tr></thead><tbody></tbody>';
+        const tbody = table.querySelector("tbody");
+        rows.forEach(row => {
+          const key = row.isEtf ? row.key : keyOf(row);
+          const tr = document.createElement("tr");
+          tr.className = "inst-main" + (row.isEtf ? " inst-etf" : "");
+          let label = row.isEtf ? esc(row.name) : esc(row.name) + (row.code ? ' <span class="code">' + esc(row.code) + '</span>' : "");
+          tr.innerHTML = '<td class="inst-asset">' + (row.isEtf ? "★ " : "") + label + '</td>' + snapshots.map(s => {
+            const h = row.isEtf ? null : s.holdings.find(item => keyOf(item) === key);
+            const inst = row.isEtf ? s.selfInstitutional : (h && h.inst);
+            const quote = row.isEtf ? s.self : h;
+            const metric = institutionalMetric(inst, quote);
+            const cls = metric.shares > 0 ? "price-up" : metric.shares < 0 ? "price-down" : "";
+            return '<td class="inst-cell ' + (metric.amount == null ? "missing" : cls) + '">' +
+              (metric.amount == null ? "—" : amountText(metric.amount)) + '</td>';
+          }).join("");
+          tr.addEventListener("click", () => {
+            expandedInstitutional = expandedInstitutional === key ? "" : key;
+            renderInstitutionalTable();
+          });
+          tbody.appendChild(tr);
+
+          if (expandedInstitutional === key) {
+            const detail = document.createElement("tr");
+            detail.className = "inst-detail";
+            const panels = snapshots.map(s => {
+              const h = row.isEtf ? null : s.holdings.find(item => keyOf(item) === key);
+              const inst = row.isEtf ? s.selfInstitutional : (h && h.inst);
+              const quote = row.isEtf ? s.self : h;
+              const labels = [["外資", inst && inst.foreign], ["投信", inst && inst.trust], ["自營商", inst && inst.dealer], ["合計", institutionalShares(inst)]];
+              return '<div><div class="date">' + s.date + '</div>' + labels.map(([name, shares]) => {
+                const metric = institutionalMetric(shares == null ? null : { total: shares }, quote);
+                const cls = metric.shares > 0 ? "price-up" : metric.shares < 0 ? "price-down" : "";
+                return '<div class="line"><span>' + name + '</span><span class="' + cls + '">' + (metric.amount == null ? "—" : amountText(metric.amount)) + '</span></div>';
+              }).join("") + '</div>';
+            }).join("");
+            detail.innerHTML = '<td colspan="' + (snapshots.length + 1) + '"><div class="inst-breakdown">' + panels + '</div></td>';
+            tbody.appendChild(detail);
+          }
+        });
+        box.appendChild(table);
       }
 
       function rectLayout(items, x, y, w, h) {
@@ -502,6 +599,7 @@
         const prevSnap = snapByDate(fromSel.value);
         if (!currSnap) return;
         renderEtfSummary();
+        renderInstitutionalTable();
         let diffRows = computeDiff(prevSnap, currSnap);
 
         // 統計卡
@@ -682,7 +780,7 @@
       document.getElementById("chartViewBtn").addEventListener("click", () => setViewMode("chart"));
       document.getElementById("tableViewBtn").addEventListener("click", () => setViewMode("table"));
 
-      etfSel.addEventListener("change", () => { fillDates(); render(); });
+      etfSel.addEventListener("change", () => { expandedInstitutional = ""; fillDates(); render(); });
       fromSel.addEventListener("change", render);
       toSel.addEventListener("change", render);
       q.addEventListener("input", render);

@@ -550,16 +550,18 @@ def parse_holdings(page_html):
     return holdings
 
 
-def save_snapshot(etf_id, holdings, date, self_quote=None):
+def save_snapshot(etf_id, holdings, date, self_quote=None, self_institutional=None):
     """依「資料日期」儲存快照（同一交易日覆蓋）。回傳快照 dict。
 
     self_quote：ETF 自身當日行情（供個人持股算市值/損益用）。
+    self_institutional：ETF 自身三大法人買賣超股數（供近三日趨勢表使用）。
     """
     snapshot = {
         "date": date,
         "fetched_at": datetime.datetime.now(TZ_TAIPEI).isoformat(timespec="seconds"),
         "count": len(holdings),
         "self": self_quote,
+        "selfInstitutional": self_institutional,
         "holdings": holdings,
     }
     path = os.path.join(DATA_DIR, "{}_{}.json".format(etf_id, date))
@@ -823,7 +825,10 @@ def main():
         if self_quote:
             print("  ETF 自身行情：{}（行情日 {}）".format(
                 self_quote.get("close"), self_quote.get("quoteDate", "未知")))
-        snapshot = save_snapshot(etf_id, holdings, data_date, self_quote)
+        self_inst = inst_data.get(etf_id)
+        if self_inst and any(v is not None for v in self_inst.values()):
+            self_inst = dict(self_inst, date=data_date)
+        snapshot = save_snapshot(etf_id, holdings, data_date, self_quote, self_inst)
         print("  已存 {} 檔持股（資料日期 {}）".format(snapshot["count"], snapshot["date"]))
 
         # 配息紀錄（歷次＋已公告未來）
