@@ -55,6 +55,9 @@ DIV_URL = "https://www.moneydj.com/ETF/X/Basic/Basic0005.xdjhtm?etfid={etfid}.tw
 # 每日行情：使用指定日期的盤後行情，避免「最新行情」端點回傳舊交易日資料
 TWSE_QUOTE_URL = "https://www.twse.com.tw/rwd/zh/afterTrading/MI_INDEX?date={date}&type=ALLBUT0999&response=json"
 TPEX_QUOTE_URL = "https://www.tpex.org.tw/openapi/v1/tpex_mainboard_daily_close_quotes?date={date}"
+# 三大法人買賣超（外資／投信／自營商）：指定日期盤後彙總（買賣超股數）
+TWSE_INST_URL = "https://www.twse.com.tw/rwd/zh/fund/T86?date={date}&selectType=ALLBUT0999&response=json"
+TPEX_INST_URL = "https://www.tpex.org.tw/openapi/v1/tpex_3itrade_hedge?date={date}"
 # 海外行情：Yahoo Finance（免金鑰）。市場別 -> Yahoo 代號後綴
 YAHOO_URL = "https://query1.finance.yahoo.com/v8/finance/chart/{sym}?interval=1d&range=10d"
 YAHOO_SUFFIX = {"US": "", "JP": ".T", "KS": ".KS", "HK": ".HK"}
@@ -119,6 +122,12 @@ def _num(value):
         return float(s)
     except ValueError:
         return None
+
+
+def _int(value):
+    """把 '1,234' / '-5,600' / '--' 轉成 int，無效回 None。"""
+    n = _num(value)
+    return int(round(n)) if n is not None else None
 
 
 def _quote_fields(open_p, high, low, close, change):
@@ -207,6 +216,88 @@ def fetch_quotes(data_date):
         print("  ! 上櫃行情抓取失敗：{}".format(exc))
     print("  指定行情日 {}：取得 {} 檔個股行情".format(data_date, len(quotes)))
     return quotes
+
+
+def _tpex_inst_field(row, *tokens):
+    """從 TPEx 三大法人列（欄名為英文）依關鍵字挑買賣超股數欄位。
+
+    TPEx OpenAPI 欄名較長且偶有版本差異，改以關鍵字子字串比對，
+    盡量容忍欄名微調；找不到回 None。
+    """
+    for key, val in row.items():
+        name = str(key)
+        if all(t.lower() in name.lower() for t in tokens):
+            n = _int(val)
+            if n is not None:
+                return n
+    return None
+
+
+def fetch_institutional(data_date):
+    """抓指定資料日全市場三大法人買賣超股數。
+
+    回傳 {股票代號: {foreign, trust, dealer, total}}（皆為買賣超股數，
+    正為買超、負為賣超）。金額由網頁端以「買賣超股數 × 當日收盤價」估算。
+    上市走 TWSE T86；上櫃走 TPEx OpenAPI（best-effort，欄名以關鍵字比對）。
+    """
+    inst = {}
+    # 上市（TWSE T86）：欄位齊全，依欄名對齊
+    try:
+        payload = fetch_json(TWSE_INST_URL.format(date=data_date.replace("-", "")))
+        fields = payload.get("fields", []) if isinstance(payload, dict) else []
+        idx = {name: i for i, name in enumerate(fields)}
+
+        def gi(row, *names):
+            for n in names:
+                j = idx.get(n)
+                if j is not None and j < len(row):
+                    v = _int(row[j])
+                    if v is not None:
+                        return v
+            return None
+
+        for row in (payload.get("data", []) if isinstance(payload, dict) else []):
+            ci = idx.get("證券代號")
+            if ci is None or ci >= len(row):
+                continue
+            code = str(row[ci]).strip()
+            if not code:
+                continue
+            # 外資 = 外陸資（不含外資自營商）＋ 外資自營商，以對齊三大法人合計
+            fmain = gi(row, "外陸資買賣超股數(不含外資自營商)", "外資買賣超股數")
+            fdealer = gi(row, "外資自營商買賣超股數")
+            foreign = None
+            if fmain is not None or fdealer is not None:
+                foreign = (fmain or 0) + (fdealer or 0)
+            inst[code] = {
+                "foreign": foreign,
+                "trust": gi(row, "投信買賣超股數"),
+                "dealer": gi(row, "自營商買賣超股數", "自營商買賣超股數(自行買賣)"),
+                "total": gi(row, "三大法人買賣超股數"),
+            }
+    except Exception as exc:
+        print("  ! 上市三大法人抓取失敗：{}".format(exc))
+    # 上櫃（TPEx OpenAPI）：best-effort，欄名以關鍵字比對
+    try:
+        rows = fetch_json(TPEX_INST_URL.format(date=data_date.replace("-", "")))
+        for r in (rows if isinstance(rows, list) else []):
+            if not isinstance(r, dict):
+                continue
+            code = str(r.get("SecuritiesCompanyCode") or r.get("Code") or "").strip()
+            if not code or code in inst:
+                continue
+            foreign = _tpex_inst_field(r, "Foreign", "Net")
+            trust = _tpex_inst_field(r, "Investment", "Trust", "Net")
+            dealer = _tpex_inst_field(r, "Dealer", "Net")
+            total = (_tpex_inst_field(r, "Total", "Net")
+                     or _tpex_inst_field(r, "Three", "Net"))
+            if any(v is not None for v in (foreign, trust, dealer, total)):
+                inst[code] = {"foreign": foreign, "trust": trust,
+                              "dealer": dealer, "total": total}
+    except Exception as exc:
+        print("  ! 上櫃三大法人抓取失敗：{}".format(exc))
+    print("  指定行情日 {}：取得 {} 檔三大法人買賣超".format(data_date, len(inst)))
+    return inst
 
 
 def fetch_latest_quote(code, quote_cache, lookback_days=10):
@@ -616,6 +707,7 @@ def main():
     names = load_names()
 
     quote_cache = {}
+    inst_cache = {}
 
     for etf_id in etf_ids:
         etf_id = etf_id.upper()
@@ -636,6 +728,11 @@ def main():
             quote_cache[data_date] = fetch_quotes(data_date)
         quotes = quote_cache[data_date]
 
+        if data_date not in inst_cache:
+            print("== 抓取 {} 三大法人買賣超（上市＋上櫃）==".format(data_date))
+            inst_cache[data_date] = fetch_institutional(data_date)
+        inst_data = inst_cache[data_date]
+
         # 取「資料日期」之前最近一天的快照來比對，也可在指定日期尚無行情時沿用行情欄位。
         prev = [s for s in load_snapshots(etf_id) if s["date"] < data_date]
         prev_snapshot = prev[-1] if prev else None
@@ -650,6 +747,7 @@ def main():
         # 併入當日行情（僅台股；海外股無 TWSE/TPEx 報價）
         tw = [h for h in holdings if h.get("market") == "TW"]
         matched = 0
+        inst_matched = 0
         for h in tw:
             q = quotes.get(h["code"])
             if q:
@@ -660,7 +758,15 @@ def main():
                 for field in ("open", "high", "low", "close", "prevClose", "change", "changePct", "amplitude", "volume", "quoteDate"):
                     if old.get(field) is not None:
                         h[field] = old[field]
-        print("  行情對應（台股）：{}/{} 檔".format(matched, len(tw)))
+            # 三大法人買賣超：優先用當日資料，缺漏則沿用最近一次（呈現「最近一次」）
+            ins = inst_data.get(h["code"])
+            if ins and any(v is not None for v in ins.values()):
+                h["inst"] = dict(ins, date=data_date)
+                inst_matched += 1
+            elif _hkey(h) in prev_map and prev_map[_hkey(h)].get("inst"):
+                h["inst"] = prev_map[_hkey(h)]["inst"]
+        print("  行情對應（台股）：{}/{} 檔；三大法人：{}/{} 檔".format(
+            matched, len(tw), inst_matched, len(tw)))
 
         # 海外行情（美股/日股/韓股…，走 Yahoo）
         oversea = [h for h in holdings if h.get("market") not in (None, "", "TW")]

@@ -574,6 +574,7 @@
               cell("漲跌", h.change == null ? "—" : signW(h.change), chCls) +
               cell("振幅", h.amplitude == null ? "—" : h.amplitude.toFixed(2) + "%") +
               (h.quoteDate ? cell("行情日", h.quoteDate) : "") +
+              instCells(h) +
               profileCell("產業別", industry) +
               '</div></td>';
             fbody.appendChild(dtr);
@@ -588,6 +589,20 @@
       const cell = (k, v, cls) => '<div><div class="k">' + k + '</div><div class="v ' + (cls || "") + '">' + v + '</div></div>';
       const esc = v => String(v == null ? "" : v).replaceAll("&", "&amp;").replaceAll("<", "&lt;").replaceAll(">", "&gt;").replaceAll('"', "&quot;").replaceAll("'", "&#39;");
       const profileCell = (k, v) => cell(k, esc(v || "—"));
+      // 三大法人「最近一次」買賣超金額（買賣超股數 × 當日收盤價估算，紅買綠賣）
+      function instCells(h) {
+        const inst = h.inst;
+        if (!inst) return "";
+        const one = (label, shares) => {
+          const amt = (shares == null || h.close == null) ? null : shares * h.close;
+          return cell(label, amt == null ? "—" : amountText(amt), pxCls(shares));
+        };
+        return one("外資買賣超", inst.foreign) +
+          one("投信買賣超", inst.trust) +
+          one("自營商買賣超", inst.dealer) +
+          one("三大法人合計", inst.total) +
+          (inst.date ? cell("法人資料日", inst.date) : "");
+      }
       // 市場別
       const MKT = { TW: "台股", US: "美股", JP: "日股", KS: "韓股", HK: "港股", CN: "陸股", DE: "德股", GB: "英股" };
       const MARKET_FLAGS = { TW: "🇹🇼", US: "🇺🇸", JP: "🇯🇵", KS: "🇰🇷", HK: "🇭🇰", CN: "🇨🇳", DE: "🇩🇪", GB: "🇬🇧" };
