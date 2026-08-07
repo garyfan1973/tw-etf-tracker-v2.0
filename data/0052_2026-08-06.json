@@ -1,18 +1,18 @@
 {
   "date": "2026-08-06",
-  "fetched_at": "2026-08-06T20:49:37+08:00",
+  "fetched_at": "2026-08-07T18:41:01+08:00",
   "count": 72,
   "self": {
-    "open": 60.2,
-    "high": 60.6,
-    "low": 59.85,
-    "close": 60.45,
-    "prevClose": 60.65,
-    "change": -0.2,
-    "changePct": -0.33,
-    "amplitude": 1.24,
-    "volume": 16265978.0,
-    "quoteDate": "2026-08-06"
+    "open": 60.65,
+    "high": 60.75,
+    "low": 59.65,
+    "close": 60.2,
+    "prevClose": 60.45,
+    "change": -0.25,
+    "changePct": -0.41,
+    "amplitude": 1.82,
+    "volume": 24490891.0,
+    "quoteDate": "2026-08-07"
   },
   "holdings": [
     {
