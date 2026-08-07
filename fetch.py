@@ -465,6 +465,25 @@ def parse_data_date(page_html):
     return today_str()
 
 
+def classify_asset(name, code=""):
+    """依來源名稱辨識非股票資產；無法辨識時視為股票。"""
+    text = str(name or "").replace(" ", "").lower()
+    if any(token in text for token in ("現金", "cash", "貨幣", "存款")):
+        return "cash"
+    if any(token in text for token in ("期貨", "future", "futures")):
+        return "future"
+    if any(token in text for token in ("選擇權", "option", "options")):
+        return "option"
+    if any(token in text for token in ("債券", "bond", "bonds")):
+        return "bond"
+    return "stock"
+
+
+def asset_unit(asset_type):
+    """回傳其他資產數量的顯示單位。"""
+    return {"future": "口", "option": "口", "bond": "面額"}.get(asset_type, "")
+
+
 def parse_holdings(page_html):
     """從 HTML 解析出持股清單（含海外市場）。
 
@@ -473,17 +492,18 @@ def parse_holdings(page_html):
     Samsung Elec Mech(009150.KS)，也有無代號的海外股（INFINEON TECHNOLOGIES AG）。
     因此改採「區段解析」：從『個股名稱』表頭開始，遇到『ETF代碼』即停止。
 
-    回傳：[{code, name, market, weight, shares}, ...]
+    回傳：股票列含 shares；其他資產列含 assetType、quantity、amount。
+    其他資產不會被當成股票股數，也不參與股票加減碼計算。
     market 為市場別（TW/US/JP/KS/…），無代號者為空字串。
     """
     holdings = []
     in_section = False
     for row in re.findall(r"<tr[^>]*>(.*?)</tr>", page_html, re.S):
-        cells = [
+        raw_cells = [
             html.unescape(re.sub(r"<[^>]+>", "", c)).strip()
             for c in re.findall(r"<t[dh][^>]*>(.*?)</t[dh]>", row, re.S)
         ]
-        cells = [c for c in cells if c]
+        cells = [c for c in raw_cells if c]
         if not cells:
             continue
         joined = " ".join(cells)
@@ -492,24 +512,40 @@ def parse_holdings(page_html):
             continue
         if "ETF代碼" in joined:       # 相關 ETF 小工具，持股區段結束
             break
-        if not in_section or len(cells) < 3:
+        if not in_section or len(raw_cells) < 2:
             continue
-        weight = _num(cells[1])
+        weight = _num(raw_cells[1])
         if weight is None:            # 頁尾導覽等非資料列
             continue
-        try:
-            shares = int(cells[2].replace(",", ""))
-        except ValueError:
-            continue
         # 名稱可能含代號：名稱(代號.市場)，市場如 TW/US/JP/KS
-        m = re.match(r"^(.*?)\(([0-9A-Za-z]+)\.([A-Za-z]{2,3})\)\s*$", cells[0])
+        m = re.match(r"^(.*?)\(([0-9A-Za-z]+)\.([A-Za-z]{2,3})\)\s*$", raw_cells[0])
         if m:
             name, code, market = m.group(1).strip(), m.group(2), m.group(3).upper()
         else:
             name, code, market = cells[0].strip(), "", ""  # 無代號的海外股
+        asset_type = classify_asset(name, code)
+        if asset_type == "stock":
+            if len(raw_cells) < 3:
+                continue
+            try:
+                shares = int(raw_cells[2].replace(",", ""))
+            except ValueError:
+                continue
+            holdings.append({
+                "code": code, "name": name, "market": market,
+                "assetType": "stock", "weight": weight, "shares": shares,
+            })
+            continue
+
+        # 非股票資產的來源欄位可能是口數、面額或市值；保留原始數字，
+        # 但不填入 shares，避免前端誤當成股票股數。
+        quantity = _num(raw_cells[2]) if len(raw_cells) >= 3 else None
+        amount = _num(raw_cells[3]) if len(raw_cells) >= 4 else None
         holdings.append({
             "code": code, "name": name, "market": market,
-            "weight": weight, "shares": shares,
+            "assetType": asset_type, "weight": weight,
+            "quantity": quantity, "unit": asset_unit(asset_type),
+            "amount": amount,
         })
     return holdings
 
@@ -744,8 +780,8 @@ def main():
             if nm:
                 names[etf_id] = nm
 
-        # 併入當日行情（僅台股；海外股無 TWSE/TPEx 報價）
-        tw = [h for h in holdings if h.get("market") == "TW"]
+        # 併入當日行情（僅台股股票；現金／期貨等非股票資產不查股票行情）
+        tw = [h for h in holdings if h.get("assetType", "stock") == "stock" and h.get("market") == "TW"]
         matched = 0
         inst_matched = 0
         for h in tw:
@@ -769,7 +805,9 @@ def main():
             matched, len(tw), inst_matched, len(tw)))
 
         # 海外行情（美股/日股/韓股…，走 Yahoo）
-        oversea = [h for h in holdings if h.get("market") not in (None, "", "TW")]
+        oversea = [h for h in holdings
+                   if h.get("assetType", "stock") == "stock"
+                   and h.get("market") not in (None, "", "TW")]
         if oversea:
             ok = fetch_oversea(oversea, data_date)
             no_code = sum(1 for h in holdings if not h.get("code"))

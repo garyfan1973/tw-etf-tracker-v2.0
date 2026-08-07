@@ -132,6 +132,11 @@
     .detail div { flex: 1 0 74px; min-width: 74px; background: var(--detail); padding: 10px 12px; }
     .detail .k { font-size: 11px; color: var(--muted); }
     .detail .v { font-size: 15px; font-variant-numeric: tabular-nums; margin-top: 2px; }
+    .other-assets-panel { margin-top: 20px; }
+    .other-assets-note { color: var(--muted); font-size: 12px; margin: -3px 0 8px; }
+    #otherAssets { overflow-x: auto; }
+    #otherAssets table { min-width: 600px; }
+    .asset-type { color: var(--accent); font-weight: 600; }
     .watch-chip {
       font-size: 12px; padding: 5px 10px; border-radius: 999px; cursor: pointer;
       background: var(--chip); color: var(--muted); border: 1px solid transparent; user-select: none;
@@ -249,7 +254,7 @@
     </div>
     </section>
 
-    <h2>完整持股（目標日）<span style="font-size:12px;color:var(--muted);font-weight:400;">　點任一列展開開高低收明細</span></h2>
+    <h2>股票持股（目標日）<span style="font-size:12px;color:var(--muted);font-weight:400;">　點任一列展開開高低收明細</span></h2>
     <div class="scroll">
       <table id="full">
         <thead><tr>
@@ -261,6 +266,11 @@
         <tbody></tbody>
       </table>
     </div>
+    <section id="otherAssetsPanel" class="other-assets-panel" style="display:none;">
+      <h2>其他資產（目標日）</h2>
+      <div class="other-assets-note">現金、期貨、債券等非股票部位會獨立列示，不會混入股票股數或股票加減碼計算。</div>
+      <div id="otherAssets"></div>
+    </section>
   </div>
   <div id="treemapTooltip" role="status" aria-live="polite"></div>
 
@@ -340,15 +350,18 @@
 
       // 持股識別鍵：有代號用代號，無代號（海外股）用名稱
       const keyOf = h => h.code || h.name;
+      const isStockAsset = h => !h.assetType || h.assetType === "stock";
+      const assetTypeName = { cash: "現金", future: "期貨", option: "選擇權", bond: "債券", other: "其他" };
+      const assetLabel = h => assetTypeName[h.assetType] || "其他";
 
       // 計算加減碼
       function computeDiff(prevSnap, currSnap) {
         const prev = {}, curr = {};
-        (prevSnap ? prevSnap.holdings : []).forEach(h => prev[keyOf(h)] = h);
-        currSnap.holdings.forEach(h => curr[keyOf(h)] = h);
+        (prevSnap ? prevSnap.holdings : []).filter(isStockAsset).forEach(h => prev[keyOf(h)] = h);
+        currSnap.holdings.filter(isStockAsset).forEach(h => curr[keyOf(h)] = h);
         const rows = [];
         // 目標日有的
-        currSnap.holdings.forEach(h => {
+        currSnap.holdings.filter(isStockAsset).forEach(h => {
           const p = prev[keyOf(h)];
           if (!p) {
             rows.push(mk(h, "new", null, h));
@@ -359,7 +372,7 @@
           }
         });
         // 被剔除的
-        (prevSnap ? prevSnap.holdings : []).forEach(h => {
+        (prevSnap ? prevSnap.holdings : []).filter(isStockAsset).forEach(h => {
           if (!curr[keyOf(h)]) rows.push(mk(h, "removed", h, null));
         });
         return rows;
@@ -529,9 +542,9 @@
         });
 
         // 完整持股表（精簡主列 + 可展開明細）
-        let full = currSnap.holdings.slice().filter(match);
+        let full = currSnap.holdings.filter(isStockAsset).slice().filter(match);
         sortRows(full, sortState.full);
-        const maxW = Math.max.apply(null, currSnap.holdings.map(h => h.weight));
+        const maxW = Math.max.apply(null, full.map(h => h.weight).concat([0]));
         const fbody = document.querySelector("#full tbody");
         fbody.innerHTML = "";
         full.forEach(h => {
@@ -580,6 +593,31 @@
             fbody.appendChild(dtr);
           }
         });
+
+        // 其他資產（現金／期貨／債券等）獨立顯示，不套用股票行情欄位。
+        const otherPanel = document.getElementById("otherAssetsPanel");
+        const otherBox = document.getElementById("otherAssets");
+        const others = currSnap.holdings.filter(h => !isStockAsset(h)).filter(match);
+        otherPanel.style.display = others.length ? "block" : "none";
+        otherBox.innerHTML = "";
+        if (others.length) {
+          const table = document.createElement("table");
+          table.innerHTML = '<thead><tr><th>資產</th><th>類型</th><th>權重%</th><th>數量</th><th>估算金額／市值</th></tr></thead><tbody></tbody>';
+          const tbody = table.querySelector("tbody");
+          others.sort((a, b) => (b.weight || 0) - (a.weight || 0)).forEach(h => {
+            const tr = document.createElement("tr");
+            const quantity = h.quantity == null ? "—" : h.quantity.toLocaleString("en-US");
+            const unit = h.unit ? " " + h.unit : "";
+            const amount = h.amount == null ? "—" : h.amount.toLocaleString("en-US");
+            tr.innerHTML = '<td>' + esc(h.name || "—") + '</td>' +
+              '<td class="asset-type">' + assetLabel(h) + '</td>' +
+              '<td class="num">' + (h.weight == null ? "—" : h.weight.toFixed(2)) + '</td>' +
+              '<td class="num">' + quantity + unit + '</td>' +
+              '<td class="num">' + amount + '</td>';
+            tbody.appendChild(tr);
+          });
+          otherBox.appendChild(table);
+        }
       }
 
       // 行情顯示小工具
