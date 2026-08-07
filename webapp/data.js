@@ -1,5 +1,5 @@
 window.DATA = {
-  "generated_at": "2026-08-07T20:41:33+08:00",
+  "generated_at": "2026-08-07T21:37:19+08:00",
   "etfs": {
     "00981A": {
       "name": "主動統一台股增長",
@@ -4177,7 +4177,7 @@ window.DATA = {
         },
         {
           "date": "2026-08-07",
-          "fetched_at": "2026-08-07T20:40:53+08:00",
+          "fetched_at": "2026-08-07T21:36:41+08:00",
           "count": 50,
           "self": {
             "open": 28.92,
@@ -4207,7 +4207,14 @@ window.DATA = {
               "changePct": 0.21,
               "amplitude": 1.69,
               "volume": 24414025.0,
-              "quoteDate": "2026-08-07"
+              "quoteDate": "2026-08-07",
+              "inst": {
+                "foreign": 641660,
+                "trust": 61000,
+                "dealer": 1242950,
+                "total": 1945610,
+                "date": "2026-08-07"
+              }
             },
             {
               "code": "2383",
@@ -4224,7 +4231,14 @@ window.DATA = {
               "changePct": -1.23,
               "amplitude": 4.15,
               "volume": 1362847.0,
-              "quoteDate": "2026-08-07"
+              "quoteDate": "2026-08-07",
+              "inst": {
+                "foreign": -39277,
+                "trust": -9000,
+                "dealer": -1404,
+                "total": -49681,
+                "date": "2026-08-07"
+              }
             },
             {
               "code": "2454",
@@ -4241,7 +4255,14 @@ window.DATA = {
               "changePct": -0.51,
               "amplitude": 4.72,
               "volume": 6607003.0,
-              "quoteDate": "2026-08-07"
+              "quoteDate": "2026-08-07",
+              "inst": {
+                "foreign": 71648,
+                "trust": -128000,
+                "dealer": -16329,
+                "total": -72681,
+                "date": "2026-08-07"
+              }
             },
             {
               "code": "3037",
@@ -4258,7 +4279,14 @@ window.DATA = {
               "changePct": -1.85,
               "amplitude": 5.86,
               "volume": 21596279.0,
-              "quoteDate": "2026-08-07"
+              "quoteDate": "2026-08-07",
+              "inst": {
+                "foreign": -790555,
+                "trust": 74000,
+                "dealer": -47709,
+                "total": -764264,
+                "date": "2026-08-07"
+              }
             },
             {
               "code": "6669",
@@ -4275,7 +4303,14 @@ window.DATA = {
               "changePct": -2.63,
               "amplitude": 3.83,
               "volume": 1427158.0,
-              "quoteDate": "2026-08-07"
+              "quoteDate": "2026-08-07",
+              "inst": {
+                "foreign": -138166,
+                "trust": 92000,
+                "dealer": -1962,
+                "total": -48128,
+                "date": "2026-08-07"
+              }
             },
             {
               "code": "3017",
@@ -4292,7 +4327,14 @@ window.DATA = {
               "changePct": -5.27,
               "amplitude": 6.29,
               "volume": 4140360.0,
-              "quoteDate": "2026-08-07"
+              "quoteDate": "2026-08-07",
+              "inst": {
+                "foreign": -239960,
+                "trust": 527200,
+                "dealer": -43735,
+                "total": 243505,
+                "date": "2026-08-07"
+              }
             },
             {
               "code": "6223",
@@ -4326,7 +4368,14 @@ window.DATA = {
               "changePct": -8.09,
               "amplitude": 8.71,
               "volume": 4227407.0,
-              "quoteDate": "2026-08-07"
+              "quoteDate": "2026-08-07",
+              "inst": {
+                "foreign": -1238787,
+                "trust": -3000,
+                "dealer": -36584,
+                "total": -1278371,
+                "date": "2026-08-07"
+              }
             },
             {
               "code": "2327",
@@ -4343,7 +4392,14 @@ window.DATA = {
               "changePct": -5.26,
               "amplitude": 8.25,
               "volume": 44277453.0,
-              "quoteDate": "2026-08-07"
+              "quoteDate": "2026-08-07",
+              "inst": {
+                "foreign": -9347045,
+                "trust": -1516000,
+                "dealer": 141999,
+                "total": -10721046,
+                "date": "2026-08-07"
+              }
             },
             {
               "code": "2308",
@@ -4360,7 +4416,14 @@ window.DATA = {
               "changePct": -1.79,
               "amplitude": 4.76,
               "volume": 10432120.0,
-              "quoteDate": "2026-08-07"
+              "quoteDate": "2026-08-07",
+              "inst": {
+                "foreign": -1697088,
+                "trust": 55554,
+                "dealer": -158250,
+                "total": -1799784,
+                "date": "2026-08-07"
+              }
             },
             {
               "code": "3653",
@@ -4377,7 +4440,14 @@ window.DATA = {
               "changePct": -1.57,
               "amplitude": 6.29,
               "volume": 1730866.0,
-              "quoteDate": "2026-08-07"
+              "quoteDate": "2026-08-07",
+              "inst": {
+                "foreign": -14805,
+                "trust": 59000,
+                "dealer": 1182,
+                "total": 45377,
+                "date": "2026-08-07"
+              }
             },
             {
               "code": "8046",
@@ -4394,7 +4464,14 @@ window.DATA = {
               "changePct": -2.26,
               "amplitude": 6.79,
               "volume": 4069277.0,
-              "quoteDate": "2026-08-07"
+              "quoteDate": "2026-08-07",
+              "inst": {
+                "foreign": -841918,
+                "trust": 0,
+                "dealer": 25182,
+                "total": -816736,
+                "date": "2026-08-07"
+              }
             },
             {
               "code": "3711",
@@ -4411,7 +4488,14 @@ window.DATA = {
               "changePct": -1.68,
               "amplitude": 5.38,
               "volume": 13050125.0,
-              "quoteDate": "2026-08-07"
+              "quoteDate": "2026-08-07",
+              "inst": {
+                "foreign": -3053732,
+                "trust": 557000,
+                "dealer": -273934,
+                "total": -2770666,
+                "date": "2026-08-07"
+              }
             },
             {
               "code": "2303",
@@ -4428,7 +4512,14 @@ window.DATA = {
               "changePct": -4.53,
               "amplitude": 6.17,
               "volume": 169352784.0,
-              "quoteDate": "2026-08-07"
+              "quoteDate": "2026-08-07",
+              "inst": {
+                "foreign": -23200666,
+                "trust": -6691000,
+                "dealer": -2838812,
+                "total": -32730478,
+                "date": "2026-08-07"
+              }
             },
             {
               "code": "3665",
@@ -4445,7 +4536,14 @@ window.DATA = {
               "changePct": -7.17,
               "amplitude": 4.85,
               "volume": 5516384.0,
-              "quoteDate": "2026-08-07"
+              "quoteDate": "2026-08-07",
+              "inst": {
+                "foreign": -408108,
+                "trust": -672000,
+                "dealer": -45023,
+                "total": -1125131,
+                "date": "2026-08-07"
+              }
             },
             {
               "code": "6274",
@@ -4496,7 +4594,14 @@ window.DATA = {
               "changePct": -0.3,
               "amplitude": 7.51,
               "volume": 12352014.0,
-              "quoteDate": "2026-08-07"
+              "quoteDate": "2026-08-07",
+              "inst": {
+                "foreign": -797876,
+                "trust": 535000,
+                "dealer": 102318,
+                "total": -160558,
+                "date": "2026-08-07"
+              }
             },
             {
               "code": "6805",
@@ -4513,7 +4618,14 @@ window.DATA = {
               "changePct": -5.11,
               "amplitude": 10.23,
               "volume": 3125359.0,
-              "quoteDate": "2026-08-07"
+              "quoteDate": "2026-08-07",
+              "inst": {
+                "foreign": 9334,
+                "trust": 340000,
+                "dealer": -49544,
+                "total": 299790,
+                "date": "2026-08-07"
+              }
             },
             {
               "code": "8210",
@@ -4530,7 +4642,14 @@ window.DATA = {
               "changePct": -9.72,
               "amplitude": 5.26,
               "volume": 2484937.0,
-              "quoteDate": "2026-08-07"
+              "quoteDate": "2026-08-07",
+              "inst": {
+                "foreign": -1223929,
+                "trust": -36000,
+                "dealer": -29597,
+                "total": -1289526,
+                "date": "2026-08-07"
+              }
             },
             {
               "code": "2449",
@@ -4547,7 +4666,14 @@ window.DATA = {
               "changePct": -2.81,
               "amplitude": 3.82,
               "volume": 14953349.0,
-              "quoteDate": "2026-08-07"
+              "quoteDate": "2026-08-07",
+              "inst": {
+                "foreign": -3166540,
+                "trust": 7000,
+                "dealer": 3287,
+                "total": -3156253,
+                "date": "2026-08-07"
+              }
             },
             {
               "code": "6187",
@@ -4581,7 +4707,14 @@ window.DATA = {
               "changePct": 2.78,
               "amplitude": 6.33,
               "volume": 3166068.0,
-              "quoteDate": "2026-08-07"
+              "quoteDate": "2026-08-07",
+              "inst": {
+                "foreign": 144700,
+                "trust": 165000,
+                "dealer": -154927,
+                "total": 154773,
+                "date": "2026-08-07"
+              }
             },
             {
               "code": "4979",
@@ -4615,7 +4748,14 @@ window.DATA = {
               "changePct": -1.87,
               "amplitude": 6.95,
               "volume": 33166518.0,
-              "quoteDate": "2026-08-07"
+              "quoteDate": "2026-08-07",
+              "inst": {
+                "foreign": -5465780,
+                "trust": 119000,
+                "dealer": 132327,
+                "total": -5214453,
+                "date": "2026-08-07"
+              }
             },
             {
               "code": "1590",
@@ -4632,7 +4772,14 @@ window.DATA = {
               "changePct": -0.96,
               "amplitude": 4.49,
               "volume": 994886.0,
-              "quoteDate": "2026-08-07"
+              "quoteDate": "2026-08-07",
+              "inst": {
+                "foreign": 68140,
+                "trust": -107000,
+                "dealer": -5890,
+                "total": -44750,
+                "date": "2026-08-07"
+              }
             },
             {
               "code": "8996",
@@ -4649,7 +4796,14 @@ window.DATA = {
               "changePct": -7.93,
               "amplitude": 8.37,
               "volume": 4580949.0,
-              "quoteDate": "2026-08-07"
+              "quoteDate": "2026-08-07",
+              "inst": {
+                "foreign": -447759,
+                "trust": 258000,
+                "dealer": -18730,
+                "total": -208489,
+                "date": "2026-08-07"
+              }
             },
             {
               "code": "6510",
@@ -4683,7 +4837,14 @@ window.DATA = {
               "changePct": -4.0,
               "amplitude": 6.46,
               "volume": 3986138.0,
-              "quoteDate": "2026-08-07"
+              "quoteDate": "2026-08-07",
+              "inst": {
+                "foreign": 403140,
+                "trust": 0,
+                "dealer": -19809,
+                "total": 383331,
+                "date": "2026-08-07"
+              }
             },
             {
               "code": "2408",
@@ -4700,7 +4861,14 @@ window.DATA = {
               "changePct": -0.44,
               "amplitude": 3.92,
               "volume": 70547660.0,
-              "quoteDate": "2026-08-07"
+              "quoteDate": "2026-08-07",
+              "inst": {
+                "foreign": 2147570,
+                "trust": -21000,
+                "dealer": 365468,
+                "total": 2492038,
+                "date": "2026-08-07"
+              }
             },
             {
               "code": "6271",
@@ -4717,7 +4885,14 @@ window.DATA = {
               "changePct": 0.78,
               "amplitude": 6.51,
               "volume": 11520721.0,
-              "quoteDate": "2026-08-07"
+              "quoteDate": "2026-08-07",
+              "inst": {
+                "foreign": 597200,
+                "trust": 750000,
+                "dealer": -148788,
+                "total": 1198412,
+                "date": "2026-08-07"
+              }
             },
             {
               "code": "6191",
@@ -4734,7 +4909,14 @@ window.DATA = {
               "changePct": -1.65,
               "amplitude": 2.59,
               "volume": 1716714.0,
-              "quoteDate": "2026-08-07"
+              "quoteDate": "2026-08-07",
+              "inst": {
+                "foreign": -160160,
+                "trust": 0,
+                "dealer": 8270,
+                "total": -151890,
+                "date": "2026-08-07"
+              }
             },
             {
               "code": "3376",
@@ -4751,7 +4933,14 @@ window.DATA = {
               "changePct": -2.12,
               "amplitude": 3.18,
               "volume": 1231219.0,
-              "quoteDate": "2026-08-07"
+              "quoteDate": "2026-08-07",
+              "inst": {
+                "foreign": 130684,
+                "trust": 0,
+                "dealer": -38633,
+                "total": 92051,
+                "date": "2026-08-07"
+              }
             },
             {
               "code": "3264",
@@ -4785,7 +4974,14 @@ window.DATA = {
               "changePct": -0.22,
               "amplitude": 8.41,
               "volume": 452198.0,
-              "quoteDate": "2026-08-07"
+              "quoteDate": "2026-08-07",
+              "inst": {
+                "foreign": -14709,
+                "trust": -28000,
+                "dealer": 3116,
+                "total": -39593,
+                "date": "2026-08-07"
+              }
             },
             {
               "code": "4966",
@@ -4819,7 +5015,14 @@ window.DATA = {
               "changePct": 0.26,
               "amplitude": 1.05,
               "volume": 28960100.0,
-              "quoteDate": "2026-08-07"
+              "quoteDate": "2026-08-07",
+              "inst": {
+                "foreign": 12050525,
+                "trust": 0,
+                "dealer": -182149,
+                "total": 11868376,
+                "date": "2026-08-07"
+              }
             },
             {
               "code": "2313",
@@ -4836,7 +5039,14 @@ window.DATA = {
               "changePct": -5.44,
               "amplitude": 8.16,
               "volume": 31604353.0,
-              "quoteDate": "2026-08-07"
+              "quoteDate": "2026-08-07",
+              "inst": {
+                "foreign": -7422076,
+                "trust": 409000,
+                "dealer": -1153759,
+                "total": -8166835,
+                "date": "2026-08-07"
+              }
             },
             {
               "code": "2317",
@@ -4853,7 +5063,14 @@ window.DATA = {
               "changePct": -1.7,
               "amplitude": 3.4,
               "volume": 38813488.0,
-              "quoteDate": "2026-08-07"
+              "quoteDate": "2026-08-07",
+              "inst": {
+                "foreign": -5328129,
+                "trust": -800000,
+                "dealer": -626408,
+                "total": -6754537,
+                "date": "2026-08-07"
+              }
             },
             {
               "code": "2439",
@@ -4870,7 +5087,14 @@ window.DATA = {
               "changePct": 0.0,
               "amplitude": 1.37,
               "volume": 1186708.0,
-              "quoteDate": "2026-08-07"
+              "quoteDate": "2026-08-07",
+              "inst": {
+                "foreign": -414241,
+                "trust": 1374,
+                "dealer": -14018,
+                "total": -426885,
+                "date": "2026-08-07"
+              }
             },
             {
               "code": "2382",
@@ -4887,7 +5111,14 @@ window.DATA = {
               "changePct": -1.32,
               "amplitude": 3.31,
               "volume": 17516962.0,
-              "quoteDate": "2026-08-07"
+              "quoteDate": "2026-08-07",
+              "inst": {
+                "foreign": -6303273,
+                "trust": 79332,
+                "dealer": -378570,
+                "total": -6602511,
+                "date": "2026-08-07"
+              }
             },
             {
               "code": "2481",
@@ -4904,7 +5135,14 @@ window.DATA = {
               "changePct": -4.32,
               "amplitude": 5.4,
               "volume": 17378333.0,
-              "quoteDate": "2026-08-07"
+              "quoteDate": "2026-08-07",
+              "inst": {
+                "foreign": -1845196,
+                "trust": 0,
+                "dealer": -117892,
+                "total": -1963088,
+                "date": "2026-08-07"
+              }
             },
             {
               "code": "3008",
@@ -4921,7 +5159,14 @@ window.DATA = {
               "changePct": -5.19,
               "amplitude": 5.3,
               "volume": 1666019.0,
-              "quoteDate": "2026-08-07"
+              "quoteDate": "2026-08-07",
+              "inst": {
+                "foreign": -219802,
+                "trust": 28000,
+                "dealer": 15566,
+                "total": -176236,
+                "date": "2026-08-07"
+              }
             },
             {
               "code": "3661",
@@ -4938,7 +5183,14 @@ window.DATA = {
               "changePct": 1.5,
               "amplitude": 6.56,
               "volume": 2277767.0,
-              "quoteDate": "2026-08-07"
+              "quoteDate": "2026-08-07",
+              "inst": {
+                "foreign": -40023,
+                "trust": -13000,
+                "dealer": 22776,
+                "total": -30247,
+                "date": "2026-08-07"
+              }
             },
             {
               "code": "3443",
@@ -4955,7 +5207,14 @@ window.DATA = {
               "changePct": 1.45,
               "amplitude": 5.58,
               "volume": 1913717.0,
-              "quoteDate": "2026-08-07"
+              "quoteDate": "2026-08-07",
+              "inst": {
+                "foreign": 19022,
+                "trust": 100700,
+                "dealer": -17094,
+                "total": 102628,
+                "date": "2026-08-07"
+              }
             },
             {
               "code": "3533",
@@ -4972,7 +5231,14 @@ window.DATA = {
               "changePct": -3.05,
               "amplitude": 4.57,
               "volume": 906585.0,
-              "quoteDate": "2026-08-07"
+              "quoteDate": "2026-08-07",
+              "inst": {
+                "foreign": -48679,
+                "trust": 17000,
+                "dealer": -21012,
+                "total": -52691,
+                "date": "2026-08-07"
+              }
             },
             {
               "code": "5347",
@@ -5023,7 +5289,14 @@ window.DATA = {
               "changePct": -0.69,
               "amplitude": 8.4,
               "volume": 32784824.0,
-              "quoteDate": "2026-08-07"
+              "quoteDate": "2026-08-07",
+              "inst": {
+                "foreign": -3111977,
+                "trust": 0,
+                "dealer": -54983,
+                "total": -3166960,
+                "date": "2026-08-07"
+              }
             },
             {
               "code": "8358",
@@ -9781,7 +10054,7 @@ window.DATA = {
         },
         {
           "date": "2026-08-07",
-          "fetched_at": "2026-08-07T20:40:55+08:00",
+          "fetched_at": "2026-08-07T21:36:43+08:00",
           "count": 55,
           "self": {
             "open": 22.95,
@@ -9811,7 +10084,14 @@ window.DATA = {
               "changePct": 0.21,
               "amplitude": 1.69,
               "volume": 24414025.0,
-              "quoteDate": "2026-08-07"
+              "quoteDate": "2026-08-07",
+              "inst": {
+                "foreign": 641660,
+                "trust": 61000,
+                "dealer": 1242950,
+                "total": 1945610,
+                "date": "2026-08-07"
+              }
             },
             {
               "code": "5536",
@@ -9845,7 +10125,14 @@ window.DATA = {
               "changePct": -0.51,
               "amplitude": 4.72,
               "volume": 6607003.0,
-              "quoteDate": "2026-08-07"
+              "quoteDate": "2026-08-07",
+              "inst": {
+                "foreign": 71648,
+                "trust": -128000,
+                "dealer": -16329,
+                "total": -72681,
+                "date": "2026-08-07"
+              }
             },
             {
               "code": "6669",
@@ -9862,7 +10149,14 @@ window.DATA = {
               "changePct": -2.63,
               "amplitude": 3.83,
               "volume": 1427158.0,
-              "quoteDate": "2026-08-07"
+              "quoteDate": "2026-08-07",
+              "inst": {
+                "foreign": -138166,
+                "trust": 92000,
+                "dealer": -1962,
+                "total": -48128,
+                "date": "2026-08-07"
+              }
             },
             {
               "code": "6139",
@@ -9879,7 +10173,14 @@ window.DATA = {
               "changePct": -4.07,
               "amplitude": 4.55,
               "volume": 3538975.0,
-              "quoteDate": "2026-08-07"
+              "quoteDate": "2026-08-07",
+              "inst": {
+                "foreign": -1029519,
+                "trust": -29000,
+                "dealer": -22968,
+                "total": -1081487,
+                "date": "2026-08-07"
+              }
             },
             {
               "code": "2059",
@@ -9896,7 +10197,14 @@ window.DATA = {
               "changePct": 10.0,
               "amplitude": 0.0,
               "volume": 361895.0,
-              "quoteDate": "2026-08-07"
+              "quoteDate": "2026-08-07",
+              "inst": {
+                "foreign": -42651,
+                "trust": -68000,
+                "dealer": 36977,
+                "total": -73674,
+                "date": "2026-08-07"
+              }
             },
             {
               "code": "6223",
@@ -9930,7 +10238,14 @@ window.DATA = {
               "changePct": -8.09,
               "amplitude": 8.71,
               "volume": 4227407.0,
-              "quoteDate": "2026-08-07"
+              "quoteDate": "2026-08-07",
+              "inst": {
+                "foreign": -1238787,
+                "trust": -3000,
+                "dealer": -36584,
+                "total": -1278371,
+                "date": "2026-08-07"
+              }
             },
             {
               "code": "2383",
@@ -9947,7 +10262,14 @@ window.DATA = {
               "changePct": -1.23,
               "amplitude": 4.15,
               "volume": 1362847.0,
-              "quoteDate": "2026-08-07"
+              "quoteDate": "2026-08-07",
+              "inst": {
+                "foreign": -39277,
+                "trust": -9000,
+                "dealer": -1404,
+                "total": -49681,
+                "date": "2026-08-07"
+              }
             },
             {
               "code": "2360",
@@ -9964,7 +10286,14 @@ window.DATA = {
               "changePct": 2.78,
               "amplitude": 6.33,
               "volume": 3166068.0,
-              "quoteDate": "2026-08-07"
+              "quoteDate": "2026-08-07",
+              "inst": {
+                "foreign": 144700,
+                "trust": 165000,
+                "dealer": -154927,
+                "total": 154773,
+                "date": "2026-08-07"
+              }
             },
             {
               "code": "3105",
@@ -9998,7 +10327,14 @@ window.DATA = {
               "changePct": -1.87,
               "amplitude": 6.95,
               "volume": 33166518.0,
-              "quoteDate": "2026-08-07"
+              "quoteDate": "2026-08-07",
+              "inst": {
+                "foreign": -5465780,
+                "trust": 119000,
+                "dealer": 132327,
+                "total": -5214453,
+                "date": "2026-08-07"
+              }
             },
             {
               "code": "6531",
@@ -10015,7 +10351,14 @@ window.DATA = {
               "changePct": 5.67,
               "amplitude": 2.78,
               "volume": 2226625.0,
-              "quoteDate": "2026-08-07"
+              "quoteDate": "2026-08-07",
+              "inst": {
+                "foreign": 26348,
+                "trust": 81000,
+                "dealer": 52299,
+                "total": 159647,
+                "date": "2026-08-07"
+              }
             },
             {
               "code": "3491",
@@ -10049,7 +10392,14 @@ window.DATA = {
               "changePct": -5.27,
               "amplitude": 6.29,
               "volume": 4140360.0,
-              "quoteDate": "2026-08-07"
+              "quoteDate": "2026-08-07",
+              "inst": {
+                "foreign": -239960,
+                "trust": 527200,
+                "dealer": -43735,
+                "total": 243505,
+                "date": "2026-08-07"
+              }
             },
             {
               "code": "3008",
@@ -10066,7 +10416,14 @@ window.DATA = {
               "changePct": -5.19,
               "amplitude": 5.3,
               "volume": 1666019.0,
-              "quoteDate": "2026-08-07"
+              "quoteDate": "2026-08-07",
+              "inst": {
+                "foreign": -219802,
+                "trust": 28000,
+                "dealer": 15566,
+                "total": -176236,
+                "date": "2026-08-07"
+              }
             },
             {
               "code": "2303",
@@ -10083,7 +10440,14 @@ window.DATA = {
               "changePct": -4.53,
               "amplitude": 6.17,
               "volume": 169352784.0,
-              "quoteDate": "2026-08-07"
+              "quoteDate": "2026-08-07",
+              "inst": {
+                "foreign": -23200666,
+                "trust": -6691000,
+                "dealer": -2838812,
+                "total": -32730478,
+                "date": "2026-08-07"
+              }
             },
             {
               "code": "3264",
@@ -10134,7 +10498,14 @@ window.DATA = {
               "changePct": -3.62,
               "amplitude": 5.31,
               "volume": 4188844.0,
-              "quoteDate": "2026-08-07"
+              "quoteDate": "2026-08-07",
+              "inst": {
+                "foreign": -1894357,
+                "trust": -85000,
+                "dealer": -82218,
+                "total": -2061575,
+                "date": "2026-08-07"
+              }
             },
             {
               "code": "2377",
@@ -10151,7 +10522,14 @@ window.DATA = {
               "changePct": -0.65,
               "amplitude": 3.25,
               "volume": 10969717.0,
-              "quoteDate": "2026-08-07"
+              "quoteDate": "2026-08-07",
+              "inst": {
+                "foreign": -552820,
+                "trust": -3107,
+                "dealer": -163374,
+                "total": -719301,
+                "date": "2026-08-07"
+              }
             },
             {
               "code": "3583",
@@ -10168,7 +10546,14 @@ window.DATA = {
               "changePct": -5.97,
               "amplitude": 7.06,
               "volume": 1080436.0,
-              "quoteDate": "2026-08-07"
+              "quoteDate": "2026-08-07",
+              "inst": {
+                "foreign": -355010,
+                "trust": 70000,
+                "dealer": -35219,
+                "total": -320229,
+                "date": "2026-08-07"
+              }
             },
             {
               "code": "2467",
@@ -10185,7 +10570,14 @@ window.DATA = {
               "changePct": -3.66,
               "amplitude": 6.17,
               "volume": 819761.0,
-              "quoteDate": "2026-08-07"
+              "quoteDate": "2026-08-07",
+              "inst": {
+                "foreign": -108371,
+                "trust": 0,
+                "dealer": -4529,
+                "total": -112900,
+                "date": "2026-08-07"
+              }
             },
             {
               "code": "8016",
@@ -10202,7 +10594,14 @@ window.DATA = {
               "changePct": 0.65,
               "amplitude": 4.7,
               "volume": 2487469.0,
-              "quoteDate": "2026-08-07"
+              "quoteDate": "2026-08-07",
+              "inst": {
+                "foreign": 255103,
+                "trust": -13579,
+                "dealer": 18070,
+                "total": 259594,
+                "date": "2026-08-07"
+              }
             },
             {
               "code": "3702",
@@ -10219,7 +10618,14 @@ window.DATA = {
               "changePct": -2.39,
               "amplitude": 4.78,
               "volume": 9985739.0,
-              "quoteDate": "2026-08-07"
+              "quoteDate": "2026-08-07",
+              "inst": {
+                "foreign": -981245,
+                "trust": 1097127,
+                "dealer": -548388,
+                "total": -432506,
+                "date": "2026-08-07"
+              }
             },
             {
               "code": "6274",
@@ -10253,7 +10659,14 @@ window.DATA = {
               "changePct": -1.68,
               "amplitude": 5.38,
               "volume": 13050125.0,
-              "quoteDate": "2026-08-07"
+              "quoteDate": "2026-08-07",
+              "inst": {
+                "foreign": -3053732,
+                "trust": 557000,
+                "dealer": -273934,
+                "total": -2770666,
+                "date": "2026-08-07"
+              }
             },
             {
               "code": "7769",
@@ -10270,7 +10683,14 @@ window.DATA = {
               "changePct": -2.39,
               "amplitude": 6.41,
               "volume": 539488.0,
-              "quoteDate": "2026-08-07"
+              "quoteDate": "2026-08-07",
+              "inst": {
+                "foreign": 8469,
+                "trust": -42000,
+                "dealer": 371,
+                "total": -33160,
+                "date": "2026-08-07"
+              }
             },
             {
               "code": "2316",
@@ -10287,7 +10707,14 @@ window.DATA = {
               "changePct": -1.85,
               "amplitude": 4.0,
               "volume": 1769366.0,
-              "quoteDate": "2026-08-07"
+              "quoteDate": "2026-08-07",
+              "inst": {
+                "foreign": -204498,
+                "trust": 0,
+                "dealer": -57371,
+                "total": -261869,
+                "date": "2026-08-07"
+              }
             },
             {
               "code": "3036",
@@ -10304,7 +10731,14 @@ window.DATA = {
               "changePct": -9.42,
               "amplitude": 5.57,
               "volume": 42344213.0,
-              "quoteDate": "2026-08-07"
+              "quoteDate": "2026-08-07",
+              "inst": {
+                "foreign": -8652782,
+                "trust": 1159000,
+                "dealer": -186764,
+                "total": -7680546,
+                "date": "2026-08-07"
+              }
             },
             {
               "code": "1785",
@@ -10355,7 +10789,14 @@ window.DATA = {
               "changePct": -7.93,
               "amplitude": 8.37,
               "volume": 4580949.0,
-              "quoteDate": "2026-08-07"
+              "quoteDate": "2026-08-07",
+              "inst": {
+                "foreign": -447759,
+                "trust": 258000,
+                "dealer": -18730,
+                "total": -208489,
+                "date": "2026-08-07"
+              }
             },
             {
               "code": "2351",
@@ -10372,7 +10813,14 @@ window.DATA = {
               "changePct": -0.87,
               "amplitude": 7.58,
               "volume": 4695348.0,
-              "quoteDate": "2026-08-07"
+              "quoteDate": "2026-08-07",
+              "inst": {
+                "foreign": -279000,
+                "trust": 0,
+                "dealer": -138394,
+                "total": -417394,
+                "date": "2026-08-07"
+              }
             },
             {
               "code": "2327",
@@ -10389,7 +10837,14 @@ window.DATA = {
               "changePct": -5.26,
               "amplitude": 8.25,
               "volume": 44277453.0,
-              "quoteDate": "2026-08-07"
+              "quoteDate": "2026-08-07",
+              "inst": {
+                "foreign": -9347045,
+                "trust": -1516000,
+                "dealer": 141999,
+                "total": -10721046,
+                "date": "2026-08-07"
+              }
             },
             {
               "code": "2376",
@@ -10406,7 +10861,14 @@ window.DATA = {
               "changePct": 0.0,
               "amplitude": 2.91,
               "volume": 5232862.0,
-              "quoteDate": "2026-08-07"
+              "quoteDate": "2026-08-07",
+              "inst": {
+                "foreign": 133758,
+                "trust": -167000,
+                "dealer": -80515,
+                "total": -113757,
+                "date": "2026-08-07"
+              }
             },
             {
               "code": "6278",
@@ -10423,7 +10885,14 @@ window.DATA = {
               "changePct": -4.0,
               "amplitude": 6.46,
               "volume": 3986138.0,
-              "quoteDate": "2026-08-07"
+              "quoteDate": "2026-08-07",
+              "inst": {
+                "foreign": 403140,
+                "trust": 0,
+                "dealer": -19809,
+                "total": 383331,
+                "date": "2026-08-07"
+              }
             },
             {
               "code": "2472",
@@ -10440,7 +10909,14 @@ window.DATA = {
               "changePct": -3.57,
               "amplitude": 6.3,
               "volume": 2175626.0,
-              "quoteDate": "2026-08-07"
+              "quoteDate": "2026-08-07",
+              "inst": {
+                "foreign": -142464,
+                "trust": -2000,
+                "dealer": -23436,
+                "total": -167900,
+                "date": "2026-08-07"
+              }
             },
             {
               "code": "3529",
@@ -10474,7 +10950,14 @@ window.DATA = {
               "changePct": -2.9,
               "amplitude": 10.52,
               "volume": 1700879.0,
-              "quoteDate": "2026-08-07"
+              "quoteDate": "2026-08-07",
+              "inst": {
+                "foreign": -139689,
+                "trust": 0,
+                "dealer": -22701,
+                "total": -162390,
+                "date": "2026-08-07"
+              }
             },
             {
               "code": "6239",
@@ -10491,7 +10974,14 @@ window.DATA = {
               "changePct": -2.6,
               "amplitude": 3.9,
               "volume": 20714928.0,
-              "quoteDate": "2026-08-07"
+              "quoteDate": "2026-08-07",
+              "inst": {
+                "foreign": -3782560,
+                "trust": 1253000,
+                "dealer": -438362,
+                "total": -2967922,
+                "date": "2026-08-07"
+              }
             },
             {
               "code": "2451",
@@ -10508,7 +10998,14 @@ window.DATA = {
               "changePct": 1.37,
               "amplitude": 3.24,
               "volume": 9750484.0,
-              "quoteDate": "2026-08-07"
+              "quoteDate": "2026-08-07",
+              "inst": {
+                "foreign": 3001646,
+                "trust": -4000,
+                "dealer": -80637,
+                "total": 2917009,
+                "date": "2026-08-07"
+              }
             },
             {
               "code": "2885",
@@ -10525,7 +11022,14 @@ window.DATA = {
               "changePct": 0.89,
               "amplitude": 1.94,
               "volume": 13749095.0,
-              "quoteDate": "2026-08-07"
+              "quoteDate": "2026-08-07",
+              "inst": {
+                "foreign": 2635069,
+                "trust": 351000,
+                "dealer": -25364,
+                "total": 2960705,
+                "date": "2026-08-07"
+              }
             },
             {
               "code": "6187",
@@ -10559,7 +11063,14 @@ window.DATA = {
               "changePct": -3.17,
               "amplitude": 3.96,
               "volume": 65415961.0,
-              "quoteDate": "2026-08-07"
+              "quoteDate": "2026-08-07",
+              "inst": {
+                "foreign": 17158210,
+                "trust": -10276000,
+                "dealer": 861453,
+                "total": 7743663,
+                "date": "2026-08-07"
+              }
             },
             {
               "code": "6177",
@@ -10576,7 +11087,14 @@ window.DATA = {
               "changePct": 2.09,
               "amplitude": 2.93,
               "volume": 2409491.0,
-              "quoteDate": "2026-08-07"
+              "quoteDate": "2026-08-07",
+              "inst": {
+                "foreign": 1134020,
+                "trust": 0,
+                "dealer": 140000,
+                "total": 1274020,
+                "date": "2026-08-07"
+              }
             },
             {
               "code": "3443",
@@ -10593,7 +11111,14 @@ window.DATA = {
               "changePct": 1.45,
               "amplitude": 5.58,
               "volume": 1913717.0,
-              "quoteDate": "2026-08-07"
+              "quoteDate": "2026-08-07",
+              "inst": {
+                "foreign": 19022,
+                "trust": 100700,
+                "dealer": -17094,
+                "total": 102628,
+                "date": "2026-08-07"
+              }
             },
             {
               "code": "4441",
@@ -10610,7 +11135,14 @@ window.DATA = {
               "changePct": -1.55,
               "amplitude": 1.81,
               "volume": 113099.0,
-              "quoteDate": "2026-08-07"
+              "quoteDate": "2026-08-07",
+              "inst": {
+                "foreign": -38000,
+                "trust": 0,
+                "dealer": 0,
+                "total": -38000,
+                "date": "2026-08-07"
+              }
             },
             {
               "code": "3706",
@@ -10627,7 +11159,14 @@ window.DATA = {
               "changePct": -1.29,
               "amplitude": 2.69,
               "volume": 9729538.0,
-              "quoteDate": "2026-08-07"
+              "quoteDate": "2026-08-07",
+              "inst": {
+                "foreign": -1837275,
+                "trust": -171000,
+                "dealer": -85271,
+                "total": -2093546,
+                "date": "2026-08-07"
+              }
             },
             {
               "code": "2886",
@@ -10644,7 +11183,14 @@ window.DATA = {
               "changePct": 1.19,
               "amplitude": 1.59,
               "volume": 22565910.0,
-              "quoteDate": "2026-08-07"
+              "quoteDate": "2026-08-07",
+              "inst": {
+                "foreign": -9246612,
+                "trust": 2849000,
+                "dealer": 576133,
+                "total": -5821479,
+                "date": "2026-08-07"
+              }
             },
             {
               "code": "2881",
@@ -10661,7 +11207,14 @@ window.DATA = {
               "changePct": 0.79,
               "amplitude": 1.59,
               "volume": 10827608.0,
-              "quoteDate": "2026-08-07"
+              "quoteDate": "2026-08-07",
+              "inst": {
+                "foreign": 3370012,
+                "trust": -140000,
+                "dealer": 15799,
+                "total": 3245811,
+                "date": "2026-08-07"
+              }
             },
             {
               "code": "2368",
@@ -10678,7 +11231,14 @@ window.DATA = {
               "changePct": -0.3,
               "amplitude": 7.51,
               "volume": 12352014.0,
-              "quoteDate": "2026-08-07"
+              "quoteDate": "2026-08-07",
+              "inst": {
+                "foreign": -797876,
+                "trust": 535000,
+                "dealer": 102318,
+                "total": -160558,
+                "date": "2026-08-07"
+              }
             },
             {
               "code": "1519",
@@ -10695,7 +11255,14 @@ window.DATA = {
               "changePct": -1.36,
               "amplitude": 3.17,
               "volume": 1012568.0,
-              "quoteDate": "2026-08-07"
+              "quoteDate": "2026-08-07",
+              "inst": {
+                "foreign": -246312,
+                "trust": 0,
+                "dealer": -7376,
+                "total": -253688,
+                "date": "2026-08-07"
+              }
             },
             {
               "code": "8046",
@@ -10712,7 +11279,14 @@ window.DATA = {
               "changePct": -2.26,
               "amplitude": 6.79,
               "volume": 4069277.0,
-              "quoteDate": "2026-08-07"
+              "quoteDate": "2026-08-07",
+              "inst": {
+                "foreign": -841918,
+                "trust": 0,
+                "dealer": 25182,
+                "total": -816736,
+                "date": "2026-08-07"
+              }
             },
             {
               "code": "8358",
@@ -14941,7 +15515,7 @@ window.DATA = {
         },
         {
           "date": "2026-08-06",
-          "fetched_at": "2026-08-07T20:41:09+08:00",
+          "fetched_at": "2026-08-07T21:37:01+08:00",
           "count": 48,
           "self": {
             "open": 15.9,
@@ -15025,7 +15599,14 @@ window.DATA = {
               "changePct": -1.66,
               "amplitude": 1.46,
               "volume": 25536816.0,
-              "quoteDate": "2026-08-06"
+              "quoteDate": "2026-08-06",
+              "inst": {
+                "foreign": -4011452,
+                "trust": -82362,
+                "dealer": -583413,
+                "total": -4677227,
+                "date": "2026-08-06"
+              }
             },
             {
               "code": "MU",
@@ -15114,7 +15695,14 @@ window.DATA = {
               "changePct": 0.41,
               "amplitude": 6.91,
               "volume": 25817573.0,
-              "quoteDate": "2026-08-06"
+              "quoteDate": "2026-08-06",
+              "inst": {
+                "foreign": -615618,
+                "trust": 581000,
+                "dealer": -27882,
+                "total": -62500,
+                "date": "2026-08-06"
+              }
             },
             {
               "code": "DELL",
@@ -15185,7 +15773,14 @@ window.DATA = {
               "changePct": 1.14,
               "amplitude": 5.24,
               "volume": 1863164.0,
-              "quoteDate": "2026-08-06"
+              "quoteDate": "2026-08-06",
+              "inst": {
+                "foreign": -20664,
+                "trust": 102516,
+                "dealer": -24626,
+                "total": 57226,
+                "date": "2026-08-06"
+              }
             },
             {
               "code": "2454",
@@ -15202,7 +15797,14 @@ window.DATA = {
               "changePct": -2.0,
               "amplitude": 4.88,
               "volume": 7213332.0,
-              "quoteDate": "2026-08-06"
+              "quoteDate": "2026-08-06",
+              "inst": {
+                "foreign": -993101,
+                "trust": -97086,
+                "dealer": -87944,
+                "total": -1178131,
+                "date": "2026-08-06"
+              }
             },
             {
               "code": "WDC",
@@ -15352,7 +15954,14 @@ window.DATA = {
               "changePct": 1.82,
               "amplitude": 4.55,
               "volume": 10907572.0,
-              "quoteDate": "2026-08-06"
+              "quoteDate": "2026-08-06",
+              "inst": {
+                "foreign": 73326,
+                "trust": 482140,
+                "dealer": 39082,
+                "total": 594548,
+                "date": "2026-08-06"
+              }
             },
             {
               "code": "SNDK",
@@ -15597,7 +16206,14 @@ window.DATA = {
               "changePct": 0.34,
               "amplitude": 3.88,
               "volume": 17543701.0,
-              "quoteDate": "2026-08-06"
+              "quoteDate": "2026-08-06",
+              "inst": {
+                "foreign": -4046813,
+                "trust": 237187,
+                "dealer": 233644,
+                "total": -3575982,
+                "date": "2026-08-06"
+              }
             },
             {
               "code": "3665",
@@ -15614,7 +16230,14 @@ window.DATA = {
               "changePct": 0.64,
               "amplitude": 7.86,
               "volume": 4902790.0,
-              "quoteDate": "2026-08-06"
+              "quoteDate": "2026-08-06",
+              "inst": {
+                "foreign": -129448,
+                "trust": 508000,
+                "dealer": -16726,
+                "total": 361826,
+                "date": "2026-08-06"
+              }
             },
             {
               "code": "",
@@ -15728,7 +16351,14 @@ window.DATA = {
               "changePct": -0.41,
               "amplitude": 4.51,
               "volume": 149054040.0,
-              "quoteDate": "2026-08-06"
+              "quoteDate": "2026-08-06",
+              "inst": {
+                "foreign": 14462884,
+                "trust": -6458657,
+                "dealer": 1375932,
+                "total": 9380159,
+                "date": "2026-08-06"
+              }
             },
             {
               "code": "2449",
@@ -15745,7 +16375,14 @@ window.DATA = {
               "changePct": 0.81,
               "amplitude": 5.06,
               "volume": 15016290.0,
-              "quoteDate": "2026-08-06"
+              "quoteDate": "2026-08-06",
+              "inst": {
+                "foreign": -1072082,
+                "trust": -290074,
+                "dealer": 116605,
+                "total": -1245551,
+                "date": "2026-08-06"
+              }
             },
             {
               "code": "PLTR",
@@ -19028,7 +19665,7 @@ window.DATA = {
         },
         {
           "date": "2026-08-07",
-          "fetched_at": "2026-08-07T20:41:11+08:00",
+          "fetched_at": "2026-08-07T21:37:02+08:00",
           "count": 36,
           "self": {
             "open": 17.16,
@@ -19058,7 +19695,14 @@ window.DATA = {
               "changePct": 0.21,
               "amplitude": 1.69,
               "volume": 24414025.0,
-              "quoteDate": "2026-08-07"
+              "quoteDate": "2026-08-07",
+              "inst": {
+                "foreign": 641660,
+                "trust": 61000,
+                "dealer": 1242950,
+                "total": 1945610,
+                "date": "2026-08-07"
+              }
             },
             {
               "code": "2059",
@@ -19075,7 +19719,14 @@ window.DATA = {
               "changePct": 10.0,
               "amplitude": 0.0,
               "volume": 361895.0,
-              "quoteDate": "2026-08-07"
+              "quoteDate": "2026-08-07",
+              "inst": {
+                "foreign": -42651,
+                "trust": -68000,
+                "dealer": 36977,
+                "total": -73674,
+                "date": "2026-08-07"
+              }
             },
             {
               "code": "3017",
@@ -19092,7 +19743,14 @@ window.DATA = {
               "changePct": -5.27,
               "amplitude": 6.29,
               "volume": 4140360.0,
-              "quoteDate": "2026-08-07"
+              "quoteDate": "2026-08-07",
+              "inst": {
+                "foreign": -239960,
+                "trust": 527200,
+                "dealer": -43735,
+                "total": 243505,
+                "date": "2026-08-07"
+              }
             },
             {
               "code": "3665",
@@ -19109,7 +19767,14 @@ window.DATA = {
               "changePct": -7.17,
               "amplitude": 4.85,
               "volume": 5516384.0,
-              "quoteDate": "2026-08-07"
+              "quoteDate": "2026-08-07",
+              "inst": {
+                "foreign": -408108,
+                "trust": -672000,
+                "dealer": -45023,
+                "total": -1125131,
+                "date": "2026-08-07"
+              }
             },
             {
               "code": "2383",
@@ -19126,7 +19791,14 @@ window.DATA = {
               "changePct": -1.23,
               "amplitude": 4.15,
               "volume": 1362847.0,
-              "quoteDate": "2026-08-07"
+              "quoteDate": "2026-08-07",
+              "inst": {
+                "foreign": -39277,
+                "trust": -9000,
+                "dealer": -1404,
+                "total": -49681,
+                "date": "2026-08-07"
+              }
             },
             {
               "code": "2345",
@@ -19143,7 +19815,14 @@ window.DATA = {
               "changePct": -8.09,
               "amplitude": 8.71,
               "volume": 4227407.0,
-              "quoteDate": "2026-08-07"
+              "quoteDate": "2026-08-07",
+              "inst": {
+                "foreign": -1238787,
+                "trust": -3000,
+                "dealer": -36584,
+                "total": -1278371,
+                "date": "2026-08-07"
+              }
             },
             {
               "code": "3037",
@@ -19160,7 +19839,14 @@ window.DATA = {
               "changePct": -1.85,
               "amplitude": 5.86,
               "volume": 21596279.0,
-              "quoteDate": "2026-08-07"
+              "quoteDate": "2026-08-07",
+              "inst": {
+                "foreign": -790555,
+                "trust": 74000,
+                "dealer": -47709,
+                "total": -764264,
+                "date": "2026-08-07"
+              }
             },
             {
               "code": "3008",
@@ -19177,7 +19863,14 @@ window.DATA = {
               "changePct": -5.19,
               "amplitude": 5.3,
               "volume": 1666019.0,
-              "quoteDate": "2026-08-07"
+              "quoteDate": "2026-08-07",
+              "inst": {
+                "foreign": -219802,
+                "trust": 28000,
+                "dealer": 15566,
+                "total": -176236,
+                "date": "2026-08-07"
+              }
             },
             {
               "code": "6223",
@@ -19211,7 +19904,14 @@ window.DATA = {
               "changePct": -7.93,
               "amplitude": 8.37,
               "volume": 4580949.0,
-              "quoteDate": "2026-08-07"
+              "quoteDate": "2026-08-07",
+              "inst": {
+                "foreign": -447759,
+                "trust": 258000,
+                "dealer": -18730,
+                "total": -208489,
+                "date": "2026-08-07"
+              }
             },
             {
               "code": "2454",
@@ -19228,7 +19928,14 @@ window.DATA = {
               "changePct": -0.51,
               "amplitude": 4.72,
               "volume": 6607003.0,
-              "quoteDate": "2026-08-07"
+              "quoteDate": "2026-08-07",
+              "inst": {
+                "foreign": 71648,
+                "trust": -128000,
+                "dealer": -16329,
+                "total": -72681,
+                "date": "2026-08-07"
+              }
             },
             {
               "code": "3231",
@@ -19245,7 +19952,14 @@ window.DATA = {
               "changePct": -3.17,
               "amplitude": 3.96,
               "volume": 65415961.0,
-              "quoteDate": "2026-08-07"
+              "quoteDate": "2026-08-07",
+              "inst": {
+                "foreign": 17158210,
+                "trust": -10276000,
+                "dealer": 861453,
+                "total": 7743663,
+                "date": "2026-08-07"
+              }
             },
             {
               "code": "6584",
@@ -19279,7 +19993,14 @@ window.DATA = {
               "changePct": 5.32,
               "amplitude": 8.12,
               "volume": 129122451.0,
-              "quoteDate": "2026-08-07"
+              "quoteDate": "2026-08-07",
+              "inst": {
+                "foreign": -7333983,
+                "trust": 1758000,
+                "dealer": 376546,
+                "total": -5199437,
+                "date": "2026-08-07"
+              }
             },
             {
               "code": "2455",
@@ -19296,7 +20017,14 @@ window.DATA = {
               "changePct": -2.15,
               "amplitude": 7.93,
               "volume": 14692107.0,
-              "quoteDate": "2026-08-07"
+              "quoteDate": "2026-08-07",
+              "inst": {
+                "foreign": -1947821,
+                "trust": 4000,
+                "dealer": 65925,
+                "total": -1877896,
+                "date": "2026-08-07"
+              }
             },
             {
               "code": "8021",
@@ -19313,7 +20041,14 @@ window.DATA = {
               "changePct": -5.39,
               "amplitude": 7.66,
               "volume": 6925065.0,
-              "quoteDate": "2026-08-07"
+              "quoteDate": "2026-08-07",
+              "inst": {
+                "foreign": -1449351,
+                "trust": 253000,
+                "dealer": -8092,
+                "total": -1204443,
+                "date": "2026-08-07"
+              }
             },
             {
               "code": "3443",
@@ -19330,7 +20065,14 @@ window.DATA = {
               "changePct": 1.45,
               "amplitude": 5.58,
               "volume": 1913717.0,
-              "quoteDate": "2026-08-07"
+              "quoteDate": "2026-08-07",
+              "inst": {
+                "foreign": 19022,
+                "trust": 100700,
+                "dealer": -17094,
+                "total": 102628,
+                "date": "2026-08-07"
+              }
             },
             {
               "code": "3711",
@@ -19347,7 +20089,14 @@ window.DATA = {
               "changePct": -1.68,
               "amplitude": 5.38,
               "volume": 13050125.0,
-              "quoteDate": "2026-08-07"
+              "quoteDate": "2026-08-07",
+              "inst": {
+                "foreign": -3053732,
+                "trust": 557000,
+                "dealer": -273934,
+                "total": -2770666,
+                "date": "2026-08-07"
+              }
             },
             {
               "code": "6187",
@@ -19381,7 +20130,14 @@ window.DATA = {
               "changePct": 1.5,
               "amplitude": 6.56,
               "volume": 2277767.0,
-              "quoteDate": "2026-08-07"
+              "quoteDate": "2026-08-07",
+              "inst": {
+                "foreign": -40023,
+                "trust": -13000,
+                "dealer": 22776,
+                "total": -30247,
+                "date": "2026-08-07"
+              }
             },
             {
               "code": "3189",
@@ -19398,7 +20154,14 @@ window.DATA = {
               "changePct": -3.52,
               "amplitude": 5.39,
               "volume": 16107601.0,
-              "quoteDate": "2026-08-07"
+              "quoteDate": "2026-08-07",
+              "inst": {
+                "foreign": -1660821,
+                "trust": -142000,
+                "dealer": -198742,
+                "total": -2001563,
+                "date": "2026-08-07"
+              }
             },
             {
               "code": "1815",
@@ -19432,7 +20195,14 @@ window.DATA = {
               "changePct": -1.79,
               "amplitude": 4.76,
               "volume": 10432120.0,
-              "quoteDate": "2026-08-07"
+              "quoteDate": "2026-08-07",
+              "inst": {
+                "foreign": -1697088,
+                "trust": 55554,
+                "dealer": -158250,
+                "total": -1799784,
+                "date": "2026-08-07"
+              }
             },
             {
               "code": "4958",
@@ -19449,7 +20219,14 @@ window.DATA = {
               "changePct": -1.87,
               "amplitude": 6.95,
               "volume": 33166518.0,
-              "quoteDate": "2026-08-07"
+              "quoteDate": "2026-08-07",
+              "inst": {
+                "foreign": -5465780,
+                "trust": 119000,
+                "dealer": 132327,
+                "total": -5214453,
+                "date": "2026-08-07"
+              }
             },
             {
               "code": "6669",
@@ -19466,7 +20243,14 @@ window.DATA = {
               "changePct": -2.63,
               "amplitude": 3.83,
               "volume": 1427158.0,
-              "quoteDate": "2026-08-07"
+              "quoteDate": "2026-08-07",
+              "inst": {
+                "foreign": -138166,
+                "trust": 92000,
+                "dealer": -1962,
+                "total": -48128,
+                "date": "2026-08-07"
+              }
             },
             {
               "code": "7751",
@@ -19500,7 +20284,14 @@ window.DATA = {
               "changePct": -0.22,
               "amplitude": 8.41,
               "volume": 452198.0,
-              "quoteDate": "2026-08-07"
+              "quoteDate": "2026-08-07",
+              "inst": {
+                "foreign": -14709,
+                "trust": -28000,
+                "dealer": 3116,
+                "total": -39593,
+                "date": "2026-08-07"
+              }
             },
             {
               "code": "6139",
@@ -19517,7 +20308,14 @@ window.DATA = {
               "changePct": -4.07,
               "amplitude": 4.55,
               "volume": 3538975.0,
-              "quoteDate": "2026-08-07"
+              "quoteDate": "2026-08-07",
+              "inst": {
+                "foreign": -1029519,
+                "trust": -29000,
+                "dealer": -22968,
+                "total": -1081487,
+                "date": "2026-08-07"
+              }
             },
             {
               "code": "7734",
@@ -19551,7 +20349,14 @@ window.DATA = {
               "changePct": -5.11,
               "amplitude": 10.23,
               "volume": 3125359.0,
-              "quoteDate": "2026-08-07"
+              "quoteDate": "2026-08-07",
+              "inst": {
+                "foreign": 9334,
+                "trust": 340000,
+                "dealer": -49544,
+                "total": 299790,
+                "date": "2026-08-07"
+              }
             },
             {
               "code": "2337",
@@ -19568,7 +20373,14 @@ window.DATA = {
               "changePct": -5.81,
               "amplitude": 7.75,
               "volume": 112161182.0,
-              "quoteDate": "2026-08-07"
+              "quoteDate": "2026-08-07",
+              "inst": {
+                "foreign": -9459855,
+                "trust": -861000,
+                "dealer": -228252,
+                "total": -10549107,
+                "date": "2026-08-07"
+              }
             },
             {
               "code": "3260",
@@ -19619,7 +20431,14 @@ window.DATA = {
               "changePct": -5.97,
               "amplitude": 7.06,
               "volume": 1080436.0,
-              "quoteDate": "2026-08-07"
+              "quoteDate": "2026-08-07",
+              "inst": {
+                "foreign": -355010,
+                "trust": 70000,
+                "dealer": -35219,
+                "total": -320229,
+                "date": "2026-08-07"
+              }
             },
             {
               "code": "5347",
@@ -24119,7 +24938,7 @@ window.DATA = {
         },
         {
           "date": "2026-08-07",
-          "fetched_at": "2026-08-07T20:41:13+08:00",
+          "fetched_at": "2026-08-07T21:37:04+08:00",
           "count": 50,
           "self": {
             "open": 14.05,
@@ -24149,7 +24968,14 @@ window.DATA = {
               "changePct": 0.21,
               "amplitude": 1.69,
               "volume": 24414025.0,
-              "quoteDate": "2026-08-07"
+              "quoteDate": "2026-08-07",
+              "inst": {
+                "foreign": 641660,
+                "trust": 61000,
+                "dealer": 1242950,
+                "total": 1945610,
+                "date": "2026-08-07"
+              }
             },
             {
               "code": "2454",
@@ -24166,7 +24992,14 @@ window.DATA = {
               "changePct": -0.51,
               "amplitude": 4.72,
               "volume": 6607003.0,
-              "quoteDate": "2026-08-07"
+              "quoteDate": "2026-08-07",
+              "inst": {
+                "foreign": 71648,
+                "trust": -128000,
+                "dealer": -16329,
+                "total": -72681,
+                "date": "2026-08-07"
+              }
             },
             {
               "code": "2383",
@@ -24183,7 +25016,14 @@ window.DATA = {
               "changePct": -1.23,
               "amplitude": 4.15,
               "volume": 1362847.0,
-              "quoteDate": "2026-08-07"
+              "quoteDate": "2026-08-07",
+              "inst": {
+                "foreign": -39277,
+                "trust": -9000,
+                "dealer": -1404,
+                "total": -49681,
+                "date": "2026-08-07"
+              }
             },
             {
               "code": "6223",
@@ -24217,7 +25057,14 @@ window.DATA = {
               "changePct": -1.85,
               "amplitude": 5.86,
               "volume": 21596279.0,
-              "quoteDate": "2026-08-07"
+              "quoteDate": "2026-08-07",
+              "inst": {
+                "foreign": -790555,
+                "trust": 74000,
+                "dealer": -47709,
+                "total": -764264,
+                "date": "2026-08-07"
+              }
             },
             {
               "code": "3017",
@@ -24234,7 +25081,14 @@ window.DATA = {
               "changePct": -5.27,
               "amplitude": 6.29,
               "volume": 4140360.0,
-              "quoteDate": "2026-08-07"
+              "quoteDate": "2026-08-07",
+              "inst": {
+                "foreign": -239960,
+                "trust": 527200,
+                "dealer": -43735,
+                "total": 243505,
+                "date": "2026-08-07"
+              }
             },
             {
               "code": "2059",
@@ -24251,7 +25105,14 @@ window.DATA = {
               "changePct": 10.0,
               "amplitude": 0.0,
               "volume": 361895.0,
-              "quoteDate": "2026-08-07"
+              "quoteDate": "2026-08-07",
+              "inst": {
+                "foreign": -42651,
+                "trust": -68000,
+                "dealer": 36977,
+                "total": -73674,
+                "date": "2026-08-07"
+              }
             },
             {
               "code": "6669",
@@ -24268,7 +25129,14 @@ window.DATA = {
               "changePct": -2.63,
               "amplitude": 3.83,
               "volume": 1427158.0,
-              "quoteDate": "2026-08-07"
+              "quoteDate": "2026-08-07",
+              "inst": {
+                "foreign": -138166,
+                "trust": 92000,
+                "dealer": -1962,
+                "total": -48128,
+                "date": "2026-08-07"
+              }
             },
             {
               "code": "2360",
@@ -24285,7 +25153,14 @@ window.DATA = {
               "changePct": 2.78,
               "amplitude": 6.33,
               "volume": 3166068.0,
-              "quoteDate": "2026-08-07"
+              "quoteDate": "2026-08-07",
+              "inst": {
+                "foreign": 144700,
+                "trust": 165000,
+                "dealer": -154927,
+                "total": 154773,
+                "date": "2026-08-07"
+              }
             },
             {
               "code": "3653",
@@ -24302,7 +25177,14 @@ window.DATA = {
               "changePct": -1.57,
               "amplitude": 6.29,
               "volume": 1730866.0,
-              "quoteDate": "2026-08-07"
+              "quoteDate": "2026-08-07",
+              "inst": {
+                "foreign": -14805,
+                "trust": 59000,
+                "dealer": 1182,
+                "total": 45377,
+                "date": "2026-08-07"
+              }
             },
             {
               "code": "3443",
@@ -24319,7 +25201,14 @@ window.DATA = {
               "changePct": 1.45,
               "amplitude": 5.58,
               "volume": 1913717.0,
-              "quoteDate": "2026-08-07"
+              "quoteDate": "2026-08-07",
+              "inst": {
+                "foreign": 19022,
+                "trust": 100700,
+                "dealer": -17094,
+                "total": 102628,
+                "date": "2026-08-07"
+              }
             },
             {
               "code": "5274",
@@ -24370,7 +25259,14 @@ window.DATA = {
               "changePct": -7.17,
               "amplitude": 4.85,
               "volume": 5516384.0,
-              "quoteDate": "2026-08-07"
+              "quoteDate": "2026-08-07",
+              "inst": {
+                "foreign": -408108,
+                "trust": -672000,
+                "dealer": -45023,
+                "total": -1125131,
+                "date": "2026-08-07"
+              }
             },
             {
               "code": "2308",
@@ -24387,7 +25283,14 @@ window.DATA = {
               "changePct": -1.79,
               "amplitude": 4.76,
               "volume": 10432120.0,
-              "quoteDate": "2026-08-07"
+              "quoteDate": "2026-08-07",
+              "inst": {
+                "foreign": -1697088,
+                "trust": 55554,
+                "dealer": -158250,
+                "total": -1799784,
+                "date": "2026-08-07"
+              }
             },
             {
               "code": "3008",
@@ -24404,7 +25307,14 @@ window.DATA = {
               "changePct": -5.19,
               "amplitude": 5.3,
               "volume": 1666019.0,
-              "quoteDate": "2026-08-07"
+              "quoteDate": "2026-08-07",
+              "inst": {
+                "foreign": -219802,
+                "trust": 28000,
+                "dealer": 15566,
+                "total": -176236,
+                "date": "2026-08-07"
+              }
             },
             {
               "code": "6187",
@@ -24438,7 +25348,14 @@ window.DATA = {
               "changePct": -0.44,
               "amplitude": 3.92,
               "volume": 70547660.0,
-              "quoteDate": "2026-08-07"
+              "quoteDate": "2026-08-07",
+              "inst": {
+                "foreign": 2147570,
+                "trust": -21000,
+                "dealer": 365468,
+                "total": 2492038,
+                "date": "2026-08-07"
+              }
             },
             {
               "code": "2345",
@@ -24455,7 +25372,14 @@ window.DATA = {
               "changePct": -8.09,
               "amplitude": 8.71,
               "volume": 4227407.0,
-              "quoteDate": "2026-08-07"
+              "quoteDate": "2026-08-07",
+              "inst": {
+                "foreign": -1238787,
+                "trust": -3000,
+                "dealer": -36584,
+                "total": -1278371,
+                "date": "2026-08-07"
+              }
             },
             {
               "code": "3036",
@@ -24472,7 +25396,14 @@ window.DATA = {
               "changePct": -9.42,
               "amplitude": 5.57,
               "volume": 42344213.0,
-              "quoteDate": "2026-08-07"
+              "quoteDate": "2026-08-07",
+              "inst": {
+                "foreign": -8652782,
+                "trust": 1159000,
+                "dealer": -186764,
+                "total": -7680546,
+                "date": "2026-08-07"
+              }
             },
             {
               "code": "2885",
@@ -24489,7 +25420,14 @@ window.DATA = {
               "changePct": 0.89,
               "amplitude": 1.94,
               "volume": 13749095.0,
-              "quoteDate": "2026-08-07"
+              "quoteDate": "2026-08-07",
+              "inst": {
+                "foreign": 2635069,
+                "trust": 351000,
+                "dealer": -25364,
+                "total": 2960705,
+                "date": "2026-08-07"
+              }
             },
             {
               "code": "3044",
@@ -24506,7 +25444,14 @@ window.DATA = {
               "changePct": -0.88,
               "amplitude": 2.64,
               "volume": 2043936.0,
-              "quoteDate": "2026-08-07"
+              "quoteDate": "2026-08-07",
+              "inst": {
+                "foreign": -329076,
+                "trust": 161000,
+                "dealer": 29451,
+                "total": -138625,
+                "date": "2026-08-07"
+              }
             },
             {
               "code": "2449",
@@ -24523,7 +25468,14 @@ window.DATA = {
               "changePct": -2.81,
               "amplitude": 3.82,
               "volume": 14953349.0,
-              "quoteDate": "2026-08-07"
+              "quoteDate": "2026-08-07",
+              "inst": {
+                "foreign": -3166540,
+                "trust": 7000,
+                "dealer": 3287,
+                "total": -3156253,
+                "date": "2026-08-07"
+              }
             },
             {
               "code": "3711",
@@ -24540,7 +25492,14 @@ window.DATA = {
               "changePct": -1.68,
               "amplitude": 5.38,
               "volume": 13050125.0,
-              "quoteDate": "2026-08-07"
+              "quoteDate": "2026-08-07",
+              "inst": {
+                "foreign": -3053732,
+                "trust": 557000,
+                "dealer": -273934,
+                "total": -2770666,
+                "date": "2026-08-07"
+              }
             },
             {
               "code": "3529",
@@ -24591,7 +25550,14 @@ window.DATA = {
               "changePct": -1.48,
               "amplitude": 7.19,
               "volume": 465933.0,
-              "quoteDate": "2026-08-07"
+              "quoteDate": "2026-08-07",
+              "inst": {
+                "foreign": -17034,
+                "trust": -39000,
+                "dealer": -629,
+                "total": -56663,
+                "date": "2026-08-07"
+              }
             },
             {
               "code": "8046",
@@ -24608,7 +25574,14 @@ window.DATA = {
               "changePct": -2.26,
               "amplitude": 6.79,
               "volume": 4069277.0,
-              "quoteDate": "2026-08-07"
+              "quoteDate": "2026-08-07",
+              "inst": {
+                "foreign": -841918,
+                "trust": 0,
+                "dealer": 25182,
+                "total": -816736,
+                "date": "2026-08-07"
+              }
             },
             {
               "code": "6239",
@@ -24625,7 +25598,14 @@ window.DATA = {
               "changePct": -2.6,
               "amplitude": 3.9,
               "volume": 20714928.0,
-              "quoteDate": "2026-08-07"
+              "quoteDate": "2026-08-07",
+              "inst": {
+                "foreign": -3782560,
+                "trust": 1253000,
+                "dealer": -438362,
+                "total": -2967922,
+                "date": "2026-08-07"
+              }
             },
             {
               "code": "2891",
@@ -24642,7 +25622,14 @@ window.DATA = {
               "changePct": 1.55,
               "amplitude": 1.55,
               "volume": 16259888.0,
-              "quoteDate": "2026-08-07"
+              "quoteDate": "2026-08-07",
+              "inst": {
+                "foreign": 6209635,
+                "trust": -181000,
+                "dealer": 93719,
+                "total": 6122354,
+                "date": "2026-08-07"
+              }
             },
             {
               "code": "2317",
@@ -24659,7 +25646,14 @@ window.DATA = {
               "changePct": -1.7,
               "amplitude": 3.4,
               "volume": 38813488.0,
-              "quoteDate": "2026-08-07"
+              "quoteDate": "2026-08-07",
+              "inst": {
+                "foreign": -5328129,
+                "trust": -800000,
+                "dealer": -626408,
+                "total": -6754537,
+                "date": "2026-08-07"
+              }
             },
             {
               "code": "2313",
@@ -24676,7 +25670,14 @@ window.DATA = {
               "changePct": -5.44,
               "amplitude": 8.16,
               "volume": 31604353.0,
-              "quoteDate": "2026-08-07"
+              "quoteDate": "2026-08-07",
+              "inst": {
+                "foreign": -7422076,
+                "trust": 409000,
+                "dealer": -1153759,
+                "total": -8166835,
+                "date": "2026-08-07"
+              }
             },
             {
               "code": "2881",
@@ -24693,7 +25694,14 @@ window.DATA = {
               "changePct": 0.79,
               "amplitude": 1.59,
               "volume": 10827608.0,
-              "quoteDate": "2026-08-07"
+              "quoteDate": "2026-08-07",
+              "inst": {
+                "foreign": 3370012,
+                "trust": -140000,
+                "dealer": 15799,
+                "total": 3245811,
+                "date": "2026-08-07"
+              }
             },
             {
               "code": "7769",
@@ -24710,7 +25718,14 @@ window.DATA = {
               "changePct": -2.39,
               "amplitude": 6.41,
               "volume": 539488.0,
-              "quoteDate": "2026-08-07"
+              "quoteDate": "2026-08-07",
+              "inst": {
+                "foreign": 8469,
+                "trust": -42000,
+                "dealer": 371,
+                "total": -33160,
+                "date": "2026-08-07"
+              }
             },
             {
               "code": "6505",
@@ -24727,7 +25742,14 @@ window.DATA = {
               "changePct": 5.81,
               "amplitude": 6.26,
               "volume": 41571771.0,
-              "quoteDate": "2026-08-07"
+              "quoteDate": "2026-08-07",
+              "inst": {
+                "foreign": -6535221,
+                "trust": 0,
+                "dealer": 620556,
+                "total": -5914665,
+                "date": "2026-08-07"
+              }
             },
             {
               "code": "2382",
@@ -24744,7 +25766,14 @@ window.DATA = {
               "changePct": -1.32,
               "amplitude": 3.31,
               "volume": 17516962.0,
-              "quoteDate": "2026-08-07"
+              "quoteDate": "2026-08-07",
+              "inst": {
+                "foreign": -6303273,
+                "trust": 79332,
+                "dealer": -378570,
+                "total": -6602511,
+                "date": "2026-08-07"
+              }
             },
             {
               "code": "5347",
@@ -24795,7 +25824,14 @@ window.DATA = {
               "changePct": -6.36,
               "amplitude": 9.89,
               "volume": 2465058.0,
-              "quoteDate": "2026-08-07"
+              "quoteDate": "2026-08-07",
+              "inst": {
+                "foreign": -144710,
+                "trust": -115000,
+                "dealer": -1403,
+                "total": -261113,
+                "date": "2026-08-07"
+              }
             },
             {
               "code": "6515",
@@ -24812,7 +25848,14 @@ window.DATA = {
               "changePct": -0.22,
               "amplitude": 8.41,
               "volume": 452198.0,
-              "quoteDate": "2026-08-07"
+              "quoteDate": "2026-08-07",
+              "inst": {
+                "foreign": -14709,
+                "trust": -28000,
+                "dealer": 3116,
+                "total": -39593,
+                "date": "2026-08-07"
+              }
             },
             {
               "code": "1303",
@@ -24829,7 +25872,14 @@ window.DATA = {
               "changePct": 5.32,
               "amplitude": 8.12,
               "volume": 129122451.0,
-              "quoteDate": "2026-08-07"
+              "quoteDate": "2026-08-07",
+              "inst": {
+                "foreign": -7333983,
+                "trust": 1758000,
+                "dealer": 376546,
+                "total": -5199437,
+                "date": "2026-08-07"
+              }
             },
             {
               "code": "3293",
@@ -24863,7 +25913,14 @@ window.DATA = {
               "changePct": -1.96,
               "amplitude": 3.34,
               "volume": 776294.0,
-              "quoteDate": "2026-08-07"
+              "quoteDate": "2026-08-07",
+              "inst": {
+                "foreign": 13389,
+                "trust": -243000,
+                "dealer": 13120,
+                "total": -216491,
+                "date": "2026-08-07"
+              }
             },
             {
               "code": "3090",
@@ -24880,7 +25937,14 @@ window.DATA = {
               "changePct": -2.9,
               "amplitude": 5.81,
               "volume": 8732569.0,
-              "quoteDate": "2026-08-07"
+              "quoteDate": "2026-08-07",
+              "inst": {
+                "foreign": -2102426,
+                "trust": 0,
+                "dealer": -51137,
+                "total": -2153563,
+                "date": "2026-08-07"
+              }
             },
             {
               "code": "3374",
@@ -24931,7 +25995,14 @@ window.DATA = {
               "changePct": -7.36,
               "amplitude": 8.47,
               "volume": 486212.0,
-              "quoteDate": "2026-08-07"
+              "quoteDate": "2026-08-07",
+              "inst": {
+                "foreign": 14000,
+                "trust": -192000,
+                "dealer": -2283,
+                "total": -180283,
+                "date": "2026-08-07"
+              }
             },
             {
               "code": "2385",
@@ -24948,7 +26019,14 @@ window.DATA = {
               "changePct": -1.93,
               "amplitude": 2.9,
               "volume": 4319667.0,
-              "quoteDate": "2026-08-07"
+              "quoteDate": "2026-08-07",
+              "inst": {
+                "foreign": -781521,
+                "trust": -80107,
+                "dealer": -18572,
+                "total": -880200,
+                "date": "2026-08-07"
+              }
             },
             {
               "code": "9939",
@@ -24965,7 +26043,14 @@ window.DATA = {
               "changePct": 1.4,
               "amplitude": 3.86,
               "volume": 3055602.0,
-              "quoteDate": "2026-08-07"
+              "quoteDate": "2026-08-07",
+              "inst": {
+                "foreign": 1292040,
+                "trust": -1000,
+                "dealer": 27177,
+                "total": 1318217,
+                "date": "2026-08-07"
+              }
             },
             {
               "code": "2303",
@@ -24982,7 +26067,14 @@ window.DATA = {
               "changePct": -4.53,
               "amplitude": 6.17,
               "volume": 169352784.0,
-              "quoteDate": "2026-08-07"
+              "quoteDate": "2026-08-07",
+              "inst": {
+                "foreign": -23200666,
+                "trust": -6691000,
+                "dealer": -2838812,
+                "total": -32730478,
+                "date": "2026-08-07"
+              }
             }
           ]
         }
@@ -29303,7 +30395,7 @@ window.DATA = {
         },
         {
           "date": "2026-08-07",
-          "fetched_at": "2026-08-07T20:41:15+08:00",
+          "fetched_at": "2026-08-07T21:37:05+08:00",
           "count": 50,
           "self": {
             "open": 103.8,
@@ -29333,7 +30425,14 @@ window.DATA = {
               "changePct": 0.21,
               "amplitude": 1.69,
               "volume": 24414025.0,
-              "quoteDate": "2026-08-07"
+              "quoteDate": "2026-08-07",
+              "inst": {
+                "foreign": 641660,
+                "trust": 61000,
+                "dealer": 1242950,
+                "total": 1945610,
+                "date": "2026-08-07"
+              }
             },
             {
               "code": "2454",
@@ -29350,7 +30449,14 @@ window.DATA = {
               "changePct": -0.51,
               "amplitude": 4.72,
               "volume": 6607003.0,
-              "quoteDate": "2026-08-07"
+              "quoteDate": "2026-08-07",
+              "inst": {
+                "foreign": 71648,
+                "trust": -128000,
+                "dealer": -16329,
+                "total": -72681,
+                "date": "2026-08-07"
+              }
             },
             {
               "code": "2308",
@@ -29367,7 +30473,14 @@ window.DATA = {
               "changePct": -1.79,
               "amplitude": 4.76,
               "volume": 10432120.0,
-              "quoteDate": "2026-08-07"
+              "quoteDate": "2026-08-07",
+              "inst": {
+                "foreign": -1697088,
+                "trust": 55554,
+                "dealer": -158250,
+                "total": -1799784,
+                "date": "2026-08-07"
+              }
             },
             {
               "code": "2317",
@@ -29384,7 +30497,14 @@ window.DATA = {
               "changePct": -1.7,
               "amplitude": 3.4,
               "volume": 38813488.0,
-              "quoteDate": "2026-08-07"
+              "quoteDate": "2026-08-07",
+              "inst": {
+                "foreign": -5328129,
+                "trust": -800000,
+                "dealer": -626408,
+                "total": -6754537,
+                "date": "2026-08-07"
+              }
             },
             {
               "code": "3711",
@@ -29401,7 +30521,14 @@ window.DATA = {
               "changePct": -1.68,
               "amplitude": 5.38,
               "volume": 13050125.0,
-              "quoteDate": "2026-08-07"
+              "quoteDate": "2026-08-07",
+              "inst": {
+                "foreign": -3053732,
+                "trust": 557000,
+                "dealer": -273934,
+                "total": -2770666,
+                "date": "2026-08-07"
+              }
             },
             {
               "code": "2383",
@@ -29418,7 +30545,14 @@ window.DATA = {
               "changePct": -1.23,
               "amplitude": 4.15,
               "volume": 1362847.0,
-              "quoteDate": "2026-08-07"
+              "quoteDate": "2026-08-07",
+              "inst": {
+                "foreign": -39277,
+                "trust": -9000,
+                "dealer": -1404,
+                "total": -49681,
+                "date": "2026-08-07"
+              }
             },
             {
               "code": "2303",
@@ -29435,7 +30569,14 @@ window.DATA = {
               "changePct": -4.53,
               "amplitude": 6.17,
               "volume": 169352784.0,
-              "quoteDate": "2026-08-07"
+              "quoteDate": "2026-08-07",
+              "inst": {
+                "foreign": -23200666,
+                "trust": -6691000,
+                "dealer": -2838812,
+                "total": -32730478,
+                "date": "2026-08-07"
+              }
             },
             {
               "code": "3037",
@@ -29452,7 +30593,14 @@ window.DATA = {
               "changePct": -1.85,
               "amplitude": 5.86,
               "volume": 21596279.0,
-              "quoteDate": "2026-08-07"
+              "quoteDate": "2026-08-07",
+              "inst": {
+                "foreign": -790555,
+                "trust": 74000,
+                "dealer": -47709,
+                "total": -764264,
+                "date": "2026-08-07"
+              }
             },
             {
               "code": "2891",
@@ -29469,7 +30617,14 @@ window.DATA = {
               "changePct": 1.55,
               "amplitude": 1.55,
               "volume": 16259888.0,
-              "quoteDate": "2026-08-07"
+              "quoteDate": "2026-08-07",
+              "inst": {
+                "foreign": 6209635,
+                "trust": -181000,
+                "dealer": 93719,
+                "total": 6122354,
+                "date": "2026-08-07"
+              }
             },
             {
               "code": "2345",
@@ -29486,7 +30641,14 @@ window.DATA = {
               "changePct": -8.09,
               "amplitude": 8.71,
               "volume": 4227407.0,
-              "quoteDate": "2026-08-07"
+              "quoteDate": "2026-08-07",
+              "inst": {
+                "foreign": -1238787,
+                "trust": -3000,
+                "dealer": -36584,
+                "total": -1278371,
+                "date": "2026-08-07"
+              }
             },
             {
               "code": "2881",
@@ -29503,7 +30665,14 @@ window.DATA = {
               "changePct": 0.79,
               "amplitude": 1.59,
               "volume": 10827608.0,
-              "quoteDate": "2026-08-07"
+              "quoteDate": "2026-08-07",
+              "inst": {
+                "foreign": 3370012,
+                "trust": -140000,
+                "dealer": 15799,
+                "total": 3245811,
+                "date": "2026-08-07"
+              }
             },
             {
               "code": "2882",
@@ -29520,7 +30689,14 @@ window.DATA = {
               "changePct": 1.95,
               "amplitude": 2.05,
               "volume": 14079089.0,
-              "quoteDate": "2026-08-07"
+              "quoteDate": "2026-08-07",
+              "inst": {
+                "foreign": 4316898,
+                "trust": -2000,
+                "dealer": 60866,
+                "total": 4375764,
+                "date": "2026-08-07"
+              }
             },
             {
               "code": "1303",
@@ -29537,7 +30713,14 @@ window.DATA = {
               "changePct": 5.32,
               "amplitude": 8.12,
               "volume": 129122451.0,
-              "quoteDate": "2026-08-07"
+              "quoteDate": "2026-08-07",
+              "inst": {
+                "foreign": -7333983,
+                "trust": 1758000,
+                "dealer": 376546,
+                "total": -5199437,
+                "date": "2026-08-07"
+              }
             },
             {
               "code": "3017",
@@ -29554,7 +30737,14 @@ window.DATA = {
               "changePct": -5.27,
               "amplitude": 6.29,
               "volume": 4140360.0,
-              "quoteDate": "2026-08-07"
+              "quoteDate": "2026-08-07",
+              "inst": {
+                "foreign": -239960,
+                "trust": 527200,
+                "dealer": -43735,
+                "total": 243505,
+                "date": "2026-08-07"
+              }
             },
             {
               "code": "2327",
@@ -29571,7 +30761,14 @@ window.DATA = {
               "changePct": -5.26,
               "amplitude": 8.25,
               "volume": 44277453.0,
-              "quoteDate": "2026-08-07"
+              "quoteDate": "2026-08-07",
+              "inst": {
+                "foreign": -9347045,
+                "trust": -1516000,
+                "dealer": 141999,
+                "total": -10721046,
+                "date": "2026-08-07"
+              }
             },
             {
               "code": "2887",
@@ -29588,7 +30785,14 @@ window.DATA = {
               "changePct": 1.88,
               "amplitude": 2.03,
               "volume": 31040680.0,
-              "quoteDate": "2026-08-07"
+              "quoteDate": "2026-08-07",
+              "inst": {
+                "foreign": 14196618,
+                "trust": 55000,
+                "dealer": 232392,
+                "total": 14484010,
+                "date": "2026-08-07"
+              }
             },
             {
               "code": "2382",
@@ -29605,7 +30809,14 @@ window.DATA = {
               "changePct": -1.32,
               "amplitude": 3.31,
               "volume": 17516962.0,
-              "quoteDate": "2026-08-07"
+              "quoteDate": "2026-08-07",
+              "inst": {
+                "foreign": -6303273,
+                "trust": 79332,
+                "dealer": -378570,
+                "total": -6602511,
+                "date": "2026-08-07"
+              }
             },
             {
               "code": "2885",
@@ -29622,7 +30833,14 @@ window.DATA = {
               "changePct": 0.89,
               "amplitude": 1.94,
               "volume": 13749095.0,
-              "quoteDate": "2026-08-07"
+              "quoteDate": "2026-08-07",
+              "inst": {
+                "foreign": 2635069,
+                "trust": 351000,
+                "dealer": -25364,
+                "total": 2960705,
+                "date": "2026-08-07"
+              }
             },
             {
               "code": "2360",
@@ -29639,7 +30857,14 @@ window.DATA = {
               "changePct": 2.78,
               "amplitude": 6.33,
               "volume": 3166068.0,
-              "quoteDate": "2026-08-07"
+              "quoteDate": "2026-08-07",
+              "inst": {
+                "foreign": 144700,
+                "trust": 165000,
+                "dealer": -154927,
+                "total": 154773,
+                "date": "2026-08-07"
+              }
             },
             {
               "code": "6669",
@@ -29656,7 +30881,14 @@ window.DATA = {
               "changePct": -2.63,
               "amplitude": 3.83,
               "volume": 1427158.0,
-              "quoteDate": "2026-08-07"
+              "quoteDate": "2026-08-07",
+              "inst": {
+                "foreign": -138166,
+                "trust": 92000,
+                "dealer": -1962,
+                "total": -48128,
+                "date": "2026-08-07"
+              }
             },
             {
               "code": "2059",
@@ -29673,7 +30905,14 @@ window.DATA = {
               "changePct": 10.0,
               "amplitude": 0.0,
               "volume": 361895.0,
-              "quoteDate": "2026-08-07"
+              "quoteDate": "2026-08-07",
+              "inst": {
+                "foreign": -42651,
+                "trust": -68000,
+                "dealer": 36977,
+                "total": -73674,
+                "date": "2026-08-07"
+              }
             },
             {
               "code": "2886",
@@ -29690,7 +30929,14 @@ window.DATA = {
               "changePct": 1.19,
               "amplitude": 1.59,
               "volume": 22565910.0,
-              "quoteDate": "2026-08-07"
+              "quoteDate": "2026-08-07",
+              "inst": {
+                "foreign": -9246612,
+                "trust": 2849000,
+                "dealer": 576133,
+                "total": -5821479,
+                "date": "2026-08-07"
+              }
             },
             {
               "code": "2884",
@@ -29707,7 +30953,14 @@ window.DATA = {
               "changePct": 0.53,
               "amplitude": 1.32,
               "volume": 17374284.0,
-              "quoteDate": "2026-08-07"
+              "quoteDate": "2026-08-07",
+              "inst": {
+                "foreign": 267117,
+                "trust": 1166000,
+                "dealer": -59213,
+                "total": 1373904,
+                "date": "2026-08-07"
+              }
             },
             {
               "code": "2357",
@@ -29724,7 +30977,14 @@ window.DATA = {
               "changePct": -0.12,
               "amplitude": 2.44,
               "volume": 4616536.0,
-              "quoteDate": "2026-08-07"
+              "quoteDate": "2026-08-07",
+              "inst": {
+                "foreign": 2466634,
+                "trust": -1179000,
+                "dealer": 42139,
+                "total": 1329773,
+                "date": "2026-08-07"
+              }
             },
             {
               "code": "3231",
@@ -29741,7 +31001,14 @@ window.DATA = {
               "changePct": -3.17,
               "amplitude": 3.96,
               "volume": 65415961.0,
-              "quoteDate": "2026-08-07"
+              "quoteDate": "2026-08-07",
+              "inst": {
+                "foreign": 17158210,
+                "trust": -10276000,
+                "dealer": 861453,
+                "total": 7743663,
+                "date": "2026-08-07"
+              }
             },
             {
               "code": "2408",
@@ -29758,7 +31025,14 @@ window.DATA = {
               "changePct": -0.44,
               "amplitude": 3.92,
               "volume": 70547660.0,
-              "quoteDate": "2026-08-07"
+              "quoteDate": "2026-08-07",
+              "inst": {
+                "foreign": 2147570,
+                "trust": -21000,
+                "dealer": 365468,
+                "total": 2492038,
+                "date": "2026-08-07"
+              }
             },
             {
               "code": "2412",
@@ -29775,7 +31049,14 @@ window.DATA = {
               "changePct": 0.36,
               "amplitude": 1.09,
               "volume": 6922457.0,
-              "quoteDate": "2026-08-07"
+              "quoteDate": "2026-08-07",
+              "inst": {
+                "foreign": 1407518,
+                "trust": 369876,
+                "dealer": -27000,
+                "total": 1750394,
+                "date": "2026-08-07"
+              }
             },
             {
               "code": "2890",
@@ -29792,7 +31073,14 @@ window.DATA = {
               "changePct": 0.65,
               "amplitude": 1.16,
               "volume": 8967206.0,
-              "quoteDate": "2026-08-07"
+              "quoteDate": "2026-08-07",
+              "inst": {
+                "foreign": 2427705,
+                "trust": 33000,
+                "dealer": 15985,
+                "total": 2476690,
+                "date": "2026-08-07"
+              }
             },
             {
               "code": "2344",
@@ -29809,7 +31097,14 @@ window.DATA = {
               "changePct": -4.39,
               "amplitude": 5.85,
               "volume": 176709453.0,
-              "quoteDate": "2026-08-07"
+              "quoteDate": "2026-08-07",
+              "inst": {
+                "foreign": -43331455,
+                "trust": -187000,
+                "dealer": -2746692,
+                "total": -46265147,
+                "date": "2026-08-07"
+              }
             },
             {
               "code": "2301",
@@ -29826,7 +31121,14 @@ window.DATA = {
               "changePct": -2.18,
               "amplitude": 9.5,
               "volume": 33004584.0,
-              "quoteDate": "2026-08-07"
+              "quoteDate": "2026-08-07",
+              "inst": {
+                "foreign": 2128749,
+                "trust": 20000,
+                "dealer": 147811,
+                "total": 2296560,
+                "date": "2026-08-07"
+              }
             },
             {
               "code": "2883",
@@ -29843,7 +31145,14 @@ window.DATA = {
               "changePct": 0.82,
               "amplitude": 2.12,
               "volume": 26940173.0,
-              "quoteDate": "2026-08-07"
+              "quoteDate": "2026-08-07",
+              "inst": {
+                "foreign": -3621640,
+                "trust": 3985000,
+                "dealer": 151432,
+                "total": 514792,
+                "date": "2026-08-07"
+              }
             },
             {
               "code": "3008",
@@ -29860,7 +31169,14 @@ window.DATA = {
               "changePct": -5.19,
               "amplitude": 5.3,
               "volume": 1666019.0,
-              "quoteDate": "2026-08-07"
+              "quoteDate": "2026-08-07",
+              "inst": {
+                "foreign": -219802,
+                "trust": 28000,
+                "dealer": 15566,
+                "total": -176236,
+                "date": "2026-08-07"
+              }
             },
             {
               "code": "2880",
@@ -29877,7 +31193,14 @@ window.DATA = {
               "changePct": 0.79,
               "amplitude": 3.29,
               "volume": 24856176.0,
-              "quoteDate": "2026-08-07"
+              "quoteDate": "2026-08-07",
+              "inst": {
+                "foreign": -10745773,
+                "trust": 6911000,
+                "dealer": 40790,
+                "total": -3793983,
+                "date": "2026-08-07"
+              }
             },
             {
               "code": "2892",
@@ -29894,7 +31217,14 @@ window.DATA = {
               "changePct": 0.14,
               "amplitude": 1.55,
               "volume": 32436418.0,
-              "quoteDate": "2026-08-07"
+              "quoteDate": "2026-08-07",
+              "inst": {
+                "foreign": -12690979,
+                "trust": 1291000,
+                "dealer": -270062,
+                "total": -11670041,
+                "date": "2026-08-07"
+              }
             },
             {
               "code": "3665",
@@ -29911,7 +31241,14 @@ window.DATA = {
               "changePct": -7.17,
               "amplitude": 4.85,
               "volume": 5516384.0,
-              "quoteDate": "2026-08-07"
+              "quoteDate": "2026-08-07",
+              "inst": {
+                "foreign": -408108,
+                "trust": -672000,
+                "dealer": -45023,
+                "total": -1125131,
+                "date": "2026-08-07"
+              }
             },
             {
               "code": "3653",
@@ -29928,7 +31265,14 @@ window.DATA = {
               "changePct": -1.57,
               "amplitude": 6.29,
               "volume": 1730866.0,
-              "quoteDate": "2026-08-07"
+              "quoteDate": "2026-08-07",
+              "inst": {
+                "foreign": -14805,
+                "trust": 59000,
+                "dealer": 1182,
+                "total": 45377,
+                "date": "2026-08-07"
+              }
             },
             {
               "code": "1216",
@@ -29945,7 +31289,14 @@ window.DATA = {
               "changePct": 3.7,
               "amplitude": 3.01,
               "volume": 27739254.0,
-              "quoteDate": "2026-08-07"
+              "quoteDate": "2026-08-07",
+              "inst": {
+                "foreign": 20335509,
+                "trust": -97000,
+                "dealer": -4412,
+                "total": 20234097,
+                "date": "2026-08-07"
+              }
             },
             {
               "code": "3443",
@@ -29962,7 +31313,14 @@ window.DATA = {
               "changePct": 1.45,
               "amplitude": 5.58,
               "volume": 1913717.0,
-              "quoteDate": "2026-08-07"
+              "quoteDate": "2026-08-07",
+              "inst": {
+                "foreign": 19022,
+                "trust": 100700,
+                "dealer": -17094,
+                "total": 102628,
+                "date": "2026-08-07"
+              }
             },
             {
               "code": "7769",
@@ -29979,7 +31337,14 @@ window.DATA = {
               "changePct": -2.39,
               "amplitude": 6.41,
               "volume": 539488.0,
-              "quoteDate": "2026-08-07"
+              "quoteDate": "2026-08-07",
+              "inst": {
+                "foreign": 8469,
+                "trust": -42000,
+                "dealer": 371,
+                "total": -33160,
+                "date": "2026-08-07"
+              }
             },
             {
               "code": "4958",
@@ -29996,7 +31361,14 @@ window.DATA = {
               "changePct": -1.87,
               "amplitude": 6.95,
               "volume": 33166518.0,
-              "quoteDate": "2026-08-07"
+              "quoteDate": "2026-08-07",
+              "inst": {
+                "foreign": -5465780,
+                "trust": 119000,
+                "dealer": 132327,
+                "total": -5214453,
+                "date": "2026-08-07"
+              }
             },
             {
               "code": "2368",
@@ -30013,7 +31385,14 @@ window.DATA = {
               "changePct": -0.3,
               "amplitude": 7.51,
               "volume": 12352014.0,
-              "quoteDate": "2026-08-07"
+              "quoteDate": "2026-08-07",
+              "inst": {
+                "foreign": -797876,
+                "trust": 535000,
+                "dealer": 102318,
+                "total": -160558,
+                "date": "2026-08-07"
+              }
             },
             {
               "code": "2395",
@@ -30030,7 +31409,14 @@ window.DATA = {
               "changePct": 1.93,
               "amplitude": 5.14,
               "volume": 6309278.0,
-              "quoteDate": "2026-08-07"
+              "quoteDate": "2026-08-07",
+              "inst": {
+                "foreign": 697544,
+                "trust": 207,
+                "dealer": 36836,
+                "total": 734587,
+                "date": "2026-08-07"
+              }
             },
             {
               "code": "3661",
@@ -30047,7 +31433,14 @@ window.DATA = {
               "changePct": 1.5,
               "amplitude": 6.56,
               "volume": 2277767.0,
-              "quoteDate": "2026-08-07"
+              "quoteDate": "2026-08-07",
+              "inst": {
+                "foreign": -40023,
+                "trust": -13000,
+                "dealer": 22776,
+                "total": -30247,
+                "date": "2026-08-07"
+              }
             },
             {
               "code": "5880",
@@ -30064,7 +31457,14 @@ window.DATA = {
               "changePct": 0.38,
               "amplitude": 0.77,
               "volume": 15150397.0,
-              "quoteDate": "2026-08-07"
+              "quoteDate": "2026-08-07",
+              "inst": {
+                "foreign": 3220840,
+                "trust": 0,
+                "dealer": 27000,
+                "total": 3247840,
+                "date": "2026-08-07"
+              }
             },
             {
               "code": "2449",
@@ -30081,7 +31481,14 @@ window.DATA = {
               "changePct": -2.81,
               "amplitude": 3.82,
               "volume": 14953349.0,
-              "quoteDate": "2026-08-07"
+              "quoteDate": "2026-08-07",
+              "inst": {
+                "foreign": -3166540,
+                "trust": 7000,
+                "dealer": 3287,
+                "total": -3156253,
+                "date": "2026-08-07"
+              }
             },
             {
               "code": "2603",
@@ -30098,7 +31505,14 @@ window.DATA = {
               "changePct": 1.72,
               "amplitude": 1.72,
               "volume": 6028826.0,
-              "quoteDate": "2026-08-07"
+              "quoteDate": "2026-08-07",
+              "inst": {
+                "foreign": 2472468,
+                "trust": 1183000,
+                "dealer": -71406,
+                "total": 3584062,
+                "date": "2026-08-07"
+              }
             },
             {
               "code": "8046",
@@ -30115,7 +31529,14 @@ window.DATA = {
               "changePct": -2.26,
               "amplitude": 6.79,
               "volume": 4069277.0,
-              "quoteDate": "2026-08-07"
+              "quoteDate": "2026-08-07",
+              "inst": {
+                "foreign": -841918,
+                "trust": 0,
+                "dealer": 25182,
+                "total": -816736,
+                "date": "2026-08-07"
+              }
             },
             {
               "code": "4904",
@@ -30132,7 +31553,14 @@ window.DATA = {
               "changePct": 0.98,
               "amplitude": 2.45,
               "volume": 6077516.0,
-              "quoteDate": "2026-08-07"
+              "quoteDate": "2026-08-07",
+              "inst": {
+                "foreign": 944453,
+                "trust": 763000,
+                "dealer": 40338,
+                "total": 1747791,
+                "date": "2026-08-07"
+              }
             },
             {
               "code": "3045",
@@ -30149,7 +31577,14 @@ window.DATA = {
               "changePct": 0.9,
               "amplitude": 1.36,
               "volume": 7046434.0,
-              "quoteDate": "2026-08-07"
+              "quoteDate": "2026-08-07",
+              "inst": {
+                "foreign": 1724407,
+                "trust": 105063,
+                "dealer": 8989,
+                "total": 1838459,
+                "date": "2026-08-07"
+              }
             },
             {
               "code": "6505",
@@ -30166,7 +31601,14 @@ window.DATA = {
               "changePct": 5.81,
               "amplitude": 6.26,
               "volume": 41571771.0,
-              "quoteDate": "2026-08-07"
+              "quoteDate": "2026-08-07",
+              "inst": {
+                "foreign": -6535221,
+                "trust": 0,
+                "dealer": 620556,
+                "total": -5914665,
+                "date": "2026-08-07"
+              }
             }
           ]
         }
@@ -36349,7 +37791,7 @@ window.DATA = {
         },
         {
           "date": "2026-08-07",
-          "fetched_at": "2026-08-07T20:41:17+08:00",
+          "fetched_at": "2026-08-07T21:37:07+08:00",
           "count": 72,
           "self": {
             "open": 60.65,
@@ -36379,7 +37821,14 @@ window.DATA = {
               "changePct": 0.21,
               "amplitude": 1.69,
               "volume": 24414025.0,
-              "quoteDate": "2026-08-07"
+              "quoteDate": "2026-08-07",
+              "inst": {
+                "foreign": 641660,
+                "trust": 61000,
+                "dealer": 1242950,
+                "total": 1945610,
+                "date": "2026-08-07"
+              }
             },
             {
               "code": "2454",
@@ -36396,7 +37845,14 @@ window.DATA = {
               "changePct": -0.51,
               "amplitude": 4.72,
               "volume": 6607003.0,
-              "quoteDate": "2026-08-07"
+              "quoteDate": "2026-08-07",
+              "inst": {
+                "foreign": 71648,
+                "trust": -128000,
+                "dealer": -16329,
+                "total": -72681,
+                "date": "2026-08-07"
+              }
             },
             {
               "code": "2317",
@@ -36413,7 +37869,14 @@ window.DATA = {
               "changePct": -1.7,
               "amplitude": 3.4,
               "volume": 38813488.0,
-              "quoteDate": "2026-08-07"
+              "quoteDate": "2026-08-07",
+              "inst": {
+                "foreign": -5328129,
+                "trust": -800000,
+                "dealer": -626408,
+                "total": -6754537,
+                "date": "2026-08-07"
+              }
             },
             {
               "code": "3711",
@@ -36430,7 +37893,14 @@ window.DATA = {
               "changePct": -1.68,
               "amplitude": 5.38,
               "volume": 13050125.0,
-              "quoteDate": "2026-08-07"
+              "quoteDate": "2026-08-07",
+              "inst": {
+                "foreign": -3053732,
+                "trust": 557000,
+                "dealer": -273934,
+                "total": -2770666,
+                "date": "2026-08-07"
+              }
             },
             {
               "code": "2383",
@@ -36447,7 +37917,14 @@ window.DATA = {
               "changePct": -1.23,
               "amplitude": 4.15,
               "volume": 1362847.0,
-              "quoteDate": "2026-08-07"
+              "quoteDate": "2026-08-07",
+              "inst": {
+                "foreign": -39277,
+                "trust": -9000,
+                "dealer": -1404,
+                "total": -49681,
+                "date": "2026-08-07"
+              }
             },
             {
               "code": "2303",
@@ -36464,7 +37941,14 @@ window.DATA = {
               "changePct": -4.53,
               "amplitude": 6.17,
               "volume": 169352784.0,
-              "quoteDate": "2026-08-07"
+              "quoteDate": "2026-08-07",
+              "inst": {
+                "foreign": -23200666,
+                "trust": -6691000,
+                "dealer": -2838812,
+                "total": -32730478,
+                "date": "2026-08-07"
+              }
             },
             {
               "code": "3037",
@@ -36481,7 +37965,14 @@ window.DATA = {
               "changePct": -1.85,
               "amplitude": 5.86,
               "volume": 21596279.0,
-              "quoteDate": "2026-08-07"
+              "quoteDate": "2026-08-07",
+              "inst": {
+                "foreign": -790555,
+                "trust": 74000,
+                "dealer": -47709,
+                "total": -764264,
+                "date": "2026-08-07"
+              }
             },
             {
               "code": "3017",
@@ -36498,7 +37989,14 @@ window.DATA = {
               "changePct": -5.27,
               "amplitude": 6.29,
               "volume": 4140360.0,
-              "quoteDate": "2026-08-07"
+              "quoteDate": "2026-08-07",
+              "inst": {
+                "foreign": -239960,
+                "trust": 527200,
+                "dealer": -43735,
+                "total": 243505,
+                "date": "2026-08-07"
+              }
             },
             {
               "code": "2327",
@@ -36515,7 +38013,14 @@ window.DATA = {
               "changePct": -5.26,
               "amplitude": 8.25,
               "volume": 44277453.0,
-              "quoteDate": "2026-08-07"
+              "quoteDate": "2026-08-07",
+              "inst": {
+                "foreign": -9347045,
+                "trust": -1516000,
+                "dealer": 141999,
+                "total": -10721046,
+                "date": "2026-08-07"
+              }
             },
             {
               "code": "2382",
@@ -36532,7 +38037,14 @@ window.DATA = {
               "changePct": -1.32,
               "amplitude": 3.31,
               "volume": 17516962.0,
-              "quoteDate": "2026-08-07"
+              "quoteDate": "2026-08-07",
+              "inst": {
+                "foreign": -6303273,
+                "trust": 79332,
+                "dealer": -378570,
+                "total": -6602511,
+                "date": "2026-08-07"
+              }
             },
             {
               "code": "6669",
@@ -36549,7 +38061,14 @@ window.DATA = {
               "changePct": -2.63,
               "amplitude": 3.83,
               "volume": 1427158.0,
-              "quoteDate": "2026-08-07"
+              "quoteDate": "2026-08-07",
+              "inst": {
+                "foreign": -138166,
+                "trust": 92000,
+                "dealer": -1962,
+                "total": -48128,
+                "date": "2026-08-07"
+              }
             },
             {
               "code": "3231",
@@ -36566,7 +38085,14 @@ window.DATA = {
               "changePct": -3.17,
               "amplitude": 3.96,
               "volume": 65415961.0,
-              "quoteDate": "2026-08-07"
+              "quoteDate": "2026-08-07",
+              "inst": {
+                "foreign": 17158210,
+                "trust": -10276000,
+                "dealer": 861453,
+                "total": 7743663,
+                "date": "2026-08-07"
+              }
             },
             {
               "code": "2357",
@@ -36583,7 +38109,14 @@ window.DATA = {
               "changePct": -0.12,
               "amplitude": 2.44,
               "volume": 4616536.0,
-              "quoteDate": "2026-08-07"
+              "quoteDate": "2026-08-07",
+              "inst": {
+                "foreign": 2466634,
+                "trust": -1179000,
+                "dealer": 42139,
+                "total": 1329773,
+                "date": "2026-08-07"
+              }
             },
             {
               "code": "2408",
@@ -36600,7 +38133,14 @@ window.DATA = {
               "changePct": -0.44,
               "amplitude": 3.92,
               "volume": 70547660.0,
-              "quoteDate": "2026-08-07"
+              "quoteDate": "2026-08-07",
+              "inst": {
+                "foreign": 2147570,
+                "trust": -21000,
+                "dealer": 365468,
+                "total": 2492038,
+                "date": "2026-08-07"
+              }
             },
             {
               "code": "2344",
@@ -36617,7 +38157,14 @@ window.DATA = {
               "changePct": -4.39,
               "amplitude": 5.85,
               "volume": 176709453.0,
-              "quoteDate": "2026-08-07"
+              "quoteDate": "2026-08-07",
+              "inst": {
+                "foreign": -43331455,
+                "trust": -187000,
+                "dealer": -2746692,
+                "total": -46265147,
+                "date": "2026-08-07"
+              }
             },
             {
               "code": "2301",
@@ -36634,7 +38181,14 @@ window.DATA = {
               "changePct": -2.18,
               "amplitude": 9.5,
               "volume": 33004584.0,
-              "quoteDate": "2026-08-07"
+              "quoteDate": "2026-08-07",
+              "inst": {
+                "foreign": 2128749,
+                "trust": 20000,
+                "dealer": 147811,
+                "total": 2296560,
+                "date": "2026-08-07"
+              }
             },
             {
               "code": "3008",
@@ -36651,7 +38205,14 @@ window.DATA = {
               "changePct": -5.19,
               "amplitude": 5.3,
               "volume": 1666019.0,
-              "quoteDate": "2026-08-07"
+              "quoteDate": "2026-08-07",
+              "inst": {
+                "foreign": -219802,
+                "trust": 28000,
+                "dealer": 15566,
+                "total": -176236,
+                "date": "2026-08-07"
+              }
             },
             {
               "code": "3665",
@@ -36668,7 +38229,14 @@ window.DATA = {
               "changePct": -7.17,
               "amplitude": 4.85,
               "volume": 5516384.0,
-              "quoteDate": "2026-08-07"
+              "quoteDate": "2026-08-07",
+              "inst": {
+                "foreign": -408108,
+                "trust": -672000,
+                "dealer": -45023,
+                "total": -1125131,
+                "date": "2026-08-07"
+              }
             },
             {
               "code": "3653",
@@ -36685,7 +38253,14 @@ window.DATA = {
               "changePct": -1.57,
               "amplitude": 6.29,
               "volume": 1730866.0,
-              "quoteDate": "2026-08-07"
+              "quoteDate": "2026-08-07",
+              "inst": {
+                "foreign": -14805,
+                "trust": 59000,
+                "dealer": 1182,
+                "total": 45377,
+                "date": "2026-08-07"
+              }
             },
             {
               "code": "2379",
@@ -36702,7 +38277,14 @@ window.DATA = {
               "changePct": 0.81,
               "amplitude": 4.17,
               "volume": 3482120.0,
-              "quoteDate": "2026-08-07"
+              "quoteDate": "2026-08-07",
+              "inst": {
+                "foreign": 213295,
+                "trust": 130807,
+                "dealer": 30309,
+                "total": 374411,
+                "date": "2026-08-07"
+              }
             },
             {
               "code": "3443",
@@ -36719,7 +38301,14 @@ window.DATA = {
               "changePct": 1.45,
               "amplitude": 5.58,
               "volume": 1913717.0,
-              "quoteDate": "2026-08-07"
+              "quoteDate": "2026-08-07",
+              "inst": {
+                "foreign": 19022,
+                "trust": 100700,
+                "dealer": -17094,
+                "total": 102628,
+                "date": "2026-08-07"
+              }
             },
             {
               "code": "7769",
@@ -36736,7 +38325,14 @@ window.DATA = {
               "changePct": -2.39,
               "amplitude": 6.41,
               "volume": 539488.0,
-              "quoteDate": "2026-08-07"
+              "quoteDate": "2026-08-07",
+              "inst": {
+                "foreign": 8469,
+                "trust": -42000,
+                "dealer": 371,
+                "total": -33160,
+                "date": "2026-08-07"
+              }
             },
             {
               "code": "4958",
@@ -36753,7 +38349,14 @@ window.DATA = {
               "changePct": -1.87,
               "amplitude": 6.95,
               "volume": 33166518.0,
-              "quoteDate": "2026-08-07"
+              "quoteDate": "2026-08-07",
+              "inst": {
+                "foreign": -5465780,
+                "trust": 119000,
+                "dealer": 132327,
+                "total": -5214453,
+                "date": "2026-08-07"
+              }
             },
             {
               "code": "3481",
@@ -36770,7 +38373,14 @@ window.DATA = {
               "changePct": -4.9,
               "amplitude": 5.7,
               "volume": 270860320.0,
-              "quoteDate": "2026-08-07"
+              "quoteDate": "2026-08-07",
+              "inst": {
+                "foreign": -51201712,
+                "trust": 0,
+                "dealer": -2717673,
+                "total": -53919385,
+                "date": "2026-08-07"
+              }
             },
             {
               "code": "2368",
@@ -36787,7 +38397,14 @@ window.DATA = {
               "changePct": -0.3,
               "amplitude": 7.51,
               "volume": 12352014.0,
-              "quoteDate": "2026-08-07"
+              "quoteDate": "2026-08-07",
+              "inst": {
+                "foreign": -797876,
+                "trust": 535000,
+                "dealer": 102318,
+                "total": -160558,
+                "date": "2026-08-07"
+              }
             },
             {
               "code": "3034",
@@ -36804,7 +38421,14 @@ window.DATA = {
               "changePct": -0.18,
               "amplitude": 2.58,
               "volume": 3483829.0,
-              "quoteDate": "2026-08-07"
+              "quoteDate": "2026-08-07",
+              "inst": {
+                "foreign": 370833,
+                "trust": -16000,
+                "dealer": -27995,
+                "total": 326838,
+                "date": "2026-08-07"
+              }
             },
             {
               "code": "3661",
@@ -36821,7 +38445,14 @@ window.DATA = {
               "changePct": 1.5,
               "amplitude": 6.56,
               "volume": 2277767.0,
-              "quoteDate": "2026-08-07"
+              "quoteDate": "2026-08-07",
+              "inst": {
+                "foreign": -40023,
+                "trust": -13000,
+                "dealer": 22776,
+                "total": -30247,
+                "date": "2026-08-07"
+              }
             },
             {
               "code": "2395",
@@ -36838,7 +38469,14 @@ window.DATA = {
               "changePct": 1.93,
               "amplitude": 5.14,
               "volume": 6309278.0,
-              "quoteDate": "2026-08-07"
+              "quoteDate": "2026-08-07",
+              "inst": {
+                "foreign": 697544,
+                "trust": 207,
+                "dealer": 36836,
+                "total": 734587,
+                "date": "2026-08-07"
+              }
             },
             {
               "code": "2449",
@@ -36855,7 +38493,14 @@ window.DATA = {
               "changePct": -2.81,
               "amplitude": 3.82,
               "volume": 14953349.0,
-              "quoteDate": "2026-08-07"
+              "quoteDate": "2026-08-07",
+              "inst": {
+                "foreign": -3166540,
+                "trust": 7000,
+                "dealer": 3287,
+                "total": -3156253,
+                "date": "2026-08-07"
+              }
             },
             {
               "code": "3189",
@@ -36872,7 +38517,14 @@ window.DATA = {
               "changePct": -3.52,
               "amplitude": 5.39,
               "volume": 16107601.0,
-              "quoteDate": "2026-08-07"
+              "quoteDate": "2026-08-07",
+              "inst": {
+                "foreign": -1660821,
+                "trust": -142000,
+                "dealer": -198742,
+                "total": -2001563,
+                "date": "2026-08-07"
+              }
             },
             {
               "code": "8046",
@@ -36889,7 +38541,14 @@ window.DATA = {
               "changePct": -2.26,
               "amplitude": 6.79,
               "volume": 4069277.0,
-              "quoteDate": "2026-08-07"
+              "quoteDate": "2026-08-07",
+              "inst": {
+                "foreign": -841918,
+                "trust": 0,
+                "dealer": 25182,
+                "total": -816736,
+                "date": "2026-08-07"
+              }
             },
             {
               "code": "2337",
@@ -36906,7 +38565,14 @@ window.DATA = {
               "changePct": -5.81,
               "amplitude": 7.75,
               "volume": 112161182.0,
-              "quoteDate": "2026-08-07"
+              "quoteDate": "2026-08-07",
+              "inst": {
+                "foreign": -9459855,
+                "trust": -861000,
+                "dealer": -228252,
+                "total": -10549107,
+                "date": "2026-08-07"
+              }
             },
             {
               "code": "2313",
@@ -36923,7 +38589,14 @@ window.DATA = {
               "changePct": -5.44,
               "amplitude": 8.16,
               "volume": 31604353.0,
-              "quoteDate": "2026-08-07"
+              "quoteDate": "2026-08-07",
+              "inst": {
+                "foreign": -7422076,
+                "trust": 409000,
+                "dealer": -1153759,
+                "total": -8166835,
+                "date": "2026-08-07"
+              }
             },
             {
               "code": "6770",
@@ -36940,7 +38613,14 @@ window.DATA = {
               "changePct": -1.65,
               "amplitude": 5.11,
               "volume": 218297117.0,
-              "quoteDate": "2026-08-07"
+              "quoteDate": "2026-08-07",
+              "inst": {
+                "foreign": -16911014,
+                "trust": 0,
+                "dealer": -115595,
+                "total": -17026609,
+                "date": "2026-08-07"
+              }
             },
             {
               "code": "2376",
@@ -36957,7 +38637,14 @@ window.DATA = {
               "changePct": 0.0,
               "amplitude": 2.91,
               "volume": 5232862.0,
-              "quoteDate": "2026-08-07"
+              "quoteDate": "2026-08-07",
+              "inst": {
+                "foreign": 133758,
+                "trust": -167000,
+                "dealer": -80515,
+                "total": -113757,
+                "date": "2026-08-07"
+              }
             },
             {
               "code": "3702",
@@ -36974,7 +38661,14 @@ window.DATA = {
               "changePct": -2.39,
               "amplitude": 4.78,
               "volume": 9985739.0,
-              "quoteDate": "2026-08-07"
+              "quoteDate": "2026-08-07",
+              "inst": {
+                "foreign": -981245,
+                "trust": 1097127,
+                "dealer": -548388,
+                "total": -432506,
+                "date": "2026-08-07"
+              }
             },
             {
               "code": "6239",
@@ -36991,7 +38685,14 @@ window.DATA = {
               "changePct": -2.6,
               "amplitude": 3.9,
               "volume": 20714928.0,
-              "quoteDate": "2026-08-07"
+              "quoteDate": "2026-08-07",
+              "inst": {
+                "foreign": -3782560,
+                "trust": 1253000,
+                "dealer": -438362,
+                "total": -2967922,
+                "date": "2026-08-07"
+              }
             },
             {
               "code": "4938",
@@ -37008,7 +38709,14 @@ window.DATA = {
               "changePct": -1.02,
               "amplitude": 1.48,
               "volume": 5250622.0,
-              "quoteDate": "2026-08-07"
+              "quoteDate": "2026-08-07",
+              "inst": {
+                "foreign": 178341,
+                "trust": 714308,
+                "dealer": -274306,
+                "total": 618343,
+                "date": "2026-08-07"
+              }
             },
             {
               "code": "3044",
@@ -37025,7 +38733,14 @@ window.DATA = {
               "changePct": -0.88,
               "amplitude": 2.64,
               "volume": 2043936.0,
-              "quoteDate": "2026-08-07"
+              "quoteDate": "2026-08-07",
+              "inst": {
+                "foreign": -329076,
+                "trust": 161000,
+                "dealer": 29451,
+                "total": -138625,
+                "date": "2026-08-07"
+              }
             },
             {
               "code": "6515",
@@ -37042,7 +38757,14 @@ window.DATA = {
               "changePct": -0.22,
               "amplitude": 8.41,
               "volume": 452198.0,
-              "quoteDate": "2026-08-07"
+              "quoteDate": "2026-08-07",
+              "inst": {
+                "foreign": -14709,
+                "trust": -28000,
+                "dealer": 3116,
+                "total": -39593,
+                "date": "2026-08-07"
+              }
             },
             {
               "code": "3036",
@@ -37059,7 +38781,14 @@ window.DATA = {
               "changePct": -9.42,
               "amplitude": 5.57,
               "volume": 42344213.0,
-              "quoteDate": "2026-08-07"
+              "quoteDate": "2026-08-07",
+              "inst": {
+                "foreign": -8652782,
+                "trust": 1159000,
+                "dealer": -186764,
+                "total": -7680546,
+                "date": "2026-08-07"
+              }
             },
             {
               "code": "2356",
@@ -37076,7 +38805,14 @@ window.DATA = {
               "changePct": -2.29,
               "amplitude": 3.05,
               "volume": 14275463.0,
-              "quoteDate": "2026-08-07"
+              "quoteDate": "2026-08-07",
+              "inst": {
+                "foreign": 1479463,
+                "trust": -747000,
+                "dealer": -170606,
+                "total": 561857,
+                "date": "2026-08-07"
+              }
             },
             {
               "code": "3533",
@@ -37093,7 +38829,14 @@ window.DATA = {
               "changePct": -3.05,
               "amplitude": 4.57,
               "volume": 906585.0,
-              "quoteDate": "2026-08-07"
+              "quoteDate": "2026-08-07",
+              "inst": {
+                "foreign": -48679,
+                "trust": 17000,
+                "dealer": -21012,
+                "total": -52691,
+                "date": "2026-08-07"
+              }
             },
             {
               "code": "2324",
@@ -37110,7 +38853,14 @@ window.DATA = {
               "changePct": -2.01,
               "amplitude": 2.95,
               "volume": 30472602.0,
-              "quoteDate": "2026-08-07"
+              "quoteDate": "2026-08-07",
+              "inst": {
+                "foreign": -2764993,
+                "trust": -13000,
+                "dealer": -303726,
+                "total": -3081719,
+                "date": "2026-08-07"
+              }
             },
             {
               "code": "2409",
@@ -37127,7 +38877,14 @@ window.DATA = {
               "changePct": 0.0,
               "amplitude": 3.67,
               "volume": 145598796.0,
-              "quoteDate": "2026-08-07"
+              "quoteDate": "2026-08-07",
+              "inst": {
+                "foreign": 13144500,
+                "trust": -2000,
+                "dealer": 4462247,
+                "total": 17604747,
+                "date": "2026-08-07"
+              }
             },
             {
               "code": "6415",
@@ -37144,7 +38901,14 @@ window.DATA = {
               "changePct": -0.79,
               "amplitude": 5.28,
               "volume": 2706351.0,
-              "quoteDate": "2026-08-07"
+              "quoteDate": "2026-08-07",
+              "inst": {
+                "foreign": 620439,
+                "trust": -16000,
+                "dealer": -26964,
+                "total": 577475,
+                "date": "2026-08-07"
+              }
             },
             {
               "code": "2347",
@@ -37161,7 +38925,14 @@ window.DATA = {
               "changePct": -1.37,
               "amplitude": 3.91,
               "volume": 5127090.0,
-              "quoteDate": "2026-08-07"
+              "quoteDate": "2026-08-07",
+              "inst": {
+                "foreign": -1420444,
+                "trust": 1111368,
+                "dealer": 199912,
+                "total": -109164,
+                "date": "2026-08-07"
+              }
             },
             {
               "code": "2377",
@@ -37178,7 +38949,14 @@ window.DATA = {
               "changePct": -0.65,
               "amplitude": 3.25,
               "volume": 10969717.0,
-              "quoteDate": "2026-08-07"
+              "quoteDate": "2026-08-07",
+              "inst": {
+                "foreign": -552820,
+                "trust": -3107,
+                "dealer": -163374,
+                "total": -719301,
+                "date": "2026-08-07"
+              }
             },
             {
               "code": "6531",
@@ -37195,7 +38973,14 @@ window.DATA = {
               "changePct": 5.67,
               "amplitude": 2.78,
               "volume": 2226625.0,
-              "quoteDate": "2026-08-07"
+              "quoteDate": "2026-08-07",
+              "inst": {
+                "foreign": 26348,
+                "trust": 81000,
+                "dealer": 52299,
+                "total": 159647,
+                "date": "2026-08-07"
+              }
             },
             {
               "code": "6805",
@@ -37212,7 +38997,14 @@ window.DATA = {
               "changePct": -5.11,
               "amplitude": 10.23,
               "volume": 3125359.0,
-              "quoteDate": "2026-08-07"
+              "quoteDate": "2026-08-07",
+              "inst": {
+                "foreign": 9334,
+                "trust": 340000,
+                "dealer": -49544,
+                "total": 299790,
+                "date": "2026-08-07"
+              }
             },
             {
               "code": "6257",
@@ -37229,7 +39021,14 @@ window.DATA = {
               "changePct": -3.62,
               "amplitude": 5.31,
               "volume": 4188844.0,
-              "quoteDate": "2026-08-07"
+              "quoteDate": "2026-08-07",
+              "inst": {
+                "foreign": -1894357,
+                "trust": -85000,
+                "dealer": -82218,
+                "total": -2061575,
+                "date": "2026-08-07"
+              }
             },
             {
               "code": "6213",
@@ -37246,7 +39045,14 @@ window.DATA = {
               "changePct": 3.73,
               "amplitude": 9.33,
               "volume": 50764820.0,
-              "quoteDate": "2026-08-07"
+              "quoteDate": "2026-08-07",
+              "inst": {
+                "foreign": 5801407,
+                "trust": 1073000,
+                "dealer": -268247,
+                "total": 6606160,
+                "date": "2026-08-07"
+              }
             },
             {
               "code": "2474",
@@ -37263,7 +39069,14 @@ window.DATA = {
               "changePct": 0.0,
               "amplitude": 1.6,
               "volume": 1949061.0,
-              "quoteDate": "2026-08-07"
+              "quoteDate": "2026-08-07",
+              "inst": {
+                "foreign": -3467,
+                "trust": 31567,
+                "dealer": 115749,
+                "total": 143849,
+                "date": "2026-08-07"
+              }
             },
             {
               "code": "2353",
@@ -37280,7 +39093,14 @@ window.DATA = {
               "changePct": 0.83,
               "amplitude": 3.33,
               "volume": 22172266.0,
-              "quoteDate": "2026-08-07"
+              "quoteDate": "2026-08-07",
+              "inst": {
+                "foreign": -2280782,
+                "trust": 122371,
+                "dealer": 175636,
+                "total": -1982775,
+                "date": "2026-08-07"
+              }
             },
             {
               "code": "5434",
@@ -37297,7 +39117,14 @@ window.DATA = {
               "changePct": -1.96,
               "amplitude": 3.34,
               "volume": 776294.0,
-              "quoteDate": "2026-08-07"
+              "quoteDate": "2026-08-07",
+              "inst": {
+                "foreign": 13389,
+                "trust": -243000,
+                "dealer": 13120,
+                "total": -216491,
+                "date": "2026-08-07"
+              }
             },
             {
               "code": "3706",
@@ -37314,7 +39141,14 @@ window.DATA = {
               "changePct": -1.29,
               "amplitude": 2.69,
               "volume": 9729538.0,
-              "quoteDate": "2026-08-07"
+              "quoteDate": "2026-08-07",
+              "inst": {
+                "foreign": -1837275,
+                "trust": -171000,
+                "dealer": -85271,
+                "total": -2093546,
+                "date": "2026-08-07"
+              }
             },
             {
               "code": "8210",
@@ -37331,7 +39165,14 @@ window.DATA = {
               "changePct": -9.72,
               "amplitude": 5.26,
               "volume": 2484937.0,
-              "quoteDate": "2026-08-07"
+              "quoteDate": "2026-08-07",
+              "inst": {
+                "foreign": -1223929,
+                "trust": -36000,
+                "dealer": -29597,
+                "total": -1289526,
+                "date": "2026-08-07"
+              }
             },
             {
               "code": "2492",
@@ -37348,7 +39189,14 @@ window.DATA = {
               "changePct": -2.14,
               "amplitude": 6.04,
               "volume": 11332617.0,
-              "quoteDate": "2026-08-07"
+              "quoteDate": "2026-08-07",
+              "inst": {
+                "foreign": -960566,
+                "trust": -45000,
+                "dealer": 19703,
+                "total": -985863,
+                "date": "2026-08-07"
+              }
             },
             {
               "code": "3026",
@@ -37365,7 +39213,14 @@ window.DATA = {
               "changePct": -9.78,
               "amplitude": 10.29,
               "volume": 1934185.0,
-              "quoteDate": "2026-08-07"
+              "quoteDate": "2026-08-07",
+              "inst": {
+                "foreign": -87005,
+                "trust": -145000,
+                "dealer": 111703,
+                "total": -120302,
+                "date": "2026-08-07"
+              }
             },
             {
               "code": "2455",
@@ -37382,7 +39237,14 @@ window.DATA = {
               "changePct": -2.15,
               "amplitude": 7.93,
               "volume": 14692107.0,
-              "quoteDate": "2026-08-07"
+              "quoteDate": "2026-08-07",
+              "inst": {
+                "foreign": -1947821,
+                "trust": 4000,
+                "dealer": 65925,
+                "total": -1877896,
+                "date": "2026-08-07"
+              }
             },
             {
               "code": "2354",
@@ -37399,7 +39261,14 @@ window.DATA = {
               "changePct": 1.31,
               "amplitude": 6.56,
               "volume": 81425427.0,
-              "quoteDate": "2026-08-07"
+              "quoteDate": "2026-08-07",
+              "inst": {
+                "foreign": 4273007,
+                "trust": 0,
+                "dealer": 428368,
+                "total": 4701375,
+                "date": "2026-08-07"
+              }
             },
             {
               "code": "2385",
@@ -37416,7 +39285,14 @@ window.DATA = {
               "changePct": -1.93,
               "amplitude": 2.9,
               "volume": 4319667.0,
-              "quoteDate": "2026-08-07"
+              "quoteDate": "2026-08-07",
+              "inst": {
+                "foreign": -781521,
+                "trust": -80107,
+                "dealer": -18572,
+                "total": -880200,
+                "date": "2026-08-07"
+              }
             },
             {
               "code": "2451",
@@ -37433,7 +39309,14 @@ window.DATA = {
               "changePct": 1.37,
               "amplitude": 3.24,
               "volume": 9750484.0,
-              "quoteDate": "2026-08-07"
+              "quoteDate": "2026-08-07",
+              "inst": {
+                "foreign": 3001646,
+                "trust": -4000,
+                "dealer": -80637,
+                "total": 2917009,
+                "date": "2026-08-07"
+              }
             },
             {
               "code": "5269",
@@ -37450,7 +39333,14 @@ window.DATA = {
               "changePct": -0.71,
               "amplitude": 2.48,
               "volume": 559630.0,
-              "quoteDate": "2026-08-07"
+              "quoteDate": "2026-08-07",
+              "inst": {
+                "foreign": 33816,
+                "trust": -9000,
+                "dealer": -170,
+                "total": 24646,
+                "date": "2026-08-07"
+              }
             },
             {
               "code": "6196",
@@ -37467,7 +39357,14 @@ window.DATA = {
               "changePct": -2.85,
               "amplitude": 5.71,
               "volume": 1712469.0,
-              "quoteDate": "2026-08-07"
+              "quoteDate": "2026-08-07",
+              "inst": {
+                "foreign": 410159,
+                "trust": -458000,
+                "dealer": 885,
+                "total": -46956,
+                "date": "2026-08-07"
+              }
             },
             {
               "code": "2467",
@@ -37484,7 +39381,14 @@ window.DATA = {
               "changePct": -3.66,
               "amplitude": 6.17,
               "volume": 819761.0,
-              "quoteDate": "2026-08-07"
+              "quoteDate": "2026-08-07",
+              "inst": {
+                "foreign": -108371,
+                "trust": 0,
+                "dealer": -4529,
+                "total": -112900,
+                "date": "2026-08-07"
+              }
             },
             {
               "code": "3005",
@@ -37501,7 +39405,14 @@ window.DATA = {
               "changePct": -0.43,
               "amplitude": 2.16,
               "volume": 2580913.0,
-              "quoteDate": "2026-08-07"
+              "quoteDate": "2026-08-07",
+              "inst": {
+                "foreign": 395553,
+                "trust": -10820,
+                "dealer": -31052,
+                "total": 353681,
+                "date": "2026-08-07"
+              }
             },
             {
               "code": "6789",
@@ -37518,7 +39429,14 @@ window.DATA = {
               "changePct": -8.65,
               "amplitude": 8.76,
               "volume": 2925154.0,
-              "quoteDate": "2026-08-07"
+              "quoteDate": "2026-08-07",
+              "inst": {
+                "foreign": -955188,
+                "trust": 2000,
+                "dealer": -42182,
+                "total": -995370,
+                "date": "2026-08-07"
+              }
             },
             {
               "code": "3030",
@@ -37535,7 +39453,14 @@ window.DATA = {
               "changePct": -1.86,
               "amplitude": 4.4,
               "volume": 1049360.0,
-              "quoteDate": "2026-08-07"
+              "quoteDate": "2026-08-07",
+              "inst": {
+                "foreign": -243900,
+                "trust": 0,
+                "dealer": -9474,
+                "total": -253374,
+                "date": "2026-08-07"
+              }
             },
             {
               "code": "6526",
@@ -37552,7 +39477,14 @@ window.DATA = {
               "changePct": -1.88,
               "amplitude": 3.61,
               "volume": 519335.0,
-              "quoteDate": "2026-08-07"
+              "quoteDate": "2026-08-07",
+              "inst": {
+                "foreign": -17791,
+                "trust": 27000,
+                "dealer": 780,
+                "total": 9989,
+                "date": "2026-08-07"
+              }
             },
             {
               "code": "4919",
@@ -37569,7 +39501,14 @@ window.DATA = {
               "changePct": -4.0,
               "amplitude": 5.2,
               "volume": 5534364.0,
-              "quoteDate": "2026-08-07"
+              "quoteDate": "2026-08-07",
+              "inst": {
+                "foreign": 219614,
+                "trust": -44000,
+                "dealer": -71176,
+                "total": 104438,
+                "date": "2026-08-07"
+              }
             },
             {
               "code": "3532",
@@ -37586,7 +39525,14 @@ window.DATA = {
               "changePct": -1.11,
               "amplitude": 2.53,
               "volume": 308177.0,
-              "quoteDate": "2026-08-07"
+              "quoteDate": "2026-08-07",
+              "inst": {
+                "foreign": 79537,
+                "trust": 0,
+                "dealer": -15059,
+                "total": 64478,
+                "date": "2026-08-07"
+              }
             }
           ]
         }
@@ -41907,7 +43853,7 @@ window.DATA = {
         },
         {
           "date": "2026-08-07",
-          "fetched_at": "2026-08-07T20:41:19+08:00",
+          "fetched_at": "2026-08-07T21:37:08+08:00",
           "count": 50,
           "self": {
             "open": 51.4,
@@ -41937,7 +43883,14 @@ window.DATA = {
               "changePct": 5.32,
               "amplitude": 8.12,
               "volume": 129122451.0,
-              "quoteDate": "2026-08-07"
+              "quoteDate": "2026-08-07",
+              "inst": {
+                "foreign": -7333983,
+                "trust": 1758000,
+                "dealer": 376546,
+                "total": -5199437,
+                "date": "2026-08-07"
+              }
             },
             {
               "code": "2880",
@@ -41954,7 +43907,14 @@ window.DATA = {
               "changePct": 0.79,
               "amplitude": 3.29,
               "volume": 24856176.0,
-              "quoteDate": "2026-08-07"
+              "quoteDate": "2026-08-07",
+              "inst": {
+                "foreign": -10745773,
+                "trust": 6911000,
+                "dealer": 40790,
+                "total": -3793983,
+                "date": "2026-08-07"
+              }
             },
             {
               "code": "2408",
@@ -41971,7 +43931,14 @@ window.DATA = {
               "changePct": -0.44,
               "amplitude": 3.92,
               "volume": 70547660.0,
-              "quoteDate": "2026-08-07"
+              "quoteDate": "2026-08-07",
+              "inst": {
+                "foreign": 2147570,
+                "trust": -21000,
+                "dealer": 365468,
+                "total": 2492038,
+                "date": "2026-08-07"
+              }
             },
             {
               "code": "2891",
@@ -41988,7 +43955,14 @@ window.DATA = {
               "changePct": 1.55,
               "amplitude": 1.55,
               "volume": 16259888.0,
-              "quoteDate": "2026-08-07"
+              "quoteDate": "2026-08-07",
+              "inst": {
+                "foreign": 6209635,
+                "trust": -181000,
+                "dealer": 93719,
+                "total": 6122354,
+                "date": "2026-08-07"
+              }
             },
             {
               "code": "3231",
@@ -42005,7 +43979,14 @@ window.DATA = {
               "changePct": -3.17,
               "amplitude": 3.96,
               "volume": 65415961.0,
-              "quoteDate": "2026-08-07"
+              "quoteDate": "2026-08-07",
+              "inst": {
+                "foreign": 17158210,
+                "trust": -10276000,
+                "dealer": 861453,
+                "total": 7743663,
+                "date": "2026-08-07"
+              }
             },
             {
               "code": "2357",
@@ -42022,7 +44003,14 @@ window.DATA = {
               "changePct": -0.12,
               "amplitude": 2.44,
               "volume": 4616536.0,
-              "quoteDate": "2026-08-07"
+              "quoteDate": "2026-08-07",
+              "inst": {
+                "foreign": 2466634,
+                "trust": -1179000,
+                "dealer": 42139,
+                "total": 1329773,
+                "date": "2026-08-07"
+              }
             },
             {
               "code": "2890",
@@ -42039,7 +44027,14 @@ window.DATA = {
               "changePct": 0.65,
               "amplitude": 1.16,
               "volume": 8967206.0,
-              "quoteDate": "2026-08-07"
+              "quoteDate": "2026-08-07",
+              "inst": {
+                "foreign": 2427705,
+                "trust": 33000,
+                "dealer": 15985,
+                "total": 2476690,
+                "date": "2026-08-07"
+              }
             },
             {
               "code": "2344",
@@ -42056,7 +44051,14 @@ window.DATA = {
               "changePct": -4.39,
               "amplitude": 5.85,
               "volume": 176709453.0,
-              "quoteDate": "2026-08-07"
+              "quoteDate": "2026-08-07",
+              "inst": {
+                "foreign": -43331455,
+                "trust": -187000,
+                "dealer": -2746692,
+                "total": -46265147,
+                "date": "2026-08-07"
+              }
             },
             {
               "code": "2886",
@@ -42073,7 +44075,14 @@ window.DATA = {
               "changePct": 1.19,
               "amplitude": 1.59,
               "volume": 22565910.0,
-              "quoteDate": "2026-08-07"
+              "quoteDate": "2026-08-07",
+              "inst": {
+                "foreign": -9246612,
+                "trust": 2849000,
+                "dealer": 576133,
+                "total": -5821479,
+                "date": "2026-08-07"
+              }
             },
             {
               "code": "2382",
@@ -42090,7 +44099,14 @@ window.DATA = {
               "changePct": -1.32,
               "amplitude": 3.31,
               "volume": 17516962.0,
-              "quoteDate": "2026-08-07"
+              "quoteDate": "2026-08-07",
+              "inst": {
+                "foreign": -6303273,
+                "trust": 79332,
+                "dealer": -378570,
+                "total": -6602511,
+                "date": "2026-08-07"
+              }
             },
             {
               "code": "2603",
@@ -42107,7 +44123,14 @@ window.DATA = {
               "changePct": 1.72,
               "amplitude": 1.72,
               "volume": 6028826.0,
-              "quoteDate": "2026-08-07"
+              "quoteDate": "2026-08-07",
+              "inst": {
+                "foreign": 2472468,
+                "trust": 1183000,
+                "dealer": -71406,
+                "total": 3584062,
+                "date": "2026-08-07"
+              }
             },
             {
               "code": "1216",
@@ -42124,7 +44147,14 @@ window.DATA = {
               "changePct": 3.7,
               "amplitude": 3.01,
               "volume": 27739254.0,
-              "quoteDate": "2026-08-07"
+              "quoteDate": "2026-08-07",
+              "inst": {
+                "foreign": 20335509,
+                "trust": -97000,
+                "dealer": -4412,
+                "total": 20234097,
+                "date": "2026-08-07"
+              }
             },
             {
               "code": "2885",
@@ -42141,7 +44171,14 @@ window.DATA = {
               "changePct": 0.89,
               "amplitude": 1.94,
               "volume": 13749095.0,
-              "quoteDate": "2026-08-07"
+              "quoteDate": "2026-08-07",
+              "inst": {
+                "foreign": 2635069,
+                "trust": 351000,
+                "dealer": -25364,
+                "total": 2960705,
+                "date": "2026-08-07"
+              }
             },
             {
               "code": "2883",
@@ -42158,7 +44195,14 @@ window.DATA = {
               "changePct": 0.82,
               "amplitude": 2.12,
               "volume": 26940173.0,
-              "quoteDate": "2026-08-07"
+              "quoteDate": "2026-08-07",
+              "inst": {
+                "foreign": -3621640,
+                "trust": 3985000,
+                "dealer": 151432,
+                "total": 514792,
+                "date": "2026-08-07"
+              }
             },
             {
               "code": "2379",
@@ -42175,7 +44219,14 @@ window.DATA = {
               "changePct": 0.81,
               "amplitude": 4.17,
               "volume": 3482120.0,
-              "quoteDate": "2026-08-07"
+              "quoteDate": "2026-08-07",
+              "inst": {
+                "foreign": 213295,
+                "trust": 130807,
+                "dealer": 30309,
+                "total": 374411,
+                "date": "2026-08-07"
+              }
             },
             {
               "code": "2887",
@@ -42192,7 +44243,14 @@ window.DATA = {
               "changePct": 1.88,
               "amplitude": 2.03,
               "volume": 31040680.0,
-              "quoteDate": "2026-08-07"
+              "quoteDate": "2026-08-07",
+              "inst": {
+                "foreign": 14196618,
+                "trust": 55000,
+                "dealer": 232392,
+                "total": 14484010,
+                "date": "2026-08-07"
+              }
             },
             {
               "code": "2301",
@@ -42209,7 +44267,14 @@ window.DATA = {
               "changePct": -2.18,
               "amplitude": 9.5,
               "volume": 33004584.0,
-              "quoteDate": "2026-08-07"
+              "quoteDate": "2026-08-07",
+              "inst": {
+                "foreign": 2128749,
+                "trust": 20000,
+                "dealer": 147811,
+                "total": 2296560,
+                "date": "2026-08-07"
+              }
             },
             {
               "code": "2317",
@@ -42226,7 +44291,14 @@ window.DATA = {
               "changePct": -1.7,
               "amplitude": 3.4,
               "volume": 38813488.0,
-              "quoteDate": "2026-08-07"
+              "quoteDate": "2026-08-07",
+              "inst": {
+                "foreign": -5328129,
+                "trust": -800000,
+                "dealer": -626408,
+                "total": -6754537,
+                "date": "2026-08-07"
+              }
             },
             {
               "code": "2884",
@@ -42243,7 +44315,14 @@ window.DATA = {
               "changePct": 0.53,
               "amplitude": 1.32,
               "volume": 17374284.0,
-              "quoteDate": "2026-08-07"
+              "quoteDate": "2026-08-07",
+              "inst": {
+                "foreign": 267117,
+                "trust": 1166000,
+                "dealer": -59213,
+                "total": 1373904,
+                "date": "2026-08-07"
+              }
             },
             {
               "code": "4904",
@@ -42260,7 +44339,14 @@ window.DATA = {
               "changePct": 0.98,
               "amplitude": 2.45,
               "volume": 6077516.0,
-              "quoteDate": "2026-08-07"
+              "quoteDate": "2026-08-07",
+              "inst": {
+                "foreign": 944453,
+                "trust": 763000,
+                "dealer": 40338,
+                "total": 1747791,
+                "date": "2026-08-07"
+              }
             },
             {
               "code": "3045",
@@ -42277,7 +44363,14 @@ window.DATA = {
               "changePct": 0.9,
               "amplitude": 1.36,
               "volume": 7046434.0,
-              "quoteDate": "2026-08-07"
+              "quoteDate": "2026-08-07",
+              "inst": {
+                "foreign": 1724407,
+                "trust": 105063,
+                "dealer": 8989,
+                "total": 1838459,
+                "date": "2026-08-07"
+              }
             },
             {
               "code": "3034",
@@ -42294,7 +44387,14 @@ window.DATA = {
               "changePct": -0.18,
               "amplitude": 2.58,
               "volume": 3483829.0,
-              "quoteDate": "2026-08-07"
+              "quoteDate": "2026-08-07",
+              "inst": {
+                "foreign": 370833,
+                "trust": -16000,
+                "dealer": -27995,
+                "total": 326838,
+                "date": "2026-08-07"
+              }
             },
             {
               "code": "2303",
@@ -42311,7 +44411,14 @@ window.DATA = {
               "changePct": -4.53,
               "amplitude": 6.17,
               "volume": 169352784.0,
-              "quoteDate": "2026-08-07"
+              "quoteDate": "2026-08-07",
+              "inst": {
+                "foreign": -23200666,
+                "trust": -6691000,
+                "dealer": -2838812,
+                "total": -32730478,
+                "date": "2026-08-07"
+              }
             },
             {
               "code": "3036",
@@ -42328,7 +44435,14 @@ window.DATA = {
               "changePct": -9.42,
               "amplitude": 5.57,
               "volume": 42344213.0,
-              "quoteDate": "2026-08-07"
+              "quoteDate": "2026-08-07",
+              "inst": {
+                "foreign": -8652782,
+                "trust": 1159000,
+                "dealer": -186764,
+                "total": -7680546,
+                "date": "2026-08-07"
+              }
             },
             {
               "code": "2618",
@@ -42345,7 +44459,14 @@ window.DATA = {
               "changePct": 2.66,
               "amplitude": 4.16,
               "volume": 37423508.0,
-              "quoteDate": "2026-08-07"
+              "quoteDate": "2026-08-07",
+              "inst": {
+                "foreign": 22000373,
+                "trust": 127000,
+                "dealer": 496096,
+                "total": 22623469,
+                "date": "2026-08-07"
+              }
             },
             {
               "code": "3711",
@@ -42362,7 +44483,14 @@ window.DATA = {
               "changePct": -1.68,
               "amplitude": 5.38,
               "volume": 13050125.0,
-              "quoteDate": "2026-08-07"
+              "quoteDate": "2026-08-07",
+              "inst": {
+                "foreign": -3053732,
+                "trust": 557000,
+                "dealer": -273934,
+                "total": -2770666,
+                "date": "2026-08-07"
+              }
             },
             {
               "code": "4938",
@@ -42379,7 +44507,14 @@ window.DATA = {
               "changePct": -1.02,
               "amplitude": 1.48,
               "volume": 5250622.0,
-              "quoteDate": "2026-08-07"
+              "quoteDate": "2026-08-07",
+              "inst": {
+                "foreign": 178341,
+                "trust": 714308,
+                "dealer": -274306,
+                "total": 618343,
+                "date": "2026-08-07"
+              }
             },
             {
               "code": "2376",
@@ -42396,7 +44531,14 @@ window.DATA = {
               "changePct": 0.0,
               "amplitude": 2.91,
               "volume": 5232862.0,
-              "quoteDate": "2026-08-07"
+              "quoteDate": "2026-08-07",
+              "inst": {
+                "foreign": 133758,
+                "trust": -167000,
+                "dealer": -80515,
+                "total": -113757,
+                "date": "2026-08-07"
+              }
             },
             {
               "code": "2454",
@@ -42413,7 +44555,14 @@ window.DATA = {
               "changePct": -0.51,
               "amplitude": 4.72,
               "volume": 6607003.0,
-              "quoteDate": "2026-08-07"
+              "quoteDate": "2026-08-07",
+              "inst": {
+                "foreign": 71648,
+                "trust": -128000,
+                "dealer": -16329,
+                "total": -72681,
+                "date": "2026-08-07"
+              }
             },
             {
               "code": "2356",
@@ -42430,7 +44579,14 @@ window.DATA = {
               "changePct": -2.29,
               "amplitude": 3.05,
               "volume": 14275463.0,
-              "quoteDate": "2026-08-07"
+              "quoteDate": "2026-08-07",
+              "inst": {
+                "foreign": 1479463,
+                "trust": -747000,
+                "dealer": -170606,
+                "total": 561857,
+                "date": "2026-08-07"
+              }
             },
             {
               "code": "3044",
@@ -42447,7 +44603,14 @@ window.DATA = {
               "changePct": -0.88,
               "amplitude": 2.64,
               "volume": 2043936.0,
-              "quoteDate": "2026-08-07"
+              "quoteDate": "2026-08-07",
+              "inst": {
+                "foreign": -329076,
+                "trust": 161000,
+                "dealer": 29451,
+                "total": -138625,
+                "date": "2026-08-07"
+              }
             },
             {
               "code": "5876",
@@ -42464,7 +44627,14 @@ window.DATA = {
               "changePct": 0.0,
               "amplitude": 1.15,
               "volume": 3775692.0,
-              "quoteDate": "2026-08-07"
+              "quoteDate": "2026-08-07",
+              "inst": {
+                "foreign": 331631,
+                "trust": 320000,
+                "dealer": 47917,
+                "total": 699548,
+                "date": "2026-08-07"
+              }
             },
             {
               "code": "3702",
@@ -42481,7 +44651,14 @@ window.DATA = {
               "changePct": -2.39,
               "amplitude": 4.78,
               "volume": 9985739.0,
-              "quoteDate": "2026-08-07"
+              "quoteDate": "2026-08-07",
+              "inst": {
+                "foreign": -981245,
+                "trust": 1097127,
+                "dealer": -548388,
+                "total": -432506,
+                "date": "2026-08-07"
+              }
             },
             {
               "code": "6239",
@@ -42498,7 +44675,14 @@ window.DATA = {
               "changePct": -2.6,
               "amplitude": 3.9,
               "volume": 20714928.0,
-              "quoteDate": "2026-08-07"
+              "quoteDate": "2026-08-07",
+              "inst": {
+                "foreign": -3782560,
+                "trust": 1253000,
+                "dealer": -438362,
+                "total": -2967922,
+                "date": "2026-08-07"
+              }
             },
             {
               "code": "2449",
@@ -42515,7 +44699,14 @@ window.DATA = {
               "changePct": -2.81,
               "amplitude": 3.82,
               "volume": 14953349.0,
-              "quoteDate": "2026-08-07"
+              "quoteDate": "2026-08-07",
+              "inst": {
+                "foreign": -3166540,
+                "trust": 7000,
+                "dealer": 3287,
+                "total": -3156253,
+                "date": "2026-08-07"
+              }
             },
             {
               "code": "2347",
@@ -42532,7 +44723,14 @@ window.DATA = {
               "changePct": -1.37,
               "amplitude": 3.91,
               "volume": 5127090.0,
-              "quoteDate": "2026-08-07"
+              "quoteDate": "2026-08-07",
+              "inst": {
+                "foreign": -1420444,
+                "trust": 1111368,
+                "dealer": 199912,
+                "total": -109164,
+                "date": "2026-08-07"
+              }
             },
             {
               "code": "2324",
@@ -42549,7 +44747,14 @@ window.DATA = {
               "changePct": -2.01,
               "amplitude": 2.95,
               "volume": 30472602.0,
-              "quoteDate": "2026-08-07"
+              "quoteDate": "2026-08-07",
+              "inst": {
+                "foreign": -2764993,
+                "trust": -13000,
+                "dealer": -303726,
+                "total": -3081719,
+                "date": "2026-08-07"
+              }
             },
             {
               "code": "2377",
@@ -42566,7 +44771,14 @@ window.DATA = {
               "changePct": -0.65,
               "amplitude": 3.25,
               "volume": 10969717.0,
-              "quoteDate": "2026-08-07"
+              "quoteDate": "2026-08-07",
+              "inst": {
+                "foreign": -552820,
+                "trust": -3107,
+                "dealer": -163374,
+                "total": -719301,
+                "date": "2026-08-07"
+              }
             },
             {
               "code": "6285",
@@ -42583,7 +44795,14 @@ window.DATA = {
               "changePct": -5.67,
               "amplitude": 8.1,
               "volume": 8008461.0,
-              "quoteDate": "2026-08-07"
+              "quoteDate": "2026-08-07",
+              "inst": {
+                "foreign": -2335299,
+                "trust": -57000,
+                "dealer": -262678,
+                "total": -2654977,
+                "date": "2026-08-07"
+              }
             },
             {
               "code": "2027",
@@ -42600,7 +44819,14 @@ window.DATA = {
               "changePct": 1.08,
               "amplitude": 2.06,
               "volume": 16824504.0,
-              "quoteDate": "2026-08-07"
+              "quoteDate": "2026-08-07",
+              "inst": {
+                "foreign": 1783441,
+                "trust": 4865000,
+                "dealer": -541193,
+                "total": 6107248,
+                "date": "2026-08-07"
+              }
             },
             {
               "code": "1102",
@@ -42617,7 +44843,14 @@ window.DATA = {
               "changePct": -0.3,
               "amplitude": 0.76,
               "volume": 4786576.0,
-              "quoteDate": "2026-08-07"
+              "quoteDate": "2026-08-07",
+              "inst": {
+                "foreign": 195022,
+                "trust": 121000,
+                "dealer": -20937,
+                "total": 295085,
+                "date": "2026-08-07"
+              }
             },
             {
               "code": "2474",
@@ -42634,7 +44867,14 @@ window.DATA = {
               "changePct": 0.0,
               "amplitude": 1.6,
               "volume": 1949061.0,
-              "quoteDate": "2026-08-07"
+              "quoteDate": "2026-08-07",
+              "inst": {
+                "foreign": -3467,
+                "trust": 31567,
+                "dealer": 115749,
+                "total": 143849,
+                "date": "2026-08-07"
+              }
             },
             {
               "code": "2105",
@@ -42651,7 +44891,14 @@ window.DATA = {
               "changePct": 1.29,
               "amplitude": 2.1,
               "volume": 5956426.0,
-              "quoteDate": "2026-08-07"
+              "quoteDate": "2026-08-07",
+              "inst": {
+                "foreign": 1487200,
+                "trust": 119000,
+                "dealer": 22933,
+                "total": 1629133,
+                "date": "2026-08-07"
+              }
             },
             {
               "code": "2353",
@@ -42668,7 +44915,14 @@ window.DATA = {
               "changePct": 0.83,
               "amplitude": 3.33,
               "volume": 22172266.0,
-              "quoteDate": "2026-08-07"
+              "quoteDate": "2026-08-07",
+              "inst": {
+                "foreign": -2280782,
+                "trust": 122371,
+                "dealer": 175636,
+                "total": -1982775,
+                "date": "2026-08-07"
+              }
             },
             {
               "code": "1513",
@@ -42685,7 +44939,14 @@ window.DATA = {
               "changePct": -1.87,
               "amplitude": 2.8,
               "volume": 1522629.0,
-              "quoteDate": "2026-08-07"
+              "quoteDate": "2026-08-07",
+              "inst": {
+                "foreign": -145021,
+                "trust": 0,
+                "dealer": -34076,
+                "total": -179097,
+                "date": "2026-08-07"
+              }
             },
             {
               "code": "3023",
@@ -42702,7 +44963,14 @@ window.DATA = {
               "changePct": -1.55,
               "amplitude": 3.1,
               "volume": 1721334.0,
-              "quoteDate": "2026-08-07"
+              "quoteDate": "2026-08-07",
+              "inst": {
+                "foreign": -790000,
+                "trust": 300000,
+                "dealer": 19843,
+                "total": -470157,
+                "date": "2026-08-07"
+              }
             },
             {
               "code": "2385",
@@ -42719,7 +44987,14 @@ window.DATA = {
               "changePct": -1.93,
               "amplitude": 2.9,
               "volume": 4319667.0,
-              "quoteDate": "2026-08-07"
+              "quoteDate": "2026-08-07",
+              "inst": {
+                "foreign": -781521,
+                "trust": -80107,
+                "dealer": -18572,
+                "total": -880200,
+                "date": "2026-08-07"
+              }
             },
             {
               "code": "3005",
@@ -42736,7 +45011,14 @@ window.DATA = {
               "changePct": -0.43,
               "amplitude": 2.16,
               "volume": 2580913.0,
-              "quoteDate": "2026-08-07"
+              "quoteDate": "2026-08-07",
+              "inst": {
+                "foreign": 395553,
+                "trust": -10820,
+                "dealer": -31052,
+                "total": 353681,
+                "date": "2026-08-07"
+              }
             },
             {
               "code": "9904",
@@ -42753,7 +45035,14 @@ window.DATA = {
               "changePct": 0.63,
               "amplitude": 1.47,
               "volume": 17390198.0,
-              "quoteDate": "2026-08-07"
+              "quoteDate": "2026-08-07",
+              "inst": {
+                "foreign": 2078735,
+                "trust": 123000,
+                "dealer": -93111,
+                "total": 2108624,
+                "date": "2026-08-07"
+              }
             },
             {
               "code": "2645",
@@ -42770,7 +45059,14 @@ window.DATA = {
               "changePct": -0.52,
               "amplitude": 2.32,
               "volume": 1156022.0,
-              "quoteDate": "2026-08-07"
+              "quoteDate": "2026-08-07",
+              "inst": {
+                "foreign": 42141,
+                "trust": -145000,
+                "dealer": -2652,
+                "total": -105511,
+                "date": "2026-08-07"
+              }
             }
           ]
         }
@@ -45453,7 +47749,7 @@ window.DATA = {
         },
         {
           "date": "2026-08-07",
-          "fetched_at": "2026-08-07T20:41:21+08:00",
+          "fetched_at": "2026-08-07T21:37:10+08:00",
           "count": 30,
           "self": {
             "open": 32.92,
@@ -45483,7 +47779,14 @@ window.DATA = {
               "changePct": 1.55,
               "amplitude": 1.55,
               "volume": 16259888.0,
-              "quoteDate": "2026-08-07"
+              "quoteDate": "2026-08-07",
+              "inst": {
+                "foreign": 6209635,
+                "trust": -181000,
+                "dealer": 93719,
+                "total": 6122354,
+                "date": "2026-08-07"
+              }
             },
             {
               "code": "2382",
@@ -45500,7 +47803,14 @@ window.DATA = {
               "changePct": -1.32,
               "amplitude": 3.31,
               "volume": 17516962.0,
-              "quoteDate": "2026-08-07"
+              "quoteDate": "2026-08-07",
+              "inst": {
+                "foreign": -6303273,
+                "trust": 79332,
+                "dealer": -378570,
+                "total": -6602511,
+                "date": "2026-08-07"
+              }
             },
             {
               "code": "2882",
@@ -45517,7 +47827,14 @@ window.DATA = {
               "changePct": 1.95,
               "amplitude": 2.05,
               "volume": 14079089.0,
-              "quoteDate": "2026-08-07"
+              "quoteDate": "2026-08-07",
+              "inst": {
+                "foreign": 4316898,
+                "trust": -2000,
+                "dealer": 60866,
+                "total": 4375764,
+                "date": "2026-08-07"
+              }
             },
             {
               "code": "2357",
@@ -45534,7 +47851,14 @@ window.DATA = {
               "changePct": -0.12,
               "amplitude": 2.44,
               "volume": 4616536.0,
-              "quoteDate": "2026-08-07"
+              "quoteDate": "2026-08-07",
+              "inst": {
+                "foreign": 2466634,
+                "trust": -1179000,
+                "dealer": 42139,
+                "total": 1329773,
+                "date": "2026-08-07"
+              }
             },
             {
               "code": "2603",
@@ -45551,7 +47875,14 @@ window.DATA = {
               "changePct": 1.72,
               "amplitude": 1.72,
               "volume": 6028826.0,
-              "quoteDate": "2026-08-07"
+              "quoteDate": "2026-08-07",
+              "inst": {
+                "foreign": 2472468,
+                "trust": 1183000,
+                "dealer": -71406,
+                "total": 3584062,
+                "date": "2026-08-07"
+              }
             },
             {
               "code": "2303",
@@ -45568,7 +47899,14 @@ window.DATA = {
               "changePct": -4.53,
               "amplitude": 6.17,
               "volume": 169352784.0,
-              "quoteDate": "2026-08-07"
+              "quoteDate": "2026-08-07",
+              "inst": {
+                "foreign": -23200666,
+                "trust": -6691000,
+                "dealer": -2838812,
+                "total": -32730478,
+                "date": "2026-08-07"
+              }
             },
             {
               "code": "2887",
@@ -45585,7 +47923,14 @@ window.DATA = {
               "changePct": 1.88,
               "amplitude": 2.03,
               "volume": 31040680.0,
-              "quoteDate": "2026-08-07"
+              "quoteDate": "2026-08-07",
+              "inst": {
+                "foreign": 14196618,
+                "trust": 55000,
+                "dealer": 232392,
+                "total": 14484010,
+                "date": "2026-08-07"
+              }
             },
             {
               "code": "2379",
@@ -45602,7 +47947,14 @@ window.DATA = {
               "changePct": 0.81,
               "amplitude": 4.17,
               "volume": 3482120.0,
-              "quoteDate": "2026-08-07"
+              "quoteDate": "2026-08-07",
+              "inst": {
+                "foreign": 213295,
+                "trust": 130807,
+                "dealer": 30309,
+                "total": 374411,
+                "date": "2026-08-07"
+              }
             },
             {
               "code": "2454",
@@ -45619,7 +47971,14 @@ window.DATA = {
               "changePct": -0.51,
               "amplitude": 4.72,
               "volume": 6607003.0,
-              "quoteDate": "2026-08-07"
+              "quoteDate": "2026-08-07",
+              "inst": {
+                "foreign": 71648,
+                "trust": -128000,
+                "dealer": -16329,
+                "total": -72681,
+                "date": "2026-08-07"
+              }
             },
             {
               "code": "2880",
@@ -45636,7 +47995,14 @@ window.DATA = {
               "changePct": 0.79,
               "amplitude": 3.29,
               "volume": 24856176.0,
-              "quoteDate": "2026-08-07"
+              "quoteDate": "2026-08-07",
+              "inst": {
+                "foreign": -10745773,
+                "trust": 6911000,
+                "dealer": 40790,
+                "total": -3793983,
+                "date": "2026-08-07"
+              }
             },
             {
               "code": "2886",
@@ -45653,7 +48019,14 @@ window.DATA = {
               "changePct": 1.19,
               "amplitude": 1.59,
               "volume": 22565910.0,
-              "quoteDate": "2026-08-07"
+              "quoteDate": "2026-08-07",
+              "inst": {
+                "foreign": -9246612,
+                "trust": 2849000,
+                "dealer": 576133,
+                "total": -5821479,
+                "date": "2026-08-07"
+              }
             },
             {
               "code": "3034",
@@ -45670,7 +48043,14 @@ window.DATA = {
               "changePct": -0.18,
               "amplitude": 2.58,
               "volume": 3483829.0,
-              "quoteDate": "2026-08-07"
+              "quoteDate": "2026-08-07",
+              "inst": {
+                "foreign": 370833,
+                "trust": -16000,
+                "dealer": -27995,
+                "total": 326838,
+                "date": "2026-08-07"
+              }
             },
             {
               "code": "2881",
@@ -45687,7 +48067,14 @@ window.DATA = {
               "changePct": 0.79,
               "amplitude": 1.59,
               "volume": 10827608.0,
-              "quoteDate": "2026-08-07"
+              "quoteDate": "2026-08-07",
+              "inst": {
+                "foreign": 3370012,
+                "trust": -140000,
+                "dealer": 15799,
+                "total": 3245811,
+                "date": "2026-08-07"
+              }
             },
             {
               "code": "2885",
@@ -45704,7 +48091,14 @@ window.DATA = {
               "changePct": 0.89,
               "amplitude": 1.94,
               "volume": 13749095.0,
-              "quoteDate": "2026-08-07"
+              "quoteDate": "2026-08-07",
+              "inst": {
+                "foreign": 2635069,
+                "trust": 351000,
+                "dealer": -25364,
+                "total": 2960705,
+                "date": "2026-08-07"
+              }
             },
             {
               "code": "2301",
@@ -45721,7 +48115,14 @@ window.DATA = {
               "changePct": -2.18,
               "amplitude": 9.5,
               "volume": 33004584.0,
-              "quoteDate": "2026-08-07"
+              "quoteDate": "2026-08-07",
+              "inst": {
+                "foreign": 2128749,
+                "trust": 20000,
+                "dealer": 147811,
+                "total": 2296560,
+                "date": "2026-08-07"
+              }
             },
             {
               "code": "1216",
@@ -45738,7 +48139,14 @@ window.DATA = {
               "changePct": 3.7,
               "amplitude": 3.01,
               "volume": 27739254.0,
-              "quoteDate": "2026-08-07"
+              "quoteDate": "2026-08-07",
+              "inst": {
+                "foreign": 20335509,
+                "trust": -97000,
+                "dealer": -4412,
+                "total": 20234097,
+                "date": "2026-08-07"
+              }
             },
             {
               "code": "3711",
@@ -45755,7 +48163,14 @@ window.DATA = {
               "changePct": -1.68,
               "amplitude": 5.38,
               "volume": 13050125.0,
-              "quoteDate": "2026-08-07"
+              "quoteDate": "2026-08-07",
+              "inst": {
+                "foreign": -3053732,
+                "trust": 557000,
+                "dealer": -273934,
+                "total": -2770666,
+                "date": "2026-08-07"
+              }
             },
             {
               "code": "3231",
@@ -45772,7 +48187,14 @@ window.DATA = {
               "changePct": -3.17,
               "amplitude": 3.96,
               "volume": 65415961.0,
-              "quoteDate": "2026-08-07"
+              "quoteDate": "2026-08-07",
+              "inst": {
+                "foreign": 17158210,
+                "trust": -10276000,
+                "dealer": 861453,
+                "total": 7743663,
+                "date": "2026-08-07"
+              }
             },
             {
               "code": "4904",
@@ -45789,7 +48211,14 @@ window.DATA = {
               "changePct": 0.98,
               "amplitude": 2.45,
               "volume": 6077516.0,
-              "quoteDate": "2026-08-07"
+              "quoteDate": "2026-08-07",
+              "inst": {
+                "foreign": 944453,
+                "trust": 763000,
+                "dealer": 40338,
+                "total": 1747791,
+                "date": "2026-08-07"
+              }
             },
             {
               "code": "3045",
@@ -45806,7 +48235,14 @@ window.DATA = {
               "changePct": 0.9,
               "amplitude": 1.36,
               "volume": 7046434.0,
-              "quoteDate": "2026-08-07"
+              "quoteDate": "2026-08-07",
+              "inst": {
+                "foreign": 1724407,
+                "trust": 105063,
+                "dealer": 8989,
+                "total": 1838459,
+                "date": "2026-08-07"
+              }
             },
             {
               "code": "5347",
@@ -45840,7 +48276,14 @@ window.DATA = {
               "changePct": 0.36,
               "amplitude": 1.09,
               "volume": 6922457.0,
-              "quoteDate": "2026-08-07"
+              "quoteDate": "2026-08-07",
+              "inst": {
+                "foreign": 1407518,
+                "trust": 369876,
+                "dealer": -27000,
+                "total": 1750394,
+                "date": "2026-08-07"
+              }
             },
             {
               "code": "4958",
@@ -45857,7 +48300,14 @@ window.DATA = {
               "changePct": -1.87,
               "amplitude": 6.95,
               "volume": 33166518.0,
-              "quoteDate": "2026-08-07"
+              "quoteDate": "2026-08-07",
+              "inst": {
+                "foreign": -5465780,
+                "trust": 119000,
+                "dealer": 132327,
+                "total": -5214453,
+                "date": "2026-08-07"
+              }
             },
             {
               "code": "2376",
@@ -45874,7 +48324,14 @@ window.DATA = {
               "changePct": 0.0,
               "amplitude": 2.91,
               "volume": 5232862.0,
-              "quoteDate": "2026-08-07"
+              "quoteDate": "2026-08-07",
+              "inst": {
+                "foreign": 133758,
+                "trust": -167000,
+                "dealer": -80515,
+                "total": -113757,
+                "date": "2026-08-07"
+              }
             },
             {
               "code": "2912",
@@ -45891,7 +48348,14 @@ window.DATA = {
               "changePct": 0.45,
               "amplitude": 1.14,
               "volume": 2382453.0,
-              "quoteDate": "2026-08-07"
+              "quoteDate": "2026-08-07",
+              "inst": {
+                "foreign": 889964,
+                "trust": -352000,
+                "dealer": 5824,
+                "total": 543788,
+                "date": "2026-08-07"
+              }
             },
             {
               "code": "2618",
@@ -45908,7 +48372,14 @@ window.DATA = {
               "changePct": 2.66,
               "amplitude": 4.16,
               "volume": 37423508.0,
-              "quoteDate": "2026-08-07"
+              "quoteDate": "2026-08-07",
+              "inst": {
+                "foreign": 22000373,
+                "trust": 127000,
+                "dealer": 496096,
+                "total": 22623469,
+                "date": "2026-08-07"
+              }
             },
             {
               "code": "2356",
@@ -45925,7 +48396,14 @@ window.DATA = {
               "changePct": -2.29,
               "amplitude": 3.05,
               "volume": 14275463.0,
-              "quoteDate": "2026-08-07"
+              "quoteDate": "2026-08-07",
+              "inst": {
+                "foreign": 1479463,
+                "trust": -747000,
+                "dealer": -170606,
+                "total": 561857,
+                "date": "2026-08-07"
+              }
             },
             {
               "code": "3293",
@@ -45959,7 +48437,14 @@ window.DATA = {
               "changePct": 0.0,
               "amplitude": 1.15,
               "volume": 3775692.0,
-              "quoteDate": "2026-08-07"
+              "quoteDate": "2026-08-07",
+              "inst": {
+                "foreign": 331631,
+                "trust": 320000,
+                "dealer": 47917,
+                "total": 699548,
+                "date": "2026-08-07"
+              }
             },
             {
               "code": "5871",
@@ -45976,7 +48461,14 @@ window.DATA = {
               "changePct": 0.0,
               "amplitude": 0.92,
               "volume": 2478623.0,
-              "quoteDate": "2026-08-07"
+              "quoteDate": "2026-08-07",
+              "inst": {
+                "foreign": -281175,
+                "trust": -13000,
+                "dealer": 20682,
+                "total": -273493,
+                "date": "2026-08-07"
+              }
             }
           ]
         }
@@ -48666,7 +51158,7 @@ window.DATA = {
         },
         {
           "date": "2026-08-07",
-          "fetched_at": "2026-08-07T20:41:23+08:00",
+          "fetched_at": "2026-08-07T21:37:11+08:00",
           "count": 30,
           "self": {
             "open": 53.1,
@@ -48696,7 +51188,14 @@ window.DATA = {
               "changePct": 0.21,
               "amplitude": 1.69,
               "volume": 24414025.0,
-              "quoteDate": "2026-08-07"
+              "quoteDate": "2026-08-07",
+              "inst": {
+                "foreign": 641660,
+                "trust": 61000,
+                "dealer": 1242950,
+                "total": 1945610,
+                "date": "2026-08-07"
+              }
             },
             {
               "code": "2454",
@@ -48713,7 +51212,14 @@ window.DATA = {
               "changePct": -0.51,
               "amplitude": 4.72,
               "volume": 6607003.0,
-              "quoteDate": "2026-08-07"
+              "quoteDate": "2026-08-07",
+              "inst": {
+                "foreign": 71648,
+                "trust": -128000,
+                "dealer": -16329,
+                "total": -72681,
+                "date": "2026-08-07"
+              }
             },
             {
               "code": "2308",
@@ -48730,7 +51236,14 @@ window.DATA = {
               "changePct": -1.79,
               "amplitude": 4.76,
               "volume": 10432120.0,
-              "quoteDate": "2026-08-07"
+              "quoteDate": "2026-08-07",
+              "inst": {
+                "foreign": -1697088,
+                "trust": 55554,
+                "dealer": -158250,
+                "total": -1799784,
+                "date": "2026-08-07"
+              }
             },
             {
               "code": "2317",
@@ -48747,7 +51260,14 @@ window.DATA = {
               "changePct": -1.7,
               "amplitude": 3.4,
               "volume": 38813488.0,
-              "quoteDate": "2026-08-07"
+              "quoteDate": "2026-08-07",
+              "inst": {
+                "foreign": -5328129,
+                "trust": -800000,
+                "dealer": -626408,
+                "total": -6754537,
+                "date": "2026-08-07"
+              }
             },
             {
               "code": "3037",
@@ -48764,7 +51284,14 @@ window.DATA = {
               "changePct": -1.85,
               "amplitude": 5.86,
               "volume": 21596279.0,
-              "quoteDate": "2026-08-07"
+              "quoteDate": "2026-08-07",
+              "inst": {
+                "foreign": -790555,
+                "trust": 74000,
+                "dealer": -47709,
+                "total": -764264,
+                "date": "2026-08-07"
+              }
             },
             {
               "code": "2303",
@@ -48781,7 +51308,14 @@ window.DATA = {
               "changePct": -4.53,
               "amplitude": 6.17,
               "volume": 169352784.0,
-              "quoteDate": "2026-08-07"
+              "quoteDate": "2026-08-07",
+              "inst": {
+                "foreign": -23200666,
+                "trust": -6691000,
+                "dealer": -2838812,
+                "total": -32730478,
+                "date": "2026-08-07"
+              }
             },
             {
               "code": "2383",
@@ -48798,7 +51332,14 @@ window.DATA = {
               "changePct": -1.23,
               "amplitude": 4.15,
               "volume": 1362847.0,
-              "quoteDate": "2026-08-07"
+              "quoteDate": "2026-08-07",
+              "inst": {
+                "foreign": -39277,
+                "trust": -9000,
+                "dealer": -1404,
+                "total": -49681,
+                "date": "2026-08-07"
+              }
             },
             {
               "code": "2059",
@@ -48815,7 +51356,14 @@ window.DATA = {
               "changePct": 10.0,
               "amplitude": 0.0,
               "volume": 361895.0,
-              "quoteDate": "2026-08-07"
+              "quoteDate": "2026-08-07",
+              "inst": {
+                "foreign": -42651,
+                "trust": -68000,
+                "dealer": 36977,
+                "total": -73674,
+                "date": "2026-08-07"
+              }
             },
             {
               "code": "2345",
@@ -48832,7 +51380,14 @@ window.DATA = {
               "changePct": -8.09,
               "amplitude": 8.71,
               "volume": 4227407.0,
-              "quoteDate": "2026-08-07"
+              "quoteDate": "2026-08-07",
+              "inst": {
+                "foreign": -1238787,
+                "trust": -3000,
+                "dealer": -36584,
+                "total": -1278371,
+                "date": "2026-08-07"
+              }
             },
             {
               "code": "3017",
@@ -48849,7 +51404,14 @@ window.DATA = {
               "changePct": -5.27,
               "amplitude": 6.29,
               "volume": 4140360.0,
-              "quoteDate": "2026-08-07"
+              "quoteDate": "2026-08-07",
+              "inst": {
+                "foreign": -239960,
+                "trust": 527200,
+                "dealer": -43735,
+                "total": 243505,
+                "date": "2026-08-07"
+              }
             },
             {
               "code": "2360",
@@ -48866,7 +51428,14 @@ window.DATA = {
               "changePct": 2.78,
               "amplitude": 6.33,
               "volume": 3166068.0,
-              "quoteDate": "2026-08-07"
+              "quoteDate": "2026-08-07",
+              "inst": {
+                "foreign": 144700,
+                "trust": 165000,
+                "dealer": -154927,
+                "total": 154773,
+                "date": "2026-08-07"
+              }
             },
             {
               "code": "3231",
@@ -48883,7 +51452,14 @@ window.DATA = {
               "changePct": -3.17,
               "amplitude": 3.96,
               "volume": 65415961.0,
-              "quoteDate": "2026-08-07"
+              "quoteDate": "2026-08-07",
+              "inst": {
+                "foreign": 17158210,
+                "trust": -10276000,
+                "dealer": 861453,
+                "total": 7743663,
+                "date": "2026-08-07"
+              }
             },
             {
               "code": "6223",
@@ -48917,7 +51493,14 @@ window.DATA = {
               "changePct": -5.19,
               "amplitude": 5.3,
               "volume": 1666019.0,
-              "quoteDate": "2026-08-07"
+              "quoteDate": "2026-08-07",
+              "inst": {
+                "foreign": -219802,
+                "trust": 28000,
+                "dealer": 15566,
+                "total": -176236,
+                "date": "2026-08-07"
+              }
             },
             {
               "code": "2382",
@@ -48934,7 +51517,14 @@ window.DATA = {
               "changePct": -1.32,
               "amplitude": 3.31,
               "volume": 17516962.0,
-              "quoteDate": "2026-08-07"
+              "quoteDate": "2026-08-07",
+              "inst": {
+                "foreign": -6303273,
+                "trust": 79332,
+                "dealer": -378570,
+                "total": -6602511,
+                "date": "2026-08-07"
+              }
             },
             {
               "code": "6274",
@@ -48968,7 +51558,14 @@ window.DATA = {
               "changePct": -7.17,
               "amplitude": 4.85,
               "volume": 5516384.0,
-              "quoteDate": "2026-08-07"
+              "quoteDate": "2026-08-07",
+              "inst": {
+                "foreign": -408108,
+                "trust": -672000,
+                "dealer": -45023,
+                "total": -1125131,
+                "date": "2026-08-07"
+              }
             },
             {
               "code": "4958",
@@ -48985,7 +51582,14 @@ window.DATA = {
               "changePct": -1.87,
               "amplitude": 6.95,
               "volume": 33166518.0,
-              "quoteDate": "2026-08-07"
+              "quoteDate": "2026-08-07",
+              "inst": {
+                "foreign": -5465780,
+                "trust": 119000,
+                "dealer": 132327,
+                "total": -5214453,
+                "date": "2026-08-07"
+              }
             },
             {
               "code": "2379",
@@ -49002,7 +51606,14 @@ window.DATA = {
               "changePct": 0.81,
               "amplitude": 4.17,
               "volume": 3482120.0,
-              "quoteDate": "2026-08-07"
+              "quoteDate": "2026-08-07",
+              "inst": {
+                "foreign": 213295,
+                "trust": 130807,
+                "dealer": 30309,
+                "total": 374411,
+                "date": "2026-08-07"
+              }
             },
             {
               "code": "3034",
@@ -49019,7 +51630,14 @@ window.DATA = {
               "changePct": -0.18,
               "amplitude": 2.58,
               "volume": 3483829.0,
-              "quoteDate": "2026-08-07"
+              "quoteDate": "2026-08-07",
+              "inst": {
+                "foreign": 370833,
+                "trust": -16000,
+                "dealer": -27995,
+                "total": 326838,
+                "date": "2026-08-07"
+              }
             },
             {
               "code": "2368",
@@ -49036,7 +51654,14 @@ window.DATA = {
               "changePct": -0.3,
               "amplitude": 7.51,
               "volume": 12352014.0,
-              "quoteDate": "2026-08-07"
+              "quoteDate": "2026-08-07",
+              "inst": {
+                "foreign": -797876,
+                "trust": 535000,
+                "dealer": 102318,
+                "total": -160558,
+                "date": "2026-08-07"
+              }
             },
             {
               "code": "2449",
@@ -49053,7 +51678,14 @@ window.DATA = {
               "changePct": -2.81,
               "amplitude": 3.82,
               "volume": 14953349.0,
-              "quoteDate": "2026-08-07"
+              "quoteDate": "2026-08-07",
+              "inst": {
+                "foreign": -3166540,
+                "trust": 7000,
+                "dealer": 3287,
+                "total": -3156253,
+                "date": "2026-08-07"
+              }
             },
             {
               "code": "4904",
@@ -49070,7 +51702,14 @@ window.DATA = {
               "changePct": 0.98,
               "amplitude": 2.45,
               "volume": 6077516.0,
-              "quoteDate": "2026-08-07"
+              "quoteDate": "2026-08-07",
+              "inst": {
+                "foreign": 944453,
+                "trust": 763000,
+                "dealer": 40338,
+                "total": 1747791,
+                "date": "2026-08-07"
+              }
             },
             {
               "code": "3045",
@@ -49087,7 +51726,14 @@ window.DATA = {
               "changePct": 0.9,
               "amplitude": 1.36,
               "volume": 7046434.0,
-              "quoteDate": "2026-08-07"
+              "quoteDate": "2026-08-07",
+              "inst": {
+                "foreign": 1724407,
+                "trust": 105063,
+                "dealer": 8989,
+                "total": 1838459,
+                "date": "2026-08-07"
+              }
             },
             {
               "code": "2313",
@@ -49104,7 +51750,14 @@ window.DATA = {
               "changePct": -5.44,
               "amplitude": 8.16,
               "volume": 31604353.0,
-              "quoteDate": "2026-08-07"
+              "quoteDate": "2026-08-07",
+              "inst": {
+                "foreign": -7422076,
+                "trust": 409000,
+                "dealer": -1153759,
+                "total": -8166835,
+                "date": "2026-08-07"
+              }
             },
             {
               "code": "3044",
@@ -49121,7 +51774,14 @@ window.DATA = {
               "changePct": -0.88,
               "amplitude": 2.64,
               "volume": 2043936.0,
-              "quoteDate": "2026-08-07"
+              "quoteDate": "2026-08-07",
+              "inst": {
+                "foreign": -329076,
+                "trust": 161000,
+                "dealer": 29451,
+                "total": -138625,
+                "date": "2026-08-07"
+              }
             },
             {
               "code": "6515",
@@ -49138,7 +51798,14 @@ window.DATA = {
               "changePct": -0.22,
               "amplitude": 8.41,
               "volume": 452198.0,
-              "quoteDate": "2026-08-07"
+              "quoteDate": "2026-08-07",
+              "inst": {
+                "foreign": -14709,
+                "trust": -28000,
+                "dealer": 3116,
+                "total": -39593,
+                "date": "2026-08-07"
+              }
             },
             {
               "code": "4938",
@@ -49155,7 +51822,14 @@ window.DATA = {
               "changePct": -1.02,
               "amplitude": 1.48,
               "volume": 5250622.0,
-              "quoteDate": "2026-08-07"
+              "quoteDate": "2026-08-07",
+              "inst": {
+                "foreign": 178341,
+                "trust": 714308,
+                "dealer": -274306,
+                "total": 618343,
+                "date": "2026-08-07"
+              }
             },
             {
               "code": "3036",
@@ -49172,7 +51846,14 @@ window.DATA = {
               "changePct": -9.42,
               "amplitude": 5.57,
               "volume": 42344213.0,
-              "quoteDate": "2026-08-07"
+              "quoteDate": "2026-08-07",
+              "inst": {
+                "foreign": -8652782,
+                "trust": 1159000,
+                "dealer": -186764,
+                "total": -7680546,
+                "date": "2026-08-07"
+              }
             },
             {
               "code": "3105",
@@ -52691,7 +55372,7 @@ window.DATA = {
         },
         {
           "date": "2026-08-07",
-          "fetched_at": "2026-08-07T20:41:25+08:00",
+          "fetched_at": "2026-08-07T21:37:13+08:00",
           "count": 40,
           "self": {
             "open": 29.76,
@@ -52721,7 +55402,14 @@ window.DATA = {
               "changePct": 0.79,
               "amplitude": 1.59,
               "volume": 10827608.0,
-              "quoteDate": "2026-08-07"
+              "quoteDate": "2026-08-07",
+              "inst": {
+                "foreign": 3370012,
+                "trust": -140000,
+                "dealer": 15799,
+                "total": 3245811,
+                "date": "2026-08-07"
+              }
             },
             {
               "code": "2882",
@@ -52738,7 +55426,14 @@ window.DATA = {
               "changePct": 1.95,
               "amplitude": 2.05,
               "volume": 14079089.0,
-              "quoteDate": "2026-08-07"
+              "quoteDate": "2026-08-07",
+              "inst": {
+                "foreign": 4316898,
+                "trust": -2000,
+                "dealer": 60866,
+                "total": 4375764,
+                "date": "2026-08-07"
+              }
             },
             {
               "code": "2891",
@@ -52755,7 +55450,14 @@ window.DATA = {
               "changePct": 1.55,
               "amplitude": 1.55,
               "volume": 16259888.0,
-              "quoteDate": "2026-08-07"
+              "quoteDate": "2026-08-07",
+              "inst": {
+                "foreign": 6209635,
+                "trust": -181000,
+                "dealer": 93719,
+                "total": 6122354,
+                "date": "2026-08-07"
+              }
             },
             {
               "code": "2382",
@@ -52772,7 +55474,14 @@ window.DATA = {
               "changePct": -1.32,
               "amplitude": 3.31,
               "volume": 17516962.0,
-              "quoteDate": "2026-08-07"
+              "quoteDate": "2026-08-07",
+              "inst": {
+                "foreign": -6303273,
+                "trust": 79332,
+                "dealer": -378570,
+                "total": -6602511,
+                "date": "2026-08-07"
+              }
             },
             {
               "code": "2887",
@@ -52789,7 +55498,14 @@ window.DATA = {
               "changePct": 1.88,
               "amplitude": 2.03,
               "volume": 31040680.0,
-              "quoteDate": "2026-08-07"
+              "quoteDate": "2026-08-07",
+              "inst": {
+                "foreign": 14196618,
+                "trust": 55000,
+                "dealer": 232392,
+                "total": 14484010,
+                "date": "2026-08-07"
+              }
             },
             {
               "code": "2357",
@@ -52806,7 +55522,14 @@ window.DATA = {
               "changePct": -0.12,
               "amplitude": 2.44,
               "volume": 4616536.0,
-              "quoteDate": "2026-08-07"
+              "quoteDate": "2026-08-07",
+              "inst": {
+                "foreign": 2466634,
+                "trust": -1179000,
+                "dealer": 42139,
+                "total": 1329773,
+                "date": "2026-08-07"
+              }
             },
             {
               "code": "2883",
@@ -52823,7 +55546,14 @@ window.DATA = {
               "changePct": 0.82,
               "amplitude": 2.12,
               "volume": 26940173.0,
-              "quoteDate": "2026-08-07"
+              "quoteDate": "2026-08-07",
+              "inst": {
+                "foreign": -3621640,
+                "trust": 3985000,
+                "dealer": 151432,
+                "total": 514792,
+                "date": "2026-08-07"
+              }
             },
             {
               "code": "2603",
@@ -52840,7 +55570,14 @@ window.DATA = {
               "changePct": 1.72,
               "amplitude": 1.72,
               "volume": 6028826.0,
-              "quoteDate": "2026-08-07"
+              "quoteDate": "2026-08-07",
+              "inst": {
+                "foreign": 2472468,
+                "trust": 1183000,
+                "dealer": -71406,
+                "total": 3584062,
+                "date": "2026-08-07"
+              }
             },
             {
               "code": "3034",
@@ -52857,7 +55594,14 @@ window.DATA = {
               "changePct": -0.18,
               "amplitude": 2.58,
               "volume": 3483829.0,
-              "quoteDate": "2026-08-07"
+              "quoteDate": "2026-08-07",
+              "inst": {
+                "foreign": 370833,
+                "trust": -16000,
+                "dealer": -27995,
+                "total": 326838,
+                "date": "2026-08-07"
+              }
             },
             {
               "code": "2379",
@@ -52874,7 +55618,14 @@ window.DATA = {
               "changePct": 0.81,
               "amplitude": 4.17,
               "volume": 3482120.0,
-              "quoteDate": "2026-08-07"
+              "quoteDate": "2026-08-07",
+              "inst": {
+                "foreign": 213295,
+                "trust": 130807,
+                "dealer": 30309,
+                "total": 374411,
+                "date": "2026-08-07"
+              }
             },
             {
               "code": "2618",
@@ -52891,7 +55642,14 @@ window.DATA = {
               "changePct": 2.66,
               "amplitude": 4.16,
               "volume": 37423508.0,
-              "quoteDate": "2026-08-07"
+              "quoteDate": "2026-08-07",
+              "inst": {
+                "foreign": 22000373,
+                "trust": 127000,
+                "dealer": 496096,
+                "total": 22623469,
+                "date": "2026-08-07"
+              }
             },
             {
               "code": "4938",
@@ -52908,7 +55666,14 @@ window.DATA = {
               "changePct": -1.02,
               "amplitude": 1.48,
               "volume": 5250622.0,
-              "quoteDate": "2026-08-07"
+              "quoteDate": "2026-08-07",
+              "inst": {
+                "foreign": 178341,
+                "trust": 714308,
+                "dealer": -274306,
+                "total": 618343,
+                "date": "2026-08-07"
+              }
             },
             {
               "code": "3293",
@@ -52942,7 +55707,14 @@ window.DATA = {
               "changePct": 0.0,
               "amplitude": 0.92,
               "volume": 2478623.0,
-              "quoteDate": "2026-08-07"
+              "quoteDate": "2026-08-07",
+              "inst": {
+                "foreign": -281175,
+                "trust": -13000,
+                "dealer": 20682,
+                "total": -273493,
+                "date": "2026-08-07"
+              }
             },
             {
               "code": "2347",
@@ -52959,7 +55731,14 @@ window.DATA = {
               "changePct": -1.37,
               "amplitude": 3.91,
               "volume": 5127090.0,
-              "quoteDate": "2026-08-07"
+              "quoteDate": "2026-08-07",
+              "inst": {
+                "foreign": -1420444,
+                "trust": 1111368,
+                "dealer": 199912,
+                "total": -109164,
+                "date": "2026-08-07"
+              }
             },
             {
               "code": "1402",
@@ -52976,7 +55755,14 @@ window.DATA = {
               "changePct": 1.85,
               "amplitude": 2.59,
               "volume": 21204464.0,
-              "quoteDate": "2026-08-07"
+              "quoteDate": "2026-08-07",
+              "inst": {
+                "foreign": 14004021,
+                "trust": 120000,
+                "dealer": 196254,
+                "total": 14320275,
+                "date": "2026-08-07"
+              }
             },
             {
               "code": "2474",
@@ -52993,7 +55779,14 @@ window.DATA = {
               "changePct": 0.0,
               "amplitude": 1.6,
               "volume": 1949061.0,
-              "quoteDate": "2026-08-07"
+              "quoteDate": "2026-08-07",
+              "inst": {
+                "foreign": -3467,
+                "trust": 31567,
+                "dealer": 115749,
+                "total": 143849,
+                "date": "2026-08-07"
+              }
             },
             {
               "code": "5522",
@@ -53010,7 +55803,14 @@ window.DATA = {
               "changePct": 0.47,
               "amplitude": 2.19,
               "volume": 3062925.0,
-              "quoteDate": "2026-08-07"
+              "quoteDate": "2026-08-07",
+              "inst": {
+                "foreign": 1935000,
+                "trust": 7000,
+                "dealer": 37000,
+                "total": 1979000,
+                "date": "2026-08-07"
+              }
             },
             {
               "code": "2105",
@@ -53027,7 +55827,14 @@ window.DATA = {
               "changePct": 1.29,
               "amplitude": 2.1,
               "volume": 5956426.0,
-              "quoteDate": "2026-08-07"
+              "quoteDate": "2026-08-07",
+              "inst": {
+                "foreign": 1487200,
+                "trust": 119000,
+                "dealer": 22933,
+                "total": 1629133,
+                "date": "2026-08-07"
+              }
             },
             {
               "code": "2385",
@@ -53044,7 +55851,14 @@ window.DATA = {
               "changePct": -1.93,
               "amplitude": 2.9,
               "volume": 4319667.0,
-              "quoteDate": "2026-08-07"
+              "quoteDate": "2026-08-07",
+              "inst": {
+                "foreign": -781521,
+                "trust": -80107,
+                "dealer": -18572,
+                "total": -880200,
+                "date": "2026-08-07"
+              }
             },
             {
               "code": "2504",
@@ -53061,7 +55875,14 @@ window.DATA = {
               "changePct": 1.15,
               "amplitude": 2.8,
               "volume": 5604015.0,
-              "quoteDate": "2026-08-07"
+              "quoteDate": "2026-08-07",
+              "inst": {
+                "foreign": 2493149,
+                "trust": 0,
+                "dealer": 69829,
+                "total": 2562978,
+                "date": "2026-08-07"
+              }
             },
             {
               "code": "2855",
@@ -53078,7 +55899,14 @@ window.DATA = {
               "changePct": -1.33,
               "amplitude": 2.66,
               "volume": 2908338.0,
-              "quoteDate": "2026-08-07"
+              "quoteDate": "2026-08-07",
+              "inst": {
+                "foreign": -1585476,
+                "trust": 579000,
+                "dealer": 0,
+                "total": -1006476,
+                "date": "2026-08-07"
+              }
             },
             {
               "code": "8454",
@@ -53095,7 +55923,14 @@ window.DATA = {
               "changePct": 9.88,
               "amplitude": 8.72,
               "volume": 1055068.0,
-              "quoteDate": "2026-08-07"
+              "quoteDate": "2026-08-07",
+              "inst": {
+                "foreign": 234140,
+                "trust": 0,
+                "dealer": 32000,
+                "total": 266140,
+                "date": "2026-08-07"
+              }
             },
             {
               "code": "2542",
@@ -53112,7 +55947,14 @@ window.DATA = {
               "changePct": 0.45,
               "amplitude": 1.36,
               "volume": 4880957.0,
-              "quoteDate": "2026-08-07"
+              "quoteDate": "2026-08-07",
+              "inst": {
+                "foreign": 119000,
+                "trust": 509000,
+                "dealer": 47709,
+                "total": 675709,
+                "date": "2026-08-07"
+              }
             },
             {
               "code": "6121",
@@ -53146,7 +55988,14 @@ window.DATA = {
               "changePct": -0.88,
               "amplitude": 2.43,
               "volume": 1590792.0,
-              "quoteDate": "2026-08-07"
+              "quoteDate": "2026-08-07",
+              "inst": {
+                "foreign": -520113,
+                "trust": 20000,
+                "dealer": -4608,
+                "total": -504721,
+                "date": "2026-08-07"
+              }
             },
             {
               "code": "2637",
@@ -53163,7 +56012,14 @@ window.DATA = {
               "changePct": 2.81,
               "amplitude": 3.63,
               "volume": 3855091.0,
-              "quoteDate": "2026-08-07"
+              "quoteDate": "2026-08-07",
+              "inst": {
+                "foreign": 2268589,
+                "trust": -82000,
+                "dealer": 40650,
+                "total": 2227239,
+                "date": "2026-08-07"
+              }
             },
             {
               "code": "2606",
@@ -53180,7 +56036,14 @@ window.DATA = {
               "changePct": 4.81,
               "amplitude": 5.28,
               "volume": 8539793.0,
-              "quoteDate": "2026-08-07"
+              "quoteDate": "2026-08-07",
+              "inst": {
+                "foreign": 5583726,
+                "trust": -14000,
+                "dealer": 291258,
+                "total": 5860984,
+                "date": "2026-08-07"
+              }
             },
             {
               "code": "9910",
@@ -53197,7 +56060,14 @@ window.DATA = {
               "changePct": -0.29,
               "amplitude": 2.3,
               "volume": 754232.0,
-              "quoteDate": "2026-08-07"
+              "quoteDate": "2026-08-07",
+              "inst": {
+                "foreign": 152775,
+                "trust": 54000,
+                "dealer": 5489,
+                "total": 212264,
+                "date": "2026-08-07"
+              }
             },
             {
               "code": "9941",
@@ -53214,7 +56084,14 @@ window.DATA = {
               "changePct": 2.93,
               "amplitude": 2.81,
               "volume": 2167231.0,
-              "quoteDate": "2026-08-07"
+              "quoteDate": "2026-08-07",
+              "inst": {
+                "foreign": 1323810,
+                "trust": 100000,
+                "dealer": 3175,
+                "total": 1426985,
+                "date": "2026-08-07"
+              }
             },
             {
               "code": "8112",
@@ -53231,7 +56108,14 @@ window.DATA = {
               "changePct": 2.47,
               "amplitude": 3.48,
               "volume": 22269743.0,
-              "quoteDate": "2026-08-07"
+              "quoteDate": "2026-08-07",
+              "inst": {
+                "foreign": 8478001,
+                "trust": -49635,
+                "dealer": 132924,
+                "total": 8561290,
+                "date": "2026-08-07"
+              }
             },
             {
               "code": "2597",
@@ -53248,7 +56132,14 @@ window.DATA = {
               "changePct": 0.91,
               "amplitude": 1.22,
               "volume": 151186.0,
-              "quoteDate": "2026-08-07"
+              "quoteDate": "2026-08-07",
+              "inst": {
+                "foreign": 69937,
+                "trust": 0,
+                "dealer": 3629,
+                "total": 73566,
+                "date": "2026-08-07"
+              }
             },
             {
               "code": "6890",
@@ -53265,7 +56156,14 @@ window.DATA = {
               "changePct": 1.47,
               "amplitude": 4.11,
               "volume": 192343.0,
-              "quoteDate": "2026-08-07"
+              "quoteDate": "2026-08-07",
+              "inst": {
+                "foreign": 52672,
+                "trust": 0,
+                "dealer": 4086,
+                "total": 56758,
+                "date": "2026-08-07"
+              }
             },
             {
               "code": "6670",
@@ -53282,7 +56180,14 @@ window.DATA = {
               "changePct": 1.71,
               "amplitude": 2.28,
               "volume": 309389.0,
-              "quoteDate": "2026-08-07"
+              "quoteDate": "2026-08-07",
+              "inst": {
+                "foreign": 192866,
+                "trust": -62000,
+                "dealer": 8018,
+                "total": 138884,
+                "date": "2026-08-07"
+              }
             },
             {
               "code": "2458",
@@ -53299,7 +56204,14 @@ window.DATA = {
               "changePct": -4.07,
               "amplitude": 5.42,
               "volume": 6390651.0,
-              "quoteDate": "2026-08-07"
+              "quoteDate": "2026-08-07",
+              "inst": {
+                "foreign": -2004340,
+                "trust": -554227,
+                "dealer": -49664,
+                "total": -2608231,
+                "date": "2026-08-07"
+              }
             },
             {
               "code": "1210",
@@ -53316,7 +56228,14 @@ window.DATA = {
               "changePct": 0.0,
               "amplitude": 1.9,
               "volume": 4519212.0,
-              "quoteDate": "2026-08-07"
+              "quoteDate": "2026-08-07",
+              "inst": {
+                "foreign": 55000,
+                "trust": 200000,
+                "dealer": -464966,
+                "total": -209966,
+                "date": "2026-08-07"
+              }
             },
             {
               "code": "1319",
@@ -53333,7 +56252,14 @@ window.DATA = {
               "changePct": 0.26,
               "amplitude": 3.27,
               "volume": 4075136.0,
-              "quoteDate": "2026-08-07"
+              "quoteDate": "2026-08-07",
+              "inst": {
+                "foreign": 271798,
+                "trust": -80000,
+                "dealer": 15578,
+                "total": 207376,
+                "date": "2026-08-07"
+              }
             },
             {
               "code": "4763",
@@ -53350,7 +56276,14 @@ window.DATA = {
               "changePct": 0.5,
               "amplitude": 4.43,
               "volume": 13796150.0,
-              "quoteDate": "2026-08-07"
+              "quoteDate": "2026-08-07",
+              "inst": {
+                "foreign": 3285176,
+                "trust": 0,
+                "dealer": 52200,
+                "total": 3337376,
+                "date": "2026-08-07"
+              }
             },
             {
               "code": "2211",
@@ -53367,7 +56300,14 @@ window.DATA = {
               "changePct": 2.2,
               "amplitude": 1.97,
               "volume": 961530.0,
-              "quoteDate": "2026-08-07"
+              "quoteDate": "2026-08-07",
+              "inst": {
+                "foreign": 477379,
+                "trust": -2000,
+                "dealer": -5353,
+                "total": 470026,
+                "date": "2026-08-07"
+              }
             },
             {
               "code": "4915",
@@ -53384,7 +56324,14 @@ window.DATA = {
               "changePct": -3.88,
               "amplitude": 3.88,
               "volume": 8765149.0,
-              "quoteDate": "2026-08-07"
+              "quoteDate": "2026-08-07",
+              "inst": {
+                "foreign": -2555600,
+                "trust": 8000,
+                "dealer": -21555,
+                "total": -2569155,
+                "date": "2026-08-07"
+              }
             }
           ]
         }
@@ -57747,7 +60694,7 @@ window.DATA = {
         },
         {
           "date": "2026-08-07",
-          "fetched_at": "2026-08-07T20:41:27+08:00",
+          "fetched_at": "2026-08-07T21:37:14+08:00",
           "count": 50,
           "self": {
             "open": 40.0,
@@ -57777,7 +60724,14 @@ window.DATA = {
               "changePct": 0.21,
               "amplitude": 1.69,
               "volume": 24414025.0,
-              "quoteDate": "2026-08-07"
+              "quoteDate": "2026-08-07",
+              "inst": {
+                "foreign": 641660,
+                "trust": 61000,
+                "dealer": 1242950,
+                "total": 1945610,
+                "date": "2026-08-07"
+              }
             },
             {
               "code": "2454",
@@ -57794,7 +60748,14 @@ window.DATA = {
               "changePct": -0.51,
               "amplitude": 4.72,
               "volume": 6607003.0,
-              "quoteDate": "2026-08-07"
+              "quoteDate": "2026-08-07",
+              "inst": {
+                "foreign": 71648,
+                "trust": -128000,
+                "dealer": -16329,
+                "total": -72681,
+                "date": "2026-08-07"
+              }
             },
             {
               "code": "2308",
@@ -57811,7 +60772,14 @@ window.DATA = {
               "changePct": -1.79,
               "amplitude": 4.76,
               "volume": 10432120.0,
-              "quoteDate": "2026-08-07"
+              "quoteDate": "2026-08-07",
+              "inst": {
+                "foreign": -1697088,
+                "trust": 55554,
+                "dealer": -158250,
+                "total": -1799784,
+                "date": "2026-08-07"
+              }
             },
             {
               "code": "2317",
@@ -57828,7 +60796,14 @@ window.DATA = {
               "changePct": -1.7,
               "amplitude": 3.4,
               "volume": 38813488.0,
-              "quoteDate": "2026-08-07"
+              "quoteDate": "2026-08-07",
+              "inst": {
+                "foreign": -5328129,
+                "trust": -800000,
+                "dealer": -626408,
+                "total": -6754537,
+                "date": "2026-08-07"
+              }
             },
             {
               "code": "3711",
@@ -57845,7 +60820,14 @@ window.DATA = {
               "changePct": -1.68,
               "amplitude": 5.38,
               "volume": 13050125.0,
-              "quoteDate": "2026-08-07"
+              "quoteDate": "2026-08-07",
+              "inst": {
+                "foreign": -3053732,
+                "trust": 557000,
+                "dealer": -273934,
+                "total": -2770666,
+                "date": "2026-08-07"
+              }
             },
             {
               "code": "2383",
@@ -57862,7 +60844,14 @@ window.DATA = {
               "changePct": -1.23,
               "amplitude": 4.15,
               "volume": 1362847.0,
-              "quoteDate": "2026-08-07"
+              "quoteDate": "2026-08-07",
+              "inst": {
+                "foreign": -39277,
+                "trust": -9000,
+                "dealer": -1404,
+                "total": -49681,
+                "date": "2026-08-07"
+              }
             },
             {
               "code": "2303",
@@ -57879,7 +60868,14 @@ window.DATA = {
               "changePct": -4.53,
               "amplitude": 6.17,
               "volume": 169352784.0,
-              "quoteDate": "2026-08-07"
+              "quoteDate": "2026-08-07",
+              "inst": {
+                "foreign": -23200666,
+                "trust": -6691000,
+                "dealer": -2838812,
+                "total": -32730478,
+                "date": "2026-08-07"
+              }
             },
             {
               "code": "2345",
@@ -57896,7 +60892,14 @@ window.DATA = {
               "changePct": -8.09,
               "amplitude": 8.71,
               "volume": 4227407.0,
-              "quoteDate": "2026-08-07"
+              "quoteDate": "2026-08-07",
+              "inst": {
+                "foreign": -1238787,
+                "trust": -3000,
+                "dealer": -36584,
+                "total": -1278371,
+                "date": "2026-08-07"
+              }
             },
             {
               "code": "2327",
@@ -57913,7 +60916,14 @@ window.DATA = {
               "changePct": -5.26,
               "amplitude": 8.25,
               "volume": 44277453.0,
-              "quoteDate": "2026-08-07"
+              "quoteDate": "2026-08-07",
+              "inst": {
+                "foreign": -9347045,
+                "trust": -1516000,
+                "dealer": 141999,
+                "total": -10721046,
+                "date": "2026-08-07"
+              }
             },
             {
               "code": "2891",
@@ -57930,7 +60940,14 @@ window.DATA = {
               "changePct": 1.55,
               "amplitude": 1.55,
               "volume": 16259888.0,
-              "quoteDate": "2026-08-07"
+              "quoteDate": "2026-08-07",
+              "inst": {
+                "foreign": 6209635,
+                "trust": -181000,
+                "dealer": 93719,
+                "total": 6122354,
+                "date": "2026-08-07"
+              }
             },
             {
               "code": "2881",
@@ -57947,7 +60964,14 @@ window.DATA = {
               "changePct": 0.79,
               "amplitude": 1.59,
               "volume": 10827608.0,
-              "quoteDate": "2026-08-07"
+              "quoteDate": "2026-08-07",
+              "inst": {
+                "foreign": 3370012,
+                "trust": -140000,
+                "dealer": 15799,
+                "total": 3245811,
+                "date": "2026-08-07"
+              }
             },
             {
               "code": "6669",
@@ -57964,7 +60988,14 @@ window.DATA = {
               "changePct": -2.63,
               "amplitude": 3.83,
               "volume": 1427158.0,
-              "quoteDate": "2026-08-07"
+              "quoteDate": "2026-08-07",
+              "inst": {
+                "foreign": -138166,
+                "trust": 92000,
+                "dealer": -1962,
+                "total": -48128,
+                "date": "2026-08-07"
+              }
             },
             {
               "code": "3017",
@@ -57981,7 +61012,14 @@ window.DATA = {
               "changePct": -5.27,
               "amplitude": 6.29,
               "volume": 4140360.0,
-              "quoteDate": "2026-08-07"
+              "quoteDate": "2026-08-07",
+              "inst": {
+                "foreign": -239960,
+                "trust": 527200,
+                "dealer": -43735,
+                "total": 243505,
+                "date": "2026-08-07"
+              }
             },
             {
               "code": "2882",
@@ -57998,7 +61036,14 @@ window.DATA = {
               "changePct": 1.95,
               "amplitude": 2.05,
               "volume": 14079089.0,
-              "quoteDate": "2026-08-07"
+              "quoteDate": "2026-08-07",
+              "inst": {
+                "foreign": 4316898,
+                "trust": -2000,
+                "dealer": 60866,
+                "total": 4375764,
+                "date": "2026-08-07"
+              }
             },
             {
               "code": "2887",
@@ -58015,7 +61060,14 @@ window.DATA = {
               "changePct": 1.88,
               "amplitude": 2.03,
               "volume": 31040680.0,
-              "quoteDate": "2026-08-07"
+              "quoteDate": "2026-08-07",
+              "inst": {
+                "foreign": 14196618,
+                "trust": 55000,
+                "dealer": 232392,
+                "total": 14484010,
+                "date": "2026-08-07"
+              }
             },
             {
               "code": "3037",
@@ -58032,7 +61084,14 @@ window.DATA = {
               "changePct": -1.85,
               "amplitude": 5.86,
               "volume": 21596279.0,
-              "quoteDate": "2026-08-07"
+              "quoteDate": "2026-08-07",
+              "inst": {
+                "foreign": -790555,
+                "trust": 74000,
+                "dealer": -47709,
+                "total": -764264,
+                "date": "2026-08-07"
+              }
             },
             {
               "code": "2885",
@@ -58049,7 +61108,14 @@ window.DATA = {
               "changePct": 0.89,
               "amplitude": 1.94,
               "volume": 13749095.0,
-              "quoteDate": "2026-08-07"
+              "quoteDate": "2026-08-07",
+              "inst": {
+                "foreign": 2635069,
+                "trust": 351000,
+                "dealer": -25364,
+                "total": 2960705,
+                "date": "2026-08-07"
+              }
             },
             {
               "code": "1303",
@@ -58066,7 +61132,14 @@ window.DATA = {
               "changePct": 5.32,
               "amplitude": 8.12,
               "volume": 129122451.0,
-              "quoteDate": "2026-08-07"
+              "quoteDate": "2026-08-07",
+              "inst": {
+                "foreign": -7333983,
+                "trust": 1758000,
+                "dealer": 376546,
+                "total": -5199437,
+                "date": "2026-08-07"
+              }
             },
             {
               "code": "2382",
@@ -58083,7 +61156,14 @@ window.DATA = {
               "changePct": -1.32,
               "amplitude": 3.31,
               "volume": 17516962.0,
-              "quoteDate": "2026-08-07"
+              "quoteDate": "2026-08-07",
+              "inst": {
+                "foreign": -6303273,
+                "trust": 79332,
+                "dealer": -378570,
+                "total": -6602511,
+                "date": "2026-08-07"
+              }
             },
             {
               "code": "2883",
@@ -58100,7 +61180,14 @@ window.DATA = {
               "changePct": 0.82,
               "amplitude": 2.12,
               "volume": 26940173.0,
-              "quoteDate": "2026-08-07"
+              "quoteDate": "2026-08-07",
+              "inst": {
+                "foreign": -3621640,
+                "trust": 3985000,
+                "dealer": 151432,
+                "total": 514792,
+                "date": "2026-08-07"
+              }
             },
             {
               "code": "2301",
@@ -58117,7 +61204,14 @@ window.DATA = {
               "changePct": -2.18,
               "amplitude": 9.5,
               "volume": 33004584.0,
-              "quoteDate": "2026-08-07"
+              "quoteDate": "2026-08-07",
+              "inst": {
+                "foreign": 2128749,
+                "trust": 20000,
+                "dealer": 147811,
+                "total": 2296560,
+                "date": "2026-08-07"
+              }
             },
             {
               "code": "2059",
@@ -58134,7 +61228,14 @@ window.DATA = {
               "changePct": 10.0,
               "amplitude": 0.0,
               "volume": 361895.0,
-              "quoteDate": "2026-08-07"
+              "quoteDate": "2026-08-07",
+              "inst": {
+                "foreign": -42651,
+                "trust": -68000,
+                "dealer": 36977,
+                "total": -73674,
+                "date": "2026-08-07"
+              }
             },
             {
               "code": "2360",
@@ -58151,7 +61252,14 @@ window.DATA = {
               "changePct": 2.78,
               "amplitude": 6.33,
               "volume": 3166068.0,
-              "quoteDate": "2026-08-07"
+              "quoteDate": "2026-08-07",
+              "inst": {
+                "foreign": 144700,
+                "trust": 165000,
+                "dealer": -154927,
+                "total": 154773,
+                "date": "2026-08-07"
+              }
             },
             {
               "code": "2357",
@@ -58168,7 +61276,14 @@ window.DATA = {
               "changePct": -0.12,
               "amplitude": 2.44,
               "volume": 4616536.0,
-              "quoteDate": "2026-08-07"
+              "quoteDate": "2026-08-07",
+              "inst": {
+                "foreign": 2466634,
+                "trust": -1179000,
+                "dealer": 42139,
+                "total": 1329773,
+                "date": "2026-08-07"
+              }
             },
             {
               "code": "2884",
@@ -58185,7 +61300,14 @@ window.DATA = {
               "changePct": 0.53,
               "amplitude": 1.32,
               "volume": 17374284.0,
-              "quoteDate": "2026-08-07"
+              "quoteDate": "2026-08-07",
+              "inst": {
+                "foreign": 267117,
+                "trust": 1166000,
+                "dealer": -59213,
+                "total": 1373904,
+                "date": "2026-08-07"
+              }
             },
             {
               "code": "3231",
@@ -58202,7 +61324,14 @@ window.DATA = {
               "changePct": -3.17,
               "amplitude": 3.96,
               "volume": 65415961.0,
-              "quoteDate": "2026-08-07"
+              "quoteDate": "2026-08-07",
+              "inst": {
+                "foreign": 17158210,
+                "trust": -10276000,
+                "dealer": 861453,
+                "total": 7743663,
+                "date": "2026-08-07"
+              }
             },
             {
               "code": "3008",
@@ -58219,7 +61348,14 @@ window.DATA = {
               "changePct": -5.19,
               "amplitude": 5.3,
               "volume": 1666019.0,
-              "quoteDate": "2026-08-07"
+              "quoteDate": "2026-08-07",
+              "inst": {
+                "foreign": -219802,
+                "trust": 28000,
+                "dealer": 15566,
+                "total": -176236,
+                "date": "2026-08-07"
+              }
             },
             {
               "code": "2412",
@@ -58236,7 +61372,14 @@ window.DATA = {
               "changePct": 0.36,
               "amplitude": 1.09,
               "volume": 6922457.0,
-              "quoteDate": "2026-08-07"
+              "quoteDate": "2026-08-07",
+              "inst": {
+                "foreign": 1407518,
+                "trust": 369876,
+                "dealer": -27000,
+                "total": 1750394,
+                "date": "2026-08-07"
+              }
             },
             {
               "code": "2379",
@@ -58253,7 +61396,14 @@ window.DATA = {
               "changePct": 0.81,
               "amplitude": 4.17,
               "volume": 3482120.0,
-              "quoteDate": "2026-08-07"
+              "quoteDate": "2026-08-07",
+              "inst": {
+                "foreign": 213295,
+                "trust": 130807,
+                "dealer": 30309,
+                "total": 374411,
+                "date": "2026-08-07"
+              }
             },
             {
               "code": "5274",
@@ -58287,7 +61437,14 @@ window.DATA = {
               "changePct": 0.65,
               "amplitude": 1.16,
               "volume": 8967206.0,
-              "quoteDate": "2026-08-07"
+              "quoteDate": "2026-08-07",
+              "inst": {
+                "foreign": 2427705,
+                "trust": 33000,
+                "dealer": 15985,
+                "total": 2476690,
+                "date": "2026-08-07"
+              }
             },
             {
               "code": "6446",
@@ -58304,7 +61461,14 @@ window.DATA = {
               "changePct": -3.88,
               "amplitude": 4.65,
               "volume": 3199469.0,
-              "quoteDate": "2026-08-07"
+              "quoteDate": "2026-08-07",
+              "inst": {
+                "foreign": -268956,
+                "trust": 11000,
+                "dealer": 3235,
+                "total": -254721,
+                "date": "2026-08-07"
+              }
             },
             {
               "code": "3665",
@@ -58321,7 +61485,14 @@ window.DATA = {
               "changePct": -7.17,
               "amplitude": 4.85,
               "volume": 5516384.0,
-              "quoteDate": "2026-08-07"
+              "quoteDate": "2026-08-07",
+              "inst": {
+                "foreign": -408108,
+                "trust": -672000,
+                "dealer": -45023,
+                "total": -1125131,
+                "date": "2026-08-07"
+              }
             },
             {
               "code": "3653",
@@ -58338,7 +61509,14 @@ window.DATA = {
               "changePct": -1.57,
               "amplitude": 6.29,
               "volume": 1730866.0,
-              "quoteDate": "2026-08-07"
+              "quoteDate": "2026-08-07",
+              "inst": {
+                "foreign": -14805,
+                "trust": 59000,
+                "dealer": 1182,
+                "total": 45377,
+                "date": "2026-08-07"
+              }
             },
             {
               "code": "3034",
@@ -58355,7 +61533,14 @@ window.DATA = {
               "changePct": -0.18,
               "amplitude": 2.58,
               "volume": 3483829.0,
-              "quoteDate": "2026-08-07"
+              "quoteDate": "2026-08-07",
+              "inst": {
+                "foreign": 370833,
+                "trust": -16000,
+                "dealer": -27995,
+                "total": 326838,
+                "date": "2026-08-07"
+              }
             },
             {
               "code": "1216",
@@ -58372,7 +61557,14 @@ window.DATA = {
               "changePct": 3.7,
               "amplitude": 3.01,
               "volume": 27739254.0,
-              "quoteDate": "2026-08-07"
+              "quoteDate": "2026-08-07",
+              "inst": {
+                "foreign": 20335509,
+                "trust": -97000,
+                "dealer": -4412,
+                "total": 20234097,
+                "date": "2026-08-07"
+              }
             },
             {
               "code": "2886",
@@ -58389,7 +61581,14 @@ window.DATA = {
               "changePct": 1.19,
               "amplitude": 1.59,
               "volume": 22565910.0,
-              "quoteDate": "2026-08-07"
+              "quoteDate": "2026-08-07",
+              "inst": {
+                "foreign": -9246612,
+                "trust": 2849000,
+                "dealer": 576133,
+                "total": -5821479,
+                "date": "2026-08-07"
+              }
             },
             {
               "code": "2880",
@@ -58406,7 +61605,14 @@ window.DATA = {
               "changePct": 0.79,
               "amplitude": 3.29,
               "volume": 24856176.0,
-              "quoteDate": "2026-08-07"
+              "quoteDate": "2026-08-07",
+              "inst": {
+                "foreign": -10745773,
+                "trust": 6911000,
+                "dealer": 40790,
+                "total": -3793983,
+                "date": "2026-08-07"
+              }
             },
             {
               "code": "2892",
@@ -58423,7 +61629,14 @@ window.DATA = {
               "changePct": 0.14,
               "amplitude": 1.55,
               "volume": 32436418.0,
-              "quoteDate": "2026-08-07"
+              "quoteDate": "2026-08-07",
+              "inst": {
+                "foreign": -12690979,
+                "trust": 1291000,
+                "dealer": -270062,
+                "total": -11670041,
+                "date": "2026-08-07"
+              }
             },
             {
               "code": "3443",
@@ -58440,7 +61653,14 @@ window.DATA = {
               "changePct": 1.45,
               "amplitude": 5.58,
               "volume": 1913717.0,
-              "quoteDate": "2026-08-07"
+              "quoteDate": "2026-08-07",
+              "inst": {
+                "foreign": 19022,
+                "trust": 100700,
+                "dealer": -17094,
+                "total": 102628,
+                "date": "2026-08-07"
+              }
             },
             {
               "code": "5871",
@@ -58457,7 +61677,14 @@ window.DATA = {
               "changePct": 0.0,
               "amplitude": 0.92,
               "volume": 2478623.0,
-              "quoteDate": "2026-08-07"
+              "quoteDate": "2026-08-07",
+              "inst": {
+                "foreign": -281175,
+                "trust": -13000,
+                "dealer": 20682,
+                "total": -273493,
+                "date": "2026-08-07"
+              }
             },
             {
               "code": "4958",
@@ -58474,7 +61701,14 @@ window.DATA = {
               "changePct": -1.87,
               "amplitude": 6.95,
               "volume": 33166518.0,
-              "quoteDate": "2026-08-07"
+              "quoteDate": "2026-08-07",
+              "inst": {
+                "foreign": -5465780,
+                "trust": 119000,
+                "dealer": 132327,
+                "total": -5214453,
+                "date": "2026-08-07"
+              }
             },
             {
               "code": "3661",
@@ -58491,7 +61725,14 @@ window.DATA = {
               "changePct": 1.5,
               "amplitude": 6.56,
               "volume": 2277767.0,
-              "quoteDate": "2026-08-07"
+              "quoteDate": "2026-08-07",
+              "inst": {
+                "foreign": -40023,
+                "trust": -13000,
+                "dealer": 22776,
+                "total": -30247,
+                "date": "2026-08-07"
+              }
             },
             {
               "code": "2395",
@@ -58508,7 +61749,14 @@ window.DATA = {
               "changePct": 1.93,
               "amplitude": 5.14,
               "volume": 6309278.0,
-              "quoteDate": "2026-08-07"
+              "quoteDate": "2026-08-07",
+              "inst": {
+                "foreign": 697544,
+                "trust": 207,
+                "dealer": 36836,
+                "total": 734587,
+                "date": "2026-08-07"
+              }
             },
             {
               "code": "1590",
@@ -58525,7 +61773,14 @@ window.DATA = {
               "changePct": -0.96,
               "amplitude": 4.49,
               "volume": 994886.0,
-              "quoteDate": "2026-08-07"
+              "quoteDate": "2026-08-07",
+              "inst": {
+                "foreign": 68140,
+                "trust": -107000,
+                "dealer": -5890,
+                "total": -44750,
+                "date": "2026-08-07"
+              }
             },
             {
               "code": "5880",
@@ -58542,7 +61797,14 @@ window.DATA = {
               "changePct": 0.38,
               "amplitude": 0.77,
               "volume": 15150397.0,
-              "quoteDate": "2026-08-07"
+              "quoteDate": "2026-08-07",
+              "inst": {
+                "foreign": 3220840,
+                "trust": 0,
+                "dealer": 27000,
+                "total": 3247840,
+                "date": "2026-08-07"
+              }
             },
             {
               "code": "2368",
@@ -58559,7 +61821,14 @@ window.DATA = {
               "changePct": -0.3,
               "amplitude": 7.51,
               "volume": 12352014.0,
-              "quoteDate": "2026-08-07"
+              "quoteDate": "2026-08-07",
+              "inst": {
+                "foreign": -797876,
+                "trust": 535000,
+                "dealer": 102318,
+                "total": -160558,
+                "date": "2026-08-07"
+              }
             },
             {
               "code": "6223",
@@ -58593,7 +61862,14 @@ window.DATA = {
               "changePct": -2.81,
               "amplitude": 3.82,
               "volume": 14953349.0,
-              "quoteDate": "2026-08-07"
+              "quoteDate": "2026-08-07",
+              "inst": {
+                "foreign": -3166540,
+                "trust": 7000,
+                "dealer": 3287,
+                "total": -3156253,
+                "date": "2026-08-07"
+              }
             },
             {
               "code": "3529",
@@ -61445,7 +64721,7 @@ window.DATA = {
         },
         {
           "date": "2026-08-06",
-          "fetched_at": "2026-08-07T20:41:32+08:00",
+          "fetched_at": "2026-08-07T21:37:18+08:00",
           "count": 30,
           "self": {
             "open": 86.4,
