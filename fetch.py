@@ -730,6 +730,41 @@ def summarize_diff(prev, curr):
     return added, removed, increased, decreased
 
 
+def backfill_institutional_history(etf_ids, inst_cache, limit=3):
+    """回補每支 ETF 最近幾個快照的法人資料，讓近三日表格首次啟用即完整。"""
+    updated = 0
+    for etf_id in etf_ids:
+        snapshots = load_snapshots(etf_id)
+        for snapshot in snapshots[-limit:]:
+            data_date = snapshot["date"]
+            if data_date not in inst_cache:
+                print("== 回補 {} 三大法人買賣超（上市＋上櫃）==".format(data_date))
+                inst_cache[data_date] = fetch_institutional(data_date)
+            inst_data = inst_cache[data_date]
+            changed = False
+
+            self_inst = inst_data.get(etf_id)
+            if self_inst and any(v is not None for v in self_inst.values()):
+                snapshot["selfInstitutional"] = dict(self_inst, date=data_date)
+                changed = True
+
+            for holding in snapshot.get("holdings", []):
+                if holding.get("assetType", "stock") != "stock":
+                    continue
+                code = holding.get("code")
+                ins = inst_data.get(code) if code else None
+                if ins and any(v is not None for v in ins.values()):
+                    holding["inst"] = dict(ins, date=data_date)
+                    changed = True
+
+            if changed:
+                path = os.path.join(DATA_DIR, "{}_{}.json".format(etf_id, data_date))
+                with open(path, "w", encoding="utf-8") as f:
+                    json.dump(snapshot, f, ensure_ascii=False, indent=2)
+                updated += 1
+    print("法人歷史資料回補完成：更新 {} 份快照".format(updated))
+
+
 def main():
     os.makedirs(DATA_DIR, exist_ok=True)
 
@@ -846,6 +881,7 @@ def main():
         else:
             print("  （首日資料，尚無可比對的前一交易日）")
 
+    backfill_institutional_history(etf_ids, inst_cache)
     save_names(names)
     out = build_data_js()
     print("已更新網頁資料：{}".format(out))
