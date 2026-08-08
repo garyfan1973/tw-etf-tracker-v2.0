@@ -84,7 +84,7 @@
       const point = candlePoints.reduce((best, p) => Math.abs(p.x - position) < Math.abs(best.x - position) ? p : best, candlePoints[0]);
       const r = point.row; $("hoverLine").setAttribute("x1", point.x); $("hoverLine").setAttribute("x2", point.x); $("hoverLine").setAttribute("visibility", "visible");
       const chartRect = $("chartBox").getBoundingClientRect(), wrapRect = document.querySelector(".kline-chart-wrap, .chart-wrap").getBoundingClientRect(), tip = $("tip");
-      tip.innerHTML = `<strong>${esc(r.date)}</strong><br>開 ${price(r.open)}　高 ${price(r.high)}<br>低 ${price(r.low)}　收 ${price(r.close)}　量 ${num(r.volume)}`;
+      tip.innerHTML = `<strong>${esc(r.date)}</strong><br>開 ${price(r.open)}　高 ${price(r.high)}<br>低 ${price(r.low)}　收 ${price(r.close)}<br>量 ${Math.round(Number(r.volume || 0) / 1000).toLocaleString("en-US")} 張`;
       tip.style.visibility = "hidden";
       tip.style.left = "0px";
       tip.style.top = "0px";
