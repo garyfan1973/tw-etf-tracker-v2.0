@@ -90,6 +90,22 @@
     .view-switch { flex-wrap:wrap; }
     .view-switch button { border:1px solid var(--border); background:var(--card); color:var(--muted); border-radius:8px; padding:7px 13px; cursor:pointer; font-size:13px; }
     .view-switch button.active { background:var(--accent); border-color:var(--accent); color:#fff; }
+    .kline-panel { background:var(--card); border:1px solid var(--border); border-radius:14px; padding:14px; }
+    .kline-controls { display:flex; gap:10px; align-items:end; flex-wrap:wrap; padding:10px; margin-bottom:12px; background:var(--bg); border:1px solid var(--border); border-radius:10px; }
+    .kline-controls label { color:var(--muted); font-size:12px; }
+    .kline-controls select { min-width:190px; }
+    .kline-status { margin-left:auto; color:var(--muted); font-size:12px; }
+    .kline-chart-head { display:flex; justify-content:space-between; align-items:baseline; gap:12px; margin:4px 0 8px; }
+    .kline-chart-title { font-size:18px; font-weight:700; }
+    .kline-quote { color:var(--muted); font-size:13px; }
+    .kline-chart-wrap { position:relative; overflow:hidden; }
+    #chartBox { width:100%; }
+    #chartBox svg { display:block; width:100%; height:auto; min-height:360px; }
+    #chartBox .grid { stroke:var(--border); stroke-width:1; }
+    #chartBox .axis { fill:var(--muted); font-size:11px; }
+    #chartBox .crosshair { stroke:var(--muted); stroke-width:1; stroke-dasharray:4 4; opacity:.7; }
+    #tip { position:absolute; z-index:2; top:8px; left:8px; max-width:calc(100% - 16px); padding:8px 10px; border:1px solid var(--border); border-radius:8px; background:var(--card); color:var(--text); font-size:13px; line-height:1.7; min-height:24px; pointer-events:none; box-shadow:0 2px 8px rgba(0,0,0,.08); }
+    @media (max-width:700px) { .kline-status { width:100%; margin-left:0; } .kline-controls select { min-width:0; width:100%; } .kline-chart-wrap { overflow-x:auto; } #chartBox svg { min-width:720px; } }
     .selected-etf-summary { display:flex; flex-wrap:wrap; align-items:baseline; gap:8px 18px; margin:0 0 10px; padding:11px 14px; background:var(--card); border:1px solid var(--border); border-radius:10px; }
     .selected-etf-summary .code { font-size:18px; font-weight:700; color:var(--text); }
     .selected-etf-summary .name { color:var(--muted); font-size:15px; }
@@ -267,7 +283,7 @@
 <body>
   <div class="wrap">
     <nav style="display:flex;gap:8px;margin-bottom:14px;align-items:center;">
-      <a href="index.html" style="text-decoration:none;font-size:14px;padding:6px 12px;border-radius:8px;color:#fff;background:var(--accent);">持股 / 加減碼</a>
+      <a href="index.html" style="text-decoration:none;font-size:14px;padding:6px 12px;border-radius:8px;color:#fff;background:var(--accent);">持股資訊</a>
       <a href="dividends.html" style="text-decoration:none;font-size:14px;padding:6px 12px;border-radius:8px;color:var(--muted);border:1px solid var(--border);">配息日曆</a>
       <a href="portfolio.html" style="text-decoration:none;font-size:14px;padding:6px 12px;border-radius:8px;color:var(--muted);border:1px solid var(--border);">我的持股</a>
       <a href="transactions.html" style="text-decoration:none;font-size:14px;padding:6px 12px;border-radius:8px;color:var(--muted);border:1px solid var(--border);">交易紀錄</a>
@@ -321,10 +337,10 @@
       <div class="card removed"><div class="n" id="c-rm">0</div><div class="l">剔除</div></div>
     </div>
 
-    <div class="view-switch" role="tablist" aria-label="加減碼檢視方式">
+    <div class="view-switch" role="tablist" aria-label="持股資訊檢視方式">
       <button id="overviewViewBtn" type="button" role="tab" aria-selected="false">總覽</button>
-      <button id="chartViewBtn" class="active" type="button" role="tab" aria-selected="true">圖表</button>
-      <button id="tableViewBtn" type="button" role="tab" aria-selected="false">表格</button>
+      <button id="changeViewBtn" class="active" type="button" role="tab" aria-selected="true">加減碼</button>
+      <button id="klineViewBtn" type="button" role="tab" aria-selected="false">K線圖</button>
       <button id="institutionalViewBtn" type="button" role="tab" aria-selected="false">三大法人</button>
       <button id="marginViewBtn" type="button" role="tab" aria-selected="false">融資融券</button>
       <button id="shareholdersViewBtn" type="button" role="tab" aria-selected="false">股東分佈</button>
@@ -350,6 +366,17 @@
         <tbody></tbody>
       </table>
     </div>
+    </section>
+
+    <section id="klinePanel" class="kline-panel" style="display:none;">
+      <h2 style="margin-top:0;">K線圖</h2>
+      <div class="kline-controls">
+        <label>ETF<select id="etfSelect"></select></label>
+        <label>標的<select id="securitySelect"></select></label>
+        <div id="status" class="kline-status"></div>
+      </div>
+      <div class="kline-chart-head"><div id="chartTitle" class="kline-chart-title">—</div><div id="quote" class="kline-quote">—</div></div>
+      <div class="kline-chart-wrap"><div id="chartBox"></div><div id="tip" aria-live="polite">將滑鼠移到圖表上半部的 K 線區域。</div></div>
     </section>
 
     <section id="institutionalPanel" class="institutional-panel" style="display:none;">
@@ -390,6 +417,7 @@
   <script src="theme.js"></script>
   <script src="config.js"></script>
   <script src="data.js"></script>
+  <script src="kline.js"></script>
   <script type="module" src="auth.js"></script>
   <script>
     // 若 data.js 尚未產生，給出友善提示
@@ -437,7 +465,7 @@
       }
 
       let sortState = { diff: { k: "sharesDelta", asc: false }, full: { k: "weight", asc: false } };
-      let viewMode = "chart";
+      let viewMode = "change";
       const expandedFull = new Set();  // 記住展開了哪些個股，重繪時保留
       let expandedInstitutional = "";
       let marginTrendAsset = "__etf__";
@@ -662,18 +690,25 @@
       function setViewMode(mode) {
         viewMode = mode;
         const panels = {
-          overview: "overviewPanel", chart: "changeChartPanel", table: "changeTablePanel",
-          institutional: "institutionalPanel", margin: "marginPanel", shareholders: "shareholdersPanel"
+          overview: ["overviewPanel"], change: ["changeChartPanel", "changeTablePanel"], kline: ["klinePanel"],
+          institutional: ["institutionalPanel"], margin: ["marginPanel"], shareholders: ["shareholdersPanel"]
         };
-        Object.entries(panels).forEach(([name, id]) => {
-          document.getElementById(id).style.display = name === mode ? (name === "table" ? "block" : "block") : "none";
+        Object.entries(panels).forEach(([name, ids]) => {
+          ids.forEach(id => { document.getElementById(id).style.display = name === mode ? "block" : "none"; });
         });
-        document.getElementById("holdingsDataPanel").style.display = mode === "chart" || mode === "table" ? "block" : "none";
-        ["overview", "chart", "table", "institutional", "margin", "shareholders"].forEach(name => {
+        document.getElementById("holdingsDataPanel").style.display = mode === "change" ? "block" : "none";
+        ["overview", "change", "kline", "institutional", "margin", "shareholders"].forEach(name => {
           const btn = document.getElementById(name + "ViewBtn");
           btn.classList.toggle("active", name === mode);
           btn.setAttribute("aria-selected", name === mode);
         });
+        if (mode === "kline") syncKlineEtf();
+      }
+
+      function syncKlineEtf() {
+        const select = document.getElementById("etfSelect");
+        if (!select || !etfSel.value || ![...select.options].some(o => o.value === etfSel.value)) return;
+        if (select.value !== etfSel.value) { select.value = etfSel.value; select.dispatchEvent(new Event("change")); }
       }
 
       function etfCategory(code, name) {
@@ -1043,13 +1078,13 @@
       bindSort("diff", "diff");
       bindSort("full", "full");
       document.getElementById("overviewViewBtn").addEventListener("click", () => setViewMode("overview"));
-      document.getElementById("chartViewBtn").addEventListener("click", () => setViewMode("chart"));
-      document.getElementById("tableViewBtn").addEventListener("click", () => setViewMode("table"));
+      document.getElementById("changeViewBtn").addEventListener("click", () => setViewMode("change"));
+      document.getElementById("klineViewBtn").addEventListener("click", () => setViewMode("kline"));
       document.getElementById("institutionalViewBtn").addEventListener("click", () => setViewMode("institutional"));
       document.getElementById("marginViewBtn").addEventListener("click", () => setViewMode("margin"));
       document.getElementById("shareholdersViewBtn").addEventListener("click", () => setViewMode("shareholders"));
 
-      etfSel.addEventListener("change", () => { expandedInstitutional = ""; marginTrendAsset = "__etf__"; fillDates(); render(); });
+      etfSel.addEventListener("change", () => { expandedInstitutional = ""; marginTrendAsset = "__etf__"; fillDates(); render(); if (viewMode === "kline") syncKlineEtf(); });
       fromSel.addEventListener("change", render);
       toSel.addEventListener("change", render);
       q.addEventListener("input", render);
