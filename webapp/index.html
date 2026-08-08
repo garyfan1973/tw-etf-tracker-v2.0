@@ -226,14 +226,20 @@
     #marginTable th:first-child { text-align:left; }
     .margin-asset { text-align:left; white-space:nowrap; }
     .margin-asset .code { color:var(--muted); font-size:12px; margin-left:5px; }
-    .margin-cell { white-space:nowrap; font-variant-numeric:tabular-nums; line-height:1.45; min-width:150px; }
-    .margin-line { display:grid; grid-template-columns:26px minmax(82px,1fr) minmax(58px,auto); gap:4px; align-items:baseline; text-align:right; }
+    .margin-cell { white-space:nowrap; font-variant-numeric:tabular-nums; line-height:1.45; min-width:130px; }
+    .margin-line { display:grid; grid-template-columns:24px auto auto; gap:3px; justify-content:end; align-items:baseline; text-align:right; }
     .margin-line .margin-kind { text-align:center; border-radius:4px; font-size:11px; font-weight:700; padding:1px 3px; }
     .margin-line .margin-value { text-align:right; }
     .margin-line .sub { margin:0; font-size:11px; color:var(--muted); text-align:right; }
-    .margin-line.margin .margin-kind { color:#fff; background:#d97706; }
-    .margin-line.short .margin-kind { color:#fff; background:#7c3aed; }
+    .margin-line.margin .margin-kind { color:#765a1e; background:#eee5d1; border:1px solid #d9c79d; }
+    .margin-line.short .margin-kind { color:#5d4785; background:#e8e0f2; border:1px solid #cbbbe0; }
     .margin-cell.missing { color:var(--muted); }
+    @media (prefers-color-scheme: dark) {
+      :root:not([data-theme="light"]) .margin-line.margin .margin-kind { color:#ead8a8; background:#4b402a; border-color:#6d5c38; }
+      :root:not([data-theme="light"]) .margin-line.short .margin-kind { color:#d8c9ed; background:#44395a; border-color:#67558a; }
+    }
+    :root[data-theme="dark"] .margin-line.margin .margin-kind { color:#ead8a8; background:#4b402a; border-color:#6d5c38; }
+    :root[data-theme="dark"] .margin-line.short .margin-kind { color:#d8c9ed; background:#44395a; border-color:#67558a; }
     @media (max-width: 720px) { .overview-grid { grid-template-columns:repeat(2, minmax(0,1fr)); } .overview-dividend { grid-template-columns:1fr; } .shareholder-row { grid-template-columns:1fr 80px 1fr; } }
   </style>
   <script>
