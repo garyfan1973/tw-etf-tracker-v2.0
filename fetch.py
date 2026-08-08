@@ -371,25 +371,6 @@ def fetch_margin(data_date):
     return margin
 
 
-def fetch_latest_quote(code, quote_cache, lookback_days=10):
-    """找某檔台股／台股 ETF 最近可取得的收盤行情。
-
-    ETF 持股頁的資料日期可能落後交易所行情（例如持股頁仍停在
-    7/31，但 ETF 本身在 8/3 仍有交易）。因此 ETF 自身行情不能綁定
-    持股快照日期，改由今天往前找最近一個有該代號的交易日。
-    """
-    end = datetime.date.fromisoformat(today_str())
-    for offset in range(lookback_days + 1):
-        data_date = (end - datetime.timedelta(days=offset)).isoformat()
-        if data_date not in quote_cache:
-            print("== 尋找 ETF 最新行情：{} ==".format(data_date))
-            quote_cache[data_date] = fetch_quotes(data_date)
-        quote = quote_cache[data_date].get(code)
-        if quote:
-            return quote
-    return None
-
-
 def _iso_date(s):
     """2026/07/21 -> 2026-07-21，無效回空字串。"""
     m = re.match(r"(20\d{2})/(\d{1,2})/(\d{1,2})", s or "")
@@ -1022,6 +1003,82 @@ def backfill_institutional_history(etf_ids, inst_cache, limit=3):
     print("法人歷史資料回補完成：更新 {} 份快照".format(updated))
 
 
+QUOTE_FIELDS = ("open", "high", "low", "close", "prevClose", "change", "changePct", "amplitude", "volume", "quoteDate")
+
+
+def backfill_quote_history(etf_ids, quote_cache):
+    """依每份快照自己的日期回補行情，禁止用其他日期行情代替。
+
+    歷史快照的持股日期與行情日期必須一致；若指定日期查不到行情，
+    清除該筆可能殘留的行情欄位，避免畫面顯示錯誤的舊／最新行情。
+    """
+    updated = 0
+    checked = 0
+    for etf_id in etf_ids:
+        snapshots = load_snapshots(etf_id)
+        for snapshot in snapshots:
+            data_date = snapshot["date"]
+            if data_date not in quote_cache:
+                print("== 回補 {} 指定日期行情（上市＋上櫃）==".format(data_date))
+                quote_cache[data_date] = fetch_quotes(data_date)
+            quotes = quote_cache[data_date]
+            changed = False
+
+            self_quote = quotes.get(etf_id)
+            if self_quote:
+                if snapshot.get("self") != self_quote:
+                    snapshot["self"] = self_quote
+                    changed = True
+            elif snapshot.get("self") is not None:
+                snapshot["self"] = None
+                changed = True
+
+            for holding in snapshot.get("holdings", []):
+                if holding.get("assetType", "stock") != "stock" or holding.get("market") != "TW":
+                    continue
+                checked += 1
+                quote = quotes.get(holding.get("code"))
+                if quote:
+                    for field, value in quote.items():
+                        if holding.get(field) != value:
+                            holding[field] = value
+                            changed = True
+                else:
+                    for field in QUOTE_FIELDS:
+                        if field in holding:
+                            del holding[field]
+                            changed = True
+
+            if changed:
+                path = os.path.join(DATA_DIR, "{}_{}.json".format(etf_id, data_date))
+                with open(path, "w", encoding="utf-8") as f:
+                    json.dump(snapshot, f, ensure_ascii=False, indent=2)
+                updated += 1
+    print("行情歷史回補完成：更新 {} 份快照，檢查 {} 筆台股持股行情".format(updated, checked))
+
+
+def validate_quote_dates(etf_ids):
+    """檢查行情欄位不可標示成不同於快照的日期。"""
+    issues = []
+    for etf_id in etf_ids:
+        for snapshot in load_snapshots(etf_id):
+            data_date = snapshot["date"]
+            self_quote = snapshot.get("self") or {}
+            if self_quote.get("quoteDate") not in (None, data_date):
+                issues.append((etf_id, data_date, "ETF", self_quote.get("quoteDate")))
+            for holding in snapshot.get("holdings", []):
+                quote_date = holding.get("quoteDate")
+                if quote_date not in (None, data_date):
+                    issues.append((etf_id, data_date, holding.get("code") or holding.get("name"), quote_date))
+    if issues:
+        print("! 行情日期一致性檢查失敗：{} 筆".format(len(issues)))
+        for issue in issues[:20]:
+            print("  {} 快照 {} / {} 行情 {}".format(*issue))
+    else:
+        print("行情日期一致性檢查通過：所有已填行情都對應快照日期")
+    return issues
+
+
 def main():
     os.makedirs(DATA_DIR, exist_ok=True)
 
@@ -1089,11 +1146,10 @@ def main():
             if q:
                 h.update(q)
                 matched += 1
-            elif _hkey(h) in prev_map:
-                old = prev_map[_hkey(h)]
-                for field in ("open", "high", "low", "close", "prevClose", "change", "changePct", "amplitude", "volume", "quoteDate"):
-                    if old.get(field) is not None:
-                        h[field] = old[field]
+            else:
+                # 指定日期查不到行情時不可沿用前一日，避免把舊行情誤標成今日。
+                for field in QUOTE_FIELDS:
+                    h.pop(field, None)
             # 三大法人買賣超：優先用當日資料，缺漏則沿用最近一次（呈現「最近一次」）
             ins = inst_data.get(h["code"])
             if ins and any(v is not None for v in ins.values()):
@@ -1122,14 +1178,13 @@ def main():
             print("  海外行情：{}/{} 檔（Yahoo）{}".format(ok, len(oversea), note))
 
         prev_holdings = prev[-1]["holdings"] if prev else []
-        # ETF 自身行情獨立尋找最新交易日，不受 MoneyDJ 持股頁資料日期限制。
-        # 這可避免持股頁停在舊日期時，ETF 的現價／漲跌也一起停住。
-        self_quote = fetch_latest_quote(etf_id, quote_cache)
-        if self_quote is None and prev_snapshot:
-            self_quote = prev_snapshot.get("self")
+        # ETF 自身行情只能使用與持股快照相同的指定日期，不使用最新行情 fallback。
+        self_quote = quotes.get(etf_id)
         if self_quote:
             print("  ETF 自身行情：{}（行情日 {}）".format(
                 self_quote.get("close"), self_quote.get("quoteDate", "未知")))
+        else:
+            print("  ! ETF 自身行情：指定日期 {} 查無資料，保留空值".format(data_date))
         self_inst = inst_data.get(etf_id)
         if self_inst and any(v is not None for v in self_inst.values()):
             self_inst = dict(self_inst, date=data_date)
@@ -1154,8 +1209,10 @@ def main():
         else:
             print("  （首日資料，尚無可比對的前一交易日）")
 
+    backfill_quote_history(etf_ids, quote_cache)
     backfill_institutional_history(etf_ids, inst_cache)
     backfill_margin_history(etf_ids, margin_cache)
+    validate_quote_dates(etf_ids)
     save_names(names)
     overview_data, distribution_data = update_reference_data(etf_ids)
     out = build_data_js(overview_data, distribution_data)

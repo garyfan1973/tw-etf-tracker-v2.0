@@ -37,6 +37,20 @@
         "dealer": -141198,
         "total": 4315122,
         "date": "2026-08-05"
+      },
+      "margin": {
+        "marginBuy": 104,
+        "marginSell": 196,
+        "marginCashRedemption": 4,
+        "marginPrevBalance": 7031,
+        "marginBalance": 6935,
+        "shortBuy": 10,
+        "shortSell": 9,
+        "shortStockRedemption": 6,
+        "shortPrevBalance": 217,
+        "shortBalance": 210,
+        "offsetting": 0,
+        "date": "2026-08-05"
       }
     },
     {
@@ -60,6 +74,20 @@
         "trust": -631512,
         "dealer": -70526,
         "total": 2464252,
+        "date": "2026-08-05"
+      },
+      "margin": {
+        "marginBuy": 244,
+        "marginSell": 224,
+        "marginCashRedemption": 0,
+        "marginPrevBalance": 4624,
+        "marginBalance": 4644,
+        "shortBuy": 116,
+        "shortSell": 15,
+        "shortStockRedemption": 0,
+        "shortPrevBalance": 351,
+        "shortBalance": 250,
+        "offsetting": 0,
         "date": "2026-08-05"
       }
     },
@@ -85,6 +113,20 @@
         "dealer": -812573,
         "total": 14132119,
         "date": "2026-08-05"
+      },
+      "margin": {
+        "marginBuy": 185,
+        "marginSell": 308,
+        "marginCashRedemption": 4,
+        "marginPrevBalance": 3767,
+        "marginBalance": 3640,
+        "shortBuy": 1,
+        "shortSell": 5,
+        "shortStockRedemption": 0,
+        "shortPrevBalance": 30,
+        "shortBalance": 34,
+        "offsetting": 0,
+        "date": "2026-08-05"
       }
     },
     {
@@ -108,6 +150,20 @@
         "trust": -10065,
         "dealer": -850937,
         "total": -4216633,
+        "date": "2026-08-05"
+      },
+      "margin": {
+        "marginBuy": 934,
+        "marginSell": 436,
+        "marginCashRedemption": 17,
+        "marginPrevBalance": 15963,
+        "marginBalance": 16444,
+        "shortBuy": 8,
+        "shortSell": 3,
+        "shortStockRedemption": 0,
+        "shortPrevBalance": 205,
+        "shortBalance": 200,
+        "offsetting": 1,
         "date": "2026-08-05"
       }
     },
@@ -133,6 +189,20 @@
         "dealer": -1162014,
         "total": 4800097,
         "date": "2026-08-05"
+      },
+      "margin": {
+        "marginBuy": 116,
+        "marginSell": 310,
+        "marginCashRedemption": 12,
+        "marginPrevBalance": 39736,
+        "marginBalance": 39530,
+        "shortBuy": 173,
+        "shortSell": 18,
+        "shortStockRedemption": 0,
+        "shortPrevBalance": 314,
+        "shortBalance": 159,
+        "offsetting": 0,
+        "date": "2026-08-05"
       }
     },
     {
@@ -156,6 +226,20 @@
         "trust": -80347,
         "dealer": 13224,
         "total": 1909822,
+        "date": "2026-08-05"
+      },
+      "margin": {
+        "marginBuy": 264,
+        "marginSell": 197,
+        "marginCashRedemption": 0,
+        "marginPrevBalance": 1914,
+        "marginBalance": 1981,
+        "shortBuy": 4,
+        "shortSell": 8,
+        "shortStockRedemption": 20,
+        "shortPrevBalance": 54,
+        "shortBalance": 38,
+        "offsetting": 0,
         "date": "2026-08-05"
       }
     },
@@ -181,6 +265,20 @@
         "dealer": -751337,
         "total": 37269375,
         "date": "2026-08-05"
+      },
+      "margin": {
+        "marginBuy": 504,
+        "marginSell": 2083,
+        "marginCashRedemption": 0,
+        "marginPrevBalance": 11146,
+        "marginBalance": 9567,
+        "shortBuy": 380,
+        "shortSell": 11,
+        "shortStockRedemption": 0,
+        "shortPrevBalance": 469,
+        "shortBalance": 100,
+        "offsetting": 0,
+        "date": "2026-08-05"
       }
     },
     {
@@ -204,6 +302,20 @@
         "trust": -73055,
         "dealer": -227641,
         "total": -978498,
+        "date": "2026-08-05"
+      },
+      "margin": {
+        "marginBuy": 296,
+        "marginSell": 194,
+        "marginCashRedemption": 8,
+        "marginPrevBalance": 15068,
+        "marginBalance": 15162,
+        "shortBuy": 18,
+        "shortSell": 1,
+        "shortStockRedemption": 0,
+        "shortPrevBalance": 247,
+        "shortBalance": 230,
+        "offsetting": 1,
         "date": "2026-08-05"
       }
     },
@@ -229,6 +341,20 @@
         "dealer": -45298,
         "total": 2301708,
         "date": "2026-08-05"
+      },
+      "margin": {
+        "marginBuy": 236,
+        "marginSell": 203,
+        "marginCashRedemption": 2,
+        "marginPrevBalance": 2407,
+        "marginBalance": 2438,
+        "shortBuy": 5,
+        "shortSell": 3,
+        "shortStockRedemption": 0,
+        "shortPrevBalance": 24,
+        "shortBalance": 22,
+        "offsetting": 3,
+        "date": "2026-08-05"
       }
     },
     {
@@ -252,6 +378,20 @@
         "trust": 15724,
         "dealer": 42043,
         "total": 879310,
+        "date": "2026-08-05"
+      },
+      "margin": {
+        "marginBuy": 85,
+        "marginSell": 99,
+        "marginCashRedemption": 0,
+        "marginPrevBalance": 2499,
+        "marginBalance": 2485,
+        "shortBuy": 42,
+        "shortSell": 4,
+        "shortStockRedemption": 0,
+        "shortPrevBalance": 83,
+        "shortBalance": 45,
+        "offsetting": 2,
         "date": "2026-08-05"
       }
     },
@@ -277,6 +417,20 @@
         "dealer": -1360465,
         "total": 22357717,
         "date": "2026-08-05"
+      },
+      "margin": {
+        "marginBuy": 1326,
+        "marginSell": 1377,
+        "marginCashRedemption": 67,
+        "marginPrevBalance": 39024,
+        "marginBalance": 38906,
+        "shortBuy": 28,
+        "shortSell": 19,
+        "shortStockRedemption": 0,
+        "shortPrevBalance": 577,
+        "shortBalance": 568,
+        "offsetting": 13,
+        "date": "2026-08-05"
       }
     },
     {
@@ -301,6 +455,20 @@
         "dealer": -63590,
         "total": 5489513,
         "date": "2026-08-05"
+      },
+      "margin": {
+        "marginBuy": 101,
+        "marginSell": 286,
+        "marginCashRedemption": 0,
+        "marginPrevBalance": 5025,
+        "marginBalance": 4840,
+        "shortBuy": 4,
+        "shortSell": 6,
+        "shortStockRedemption": 0,
+        "shortPrevBalance": 20,
+        "shortBalance": 22,
+        "offsetting": 3,
+        "date": "2026-08-05"
       }
     },
     {
@@ -309,16 +477,30 @@
       "market": "TW",
       "weight": 1.63,
       "shares": 11430000,
-      "open": 774.0,
-      "high": 781.0,
-      "low": 769.0,
-      "close": 777.0,
-      "prevClose": 774.0,
-      "change": 3.0,
-      "changePct": 0.39,
-      "amplitude": 1.55,
-      "volume": 1310072.0,
-      "quoteDate": "2026-08-05"
+      "open": 784.0,
+      "high": 805.0,
+      "low": 784.0,
+      "close": 799.0,
+      "prevClose": 784.0,
+      "change": 15.0,
+      "changePct": 1.91,
+      "amplitude": 2.68,
+      "volume": 2744376.0,
+      "quoteDate": "2026-08-05",
+      "margin": {
+        "marginBuy": 88,
+        "marginSell": 189,
+        "marginCashRedemption": 11,
+        "marginPrevBalance": 2341,
+        "marginBalance": 2229,
+        "shortBuy": 8,
+        "shortSell": 0,
+        "shortStockRedemption": 0,
+        "shortPrevBalance": 14,
+        "shortBalance": 22,
+        "offsetting": 0,
+        "date": "2026-08-05"
+      }
     },
     {
       "code": "5871",
@@ -341,6 +523,20 @@
         "trust": 25000,
         "dealer": -9789,
         "total": 350008,
+        "date": "2026-08-05"
+      },
+      "margin": {
+        "marginBuy": 89,
+        "marginSell": 44,
+        "marginCashRedemption": 0,
+        "marginPrevBalance": 4005,
+        "marginBalance": 4050,
+        "shortBuy": 0,
+        "shortSell": 0,
+        "shortStockRedemption": 0,
+        "shortPrevBalance": 2,
+        "shortBalance": 2,
+        "offsetting": 0,
         "date": "2026-08-05"
       }
     },
@@ -366,6 +562,20 @@
         "dealer": -761623,
         "total": 673935,
         "date": "2026-08-05"
+      },
+      "margin": {
+        "marginBuy": 444,
+        "marginSell": 67,
+        "marginCashRedemption": 0,
+        "marginPrevBalance": 755,
+        "marginBalance": 1132,
+        "shortBuy": 0,
+        "shortSell": 1,
+        "shortStockRedemption": 0,
+        "shortPrevBalance": 7,
+        "shortBalance": 8,
+        "offsetting": 3,
+        "date": "2026-08-05"
       }
     },
     {
@@ -389,6 +599,20 @@
         "trust": 10852,
         "dealer": -646611,
         "total": 2340012,
+        "date": "2026-08-05"
+      },
+      "margin": {
+        "marginBuy": 651,
+        "marginSell": 70,
+        "marginCashRedemption": 0,
+        "marginPrevBalance": 6564,
+        "marginBalance": 7145,
+        "shortBuy": 10,
+        "shortSell": 7,
+        "shortStockRedemption": 0,
+        "shortPrevBalance": 41,
+        "shortBalance": 38,
+        "offsetting": 1,
         "date": "2026-08-05"
       }
     },
@@ -414,6 +638,20 @@
         "dealer": -25297,
         "total": -384320,
         "date": "2026-08-05"
+      },
+      "margin": {
+        "marginBuy": 134,
+        "marginSell": 176,
+        "marginCashRedemption": 1,
+        "marginPrevBalance": 8549,
+        "marginBalance": 8506,
+        "shortBuy": 5,
+        "shortSell": 1,
+        "shortStockRedemption": 0,
+        "shortPrevBalance": 12,
+        "shortBalance": 8,
+        "offsetting": 0,
+        "date": "2026-08-05"
       }
     },
     {
@@ -437,6 +675,20 @@
         "trust": -6444,
         "dealer": 2000,
         "total": -37444,
+        "date": "2026-08-05"
+      },
+      "margin": {
+        "marginBuy": 15,
+        "marginSell": 3,
+        "marginCashRedemption": 2,
+        "marginPrevBalance": 974,
+        "marginBalance": 984,
+        "shortBuy": 0,
+        "shortSell": 0,
+        "shortStockRedemption": 0,
+        "shortPrevBalance": 0,
+        "shortBalance": 0,
+        "offsetting": 0,
         "date": "2026-08-05"
       }
     },
@@ -462,6 +714,20 @@
         "dealer": -59876,
         "total": 327434,
         "date": "2026-08-05"
+      },
+      "margin": {
+        "marginBuy": 51,
+        "marginSell": 82,
+        "marginCashRedemption": 1,
+        "marginPrevBalance": 3137,
+        "marginBalance": 3105,
+        "shortBuy": 3,
+        "shortSell": 10,
+        "shortStockRedemption": 0,
+        "shortPrevBalance": 69,
+        "shortBalance": 76,
+        "offsetting": 0,
+        "date": "2026-08-05"
       }
     },
     {
@@ -485,6 +751,20 @@
         "trust": 89054,
         "dealer": -94516,
         "total": 644901,
+        "date": "2026-08-05"
+      },
+      "margin": {
+        "marginBuy": 142,
+        "marginSell": 314,
+        "marginCashRedemption": 0,
+        "marginPrevBalance": 9078,
+        "marginBalance": 8906,
+        "shortBuy": 41,
+        "shortSell": 8,
+        "shortStockRedemption": 0,
+        "shortPrevBalance": 60,
+        "shortBalance": 27,
+        "offsetting": 0,
         "date": "2026-08-05"
       }
     },
@@ -510,6 +790,20 @@
         "dealer": 0,
         "total": 1092840,
         "date": "2026-08-05"
+      },
+      "margin": {
+        "marginBuy": 107,
+        "marginSell": 437,
+        "marginCashRedemption": 1,
+        "marginPrevBalance": 6056,
+        "marginBalance": 5725,
+        "shortBuy": 9,
+        "shortSell": 3,
+        "shortStockRedemption": 0,
+        "shortPrevBalance": 135,
+        "shortBalance": 129,
+        "offsetting": 0,
+        "date": "2026-08-05"
       }
     },
     {
@@ -533,6 +827,20 @@
         "trust": -39111,
         "dealer": -13230,
         "total": -2070341,
+        "date": "2026-08-05"
+      },
+      "margin": {
+        "marginBuy": 158,
+        "marginSell": 15,
+        "marginCashRedemption": 0,
+        "marginPrevBalance": 4646,
+        "marginBalance": 4789,
+        "shortBuy": 5,
+        "shortSell": 3,
+        "shortStockRedemption": 0,
+        "shortPrevBalance": 8,
+        "shortBalance": 6,
+        "offsetting": 0,
         "date": "2026-08-05"
       }
     },
@@ -558,6 +866,20 @@
         "dealer": 75998,
         "total": -25030,
         "date": "2026-08-05"
+      },
+      "margin": {
+        "marginBuy": 58,
+        "marginSell": 136,
+        "marginCashRedemption": 45,
+        "marginPrevBalance": 5129,
+        "marginBalance": 5006,
+        "shortBuy": 0,
+        "shortSell": 0,
+        "shortStockRedemption": 0,
+        "shortPrevBalance": 211,
+        "shortBalance": 211,
+        "offsetting": 0,
+        "date": "2026-08-05"
       }
     },
     {
@@ -582,6 +904,20 @@
         "dealer": -16165,
         "total": 138330,
         "date": "2026-08-05"
+      },
+      "margin": {
+        "marginBuy": 82,
+        "marginSell": 55,
+        "marginCashRedemption": 0,
+        "marginPrevBalance": 1444,
+        "marginBalance": 1471,
+        "shortBuy": 6,
+        "shortSell": 7,
+        "shortStockRedemption": 0,
+        "shortPrevBalance": 55,
+        "shortBalance": 56,
+        "offsetting": 0,
+        "date": "2026-08-05"
       }
     },
     {
@@ -590,16 +926,30 @@
       "market": "TW",
       "weight": 0.58,
       "shares": 8504000,
-      "open": 373.5,
-      "high": 379.0,
+      "open": 381.0,
+      "high": 381.5,
       "low": 370.5,
-      "close": 372.5,
-      "prevClose": 370.0,
-      "change": 2.5,
-      "changePct": 0.68,
-      "amplitude": 2.3,
-      "volume": 767570.0,
-      "quoteDate": "2026-08-05"
+      "close": 373.0,
+      "prevClose": 380.5,
+      "change": -7.5,
+      "changePct": -1.97,
+      "amplitude": 2.89,
+      "volume": 601258.0,
+      "quoteDate": "2026-08-05",
+      "margin": {
+        "marginBuy": 22,
+        "marginSell": 22,
+        "marginCashRedemption": 1,
+        "marginPrevBalance": 463,
+        "marginBalance": 462,
+        "shortBuy": 0,
+        "shortSell": 0,
+        "shortStockRedemption": 0,
+        "shortPrevBalance": 0,
+        "shortBalance": 0,
+        "offsetting": 0,
+        "date": "2026-08-05"
+      }
     },
     {
       "code": "1477",
@@ -622,6 +972,20 @@
         "trust": 19555,
         "dealer": -25284,
         "total": -326206,
+        "date": "2026-08-05"
+      },
+      "margin": {
+        "marginBuy": 14,
+        "marginSell": 42,
+        "marginCashRedemption": 0,
+        "marginPrevBalance": 1404,
+        "marginBalance": 1376,
+        "shortBuy": 1,
+        "shortSell": 0,
+        "shortStockRedemption": 0,
+        "shortPrevBalance": 1,
+        "shortBalance": 0,
+        "offsetting": 0,
         "date": "2026-08-05"
       }
     },
@@ -647,6 +1011,20 @@
         "dealer": -107628,
         "total": 1272325,
         "date": "2026-08-05"
+      },
+      "margin": {
+        "marginBuy": 342,
+        "marginSell": 197,
+        "marginCashRedemption": 3,
+        "marginPrevBalance": 2287,
+        "marginBalance": 2429,
+        "shortBuy": 0,
+        "shortSell": 9,
+        "shortStockRedemption": 0,
+        "shortPrevBalance": 38,
+        "shortBalance": 47,
+        "offsetting": 0,
+        "date": "2026-08-05"
       }
     },
     {
@@ -670,6 +1048,20 @@
         "trust": 0,
         "dealer": 88798,
         "total": 2198367,
+        "date": "2026-08-05"
+      },
+      "margin": {
+        "marginBuy": 43,
+        "marginSell": 146,
+        "marginCashRedemption": 0,
+        "marginPrevBalance": 2755,
+        "marginBalance": 2652,
+        "shortBuy": 0,
+        "shortSell": 1,
+        "shortStockRedemption": 0,
+        "shortPrevBalance": 3,
+        "shortBalance": 4,
+        "offsetting": 0,
         "date": "2026-08-05"
       }
     },
@@ -695,6 +1087,20 @@
         "dealer": 53174,
         "total": 361972,
         "date": "2026-08-05"
+      },
+      "margin": {
+        "marginBuy": 146,
+        "marginSell": 110,
+        "marginCashRedemption": 0,
+        "marginPrevBalance": 3395,
+        "marginBalance": 3431,
+        "shortBuy": 4,
+        "shortSell": 0,
+        "shortStockRedemption": 0,
+        "shortPrevBalance": 23,
+        "shortBalance": 19,
+        "offsetting": 0,
+        "date": "2026-08-05"
       }
     },
     {
@@ -718,6 +1124,20 @@
         "trust": 55000,
         "dealer": -11559,
         "total": 393807,
+        "date": "2026-08-05"
+      },
+      "margin": {
+        "marginBuy": 8,
+        "marginSell": 12,
+        "marginCashRedemption": 0,
+        "marginPrevBalance": 2242,
+        "marginBalance": 2238,
+        "shortBuy": 0,
+        "shortSell": 0,
+        "shortStockRedemption": 0,
+        "shortPrevBalance": 2,
+        "shortBalance": 2,
+        "offsetting": 0,
         "date": "2026-08-05"
       }
     },
@@ -743,6 +1163,20 @@
         "dealer": 87285,
         "total": 323285,
         "date": "2026-08-05"
+      },
+      "margin": {
+        "marginBuy": 3,
+        "marginSell": 11,
+        "marginCashRedemption": 0,
+        "marginPrevBalance": 921,
+        "marginBalance": 913,
+        "shortBuy": 0,
+        "shortSell": 1,
+        "shortStockRedemption": 0,
+        "shortPrevBalance": 3,
+        "shortBalance": 4,
+        "offsetting": 0,
+        "date": "2026-08-05"
       }
     },
     {
@@ -766,6 +1200,20 @@
         "trust": -632498,
         "dealer": -291823,
         "total": 3821486,
+        "date": "2026-08-05"
+      },
+      "margin": {
+        "marginBuy": 1027,
+        "marginSell": 887,
+        "marginCashRedemption": 4,
+        "marginPrevBalance": 16586,
+        "marginBalance": 16722,
+        "shortBuy": 61,
+        "shortSell": 274,
+        "shortStockRedemption": 49,
+        "shortPrevBalance": 2623,
+        "shortBalance": 2787,
+        "offsetting": 18,
         "date": "2026-08-05"
       }
     },
@@ -791,6 +1239,20 @@
         "dealer": 0,
         "total": 50000,
         "date": "2026-08-05"
+      },
+      "margin": {
+        "marginBuy": 0,
+        "marginSell": 1,
+        "marginCashRedemption": 0,
+        "marginPrevBalance": 172,
+        "marginBalance": 171,
+        "shortBuy": 0,
+        "shortSell": 0,
+        "shortStockRedemption": 0,
+        "shortPrevBalance": 0,
+        "shortBalance": 0,
+        "offsetting": 0,
+        "date": "2026-08-05"
       }
     },
     {
@@ -814,6 +1276,20 @@
         "trust": 0,
         "dealer": 10060,
         "total": -2122872,
+        "date": "2026-08-05"
+      },
+      "margin": {
+        "marginBuy": 43,
+        "marginSell": 20,
+        "marginCashRedemption": 0,
+        "marginPrevBalance": 751,
+        "marginBalance": 774,
+        "shortBuy": 0,
+        "shortSell": 0,
+        "shortStockRedemption": 0,
+        "shortPrevBalance": 0,
+        "shortBalance": 0,
+        "offsetting": 0,
         "date": "2026-08-05"
       }
     },
@@ -839,6 +1315,20 @@
         "dealer": -3265,
         "total": 143436,
         "date": "2026-08-05"
+      },
+      "margin": {
+        "marginBuy": 4,
+        "marginSell": 25,
+        "marginCashRedemption": 0,
+        "marginPrevBalance": 803,
+        "marginBalance": 782,
+        "shortBuy": 0,
+        "shortSell": 0,
+        "shortStockRedemption": 0,
+        "shortPrevBalance": 11,
+        "shortBalance": 11,
+        "offsetting": 0,
+        "date": "2026-08-05"
       }
     },
     {
@@ -862,6 +1352,20 @@
         "trust": -53000,
         "dealer": 2036,
         "total": -45206,
+        "date": "2026-08-05"
+      },
+      "margin": {
+        "marginBuy": 5,
+        "marginSell": 7,
+        "marginCashRedemption": 0,
+        "marginPrevBalance": 407,
+        "marginBalance": 405,
+        "shortBuy": 0,
+        "shortSell": 0,
+        "shortStockRedemption": 0,
+        "shortPrevBalance": 1,
+        "shortBalance": 1,
+        "offsetting": 0,
         "date": "2026-08-05"
       }
     },
@@ -887,6 +1391,20 @@
         "dealer": 11590,
         "total": -897645,
         "date": "2026-08-05"
+      },
+      "margin": {
+        "marginBuy": 733,
+        "marginSell": 532,
+        "marginCashRedemption": 3,
+        "marginPrevBalance": 44313,
+        "marginBalance": 44511,
+        "shortBuy": 4,
+        "shortSell": 3,
+        "shortStockRedemption": 0,
+        "shortPrevBalance": 27,
+        "shortBalance": 26,
+        "offsetting": 32,
+        "date": "2026-08-05"
       }
     },
     {
@@ -910,6 +1428,20 @@
         "trust": -114000,
         "dealer": -11000,
         "total": 270929,
+        "date": "2026-08-05"
+      },
+      "margin": {
+        "marginBuy": 148,
+        "marginSell": 74,
+        "marginCashRedemption": 0,
+        "marginPrevBalance": 6968,
+        "marginBalance": 7042,
+        "shortBuy": 4,
+        "shortSell": 0,
+        "shortStockRedemption": 0,
+        "shortPrevBalance": 22,
+        "shortBalance": 18,
+        "offsetting": 0,
         "date": "2026-08-05"
       }
     },
@@ -935,6 +1467,20 @@
         "dealer": 4146,
         "total": 129146,
         "date": "2026-08-05"
+      },
+      "margin": {
+        "marginBuy": 189,
+        "marginSell": 66,
+        "marginCashRedemption": 0,
+        "marginPrevBalance": 4095,
+        "marginBalance": 4218,
+        "shortBuy": 0,
+        "shortSell": 12,
+        "shortStockRedemption": 0,
+        "shortPrevBalance": 47,
+        "shortBalance": 59,
+        "offsetting": 1,
+        "date": "2026-08-05"
       }
     },
     {
@@ -959,6 +1505,20 @@
         "dealer": -8138,
         "total": 39895,
         "date": "2026-08-05"
+      },
+      "margin": {
+        "marginBuy": 3,
+        "marginSell": 4,
+        "marginCashRedemption": 0,
+        "marginPrevBalance": 490,
+        "marginBalance": 489,
+        "shortBuy": 0,
+        "shortSell": 0,
+        "shortStockRedemption": 0,
+        "shortPrevBalance": 0,
+        "shortBalance": 0,
+        "offsetting": 0,
+        "date": "2026-08-05"
       }
     }
   ],
@@ -967,6 +1527,20 @@
     "trust": 0,
     "dealer": 12536439,
     "total": 26236643,
+    "date": "2026-08-05"
+  },
+  "selfMargin": {
+    "marginBuy": 243,
+    "marginSell": 1660,
+    "marginCashRedemption": 12,
+    "marginPrevBalance": 9539,
+    "marginBalance": 8110,
+    "shortBuy": 180,
+    "shortSell": 32,
+    "shortStockRedemption": 0,
+    "shortPrevBalance": 268,
+    "shortBalance": 120,
+    "offsetting": 1,
     "date": "2026-08-05"
   }
 }

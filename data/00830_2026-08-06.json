@@ -1,24 +1,38 @@
 {
   "date": "2026-08-06",
-  "fetched_at": "2026-08-08T08:52:25+08:00",
+  "fetched_at": "2026-08-08T11:40:36+08:00",
   "count": 30,
   "self": {
-    "open": 86.4,
-    "high": 86.7,
-    "low": 85.95,
-    "close": 86.35,
-    "prevClose": 85.9,
-    "change": 0.45,
-    "changePct": 0.52,
-    "amplitude": 0.87,
-    "volume": 4384795.0,
-    "quoteDate": "2026-08-07"
+    "open": 85.8,
+    "high": 85.95,
+    "low": 84.65,
+    "close": 85.9,
+    "prevClose": 87.7,
+    "change": -1.8,
+    "changePct": -2.05,
+    "amplitude": 1.48,
+    "volume": 6869126.0,
+    "quoteDate": "2026-08-06"
   },
   "selfInstitutional": {
     "foreign": -1470465,
     "trust": 145000,
     "dealer": -1073541,
     "total": -2399006,
+    "date": "2026-08-06"
+  },
+  "selfMargin": {
+    "marginBuy": 223,
+    "marginSell": 120,
+    "marginCashRedemption": 1,
+    "marginPrevBalance": 5389,
+    "marginBalance": 5491,
+    "shortBuy": 88,
+    "shortSell": 7,
+    "shortStockRedemption": 0,
+    "shortPrevBalance": 331,
+    "shortBalance": 250,
+    "offsetting": 0,
     "date": "2026-08-06"
   },
   "holdings": [
@@ -592,19 +606,5 @@
       "currency": "USD",
       "quoteDate": "2026-08-06"
     }
-  ],
-  "selfMargin": {
-    "marginBuy": 223,
-    "marginSell": 120,
-    "marginCashRedemption": 1,
-    "marginPrevBalance": 5389,
-    "marginBalance": 5491,
-    "shortBuy": 88,
-    "shortSell": 7,
-    "shortStockRedemption": 0,
-    "shortPrevBalance": 331,
-    "shortBalance": 250,
-    "offsetting": 0,
-    "date": "2026-08-06"
-  }
+  ]
 }

@@ -3,16 +3,16 @@
   "fetched_at": "2026-08-04T19:47:47+08:00",
   "count": 50,
   "self": {
-    "open": 100.65,
-    "high": 102.25,
-    "low": 99.75,
-    "close": 100.65,
-    "prevClose": 102.0,
-    "change": -1.35,
-    "changePct": -1.32,
-    "amplitude": 2.45,
-    "volume": 121774200.0,
-    "quoteDate": "2026-08-04"
+    "open": 102.0,
+    "high": 102.7,
+    "low": 101.0,
+    "close": 102.0,
+    "prevClose": 102.85,
+    "change": -0.85,
+    "changePct": -0.83,
+    "amplitude": 1.65,
+    "volume": 169497151.0,
+    "quoteDate": "2026-08-03"
   },
   "holdings": [
     {

@@ -11,7 +11,8 @@
     "change": 5.4,
     "changePct": 9.94,
     "amplitude": 2.67,
-    "volume": 73521887.0
+    "volume": 73521887.0,
+    "quoteDate": "2026-07-31"
   },
   "holdings": [
     {
@@ -28,7 +29,8 @@
       "change": 220.0,
       "changePct": 9.98,
       "amplitude": 3.63,
-      "volume": 69478145.0
+      "volume": 69478145.0,
+      "quoteDate": "2026-07-31"
     },
     {
       "code": "2454",
@@ -44,7 +46,8 @@
       "change": 320.0,
       "changePct": 9.89,
       "amplitude": 0.0,
-      "volume": 4033014.0
+      "volume": 4033014.0,
+      "quoteDate": "2026-07-31"
     },
     {
       "code": "2317",
@@ -60,7 +63,8 @@
       "change": 21.0,
       "changePct": 9.15,
       "amplitude": 4.14,
-      "volume": 99413798.0
+      "volume": 99413798.0,
+      "quoteDate": "2026-07-31"
     },
     {
       "code": "3711",
@@ -76,7 +80,8 @@
       "change": 50.0,
       "changePct": 9.9,
       "amplitude": 0.0,
-      "volume": 8045972.0
+      "volume": 8045972.0,
+      "quoteDate": "2026-07-31"
     },
     {
       "code": "2303",
@@ -92,7 +97,8 @@
       "change": 11.0,
       "changePct": 10.0,
       "amplitude": 0.0,
-      "volume": 45464057.0
+      "volume": 45464057.0,
+      "quoteDate": "2026-07-31"
     },
     {
       "code": "2383",
@@ -108,7 +114,8 @@
       "change": 430.0,
       "changePct": 9.97,
       "amplitude": 0.0,
-      "volume": 1418920.0
+      "volume": 1418920.0,
+      "quoteDate": "2026-07-31"
     },
     {
       "code": "3037",
@@ -124,7 +131,8 @@
       "change": 71.0,
       "changePct": 9.92,
       "amplitude": 0.0,
-      "volume": 3163252.0
+      "volume": 3163252.0,
+      "quoteDate": "2026-07-31"
     },
     {
       "code": "2327",
@@ -140,7 +148,8 @@
       "change": 45.5,
       "changePct": 9.97,
       "amplitude": 0.0,
-      "volume": 6398641.0
+      "volume": 6398641.0,
+      "quoteDate": "2026-07-31"
     },
     {
       "code": "2382",
@@ -156,7 +165,8 @@
       "change": 12.5,
       "changePct": 4.48,
       "amplitude": 5.02,
-      "volume": 49270092.0
+      "volume": 49270092.0,
+      "quoteDate": "2026-07-31"
     },
     {
       "code": "3017",
@@ -172,7 +182,8 @@
       "change": 210.0,
       "changePct": 9.95,
       "amplitude": 2.13,
-      "volume": 2498885.0
+      "volume": 2498885.0,
+      "quoteDate": "2026-07-31"
     },
     {
       "code": "6669",
@@ -188,7 +199,8 @@
       "change": 490.0,
       "changePct": 10.0,
       "amplitude": 1.84,
-      "volume": 1458695.0
+      "volume": 1458695.0,
+      "quoteDate": "2026-07-31"
     },
     {
       "code": "2357",
@@ -204,7 +216,8 @@
       "change": 73.0,
       "changePct": 9.91,
       "amplitude": 5.83,
-      "volume": 9733283.0
+      "volume": 9733283.0,
+      "quoteDate": "2026-07-31"
     },
     {
       "code": "3231",
@@ -220,7 +233,8 @@
       "change": 16.0,
       "changePct": 10.0,
       "amplitude": 6.56,
-      "volume": 138686721.0
+      "volume": 138686721.0,
+      "quoteDate": "2026-07-31"
     },
     {
       "code": "2408",
@@ -236,7 +250,8 @@
       "change": 32.5,
       "changePct": 9.91,
       "amplitude": 0.0,
-      "volume": 8135174.0
+      "volume": 8135174.0,
+      "quoteDate": "2026-07-31"
     },
     {
       "code": "2301",
@@ -252,7 +267,8 @@
       "change": 19.0,
       "changePct": 10.0,
       "amplitude": 0.0,
-      "volume": 9460069.0
+      "volume": 9460069.0,
+      "quoteDate": "2026-07-31"
     },
     {
       "code": "2344",
@@ -268,7 +284,8 @@
       "change": 11.5,
       "changePct": 9.7,
       "amplitude": 0.0,
-      "volume": 21043331.0
+      "volume": 21043331.0,
+      "quoteDate": "2026-07-31"
     },
     {
       "code": "3008",
@@ -284,7 +301,8 @@
       "change": 320.0,
       "changePct": 8.61,
       "amplitude": 5.38,
-      "volume": 2970845.0
+      "volume": 2970845.0,
+      "quoteDate": "2026-07-31"
     },
     {
       "code": "3665",
@@ -300,7 +318,8 @@
       "change": 190.0,
       "changePct": 9.95,
       "amplitude": 3.4,
-      "volume": 2430263.0
+      "volume": 2430263.0,
+      "quoteDate": "2026-07-31"
     },
     {
       "code": "7769",
@@ -316,7 +335,8 @@
       "change": 560.0,
       "changePct": 9.96,
       "amplitude": 0.0,
-      "volume": 255029.0
+      "volume": 255029.0,
+      "quoteDate": "2026-07-31"
     },
     {
       "code": "2379",
@@ -332,7 +352,8 @@
       "change": -14.0,
       "changePct": -2.01,
       "amplitude": 14.78,
-      "volume": 13242861.0
+      "volume": 13242861.0,
+      "quoteDate": "2026-07-31"
     },
     {
       "code": "3481",
@@ -348,7 +369,8 @@
       "change": 4.1,
       "changePct": 9.9,
       "amplitude": 3.38,
-      "volume": 365292276.0
+      "volume": 365292276.0,
+      "quoteDate": "2026-07-31"
     },
     {
       "code": "4958",
@@ -364,7 +386,8 @@
       "change": 37.5,
       "changePct": 9.97,
       "amplitude": 1.73,
-      "volume": 15543203.0
+      "volume": 15543203.0,
+      "quoteDate": "2026-07-31"
     },
     {
       "code": "3443",
@@ -380,7 +403,8 @@
       "change": 345.0,
       "changePct": 9.97,
       "amplitude": 0.0,
-      "volume": 750048.0
+      "volume": 750048.0,
+      "quoteDate": "2026-07-31"
     },
     {
       "code": "3034",
@@ -396,7 +420,8 @@
       "change": 28.0,
       "changePct": 5.7,
       "amplitude": 5.5,
-      "volume": 7502701.0
+      "volume": 7502701.0,
+      "quoteDate": "2026-07-31"
     },
     {
       "code": "3653",
@@ -412,7 +437,8 @@
       "change": 310.0,
       "changePct": 9.89,
       "amplitude": 3.67,
-      "volume": 915510.0
+      "volume": 915510.0,
+      "quoteDate": "2026-07-31"
     },
     {
       "code": "2368",
@@ -428,7 +454,8 @@
       "change": 72.0,
       "changePct": 9.99,
       "amplitude": 1.25,
-      "volume": 2926470.0
+      "volume": 2926470.0,
+      "quoteDate": "2026-07-31"
     },
     {
       "code": "2395",
@@ -444,7 +471,8 @@
       "change": 16.0,
       "changePct": 2.93,
       "amplitude": 9.14,
-      "volume": 8004766.0
+      "volume": 8004766.0,
+      "quoteDate": "2026-07-31"
     },
     {
       "code": "2449",
@@ -460,7 +488,8 @@
       "change": 20.0,
       "changePct": 9.83,
       "amplitude": 0.0,
-      "volume": 6714788.0
+      "volume": 6714788.0,
+      "quoteDate": "2026-07-31"
     },
     {
       "code": "3661",
@@ -476,7 +505,8 @@
       "change": 275.0,
       "changePct": 9.87,
       "amplitude": 4.13,
-      "volume": 3250005.0
+      "volume": 3250005.0,
+      "quoteDate": "2026-07-31"
     },
     {
       "code": "3189",
@@ -492,7 +522,8 @@
       "change": 57.0,
       "changePct": 9.86,
       "amplitude": 0.0,
-      "volume": 1399371.0
+      "volume": 1399371.0,
+      "quoteDate": "2026-07-31"
     },
     {
       "code": "8046",
@@ -508,7 +539,8 @@
       "change": 83.0,
       "changePct": 9.92,
       "amplitude": 0.0,
-      "volume": 1729841.0
+      "volume": 1729841.0,
+      "quoteDate": "2026-07-31"
     },
     {
       "code": "2337",
@@ -524,7 +556,8 @@
       "change": 8.7,
       "changePct": 9.48,
       "amplitude": 0.0,
-      "volume": 11523756.0
+      "volume": 11523756.0,
+      "quoteDate": "2026-07-31"
     },
     {
       "code": "2376",
@@ -540,7 +573,8 @@
       "change": 18.0,
       "changePct": 5.65,
       "amplitude": 3.61,
-      "volume": 8320257.0
+      "volume": 8320257.0,
+      "quoteDate": "2026-07-31"
     },
     {
       "code": "6770",
@@ -556,7 +590,8 @@
       "change": 4.95,
       "changePct": 9.99,
       "amplitude": 0.0,
-      "volume": 25422284.0
+      "volume": 25422284.0,
+      "quoteDate": "2026-07-31"
     },
     {
       "code": "2313",
@@ -572,7 +607,8 @@
       "change": 15.0,
       "changePct": 9.74,
       "amplitude": 1.62,
-      "volume": 14742543.0
+      "volume": 14742543.0,
+      "quoteDate": "2026-07-31"
     },
     {
       "code": "4938",
@@ -588,7 +624,8 @@
       "change": 3.9,
       "changePct": 4.84,
       "amplitude": 2.24,
-      "volume": 14187557.0
+      "volume": 14187557.0,
+      "quoteDate": "2026-07-31"
     },
     {
       "code": "3702",
@@ -604,7 +641,8 @@
       "change": 7.0,
       "changePct": 6.64,
       "amplitude": 3.79,
-      "volume": 12300466.0
+      "volume": 12300466.0,
+      "quoteDate": "2026-07-31"
     },
     {
       "code": "3044",
@@ -620,7 +658,8 @@
       "change": 27.0,
       "changePct": 7.89,
       "amplitude": 3.36,
-      "volume": 3814394.0
+      "volume": 3814394.0,
+      "quoteDate": "2026-07-31"
     },
     {
       "code": "6239",
@@ -636,7 +675,8 @@
       "change": 21.0,
       "changePct": 9.79,
       "amplitude": 2.33,
-      "volume": 22593532.0
+      "volume": 22593532.0,
+      "quoteDate": "2026-07-31"
     },
     {
       "code": "2356",
@@ -652,7 +692,8 @@
       "change": 4.3,
       "changePct": 7.48,
       "amplitude": 4.87,
-      "volume": 29648411.0
+      "volume": 29648411.0,
+      "quoteDate": "2026-07-31"
     },
     {
       "code": "3036",
@@ -668,7 +709,8 @@
       "change": 13.0,
       "changePct": 7.08,
       "amplitude": 6.54,
-      "volume": 10716640.0
+      "volume": 10716640.0,
+      "quoteDate": "2026-07-31"
     },
     {
       "code": "3533",
@@ -684,7 +726,8 @@
       "change": 165.0,
       "changePct": 9.76,
       "amplitude": 3.55,
-      "volume": 1124484.0
+      "volume": 1124484.0,
+      "quoteDate": "2026-07-31"
     },
     {
       "code": "2324",
@@ -700,7 +743,8 @@
       "change": 2.25,
       "changePct": 6.67,
       "amplitude": 3.56,
-      "volume": 76506343.0
+      "volume": 76506343.0,
+      "quoteDate": "2026-07-31"
     },
     {
       "code": "2409",
@@ -716,7 +760,8 @@
       "change": 2.0,
       "changePct": 9.01,
       "amplitude": 3.83,
-      "volume": 197017544.0
+      "volume": 197017544.0,
+      "quoteDate": "2026-07-31"
     },
     {
       "code": "6515",
@@ -732,7 +777,8 @@
       "change": 525.0,
       "changePct": 9.92,
       "amplitude": 2.17,
-      "volume": 189068.0
+      "volume": 189068.0,
+      "quoteDate": "2026-07-31"
     },
     {
       "code": "6415",
@@ -748,7 +794,8 @@
       "change": 37.5,
       "changePct": 9.99,
       "amplitude": 0.0,
-      "volume": 853430.0
+      "volume": 853430.0,
+      "quoteDate": "2026-07-31"
     },
     {
       "code": "2347",
@@ -764,7 +811,8 @@
       "change": 7.6,
       "changePct": 8.83,
       "amplitude": 7.55,
-      "volume": 12415095.0
+      "volume": 12415095.0,
+      "quoteDate": "2026-07-31"
     },
     {
       "code": "2377",
@@ -780,7 +828,8 @@
       "change": 6.0,
       "changePct": 4.41,
       "amplitude": 6.25,
-      "volume": 18799330.0
+      "volume": 18799330.0,
+      "quoteDate": "2026-07-31"
     },
     {
       "code": "2474",
@@ -796,7 +845,8 @@
       "change": 4.5,
       "changePct": 2.52,
       "amplitude": 1.96,
-      "volume": 2934237.0
+      "volume": 2934237.0,
+      "quoteDate": "2026-07-31"
     },
     {
       "code": "5434",
@@ -812,7 +862,8 @@
       "change": 24.5,
       "changePct": 5.15,
       "amplitude": 3.68,
-      "volume": 1917045.0
+      "volume": 1917045.0,
+      "quoteDate": "2026-07-31"
     },
     {
       "code": "6257",
@@ -828,7 +879,8 @@
       "change": 13.0,
       "changePct": 7.49,
       "amplitude": 4.32,
-      "volume": 7786103.0
+      "volume": 7786103.0,
+      "quoteDate": "2026-07-31"
     },
     {
       "code": "2353",
@@ -844,7 +896,8 @@
       "change": 0.95,
       "changePct": 3.41,
       "amplitude": 2.15,
-      "volume": 35554873.0
+      "volume": 35554873.0,
+      "quoteDate": "2026-07-31"
     },
     {
       "code": "3706",
@@ -860,7 +913,8 @@
       "change": 3.3,
       "changePct": 3.92,
       "amplitude": 3.09,
-      "volume": 12532357.0
+      "volume": 12532357.0,
+      "quoteDate": "2026-07-31"
     },
     {
       "code": "6805",
@@ -876,7 +930,8 @@
       "change": 120.0,
       "changePct": 9.76,
       "amplitude": 1.22,
-      "volume": 547141.0
+      "volume": 547141.0,
+      "quoteDate": "2026-07-31"
     },
     {
       "code": "6531",
@@ -892,7 +947,8 @@
       "change": 60.0,
       "changePct": 9.88,
       "amplitude": 3.62,
-      "volume": 5029523.0
+      "volume": 5029523.0,
+      "quoteDate": "2026-07-31"
     },
     {
       "code": "8210",
@@ -908,7 +964,8 @@
       "change": 94.0,
       "changePct": 9.88,
       "amplitude": 3.68,
-      "volume": 764851.0
+      "volume": 764851.0,
+      "quoteDate": "2026-07-31"
     },
     {
       "code": "2492",
@@ -924,7 +981,8 @@
       "change": 19.5,
       "changePct": 9.82,
       "amplitude": 0.0,
-      "volume": 1518226.0
+      "volume": 1518226.0,
+      "quoteDate": "2026-07-31"
     },
     {
       "code": "2385",
@@ -940,7 +998,8 @@
       "change": 1.5,
       "changePct": 1.44,
       "amplitude": 3.35,
-      "volume": 7150763.0
+      "volume": 7150763.0,
+      "quoteDate": "2026-07-31"
     },
     {
       "code": "3026",
@@ -956,7 +1015,8 @@
       "change": 22.5,
       "changePct": 5.26,
       "amplitude": 12.51,
-      "volume": 6002702.0
+      "volume": 6002702.0,
+      "quoteDate": "2026-07-31"
     },
     {
       "code": "6213",
@@ -972,7 +1032,8 @@
       "change": 23.5,
       "changePct": 9.81,
       "amplitude": 0.0,
-      "volume": 2069260.0
+      "volume": 2069260.0,
+      "quoteDate": "2026-07-31"
     },
     {
       "code": "2354",
@@ -988,7 +1049,8 @@
       "change": 3.4,
       "changePct": 6.4,
       "amplitude": 4.33,
-      "volume": 8130855.0
+      "volume": 8130855.0,
+      "quoteDate": "2026-07-31"
     },
     {
       "code": "2451",
@@ -1004,7 +1066,8 @@
       "change": 23.5,
       "changePct": 8.72,
       "amplitude": 5.57,
-      "volume": 16586620.0
+      "volume": 16586620.0,
+      "quoteDate": "2026-07-31"
     },
     {
       "code": "2455",
@@ -1020,7 +1083,8 @@
       "change": 26.5,
       "changePct": 9.98,
       "amplitude": 5.27,
-      "volume": 5555051.0
+      "volume": 5555051.0,
+      "quoteDate": "2026-07-31"
     },
     {
       "code": "5269",
@@ -1036,7 +1100,8 @@
       "change": 10.0,
       "changePct": 0.77,
       "amplitude": 7.28,
-      "volume": 1564349.0
+      "volume": 1564349.0,
+      "quoteDate": "2026-07-31"
     },
     {
       "code": "6196",
@@ -1052,7 +1117,8 @@
       "change": 32.0,
       "changePct": 7.34,
       "amplitude": 3.9,
-      "volume": 2965682.0
+      "volume": 2965682.0,
+      "quoteDate": "2026-07-31"
     },
     {
       "code": "3005",
@@ -1068,7 +1134,8 @@
       "change": 4.0,
       "changePct": 3.64,
       "amplitude": 3.18,
-      "volume": 7946262.0
+      "volume": 7946262.0,
+      "quoteDate": "2026-07-31"
     },
     {
       "code": "6789",
@@ -1084,7 +1151,8 @@
       "change": 38.5,
       "changePct": 10.0,
       "amplitude": 2.34,
-      "volume": 1435114.0
+      "volume": 1435114.0,
+      "quoteDate": "2026-07-31"
     },
     {
       "code": "2467",
@@ -1100,7 +1168,8 @@
       "change": 35.5,
       "changePct": 8.01,
       "amplitude": 4.74,
-      "volume": 1782398.0
+      "volume": 1782398.0,
+      "quoteDate": "2026-07-31"
     },
     {
       "code": "3030",
@@ -1116,7 +1185,8 @@
       "change": 19.5,
       "changePct": 7.83,
       "amplitude": 3.21,
-      "volume": 1477499.0
+      "volume": 1477499.0,
+      "quoteDate": "2026-07-31"
     },
     {
       "code": "4919",
@@ -1132,7 +1202,8 @@
       "change": 10.5,
       "changePct": 9.86,
       "amplitude": 3.76,
-      "volume": 6679764.0
+      "volume": 6679764.0,
+      "quoteDate": "2026-07-31"
     },
     {
       "code": "6526",
@@ -1148,7 +1219,8 @@
       "change": 27.0,
       "changePct": 5.48,
       "amplitude": 4.06,
-      "volume": 522924.0
+      "volume": 522924.0,
+      "quoteDate": "2026-07-31"
     },
     {
       "code": "3532",
@@ -1164,7 +1236,8 @@
       "change": -6.0,
       "changePct": -2.16,
       "amplitude": 12.79,
-      "volume": 2604221.0
+      "volume": 2604221.0,
+      "quoteDate": "2026-07-31"
     }
   ]
 }

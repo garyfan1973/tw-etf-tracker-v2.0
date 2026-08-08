@@ -11,7 +11,8 @@
     "change": 1.85,
     "changePct": 9.98,
     "amplitude": 1.51,
-    "volume": 63245626.0
+    "volume": 63245626.0,
+    "quoteDate": "2026-07-31"
   },
   "holdings": [
     {
@@ -28,7 +29,8 @@
       "change": 220.0,
       "changePct": 9.98,
       "amplitude": 3.63,
-      "volume": 69478145.0
+      "volume": 69478145.0,
+      "quoteDate": "2026-07-31"
     },
     {
       "code": "5536",
@@ -36,15 +38,16 @@
       "market": "TW",
       "weight": 7.54,
       "shares": 3792000,
-      "open": 980.0,
-      "high": 990.0,
-      "low": 913.0,
-      "close": 925.0,
-      "prevClose": 906.0,
-      "change": 19.0,
-      "changePct": 2.1,
-      "amplitude": 8.5,
-      "volume": 1549000.0
+      "open": 1085.0,
+      "high": 1125.0,
+      "low": 1060.0,
+      "close": 1060.0,
+      "prevClose": 1070.0,
+      "change": -10.0,
+      "changePct": -0.93,
+      "amplitude": 6.07,
+      "volume": 640106.0,
+      "quoteDate": "2026-07-31"
     },
     {
       "code": "2454",
@@ -60,7 +63,8 @@
       "change": 320.0,
       "changePct": 9.89,
       "amplitude": 0.0,
-      "volume": 4033014.0
+      "volume": 4033014.0,
+      "quoteDate": "2026-07-31"
     },
     {
       "code": "6669",
@@ -76,7 +80,8 @@
       "change": 490.0,
       "changePct": 10.0,
       "amplitude": 1.84,
-      "volume": 1458695.0
+      "volume": 1458695.0,
+      "quoteDate": "2026-07-31"
     },
     {
       "code": "6139",
@@ -92,7 +97,8 @@
       "change": 64.0,
       "changePct": 9.95,
       "amplitude": 2.64,
-      "volume": 2557901.0
+      "volume": 2557901.0,
+      "quoteDate": "2026-07-31"
     },
     {
       "code": "2345",
@@ -108,7 +114,8 @@
       "change": 190.0,
       "changePct": 9.82,
       "amplitude": 0.0,
-      "volume": 1009455.0
+      "volume": 1009455.0,
+      "quoteDate": "2026-07-31"
     },
     {
       "code": "2360",
@@ -124,7 +131,8 @@
       "change": 190.0,
       "changePct": 9.95,
       "amplitude": 6.28,
-      "volume": 6100594.0
+      "volume": 6100594.0,
+      "quoteDate": "2026-07-31"
     },
     {
       "code": "6223",
@@ -132,15 +140,16 @@
       "market": "TW",
       "weight": 3.48,
       "shares": 307000,
-      "open": 5280.0,
-      "high": 5280.0,
-      "low": 5280.0,
-      "close": 5280.0,
-      "prevClose": 4800.0,
-      "change": 480.0,
-      "changePct": 10.0,
-      "amplitude": 0.0,
-      "volume": 149000.0
+      "open": 6345.0,
+      "high": 6345.0,
+      "low": 6070.0,
+      "close": 6100.0,
+      "prevClose": 6300.0,
+      "change": -200.0,
+      "changePct": -3.17,
+      "amplitude": 4.37,
+      "volume": 655598.0,
+      "quoteDate": "2026-07-31"
     },
     {
       "code": "2383",
@@ -156,7 +165,8 @@
       "change": 430.0,
       "changePct": 9.97,
       "amplitude": 0.0,
-      "volume": 1418920.0
+      "volume": 1418920.0,
+      "quoteDate": "2026-07-31"
     },
     {
       "code": "2059",
@@ -172,7 +182,8 @@
       "change": 710.0,
       "changePct": 9.94,
       "amplitude": 1.26,
-      "volume": 232481.0
+      "volume": 232481.0,
+      "quoteDate": "2026-07-31"
     },
     {
       "code": "4958",
@@ -188,7 +199,8 @@
       "change": 37.5,
       "changePct": 9.97,
       "amplitude": 1.73,
-      "volume": 15543203.0
+      "volume": 15543203.0,
+      "quoteDate": "2026-07-31"
     },
     {
       "code": "3105",
@@ -196,15 +208,16 @@
       "market": "TW",
       "weight": 2.67,
       "shares": 4226000,
-      "open": 294.0,
-      "high": 294.5,
-      "low": 280.0,
-      "close": 294.5,
-      "prevClose": 268.0,
-      "change": 26.5,
-      "changePct": 9.89,
-      "amplitude": 5.41,
-      "volume": 14812000.0
+      "open": 384.5,
+      "high": 394.5,
+      "low": 359.5,
+      "close": 366.0,
+      "prevClose": 382.0,
+      "change": -16.0,
+      "changePct": -4.19,
+      "amplitude": 9.16,
+      "volume": 23872604.0,
+      "quoteDate": "2026-07-31"
     },
     {
       "code": "2303",
@@ -220,7 +233,8 @@
       "change": 11.0,
       "changePct": 10.0,
       "amplitude": 0.0,
-      "volume": 45464057.0
+      "volume": 45464057.0,
+      "quoteDate": "2026-07-31"
     },
     {
       "code": "3008",
@@ -236,7 +250,8 @@
       "change": 320.0,
       "changePct": 8.61,
       "amplitude": 5.38,
-      "volume": 2970845.0
+      "volume": 2970845.0,
+      "quoteDate": "2026-07-31"
     },
     {
       "code": "6488",
@@ -244,15 +259,16 @@
       "market": "TW",
       "weight": 2.11,
       "shares": 1148000,
-      "open": 855.0,
-      "high": 855.0,
-      "low": 802.0,
-      "close": 855.0,
-      "prevClose": 778.0,
-      "change": 77.0,
-      "changePct": 9.9,
-      "amplitude": 6.81,
-      "volume": 18646000.0
+      "open": 879.0,
+      "high": 910.0,
+      "low": 855.0,
+      "close": 872.0,
+      "prevClose": 872.0,
+      "change": 0.0,
+      "changePct": 0.0,
+      "amplitude": 6.31,
+      "volume": 9567668.0,
+      "quoteDate": "2026-07-31"
     },
     {
       "code": "3491",
@@ -260,15 +276,16 @@
       "market": "TW",
       "weight": 2.06,
       "shares": 988000,
-      "open": 979.0,
-      "high": 1010.0,
-      "low": 909.0,
-      "close": 969.0,
-      "prevClose": 923.0,
-      "change": 46.0,
-      "changePct": 4.98,
-      "amplitude": 10.94,
-      "volume": 4640000.0
+      "open": 1350.0,
+      "high": 1395.0,
+      "low": 1230.0,
+      "close": 1235.0,
+      "prevClose": 1350.0,
+      "change": -115.0,
+      "changePct": -8.52,
+      "amplitude": 12.22,
+      "volume": 2616364.0,
+      "quoteDate": "2026-07-31"
     },
     {
       "code": "3017",
@@ -284,7 +301,8 @@
       "change": 210.0,
       "changePct": 9.95,
       "amplitude": 2.13,
-      "volume": 2498885.0
+      "volume": 2498885.0,
+      "quoteDate": "2026-07-31"
     },
     {
       "code": "6257",
@@ -300,7 +318,8 @@
       "change": 13.0,
       "changePct": 7.49,
       "amplitude": 4.32,
-      "volume": 7786103.0
+      "volume": 7786103.0,
+      "quoteDate": "2026-07-31"
     },
     {
       "code": "3264",
@@ -308,15 +327,16 @@
       "market": "TW",
       "weight": 1.82,
       "shares": 4780000,
-      "open": 177.0,
-      "high": 177.0,
-      "low": 172.0,
-      "close": 177.0,
-      "prevClose": 161.0,
-      "change": 16.0,
-      "changePct": 9.94,
-      "amplitude": 3.11,
-      "volume": 5092000.0
+      "open": 211.5,
+      "high": 219.0,
+      "low": 206.0,
+      "close": 207.5,
+      "prevClose": 211.5,
+      "change": -4.0,
+      "changePct": -1.89,
+      "amplitude": 6.15,
+      "volume": 9920930.0,
+      "quoteDate": "2026-07-31"
     },
     {
       "code": "2377",
@@ -332,7 +352,8 @@
       "change": 6.0,
       "changePct": 4.41,
       "amplitude": 6.25,
-      "volume": 18799330.0
+      "volume": 18799330.0,
+      "quoteDate": "2026-07-31"
     },
     {
       "code": "3583",
@@ -348,7 +369,8 @@
       "change": 56.0,
       "changePct": 9.43,
       "amplitude": 2.86,
-      "volume": 827743.0
+      "volume": 827743.0,
+      "quoteDate": "2026-07-31"
     },
     {
       "code": "6531",
@@ -364,7 +386,8 @@
       "change": 60.0,
       "changePct": 9.88,
       "amplitude": 3.62,
-      "volume": 5029523.0
+      "volume": 5029523.0,
+      "quoteDate": "2026-07-31"
     },
     {
       "code": "2467",
@@ -380,7 +403,8 @@
       "change": 35.5,
       "changePct": 8.01,
       "amplitude": 4.74,
-      "volume": 1782398.0
+      "volume": 1782398.0,
+      "quoteDate": "2026-07-31"
     },
     {
       "code": "3702",
@@ -396,7 +420,8 @@
       "change": 7.0,
       "changePct": 6.64,
       "amplitude": 3.79,
-      "volume": 12300466.0
+      "volume": 12300466.0,
+      "quoteDate": "2026-07-31"
     },
     {
       "code": "8016",
@@ -412,7 +437,8 @@
       "change": 12.0,
       "changePct": 4.72,
       "amplitude": 5.11,
-      "volume": 2052498.0
+      "volume": 2052498.0,
+      "quoteDate": "2026-07-31"
     },
     {
       "code": "7769",
@@ -428,7 +454,8 @@
       "change": 560.0,
       "changePct": 9.96,
       "amplitude": 0.0,
-      "volume": 255029.0
+      "volume": 255029.0,
+      "quoteDate": "2026-07-31"
     },
     {
       "code": "3711",
@@ -444,7 +471,8 @@
       "change": 50.0,
       "changePct": 9.9,
       "amplitude": 0.0,
-      "volume": 8045972.0
+      "volume": 8045972.0,
+      "quoteDate": "2026-07-31"
     },
     {
       "code": "2472",
@@ -460,7 +488,8 @@
       "change": 17.0,
       "changePct": 8.37,
       "amplitude": 4.19,
-      "volume": 3374321.0
+      "volume": 3374321.0,
+      "quoteDate": "2026-07-31"
     },
     {
       "code": "6274",
@@ -468,15 +497,16 @@
       "market": "TW",
       "weight": 1.09,
       "shares": 458000,
-      "open": 1110.0,
-      "high": 1110.0,
-      "low": 1110.0,
-      "close": 1110.0,
-      "prevClose": 1010.0,
-      "change": 100.0,
-      "changePct": 9.9,
-      "amplitude": 0.0,
-      "volume": 790000.0
+      "open": 1540.0,
+      "high": 1540.0,
+      "low": 1430.0,
+      "close": 1440.0,
+      "prevClose": 1530.0,
+      "change": -90.0,
+      "changePct": -5.88,
+      "amplitude": 7.19,
+      "volume": 8856699.0,
+      "quoteDate": "2026-07-31"
     },
     {
       "code": "2316",
@@ -492,7 +522,8 @@
       "change": 12.5,
       "changePct": 9.65,
       "amplitude": 0.0,
-      "volume": 671618.0
+      "volume": 671618.0,
+      "quoteDate": "2026-07-31"
     },
     {
       "code": "3036",
@@ -508,7 +539,8 @@
       "change": 13.0,
       "changePct": 7.08,
       "amplitude": 6.54,
-      "volume": 10716640.0
+      "volume": 10716640.0,
+      "quoteDate": "2026-07-31"
     },
     {
       "code": "1785",
@@ -516,15 +548,16 @@
       "market": "TW",
       "weight": 0.96,
       "shares": 4500000,
-      "open": 98.6,
-      "high": 99.4,
-      "low": 96.5,
-      "close": 99.4,
-      "prevClose": 90.4,
-      "change": 9.0,
-      "changePct": 9.96,
-      "amplitude": 3.21,
-      "volume": 5318000.0
+      "open": 116.0,
+      "high": 116.0,
+      "low": 112.5,
+      "close": 114.5,
+      "prevClose": 115.0,
+      "change": -0.5,
+      "changePct": -0.43,
+      "amplitude": 3.04,
+      "volume": 5385715.0,
+      "quoteDate": "2026-07-31"
     },
     {
       "code": "5274",
@@ -532,15 +565,16 @@
       "market": "TW",
       "weight": 0.96,
       "shares": 30900,
-      "open": 14525.0,
-      "high": 14525.0,
-      "low": 14405.0,
-      "close": 14525.0,
-      "prevClose": 13205.0,
-      "change": 1320.0,
-      "changePct": 10.0,
-      "amplitude": 0.91,
-      "volume": 109000.0
+      "open": 16800.0,
+      "high": 17000.0,
+      "low": 16170.0,
+      "close": 16345.0,
+      "prevClose": 16750.0,
+      "change": -405.0,
+      "changePct": -2.42,
+      "amplitude": 4.96,
+      "volume": 171817.0,
+      "quoteDate": "2026-07-31"
     },
     {
       "code": "2327",
@@ -556,7 +590,8 @@
       "change": 45.5,
       "changePct": 9.97,
       "amplitude": 0.0,
-      "volume": 6398641.0
+      "volume": 6398641.0,
+      "quoteDate": "2026-07-31"
     },
     {
       "code": "2376",
@@ -572,7 +607,8 @@
       "change": 18.0,
       "changePct": 5.65,
       "amplitude": 3.61,
-      "volume": 8320257.0
+      "volume": 8320257.0,
+      "quoteDate": "2026-07-31"
     },
     {
       "code": "6278",
@@ -588,7 +624,8 @@
       "change": 9.5,
       "changePct": 7.28,
       "amplitude": 6.51,
-      "volume": 5562335.0
+      "volume": 5562335.0,
+      "quoteDate": "2026-07-31"
     },
     {
       "code": "8996",
@@ -604,7 +641,8 @@
       "change": 77.0,
       "changePct": 9.9,
       "amplitude": 0.0,
-      "volume": 803625.0
+      "volume": 803625.0,
+      "quoteDate": "2026-07-31"
     },
     {
       "code": "2351",
@@ -620,7 +658,8 @@
       "change": 12.0,
       "changePct": 8.99,
       "amplitude": 4.12,
-      "volume": 2279971.0
+      "volume": 2279971.0,
+      "quoteDate": "2026-07-31"
     },
     {
       "code": "3529",
@@ -628,15 +667,16 @@
       "market": "TW",
       "weight": 0.49,
       "shares": 93000,
-      "open": 2515.0,
-      "high": 2515.0,
-      "low": 2355.0,
-      "close": 2475.0,
-      "prevClose": 2290.0,
-      "change": 185.0,
-      "changePct": 8.08,
-      "amplitude": 6.99,
-      "volume": 2072000.0
+      "open": 2700.0,
+      "high": 2770.0,
+      "low": 2640.0,
+      "close": 2725.0,
+      "prevClose": 2660.0,
+      "change": 65.0,
+      "changePct": 2.44,
+      "amplitude": 4.89,
+      "volume": 812676.0,
+      "quoteDate": "2026-07-31"
     },
     {
       "code": "6239",
@@ -652,7 +692,8 @@
       "change": 21.0,
       "changePct": 9.79,
       "amplitude": 2.33,
-      "volume": 22593532.0
+      "volume": 22593532.0,
+      "quoteDate": "2026-07-31"
     },
     {
       "code": "2451",
@@ -668,7 +709,8 @@
       "change": 23.5,
       "changePct": 8.72,
       "amplitude": 5.57,
-      "volume": 16586620.0
+      "volume": 16586620.0,
+      "quoteDate": "2026-07-31"
     },
     {
       "code": "2885",
@@ -684,7 +726,8 @@
       "change": 5.0,
       "changePct": 7.92,
       "amplitude": 7.45,
-      "volume": 50598974.0
+      "volume": 50598974.0,
+      "quoteDate": "2026-07-31"
     },
     {
       "code": "6187",
@@ -692,15 +735,16 @@
       "market": "TW",
       "weight": 0.18,
       "shares": 91000,
-      "open": 929.0,
-      "high": 929.0,
-      "low": 922.0,
-      "close": 929.0,
-      "prevClose": 845.0,
-      "change": 84.0,
-      "changePct": 9.94,
-      "amplitude": 0.83,
-      "volume": 871000.0
+      "open": 1175.0,
+      "high": 1185.0,
+      "low": 1110.0,
+      "close": 1130.0,
+      "prevClose": 1175.0,
+      "change": -45.0,
+      "changePct": -3.83,
+      "amplitude": 6.38,
+      "volume": 2579264.0,
+      "quoteDate": "2026-07-31"
     },
     {
       "code": "3231",
@@ -716,7 +760,8 @@
       "change": 16.0,
       "changePct": 10.0,
       "amplitude": 6.56,
-      "volume": 138686721.0
+      "volume": 138686721.0,
+      "quoteDate": "2026-07-31"
     },
     {
       "code": "6177",
@@ -732,7 +777,8 @@
       "change": -0.15,
       "changePct": -0.32,
       "amplitude": 3.27,
-      "volume": 2368257.0
+      "volume": 2368257.0,
+      "quoteDate": "2026-07-31"
     },
     {
       "code": "3443",
@@ -748,7 +794,8 @@
       "change": 345.0,
       "changePct": 9.97,
       "amplitude": 0.0,
-      "volume": 750048.0
+      "volume": 750048.0,
+      "quoteDate": "2026-07-31"
     },
     {
       "code": "4441",
@@ -764,7 +811,8 @@
       "change": 4.0,
       "changePct": 2.35,
       "amplitude": 1.76,
-      "volume": 33736.0
+      "volume": 33736.0,
+      "quoteDate": "2026-07-31"
     },
     {
       "code": "3706",
@@ -780,7 +828,8 @@
       "change": 3.3,
       "changePct": 3.92,
       "amplitude": 3.09,
-      "volume": 12532357.0
+      "volume": 12532357.0,
+      "quoteDate": "2026-07-31"
     },
     {
       "code": "2886",
@@ -796,7 +845,8 @@
       "change": 1.6,
       "changePct": 3.11,
       "amplitude": 5.24,
-      "volume": 43556932.0
+      "volume": 43556932.0,
+      "quoteDate": "2026-07-31"
     },
     {
       "code": "1519",
@@ -812,7 +862,8 @@
       "change": 42.0,
       "changePct": 6.33,
       "amplitude": 4.07,
-      "volume": 1928467.0
+      "volume": 1928467.0,
+      "quoteDate": "2026-07-31"
     },
     {
       "code": "2368",
@@ -828,7 +879,8 @@
       "change": 72.0,
       "changePct": 9.99,
       "amplitude": 1.25,
-      "volume": 2926470.0
+      "volume": 2926470.0,
+      "quoteDate": "2026-07-31"
     },
     {
       "code": "2881",
@@ -844,7 +896,8 @@
       "change": 6.0,
       "changePct": 4.84,
       "amplitude": 3.23,
-      "volume": 32956894.0
+      "volume": 32956894.0,
+      "quoteDate": "2026-07-31"
     },
     {
       "code": "8046",
@@ -860,7 +913,8 @@
       "change": 83.0,
       "changePct": 9.92,
       "amplitude": 0.0,
-      "volume": 1729841.0
+      "volume": 1729841.0,
+      "quoteDate": "2026-07-31"
     },
     {
       "code": "8358",
@@ -868,15 +922,16 @@
       "market": "TW",
       "weight": 0.0,
       "shares": 1000,
-      "open": 298.0,
-      "high": 298.0,
-      "low": 295.0,
-      "close": 298.0,
-      "prevClose": 271.0,
-      "change": 27.0,
-      "changePct": 9.96,
-      "amplitude": 1.11,
-      "volume": 5817000.0
+      "open": 393.0,
+      "high": 397.0,
+      "low": 350.0,
+      "close": 352.0,
+      "prevClose": 384.0,
+      "change": -32.0,
+      "changePct": -8.33,
+      "amplitude": 12.24,
+      "volume": 31793172.0,
+      "quoteDate": "2026-07-31"
     },
     {
       "code": "6831",
@@ -892,7 +947,8 @@
       "change": 47.5,
       "changePct": 9.95,
       "amplitude": 3.77,
-      "volume": 504856.0
+      "volume": 504856.0,
+      "quoteDate": "2026-07-31"
     }
   ]
 }

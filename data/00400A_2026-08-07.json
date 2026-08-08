@@ -1,6 +1,6 @@
 {
   "date": "2026-08-07",
-  "fetched_at": "2026-08-08T08:51:29+08:00",
+  "fetched_at": "2026-08-08T11:39:35+08:00",
   "count": 50,
   "self": {
     "open": 14.05,
@@ -19,6 +19,20 @@
     "trust": 0,
     "dealer": -3278469,
     "total": -4659398,
+    "date": "2026-08-07"
+  },
+  "selfMargin": {
+    "marginBuy": 1211,
+    "marginSell": 351,
+    "marginCashRedemption": 5,
+    "marginPrevBalance": 11056,
+    "marginBalance": 11911,
+    "shortBuy": 0,
+    "shortSell": 16,
+    "shortStockRedemption": 0,
+    "shortPrevBalance": 1,
+    "shortBalance": 17,
+    "offsetting": 3,
     "date": "2026-08-07"
   },
   "holdings": [
@@ -1895,19 +1909,5 @@
         "date": "2026-08-07"
       }
     }
-  ],
-  "selfMargin": {
-    "marginBuy": 1211,
-    "marginSell": 351,
-    "marginCashRedemption": 5,
-    "marginPrevBalance": 11056,
-    "marginBalance": 11911,
-    "shortBuy": 0,
-    "shortSell": 16,
-    "shortStockRedemption": 0,
-    "shortPrevBalance": 1,
-    "shortBalance": 17,
-    "offsetting": 3,
-    "date": "2026-08-07"
-  }
+  ]
 }
