@@ -1,0 +1,133 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1920" height="1080" viewBox="0 0 1920 1080" role="img" aria-labelledby="title desc">
+  <title id="title">台股 ETF 持股與績效追蹤系統架構</title>
+  <desc id="desc">展示外部資料來源、GitHub Actions Python 資料管線、GitHub JSON 資料層、Vercel 前端與 Supabase 會員資料之間的資料流。</desc>
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#0b1220"/><stop offset="1" stop-color="#111c31"/>
+    </linearGradient>
+    <linearGradient id="hero" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0" stop-color="#78a8ff"/><stop offset="1" stop-color="#b792ff"/>
+    </linearGradient>
+    <filter id="shadow" x="-20%" y="-20%" width="140%" height="150%"><feDropShadow dx="0" dy="12" stdDeviation="14" flood-color="#000" flood-opacity=".28"/></filter>
+    <filter id="soft" x="-20%" y="-20%" width="140%" height="150%"><feDropShadow dx="0" dy="5" stdDeviation="7" flood-color="#000" flood-opacity=".22"/></filter>
+    <marker id="arrow-blue" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto-start-reverse"><path d="M 0 0 L 10 5 L 0 10 z" fill="#79a8ff"/></marker>
+    <marker id="arrow-orange" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto-start-reverse"><path d="M 0 0 L 10 5 L 0 10 z" fill="#f2b660"/></marker>
+    <marker id="arrow-purple" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto-start-reverse"><path d="M 0 0 L 10 5 L 0 10 z" fill="#ba94ff"/></marker>
+    <marker id="arrow-green" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto-start-reverse"><path d="M 0 0 L 10 5 L 0 10 z" fill="#67d39a"/></marker>
+    <style>
+      .font{font-family:-apple-system,BlinkMacSystemFont,"PingFang TC","Noto Sans CJK TC","Microsoft JhengHei",sans-serif}
+      .title{font-size:42px;font-weight:760;fill:#f7f9ff;letter-spacing:1px}.subtitle{font-size:18px;fill:#a8b5ca;letter-spacing:.3px}
+      .section{font-size:14px;font-weight:700;letter-spacing:2px;fill:#93a8ca}.cardtitle{font-size:23px;font-weight:700;fill:#f4f7ff}.body{font-size:16px;fill:#c0ccde}.small{font-size:13px;fill:#92a1b8}.tiny{font-size:12px;fill:#8c9ab1}.tag{font-size:13px;font-weight:700;fill:#d9e6ff}.label{font-size:14px;font-weight:700;fill:#dbe6fb}
+      .panel{fill:#131e30;stroke:#2b3b57;stroke-width:1.5}.panel2{fill:#101a2b;stroke:#273852;stroke-width:1.5}.chip{fill:#1e304d;stroke:#355176;stroke-width:1}.line{fill:none;stroke-linecap:round;stroke-linejoin:round}
+    </style>
+  </defs>
+
+  <rect width="1920" height="1080" fill="url(#bg)"/>
+  <circle cx="1780" cy="-40" r="300" fill="#7652c8" opacity=".10"/><circle cx="80" cy="1080" r="300" fill="#3568c3" opacity=".08"/>
+
+  <g class="font">
+    <text x="64" y="74" class="title">台股 ETF 持股與績效追蹤</text>
+    <text x="66" y="108" class="subtitle">SYSTEM ARCHITECTURE  /  DAILY MARKET DATA PIPELINE  /  USER PORTFOLIO</text>
+    <rect x="1590" y="48" width="260" height="44" rx="22" fill="#1c2b45" stroke="#395576"/>
+    <circle cx="1620" cy="70" r="6" fill="#67d39a"/><text x="1638" y="76" class="tag">PRODUCTION READY</text>
+
+    <!-- main panels -->
+    <rect x="52" y="154" width="412" height="660" rx="22" class="panel" filter="url(#shadow)"/>
+    <rect x="500" y="154" width="520" height="660" rx="22" class="panel" filter="url(#shadow)"/>
+    <rect x="1056" y="154" width="394" height="660" rx="22" class="panel" filter="url(#shadow)"/>
+    <rect x="1486" y="154" width="382" height="660" rx="22" class="panel" filter="url(#shadow)"/>
+
+    <!-- column headers -->
+    <text x="82" y="195" class="section">01  USER EXPERIENCE</text>
+    <text x="530" y="195" class="section">02  DATA PIPELINE</text>
+    <text x="1086" y="195" class="section">03  MARKET SOURCES</text>
+    <text x="1516" y="195" class="section">04  USER DATA</text>
+
+    <!-- browser / Vercel -->
+    <rect x="78" y="220" width="360" height="250" rx="16" fill="#182741" stroke="#3b5b84" stroke-width="1.5"/>
+    <circle cx="105" cy="248" r="7" fill="#78a8ff"/><circle cx="128" cy="248" r="7" fill="#f2b660"/><circle cx="151" cy="248" r="7" fill="#67d39a"/>
+    <text x="84" y="294" class="cardtitle">Vercel Web App</text>
+    <text x="84" y="325" class="body">純靜態 HTML / CSS / JavaScript</text>
+    <text x="84" y="354" class="small">Root Directory: webapp</text>
+    <line x1="84" y1="376" x2="410" y2="376" stroke="#314767"/>
+    <text x="84" y="404" class="label">主要頁面</text>
+    <text x="84" y="431" class="small">持股資訊 · 加減碼 · K 線 · 配息日曆</text>
+    <text x="84" y="453" class="small">交易紀錄 · 績效走勢 · 我的持股</text>
+
+    <rect x="78" y="500" width="360" height="280" rx="16" class="panel2"/>
+    <text x="100" y="539" class="cardtitle">Browser Runtime</text>
+    <rect x="100" y="563" width="148" height="34" rx="17" class="chip"/><text x="119" y="585" class="tag">data.js / JSON</text>
+    <rect x="258" y="563" width="145" height="34" rx="17" class="chip"/><text x="276" y="585" class="tag">Supabase JS</text>
+    <text x="100" y="632" class="body">讀取公開行情與持股資料</text>
+    <text x="100" y="661" class="body">登入、關注、交易與績效</text>
+    <text x="100" y="690" class="body">/api/etf 即時驗證新增 ETF</text>
+    <text x="100" y="731" class="small">安全邊界：前端只使用 publishable / anon key</text>
+
+    <!-- pipeline -->
+    <rect x="528" y="220" width="464" height="220" rx="16" fill="#1a2940" stroke="#466484" stroke-width="1.5"/>
+    <text x="554" y="262" class="cardtitle">GitHub Actions</text>
+    <text x="554" y="292" class="body">Ubuntu · Python 3.12 · cron / manual</text>
+    <rect x="554" y="318" width="125" height="33" rx="16" fill="#3b2e22" stroke="#8b6536"/><text x="575" y="340" class="tag">19:30</text>
+    <rect x="687" y="318" width="125" height="33" rx="16" fill="#3b2e22" stroke="#8b6536"/><text x="710" y="340" class="tag">20:00</text>
+    <rect x="820" y="318" width="125" height="33" rx="16" fill="#3b2e22" stroke="#8b6536"/><text x="843" y="340" class="tag">20:30</text>
+    <text x="554" y="390" class="small">21:00 · 21:30　│　資料更新後自動 commit</text>
+    <text x="554" y="416" class="small">行情日期一致性：quoteDate = snapshot.date</text>
+
+    <rect x="528" y="466" width="220" height="288" rx="16" class="panel2"/>
+    <text x="552" y="507" class="cardtitle">Python Jobs</text>
+    <text x="552" y="548" class="body">fetch_etf_list.py</text><text x="552" y="570" class="small">ETF 清單與名稱</text>
+    <text x="552" y="610" class="body">fetch.py</text><text x="552" y="632" class="small">持股／行情／配息／法人</text>
+    <text x="552" y="672" class="body">fetch_company_profiles.py</text><text x="552" y="694" class="small">產業與公司資料</text>
+    <text x="552" y="734" class="body">record_daily_snapshots.py</text>
+
+    <rect x="774" y="466" width="218" height="288" rx="16" class="panel2"/>
+    <text x="798" y="507" class="cardtitle">Git Data Layer</text>
+    <text x="798" y="548" class="body">data/*.json</text><text x="798" y="570" class="small">歷史快照與配息</text>
+    <text x="798" y="610" class="body">webapp/data.js</text><text x="798" y="632" class="small">前端整合資料</text>
+    <text x="798" y="672" class="body">參考 JSON</text><text x="798" y="694" class="small">ETF／股東／假日／公司</text>
+    <text x="798" y="734" class="body">git push → Vercel</text>
+
+    <!-- sources -->
+    <text x="1086" y="240" class="small">指定日期抓取，避免錯置行情</text>
+    <rect x="1082" y="266" width="342" height="82" rx="14" class="panel2"/><circle cx="1112" cy="295" r="9" fill="#f2b660"/><text x="1134" y="301" class="cardtitle">MoneyDJ</text><text x="1134" y="326" class="small">ETF 持股／配息揭露</text>
+    <rect x="1082" y="366" width="342" height="82" rx="14" class="panel2"/><circle cx="1112" cy="395" r="9" fill="#78a8ff"/><text x="1134" y="401" class="cardtitle">TWSE</text><text x="1134" y="426" class="small">上市行情 · T86 · 資券 · ETF 資訊</text>
+    <rect x="1082" y="466" width="342" height="82" rx="14" class="panel2"/><circle cx="1112" cy="495" r="9" fill="#78a8ff"/><text x="1134" y="501" class="cardtitle">TPEx</text><text x="1134" y="526" class="small">上櫃行情 · 法人 · 資券</text>
+    <rect x="1082" y="566" width="342" height="82" rx="14" class="panel2"/><circle cx="1112" cy="595" r="9" fill="#67d39a"/><text x="1134" y="601" class="cardtitle">Yahoo Finance</text><text x="1134" y="626" class="small">海外成分股日行情</text>
+    <rect x="1082" y="666" width="342" height="82" rx="14" class="panel2"/><circle cx="1112" cy="695" r="9" fill="#ba94ff"/><text x="1134" y="701" class="cardtitle">TDCC</text><text x="1134" y="726" class="small">股東持股級距</text>
+
+    <!-- supabase -->
+    <rect x="1512" y="220" width="330" height="530" rx="16" fill="#1b2840" stroke="#7256a8" stroke-width="1.5"/>
+    <text x="1538" y="262" class="cardtitle">Supabase</text><text x="1538" y="291" class="body">Auth + PostgreSQL + RLS</text>
+    <rect x="1538" y="322" width="278" height="66" rx="12" fill="#251d3c" stroke="#6f58a4"/><text x="1558" y="350" class="label">Auth</text><text x="1558" y="373" class="small">Email / Password 登入</text>
+    <rect x="1538" y="402" width="278" height="66" rx="12" fill="#251d3c" stroke="#6f58a4"/><text x="1558" y="430" class="label">watchlist</text><text x="1558" y="453" class="small">個人關注 ETF</text>
+    <rect x="1538" y="482" width="278" height="66" rx="12" fill="#251d3c" stroke="#6f58a4"/><text x="1558" y="510" class="label">portfolio_transactions</text><text x="1558" y="533" class="small">買入／賣出 · FIFO</text>
+    <rect x="1538" y="562" width="278" height="66" rx="12" fill="#251d3c" stroke="#6f58a4"/><text x="1558" y="590" class="label">portfolio_daily_snapshots</text><text x="1558" y="613" class="small">每日含息／不含息績效</text>
+    <rect x="1538" y="642" width="278" height="66" rx="12" fill="#251d3c" stroke="#6f58a4"/><text x="1558" y="670" class="label">all_watchlist_codes()</text><text x="1558" y="693" class="small">批次唯讀關注代號</text>
+
+    <!-- flow arrows -->
+    <path d="M 1020 322 C 1040 322 1045 306 1082 306" class="line" stroke="#f2b660" stroke-width="3" marker-end="url(#arrow-orange)"/>
+    <path d="M 1020 395 C 1040 395 1045 406 1082 406" class="line" stroke="#78a8ff" stroke-width="3" marker-end="url(#arrow-blue)"/>
+    <path d="M 1020 468 C 1040 468 1045 506 1082 506" class="line" stroke="#78a8ff" stroke-width="3" marker-end="url(#arrow-blue)"/>
+    <path d="M 1020 541 C 1040 541 1045 606 1082 606" class="line" stroke="#67d39a" stroke-width="3" marker-end="url(#arrow-green)"/>
+    <path d="M 1020 614 C 1040 614 1045 706 1082 706" class="line" stroke="#ba94ff" stroke-width="3" marker-end="url(#arrow-purple)"/>
+    <path d="M 748 610 L 774 610" class="line" stroke="#67d39a" stroke-width="3" marker-end="url(#arrow-green)"/>
+    <path d="M 774 734 C 700 798 530 798 438 680" class="line" stroke="#67d39a" stroke-width="3" stroke-dasharray="8 8" marker-end="url(#arrow-green)"/>
+    <path d="M 774 520 C 690 440 560 415 438 350" class="line" stroke="#78a8ff" stroke-width="3" marker-end="url(#arrow-blue)"/>
+    <path d="M 1486 410 C 1465 410 1460 410 1450 410" class="line" stroke="#ba94ff" stroke-width="3" marker-end="url(#arrow-purple)"/>
+    <path d="M 1486 520 C 1465 520 1460 520 1450 520" class="line" stroke="#ba94ff" stroke-width="3" marker-end="url(#arrow-purple)"/>
+    <path d="M 1486 630 C 1465 630 1460 630 1450 630" class="line" stroke="#ba94ff" stroke-width="3" marker-end="url(#arrow-purple)"/>
+    <path d="M 1486 700 C 1460 700 1460 715 1450 715" class="line" stroke="#ba94ff" stroke-width="3" stroke-dasharray="7 7" marker-end="url(#arrow-purple)"/>
+
+    <!-- bottom narrative bar -->
+    <rect x="52" y="850" width="1816" height="164" rx="20" fill="#101a2b" stroke="#2b3b57" stroke-width="1.5" filter="url(#soft)"/>
+    <text x="84" y="892" class="section">DATA FLOW AT A GLANCE</text>
+    <text x="84" y="934" class="cardtitle">外部來源</text><text x="248" y="934" class="body">→</text><text x="286" y="934" class="cardtitle">Python 批次</text><text x="472" y="934" class="body">→</text><text x="510" y="934" class="cardtitle">Git JSON 快照</text><text x="706" y="934" class="body">→</text><text x="744" y="934" class="cardtitle">Vercel 前端</text><text x="928" y="934" class="body">→</text><text x="966" y="934" class="cardtitle">使用者瀏覽器</text>
+    <text x="84" y="974" class="small">市場研究資料：可追溯、版本化、每日更新　│　會員資料：Supabase RLS 隔離　│　正式環境：main push 自動部署</text>
+    <rect x="1530" y="900" width="292" height="70" rx="14" fill="#182741" stroke="#3b5b84"/><text x="1552" y="928" class="label">交接重點</text><text x="1552" y="952" class="small">行情必須同日對應，不可跨日 fallback</text>
+
+    <!-- legend -->
+    <line x1="1170" y1="1042" x2="1210" y2="1042" stroke="#f2b660" stroke-width="3"/><text x="1220" y="1047" class="tiny">市場資料</text>
+    <line x1="1330" y1="1042" x2="1370" y2="1042" stroke="#67d39a" stroke-width="3"/><text x="1380" y="1047" class="tiny">部署／版本</text>
+    <line x1="1495" y1="1042" x2="1535" y2="1042" stroke="#ba94ff" stroke-width="3"/><text x="1545" y="1047" class="tiny">會員／績效</text>
+  </g>
+</svg>

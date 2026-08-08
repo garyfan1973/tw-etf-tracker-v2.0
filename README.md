@@ -6,6 +6,8 @@
 
 ## 目前功能
 
+完整系統架構、元件責任與資料流請參閱：[系統架構圖](docs/system-architecture.md)，也可查看[簡報級 SVG 架構圖](docs/system-architecture.svg)或[PNG 簡報圖片](docs/system-architecture-presentation-v3.png)。
+
 ### ETF 持股資訊
 
 - 顯示 ETF 合計持有股數、投入成本、現值、損益與報酬率。
