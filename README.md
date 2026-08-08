@@ -1,186 +1,277 @@
-# 主動式 ETF 每日加減碼追蹤
+# 台股 ETF 持股與績效追蹤
 
-追蹤主動式 ETF（預設 00981A 主動統一台股增長）的每日完整持股，並自動算出
-**新增 / 加碼 / 減碼 / 剔除**，用網頁查詢。
+這是一個以台股 ETF 為主的個人投資追蹤工具，整合 ETF 持股、每日加減碼、行情、配息、三大法人、融資融券、K 線、股東分佈與個人交易紀錄。
 
-資料來源：
-- 持股：MoneyDJ 每日持股揭露（`Basic0007B`），含完整持股與資料日期。
-- 行情：TWSE OpenAPI 上市個股日成交（全部）＋ TPEx 上櫃個股日成交，
-  每檔附開盤／最高／最低／收盤／前日收盤／振幅／成交量。
-- 三大法人買賣超：TWSE T86（上市）＋ TPEx OpenAPI（上櫃），每檔附外資／投信／
-  自營商與三大法人合計買賣超股數（金額以買賣超股數 × 當日收盤價估算）。
+目前公開市場資料以 JSON 保存並由 GitHub Actions 定期更新；個人交易、關注清單與績效快照則使用 Supabase 保存。
 
-## 持股看得到什麼
+## 目前功能
 
-股票主表精簡欄位：個股、權重%、收盤、漲跌幅、成交量(張)。
-**點任一列會往下展開**，顯示該股當日：市場別、幣別、開盤／最高／最低、前日收盤、
-漲跌、振幅、行情日、**三大法人買賣超金額**與產業別。電腦版會盡量以單行呈現，手機版自動改為多行；漲跌用台股慣例（紅漲綠跌）。同一時間只展開一支個股，展開另一支時前一支會自動收合。
+### ETF 持股資訊
 
-**其他資產**：若來源持股表揭露現金、期貨、選擇權或債券等非股票部位，會在股票表下方的「其他資產」區塊獨立顯示，列出資產類型、權重、數量／契約口數與來源提供的金額。這些項目不會混入股票股數、股票行情或股票加減碼計算；若來源當日未揭露，區塊會自動隱藏。
+- 顯示 ETF 合計持有股數、投入成本、現值、損益與報酬率。
+- 顯示各筆買入明細，支援收合與展開。
+- 支援買入、賣出與 FIFO（先進先出）持股計算。
+- 支援定期定額資料：買入日期可留白，展開時標示「定期定額」。
+- 買入手續費依 `webapp/portfolio_config.json` 設定計算，目前預設為國泰費率 0.0399%，最低 1 元。
+- 顯示最近除息、下次除息與依持股推算的配息金額。
+- 非股票部位，例如現金、期貨、選擇權或債券，會在「其他資產」區塊獨立顯示，不混入股票行情與加減碼計算。
 
-**三大法人近三日**：頁面最下方會列出所選 ETF 本身，以及目標日仍持有的股票成分，顯示最近三個交易日的三大法人買賣超金額。點擊列可展開外資、投信、自營商與合計明細；金額以買賣超股數 × 當日收盤價估算。
+### 加減碼
 
-**三大法人買賣超金額**：展開明細會列出該股「最近一次」外資／投信／自營商與三大法人合計的
-買賣超金額，並標上法人資料日。買超為紅、賣超為綠（台股慣例）。
-- 來源：上市走 TWSE T86（三大法人買賣超日報），上櫃走 TPEx OpenAPI（best-effort）。
-- 交易所僅揭露買賣超「股數」，金額以「買賣超股數 × 當日收盤價」估算。
-- 只有台股成分股有此資料；海外成分股不顯示。
-- 既有快照要重新執行 `python3 fetch.py` 後才會帶入法人資料。
+以持有股數變化判定：
 
-**跨市場持股**：主動式 ETF（如 00990A）會持有美股/日股/韓股等，會標上市場別
-（美股/日股/…／無代號者標「海外」）。
-- 台股行情來自 TWSE/TPEx。
-- 海外行情來自 **Yahoo Finance**（免金鑰）：美股、日股（.T）、韓股（.KS）都可取得
-  開高低收/漲跌/振幅/成交量，明細會標**幣別**（USD/JPY/KRW）與**行情日**。
-- 幣別不換算台幣；海外「行情日」是當地交易日，可能與台灣資料日差一個時區/交易日。
-- 少數 MoneyDJ 未提供代號的海外股（如 INFINEON、SERVICENOW）仍無法查價，顯示「—」。
-- 成交量一律以「千股」為單位（台股即『張』）。
-- 公司產業與業務摘要存於 `webapp/company_profiles.json`，由 `fetch_company_profiles.py` 每日更新；台股使用證交所公開資料，海外股使用公開公司介紹資料。
+| 狀態 | 判定條件 |
+| --- | --- |
+| 新增 | 目標日有、比較日前沒有 |
+| 剔除 | 比較日有、目標日沒有 |
+| 加碼 | 目標日持有股數增加 |
+| 減碼 | 目標日持有股數減少 |
 
-## 每天怎麼用
+加減碼頁面提供圖表與表格檢視，可搜尋個股、依欄位排序，並顯示估算金額與股數。
 
-1. 收盤後（建議傍晚，持股才更新）執行一次：
+### 行情與 K 線
 
-   ```bash
-   cd ~/00981A-tracker
-   python3 fetch.py
-   ```
+- 台股行情使用指定日期的上市／上櫃盤後資料。
+- 海外成分股使用 Yahoo Finance 日線資料。
+- 顯示開盤、最高、最低、收盤、前日收盤、漲跌、漲跌幅、振幅與成交量。
+- K 線圖支援日線，並可查看 ETF 或成分股。
+- 滑鼠移到 K 棒時可查看當日開高低收與成交量。
+- 批次只會使用與快照日期相同的行情；指定日期查不到時留空，不使用前一天或其他日期行情代替。
 
-   會做三件事：抓當日持股 → 存成 `data/00981A_<日期>.json` 快照 → 更新
-   `webapp/data.js`。
+### 配息日曆
 
-2. 用瀏覽器開啟 `webapp/index.html`（直接雙擊即可，不需要開伺服器）。
-   - 上方選 **基準日 / 目標日**，就能看兩天之間的加減碼。
-   - 預設是「最新一天 vs 前一天」。
-   - 可搜尋個股或代號、點表頭排序。
-   - 頂端可切換到 **配息日曆**（`dividends.html`）。
-   - 個人交易表單可用 ETF 代號或名稱搜尋，清單由官方上市／上櫃 ETF 資料建立。
+- 顯示除息日、發放日、每股／每單位配息。
+- 顯示最近除息與下次除息資訊。
+- 依除息日前持股數推算最近一次配息金額。
+- 依目前持股數推算尚未除息的預計可配息金額。
+- 顯示台灣與美國國定假日，並以不同顏色區分。
 
-## 配息日曆（dividends.html）
+### 三大法人
 
-- **即將到來**：列出已公告的未來除息／發放日與金額。
-- **互動月曆**：藍＝除息日、綠＝發放日；上一月／下一月／今天切換。
-- **點任一天**：顯示當天配息明細（每單位配息、年化配息率）。
-- 可用上方晶片篩選只看某幾檔 ETF。
-- 資料來源：MoneyDJ 配息揭露（`Basic0005`），含歷次與已公告未來配息。
+- 顯示 ETF 本身與持股成分近三個交易日的三大法人買賣超。
+- 可查看外資、投信、自營商及合計資料。
+- 交易所原始資料以買賣超股數提供，畫面上的金額為「買賣超股數 × 當日收盤價」估算。
+- 上市資料使用 TWSE T86；上櫃資料使用 TPEx 公開資料，若來源暫時無法取得則可能缺漏。
 
-> 第一次執行只有一天資料，所以還沒有可比對的「前一交易日」，隔天再跑就會出現加減碼。
+### 融資融券
 
-## 加減碼怎麼判定
+- 顯示融資與融券餘額，單位為張。
+- 資、券使用不同顏色與標籤，數字靠右對齊。
+- 顯示最近日期的資料，並可查看融資融券餘額變化趨勢圖。
+- 趨勢圖可切換 ETF 本身或其成分股。
 
-以**持有股數**變動為準（最能反映經理人實際操作，不受股價漲跌影響）：
+### 股東分佈與 ETF 總覽
 
-| 狀態 | 條件 |
-|------|------|
-| 新增 | 今天有、前一交易日沒有 |
-| 剔除 | 前一交易日有、今天沒有 |
-| 加碼 | 持有股數增加 |
-| 減碼 | 持有股數減少 |
+- 顯示持股級距的人數占比與持股占比。
+- 滑鼠移到級距時，可查看換算後的股東人數與持股張數。
+- ETF 總覽包含基金規模、受益人數、最近配息、分類及主動／被動、高息等屬性。
+- 股東分佈資料來自 TDCC 公開資料；資料頻率依官方公布週期更新。
 
-## 要加追蹤其他主動式 ETF
+### 個人功能
 
-編輯 `fetch.py` 最上面的 `ETFS`，把代號打開即可，例如：
+- Supabase Auth Email／密碼登入。
+- 我的關注 ETF 清單。
+- 個人交易紀錄：買入、賣出、編輯、刪除與日期／ETF 條件查詢。
+- FIFO 持股計算。
+- 每日績效快照，可查詢日期區間、切換含息／不含息報酬率，並查看報酬率曲線與明細。
+
+## 頁面
+
+所有頁面位於 `webapp/`：
+
+| 頁面 | 檔案 |
+| --- | --- |
+| 持股資訊／加減碼 | `portfolio.html` |
+| 配息日曆 | `dividends.html` |
+| 交易紀錄 | `transactions.html` |
+| 績效與報酬率 | `performance.html` |
+| K 線圖 | `kline.html` |
+| 首頁 | `index.html` |
+
+## 資料來源
+
+- ETF 持股與配息：MoneyDJ ETF 每日持股／配息揭露。
+- 台股上市行情：TWSE 公開盤後資料。
+- 台股上櫃行情：TPEx 公開資料。
+- 三大法人：TWSE T86 與 TPEx 公開資料。
+- 融資融券：TWSE MI_MARGN 與 TPEx 公開資料。
+- 海外行情：Yahoo Finance 日線資料。
+- ETF 清單：官方上市／上櫃 ETF 資料。
+- 公司產業與業務摘要：公開公司資料，保存於 `webapp/company_profiles.json`。
+- ETF 總覽：證交所 ETF 公開資料。
+- 股東分佈：TDCC 公開資料。
+
+行情批次有嚴格日期校驗：每個行情欄位的 `quoteDate` 必須等於該份 ETF 快照的日期，避免把前一天或前幾天的行情誤標成最新資料。
+
+## 本機測試
+
+請使用真正的 repo 路徑：
+
+```bash
+cd /Users/garyfan/.codex/tw-etf-tracker-v2.0/webapp
+python3 -m http.server 8002
+```
+
+瀏覽器網址：
+
+```text
+http://localhost:8002/index.html
+http://localhost:8002/portfolio.html
+http://localhost:8002/transactions.html
+http://localhost:8002/dividends.html
+http://localhost:8002/performance.html
+http://localhost:8002/kline.html
+```
+
+測試完在終端機按 `Ctrl + C` 停止伺服器。
+
+## 更新資料
+
+手動更新：
+
+```bash
+cd /Users/garyfan/.codex/tw-etf-tracker-v2.0
+python3 fetch_etf_list.py
+python3 fetch.py
+python3 fetch_company_profiles.py
+```
+
+`fetch.py` 會：
+
+1. 抓取 ETF 當日持股。
+2. 保存 `data/<ETF代號>_<日期>.json` 歷史快照。
+3. 依指定日期抓取行情、三大法人與融資融券。
+4. 更新 `webapp/data.js`。
+5. 回補既有快照的同日行情。
+6. 執行行情日期一致性檢查。
+
+如果來源沒有提供指定日期的資料，程式會保留空值，不會拿其他日期的資料代替。
+
+## GitHub Actions 自動更新
+
+工作流程位於 `.github/workflows/update-data.yml`，目前每天執行四次：
+
+- 台灣時間 17:37
+- 台灣時間 18:00
+- 台灣時間 18:30
+- 台灣時間 19:00
+
+GitHub Actions 會依序：
+
+1. 更新 ETF 清單。
+2. 執行 `fetch.py` 更新持股、行情、配息與參考資料。
+3. 更新公司產業資料。
+4. 執行 `record_daily_snapshots.py` 寫入 Supabase 績效快照。
+5. 有資料變更時 commit 並 push 回 GitHub。
+
+也可以在 GitHub repo 的 Actions 頁面手動執行 `更新 ETF 資料`。
+
+需要注意：GitHub Actions 的執行時間是 UTC cron，workflow 內已換算為台灣時間。不同日期若來源尚未更新，該次執行可能沒有新快照。
+
+## GitHub 與 Vercel 部署
+
+GitHub repository：
+
+```text
+https://github.com/garyfan1973/tw-etf-tracker-v2.0
+```
+
+Vercel 設定：
+
+1. 將此 GitHub repo 匯入 Vercel。
+2. Root Directory 設為 `webapp`。
+3. Framework Preset 使用 Other，不需要 build command。
+4. Production Branch 設為 `main`。
+
+推送到 `main` 後，Vercel 會自動部署正式網站；非 `main` 分支會產生 Preview Deployment，可先測試大型功能，再合併到 `main`。
+
+## 修改流程
+
+小型修改可以直接在 `main` 進行；大型功能建議使用獨立分支：
+
+```bash
+cd /Users/garyfan/.codex/tw-etf-tracker-v2.0
+git pull origin main
+git switch -c feature/功能名稱
+
+# 修改程式並在本機測試
+git add -A
+git commit -m "feat(scope): 說明修改內容"
+git push -u origin feature/功能名稱
+```
+
+分支推送後可使用 Vercel Preview 網址測試。確認無誤後再建立 Pull Request，合併到 `main`，正式網站才會更新。
+
+GitHub Actions 會自動更新資料並提交，因此每次修改程式前務必先執行：
+
+```bash
+git pull origin main
+```
+
+若本機有未提交修改，先確認並保存，再進行同步，避免覆蓋本機工作。
+
+## Supabase 設定
+
+目前 Supabase 用於：
+
+- `watchlist`：使用者關注 ETF。
+- `portfolio_transactions`：個人買入／賣出交易。
+- `portfolio_daily_snapshots`：每日績效快照。
+
+前端設定檔為 `webapp/config.js`，只可放 Project URL 與 publishable／anon key；絕對不可放入 `service_role` 或 Secret key。
+
+每日績效快照需要先執行：
+
+```text
+supabase_portfolio_daily_snapshots.sql
+```
+
+並在 GitHub repo 的 Settings → Secrets and variables → Actions 設定：
+
+- `SUPABASE_URL`
+- `SUPABASE_SERVICE_ROLE_KEY`
+
+`SUPABASE_SERVICE_ROLE_KEY` 只能放在 GitHub Secret，不能放入前端、JSON 或 Git repository。
+
+### 本地測試的重要注意事項
+
+目前本地版 `webapp/config.js` 連接正式 Supabase 專案，因此：
+
+- 本地查詢資料通常不會修改資料庫。
+- 本地新增、編輯、刪除交易會影響正式資料。
+- 本地新增或移除關注 ETF 也會影響正式資料。
+- 執行每日快照批次也可能寫入正式資料庫。
+
+測試交易功能前，建議建立獨立的 Supabase 測試專案，或只測試查詢與畫面功能，避免誤改正式投資資料。
+
+## 新增追蹤 ETF
+
+固定追蹤清單位於 `fetch.py` 的 `ETFS`。若要加入固定 ETF，可在該字典加入代號與名稱：
 
 ```python
 ETFS = {
     "00981A": "主動統一台股增長",
-    "00980A": "主動野村臺灣智慧優選",
     "00982A": "主動群益台灣強棒",
+    "00980A": "主動野村臺灣智慧優選",
 }
 ```
 
-## 自動化（選用）
+會員關注清單中的 ETF 也會由每日批次透過 Supabase `all_watchlist_codes()` 納入更新。
 
-想每天自動抓，可用 macOS 的 crontab（每個交易日 17:30 為例）：
+## 目錄說明
 
-```bash
-crontab -e
-# 加入這行
-30 17 * * 1-5 cd ~/00981A-tracker && /usr/bin/python3 fetch.py >> cron.log 2>&1
+```text
+.
+├── data/                         # ETF 歷史快照與配息 JSON
+├── fetch.py                      # 主資料抓取與快照產生
+├── fetch_etf_list.py             # 更新 ETF 清單
+├── fetch_company_profiles.py     # 更新公司產業資料
+├── record_daily_snapshots.py     # 寫入 Supabase 績效快照
+├── supabase_*.sql                # Supabase 資料表與函式 SQL
+├── .github/workflows/             # GitHub Actions 排程
+└── webapp/                       # 靜態網站與前端資料
 ```
 
-## 部署（GitHub + Vercel，資料存 JSON）
+## 資料與投資風險聲明
 
-網站是純靜態（HTML + `webapp/data.js`），不需要資料庫。
-
-- **持久化**：`data/*.json` 快照與 `webapp/data.js` 都進版控，GitHub repo 就是資料庫。
-- **自動更新**：`.github/workflows/update-data.yml` 每個交易日 17:30（台灣）在 GitHub
-  雲端先更新 `webapp/etf_directory.json`，再跑 `fetch.py`，把新資料 commit 回 repo。
-- **自動部署**：Vercel 綁定此 repo，一有 push 就自動重新部署，任何裝置都看到最新。
-
-### Vercel 首次設定（一次性）
-
-1. 到 vercel.com 用 GitHub 登入 → Add New → Project → Import 這個 repo。
-2. **Root Directory** 改成 `webapp`（重要，網站檔在這個資料夾）。
-3. Framework Preset 保持 Other、不用 build。按 Deploy。
-4. 完成後每次 repo 有新 commit（含雲端排程的自動更新）就會自動重新部署。
-
-## 之後要改功能（修改流程）
-
-可以直接開新的對話請 Claude 幫忙改，不必回到原本那次對話。只要告訴它：
-本地路徑 `~/00981A-tracker`（或 repo `garyfan1973/tw-etf-tracker`）＋你想改什麼。
-
-> ⚠️ **一定要先 `git pull`**：GitHub Actions 每個交易日會自動 commit 更新資料，
-> 所以本地會落後於雲端。不先 pull 就改容易產生衝突。
-
-標準步驟：
-
-```bash
-cd ~/00981A-tracker
-git pull origin main            # 1. 先同步雲端的自動更新（重要）
-# 2. 改程式或網頁（fetch.py / webapp/*）
-python3 fetch.py                # 3. 需要的話重新產生資料，本地驗證
-open webapp/index.html          #    用瀏覽器看結果
-git add -A
-git commit -m "feat(scope)：說明"  # 4. 提交（type 用 feat/fix/docs/refactor/chore）
-git push                        # 5. 推上去 → Vercel 自動重新部署
-```
-
-推上去後 Vercel 會自動重新部署，所有裝置看到新版，不用額外動作。
-
-若在**別台電腦**：先 `git clone https://github.com/garyfan1973/tw-etf-tracker.git`
-（要 push 回去，該台需有 GitHub 登入權限）。
-
-## 會員功能（Supabase，Email + 密碼）
-
-登入後可建立個人「關注 ETF」清單，並用「⭐ 只看我的」快速篩選。純前端，
-靠 Supabase Auth + RLS（每人只能存取自己的資料），網站仍是靜態、照放 Vercel。
-
-- 設定檔：`webapp/config.js` 放 Supabase **Project URL** 與 **publishable(anon) key**
-  （公開金鑰，可安全放前端；**切勿**放 service_role/secret key）。未設定時會員功能自動關閉。
-- 資料表：`watchlist(user_id, etf_code)`，已開 RLS，政策為使用者只能讀寫自己的列。
-- 相關檔案：`webapp/auth.js`（登入/註冊/登出、關注清單 CRUD）。
-- 個人清單可加入**任意 ETF 代號**（方案 B）。新增時會**即時**呼叫後端
-  `/api/etf?code=XXXX`（Vercel Serverless Function，`webapp/api/etf.py`）當場查驗：
-  查無就跳錯不加入、查到就當下抓出持股/台股報價/配息並顯示，不必等隔天。
-- 之後由雲端排程的 `fetch.py` 把所有會員關注的代號一起納入每日更新（含海外報價與
-  歷史快照），讀 Supabase RPC `all_watchlist_codes()`（公開 anon key，不需 service_role）。
-- 需在 Supabase 建立這個唯讀函式（只回傳代號、不外洩誰關注什麼）：
-
-  ```sql
-  create or replace function public.all_watchlist_codes()
-  returns setof text language sql security definer set search_path = public
-  as $$ select distinct etf_code from public.watchlist; $$;
-  grant execute on function public.all_watchlist_codes() to anon, authenticated;
-  ```
-- 追蹤清單與名稱快取：`data/tracked.json`、`data/etf_names.json`（自動維護）。
-
-## 每日績效快照與走勢
-
-- SQL：請先將 `supabase_portfolio_daily_snapshots.sql` 貼到 Supabase SQL Editor 執行。
-- GitHub Actions 會在每日行情更新後執行 `record_daily_snapshots.py`，把每位使用者、每支 ETF、每個交易日的績效快照寫入 Supabase。
-- 請在 GitHub repo 的 Settings → Secrets and variables → Actions 新增：
-  - `SUPABASE_URL`：Supabase Project URL
-  - `SUPABASE_SERVICE_ROLE_KEY`：Supabase service role key（只放 GitHub Secret，不可放進前端）
-- 前端頁面：`webapp/performance.html`，可查日期區間、選 ETF、切換含息／不含息，並查看報酬率曲線與每日明細。
-- 含息報酬率會加入依除息資格股數與公告股利推算的估算已領配息，欄位名稱會明確標示「估算」。
-
-## K 線圖
-
-- 前端頁面：`webapp/kline.html`，可選擇 ETF 或其持股個股，查看每日開高低收、成交量、MA5 與 MA20。
-- K 線資料沿用 `fetch.py` 每日產生的歷史快照；資料點會隨每日更新逐步累積。
-
-## 注意
-
-- 僅供個人研究參考，非投資建議；資料以官方揭露為準。
-- 若某天 MoneyDJ 改版導致抓不到，程式會提示，不會覆蓋既有快照。
+本專案僅供個人研究與紀錄使用，不構成投資建議。行情、持股與配息資料以來源當時提供的內容為準；法人金額、配息金額與含息報酬率部分屬於依公開資料推算的估算值，請勿視為券商對帳單或實際入帳金額。
