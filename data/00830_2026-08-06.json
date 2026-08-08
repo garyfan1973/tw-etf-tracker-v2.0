@@ -592,5 +592,19 @@
       "currency": "USD",
       "quoteDate": "2026-08-06"
     }
-  ]
+  ],
+  "selfMargin": {
+    "marginBuy": 223,
+    "marginSell": 120,
+    "marginCashRedemption": 1,
+    "marginPrevBalance": 5389,
+    "marginBalance": 5491,
+    "shortBuy": 88,
+    "shortSell": 7,
+    "shortStockRedemption": 0,
+    "shortPrevBalance": 331,
+    "shortBalance": 250,
+    "offsetting": 0,
+    "date": "2026-08-06"
+  }
 }

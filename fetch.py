@@ -60,6 +60,9 @@ TPEX_QUOTE_URL = "https://www.tpex.org.tw/openapi/v1/tpex_mainboard_daily_close_
 # 三大法人買賣超（外資／投信／自營商）：指定日期盤後彙總（買賣超股數）
 TWSE_INST_URL = "https://www.twse.com.tw/rwd/zh/fund/T86?date={date}&selectType=ALLBUT0999&response=json"
 TPEX_INST_URL = "https://www.tpex.org.tw/openapi/v1/tpex_3itrade_hedge?date={date}"
+# 融資融券餘額：上市證交所 MI_MARGN、上櫃 TPEx OpenAPI
+TWSE_MARGIN_URL = "https://www.twse.com.tw/exchangeReport/MI_MARGN?date={date}&selectType=ALL&response=json"
+TPEX_MARGIN_URL = "https://www.tpex.org.tw/openapi/v1/tpex_mainboard_margin_balance?date={date}"
 # ETF 總覽：證交所 ETF e添富商品頁（伺服器端含資產規模、受益人次、分類）
 TWSE_ETF_INFO_URL = "https://www.twse.com.tw/zh/ETFortune/etfInfo/{etf_id}"
 # 股東／受益人持股級距：TDCC 官方開放 CSV（每週最後營業日）
@@ -304,6 +307,68 @@ def fetch_institutional(data_date):
         print("  ! 上櫃三大法人抓取失敗：{}".format(exc))
     print("  指定行情日 {}：取得 {} 檔三大法人買賣超".format(data_date, len(inst)))
     return inst
+
+
+def fetch_margin(data_date):
+    """抓指定日期逐檔融資融券餘額與當日增減（上市＋上櫃）。"""
+    margin = {}
+    try:
+        payload = fetch_json(TWSE_MARGIN_URL.format(date=data_date.replace("-", "")))
+        tables = payload.get("tables", []) if isinstance(payload, dict) else []
+        table = next((t for t in tables if "彙總" in str(t.get("title", ""))), None)
+        fields = table.get("fields", []) if table else []
+        idx = {name: i for i, name in enumerate(fields)}
+        for row in (table.get("data", []) if table else []):
+            code_i = idx.get("代號")
+            if code_i is None or code_i >= len(row):
+                continue
+            code = str(row[code_i]).strip()
+            if not code:
+                continue
+            # 上市回應有兩組同名欄位，必須依位置區分融資與融券。
+            positions = [i for i, name in enumerate(fields) if name == "買進"]
+            sell_positions = [i for i, name in enumerate(fields) if name == "賣出"]
+            cash_positions = [i for i, name in enumerate(fields) if name in ("現金償還", "現券償還")]
+            prev_positions = [i for i, name in enumerate(fields) if name == "前日餘額"]
+            balance_positions = [i for i, name in enumerate(fields) if name == "今日餘額"]
+            def at(values, position):
+                return _int(row[values[position]]) if len(values) > position and values[position] < len(row) else None
+            margin[code] = {
+                "marginBuy": at(positions, 0), "marginSell": at(sell_positions, 0),
+                "marginCashRedemption": at(cash_positions, 0),
+                "marginPrevBalance": at(prev_positions, 0), "marginBalance": at(balance_positions, 0),
+                "shortBuy": at(positions, 1), "shortSell": at(sell_positions, 1),
+                "shortStockRedemption": at(cash_positions, 1),
+                "shortPrevBalance": at(prev_positions, 1), "shortBalance": at(balance_positions, 1),
+                "offsetting": _int(row[idx["資券互抵"]]), "date": data_date,
+            }
+    except Exception as exc:
+        print("  ! 上市融資融券抓取失敗：{}".format(exc))
+    try:
+        rows = fetch_json(TPEX_MARGIN_URL.format(date=data_date.replace("-", "")))
+        for row in (rows if isinstance(rows, list) else []):
+            if not isinstance(row, dict):
+                continue
+            code = str(row.get("SecuritiesCompanyCode") or "").strip()
+            if not code:
+                continue
+            margin[code] = {
+                "marginBuy": _int(row.get("MarginPurchase")),
+                "marginSell": _int(row.get("MarginSales")),
+                "marginCashRedemption": _int(row.get("CashRedemption")),
+                "marginPrevBalance": _int(row.get("MarginPurchaseBalancePreviousDay")),
+                "marginBalance": _int(row.get("MarginPurchaseBalance")),
+                "shortBuy": _int(row.get("ShortSale")),
+                "shortSell": _int(row.get("ShortConvering")),
+                "shortStockRedemption": _int(row.get("StockRedemption")),
+                "shortPrevBalance": _int(row.get("ShortSaleBalancePreviousDay")),
+                "shortBalance": _int(row.get("ShortSaleBalance")),
+                "offsetting": _int(row.get("Offsetting")), "date": data_date,
+            }
+    except Exception as exc:
+        print("  ! 上櫃融資融券抓取失敗：{}".format(exc))
+    print("  指定行情日 {}：取得 {} 檔融資融券".format(data_date, len(margin)))
+    return margin
 
 
 def fetch_latest_quote(code, quote_cache, lookback_days=10):
@@ -674,7 +739,7 @@ def parse_holdings(page_html):
     return holdings
 
 
-def save_snapshot(etf_id, holdings, date, self_quote=None, self_institutional=None):
+def save_snapshot(etf_id, holdings, date, self_quote=None, self_institutional=None, self_margin=None):
     """依「資料日期」儲存快照（同一交易日覆蓋）。回傳快照 dict。
 
     self_quote：ETF 自身當日行情（供個人持股算市值/損益用）。
@@ -686,6 +751,7 @@ def save_snapshot(etf_id, holdings, date, self_quote=None, self_institutional=No
         "count": len(holdings),
         "self": self_quote,
         "selfInstitutional": self_institutional,
+        "selfMargin": self_margin,
         "holdings": holdings,
     }
     path = os.path.join(DATA_DIR, "{}_{}.json".format(etf_id, date))
@@ -706,6 +772,36 @@ def load_snapshots(etf_id):
                 snapshots.append(json.load(f))
     snapshots.sort(key=lambda s: s["date"])
     return snapshots
+
+
+def backfill_margin_history(etf_ids, margin_cache, limit=3):
+    """回補最近快照的融資融券，讓新頁籤首次上線即可顯示資料。"""
+    updated = 0
+    for etf_id in etf_ids:
+        snapshots = load_snapshots(etf_id)
+        for snapshot in snapshots[-limit:]:
+            data_date = snapshot["date"]
+            if data_date not in margin_cache:
+                print("== 回補 {} 融資融券 ==".format(data_date))
+                margin_cache[data_date] = fetch_margin(data_date)
+            margin_data = margin_cache[data_date]
+            changed = False
+            self_margin = margin_data.get(etf_id)
+            if self_margin:
+                snapshot["selfMargin"] = dict(self_margin, date=data_date)
+                changed = True
+            for holding in snapshot.get("holdings", []):
+                code = holding.get("code")
+                margin = margin_data.get(code) if code else None
+                if margin:
+                    holding["margin"] = dict(margin, date=data_date)
+                    changed = True
+            if changed:
+                path = os.path.join(DATA_DIR, "{}_{}.json".format(etf_id, data_date))
+                with open(path, "w", encoding="utf-8") as f:
+                    json.dump(snapshot, f, ensure_ascii=False, indent=2)
+                updated += 1
+    print("融資融券歷史資料回補完成：更新 {} 份快照".format(updated))
 
 
 # ---- 會員關注代號（B 方案：自動納入所有會員關注的 ETF）----
@@ -942,6 +1038,7 @@ def main():
 
     quote_cache = {}
     inst_cache = {}
+    margin_cache = {}
 
     for etf_id in etf_ids:
         etf_id = etf_id.upper()
@@ -966,6 +1063,10 @@ def main():
             print("== 抓取 {} 三大法人買賣超（上市＋上櫃）==".format(data_date))
             inst_cache[data_date] = fetch_institutional(data_date)
         inst_data = inst_cache[data_date]
+        if data_date not in margin_cache:
+            print("== 抓取 {} 融資融券餘額（上市＋上櫃）==".format(data_date))
+            margin_cache[data_date] = fetch_margin(data_date)
+        margin_data = margin_cache[data_date]
 
         # 取「資料日期」之前最近一天的快照來比對，也可在指定日期尚無行情時沿用行情欄位。
         prev = [s for s in load_snapshots(etf_id) if s["date"] < data_date]
@@ -982,6 +1083,7 @@ def main():
         tw = [h for h in holdings if h.get("assetType", "stock") == "stock" and h.get("market") == "TW"]
         matched = 0
         inst_matched = 0
+        margin_matched = 0
         for h in tw:
             q = quotes.get(h["code"])
             if q:
@@ -999,8 +1101,15 @@ def main():
                 inst_matched += 1
             elif _hkey(h) in prev_map and prev_map[_hkey(h)].get("inst"):
                 h["inst"] = prev_map[_hkey(h)]["inst"]
+            margin = margin_data.get(h["code"])
+            if margin and any(v is not None for v in margin.values()):
+                h["margin"] = dict(margin, date=data_date)
+                margin_matched += 1
+            elif _hkey(h) in prev_map and prev_map[_hkey(h)].get("margin"):
+                h["margin"] = prev_map[_hkey(h)]["margin"]
         print("  行情對應（台股）：{}/{} 檔；三大法人：{}/{} 檔".format(
             matched, len(tw), inst_matched, len(tw)))
+        print("  融資融券：{}/{} 檔".format(margin_matched, len(tw)))
 
         # 海外行情（美股/日股/韓股…，走 Yahoo）
         oversea = [h for h in holdings
@@ -1024,7 +1133,10 @@ def main():
         self_inst = inst_data.get(etf_id)
         if self_inst and any(v is not None for v in self_inst.values()):
             self_inst = dict(self_inst, date=data_date)
-        snapshot = save_snapshot(etf_id, holdings, data_date, self_quote, self_inst)
+        self_margin = margin_data.get(etf_id)
+        if self_margin and any(v is not None for v in self_margin.values()):
+            self_margin = dict(self_margin, date=data_date)
+        snapshot = save_snapshot(etf_id, holdings, data_date, self_quote, self_inst, self_margin)
         print("  已存 {} 檔持股（資料日期 {}）".format(snapshot["count"], snapshot["date"]))
 
         # 配息紀錄（歷次＋已公告未來）
@@ -1043,6 +1155,7 @@ def main():
             print("  （首日資料，尚無可比對的前一交易日）")
 
     backfill_institutional_history(etf_ids, inst_cache)
+    backfill_margin_history(etf_ids, margin_cache)
     save_names(names)
     overview_data, distribution_data = update_reference_data(etf_ids)
     out = build_data_js(overview_data, distribution_data)

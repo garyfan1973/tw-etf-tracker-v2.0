@@ -216,7 +216,19 @@
     .sharebar.left .fill { background:#4d8dff; }
     .sharebar.right .fill { background:#ee4b75; }
     .sharebar-label { font-variant-numeric:tabular-nums; white-space:nowrap; }
+    .sharebar[data-tooltip] { cursor:help; }
     .shareholder-bucket { text-align:center; font-weight:700; font-size:12px; }
+    .margin-panel { margin-top:24px; }
+    .margin-note { color:var(--muted); font-size:12px; margin:-3px 0 8px; }
+    #marginTable { overflow-x:auto; }
+    #marginTable table { min-width:820px; }
+    #marginTable th { text-align:right; }
+    #marginTable th:first-child { text-align:left; }
+    .margin-asset { text-align:left; white-space:nowrap; }
+    .margin-asset .code { color:var(--muted); font-size:12px; margin-left:5px; }
+    .margin-cell { white-space:nowrap; font-variant-numeric:tabular-nums; line-height:1.45; }
+    .margin-cell .sub { margin:0; font-size:11px; color:var(--muted); }
+    .margin-cell.missing { color:var(--muted); }
     @media (max-width: 720px) { .overview-grid { grid-template-columns:repeat(2, minmax(0,1fr)); } .overview-dividend { grid-template-columns:1fr; } .shareholder-row { grid-template-columns:1fr 80px 1fr; } }
   </style>
   <script>
@@ -286,6 +298,7 @@
       <button id="chartViewBtn" class="active" type="button" role="tab" aria-selected="true">圖表</button>
       <button id="tableViewBtn" type="button" role="tab" aria-selected="false">表格</button>
       <button id="institutionalViewBtn" type="button" role="tab" aria-selected="false">三大法人</button>
+      <button id="marginViewBtn" type="button" role="tab" aria-selected="false">融資融券</button>
       <button id="shareholdersViewBtn" type="button" role="tab" aria-selected="false">股東分佈</button>
     </div>
     <div id="selectedEtfSummary" class="selected-etf-summary"></div>
@@ -315,6 +328,11 @@
       <h2>近三個交易日・三大法人買賣超金額</h2>
       <div class="institutional-note">紅色＝買超、綠色＝賣超；金額以買賣超股數 × 當日收盤價估算。點擊列可查看外資、投信與自營商明細。</div>
       <div id="institutionalTable"></div>
+    </section>
+    <section id="marginPanel" class="margin-panel" style="display:none;">
+      <h2>融資融券餘額</h2>
+      <div class="margin-note">資料來自證交所／櫃買中心每日信用交易資料；「資」為融資餘額，「券」為融券餘額，括號為當日增減。</div>
+      <div id="marginTable"></div>
     </section>
     <section id="shareholdersPanel" class="shareholder-panel" style="display:none;"></section>
 
@@ -615,13 +633,13 @@
         viewMode = mode;
         const panels = {
           overview: "overviewPanel", chart: "changeChartPanel", table: "changeTablePanel",
-          institutional: "institutionalPanel", shareholders: "shareholdersPanel"
+          institutional: "institutionalPanel", margin: "marginPanel", shareholders: "shareholdersPanel"
         };
         Object.entries(panels).forEach(([name, id]) => {
           document.getElementById(id).style.display = name === mode ? (name === "table" ? "block" : "block") : "none";
         });
         document.getElementById("holdingsDataPanel").style.display = mode === "chart" || mode === "table" ? "block" : "none";
-        ["overview", "chart", "table", "institutional", "shareholders"].forEach(name => {
+        ["overview", "chart", "table", "institutional", "margin", "shareholders"].forEach(name => {
           const btn = document.getElementById(name + "ViewBtn");
           btn.classList.toggle("active", name === mode);
           btn.setAttribute("aria-selected", name === mode);
@@ -686,9 +704,50 @@
           '<div class="shareholder-total"><div class="k">總股東</div><div class="v">' + (dist.totalHolders == null ? "—" : fmt(dist.totalHolders)) + '</div></div></div>' +
           '<div class="shareholder-legend">🔵 人數占比　 🔴 持股占比</div><div class="shareholder-bars">' + dist.buckets.map(b => {
             const people = Number(b.peoplePct) || 0, holding = Number(b.holdingPct) || 0;
-            return '<div class="shareholder-row"><div class="sharebar left"><span class="sharebar-label">' + people.toFixed(2) + '%</span><span class="fill" style="width:' + (people / maxPeople * 100) + '%"></span></div>' +
-              '<div class="shareholder-bucket">' + esc(b.label || "—") + '</div><div class="sharebar right"><span class="fill" style="width:' + (holding / maxHolding * 100) + '%"></span><span class="sharebar-label">' + holding.toFixed(2) + '%</span></div></div>';
+            const peopleTip = '級距：' + (b.label || "—") + '<br>人數占比：' + people.toFixed(2) + '%<br>股東人數：' + fmt(Number(b.holders) || 0) + ' 人';
+            const holdingTip = '級距：' + (b.label || "—") + '<br>持股占比：' + holding.toFixed(2) + '%<br>持有股數：' + fmt(Number(b.shares) || 0) + ' 股<br>約 ' + ((Number(b.shares) || 0) / 1000).toLocaleString("en-US", {maximumFractionDigits:2}) + ' 張';
+            return '<div class="shareholder-row"><div class="sharebar left" data-tooltip="' + esc(peopleTip) + '"><span class="sharebar-label">' + people.toFixed(2) + '%</span><span class="fill" style="width:' + (people / maxPeople * 100) + '%"></span></div>' +
+              '<div class="shareholder-bucket">' + esc(b.label || "—") + '</div><div class="sharebar right" data-tooltip="' + esc(holdingTip) + '"><span class="fill" style="width:' + (holding / maxHolding * 100) + '%"></span><span class="sharebar-label">' + holding.toFixed(2) + '%</span></div></div>';
           }).join("") + '</div>';
+        box.querySelectorAll(".sharebar[data-tooltip]").forEach(bar => {
+          bar.addEventListener("mouseenter", e => { const tip = document.getElementById("treemapTooltip"); tip.innerHTML = bar.dataset.tooltip; tip.style.display = "block"; tip.style.left = (e.clientX + 14) + "px"; tip.style.top = (e.clientY + 14) + "px"; });
+          bar.addEventListener("mousemove", e => { const tip = document.getElementById("treemapTooltip"); tip.style.left = (e.clientX + 14) + "px"; tip.style.top = (e.clientY + 14) + "px"; });
+          bar.addEventListener("mouseleave", () => { document.getElementById("treemapTooltip").style.display = "none"; });
+        });
+      }
+
+      function marginText(m) {
+        if (!m || (m.marginBalance == null && m.shortBalance == null)) return null;
+        const delta = (now, prev) => now == null || prev == null ? "—" : sign(now - prev);
+        return '<div>資 ' + (m.marginBalance == null ? "—" : fmt(m.marginBalance)) + ' <span class="sub">(' + delta(m.marginBalance, m.marginPrevBalance) + ')</span></div>' +
+          '<div>券 ' + (m.shortBalance == null ? "—" : fmt(m.shortBalance)) + ' <span class="sub">(' + delta(m.shortBalance, m.shortPrevBalance) + ')</span></div>';
+      }
+
+      function renderMarginTable() {
+        const box = document.getElementById("marginTable");
+        const snapshots = currentSnapshots().slice(-3);
+        box.innerHTML = "";
+        if (!snapshots.length) { box.innerHTML = '<div class="empty">尚無融資融券資料。</div>'; return; }
+        const latest = snapshots[snapshots.length - 1];
+        const holdings = (latest.holdings || []).filter(h => isStockAsset(h) && (h.shares || 0) > 0);
+        const rows = [{ key:"__etf__", name: etfSel.value + " " + ((D.etfs[etfSel.value] || {}).name || ""), isEtf:true }]
+          .concat(holdings.sort((a,b) => (b.weight || 0) - (a.weight || 0)));
+        const table = document.createElement("table");
+        table.innerHTML = '<thead><tr><th>標的</th>' + snapshots.map(s => '<th>' + s.date.slice(5).replace("-", "/") + '</th>').join("") + '</tr></thead><tbody></tbody>';
+        const tbody = table.querySelector("tbody");
+        rows.forEach(row => {
+          const key = row.isEtf ? row.key : keyOf(row);
+          const tr = document.createElement("tr");
+          const label = row.isEtf ? esc(row.name) : esc(row.name) + (row.code ? ' <span class="code">' + esc(row.code) + '</span>' : "");
+          tr.innerHTML = '<td class="margin-asset">' + (row.isEtf ? "★ " : "") + label + '</td>' + snapshots.map(s => {
+            const h = row.isEtf ? null : (s.holdings || []).find(item => keyOf(item) === key);
+            const value = row.isEtf ? s.selfMargin : (h && h.margin);
+            const text = marginText(value);
+            return '<td class="margin-cell ' + (text ? "" : "missing") + '">' + (text || "不適用／無資料") + '</td>';
+          }).join("");
+          tbody.appendChild(tr);
+        });
+        box.appendChild(table);
       }
 
       function renderEtfSummary() {
@@ -714,6 +773,7 @@
         renderOverview();
         renderShareholderDistribution();
         renderInstitutionalTable();
+        renderMarginTable();
         let diffRows = computeDiff(prevSnap, currSnap);
 
         // 統計卡
@@ -895,6 +955,7 @@
       document.getElementById("chartViewBtn").addEventListener("click", () => setViewMode("chart"));
       document.getElementById("tableViewBtn").addEventListener("click", () => setViewMode("table"));
       document.getElementById("institutionalViewBtn").addEventListener("click", () => setViewMode("institutional"));
+      document.getElementById("marginViewBtn").addEventListener("click", () => setViewMode("margin"));
       document.getElementById("shareholdersViewBtn").addEventListener("click", () => setViewMode("shareholders"));
 
       etfSel.addEventListener("change", () => { expandedInstitutional = ""; fillDates(); render(); });
