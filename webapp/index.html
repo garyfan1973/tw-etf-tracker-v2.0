@@ -226,8 +226,13 @@
     #marginTable th:first-child { text-align:left; }
     .margin-asset { text-align:left; white-space:nowrap; }
     .margin-asset .code { color:var(--muted); font-size:12px; margin-left:5px; }
-    .margin-cell { white-space:nowrap; font-variant-numeric:tabular-nums; line-height:1.45; }
-    .margin-cell .sub { margin:0; font-size:11px; color:var(--muted); }
+    .margin-cell { white-space:nowrap; font-variant-numeric:tabular-nums; line-height:1.45; min-width:150px; }
+    .margin-line { display:grid; grid-template-columns:26px minmax(82px,1fr) minmax(58px,auto); gap:4px; align-items:baseline; text-align:right; }
+    .margin-line .margin-kind { text-align:center; border-radius:4px; font-size:11px; font-weight:700; padding:1px 3px; }
+    .margin-line .margin-value { text-align:right; }
+    .margin-line .sub { margin:0; font-size:11px; color:var(--muted); text-align:right; }
+    .margin-line.margin .margin-kind { color:#fff; background:#d97706; }
+    .margin-line.short .margin-kind { color:#fff; background:#7c3aed; }
     .margin-cell.missing { color:var(--muted); }
     @media (max-width: 720px) { .overview-grid { grid-template-columns:repeat(2, minmax(0,1fr)); } .overview-dividend { grid-template-columns:1fr; } .shareholder-row { grid-template-columns:1fr 80px 1fr; } }
   </style>
@@ -509,13 +514,13 @@
 
       function renderInstitutionalTable() {
         const box = document.getElementById("institutionalTable");
-        const snapshots = currentSnapshots().slice(-3);
+        const snapshots = currentSnapshots().slice(-3).reverse();
         box.innerHTML = "";
         if (!snapshots.length) {
           box.innerHTML = '<div class="empty">尚無三大法人資料。</div>';
           return;
         }
-        const latest = snapshots[snapshots.length - 1];
+        const latest = snapshots[0];
         const latestHoldings = latest.holdings.filter(h => isStockAsset(h) && (h.shares || 0) > 0);
         const rows = [{ key: "__etf__", name: etfSel.value + " " + (D.etfs[etfSel.value] || {}).name, isEtf: true }]
           .concat(latestHoldings.sort((a, b) => (b.weight || 0) - (a.weight || 0)));
@@ -719,16 +724,16 @@
       function marginText(m) {
         if (!m || (m.marginBalance == null && m.shortBalance == null)) return null;
         const delta = (now, prev) => now == null || prev == null ? "—" : sign(now - prev);
-        return '<div>資 ' + (m.marginBalance == null ? "—" : fmt(m.marginBalance)) + ' <span class="sub">(' + delta(m.marginBalance, m.marginPrevBalance) + ')</span></div>' +
-          '<div>券 ' + (m.shortBalance == null ? "—" : fmt(m.shortBalance)) + ' <span class="sub">(' + delta(m.shortBalance, m.shortPrevBalance) + ')</span></div>';
+        return '<div class="margin-line margin"><span class="margin-kind">資</span><span class="margin-value">' + (m.marginBalance == null ? "—" : fmt(m.marginBalance) + ' 張') + '</span><span class="sub">(' + delta(m.marginBalance, m.marginPrevBalance) + ')</span></div>' +
+          '<div class="margin-line short"><span class="margin-kind">券</span><span class="margin-value">' + (m.shortBalance == null ? "—" : fmt(m.shortBalance) + ' 張') + '</span><span class="sub">(' + delta(m.shortBalance, m.shortPrevBalance) + ')</span></div>';
       }
 
       function renderMarginTable() {
         const box = document.getElementById("marginTable");
-        const snapshots = currentSnapshots().slice(-3);
+        const snapshots = currentSnapshots().slice(-3).reverse();
         box.innerHTML = "";
         if (!snapshots.length) { box.innerHTML = '<div class="empty">尚無融資融券資料。</div>'; return; }
-        const latest = snapshots[snapshots.length - 1];
+        const latest = snapshots[0];
         const holdings = (latest.holdings || []).filter(h => isStockAsset(h) && (h.shares || 0) > 0);
         const rows = [{ key:"__etf__", name: etfSel.value + " " + ((D.etfs[etfSel.value] || {}).name || ""), isEtf:true }]
           .concat(holdings.sort((a,b) => (b.weight || 0) - (a.weight || 0)));
