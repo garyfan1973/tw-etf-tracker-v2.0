@@ -223,7 +223,12 @@
     .margin-trend { margin:12px 0 16px; padding:12px; border:1px solid var(--border); border-radius:10px; background:var(--bg); }
     .margin-trend-head { display:flex; justify-content:space-between; align-items:baseline; gap:10px; margin-bottom:4px; }
     .margin-trend-title { font-size:14px; font-weight:700; }
-    .margin-trend-legend { color:var(--muted); font-size:12px; }
+    .margin-trend-tools { display:flex; align-items:center; gap:12px; }
+    .margin-trend-legend { color:var(--muted); font-size:12px; white-space:nowrap; }
+    .margin-trend-legend .dot { display:inline-block; width:9px; height:9px; margin-right:4px; border-radius:50%; vertical-align:0; }
+    .margin-trend-legend .dot-margin { background:#b1872d; }
+    .margin-trend-legend .dot-short { background:#8164a8; }
+    .margin-trend-select { min-width:180px; padding:5px 8px; font-size:12px; }
     .margin-trend svg { display:block; width:100%; height:auto; overflow:visible; }
     .margin-trend .grid { stroke:var(--border); stroke-width:1; }
     .margin-trend .axis-label, .margin-trend .date-label { fill:var(--muted); font-size:11px; }
@@ -435,6 +440,7 @@
       let viewMode = "chart";
       const expandedFull = new Set();  // 記住展開了哪些個股，重繪時保留
       let expandedInstitutional = "";
+      let marginTrendAsset = "__etf__";
 
       function currentSnapshots() {
         const e = D.etfs[etfSel.value];
@@ -757,7 +763,13 @@
       function renderMarginTrend() {
         const box = document.getElementById("marginTrend");
         const snapshots = currentSnapshots().slice(-3);
-        const points = snapshots.map(s => ({ date:s.date, margin:s.selfMargin && s.selfMargin.marginBalance, short:s.selfMargin && s.selfMargin.shortBalance, marginPrev:s.selfMargin && s.selfMargin.marginPrevBalance, shortPrev:s.selfMargin && s.selfMargin.shortPrevBalance }));
+        const latest = snapshots[snapshots.length - 1] || {};
+        const assets = [{ key:"__etf__", label:etfSel.value + " " + ((D.etfs[etfSel.value] || {}).name || "") }];
+        (latest.holdings || []).filter(h => isStockAsset(h) && (h.shares || 0) > 0 && h.margin).sort((a, b) => (b.weight || 0) - (a.weight || 0)).forEach(h => assets.push({ key:keyOf(h), label:(h.code ? h.code + " " : "") + h.name }));
+        if (!assets.some(a => a.key === marginTrendAsset)) marginTrendAsset = "__etf__";
+        const selected = assets.find(a => a.key === marginTrendAsset) || assets[0];
+        const getMargin = s => selected.key === "__etf__" ? s.selfMargin : ((s.holdings || []).find(h => keyOf(h) === selected.key) || {}).margin;
+        const points = snapshots.map(s => { const m = getMargin(s) || {}; return { date:s.date, margin:m.marginBalance, short:m.shortBalance, marginPrev:m.marginPrevBalance, shortPrev:m.shortPrevBalance }; });
         const values = points.flatMap(p => [p.margin, p.short]).filter(v => typeof v === "number" && Number.isFinite(v));
         if (!values.length) { box.innerHTML = '<div class="empty">尚無可繪製的融資融券餘額趨勢。</div>'; return; }
         const W = 900, H = 270, pad = { l:58, r:18, t:30, b:36 }, pw = W - pad.l - pad.r, ph = H - pad.t - pad.b;
@@ -782,9 +794,11 @@
           if (typeof p.short === "number") items.push('<circle class="point point-short" cx="' + x(i) + '" cy="' + y(p.short) + '" r="5" data-tooltip="' + esc('<strong>' + p.date + '</strong><br>融券餘額：' + fmt(p.short) + ' 張<br>融券增減：' + (p.shortPrev == null ? "—" : sign(p.short - p.shortPrev)) + ' 張') + '"></circle>');
           return items.join("");
         }).join("");
-        box.innerHTML = '<div class="margin-trend-head"><span class="margin-trend-title">餘額變化趨勢</span><span class="margin-trend-legend">金色：融資　紫色：融券　單位：張</span></div>' +
+        const options = assets.map(a => '<option value="' + esc(a.key) + '"' + (a.key === selected.key ? ' selected' : '') + '>' + esc(a.label) + '</option>').join("");
+        box.innerHTML = '<div class="margin-trend-head"><span class="margin-trend-title">餘額變化趨勢</span><div class="margin-trend-tools"><select class="margin-trend-select" aria-label="選擇資券趨勢標的">' + options + '</select><span class="margin-trend-legend"><span class="dot dot-margin"></span>融資　<span class="dot dot-short"></span>融券　單位：張</span></div></div>' +
           '<svg viewBox="0 0 ' + W + ' ' + H + '" role="img" aria-label="融資融券餘額變化趨勢圖">' + grid +
           '<path class="line-margin" fill="none" stroke-width="2.5" d="' + pathFor("margin") + '"/><path class="line-short" fill="none" stroke-width="2.5" d="' + pathFor("short") + '"/>' + dates + pointHtml + '</svg>';
+        box.querySelector(".margin-trend-select").addEventListener("change", e => { marginTrendAsset = e.target.value; renderMarginTrend(); });
         box.querySelectorAll(".margin-point[data-tooltip], .point[data-tooltip]").forEach(point => {
           point.addEventListener("mouseenter", e => { const tip = document.getElementById("treemapTooltip"); tip.innerHTML = point.dataset.tooltip; positionTooltip(tip, e); });
           point.addEventListener("mousemove", e => { positionTooltip(document.getElementById("treemapTooltip"), e); });
@@ -1035,7 +1049,7 @@
       document.getElementById("marginViewBtn").addEventListener("click", () => setViewMode("margin"));
       document.getElementById("shareholdersViewBtn").addEventListener("click", () => setViewMode("shareholders"));
 
-      etfSel.addEventListener("change", () => { expandedInstitutional = ""; fillDates(); render(); });
+      etfSel.addEventListener("change", () => { expandedInstitutional = ""; marginTrendAsset = "__etf__"; fillDates(); render(); });
       fromSel.addEventListener("change", render);
       toSel.addEventListener("change", render);
       q.addEventListener("input", render);
