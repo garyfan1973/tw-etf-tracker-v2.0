@@ -14,9 +14,10 @@
     .shell { max-width:1180px; margin:0 auto; padding:0 28px; }
     header { height:78px; display:flex; align-items:center; justify-content:space-between; }
     .brand { display:flex; align-items:center; gap:11px; font-weight:800; letter-spacing:.04em; }
-    .mark { width:34px; height:34px; border:1px solid #7faaff; border-radius:11px; position:relative; background:radial-gradient(circle at 72% 24%,#ffd98a 0 7%,transparent 8%),linear-gradient(145deg,#3568c3,#18243e); overflow:hidden; box-shadow:0 5px 16px rgba(62,112,207,.28); }
-    .mark:before { content:""; position:absolute; left:6px; top:13px; width:20px; height:9px; border-top:2px solid #ffd166; border-right:2px solid #ffd166; border-radius:2px 8px 0 0; transform:skew(-24deg) rotate(-16deg); }
-    .mark:after { content:""; position:absolute; left:7px; bottom:7px; width:5px; height:5px; border-radius:50%; background:#75a7ff; box-shadow:8px -5px 0 -1px #77b8ff,16px -12px 0 -1px #ffe09b; }
+    .mark { width:34px; height:34px; border:1px solid rgba(142,184,255,.8); border-radius:12px; position:relative; background:linear-gradient(145deg,#264f9a,#111c34 68%,#192744); overflow:hidden; box-shadow:0 6px 18px rgba(36,80,165,.32),inset 0 1px rgba(255,255,255,.18); }
+    .mark:before { content:""; position:absolute; inset:7px; border:2px solid #8bb7ff; border-right-color:transparent; border-bottom-color:rgba(139,183,255,.35); border-radius:50%; transform:rotate(-26deg); }
+    .mark:after { content:""; position:absolute; left:14px; top:14px; width:7px; height:7px; border-radius:50%; background:#ffd166; box-shadow:0 0 0 3px rgba(255,209,102,.18),0 0 10px rgba(255,209,102,.8); }
+    .mark i { position:absolute; right:6px; top:6px; width:4px; height:4px; border-radius:50%; background:#fff3c7; box-shadow:-17px 17px 0 0 #63d6b0; }
     .nav { display:flex; gap:25px; color:var(--muted); font-size:14px; align-items:center; }
     .nav a:hover { color:var(--ink); }
     .nav .login { border:1px solid var(--line); border-radius:999px; padding:8px 15px; color:var(--ink); }
@@ -62,7 +63,7 @@
   <div class="glow"></div>
   <div class="shell">
     <header>
-      <a class="brand" href="index.html"><span class="mark" aria-hidden="true"></span><span>ETF 追追追</span></a>
+      <a class="brand" href="index.html"><span class="mark" aria-hidden="true"><i></i></span><span>ETF 追追追</span></a>
       <nav class="nav" aria-label="主要導覽"><a href="#features">功能</a><a href="#why">為什麼用</a><a class="login" href="tracker.html">開啟研究工作台 ↗</a></nav>
     </header>
     <main>
