@@ -149,12 +149,13 @@ python3 fetch_company_profiles.py
 
 ## GitHub Actions 自動更新
 
-工作流程位於 `.github/workflows/update-data.yml`，目前每天執行四次：
+工作流程位於 `.github/workflows/update-data.yml`，目前每天執行五次：
 
-- 台灣時間 17:37
-- 台灣時間 18:00
-- 台灣時間 18:30
-- 台灣時間 19:00
+- 台灣時間 19:30
+- 台灣時間 20:00
+- 台灣時間 20:30
+- 台灣時間 21:00
+- 台灣時間 21:30
 
 GitHub Actions 會依序：
 
