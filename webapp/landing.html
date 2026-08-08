@@ -1,0 +1,93 @@
+<!doctype html>
+<html lang="zh-Hant-TW">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="台灣 ETF 研究工作台：每天看懂主動式 ETF 的持股變化、配息與投資績效。">
+  <title>ETF Lens｜每天看懂 ETF 在做什麼</title>
+  <style>
+    :root { --ink:#f7f8fa; --muted:#a7b0bd; --line:rgba(255,255,255,.12); --panel:#111820; --bg:#091016; --blue:#75a7ff; --red:#ff6b6b; --green:#55d493; }
+    * { box-sizing:border-box; }
+    html { scroll-behavior:smooth; }
+    body { margin:0; color:var(--ink); background:var(--bg); font-family:-apple-system,BlinkMacSystemFont,"PingFang TC","Noto Sans TC","Microsoft JhengHei",sans-serif; line-height:1.6; }
+    a { color:inherit; text-decoration:none; }
+    .shell { max-width:1180px; margin:0 auto; padding:0 28px; }
+    header { height:78px; display:flex; align-items:center; justify-content:space-between; }
+    .brand { display:flex; align-items:center; gap:11px; font-weight:800; letter-spacing:.04em; }
+    .mark { width:31px; height:31px; border:1px solid #7faaff; border-radius:9px; position:relative; background:linear-gradient(135deg,#315ca9,#172642); overflow:hidden; }
+    .mark:before,.mark:after { content:""; position:absolute; bottom:6px; width:4px; border-radius:4px 4px 0 0; background:#9dc2ff; }
+    .mark:before { left:8px; height:10px; box-shadow:7px -6px #75a7ff,14px -12px #c7dcff; }
+    .nav { display:flex; gap:25px; color:var(--muted); font-size:14px; align-items:center; }
+    .nav a:hover { color:var(--ink); }
+    .nav .login { border:1px solid var(--line); border-radius:999px; padding:8px 15px; color:var(--ink); }
+    .hero { min-height:590px; display:grid; grid-template-columns:1.04fr .96fr; gap:80px; align-items:center; padding:72px 0 100px; }
+    .eyebrow { color:#90b8ff; font-size:13px; font-weight:700; letter-spacing:.14em; text-transform:uppercase; }
+    h1 { font-size:clamp(48px,6.5vw,82px); line-height:1.04; letter-spacing:-.07em; margin:20px 0 25px; max-width:680px; }
+    h1 em { font-style:normal; color:#81aeff; }
+    .lead { max-width:520px; color:var(--muted); font-size:18px; margin:0 0 34px; }
+    .actions { display:flex; flex-wrap:wrap; gap:12px; align-items:center; }
+    .button { display:inline-flex; align-items:center; gap:9px; padding:13px 19px; border-radius:10px; font-weight:700; font-size:14px; transition:transform .2s,background .2s; }
+    .button:hover { transform:translateY(-2px); }
+    .primary { color:#08111b; background:#a7c6ff; }
+    .secondary { border:1px solid var(--line); color:var(--ink); }
+    .note { color:#718092; font-size:12px; margin-top:14px; }
+    .screen { position:relative; padding:18px; border:1px solid rgba(153,187,255,.3); border-radius:19px; background:linear-gradient(145deg,#172434,#0b1118); box-shadow:0 28px 70px rgba(0,0,0,.34); transform:rotate(2deg); }
+    .screen-top { display:flex; justify-content:space-between; color:#94a1b1; font-size:11px; padding:0 2px 14px; }
+    .screen-title { display:flex; justify-content:space-between; align-items:end; margin-bottom:22px; }
+    .screen-title b { font-size:21px; } .screen-title span { color:var(--green); font-size:13px; }
+    .bars { height:190px; display:flex; align-items:end; gap:7px; border-bottom:1px solid var(--line); padding:0 9px; }
+    .bar { flex:1; min-height:24px; border-radius:5px 5px 0 0; background:linear-gradient(#74a7ff,#315a9f); opacity:.9; }
+    .bar:nth-child(2n) { background:linear-gradient(#64d69d,#237e59); } .bar:nth-child(3n) { background:linear-gradient(#ff9a87,#9d4948); }
+    .signal { display:grid; grid-template-columns:repeat(3,1fr); gap:9px; margin-top:14px; }
+    .signal div { border:1px solid var(--line); border-radius:9px; padding:10px; background:rgba(255,255,255,.03); }
+    .signal small { display:block; color:#8290a0; font-size:10px; } .signal strong { font-size:16px; }
+    .glow { position:absolute; width:300px; height:300px; border-radius:50%; background:#234d9b; filter:blur(90px); opacity:.24; right:-90px; top:100px; pointer-events:none; }
+    .section { padding:88px 0; border-top:1px solid var(--line); }
+    .section-head { display:flex; justify-content:space-between; gap:30px; margin-bottom:37px; align-items:end; }
+    h2 { font-size:clamp(30px,4vw,46px); letter-spacing:-.05em; line-height:1.1; margin:12px 0 0; } .section-head p { color:var(--muted); max-width:360px; margin:0; font-size:14px; }
+    .features { display:grid; grid-template-columns:repeat(3,1fr); gap:14px; }
+    .feature { min-height:255px; padding:24px; border:1px solid var(--line); border-radius:14px; background:linear-gradient(145deg,rgba(255,255,255,.055),rgba(255,255,255,.015)); }
+    .feature .num { color:#7791b8; font-size:12px; } .feature h3 { font-size:21px; margin:52px 0 8px; } .feature p { color:var(--muted); font-size:14px; margin:0; }
+    .feature .accent { display:block; width:42px; height:4px; border-radius:9px; background:#79aaff; margin-top:23px; } .feature:nth-child(2) .accent { background:var(--red); } .feature:nth-child(3) .accent { background:var(--green); }
+    .proof { display:grid; grid-template-columns:1fr 1fr; gap:60px; align-items:center; }
+    .quote { font-size:clamp(27px,3.5vw,42px); letter-spacing:-.05em; line-height:1.25; margin:0; } .quote span { color:#86b2ff; }
+    .metrics { display:grid; grid-template-columns:repeat(2,1fr); gap:12px; } .metric { padding:19px; border-left:2px solid #638fdd; background:rgba(255,255,255,.035); } .metric b { display:block; font-size:28px; } .metric small { color:var(--muted); font-size:12px; }
+    .cta { padding:80px 0 100px; text-align:center; } .cta h2 { max-width:620px; margin:0 auto 24px; } .cta p { color:var(--muted); margin:0 auto 29px; }
+    footer { border-top:1px solid var(--line); padding:25px 0 35px; color:#718092; font-size:12px; display:flex; justify-content:space-between; }
+    @media (max-width:800px) { .hero,.proof { grid-template-columns:1fr; gap:45px; } .hero { padding-top:48px; } .screen { max-width:620px; margin:auto; } .features { grid-template-columns:1fr; } .section-head { display:block; } .section-head p { margin-top:18px; } .nav a:not(.login) { display:none; } }
+    @media (max-width:520px) { .shell { padding:0 20px; } header { height:68px; } h1 { font-size:52px; } .lead { font-size:16px; } .hero { padding-bottom:70px; } .signal strong { font-size:13px; } footer { display:block; } footer span { display:block; margin-top:8px; } }
+  </style>
+</head>
+<body>
+  <div class="glow"></div>
+  <div class="shell">
+    <header>
+      <a class="brand" href="landing.html"><span class="mark" aria-hidden="true"></span><span>ETF LENS</span></a>
+      <nav class="nav" aria-label="主要導覽"><a href="#features">功能</a><a href="#why">為什麼用</a><a class="login" href="index.html">開啟研究工作台 ↗</a></nav>
+    </header>
+    <main>
+      <section class="hero">
+        <div>
+          <div class="eyebrow">Taiwan ETF research workspace</div>
+          <h1>每天看懂<br><em>ETF 在做什麼。</em></h1>
+          <p class="lead">把持股揭露、行情、配息和自己的投資紀錄，放進一個安靜、清楚、真正能用的研究工作台。</p>
+          <div class="actions"><a class="button primary" href="index.html">查看每日持股變化 <span>→</span></a><a class="button secondary" href="dividends.html">探索配息日曆</a></div>
+          <div class="note">資料以公開揭露與交易所資訊為基礎 · 僅供研究參考</div>
+        </div>
+        <div class="screen" aria-label="ETF Lens 研究工作台預覽">
+          <div class="screen-top"><span>ETF LENS / DAILY MOVES</span><span>2026.08.07</span></div>
+          <div class="screen-title"><b>00981A<br><small style="color:#94a1b1;font-size:12px;font-weight:400">主動統一台股增長</small></b><span>▲ +1.86%</span></div>
+          <div class="bars"><i class="bar" style="height:34%"></i><i class="bar" style="height:49%"></i><i class="bar" style="height:42%"></i><i class="bar" style="height:65%"></i><i class="bar" style="height:57%"></i><i class="bar" style="height:75%"></i><i class="bar" style="height:69%"></i><i class="bar" style="height:88%"></i><i class="bar" style="height:80%"></i><i class="bar" style="height:94%"></i></div>
+          <div class="signal"><div><small>新增</small><strong style="color:#75a7ff">04</strong></div><div><small>加碼</small><strong style="color:#ff7d7d">17</strong></div><div><small>減碼</small><strong style="color:#55d493">09</strong></div></div>
+        </div>
+      </section>
+      <section class="section" id="features"><div class="section-head"><div><div class="eyebrow">One clear view</div><h2>研究，不必再拼湊。</h2></div><p>從第一眼的市場脈動，到可以回頭驗證的細節，每一層資訊都有它的位置。</p></div>
+        <div class="features"><article class="feature"><span class="num">01 / DAILY CHANGES</span><h3>看見經理人動作</h3><p>用持有股數的變化，分辨新增、加碼、減碼與剔除，不被價格漲跌干擾。</p><span class="accent"></span></article><article class="feature"><span class="num">02 / INCOME</span><h3>掌握配息節奏</h3><p>把除息日、發放日與每單位金額集中起來，建立自己的現金流視角。</p><span class="accent"></span></article><article class="feature"><span class="num">03 / YOUR PORTFOLIO</span><h3>連回你的投資</h3><p>登入後管理關注清單、交易紀錄與績效走勢，讓市場研究和實際持有接上。</p><span class="accent"></span></article></div>
+      </section>
+      <section class="section" id="why"><div class="proof"><p class="quote">「我想知道的不是 ETF <span>今天漲多少</span>，而是它正在往哪裡走。」</p><div class="metrics"><div class="metric"><b>10+</b><small>可追蹤的 ETF 與跨市場標的</small></div><div class="metric"><b>4 種</b><small>持股變化狀態，一眼辨識</small></div><div class="metric"><b>每日</b><small>更新持股與行情資料</small></div><div class="metric"><b>一站</b><small>持股、配息、績效與交易</small></div></div></div></section>
+      <section class="cta"><div class="eyebrow">Start with one ETF</div><h2>下一次做決定前，先看看它真的買了什麼。</h2><p>從最新的一天開始，建立你自己的 ETF 觀察習慣。</p><a class="button primary" href="index.html">進入 ETF 研究工作台 →</a></section>
+    </main>
+    <footer><span>© 2026 ETF Lens</span><span>非投資建議 · 資料僅供個人研究參考</span></footer>
+  </div>
+</body>
+</html>
