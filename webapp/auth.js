@@ -44,20 +44,44 @@ import { createClient } from "https://cdn.jsdelivr.net/npm/@supabase/supabase-js
     if (state.watch.has(code)) {
       state.watch.delete(code);
       emit();
-      await sb.from("watchlist").delete().eq("user_id", state.user.id).eq("etf_code", code);
+      const { error } = await sb.from("watchlist").delete().eq("user_id", state.user.id).eq("etf_code", code);
+      if (error) {
+        // 刪除失敗時恢復畫面上的關注狀態，避免前端與資料庫不一致。
+        state.watch.add(code);
+        emit();
+        console.error("移除 ETF 關注失敗：", error);
+        return { ok: false, error };
+      }
+      return { ok: true };
     } else {
       state.watch.add(code);
       emit();
-      await sb.from("watchlist").insert({ user_id: state.user.id, etf_code: code });
+      const { error } = await sb.from("watchlist").insert({ user_id: state.user.id, etf_code: code });
+      if (error) {
+        // 寫入失敗時撤銷暫存狀態，避免只在本次頁面看得到、重整後消失。
+        state.watch.delete(code);
+        emit();
+        console.error("新增 ETF 關注失敗：", error);
+        return { ok: false, error };
+      }
+      return { ok: true };
     }
   }
 
   async function addWatch(code) {
     code = (code || "").trim().toUpperCase();
-    if (!sb || !state.user || !code || state.watch.has(code)) return;
+    if (!sb || !state.user || !code || state.watch.has(code)) return { ok: false, error: null };
     state.watch.add(code);
     emit();
-    await sb.from("watchlist").insert({ user_id: state.user.id, etf_code: code });
+    const { error } = await sb.from("watchlist").insert({ user_id: state.user.id, etf_code: code });
+    if (error) {
+      // 寫入失敗時撤銷暫存狀態，並讓面板回到資料庫實際狀態。
+      state.watch.delete(code);
+      emit();
+      console.error("新增 ETF 關注失敗：", error);
+      return { ok: false, error };
+    }
+    return { ok: true };
   }
 
   // 即時查詢單一 ETF（後端 /api/etf）
@@ -96,7 +120,14 @@ import { createClient } from "https://cdn.jsdelivr.net/npm/@supabase/supabase-js
     }
     if (!known) mergeEtf(code, data);
     if (msg) msg.textContent = "";
-    await addWatch(code);
+    const result = await addWatch(code);
+    if (!result.ok) {
+      if (msg) {
+        msg.style.color = "var(--up)";
+        msg.textContent = "加入失敗：" + (result.error?.message || "資料庫未接受寫入");
+      }
+      return;
+    }
     document.dispatchEvent(new CustomEvent("etf-added", { detail: { code } }));
   }
 
@@ -179,6 +210,8 @@ import { createClient } from "https://cdn.jsdelivr.net/npm/@supabase/supabase-js
       watchOpen.style.display = configured ? "inline-block" : "none";
       watchOpen.onclick = () => {
         const modal = document.getElementById("watchModal");
+        // 開啟時重新渲染，避免新增 ETF 後只更新下拉選單、彈窗仍顯示舊內容。
+        renderMemberPanel();
         if (modal) modal.style.display = "flex";
       };
     }
