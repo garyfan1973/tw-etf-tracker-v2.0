@@ -18,7 +18,9 @@
 """
 
 import datetime
+import csv
 import html
+import io
 import json
 import os
 import re
@@ -58,6 +60,10 @@ TPEX_QUOTE_URL = "https://www.tpex.org.tw/openapi/v1/tpex_mainboard_daily_close_
 # 三大法人買賣超（外資／投信／自營商）：指定日期盤後彙總（買賣超股數）
 TWSE_INST_URL = "https://www.twse.com.tw/rwd/zh/fund/T86?date={date}&selectType=ALLBUT0999&response=json"
 TPEX_INST_URL = "https://www.tpex.org.tw/openapi/v1/tpex_3itrade_hedge?date={date}"
+# ETF 總覽：證交所 ETF e添富商品頁（伺服器端含資產規模、受益人次、分類）
+TWSE_ETF_INFO_URL = "https://www.twse.com.tw/zh/ETFortune/etfInfo/{etf_id}"
+# 股東／受益人持股級距：TDCC 官方開放 CSV（每週最後營業日）
+TDCC_DISTRIBUTION_URL = "https://opendata.tdcc.com.tw/getOD.ashx?id=1-5"
 # 海外行情：Yahoo Finance（免金鑰）。市場別 -> Yahoo 代號後綴
 YAHOO_URL = "https://query1.finance.yahoo.com/v8/finance/chart/{sym}?interval=1d&range=10d"
 YAHOO_SUFFIX = {"US": "", "JP": ".T", "KS": ".KS", "HK": ".HK"}
@@ -379,6 +385,124 @@ def fetch_dividends(etf_id):
         return []
 
 
+def parse_twse_etf_overview(page_html):
+    """解析證交所 ETF e添富商品頁的總覽資料。"""
+    def text_after(label):
+        m = re.search(r"<p>\s*" + re.escape(label) + r"\s*</p>\s*<p>\s*<b>(.*?)</b>", page_html, re.S)
+        return html.unescape(re.sub(r"<[^>]+>", "", m.group(1))).strip() if m else ""
+
+    def metric(label):
+        m = re.search(r"<p>\s*" + re.escape(label) + r"\s*</p>\s*<span>(.*?)</span>", page_html, re.S)
+        return _num(re.sub(r"<[^>]+>", "", m.group(1))) if m else None
+
+    tags = [html.unescape(re.sub(r"<[^>]+>", "", x)).strip()
+            for x in re.findall(r'<span class="result">\s*<a[^>]*>(.*?)</a>\s*</span>', page_html, re.S)]
+    return {
+        "name": text_after("證券簡稱"),
+        "securityType": text_after("證券類別"),
+        "issuer": text_after("發行公司"),
+        "index": text_after("標的指數"),
+        "fundSizeHundredMillion": metric("資產規模(億元)"),
+        "beneficiaryTenThousands": metric("受益人次(萬人)"),
+        "tags": tags,
+        "source": "TWSE ETF e添富",
+        "fetchedAt": datetime.datetime.now(TZ_TAIPEI).isoformat(timespec="seconds"),
+    }
+
+
+def fetch_twse_etf_overviews(etf_ids):
+    """抓取 ETF 總覽資料；單檔失敗不影響其他資料。"""
+    result = {}
+    for etf_id in etf_ids:
+        try:
+            overview = parse_twse_etf_overview(curl_text(TWSE_ETF_INFO_URL.format(etf_id=etf_id)))
+            if overview.get("name") or overview.get("fundSizeHundredMillion") is not None:
+                result[etf_id] = overview
+        except Exception as exc:
+            print("  ! ETF 總覽抓取失敗 {}：{}".format(etf_id, exc))
+    print("ETF 總覽：取得 {}/{} 檔".format(len(result), len(etf_ids)))
+    return result
+
+
+TDCC_LEVEL_LABELS = {
+    1: "<1張", 2: "1-5張", 3: "5-10張", 4: "10-15張", 5: "15-20張",
+    6: "20-30張", 7: "30-40張", 8: "40-50張", 9: "50-100張",
+    10: "100-200張", 11: "200-400張", 12: "400-600張",
+    13: "600-800張", 14: "800-1千張", 15: "1千張以上",
+}
+
+
+def parse_tdcc_distribution(csv_text, wanted_codes):
+    """解析 TDCC 1-5 CSV，轉成前端股東級距模型。"""
+    def tdcc_date(value):
+        value = value.strip().replace("/", "-")
+        if re.fullmatch(r"\d{8}", value):
+            value = value[:4] + "-" + value[4:6] + "-" + value[6:]
+        return _iso_date(value.replace("-", "/"))
+
+    rows = csv.reader(io.StringIO(csv_text.lstrip("\ufeff")))
+    grouped = {}
+    for row in rows:
+        if len(row) < 6 or row[0] == "資料日期":
+            continue
+        date_raw, code, level_raw, holders_raw, shares_raw, pct_raw = [str(x).strip() for x in row[:6]]
+        code = code.upper()
+        if code not in wanted_codes:
+            continue
+        try:
+            level = int(level_raw)
+        except ValueError:
+            continue
+        item = grouped.setdefault(code, {"date": tdcc_date(date_raw), "levels": {}, "total": None})
+        holders, shares, pct = _int(holders_raw), _int(shares_raw), _num(pct_raw)
+        if level == 17:
+            # 第 17 級是集保中心提供的官方合計；第 16 級是差額調整，不列入級距圖。
+            if holders is not None and shares is not None:
+                item["total"] = {"holders": holders, "shares": shares, "holdingPct": pct}
+            continue
+        if level not in TDCC_LEVEL_LABELS:
+            continue
+        if holders is None or shares is None:
+            continue
+        item["levels"][level] = {"holders": holders, "shares": shares, "holdingPct": pct}
+    result = {}
+    for code, item in grouped.items():
+        # 優先採用第 17 級官方合計；若來源沒有該列，才由 1-15 級回算。
+        official_total = item.get("total") or {}
+        total_holders = official_total.get("holders") or sum(v["holders"] for v in item["levels"].values())
+        total_shares = official_total.get("shares") or sum(v["shares"] for v in item["levels"].values())
+        result[code] = {
+            "date": item["date"],
+            "totalHolders": total_holders,
+            "totalShares": total_shares,
+            "buckets": [],
+            "source": "TDCC 集保戶股權分散表",
+        }
+        # 重新以 1-15 級計算比例；第 16/17 級沒有被放入 levels，因此不會重複計算。
+        for level in range(1, 16):
+            row = item["levels"].get(level, {"holders": 0, "shares": 0, "holdingPct": 0})
+            result[code]["buckets"].append({
+                "label": TDCC_LEVEL_LABELS[level],
+                "holders": row["holders"],
+                "shares": row["shares"],
+                "peoplePct": round(row["holders"] / total_holders * 100, 2) if total_holders else 0,
+                "holdingPct": round(row["shares"] / total_shares * 100, 2) if total_shares else 0,
+            })
+    return result
+
+
+def fetch_tdcc_distribution(etf_ids):
+    """抓取 TDCC 官方股東級距 CSV。"""
+    try:
+        text = curl_text(TDCC_DISTRIBUTION_URL)
+        result = parse_tdcc_distribution(text, {x.upper() for x in etf_ids})
+        print("TDCC 股東分佈：取得 {}/{} 檔".format(len(result), len(etf_ids)))
+        return result
+    except Exception as exc:
+        print("  ! TDCC 股東分佈抓取失敗：{}".format(exc))
+        return {}
+
+
 def yahoo_symbol(holding):
     """由持股的市場別組出 Yahoo 代號；不支援或無代號回 None。"""
     suffix = YAHOO_SUFFIX.get(holding.get("market"))
@@ -677,10 +801,45 @@ def save_tracked(codes):
     json.dump(sorted(codes), open(p, "w", encoding="utf-8"), ensure_ascii=False, indent=2)
 
 
-def build_data_js():
+def load_webapp_json(filename):
+    path = os.path.join(WEBAPP_DIR, filename)
+    if not os.path.exists(path):
+        return {}
+    try:
+        with open(path, encoding="utf-8") as f:
+            value = json.load(f)
+        return value if isinstance(value, dict) else {}
+    except Exception:
+        return {}
+
+
+def save_webapp_json(filename, value):
+    os.makedirs(WEBAPP_DIR, exist_ok=True)
+    path = os.path.join(WEBAPP_DIR, filename)
+    with open(path, "w", encoding="utf-8") as f:
+        json.dump(value, f, ensure_ascii=False, indent=2)
+
+
+def update_reference_data(etf_ids):
+    """更新證交所總覽與集保級距；來源暫時失敗時保留既有 JSON。"""
+    overview = load_webapp_json("etf_overview.json")
+    distribution = load_webapp_json("shareholder_distribution.json")
+    fresh_overview = fetch_twse_etf_overviews(etf_ids)
+    fresh_distribution = fetch_tdcc_distribution(etf_ids)
+    overview.update(fresh_overview)
+    distribution.update(fresh_distribution)
+    save_webapp_json("etf_overview.json", overview)
+    save_webapp_json("shareholder_distribution.json", distribution)
+    print("參考資料已保存：ETF 總覽 {} 檔、股東分佈 {} 檔".format(len(overview), len(distribution)))
+    return overview, distribution
+
+
+def build_data_js(overview_data=None, distribution_data=None):
     """把追蹤中且有快照的 ETF 輸出成 webapp/data.js 供網頁讀取。"""
     names = load_names()
     tracked = load_tracked()
+    overview_data = overview_data if overview_data is not None else load_webapp_json("etf_overview.json")
+    distribution_data = distribution_data if distribution_data is not None else load_webapp_json("shareholder_distribution.json")
     # 內建 ETFS 依原順序在前，會員新增的代號排在後面
     ordered = list(ETFS.keys()) + sorted(c for c in tracked if c not in ETFS)
     payload = {
@@ -698,6 +857,8 @@ def build_data_js():
                 dividends = json.load(f)
         payload["etfs"][etf_id] = {
             "name": names.get(etf_id, etf_id), "snapshots": snapshots, "dividends": dividends,
+            "overview": overview_data.get(etf_id),
+            "shareholderDistribution": distribution_data.get(etf_id),
         }
 
     os.makedirs(WEBAPP_DIR, exist_ok=True)
@@ -883,7 +1044,8 @@ def main():
 
     backfill_institutional_history(etf_ids, inst_cache)
     save_names(names)
-    out = build_data_js()
+    overview_data, distribution_data = update_reference_data(etf_ids)
+    out = build_data_js(overview_data, distribution_data)
     print("已更新網頁資料：{}".format(out))
     print("用瀏覽器開啟 webapp/index.html 即可查詢")
 

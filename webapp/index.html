@@ -655,13 +655,17 @@
         const divs = (etf.dividends || []).slice().sort((a, b) => String(b.ex || "").localeCompare(String(a.ex || "")));
         const recent = divs.find(d => d.ex && d.ex <= latest.date) || divs[0];
         const next = divs.find(d => d.ex && d.ex > latest.date);
+        const info = etf.overview || {};
+        const fundSize = info.fundSizeHundredMillion == null ? "暫無資料" : Number(info.fundSizeHundredMillion).toLocaleString("en-US", { maximumFractionDigits: 2 }) + " 億元";
+        const beneficiaries = info.beneficiaryTenThousands == null ? "暫無資料" : Number(info.beneficiaryTenThousands).toLocaleString("en-US", { maximumFractionDigits: 2 }) + " 萬人";
+        const overviewTags = [...new Set((info.securityType ? [info.securityType] : []).concat(Array.isArray(info.tags) ? info.tags : etfCategory(etfSel.value, etf.name || "")))];
         const pct = quote.changePct == null ? null : Number(quote.changePct);
         const pctClass = pct > 0 ? "price-up" : pct < 0 ? "price-down" : "";
         box.innerHTML = '<div class="overview-head"><div><div class="overview-title">' + esc(etf.name || "—") + '<span class="overview-code">' + esc(etfSel.value) + '</span></div>' +
-          '<div class="overview-tags">' + etfCategory(etfSel.value, etf.name || "").map(t => '<span class="overview-tag">' + esc(t) + '</span>').join("") + '</div></div>' +
+          '<div class="overview-tags">' + overviewTags.map(t => '<span class="overview-tag">' + esc(t) + '</span>').join("") + '</div></div>' +
           '<div class="overview-quote">現價 ' + px(quote.close) + ' <span class="' + pctClass + '">' + (pct == null ? "—" : (pct > 0 ? "▲ " : pct < 0 ? "▼ " : "") + signW(pct) + "%") + '</span></div></div>' +
-          '<div class="overview-grid"><div class="overview-kpi"><div class="k">基金規模</div><div class="v data-gap">暫無資料</div></div>' +
-          '<div class="overview-kpi"><div class="k">受益人數</div><div class="v data-gap">暫無資料</div></div>' +
+          '<div class="overview-grid"><div class="overview-kpi"><div class="k">基金規模</div><div class="v' + (fundSize === "暫無資料" ? ' data-gap' : '') + '">' + esc(fundSize) + '</div></div>' +
+          '<div class="overview-kpi"><div class="k">受益人數</div><div class="v' + (beneficiaries === "暫無資料" ? ' data-gap' : '') + '">' + esc(beneficiaries) + '</div></div>' +
           '<div class="overview-kpi"><div class="k">資料日</div><div class="v">' + esc(latest.date || "—") + '</div></div>' +
           '<div class="overview-kpi"><div class="k">持股檔數</div><div class="v">' + ((latest.holdings || []).filter(isStockAsset).length || "—") + '</div></div></div>' +
           '<div class="overview-dividend"><div class="dividend-card"><div class="title">最近配息</div>' + dividendText(recent) + '</div>' +
