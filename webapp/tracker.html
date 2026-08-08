@@ -189,6 +189,10 @@
     .watch-dialog-head h2 { margin: 0; font-size: 18px; color: var(--text); }
     .watch-close { border: 1px solid var(--border); background: var(--bg); color: var(--muted);
       border-radius: 8px; padding: 4px 10px; cursor: pointer; font-size: 18px; line-height: 1; }
+    .tracker-brand { display:inline-flex; align-items:center; gap:7px; font-weight:700; letter-spacing:.02em; }
+    .tracker-mark { width:24px; height:24px; display:inline-block; border-radius:8px; position:relative; background:linear-gradient(145deg,#3568c3,#18243e); border:1px solid #7faaff; box-shadow:0 3px 9px rgba(62,112,207,.2); }
+    .tracker-mark:before { content:""; position:absolute; left:5px; top:9px; width:13px; height:6px; border-top:2px solid #ffd166; border-right:2px solid #ffd166; border-radius:2px 6px 0 0; transform:skew(-24deg) rotate(-16deg); }
+    .tracker-mark:after { content:""; position:absolute; left:5px; bottom:4px; width:4px; height:4px; border-radius:50%; background:#75a7ff; box-shadow:6px -4px 0 -1px #77b8ff,12px -9px 0 -1px #ffe09b; }
     .theme-toggle {
       margin-left: auto; width: 36px; height: 36px; border-radius: 50%;
       border: 1px solid var(--border); background: var(--card); color: var(--text);
@@ -283,7 +287,7 @@
 <body>
   <div class="wrap">
     <nav style="display:flex;gap:8px;margin-bottom:14px;align-items:center;">
-      <a href="index.html" style="text-decoration:none;font-size:14px;padding:6px 12px;border-radius:8px;color:var(--muted);border:1px solid var(--border);">ETF Lens</a>
+      <a class="tracker-brand" href="index.html" aria-label="回到 ETF 追追追首頁"><span class="tracker-mark" aria-hidden="true"></span><span>ETF 追追追</span></a>
       <a href="tracker.html" style="text-decoration:none;font-size:14px;padding:6px 12px;border-radius:8px;color:#fff;background:var(--accent);">持股資訊</a>
       <a href="dividends.html" style="text-decoration:none;font-size:14px;padding:6px 12px;border-radius:8px;color:var(--muted);border:1px solid var(--border);">配息日曆</a>
       <a href="portfolio.html" style="text-decoration:none;font-size:14px;padding:6px 12px;border-radius:8px;color:var(--muted);border:1px solid var(--border);">我的持股</a>
