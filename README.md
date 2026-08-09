@@ -74,7 +74,7 @@
 - Supabase Auth Email／密碼登入。
 - 我的關注 ETF 清單。
 - 個人交易紀錄：買入、賣出、編輯、刪除與日期／ETF 條件查詢。
-- 短線操作日誌：記錄操作計畫、進出場價格、停損／目標、狀態與事後檢討。
+- 短線操作日誌：獨立記錄台灣／美國 ETF 與股票的操作計畫、進出場價格、停損／目標、狀態與事後檢討，不與個人交易紀錄或公開 ETF 清單連動。
 - FIFO 持股計算。
 - 每日績效快照，可查詢日期區間、切換含息／不含息報酬率，並查看報酬率曲線與明細。
 
@@ -101,6 +101,7 @@
 - 融資融券：TWSE MI_MARGN 與 TPEx 公開資料。
 - 海外行情：Yahoo Finance 日線資料。
 - ETF 清單：官方上市／上櫃 ETF 資料。
+- 短線日誌標的清單：台灣使用 TWSE／TPEx，美國使用 Nasdaq Trader 公開掛牌清單；清單是一次性手動更新，日誌仍允許自行輸入清單外代號。
 - 公司產業與業務摘要：公開公司資料，保存於 `webapp/company_profiles.json`。
 - ETF 總覽：證交所 ETF 公開資料。
 - 股東分佈：TDCC 公開資料。
@@ -136,6 +137,7 @@ http://localhost:8002/kline.html
 ```bash
 cd /Users/garyfan/.codex/tw-etf-tracker-v2.0
 python3 fetch_etf_list.py
+python3 fetch_trade_assets.py
 python3 fetch.py
 python3 fetch_company_profiles.py
 ```
@@ -221,7 +223,7 @@ git pull origin main
 
 - `watchlist`：使用者關注 ETF。
 - `portfolio_transactions`：個人買入／賣出交易。
-- `trade_journal_entries`：個人短線操作計畫與檢討（需執行 `supabase_trade_journal.sql`）。
+- `trade_journal_entries`：個人短線操作計畫與檢討（需執行 `supabase_trade_journal.sql`；既有舊版資料表請再執行 `supabase_trade_journal_v2.sql`）。標的可獨立記錄台灣／美國 ETF 與股票，不依賴公開 ETF 清單。
 - `portfolio_daily_snapshots`：每日績效快照。
 
 前端設定檔為 `webapp/config.js`，只可放 Project URL 與 publishable／anon key；絕對不可放入 `service_role` 或 Secret key。
@@ -271,6 +273,7 @@ ETFS = {
 ├── data/                         # ETF 歷史快照與配息 JSON
 ├── fetch.py                      # 主資料抓取與快照產生
 ├── fetch_etf_list.py             # 更新 ETF 清單
+├── fetch_trade_assets.py         # 一次性／手動更新短線日誌標的清單
 ├── fetch_company_profiles.py     # 更新公司產業資料
 ├── record_daily_snapshots.py     # 寫入 Supabase 績效快照
 ├── supabase_*.sql                # Supabase 資料表與函式 SQL
