@@ -4,6 +4,8 @@ create table if not exists public.trade_journal_entries (
   id bigint generated always as identity primary key,
   user_id uuid not null references auth.users(id) on delete cascade,
   trade_date date not null default current_date,
+  entry_date date,
+  exit_date date,
   asset_type text not null check (asset_type in ('etf', 'stock')),
   market text not null check (market in ('tw', 'us')),
   symbol text not null,

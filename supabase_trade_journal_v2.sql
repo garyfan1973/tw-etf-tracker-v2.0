@@ -5,13 +5,16 @@ alter table public.trade_journal_entries
   add column if not exists market text,
   add column if not exists symbol text,
   add column if not exists asset_name text,
-  add column if not exists etf_code text;
+  add column if not exists etf_code text,
+  add column if not exists entry_date date,
+  add column if not exists exit_date date;
 
 update public.trade_journal_entries
 set asset_type = coalesce(asset_type, 'etf'),
     market = coalesce(market, 'tw'),
-    symbol = coalesce(symbol, etf_code)
-where asset_type is null or market is null or symbol is null;
+    symbol = coalesce(symbol, etf_code),
+    entry_date = coalesce(entry_date, trade_date)
+where asset_type is null or market is null or symbol is null or entry_date is null;
 
 alter table public.trade_journal_entries
   alter column asset_type set default 'etf',
