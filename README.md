@@ -223,7 +223,7 @@ git pull origin main
 
 - `watchlist`：使用者關注 ETF。
 - `portfolio_transactions`：個人買入／賣出交易。
-- `trade_journal_entries`：個人短線操作計畫與檢討（需執行 `supabase_trade_journal.sql`；既有舊版資料表請再執行 `supabase_trade_journal_v2.sql`）。標的可獨立記錄台灣／美國 ETF 與股票，不依賴公開 ETF 清單。
+- `trade_journal_entries`：個人短線操作計畫與檢討（需執行 `supabase_trade_journal.sql`；既有舊版資料表請依序執行 `supabase_trade_journal_v2.sql`、`supabase_trade_journal_v3.sql`）。標的可獨立記錄台灣／美國 ETF 與股票，不依賴公開 ETF 清單，並保存已結算損益與美元／台幣匯率。
 - `portfolio_daily_snapshots`：每日績效快照。
 
 前端設定檔為 `webapp/config.js`，只可放 Project URL 與 publishable／anon key；絕對不可放入 `service_role` 或 Secret key。
