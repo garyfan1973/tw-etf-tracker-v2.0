@@ -74,6 +74,7 @@
 - Supabase Auth Email／密碼登入。
 - 我的關注 ETF 清單。
 - 個人交易紀錄：買入、賣出、編輯、刪除與日期／ETF 條件查詢。
+- 短線操作日誌：記錄操作計畫、進出場價格、停損／目標、狀態與事後檢討。
 - FIFO 持股計算。
 - 每日績效快照，可查詢日期區間、切換含息／不含息報酬率，並查看報酬率曲線與明細。
 
@@ -86,6 +87,7 @@
 | 持股資訊／加減碼 | `portfolio.html` |
 | 配息日曆 | `dividends.html` |
 | 交易紀錄 | `transactions.html` |
+| 短線操作日誌 | `journal.html` |
 | 績效與報酬率 | `performance.html` |
 | K 線圖 | `kline.html` |
 | 首頁 | `index.html` |
@@ -219,6 +221,7 @@ git pull origin main
 
 - `watchlist`：使用者關注 ETF。
 - `portfolio_transactions`：個人買入／賣出交易。
+- `trade_journal_entries`：個人短線操作計畫與檢討（需執行 `supabase_trade_journal.sql`）。
 - `portfolio_daily_snapshots`：每日績效快照。
 
 前端設定檔為 `webapp/config.js`，只可放 Project URL 與 publishable／anon key；絕對不可放入 `service_role` 或 Secret key。

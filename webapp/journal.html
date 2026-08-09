@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="zh-Hant-tw">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>短線操作日誌</title>
+  <style>
+    :root, :root[data-theme="light"] { --bg:#f5f6f8; --card:#fff; --text:#1c2430; --muted:#6b7684; --border:#e3e7ec; --up:#d64545; --down:#1f9d55; --accent:#3b5bdb; --warn:#a36a00; }
+    @media (prefers-color-scheme: dark) { :root:not([data-theme="light"]) { --bg:#14181d; --card:#1c2229; --text:#e6e9ed; --muted:#98a2b0; --border:#2a323b; --up:#ff6b6b; --down:#51cf82; --accent:#6c8cff; --warn:#ffd666; } }
+    :root[data-theme="dark"] { --bg:#14181d; --card:#1c2229; --text:#e6e9ed; --muted:#98a2b0; --border:#2a323b; --up:#ff6b6b; --down:#51cf82; --accent:#6c8cff; --warn:#ffd666; }
+    * { box-sizing:border-box; } body { margin:0; padding:20px; background:var(--bg); color:var(--text); font-family:-apple-system,"PingFang TC","Microsoft JhengHei",sans-serif; line-height:1.5; }
+    .wrap { max-width:1050px; margin:0 auto; } nav { display:flex; gap:8px; align-items:center; margin-bottom:14px; flex-wrap:wrap; }
+    nav a { text-decoration:none; color:var(--muted); font-size:14px; padding:6px 12px; border:1px solid var(--border); border-radius:8px; } nav a.active { color:#fff; background:var(--accent); border-color:var(--accent); }
+    .theme-toggle { margin-left:8px; width:36px; height:36px; border-radius:50%; border:1px solid var(--border); background:var(--card); color:var(--text); cursor:pointer; }
+    h1 { font-size:20px; margin:0 0 4px; } h2 { font-size:15px; margin:0 0 12px; } .sub { color:var(--muted); font-size:13px; margin-bottom:16px; }
+    .panel, .entry { background:var(--card); border:1px solid var(--border); border-radius:12px; padding:14px; margin-bottom:16px; }
+    .form-grid { display:grid; grid-template-columns:repeat(4, minmax(0,1fr)); gap:10px; } label { display:flex; flex-direction:column; gap:4px; color:var(--muted); font-size:12px; }
+    input, select, textarea, button { font:inherit; } input, select, textarea { width:100%; padding:8px; border:1px solid var(--border); border-radius:8px; background:var(--bg); color:var(--text); } textarea { min-height:76px; resize:vertical; }
+    .wide { grid-column:span 2; } .actions { display:flex; gap:8px; align-items:center; margin-top:10px; } button { padding:8px 14px; border-radius:8px; cursor:pointer; } button.primary { border:0; color:#fff; background:var(--accent); } button.ghost { border:1px solid var(--border); color:var(--muted); background:transparent; }
+    .msg { min-height:18px; color:var(--up); font-size:13px; margin-top:7px; } .filters { display:flex; gap:10px; align-items:end; flex-wrap:wrap; } .filters label { min-width:140px; }
+    .entries { display:grid; gap:10px; } .entry { margin:0; } .entry-top { display:flex; gap:8px; align-items:baseline; flex-wrap:wrap; } .entry-top strong { font-size:16px; } .entry-top .date { color:var(--muted); font-size:13px; }
+    .badge { padding:3px 8px; border-radius:999px; font-size:12px; background:rgba(59,91,219,.11); color:var(--accent); } .badge.buy { color:var(--down); background:rgba(31,157,85,.11); } .badge.sell { color:var(--up); background:rgba(214,69,69,.11); } .badge.closed { color:var(--muted); background:rgba(107,118,132,.12); }
+    .entry-actions { margin-left:auto; display:flex; gap:5px; } .entry-actions button { padding:4px 8px; border:1px solid var(--border); background:transparent; color:var(--muted); font-size:12px; } .entry-actions button.delete { color:var(--up); }
+    .facts { display:flex; flex-wrap:wrap; gap:8px 18px; color:var(--muted); font-size:13px; margin:9px 0; } .facts b { color:var(--text); font-weight:600; } .thesis { white-space:pre-wrap; font-size:13px; margin-top:8px; } .review { color:var(--muted); font-size:13px; white-space:pre-wrap; margin-top:8px; padding-top:8px; border-top:1px dashed var(--border); }
+    .empty { color:var(--muted); font-size:14px; padding:8px 0; } .up { color:var(--up)!important; } .down { color:var(--down)!important; }
+    @media(max-width:700px) { body { padding:14px; } .form-grid { grid-template-columns:repeat(2,minmax(0,1fr)); } .wide { grid-column:span 2; } }
+  </style>
+  <script>(function(){var t=localStorage.getItem("etf-theme");if(t)document.documentElement.dataset.theme=t;})();</script>
+</head>
+<body>
+  <div class="wrap">
+    <nav><a href="tracker.html">持股資訊</a><a href="dividends.html">配息日曆</a><a href="portfolio.html">我的持股</a><a href="transactions.html">交易紀錄</a><a href="journal.html" class="active">短線日誌</a><a href="performance.html">績效走勢</a><span id="authBox" style="margin-left:auto;display:flex;align-items:center;gap:6px;"></span><button id="themeToggle" class="theme-toggle" aria-label="切換主題">🌙</button></nav>
+    <h1>短線操作日誌</h1><div class="sub">先寫下交易計畫，再回頭檢查自己是否照計畫執行。這裡不會改變你的持股與交易紀錄。</div>
+    <div id="gate" class="panel" style="display:none"></div>
+    <div id="app" style="display:none">
+      <form class="panel" id="journalForm"><h2 id="formTitle">新增操作計畫</h2><div class="form-grid">
+        <label>日期<input id="tradeDate" type="date" required></label><label>ETF 代號或名稱<input id="etfCode" list="journalEtfOptions" autocomplete="off" placeholder="例如 00981A" required><datalist id="journalEtfOptions"></datalist></label>
+        <label>操作<select id="action"><option value="buy">買進</option><option value="sell">賣出</option><option value="watch">觀察</option></select></label><label>狀態<select id="status"><option value="planned">計畫中</option><option value="open">持有中</option><option value="closed">已結束</option><option value="cancelled">取消</option></select></label>
+        <label>股數<input id="shares" type="number" min="0" step="1"></label><label>進場價<input id="entryPrice" type="number" min="0" step="0.01"></label><label>出場價<input id="exitPrice" type="number" min="0" step="0.01"></label><label>停損價<input id="stopLoss" type="number" min="0" step="0.01"></label><label>目標價<input id="targetPrice" type="number" min="0" step="0.01"></label>
+        <label class="wide">進場理由／交易計畫<textarea id="thesis" placeholder="例如：突破近 20 日高點，若收盤跌回突破區則停損。"></textarea></label><label class="wide">事後檢討<textarea id="review" placeholder="平倉後記錄執行結果與下次要改進的地方。"></textarea></label>
+      </div><div class="actions"><button class="primary" type="submit" id="submitBtn">儲存日誌</button><button class="ghost" type="button" id="cancelBtn" style="display:none">取消編輯</button></div><div class="msg" id="formMsg"></div></form>
+      <div class="panel"><div class="filters"><label>ETF 篩選<input id="filterCode" placeholder="代號或名稱"></label><label>狀態<select id="filterStatus"><option value="">全部狀態</option><option value="planned">計畫中</option><option value="open">持有中</option><option value="closed">已結束</option><option value="cancelled">取消</option></select></label><button class="ghost" type="button" id="clearFilter">清除</button><span class="sub" id="summary" style="margin:0"></span></div></div>
+      <div id="entries" class="entries"></div><div id="empty" class="panel empty" style="display:none">目前沒有符合條件的日誌。</div>
+    </div>
+  </div>
+  <script src="theme.js"></script><script src="config.js"></script><script src="data.js"></script><script type="module" src="auth.js"></script><script src="journal.js"></script>
+</body>
+</html>
