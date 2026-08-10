@@ -11,6 +11,9 @@ create table if not exists public.trade_journal_fills (
   currency text not null default 'TWD' check (currency in ('TWD', 'USD')),
   fx_rate numeric check (fx_rate is null or fx_rate > 0),
   fx_fetched_at timestamptz,
+  commission_native numeric not null default 0 check (commission_native >= 0),
+  tax_native numeric not null default 0 check (tax_native >= 0),
+  regulatory_fee_native numeric not null default 0 check (regulatory_fee_native >= 0),
   created_at timestamptz not null default now(),
   unique (journal_id, fill_date, side, shares, price)
 );
