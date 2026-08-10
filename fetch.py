@@ -26,6 +26,7 @@ import os
 import re
 import subprocess
 import sys
+import time
 import urllib.request
 import zoneinfo
 
@@ -118,6 +119,21 @@ def fetch_json(url):
     req = urllib.request.Request(url, headers={"User-Agent": USER_AGENT})
     with urllib.request.urlopen(req, timeout=30) as resp:
         return json.loads(resp.read().decode("utf-8", errors="ignore"))
+
+
+def fetch_json_retry(url, attempts=3, delay=2):
+    """抓取容易短暫回傳空內容的 JSON API，失敗時重試後再拋出錯誤。"""
+    last_error = None
+    for attempt in range(attempts):
+        try:
+            return fetch_json(url)
+        except Exception as exc:  # noqa: BLE001 - 保留最後一次原始錯誤給呼叫端記錄
+            last_error = exc
+            if attempt + 1 < attempts:
+                print("  ! JSON API 暫時失敗，第 {}/{} 次重試：{}".format(
+                    attempt + 1, attempts, exc))
+                time.sleep(delay)
+    raise last_error
 
 
 def _num(value):
@@ -288,7 +304,7 @@ def fetch_institutional(data_date):
         print("  ! 上市三大法人抓取失敗：{}".format(exc))
     # 上櫃（TPEx OpenAPI）：best-effort，欄名以關鍵字比對
     try:
-        rows = fetch_json(TPEX_INST_URL.format(date=data_date.replace("-", "")))
+        rows = fetch_json_retry(TPEX_INST_URL.format(date=data_date.replace("-", "")))
         for r in (rows if isinstance(rows, list) else []):
             if not isinstance(r, dict):
                 continue
@@ -954,13 +970,25 @@ def _hkey(h):
 
 def summarize_diff(prev, curr):
     """比對兩份持股，回傳加減碼摘要（只給終端機印出用，網頁端另有計算）。"""
-    prev_map = {_hkey(h): h for h in prev}
-    curr_map = {_hkey(h): h for h in curr}
+    # 現金、期貨、債券等非股票資產沒有 shares，不能參與股票加減碼計算。
+    # 也防護來源資料偶發缺欄，避免單筆異常中止整批 ETF 更新。
+    def stock_map(holdings):
+        return {
+            _hkey(h): h for h in holdings
+            if h.get("assetType", "stock") == "stock"
+        }
+
+    prev_map = stock_map(prev)
+    curr_map = stock_map(curr)
     added = [h for c, h in curr_map.items() if c not in prev_map]
     removed = [h for c, h in prev_map.items() if c not in curr_map]
     increased = decreased = 0
     for code in curr_map.keys() & prev_map.keys():
-        d = curr_map[code]["shares"] - prev_map[code]["shares"]
+        curr_shares = curr_map[code].get("shares")
+        prev_shares = prev_map[code].get("shares")
+        if not isinstance(curr_shares, (int, float)) or not isinstance(prev_shares, (int, float)):
+            continue
+        d = curr_shares - prev_shares
         if d > 0:
             increased += 1
         elif d < 0:
