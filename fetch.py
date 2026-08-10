@@ -954,8 +954,8 @@ def _hkey(h):
 
 def summarize_diff(prev, curr):
     """比對兩份持股，回傳加減碼摘要（只給終端機印出用，網頁端另有計算）。"""
-    prev_map = {_hkey(h): h for h in prev}
-    curr_map = {_hkey(h): h for h in curr}
+    prev_map = {_hkey(h): h for h in prev if h.get("assetType", "stock") == "stock"}
+    curr_map = {_hkey(h): h for h in curr if h.get("assetType", "stock") == "stock"}
     added = [h for c, h in curr_map.items() if c not in prev_map]
     removed = [h for c, h in prev_map.items() if c not in curr_map]
     increased = decreased = 0
