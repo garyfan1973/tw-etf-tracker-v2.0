@@ -954,13 +954,23 @@ def _hkey(h):
 
 def summarize_diff(prev, curr):
     """比對兩份持股，回傳加減碼摘要（只給終端機印出用，網頁端另有計算）。"""
-    prev_map = {_hkey(h): h for h in prev}
-    curr_map = {_hkey(h): h for h in curr}
+    def _is_stock_holding(h):
+        asset_type = h.get("assetType")
+        if asset_type is None:
+            return "shares" in h
+        return asset_type == "stock"
+
+    prev_map = {_hkey(h): h for h in prev if _is_stock_holding(h)}
+    curr_map = {_hkey(h): h for h in curr if _is_stock_holding(h)}
     added = [h for c, h in curr_map.items() if c not in prev_map]
     removed = [h for c, h in prev_map.items() if c not in curr_map]
     increased = decreased = 0
     for code in curr_map.keys() & prev_map.keys():
-        d = curr_map[code]["shares"] - prev_map[code]["shares"]
+        curr_shares = curr_map[code].get("shares")
+        prev_shares = prev_map[code].get("shares")
+        if curr_shares is None or prev_shares is None:
+            continue
+        d = curr_shares - prev_shares
         if d > 0:
             increased += 1
         elif d < 0:
