@@ -20,6 +20,9 @@
     .controls { display:flex; gap:12px; align-items:end; flex-wrap:wrap; }
     label { display:flex; flex-direction:column; gap:5px; color:var(--muted); font-size:12px; }
     select { min-width:190px; padding:9px 11px; border:1px solid var(--border); border-radius:8px; background:var(--bg); color:var(--text); font:inherit; }
+    .chart-type { display:flex; padding:3px; border:1px solid var(--border); border-radius:9px; background:var(--bg); }
+    .chart-type button { border:0; border-radius:6px; padding:6px 12px; background:transparent; color:var(--muted); font:inherit; cursor:pointer; }
+    .chart-type button.active { background:var(--accent); color:#fff; }
     .status { margin-left:auto; color:var(--muted); font-size:12px; }
     .chart-head { display:flex; justify-content:space-between; align-items:baseline; gap:12px; margin-bottom:8px; }
     .chart-title { font-size:18px; font-weight:700; } .quote { color:var(--muted); font-size:13px; }
@@ -49,12 +52,13 @@
       <div class="controls">
         <label>ETF<select id="etfSelect"></select></label>
         <label>標的<select id="securitySelect"></select></label>
+        <label>圖表<div class="chart-type" role="group" aria-label="圖表類型"><button type="button" data-chart-type="candle">K 線</button><button type="button" data-chart-type="line">收盤價線圖</button></div></label>
         <div id="status" class="status"></div>
       </div>
     </div>
     <div class="panel">
       <div class="chart-head"><div id="chartTitle" class="chart-title">—</div><div id="quote" class="quote">—</div></div>
-      <div class="legend"><span><i class="swatch" style="background:var(--ma5)"></i>MA5</span><span><i class="swatch" style="background:var(--ma20)"></i>MA20</span><span>紅漲／綠跌</span></div>
+      <div class="legend"><span id="closeLegend" style="display:none"><i class="swatch" style="background:var(--accent)"></i>收盤價</span><span><i class="swatch" style="background:var(--ma5)"></i>MA5</span><span><i class="swatch" style="background:var(--ma20)"></i>MA20</span><span id="candleLegend">紅漲／綠跌</span></div>
       <div class="chart-wrap"><div id="chartBox" class="chart-box"></div><div id="tip" class="tip" aria-live="polite">將滑鼠移到圖表上半部的 K 線區域。</div></div>
     </div>
   </div>
