@@ -1365,6 +1365,13 @@
     "source": "Stock Analysis",
     "sector": "Technology"
   },
+  "AEHR TEST SYSTEMS": {
+    "name": "AEHR TEST SYSTEMS",
+    "market": "",
+    "industry": "",
+    "business": "無代號海外成分股，暫無可用公開摘要。",
+    "source": ""
+  },
   "ALAB": {
     "name": "Astera Labs",
     "market": "US",
@@ -1689,6 +1696,14 @@
     "source": "Stock Analysis",
     "sector": "Technology"
   },
+  "RBRK": {
+    "name": "Rubrik",
+    "market": "US",
+    "industry": "Software - Infrastructure",
+    "business": "Rubrik, Inc. provides data security solutions to individuals and businesses worldwide. The company offers enterprise data protection, unstructured data protection, cloud data protection, SaaS data protection solutions, and identity provider services protection; data threat analytics; data security posture; identity recovery and resilience services; and cyber recovery solutions. It also provides RUBY, an AI agent for cyber resilience designed to scale data security operations through automation; SENTRYAI, a proprietary AI deep learning-based platform for system health monitoring; and RUBRIK UNIVERSITY, which includes instructor-led training with hands-on labs, on-demand e-learning courses, and certification exams, as well as offers cloud services. It serves financial, retail, trade, transportation, energy, industrial, healthcare and life science, education, technology, media, communications, services, and public sectors. Rubrik, Inc. has strategic collaboration with MEDITECH to offer native cyber resilience to MEDITECH self-hosted cloud and on-premises solutions. Rubrik, Inc. was formerly known as Scaledata, Inc. and changed its name to Rubrik, Inc. in October 2014. The company was incorporated in 2013 and is based in Palo Alto, California.",
+    "source": "Stock Analysis",
+    "sector": "Technology"
+  },
   "RMBS": {
     "name": "Rambus",
     "market": "US",
@@ -1773,6 +1788,14 @@
     "market": "US",
     "industry": "Semiconductors",
     "business": "Texas Instruments Incorporated designs, manufactures, and sells semiconductors to electronics designers and manufacturers in the United States, China, the rest of Asia, Europe, the Middle East, Africa, Japan, and internationally. It operates through Analog and Embedded Processing segments. The Analog segment offers power products to manage power requirements across various voltage levels, including battery-management solutions, DC/DC switching regulators, AC/DC and isolated controllers and converters, power switches, linear regulators, voltage references, multiphase controllers and power stages, and lighting products. This segment also provides signal chain products that sense, condition, and measure real-world signals and convert them into data to be transferred or converted for further processing and control, such as amplifiers, data converters, interface products, motor drives, clocks, and logic and sensing products. The Embedded Processing segment offers microcontrollers, processors, wireless connectivity, and radar products; and applications processors for specific computing activity. It also provides DLP products primarily for use in projecting high-definition images; calculators; and application-specific integrated circuits. Its products are used in various markets, such as industrial, automotive, personal electronics, communications equipment, enterprise systems, calculators, and others. The company markets and sells its semiconductor products through direct sales and distributors, as well as through its website. Texas Instruments Incorporated was founded in 1930 and is headquartered in Dallas, Texas.",
+    "source": "Stock Analysis",
+    "sector": "Technology"
+  },
+  "U": {
+    "name": "Unity Software",
+    "market": "US",
+    "industry": "Software - Application",
+    "business": "Unity Software Inc. operates a platform to develop, deploy, and grow games and interactive experiences for mobile phones, PCs, consoles, and extended reality devices in the United States, China, Hong Kong, Taiwan, Europe, the Middle East, Africa, the Asia Pacific, Canada, and Latin America. The company's platform offers artificial intelligence solutions that support developers through the entire development lifecycle, which includes prototyping, live service operation, user acquisition, and monetization. It also provides Create Solutions, a set of tools and services used to build, ship, and run real-time 2D and 3D content; and Grow Solutions, which allows customers to grow and engage their user base and monetize their content. In addition, the company offers enterprise support and consumption services; professional services, including consulting, platform integration, training, and custom application and workflow development services; and advertising and game publishing services. It provides its solutions directly through its online store, field sales operations, independent distributors, and resellers. The company serves enterprises, mid-market companies, government, and non-profit institutions; mid-sized, small, and independent businesses; and individuals from various industries. Unity Software Inc. was founded in 2004 and is headquartered in San Francisco, California.",
     "source": "Stock Analysis",
     "sector": "Technology"
   },
