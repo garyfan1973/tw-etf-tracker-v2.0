@@ -45,9 +45,10 @@
       button.classList.toggle("active", active);
       button.setAttribute("aria-pressed", String(active));
     });
-    $("closeLegend").style.display = chartType === "line" ? "inline-flex" : "none";
-    $("candleLegend").style.display = chartType === "candle" ? "inline-flex" : "none";
-    $("tip").textContent = chartType === "line" ? "將滑鼠移到線圖上查看每日收盤價。" : "將滑鼠移到圖表上半部的 K 線區域。";
+    const closeLegend = $("closeLegend"), candleLegend = $("candleLegend"), tip = $("tip");
+    if (closeLegend) closeLegend.style.display = chartType === "line" ? "inline-flex" : "none";
+    if (candleLegend) candleLegend.style.display = chartType === "candle" ? "inline-flex" : "none";
+    if (tip) tip.textContent = chartType === "line" ? "將滑鼠移到線圖上查看每日收盤價。" : "將滑鼠移到圖表上半部的 K 線區域。";
   }
   function render() {
     const code = $("etfSelect").value, security = $("securitySelect").value, etf = data.etfs[code];

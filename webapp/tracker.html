@@ -94,10 +94,16 @@
     .kline-controls { display:flex; gap:10px; align-items:end; flex-wrap:wrap; padding:10px; margin-bottom:12px; background:var(--bg); border:1px solid var(--border); border-radius:10px; }
     .kline-controls label { color:var(--muted); font-size:12px; }
     .kline-controls select { min-width:190px; }
+    .chart-type { display:flex; padding:3px; border:1px solid var(--border); border-radius:9px; background:var(--card); }
+    .chart-type button { border:0; border-radius:6px; padding:6px 12px; background:transparent; color:var(--muted); font:inherit; cursor:pointer; }
+    .chart-type button.active { background:var(--accent); color:#fff; }
     .kline-status { margin-left:auto; color:var(--muted); font-size:12px; }
     .kline-chart-head { display:flex; justify-content:space-between; align-items:baseline; gap:12px; margin:4px 0 8px; }
     .kline-chart-title { font-size:18px; font-weight:700; }
     .kline-quote { color:var(--muted); font-size:13px; }
+    .kline-legend { display:flex; gap:14px; flex-wrap:wrap; color:var(--muted); font-size:12px; margin:4px 0 8px; }
+    .kline-legend span { display:inline-flex; align-items:center; gap:5px; }
+    .kline-legend .swatch { width:18px; height:2px; display:inline-block; }
     .kline-chart-wrap { position:relative; overflow:hidden; }
     #chartBox { width:100%; }
     #chartBox svg { display:block; width:100%; height:auto; min-height:360px; }
@@ -378,9 +384,11 @@
       <div class="kline-controls">
         <label>ETF<select id="etfSelect"></select></label>
         <label>標的<select id="securitySelect"></select></label>
+        <label>圖表<div class="chart-type" role="group" aria-label="圖表類型"><button type="button" data-chart-type="candle">K 線</button><button type="button" data-chart-type="line">收盤價線圖</button></div></label>
         <div id="status" class="kline-status"></div>
       </div>
       <div class="kline-chart-head"><div id="chartTitle" class="kline-chart-title">—</div><div id="quote" class="kline-quote">—</div></div>
+      <div class="kline-legend"><span id="closeLegend" style="display:none"><i class="swatch" style="background:var(--accent)"></i>收盤價</span><span><i class="swatch" style="background:var(--ma5)"></i>MA5</span><span><i class="swatch" style="background:var(--ma20)"></i>MA20</span><span id="candleLegend">紅漲／綠跌</span></div>
       <div class="kline-chart-wrap"><div id="chartBox"></div><div id="tip" aria-live="polite">將滑鼠移到圖表上半部的 K 線區域。</div></div>
     </section>
 
