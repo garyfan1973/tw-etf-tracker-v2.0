@@ -10,7 +10,7 @@
       --bg: #f5f6f8; --card: #ffffff; --text: #1c2430; --muted: #6b7684;
       --border: #e3e7ec; --up: #d64545; --down: #1f9d55; --new: #2563eb;
       --removed: #8a8f98; --accent: #3b5bdb; --detail: #eaeefb; --chip: #eef1f6;
-      --ma5: #e9a23b; --ma20: #a78bca;
+      --ma5: #e9a23b; --ma20: #a78bca; --kd-k: #19a7a0; --kd-d: #e06b8b;
     }
     /* 深色變數（供系統偏好與手動切換共用） */
     @media (prefers-color-scheme: dark) {
@@ -18,14 +18,14 @@
         --bg: #14181d; --card: #1c2229; --text: #e6e9ed; --muted: #98a2b0;
         --border: #2a323b; --up: #ff6b6b; --down: #51cf82; --new: #4d8dff;
         --removed: #7a828c; --accent: #6c8cff; --detail: #222c3b; --chip: #262d36;
-        --ma5: #e8b66d; --ma20: #bca8dc;
+        --ma5: #e8b66d; --ma20: #bca8dc; --kd-k: #5fd1ca; --kd-d: #f09ab1;
       }
     }
     :root[data-theme="dark"] {
       --bg: #14181d; --card: #1c2229; --text: #e6e9ed; --muted: #98a2b0;
       --border: #2a323b; --up: #ff6b6b; --down: #51cf82; --new: #4d8dff;
       --removed: #7a828c; --accent: #6c8cff; --detail: #222c3b; --chip: #262d36;
-      --ma5: #e8b66d; --ma20: #bca8dc;
+      --ma5: #e8b66d; --ma20: #bca8dc; --kd-k: #5fd1ca; --kd-d: #f09ab1;
     }
     * { box-sizing: border-box; }
     body {
@@ -111,6 +111,7 @@
     #chartBox { width:100%; }
     #chartBox svg { display:block; width:100%; height:auto; min-height:360px; }
     #chartBox .grid { stroke:var(--border); stroke-width:1; }
+    #chartBox .kd-threshold { stroke-dasharray:4 4; }
     #chartBox .axis { fill:var(--muted); font-size:11px; }
     #chartBox .crosshair { stroke:var(--muted); stroke-width:1; stroke-dasharray:4 4; opacity:.7; }
     #tip { position:absolute; z-index:2; top:8px; left:8px; width:220px; max-width:calc(100% - 16px); padding:8px 10px; border:1px solid var(--border); border-radius:8px; background:var(--card); color:var(--text); font-size:12px; line-height:1.7; min-height:24px; pointer-events:none; box-shadow:0 2px 8px rgba(0,0,0,.08); }
@@ -391,7 +392,7 @@
         <div id="status" class="kline-status"></div>
       </div>
       <div class="kline-chart-head"><div id="chartTitle" class="kline-chart-title">—</div><div id="quote" class="kline-quote">—</div></div>
-      <div class="kline-legend"><span id="closeLegend" style="display:none"><i class="swatch" style="background:var(--accent)"></i>收盤價</span><span><i class="swatch" style="background:var(--ma5)"></i>MA5</span><span><i class="swatch" style="background:var(--ma20)"></i>MA20</span><span id="candleLegend">紅漲／綠跌</span></div>
+      <div class="kline-legend"><span id="closeLegend" style="display:none"><i class="swatch" style="background:var(--accent)"></i>收盤價</span><span><i class="swatch" style="background:var(--ma5)"></i>MA5</span><span><i class="swatch" style="background:var(--ma20)"></i>MA20</span><span><i class="swatch" style="background:var(--kd-k)"></i>K(9)</span><span><i class="swatch" style="background:var(--kd-d)"></i>D(9)</span><span id="candleLegend">紅漲／綠跌</span></div>
       <div class="kline-chart-wrap"><div id="chartBox"></div><div id="tip" aria-live="polite">將滑鼠移到圖表上半部的 K 線區域。</div></div>
     </section>
 
