@@ -62,6 +62,12 @@
     drawChart();
   }
   function drawChart() {
+    const rootStyle = getComputedStyle(document.documentElement);
+    const chartColors = {
+      accent: rootStyle.getPropertyValue("--accent").trim() || "#3b5bdb",
+      ma5: rootStyle.getPropertyValue("--ma5").trim() || "#e9a23b",
+      ma20: rootStyle.getPropertyValue("--ma20").trim() || "#a78bca"
+    };
     const values = (chartType === "line" ? currentRows.map(r => Number(r.close)) : currentRows.flatMap(r => [Number(r.low), Number(r.high)])).filter(Number.isFinite);
     let min = Math.min(...values), max = Math.max(...values); if (min === max) { min -= 1; max += 1; }
     const maxVol = Math.max(...currentRows.map(r => Number(r.volume) || 0), 1), plotW = W - left - right, priceH = priceBottom - top;
@@ -83,12 +89,12 @@
       candlePoints.push({ x:cx, y:chartType === "line" ? y(Number(r.close)) : y((Number(r.open) + Number(r.close)) / 2), date:r.date, row:r });
       if (chartType === "candle") svg += `<line x1="${cx}" x2="${cx}" y1="${y(r.high)}" y2="${y(r.low)}" stroke="${color}" stroke-width="1.5"/><rect x="${cx - candleW / 2}" y="${bodyY}" width="${candleW}" height="${bodyH}" fill="${color}" rx="1"/>`;
       svg += `<rect x="${cx - candleW / 2}" y="${vy(r.volume)}" width="${candleW}" height="${volumeTop + 94 - vy(r.volume)}" fill="${color}" opacity=".35"/>`;
-      if (ma5 != null) svg += `<circle class="ma-point ma5-point" cx="${cx}" cy="${y(ma5)}" r="1.15" fill="var(--ma5)"/>`;
-      if (ma20 != null) svg += `<circle class="ma-point ma20-point" cx="${cx}" cy="${y(ma20)}" r="1.15" fill="var(--ma20)"/>`;
+      if (ma5 != null) svg += `<circle class="ma-point ma5-point" cx="${cx}" cy="${y(ma5)}" r="1.15" fill="${chartColors.ma5}"/>`;
+      if (ma20 != null) svg += `<circle class="ma-point ma20-point" cx="${cx}" cy="${y(ma20)}" r="1.15" fill="${chartColors.ma20}"/>`;
     });
     function line(period, color, name) { const pts = currentRows.map((r, i) => { const v = movingAverage(currentRows, i, period); return v == null ? null : `${x(i)},${y(v)}`; }).filter(Boolean).join(" "); return pts ? `<polyline class="ma-line ${name}" points="${pts}" fill="none" stroke="${color}" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>` : ""; }
-    if (chartType === "line") svg += `<polyline points="${currentRows.map((r, i) => `${x(i)},${y(Number(r.close))}`).join(" ")}" fill="none" stroke="var(--accent)" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>`;
-    svg += line(5, "var(--ma5)", "ma5-line") + line(20, "var(--ma20)", "ma20-line");
+    if (chartType === "line") svg += `<polyline points="${currentRows.map((r, i) => `${x(i)},${y(Number(r.close))}`).join(" ")}" fill="none" stroke="${chartColors.accent}" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>`;
+    svg += line(5, chartColors.ma5, "ma5-line") + line(20, chartColors.ma20, "ma20-line");
     svg += `<line id="hoverLine" class="crosshair" x1="${left}" x2="${left}" y1="${top}" y2="${priceBottom}" visibility="hidden"/>`;
     svg += `<rect id="chartHit" x="${left}" y="${top}" width="${plotW}" height="${priceBottom - top}" fill="transparent" pointer-events="all"/> </svg>`;
     $("chartBox").innerHTML = svg;
