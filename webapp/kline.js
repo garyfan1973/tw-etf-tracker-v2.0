@@ -83,12 +83,12 @@
       candlePoints.push({ x:cx, y:chartType === "line" ? y(Number(r.close)) : y((Number(r.open) + Number(r.close)) / 2), date:r.date, row:r });
       if (chartType === "candle") svg += `<line x1="${cx}" x2="${cx}" y1="${y(r.high)}" y2="${y(r.low)}" stroke="${color}" stroke-width="1.5"/><rect x="${cx - candleW / 2}" y="${bodyY}" width="${candleW}" height="${bodyH}" fill="${color}" rx="1"/>`;
       svg += `<rect x="${cx - candleW / 2}" y="${vy(r.volume)}" width="${candleW}" height="${volumeTop + 94 - vy(r.volume)}" fill="${color}" opacity=".35"/>`;
-      if (ma5 != null) svg += `<circle cx="${cx}" cy="${y(ma5)}" r="1.6" fill="var(--ma5)"/>`;
-      if (ma20 != null) svg += `<circle cx="${cx}" cy="${y(ma20)}" r="1.6" fill="var(--ma20)"/>`;
+      if (ma5 != null) svg += `<circle class="ma-point ma5-point" cx="${cx}" cy="${y(ma5)}" r="1.15" fill="var(--ma5)"/>`;
+      if (ma20 != null) svg += `<circle class="ma-point ma20-point" cx="${cx}" cy="${y(ma20)}" r="1.15" fill="var(--ma20)"/>`;
     });
-    function line(period, color) { const pts = currentRows.map((r, i) => { const v = movingAverage(currentRows, i, period); return v == null ? null : `${x(i)},${y(v)}`; }).filter(Boolean).join(" "); return pts ? `<polyline points="${pts}" fill="none" stroke="${color}" stroke-width="2" stroke-linejoin="round"/>` : ""; }
+    function line(period, color, name) { const pts = currentRows.map((r, i) => { const v = movingAverage(currentRows, i, period); return v == null ? null : `${x(i)},${y(v)}`; }).filter(Boolean).join(" "); return pts ? `<polyline class="ma-line ${name}" points="${pts}" fill="none" stroke="${color}" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>` : ""; }
     if (chartType === "line") svg += `<polyline points="${currentRows.map((r, i) => `${x(i)},${y(Number(r.close))}`).join(" ")}" fill="none" stroke="var(--accent)" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>`;
-    svg += line(5, "var(--ma5)") + line(20, "var(--ma20)");
+    svg += line(5, "var(--ma5)", "ma5-line") + line(20, "var(--ma20)", "ma20-line");
     svg += `<line id="hoverLine" class="crosshair" x1="${left}" x2="${left}" y1="${top}" y2="${priceBottom}" visibility="hidden"/>`;
     svg += `<rect id="chartHit" x="${left}" y="${top}" width="${plotW}" height="${priceBottom - top}" fill="transparent" pointer-events="all"/> </svg>`;
     $("chartBox").innerHTML = svg;
