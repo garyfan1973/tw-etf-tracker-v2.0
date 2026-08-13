@@ -109,7 +109,7 @@
     return { score:weighted, gauge:Math.round((weighted + 2) / 4 * 100), meta, components, reasons:reasons.slice(0, 3), risks:risks.slice(0, 3), completeness, ma5, ma20, kd:latestKd, volumeRatio };
   }
   function gaugeSvg(value, color, label, small) {
-    const width = small ? 210 : 330, height = small ? 122 : 180, cx = width / 2, cy = small ? 100 : 145, radius = small ? 72 : 110;
+    const width = small ? 230 : 330, height = small ? 152 : 180, cx = width / 2, cy = small ? 108 : 145, radius = small ? 76 : 110;
     const startX = cx - radius, endX = cx + radius, angle = Math.PI * (1 - value / 100), needleX = cx + Math.cos(angle) * radius * .76, needleY = cy - Math.sin(angle) * radius * .76;
     const levelSize = small ? 8 : 10, sideY = cy - radius * .57;
     return `<svg class="signal-gauge-svg" viewBox="0 0 ${width} ${height}" role="img" aria-label="${esc(label)}"><defs><linearGradient id="signalGradient${small ? "Small" : "Main"}" x1="0" x2="1"><stop offset="0" stop-color="#ef405f"/><stop offset=".5" stop-color="#9b65b7"/><stop offset="1" stop-color="#3977f6"/></linearGradient></defs><path d="M ${startX} ${cy} A ${radius} ${radius} 0 0 1 ${endX} ${cy}" fill="none" stroke="var(--border)" stroke-width="${small ? 15 : 21}"/><path d="M ${startX} ${cy} A ${radius} ${radius} 0 0 1 ${endX} ${cy}" fill="none" stroke="url(#signalGradient${small ? "Small" : "Main"})" stroke-width="${small ? 10 : 14}"/><line x1="${cx}" y1="${cy}" x2="${needleX}" y2="${needleY}" stroke="var(--text)" stroke-width="${small ? 3 : 4}" stroke-linecap="round"/><circle cx="${cx}" cy="${cy}" r="${small ? 5 : 7}" fill="var(--text)"/><text x="${startX}" y="${cy + 18}" class="signal-axis" font-size="${levelSize}" text-anchor="start">強力賣出</text><text x="${cx - radius * .68}" y="${sideY}" class="signal-axis" font-size="${levelSize}" text-anchor="middle">賣出</text><text x="${cx}" y="${small ? 26 : 30}" class="signal-axis" font-size="${levelSize}" text-anchor="middle">中立</text><text x="${cx + radius * .68}" y="${sideY}" class="signal-axis" font-size="${levelSize}" text-anchor="middle">買進</text><text x="${endX}" y="${cy + 18}" class="signal-axis" font-size="${levelSize}" text-anchor="end">強力買進</text></svg>`;
@@ -120,6 +120,31 @@
     const signal = analyzeSignal(rows);
     const componentCards = signal.components.map(item => { const meta = signalMeta(item.score); return `<article class="signal-component"><h4>${esc(item.name)}</h4>${gaugeSvg(Math.round((item.score + 2) / 4 * 100), meta.color, `${item.name}：${meta.label}`, true)}<strong style="color:${meta.color}">${esc(meta.label)}</strong><small>${esc(item.detail)}</small></article>`; }).join("");
     box.innerHTML = `<div class="signal-heading"><div><h3>每日操作訊號</h3><p>依最新收盤資料計算，作為技術面觀察，不是保證獲利的買賣指令。</p></div><span class="signal-date">資料日 ${esc(rows.at(-1).date)}</span></div><div class="signal-main"><div class="signal-overall">${gaugeSvg(signal.gauge, signal.meta.color, `綜合訊號：${signal.meta.label}`, false)}<div class="signal-label" style="color:${signal.meta.color}">${esc(signal.meta.label)}</div><div class="signal-score">訊號分數 ${signal.score.toFixed(2)}／2</div></div><div class="signal-explain"><div class="signal-confidence"><span>資料完整度</span><strong>${signal.completeness}%</strong><i><b style="width:${signal.completeness}%"></b></i><small>${rows.length}／20 個交易日；滿 20 日後自動納入 MA20</small></div><div class="signal-notes"><section><h4>成立理由</h4>${signal.reasons.length ? `<ul>${signal.reasons.map(x=>`<li>${esc(x)}</li>`).join("")}</ul>` : "<p>目前沒有足夠的偏多確認條件。</p>"}</section><section class="risk"><h4>風險提醒</h4>${signal.risks.length ? `<ul>${signal.risks.map(x=>`<li>${esc(x)}</li>`).join("")}</ul>` : "<p>目前未偵測到明顯技術面風險。</p>"}</section></div></div></div><div class="signal-components">${componentCards}</div><div class="signal-footnote">判斷項目：價格趨勢、移動平均線、KD 動能與量價表現。至少搭配自身風險承受度、資金配置及重大消息判斷。</div>`;
+  }
+  function newsDate(value) {
+    if (!value) return "時間未提供";
+    const date = new Date(value.length === 10 ? value + "T00:00:00+08:00" : value);
+    return Number.isNaN(date.getTime()) ? value : date.toLocaleString("zh-TW", { month:"2-digit", day:"2-digit", hour:value.length > 10 ? "2-digit" : undefined, minute:value.length > 10 ? "2-digit" : undefined, hour12:false });
+  }
+  async function renderNews(code, security, name) {
+    const box = $("newsPanel"); if (!box) return;
+    const holdingRows = (data.etfs[code]?.snapshots || []).flatMap(s => s.holdings || []);
+    const market = security === "__ETF__" ? "TW" : (holdingRows.find(h => h.code === security)?.market || "TW");
+    const symbol = security === "__ETF__" ? code : security;
+    const requestKey = `${symbol}|${name}|${market}`; box.dataset.requestKey = requestKey;
+    box.innerHTML = `<div class="news-heading"><div><h3>最新消息</h3><p>官方重大訊息優先，並彙整近 7 日媒體報導。</p></div><span class="news-status">載入中…</span></div><div class="news-loading">正在查詢 ${esc(name || symbol)} 的相關消息…</div>`;
+    try {
+      const response = await fetch(`/api/news?code=${encodeURIComponent(symbol)}&name=${encodeURIComponent(name || symbol)}&market=${encodeURIComponent(market)}`, { cache:"no-store" });
+      const payload = await response.json();
+      if (box.dataset.requestKey !== requestKey) return;
+      if (!response.ok || !payload.ok) throw new Error(payload.error || "消息來源暫時無法連線");
+      const items = Array.isArray(payload.items) ? payload.items : [];
+      const cards = items.map(item => `<article class="news-item ${item.type === "official" ? "official" : ""}"><div class="news-meta"><span class="news-type">${item.type === "official" ? "官方公告" : "媒體報導"}</span><span>${esc(item.category || "最新消息")}</span><time>${esc(newsDate(item.publishedAt))}</time></div><h4><a href="${esc(item.url)}" target="_blank" rel="noopener noreferrer">${esc(item.title)}</a></h4><div class="news-source">來源：${esc(item.source || "未標示")}${item.factDate ? `　事件日：${esc(item.factDate)}` : ""}</div></article>`).join("");
+      box.innerHTML = `<div class="news-heading"><div><h3>最新消息</h3><p>官方重大訊息優先，並彙整近 7 日媒體報導。</p></div><span class="news-status">官方 ${payload.officialCount || 0} 則・新聞 ${payload.newsCount || 0} 則</span></div>${cards ? `<div class="news-list">${cards}</div>` : `<div class="news-empty">近 7 日未找到 ${esc(name || symbol)} 的相關消息。</div>`}<div class="news-footnote">媒體標題由 Google News RSS 彙整，著作權屬原媒體；點擊後前往原始來源。消息不直接計入技術面操作訊號，請自行判讀事件影響。</div>`;
+    } catch (error) {
+      if (box.dataset.requestKey !== requestKey) return;
+      box.innerHTML = `<div class="news-heading"><div><h3>最新消息</h3><p>官方重大訊息與近 7 日媒體報導。</p></div></div><div class="news-empty">${esc(error.message || "消息來源暫時無法連線，請稍後重試。")}</div>`;
+    }
   }
   function updateChartType() {
     document.querySelectorAll("[data-chart-type]").forEach(button => {
@@ -141,7 +166,7 @@
     if (!currentRows.length) { $("chartBox").innerHTML = '<div class="empty">目前尚無可繪製的完整開高低收資料。</div>'; $("quote").textContent = "—"; renderSignal([]); return; }
     const last = currentRows[currentRows.length - 1];
     $("quote").innerHTML = `收盤 <strong>${price(last.close)}</strong> <span class="${last.change >= 0 ? "up" : "down"}">${last.change >= 0 ? "+" : ""}${price(last.change)} (${last.changePct == null ? "—" : (last.changePct >= 0 ? "+" : "") + last.changePct + "%"})</span>`;
-    drawChart(); renderSignal(currentRows);
+    drawChart(); renderSignal(currentRows); renderNews(code, security, name);
   }
   function drawChart() {
     const rootStyle = getComputedStyle(document.documentElement);
