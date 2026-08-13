@@ -50,6 +50,77 @@
       return { k, d };
     });
   }
+  function signalMeta(score) {
+    if (score >= 1.25) return { key:"strong-buy", label:"強力買進", color:"#3977f6" };
+    if (score >= .4) return { key:"buy", label:"偏多／買進", color:"#548dff" };
+    if (score > -.4) return { key:"neutral", label:"中立觀察", color:"#8a93a3" };
+    if (score > -1.25) return { key:"sell", label:"偏空／減碼", color:"#e15b76" };
+    return { key:"strong-sell", label:"強力賣出", color:"#ef405f" };
+  }
+  function analyzeSignal(rows) {
+    const lastIndex = rows.length - 1, last = rows[lastIndex], previous = rows[lastIndex - 1];
+    const ma5 = movingAverage(rows, lastIndex, 5), prevMa5 = movingAverage(rows, lastIndex - 1, 5), ma20 = movingAverage(rows, lastIndex, 20);
+    const kd = kdValues(rows), latestKd = kd[lastIndex], previousKd = kd[lastIndex - 1];
+    const recentVolumes = rows.slice(Math.max(0, rows.length - 5), -1).map(r => Number(r.volume)).filter(Number.isFinite);
+    const averageVolume = recentVolumes.length ? recentVolumes.reduce((sum, value) => sum + value, 0) / recentVolumes.length : null;
+    const volumeRatio = averageVolume ? Number(last.volume) / averageVolume : null;
+    const components = [], reasons = [], risks = [];
+    let trendScore = 0;
+    if (ma5 != null) trendScore += Number(last.close) >= ma5 ? 1 : -1;
+    if (prevMa5 != null && ma5 != null) trendScore += ma5 >= prevMa5 ? 1 : -1;
+    else if (previous) trendScore += Number(last.close) >= Number(previous.close) ? 1 : -1;
+    trendScore = Math.max(-2, Math.min(2, trendScore));
+    components.push({ name:"價格趨勢", score:trendScore, detail:ma5 == null ? "資料未滿 5 日" : `收盤 ${Number(last.close) >= ma5 ? "高於" : "低於"} MA5` });
+    if (trendScore > 0) reasons.push(`收盤價位於 MA5 ${Number(last.close) >= ma5 ? "之上" : "附近"}，短線趨勢偏多`);
+    if (trendScore < 0) risks.push("短線價格趨勢轉弱，留意跌破近期低點");
+
+    let averageScore = ma5 == null ? 0 : (Number(last.close) >= ma5 ? 1 : -1);
+    if (ma20 != null) averageScore += Number(last.close) >= ma20 ? 1 : -1;
+    else risks.push(`目前僅 ${rows.length} 日資料，MA20 尚未形成`);
+    components.push({ name:"移動平均線", score:averageScore, detail:ma20 == null ? "MA20 待資料累積" : `收盤 ${Number(last.close) >= ma20 ? "站上" : "跌破"} MA20` });
+    if (averageScore >= 2) reasons.push("收盤同時站上 MA5 與 MA20");
+    if (averageScore <= -2) risks.push("收盤同時跌破 MA5 與 MA20");
+
+    let kdScore = latestKd.k >= latestKd.d ? 1 : -1;
+    const bullishCross = previousKd && previousKd.k <= previousKd.d && latestKd.k > latestKd.d;
+    const bearishCross = previousKd && previousKd.k >= previousKd.d && latestKd.k < latestKd.d;
+    if (bullishCross) kdScore = latestKd.k <= 30 ? 2 : 1.5;
+    if (bearishCross) kdScore = latestKd.k >= 70 ? -2 : -1.5;
+    if (latestKd.k >= 80 && kdScore > 0) { kdScore -= .5; risks.push("KD 位於 80 以上高檔區，追價風險較高"); }
+    if (latestKd.k <= 20 && kdScore < 0) risks.push("KD 位於 20 以下低檔區，仍需等待止跌確認");
+    components.push({ name:"KD 動能", score:kdScore, detail:`K ${price(latestKd.k)}／D ${price(latestKd.d)}` });
+    if (bullishCross) reasons.push(`KD 黃金交叉${latestKd.k <= 30 ? "，且位於相對低檔" : ""}`);
+    else if (bearishCross) risks.push(`KD 死亡交叉${latestKd.k >= 70 ? "，且位於相對高檔" : ""}`);
+    else if (kdScore > 0) reasons.push("K 值位於 D 值之上，短線動能偏多");
+
+    let volumeScore = 0;
+    if (volumeRatio != null && previous) {
+      const rising = Number(last.close) >= Number(previous.close);
+      if (volumeRatio >= 1.2) volumeScore = rising ? 2 : -2;
+      else if (volumeRatio >= .8) volumeScore = rising ? 1 : -1;
+      if (volumeScore >= 2) reasons.push(`上漲且成交量為近 4 日均量的 ${volumeRatio.toFixed(2)} 倍`);
+      if (volumeScore <= -2) risks.push(`下跌且成交量放大至近 4 日均量的 ${volumeRatio.toFixed(2)} 倍`);
+    }
+    components.push({ name:"量價表現", score:volumeScore, detail:volumeRatio == null ? "成交量資料不足" : `量比 ${volumeRatio.toFixed(2)} 倍` });
+    const rawScore = components.reduce((sum, item) => sum + item.score, 0) / components.length;
+    // MA20 尚未形成前不顯示「強力」訊號，避免少量資料造成過度確定的結論。
+    const weighted = rows.length < 20 ? Math.max(-1.2, Math.min(1.2, rawScore)) : rawScore;
+    const meta = signalMeta(weighted), completeness = Math.min(100, Math.round(rows.length / 20 * 100));
+    return { score:weighted, gauge:Math.round((weighted + 2) / 4 * 100), meta, components, reasons:reasons.slice(0, 3), risks:risks.slice(0, 3), completeness, ma5, ma20, kd:latestKd, volumeRatio };
+  }
+  function gaugeSvg(value, color, label, small) {
+    const width = small ? 210 : 330, height = small ? 122 : 180, cx = width / 2, cy = small ? 100 : 145, radius = small ? 72 : 110;
+    const startX = cx - radius, endX = cx + radius, angle = Math.PI * (1 - value / 100), needleX = cx + Math.cos(angle) * radius * .76, needleY = cy - Math.sin(angle) * radius * .76;
+    const levelSize = small ? 8 : 10, sideY = cy - radius * .57;
+    return `<svg class="signal-gauge-svg" viewBox="0 0 ${width} ${height}" role="img" aria-label="${esc(label)}"><defs><linearGradient id="signalGradient${small ? "Small" : "Main"}" x1="0" x2="1"><stop offset="0" stop-color="#ef405f"/><stop offset=".5" stop-color="#9b65b7"/><stop offset="1" stop-color="#3977f6"/></linearGradient></defs><path d="M ${startX} ${cy} A ${radius} ${radius} 0 0 1 ${endX} ${cy}" fill="none" stroke="var(--border)" stroke-width="${small ? 15 : 21}"/><path d="M ${startX} ${cy} A ${radius} ${radius} 0 0 1 ${endX} ${cy}" fill="none" stroke="url(#signalGradient${small ? "Small" : "Main"})" stroke-width="${small ? 10 : 14}"/><line x1="${cx}" y1="${cy}" x2="${needleX}" y2="${needleY}" stroke="var(--text)" stroke-width="${small ? 3 : 4}" stroke-linecap="round"/><circle cx="${cx}" cy="${cy}" r="${small ? 5 : 7}" fill="var(--text)"/><text x="${startX}" y="${cy + 18}" class="signal-axis" font-size="${levelSize}" text-anchor="start">強力賣出</text><text x="${cx - radius * .68}" y="${sideY}" class="signal-axis" font-size="${levelSize}" text-anchor="middle">賣出</text><text x="${cx}" y="${small ? 26 : 30}" class="signal-axis" font-size="${levelSize}" text-anchor="middle">中立</text><text x="${cx + radius * .68}" y="${sideY}" class="signal-axis" font-size="${levelSize}" text-anchor="middle">買進</text><text x="${endX}" y="${cy + 18}" class="signal-axis" font-size="${levelSize}" text-anchor="end">強力買進</text></svg>`;
+  }
+  function renderSignal(rows) {
+    const box = $("signalPanel"); if (!box) return;
+    if (!rows.length) { box.innerHTML = ""; return; }
+    const signal = analyzeSignal(rows);
+    const componentCards = signal.components.map(item => { const meta = signalMeta(item.score); return `<article class="signal-component"><h4>${esc(item.name)}</h4>${gaugeSvg(Math.round((item.score + 2) / 4 * 100), meta.color, `${item.name}：${meta.label}`, true)}<strong style="color:${meta.color}">${esc(meta.label)}</strong><small>${esc(item.detail)}</small></article>`; }).join("");
+    box.innerHTML = `<div class="signal-heading"><div><h3>每日操作訊號</h3><p>依最新收盤資料計算，作為技術面觀察，不是保證獲利的買賣指令。</p></div><span class="signal-date">資料日 ${esc(rows.at(-1).date)}</span></div><div class="signal-main"><div class="signal-overall">${gaugeSvg(signal.gauge, signal.meta.color, `綜合訊號：${signal.meta.label}`, false)}<div class="signal-label" style="color:${signal.meta.color}">${esc(signal.meta.label)}</div><div class="signal-score">訊號分數 ${signal.score.toFixed(2)}／2</div></div><div class="signal-explain"><div class="signal-confidence"><span>資料完整度</span><strong>${signal.completeness}%</strong><i><b style="width:${signal.completeness}%"></b></i><small>${rows.length}／20 個交易日；滿 20 日後自動納入 MA20</small></div><div class="signal-notes"><section><h4>成立理由</h4>${signal.reasons.length ? `<ul>${signal.reasons.map(x=>`<li>${esc(x)}</li>`).join("")}</ul>` : "<p>目前沒有足夠的偏多確認條件。</p>"}</section><section class="risk"><h4>風險提醒</h4>${signal.risks.length ? `<ul>${signal.risks.map(x=>`<li>${esc(x)}</li>`).join("")}</ul>` : "<p>目前未偵測到明顯技術面風險。</p>"}</section></div></div></div><div class="signal-components">${componentCards}</div><div class="signal-footnote">判斷項目：價格趨勢、移動平均線、KD 動能與量價表現。至少搭配自身風險承受度、資金配置及重大消息判斷。</div>`;
+  }
   function updateChartType() {
     document.querySelectorAll("[data-chart-type]").forEach(button => {
       const active = button.dataset.chartType === chartType;
@@ -67,10 +138,10 @@
     const name = security === "__ETF__" ? etf?.name || code : ((holdingsFor(code).find(x => x[0] === security) || [security, ""])[1]);
     $("chartTitle").textContent = `${name} ${security === "__ETF__" ? code : security}`;
     $("status").textContent = currentRows.length ? `資料 ${currentRows.length} 日（${currentRows[0].date} ～ ${currentRows[currentRows.length - 1].date}）` : "尚無完整 OHLC 資料";
-    if (!currentRows.length) { $("chartBox").innerHTML = '<div class="empty">目前尚無可繪製的完整開高低收資料。</div>'; $("quote").textContent = "—"; return; }
+    if (!currentRows.length) { $("chartBox").innerHTML = '<div class="empty">目前尚無可繪製的完整開高低收資料。</div>'; $("quote").textContent = "—"; renderSignal([]); return; }
     const last = currentRows[currentRows.length - 1];
     $("quote").innerHTML = `收盤 <strong>${price(last.close)}</strong> <span class="${last.change >= 0 ? "up" : "down"}">${last.change >= 0 ? "+" : ""}${price(last.change)} (${last.changePct == null ? "—" : (last.changePct >= 0 ? "+" : "") + last.changePct + "%"})</span>`;
-    drawChart();
+    drawChart(); renderSignal(currentRows);
   }
   function drawChart() {
     const rootStyle = getComputedStyle(document.documentElement);

@@ -115,6 +115,18 @@
     #chartBox .axis { fill:var(--muted); font-size:11px; }
     #chartBox .crosshair { stroke:var(--muted); stroke-width:1; stroke-dasharray:4 4; opacity:.7; }
     #tip { position:absolute; z-index:2; top:8px; left:8px; width:220px; max-width:calc(100% - 16px); padding:8px 10px; border:1px solid var(--border); border-radius:8px; background:var(--card); color:var(--text); font-size:12px; line-height:1.7; min-height:24px; pointer-events:none; box-shadow:0 2px 8px rgba(0,0,0,.08); }
+    .signal-panel { margin-top:18px; padding-top:16px; border-top:1px solid var(--border); }
+    .signal-heading { display:flex; justify-content:space-between; gap:16px; align-items:flex-start; }
+    .signal-heading h3 { margin:0 0 4px; font-size:18px; } .signal-heading p, .signal-date, .signal-footnote { margin:0; color:var(--muted); font-size:12px; }
+    .signal-main { display:grid; grid-template-columns:minmax(300px, 38%) 1fr; gap:24px; align-items:center; padding:12px 0 18px; }
+    .signal-overall { text-align:center; } .signal-gauge-svg { display:block; width:100%; max-width:330px; height:auto; margin:auto; overflow:visible; }
+    .signal-axis { fill:var(--muted); font-size:12px; } .signal-label { margin-top:-14px; font-size:25px; font-weight:800; } .signal-score { color:var(--muted); font-size:12px; margin-top:3px; }
+    .signal-confidence { display:grid; grid-template-columns:1fr auto; gap:5px 12px; font-size:13px; } .signal-confidence i { grid-column:1 / -1; height:7px; background:var(--border); border-radius:10px; overflow:hidden; } .signal-confidence b { display:block; height:100%; background:var(--accent); border-radius:inherit; } .signal-confidence small { grid-column:1 / -1; color:var(--muted); }
+    .signal-notes { display:grid; grid-template-columns:1fr 1fr; gap:12px; margin-top:14px; } .signal-notes section { padding:12px; border-radius:10px; background:color-mix(in srgb, var(--down) 8%, var(--card)); } .signal-notes section.risk { background:color-mix(in srgb, var(--up) 8%, var(--card)); } .signal-notes h4 { margin:0 0 7px; font-size:13px; } .signal-notes ul { margin:0; padding-left:18px; color:var(--muted); font-size:12px; line-height:1.65; } .signal-notes p { color:var(--muted); font-size:12px; margin:0; }
+    .signal-components { display:grid; grid-template-columns:repeat(4,1fr); gap:10px; } .signal-component { text-align:center; padding:12px 8px; border:1px solid var(--border); border-radius:11px; background:var(--bg); } .signal-component h4 { margin:0; font-size:13px; } .signal-component .signal-gauge-svg { max-width:210px; } .signal-component strong, .signal-component small { display:block; } .signal-component strong { margin-top:-12px; font-size:15px; } .signal-component small { margin-top:4px; color:var(--muted); font-size:11px; }
+    .signal-footnote { margin-top:12px; line-height:1.6; }
+    @media (max-width:850px) { .signal-main { grid-template-columns:1fr; } .signal-components { grid-template-columns:repeat(2,1fr); } }
+    @media (max-width:560px) { .signal-heading { display:block; } .signal-date { display:block; margin-top:5px; } .signal-notes, .signal-components { grid-template-columns:1fr; } }
     @media (max-width:700px) { .kline-status { width:100%; margin-left:0; } .kline-controls select { min-width:0; width:100%; } .kline-chart-wrap { overflow-x:auto; } #chartBox svg { min-width:720px; } }
     .selected-etf-summary { display:flex; flex-wrap:wrap; align-items:baseline; gap:8px 18px; margin:0 0 10px; padding:11px 14px; background:var(--card); border:1px solid var(--border); border-radius:10px; }
     .selected-etf-summary .code { font-size:18px; font-weight:700; color:var(--text); }
@@ -394,6 +406,7 @@
       <div class="kline-chart-head"><div id="chartTitle" class="kline-chart-title">—</div><div id="quote" class="kline-quote">—</div></div>
       <div class="kline-legend"><span id="closeLegend" style="display:none"><i class="swatch" style="background:var(--accent)"></i>收盤價</span><span><i class="swatch" style="background:var(--ma5)"></i>MA5</span><span><i class="swatch" style="background:var(--ma20)"></i>MA20</span><span><i class="swatch" style="background:var(--kd-k)"></i>K(9)</span><span><i class="swatch" style="background:var(--kd-d)"></i>D(9)</span><span id="candleLegend">紅漲／綠跌</span></div>
       <div class="kline-chart-wrap"><div id="chartBox"></div><div id="tip" aria-live="polite">將滑鼠移到圖表上半部的 K 線區域。</div></div>
+      <div id="signalPanel" class="signal-panel"></div>
     </section>
 
     <section id="institutionalPanel" class="institutional-panel" style="display:none;">
