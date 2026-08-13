@@ -1,6 +1,6 @@
 {
   "date": "2026-08-12",
-  "fetched_at": "2026-08-13T20:12:33+08:00",
+  "fetched_at": "2026-08-13T21:00:53+08:00",
   "count": 30,
   "self": {
     "open": 87.0,
@@ -522,10 +522,10 @@
       "high": 319.79,
       "low": 309.13,
       "close": 310.75,
-      "prevClose": 299.93,
-      "change": 10.82,
-      "changePct": 3.61,
-      "amplitude": 3.55,
+      "prevClose": 297.03,
+      "change": 13.72,
+      "changePct": 4.62,
+      "amplitude": 3.59,
       "volume": 1437200,
       "currency": "USD",
       "quoteDate": "2026-08-12"
@@ -598,10 +598,10 @@
       "high": 98.5,
       "low": 95.81,
       "close": 98.24,
-      "prevClose": 96.68,
-      "change": 1.56,
-      "changePct": 1.61,
-      "amplitude": 2.78,
+      "prevClose": 97.0,
+      "change": 1.24,
+      "changePct": 1.28,
+      "amplitude": 2.77,
       "volume": 818500,
       "currency": "USD",
       "quoteDate": "2026-08-12"
