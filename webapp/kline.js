@@ -3,6 +3,8 @@
   const W = 1120, H = 650, left = 62, right = 18, top = 18, priceBottom = 300, volumeTop = 325, volumeBottom = 405, kdTop = 440, kdBottom = 590;
   const data = window.DATA || { etfs: {} };
   let currentRows = [], candlePoints = [], chartType = localStorage.getItem("etf-chart-type") === "line" ? "line" : "candle";
+  let personalTrades = { key:"", markers:[], openShares:0, averageCost:null, currency:"" };
+  let financialRequestKey = "";
   const maPeriods = [5, 10, 20];
   let visibleMas;
   try {
@@ -23,6 +25,12 @@
       if (h.code && !map.has(h.code)) map.set(h.code, h.name || h.code);
     }));
     return [...map.entries()].sort((a, b) => a[0].localeCompare(b[0], "zh-Hant"));
+  }
+  function securityInfo(code, security) {
+    if (security === "__ETF__") return { symbol:code, name:data.etfs[code]?.name || code, market:"TW", assetType:"etf" };
+    const rows = (data.etfs[code]?.snapshots || []).flatMap(snapshot => snapshot.holdings || []);
+    const holding = [...rows].reverse().find(row => row.code === security) || {};
+    return { symbol:security, name:holding.name || security, market:(holding.market || "TW").toUpperCase(), assetType:holding.assetType || "stock" };
   }
   function fillEtfs() {
     const select = $("etfSelect"); select.innerHTML = etfCodes().map(code => `<option value="${esc(code)}">${esc(code)} ${esc(data.etfs[code].name)}</option>`).join("");
@@ -190,13 +198,122 @@
     box.style.display = "grid";
     box.innerHTML = `<div class="premium-main ${tone.key}"><span>收盤折溢價</span><strong>${esc(signed)}</strong><b>${esc(tone.label)}</b></div><div class="premium-kpi"><span>市價</span><strong>${marketPrice == null ? "—" : price(marketPrice)}</strong></div><div class="premium-kpi"><span>每單位淨值</span><strong>${price(latest.nav)}</strong></div><div class="premium-kpi"><span>近 ${recent.length} 日區間</span><strong>${low == null ? "—" : `${low > 0 ? "+" : ""}${low.toFixed(2)}% ～ ${high > 0 ? "+" : ""}${high.toFixed(2)}%`}</strong></div><div class="premium-note"><span>${esc(tone.note)}</span><small>官方資料日 ${esc(latest.date)}・來源：<a href="https://www.twse.com.tw/zh/ETFortune/etfInfo/${encodeURIComponent(code)}" target="_blank" rel="noopener noreferrer">證交所 ETF e添富</a></small></div>`;
   }
+  function tradeSummary(fills) {
+    const lots = [];
+    const ordered = fills.slice().sort((a, b) => String(a.fill_date || "").localeCompare(String(b.fill_date || "")) || String(a.created_at || "").localeCompare(String(b.created_at || "")));
+    ordered.forEach(fill => {
+      let remaining = Number(fill.shares) || 0;
+      if (fill.side === "buy") { lots.push({ fill, remaining }); return; }
+      while (remaining > 0) {
+        const lot = lots.find(item => item.remaining > 0);
+        if (!lot) break;
+        const used = Math.min(remaining, lot.remaining);
+        lot.remaining -= used; remaining -= used;
+      }
+    });
+    const openLots = lots.filter(lot => lot.remaining > 0), openShares = openLots.reduce((sum, lot) => sum + lot.remaining, 0);
+    const totalCost = openLots.reduce((sum, lot) => {
+      const shares = Number(lot.fill.shares) || 1, commission = Number(lot.fill.commission_native) || 0;
+      return sum + lot.remaining * (Number(lot.fill.price) + commission / shares);
+    }, 0);
+    return { markers:ordered, openShares, averageCost:openShares ? totalCost / openShares : null, currency:ordered.at(-1)?.currency || "" };
+  }
+  function renderTradeBox(message) {
+    const box = $("tradeBox"); if (!box) return;
+    if (message) { box.style.display = "block"; box.innerHTML = `<div class="trade-empty">${esc(message)}</div>`; return; }
+    const visibleDates = new Set(currentRows.map(row => row.date));
+    const visibleCount = personalTrades.markers.filter(fill => visibleDates.has(fill.fill_date)).length;
+    box.style.display = "grid";
+    box.innerHTML = `<div><span>個人交易圖層</span><strong>${personalTrades.markers.length} 筆進出明細</strong></div><div><span>目前未平倉</span><strong>${num(personalTrades.openShares)} 股</strong></div><div><span>剩餘部位平均成本</span><strong>${personalTrades.averageCost == null ? "—" : `${price(personalTrades.averageCost)} ${esc(personalTrades.currency)}`}</strong></div><small>目前圖表區間顯示 ${visibleCount} 個買賣標記；平均成本含買進手續費，採 FIFO 扣除已賣股數。</small>`;
+  }
+  async function loadPersonalTrades(code, security) {
+    const info = securityInfo(code, security), key = `${info.symbol}|${info.market}`;
+    personalTrades = { key, markers:[], openShares:0, averageCost:null, currency:"" };
+    if (currentRows.length) drawChart();
+    if (!$("tradeBox")) return;
+    if (!["TW", "US"].includes(info.market)) { renderTradeBox("目前個人交易日誌只支援台灣與美國市場。"); return; }
+    const auth = window.ETFAuth;
+    if (!auth?.isConfigured?.()) { renderTradeBox("個人交易圖層尚未設定。"); return; }
+    if (!auth.user?.()) { renderTradeBox("登入後可在線圖顯示自己的買進、賣出與持倉平均成本。"); return; }
+    renderTradeBox("正在讀取個人進出明細…");
+    try {
+      const entriesResult = await auth.client().from("trade_journal_entries").select("id,symbol,market").eq("symbol", info.symbol).eq("market", info.market.toLowerCase());
+      if (personalTrades.key !== key) return;
+      if (entriesResult.error) throw entriesResult.error;
+      const ids = (entriesResult.data || []).map(row => row.id);
+      if (!ids.length) { renderTradeBox(`尚未記錄 ${info.symbol} 的進出明細。`); return; }
+      const fillsResult = await auth.client().from("trade_journal_fills").select("journal_id,fill_date,side,shares,price,currency,commission_native,created_at").in("journal_id", ids).order("fill_date", { ascending:true }).order("created_at", { ascending:true });
+      if (personalTrades.key !== key) return;
+      if (fillsResult.error) throw fillsResult.error;
+      personalTrades = { key, ...tradeSummary(fillsResult.data || []) };
+      renderTradeBox();
+      if (currentRows.length) drawChart();
+    } catch (_) {
+      if (personalTrades.key === key) renderTradeBox("個人進出明細暫時無法讀取，請稍後重試。");
+    }
+  }
+  const financialMetrics = {
+    revenue:{ label:"營收" }, operatingIncome:{ label:"營業利益" },
+    netIncome:{ label:"稅後淨利" }, eps:{ label:"稀釋 EPS" }
+  };
+  function compactMoney(value, currency) {
+    const absolute = Math.abs(Number(value));
+    const matched = [[1e12,"兆"],[1e8,"億"],[1e6,"百萬"],[1e3,"千"]].find(([threshold]) => absolute >= threshold);
+    if (!matched) return `${num(value)} ${currency || ""}`.trim();
+    return `${(Number(value) / matched[0]).toLocaleString("zh-TW", { maximumFractionDigits:2 })} ${matched[1]}${currency || ""}`;
+  }
+  function growthText(current, previous) {
+    if (!Number.isFinite(current) || !Number.isFinite(previous) || previous === 0) return "—";
+    const value = (current - previous) / Math.abs(previous) * 100;
+    return `${value >= 0 ? "+" : ""}${value.toFixed(1)}%`;
+  }
+  function renderFinancialChart(payload, metric) {
+    const box = $("financialPanel"), rows = payload.years || [], meta = financialMetrics[metric];
+    const values = rows.map(row => Number(row[metric])), valid = values.every(Number.isFinite);
+    if (!valid || rows.length < 2) { box.querySelector(".financial-content").innerHTML = '<div class="financial-empty">這項指標的年度資料不足。</div>'; return; }
+    const width = 760, height = 270, padL = 70, padR = 35, padT = 35, padB = 45;
+    const floor = Math.min(0, ...values), ceiling = Math.max(0, ...values), span = ceiling - floor || 1;
+    const x = index => padL + index * (width - padL - padR) / Math.max(rows.length - 1, 1);
+    const y = value => padT + (ceiling - value) * (height - padT - padB) / span;
+    const points = values.map((value, index) => `${x(index)},${y(value)}`).join(" ");
+    const labels = rows.map((row, index) => `<g><circle cx="${x(index)}" cy="${y(values[index])}" r="5" fill="var(--accent)"/><text x="${x(index)}" y="${Math.max(16, y(values[index]) - 13)}" text-anchor="middle" class="financial-value">${esc(metric === "eps" ? price(values[index]) : compactMoney(values[index], ""))}</text><text x="${x(index)}" y="${height - 14}" text-anchor="middle" class="axis">${esc(row.year)}</text></g>`).join("");
+    const latest = rows.at(-1), previous = rows.at(-2), currency = latest.currency || "";
+    const latestValue = metric === "eps" ? `${price(latest[metric])} ${currency}` : compactMoney(latest[metric], currency);
+    const yoy = growthText(Number(latest[metric]), Number(previous[metric]));
+    const operatingMargin = Number.isFinite(Number(latest.revenue)) && Number.isFinite(Number(latest.operatingIncome)) && Number(latest.revenue) !== 0 ? Number(latest.operatingIncome) / Number(latest.revenue) * 100 : null;
+    const netMargin = Number.isFinite(Number(latest.revenue)) && Number.isFinite(Number(latest.netIncome)) && Number(latest.revenue) !== 0 ? Number(latest.netIncome) / Number(latest.revenue) * 100 : null;
+    box.querySelector(".financial-content").innerHTML = `<div class="financial-summary"><div><span>${esc(latest.year)} ${esc(meta.label)}</span><strong>${esc(latestValue)}</strong></div><div><span>年增率</span><strong class="${yoy.startsWith("+") ? "up" : yoy.startsWith("-") ? "down" : ""}">${esc(yoy)}</strong></div><div><span>營業利益率</span><strong>${operatingMargin == null ? "—" : operatingMargin.toFixed(1) + "%"}</strong></div><div><span>淨利率</span><strong>${netMargin == null ? "—" : netMargin.toFixed(1) + "%"}</strong></div></div><div class="financial-chart"><svg viewBox="0 0 ${width} ${height}" role="img" aria-label="${esc(meta.label)}近三年趨勢"><line x1="${padL}" x2="${width-padR}" y1="${y(0)}" y2="${y(0)}" class="grid"/><polyline points="${points}" fill="none" stroke="var(--accent)" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>${labels}</svg></div><div class="financial-note">年度合併財報・幣別 ${esc(currency || "未標示")}；不同幣別公司不宜直接比較金額。資料來源：<a href="https://finance.yahoo.com/quote/${encodeURIComponent(payload.symbol)}/financials/" target="_blank" rel="noopener noreferrer">Yahoo Finance</a></div>`;
+  }
+  async function renderFinancials(code, security, name) {
+    const box = $("financialPanel"); if (!box) return;
+    if (security === "__ETF__") { financialRequestKey = `${code}|ETF`; box.style.display = "none"; box.innerHTML = ""; return; }
+    const info = securityInfo(code, security), key = `${info.symbol}|${info.market}`; financialRequestKey = key;
+    box.style.display = "block";
+    box.innerHTML = `<div class="financial-heading"><div><h3>近三年財報趨勢</h3><p>${esc(name)}・年度合併財報比較</p></div><span>載入中…</span></div><div class="financial-empty">正在取得財務資料…</div>`;
+    try {
+      const response = await fetch(`/api/financials?code=${encodeURIComponent(info.symbol)}&market=${encodeURIComponent(info.market)}`, { cache:"default" });
+      const payload = await response.json().catch(() => ({ ok:false, error:"財務資料暫時無法取得" }));
+      if (financialRequestKey !== key) return;
+      if (!response.ok || !payload.ok) throw new Error(payload.error || "財務資料暫時無法取得");
+      if (!payload.years?.length) throw new Error("目前查無近三年完整年度財報");
+      box.innerHTML = `<div class="financial-heading"><div><h3>近三年財報趨勢</h3><p>${esc(name)}・${esc(payload.years[0].year)}–${esc(payload.years.at(-1).year)} 年度合併財報</p></div><span>${esc(payload.symbol)}</span></div><div class="financial-tabs" role="group" aria-label="選擇財務指標">${Object.entries(financialMetrics).map(([metric, item], index) => `<button type="button" data-financial-metric="${metric}" class="${index === 0 ? "active" : ""}">${item.label}</button>`).join("")}</div><div class="financial-content"></div>`;
+      box.querySelectorAll("[data-financial-metric]").forEach(button => button.addEventListener("click", () => {
+        box.querySelectorAll("[data-financial-metric]").forEach(item => item.classList.toggle("active", item === button));
+        renderFinancialChart(payload, button.dataset.financialMetric);
+      }));
+      renderFinancialChart(payload, "revenue");
+    } catch (error) {
+      if (financialRequestKey === key) box.innerHTML = `<div class="financial-heading"><div><h3>近三年財報趨勢</h3><p>${esc(name)}・年度合併財報比較</p></div></div><div class="financial-empty">${esc(error.message || "財務資料暫時無法取得")}</div>`;
+    }
+  }
   function render() {
     const code = $("etfSelect").value, security = $("securitySelect").value, etf = data.etfs[code];
     currentRows = rowsFor(code, security); candlePoints = [];
-    const name = security === "__ETF__" ? etf?.name || code : ((holdingsFor(code).find(x => x[0] === security) || [security, ""])[1]);
+    const name = securityInfo(code, security).name;
     $("chartTitle").textContent = `${name} ${security === "__ETF__" ? code : security}`;
     $("status").textContent = currentRows.length ? `資料 ${currentRows.length} 日（${currentRows[0].date} ～ ${currentRows[currentRows.length - 1].date}）` : "尚無完整 OHLC 資料";
     renderPremium(code, security);
+    loadPersonalTrades(code, security); renderFinancials(code, security, name);
     if (!currentRows.length) { $("chartBox").innerHTML = '<div class="empty">目前尚無可繪製的完整開高低收資料。</div>'; $("quote").textContent = "—"; renderSignal([]); return; }
     const last = currentRows[currentRows.length - 1];
     $("quote").innerHTML = `收盤 <strong>${price(last.close)}</strong> <span class="${last.change >= 0 ? "up" : "down"}">${last.change >= 0 ? "+" : ""}${price(last.change)} (${last.changePct == null ? "—" : (last.changePct >= 0 ? "+" : "") + last.changePct + "%"})</span>`;
@@ -210,9 +327,16 @@
       ma10: rootStyle.getPropertyValue("--ma10").trim() || "#45a3d8",
       ma20: rootStyle.getPropertyValue("--ma20").trim() || "#a78bca",
       k: rootStyle.getPropertyValue("--kd-k").trim() || "#19a7a0",
-      d: rootStyle.getPropertyValue("--kd-d").trim() || "#e06b8b"
+      d: rootStyle.getPropertyValue("--kd-d").trim() || "#e06b8b",
+      buy: rootStyle.getPropertyValue("--trade-buy").trim() || "#3977f6",
+      sell: rootStyle.getPropertyValue("--trade-sell").trim() || "#ef405f",
+      cost: rootStyle.getPropertyValue("--trade-cost").trim() || "#8a63d2"
     };
-    const values = (chartType === "line" ? currentRows.map(r => Number(r.close)) : currentRows.flatMap(r => [Number(r.low), Number(r.high)])).filter(Number.isFinite);
+    const rowDates = new Set(currentRows.map(row => row.date));
+    const visibleTrades = personalTrades.markers.filter(fill => rowDates.has(fill.fill_date) && Number.isFinite(Number(fill.price)));
+    const referenceValues = visibleTrades.map(fill => Number(fill.price));
+    if (personalTrades.averageCost != null) referenceValues.push(Number(personalTrades.averageCost));
+    const values = (chartType === "line" ? currentRows.map(r => Number(r.close)) : currentRows.flatMap(r => [Number(r.low), Number(r.high)])).concat(referenceValues).filter(Number.isFinite);
     let min = Math.min(...values), max = Math.max(...values); if (min === max) { min -= 1; max += 1; }
     const maxVol = Math.max(...currentRows.map(r => Number(r.volume) || 0), 1), plotW = W - left - right, priceH = priceBottom - top, kd = kdValues(currentRows);
     // X 軸使用交易日序號，不把週末／休市日當成空白時間。資料很少時，
@@ -240,6 +364,12 @@
     function line(period, color, name) { const pts = currentRows.map((r, i) => { const v = movingAverage(currentRows, i, period); return v == null ? null : `${x(i)},${y(v)}`; }).filter(Boolean).join(" "); return pts ? `<polyline class="ma-line ${name}" points="${pts}" fill="none" stroke="${color}" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>` : ""; }
     if (chartType === "line") svg += `<polyline points="${currentRows.map((r, i) => `${x(i)},${y(Number(r.close))}`).join(" ")}" fill="none" stroke="${chartColors.accent}" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>`;
     maPeriods.forEach(period => { if (visibleMas.has(period)) svg += line(period, chartColors[`ma${period}`], `ma${period}-line`); });
+    if (Number.isFinite(personalTrades.averageCost)) svg += `<line x1="${left}" x2="${W-right}" y1="${y(personalTrades.averageCost)}" y2="${y(personalTrades.averageCost)}" stroke="${chartColors.cost}" stroke-width="1.5" stroke-dasharray="7 5"/><text x="${W-right-4}" y="${y(personalTrades.averageCost)-6}" text-anchor="end" fill="${chartColors.cost}" font-size="11">持倉成本 ${price(personalTrades.averageCost)}</text>`;
+    visibleTrades.forEach(fill => {
+      const index = currentRows.findIndex(row => row.date === fill.fill_date), cx = x(index), cy = y(Number(fill.price)), buy = fill.side === "buy", color = buy ? chartColors.buy : chartColors.sell;
+      const points = buy ? `${cx},${cy-9} ${cx-7},${cy+4} ${cx+7},${cy+4}` : `${cx},${cy+9} ${cx-7},${cy-4} ${cx+7},${cy-4}`;
+      svg += `<polygon points="${points}" fill="${color}" stroke="var(--card)" stroke-width="1.5"/><text x="${cx}" y="${buy ? cy+17 : cy-10}" text-anchor="middle" fill="${color}" font-size="10" font-weight="700">${buy ? "買" : "賣"}</text>`;
+    });
     svg += `<polyline class="kd-line k-line" points="${kd.map((v,i)=>`${x(i)},${ky(v.k)}`).join(" ")}" fill="none" stroke="${chartColors.k}" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/><polyline class="kd-line d-line" points="${kd.map((v,i)=>`${x(i)},${ky(v.d)}`).join(" ")}" fill="none" stroke="${chartColors.d}" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>`;
     svg += `<line id="hoverLine" class="crosshair" x1="${left}" x2="${left}" y1="${top}" y2="${kdBottom}" visibility="hidden"/>`;
     svg += `<rect id="chartHit" x="${left}" y="${top}" width="${plotW}" height="${kdBottom - top}" fill="transparent" pointer-events="all"/> </svg>`;
@@ -250,7 +380,9 @@
       const r = point.row; $("hoverLine").setAttribute("x1", point.x); $("hoverLine").setAttribute("x2", point.x); $("hoverLine").setAttribute("visibility", "visible");
       const chartRect = $("chartBox").getBoundingClientRect(), wrapRect = document.querySelector(".kline-chart-wrap, .chart-wrap").getBoundingClientRect(), tip = $("tip");
       const index = candlePoints.indexOf(point), indicator = kd[index];
-      tip.innerHTML = `<strong>${esc(r.date)}</strong><br>開 ${price(r.open)}　高 ${price(r.high)}<br>低 ${price(r.low)}　收 ${price(r.close)}<br>量 ${Math.round(Number(r.volume || 0) / 1000).toLocaleString("en-US")} 張<br>K ${price(indicator.k)}　D ${price(indicator.d)}`;
+      const dayTrades = personalTrades.markers.filter(fill => fill.fill_date === r.date);
+      const tradeHtml = dayTrades.map(fill => `<br><b class="${fill.side === "buy" ? "trade-buy-text" : "trade-sell-text"}">${fill.side === "buy" ? "買進" : "賣出"} ${num(fill.shares)} 股 @ ${price(fill.price)}</b>`).join("");
+      tip.innerHTML = `<strong>${esc(r.date)}</strong><br>開 ${price(r.open)}　高 ${price(r.high)}<br>低 ${price(r.low)}　收 ${price(r.close)}<br>量 ${Math.round(Number(r.volume || 0) / 1000).toLocaleString("en-US")} 張<br>K ${price(indicator.k)}　D ${price(indicator.d)}${tradeHtml}`;
       tip.style.visibility = "hidden";
       tip.style.left = "0px";
       tip.style.top = "0px";
@@ -281,5 +413,6 @@
     const period = Number(input.dataset.maPeriod); input.checked ? visibleMas.add(period) : visibleMas.delete(period);
     localStorage.setItem("etf-visible-mas", JSON.stringify([...visibleMas])); updateMaControls(); if (currentRows.length) drawChart();
   }));
+  document.addEventListener("etfwatch:change", () => loadPersonalTrades($("etfSelect").value, $("securitySelect").value));
   updateChartType(); updateMaControls(); fillEtfs(); fillSecurities();
 })();
