@@ -1,7 +1,7 @@
 import unittest
 from unittest.mock import patch
 
-from fetch import fetch_json_retry, summarize_diff
+from fetch import fetch_json_retry, fetch_twse_etf_nav, summarize_diff
 
 
 class SummarizeDiffTests(unittest.TestCase):
@@ -38,6 +38,21 @@ class SummarizeDiffTests(unittest.TestCase):
         self.assertEqual(result, [{"Code": "1234"}])
         self.assertEqual(fetch_json_mock.call_count, 2)
         sleep_mock.assert_called_once_with(1)
+
+    @patch("fetch.fetch_form_json")
+    def test_builds_nav_history_by_matching_dates(self, form_json_mock):
+        form_json_mock.return_value = {
+            "netPrice": [{"date": "2026/08/12", "count": 105.58}, {"date": "2026/08/13", "count": 107.04}],
+            "atmps": [{"date": "2026/08/12", "count": -0.36}, {"date": "2026/08/13", "count": -0.32}],
+        }
+
+        result = fetch_twse_etf_nav("0050", days=20)
+
+        self.assertEqual(result, [
+            {"date": "2026-08-12", "nav": 105.58, "premiumPct": -0.36},
+            {"date": "2026-08-13", "nav": 107.04, "premiumPct": -0.32},
+        ])
+        self.assertEqual(form_json_mock.call_args.args[1]["id"], "0050")
 
 
 if __name__ == "__main__":

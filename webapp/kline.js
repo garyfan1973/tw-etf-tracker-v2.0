@@ -3,6 +3,12 @@
   const W = 1120, H = 650, left = 62, right = 18, top = 18, priceBottom = 300, volumeTop = 325, volumeBottom = 405, kdTop = 440, kdBottom = 590;
   const data = window.DATA || { etfs: {} };
   let currentRows = [], candlePoints = [], chartType = localStorage.getItem("etf-chart-type") === "line" ? "line" : "candle";
+  const maPeriods = [5, 10, 20];
+  let visibleMas;
+  try {
+    const saved = JSON.parse(localStorage.getItem("etf-visible-mas"));
+    visibleMas = new Set(Array.isArray(saved) ? saved.filter(period => maPeriods.includes(Number(period))).map(Number) : maPeriods);
+  } catch (_) { visibleMas = new Set(maPeriods); }
 
   const num = n => n == null ? "—" : Number(n).toLocaleString("en-US", { maximumFractionDigits: 2 });
   const price = n => n == null ? "—" : Number(n).toLocaleString("en-US", { minimumFractionDigits: 2, maximumFractionDigits: 2 });
@@ -158,12 +164,39 @@
     if (candleLegend) candleLegend.style.display = chartType === "candle" ? "inline-flex" : "none";
     if (tip) tip.textContent = chartType === "line" ? "將滑鼠移到線圖上查看每日收盤價。" : "將滑鼠移到圖表上半部的 K 線區域。";
   }
+  function updateMaControls() {
+    document.querySelectorAll("[data-ma-period]").forEach(input => { input.checked = visibleMas.has(Number(input.dataset.maPeriod)); });
+    maPeriods.forEach(period => { const legend = $(`maLegend${period}`); if (legend) legend.style.display = visibleMas.has(period) ? "inline-flex" : "none"; });
+  }
+  function premiumTone(value) {
+    if (value == null) return { label:"資料不足", key:"neutral", note:"尚無同日淨值資料" };
+    if (value > 1) return { label:"明顯溢價", key:"premium-high", note:"市價明顯高於淨值，買進前請留意追價風險" };
+    if (value > .3) return { label:"小幅溢價", key:"premium", note:"市價略高於淨值" };
+    if (value < -1) return { label:"明顯折價", key:"discount-high", note:"折價不等於便宜，仍須確認流動性及標的市場交易時間" };
+    if (value < -.3) return { label:"小幅折價", key:"discount", note:"市價略低於淨值" };
+    return { label:"接近淨值", key:"neutral", note:"市價與淨值差距在 ±0.30% 內" };
+  }
+  function renderPremium(code, security) {
+    const box = $("premiumBox"); if (!box) return;
+    if (security !== "__ETF__") { box.style.display = "none"; box.innerHTML = ""; return; }
+    const history = data.etfs[code]?.overview?.navHistory || [];
+    if (!history.length) { box.style.display = "block"; box.innerHTML = '<div class="premium-empty">折溢價資料尚未取得，下一次每日更新後會自動補入。</div>'; return; }
+    const snapshots = data.etfs[code]?.snapshots || [], snapshotDates = new Set(snapshots.map(row => row.date));
+    const latest = [...history].reverse().find(row => snapshotDates.has(row.date)) || history.at(-1);
+    const premium = Number(latest.premiumPct), tone = premiumTone(Number.isFinite(premium) ? premium : null);
+    const snapshot = snapshots.find(row => row.date === latest.date), marketPrice = snapshot?.self?.close;
+    const recent = history.filter(row => row.date <= latest.date).slice(-10).map(row => Number(row.premiumPct)).filter(Number.isFinite), low = recent.length ? Math.min(...recent) : null, high = recent.length ? Math.max(...recent) : null;
+    const signed = Number.isFinite(premium) ? `${premium > 0 ? "+" : ""}${premium.toFixed(2)}%` : "—";
+    box.style.display = "grid";
+    box.innerHTML = `<div class="premium-main ${tone.key}"><span>收盤折溢價</span><strong>${esc(signed)}</strong><b>${esc(tone.label)}</b></div><div class="premium-kpi"><span>市價</span><strong>${marketPrice == null ? "—" : price(marketPrice)}</strong></div><div class="premium-kpi"><span>每單位淨值</span><strong>${price(latest.nav)}</strong></div><div class="premium-kpi"><span>近 ${recent.length} 日區間</span><strong>${low == null ? "—" : `${low > 0 ? "+" : ""}${low.toFixed(2)}% ～ ${high > 0 ? "+" : ""}${high.toFixed(2)}%`}</strong></div><div class="premium-note"><span>${esc(tone.note)}</span><small>官方資料日 ${esc(latest.date)}・來源：<a href="https://www.twse.com.tw/zh/ETFortune/etfInfo/${encodeURIComponent(code)}" target="_blank" rel="noopener noreferrer">證交所 ETF e添富</a></small></div>`;
+  }
   function render() {
     const code = $("etfSelect").value, security = $("securitySelect").value, etf = data.etfs[code];
     currentRows = rowsFor(code, security); candlePoints = [];
     const name = security === "__ETF__" ? etf?.name || code : ((holdingsFor(code).find(x => x[0] === security) || [security, ""])[1]);
     $("chartTitle").textContent = `${name} ${security === "__ETF__" ? code : security}`;
     $("status").textContent = currentRows.length ? `資料 ${currentRows.length} 日（${currentRows[0].date} ～ ${currentRows[currentRows.length - 1].date}）` : "尚無完整 OHLC 資料";
+    renderPremium(code, security);
     if (!currentRows.length) { $("chartBox").innerHTML = '<div class="empty">目前尚無可繪製的完整開高低收資料。</div>'; $("quote").textContent = "—"; renderSignal([]); return; }
     const last = currentRows[currentRows.length - 1];
     $("quote").innerHTML = `收盤 <strong>${price(last.close)}</strong> <span class="${last.change >= 0 ? "up" : "down"}">${last.change >= 0 ? "+" : ""}${price(last.change)} (${last.changePct == null ? "—" : (last.changePct >= 0 ? "+" : "") + last.changePct + "%"})</span>`;
@@ -174,6 +207,7 @@
     const chartColors = {
       accent: rootStyle.getPropertyValue("--accent").trim() || "#3b5bdb",
       ma5: rootStyle.getPropertyValue("--ma5").trim() || "#e9a23b",
+      ma10: rootStyle.getPropertyValue("--ma10").trim() || "#45a3d8",
       ma20: rootStyle.getPropertyValue("--ma20").trim() || "#a78bca",
       k: rootStyle.getPropertyValue("--kd-k").trim() || "#19a7a0",
       d: rootStyle.getPropertyValue("--kd-d").trim() || "#e06b8b"
@@ -198,16 +232,14 @@
     currentRows.forEach((r, i) => {
       const cx = x(i), candleW = Math.max(4, Math.min(18, plotW / Math.max(currentRows.length, 1) * .56)), rising = Number(r.close) >= Number(r.open), color = rising ? "var(--up)" : "var(--down)";
       const bodyY = y(Math.max(r.open, r.close)), bodyH = Math.max(1.5, Math.abs(y(r.open) - y(r.close)));
-      const ma5 = movingAverage(currentRows, i, 5), ma20 = movingAverage(currentRows, i, 20);
       candlePoints.push({ x:cx, y:chartType === "line" ? y(Number(r.close)) : y((Number(r.open) + Number(r.close)) / 2), date:r.date, row:r });
       if (chartType === "candle") svg += `<line x1="${cx}" x2="${cx}" y1="${y(r.high)}" y2="${y(r.low)}" stroke="${color}" stroke-width="1.5"/><rect x="${cx - candleW / 2}" y="${bodyY}" width="${candleW}" height="${bodyH}" fill="${color}" rx="1"/>`;
       svg += `<rect x="${cx - candleW / 2}" y="${vy(r.volume)}" width="${candleW}" height="${volumeBottom - vy(r.volume)}" fill="${color}" opacity=".35"/>`;
-      if (ma5 != null) svg += `<circle class="ma-point ma5-point" cx="${cx}" cy="${y(ma5)}" r="1.15" fill="${chartColors.ma5}"/>`;
-      if (ma20 != null) svg += `<circle class="ma-point ma20-point" cx="${cx}" cy="${y(ma20)}" r="1.15" fill="${chartColors.ma20}"/>`;
+      maPeriods.forEach(period => { const average = movingAverage(currentRows, i, period); if (visibleMas.has(period) && average != null) svg += `<circle class="ma-point ma${period}-point" cx="${cx}" cy="${y(average)}" r="1.15" fill="${chartColors[`ma${period}`]}"/>`; });
     });
     function line(period, color, name) { const pts = currentRows.map((r, i) => { const v = movingAverage(currentRows, i, period); return v == null ? null : `${x(i)},${y(v)}`; }).filter(Boolean).join(" "); return pts ? `<polyline class="ma-line ${name}" points="${pts}" fill="none" stroke="${color}" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>` : ""; }
     if (chartType === "line") svg += `<polyline points="${currentRows.map((r, i) => `${x(i)},${y(Number(r.close))}`).join(" ")}" fill="none" stroke="${chartColors.accent}" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>`;
-    svg += line(5, chartColors.ma5, "ma5-line") + line(20, chartColors.ma20, "ma20-line");
+    maPeriods.forEach(period => { if (visibleMas.has(period)) svg += line(period, chartColors[`ma${period}`], `ma${period}-line`); });
     svg += `<polyline class="kd-line k-line" points="${kd.map((v,i)=>`${x(i)},${ky(v.k)}`).join(" ")}" fill="none" stroke="${chartColors.k}" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/><polyline class="kd-line d-line" points="${kd.map((v,i)=>`${x(i)},${ky(v.d)}`).join(" ")}" fill="none" stroke="${chartColors.d}" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>`;
     svg += `<line id="hoverLine" class="crosshair" x1="${left}" x2="${left}" y1="${top}" y2="${kdBottom}" visibility="hidden"/>`;
     svg += `<rect id="chartHit" x="${left}" y="${top}" width="${plotW}" height="${kdBottom - top}" fill="transparent" pointer-events="all"/> </svg>`;
@@ -245,5 +277,9 @@
     updateChartType();
     if (currentRows.length) drawChart();
   }));
-  updateChartType(); fillEtfs(); fillSecurities();
+  document.querySelectorAll("[data-ma-period]").forEach(input => input.addEventListener("change", () => {
+    const period = Number(input.dataset.maPeriod); input.checked ? visibleMas.add(period) : visibleMas.delete(period);
+    localStorage.setItem("etf-visible-mas", JSON.stringify([...visibleMas])); updateMaControls(); if (currentRows.length) drawChart();
+  }));
+  updateChartType(); updateMaControls(); fillEtfs(); fillSecurities();
 })();

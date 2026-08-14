@@ -27,6 +27,7 @@ import re
 import subprocess
 import sys
 import time
+import urllib.parse
 import urllib.request
 import zoneinfo
 
@@ -66,6 +67,7 @@ TWSE_MARGIN_URL = "https://www.twse.com.tw/exchangeReport/MI_MARGN?date={date}&s
 TPEX_MARGIN_URL = "https://www.tpex.org.tw/openapi/v1/tpex_mainboard_margin_balance?date={date}"
 # ETF 總覽：證交所 ETF e添富商品頁（伺服器端含資產規模、受益人次、分類）
 TWSE_ETF_INFO_URL = "https://www.twse.com.tw/zh/ETFortune/etfInfo/{etf_id}"
+TWSE_ETF_NAV_URL = "https://www.twse.com.tw/zh/ETFortune/ajaxEtfInfoChart"
 # 股東／受益人持股級距：TDCC 官方開放 CSV（每週最後營業日）
 TDCC_DISTRIBUTION_URL = "https://opendata.tdcc.com.tw/getOD.ashx?id=1-5"
 # 海外行情：Yahoo Finance（免金鑰）。市場別 -> Yahoo 代號後綴
@@ -134,6 +136,17 @@ def fetch_json_retry(url, attempts=3, delay=2):
                     attempt + 1, attempts, exc))
                 time.sleep(delay)
     raise last_error
+
+
+def fetch_form_json(url, values):
+    """POST 表單並解析 JSON；供證交所 ETF e添富圖表資料使用。"""
+    encoded = urllib.parse.urlencode(values).encode("utf-8")
+    req = urllib.request.Request(url, data=encoded, headers={
+        "User-Agent": USER_AGENT,
+        "Content-Type": "application/x-www-form-urlencoded; charset=UTF-8",
+    })
+    with urllib.request.urlopen(req, timeout=30) as resp:
+        return json.loads(resp.read().decode("utf-8", errors="ignore"))
 
 
 def _num(value):
@@ -472,12 +485,34 @@ def parse_twse_etf_overview(page_html):
     }
 
 
+def fetch_twse_etf_nav(etf_id, days=45):
+    """取得每日正式淨值與證交所公布的收盤折溢價率。"""
+    end = datetime.datetime.now(TZ_TAIPEI).date()
+    start = end - datetime.timedelta(days=days)
+    payload = fetch_form_json(TWSE_ETF_NAV_URL, {
+        "id": etf_id,
+        "startDate": start.strftime("%Y/%m/%d"),
+        "endDate": end.strftime("%Y/%m/%d"),
+        "type": "fundPric",
+    })
+    nav_by_date = {str(row.get("date", "")).replace("/", "-"): _num(row.get("count"))
+                   for row in payload.get("netPrice", [])}
+    premium_by_date = {str(row.get("date", "")).replace("/", "-"): _num(row.get("count"))
+                       for row in payload.get("atmps", [])}
+    return [{"date": date, "nav": nav_by_date[date], "premiumPct": premium_by_date.get(date)}
+            for date in sorted(nav_by_date) if nav_by_date[date] is not None]
+
+
 def fetch_twse_etf_overviews(etf_ids):
     """抓取 ETF 總覽資料；單檔失敗不影響其他資料。"""
     result = {}
     for etf_id in etf_ids:
         try:
             overview = parse_twse_etf_overview(curl_text(TWSE_ETF_INFO_URL.format(etf_id=etf_id)))
+            try:
+                overview["navHistory"] = fetch_twse_etf_nav(etf_id)
+            except Exception as exc:
+                print("  ! ETF 淨值抓取失敗 {}：{}".format(etf_id, exc))
             if overview.get("name") or overview.get("fundSizeHundredMillion") is not None:
                 result[etf_id] = overview
         except Exception as exc:
@@ -919,7 +954,8 @@ def update_reference_data(etf_ids):
     distribution = load_webapp_json("shareholder_distribution.json")
     fresh_overview = fetch_twse_etf_overviews(etf_ids)
     fresh_distribution = fetch_tdcc_distribution(etf_ids)
-    overview.update(fresh_overview)
+    for code, values in fresh_overview.items():
+        overview[code] = dict(overview.get(code, {}), **values)
     distribution.update(fresh_distribution)
     save_webapp_json("etf_overview.json", overview)
     save_webapp_json("shareholder_distribution.json", distribution)
