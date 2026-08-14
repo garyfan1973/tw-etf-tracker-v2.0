@@ -125,6 +125,13 @@
     "business": "無代號海外成分股，暫無可用公開摘要。",
     "source": ""
   },
+  "2026/09台股指數期貨": {
+    "name": "2026/09台股指數期貨",
+    "market": "",
+    "industry": "",
+    "business": "無代號海外成分股，暫無可用公開摘要。",
+    "source": ""
+  },
   "2027": {
     "name": "大成鋼",
     "market": "TW",
@@ -845,6 +852,13 @@
     "industry": "半導體業",
     "business": "臺灣上市公司；主要業務請參考公司網站。",
     "source": "臺灣證券交易所"
+  },
+  "4062": {
+    "name": "IBIDEN",
+    "market": "JP",
+    "industry": "",
+    "business": "無代號海外成分股，暫無可用公開摘要。",
+    "source": ""
   },
   "4441": {
     "name": "振大環球",
@@ -1600,7 +1614,7 @@
     "name": "Lam Research",
     "market": "US",
     "industry": "Semiconductor Equipment & Materials",
-    "business": "Lam Research Corporation designs, manufactures, markets, refurbishes, and services semiconductor processing equipment used in the fabrication of integrated circuits in the United States, China, Korea, Taiwan, Japan, Southeast Asia, and Europe. The company offers ALTUS systems to deposit conformal or selective films for tungsten or molybdenum metallization applications; SABRE electrochemical deposition products for copper interconnect transition that offers copper damascene manufacturing; SPEED gapfill high-density plasma chemical vapor deposition (CVD) products; Striker single-wafer atomic layer deposition products for dielectric film solutions; and VECTOR plasma-enhanced CVD products. It also provides Flex for dielectric etch applications; Vantex, a dielectric etch system that provides RF technology and repeatable wafer-to-wafer performance enabled by Equipment Intelligence solutions; Kiyo for conductor etch applications; Syndion for through-silicon via etch applications; and Versys metal products for metal etch processes. In addition, the company offers Coronus bevel clean products to enhance die yield; and Da Vinci, DV-Prime, EOS, and SP series products to address various wafer cleaning applications. Further, it provides Reliant deposition, etch, and clean products; and Sense.i platform products, as well as customer service, spares, and upgrades. Lam Research Corporation was incorporated in 1980 and is headquartered in Fremont, California.",
+    "business": "Lam Research Corporation designs, manufactures, markets, refurbishes, and services semiconductor processing equipment used in the fabrication of integrated circuits in the United States, China, Korea, Taiwan, Japan, Southeast Asia, and Europe. The company offers ALTUS systems to deposit conformal or selective films for tungsten or molybdenum metallization applications; SABRE electrochemical deposition products for copper interconnect transition, which support copper damascene manufacturing; Striker single-wafer atomic layer deposition products for dielectric film solutions; and VECTOR plasma-enhanced chemical vapor deposition (CVD) products. It also provides Akara, a conductor etch system designed to enhance etch precision, selectivity, and defect control; Argos, Prevos, and Selis, which are selective etch systems used in the fabrication of advanced logic and memory devices that require precise control at nanoscale dimensions; Flex for dielectric etch applications; Vantex, a dielectric etch system that provides RF technology and repeatable wafer-to-wafer performance enabled by Equipment Intelligence solutions; Kiyo for conductor etch applications; Syndion for deep silicon etch; and Versys metal products for metal etch processes. In addition, the company offers Coronus bevel clean products to enhance die yield and Da Vinci, DV-Prime, EOS, and SP series products to address various wafer cleaning applications. Further, it provides Reliant deposition, etch, and clean products; Sense.i platform products; and customer service, spares, and upgrades. Lam Research Corporation was incorporated in 1980 and is headquartered in Fremont, California.",
     "source": "Stock Analysis",
     "sector": "Technology"
   },
@@ -1859,6 +1873,14 @@
     "source": "Stock Analysis",
     "sector": "Technology"
   },
+  "WOLF": {
+    "name": "Wolfspeed",
+    "market": "US",
+    "industry": "Semiconductors",
+    "business": "Wolfspeed, Inc., a semiconductor company, focuses on silicon carbide materials and devices for power applications in Europe, Hong Kong, Singapore, China, rest of Asia Pacific, Japan, the United States, and internationally. The company offers silicon carbide and gallium nitride (GaN) materials, including silicon carbide bare wafers, epitaxial wafers, and GaN epitaxial layers on silicon carbide wafers to manufacture products for RF, power, and other applications. It also provides power devices, such as silicon carbide Schottky diodes, metal oxide semiconductor field effect transistors (MOSFETs), and power modules for customers and distributors to use in various applications of automotive domains, including electric vehicles and fast charging, as well as existing and emerging applications in the industrial and energy domain, such as AI data centers, grid modernization, and renewable energy and storage. The company was formerly known as Cree, Inc. and changed its name to Wolfspeed, Inc. in October 2021. Wolfspeed, Inc. was founded in 1987 and is headquartered in Durham, North Carolina.",
+    "source": "Stock Analysis",
+    "sector": "Technology"
+  },
   "台指期貨 2026/08": {
     "name": "台指期貨 2026/08",
     "market": "",
@@ -1868,6 +1890,13 @@
   },
   "台指期貨(B)": {
     "name": "台指期貨(B)",
+    "market": "",
+    "industry": "",
+    "business": "無代號海外成分股，暫無可用公開摘要。",
+    "source": ""
+  },
+  "台指期貨(B) 2026/08": {
+    "name": "台指期貨(B) 2026/08",
     "market": "",
     "industry": "",
     "business": "無代號海外成分股，暫無可用公開摘要。",
