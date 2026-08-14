@@ -5,6 +5,7 @@
   let currentRows = [], candlePoints = [], chartType = localStorage.getItem("etf-chart-type") === "line" ? "line" : "candle";
   let personalTrades = { key:"", markers:[], openShares:0, averageCost:null, currency:"" };
   let financialRequestKey = "";
+  let financialChartMode = ["both", "bar", "line"].includes(localStorage.getItem("financial-chart-mode")) ? localStorage.getItem("financial-chart-mode") : "both";
   const maPeriods = [5, 10, 20];
   let visibleMas;
   try {
@@ -271,18 +272,24 @@
     const box = $("financialPanel"), rows = payload.years || [], meta = financialMetrics[metric];
     const values = rows.map(row => Number(row[metric])), valid = values.every(Number.isFinite);
     if (!valid || rows.length < 2) { box.querySelector(".financial-content").innerHTML = '<div class="financial-empty">這項指標的年度資料不足。</div>'; return; }
-    const width = 760, height = 270, padL = 70, padR = 35, padT = 35, padB = 45;
+    const width = 760, height = 270, padL = 70, padR = 70, padT = 35, padB = 45;
     const floor = Math.min(0, ...values), ceiling = Math.max(0, ...values), span = ceiling - floor || 1;
     const x = index => padL + index * (width - padL - padR) / Math.max(rows.length - 1, 1);
     const y = value => padT + (ceiling - value) * (height - padT - padB) / span;
-    const points = values.map((value, index) => `${x(index)},${y(value)}`).join(" ");
-    const labels = rows.map((row, index) => `<g><circle cx="${x(index)}" cy="${y(values[index])}" r="5" fill="var(--accent)"/><text x="${x(index)}" y="${Math.max(16, y(values[index]) - 13)}" text-anchor="middle" class="financial-value">${esc(metric === "eps" ? price(values[index]) : compactMoney(values[index], ""))}</text><text x="${x(index)}" y="${height - 14}" text-anchor="middle" class="axis">${esc(row.year)}</text></g>`).join("");
+    const points = values.map((value, index) => `${x(index)},${y(value)}`).join(" "), baseline = y(0), barWidth = 92;
+    const showBar = financialChartMode === "both" || financialChartMode === "bar", showLine = financialChartMode === "both" || financialChartMode === "line";
+    const bars = showBar ? values.map((value, index) => {
+      const valueY = y(value), rectY = Math.min(valueY, baseline), rectHeight = Math.max(1, Math.abs(baseline - valueY));
+      return `<rect x="${x(index) - barWidth / 2}" y="${rectY}" width="${barWidth}" height="${rectHeight}" rx="5" class="financial-bar"/>`;
+    }).join("") : "";
+    const trend = showLine ? `<polyline points="${points}" class="financial-line"/>${values.map((value, index) => `<circle cx="${x(index)}" cy="${y(value)}" r="5" class="financial-dot"/>`).join("")}` : "";
+    const labels = rows.map((row, index) => `<g><text x="${x(index)}" y="${Math.max(16, y(values[index]) - 13)}" text-anchor="middle" class="financial-value">${esc(metric === "eps" ? price(values[index]) : compactMoney(values[index], ""))}</text><text x="${x(index)}" y="${height - 14}" text-anchor="middle" class="axis">${esc(row.year)}</text></g>`).join("");
     const latest = rows.at(-1), previous = rows.at(-2), currency = latest.currency || "";
     const latestValue = metric === "eps" ? `${price(latest[metric])} ${currency}` : compactMoney(latest[metric], currency);
     const yoy = growthText(Number(latest[metric]), Number(previous[metric]));
     const operatingMargin = Number.isFinite(Number(latest.revenue)) && Number.isFinite(Number(latest.operatingIncome)) && Number(latest.revenue) !== 0 ? Number(latest.operatingIncome) / Number(latest.revenue) * 100 : null;
     const netMargin = Number.isFinite(Number(latest.revenue)) && Number.isFinite(Number(latest.netIncome)) && Number(latest.revenue) !== 0 ? Number(latest.netIncome) / Number(latest.revenue) * 100 : null;
-    box.querySelector(".financial-content").innerHTML = `<div class="financial-summary"><div><span>${esc(latest.year)} ${esc(meta.label)}</span><strong>${esc(latestValue)}</strong></div><div><span>年增率</span><strong class="${yoy.startsWith("+") ? "up" : yoy.startsWith("-") ? "down" : ""}">${esc(yoy)}</strong></div><div><span>營業利益率</span><strong>${operatingMargin == null ? "—" : operatingMargin.toFixed(1) + "%"}</strong></div><div><span>淨利率</span><strong>${netMargin == null ? "—" : netMargin.toFixed(1) + "%"}</strong></div></div><div class="financial-chart"><svg viewBox="0 0 ${width} ${height}" role="img" aria-label="${esc(meta.label)}近三年趨勢"><line x1="${padL}" x2="${width-padR}" y1="${y(0)}" y2="${y(0)}" class="grid"/><polyline points="${points}" fill="none" stroke="var(--accent)" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>${labels}</svg></div><div class="financial-note">年度合併財報・幣別 ${esc(currency || "未標示")}；不同幣別公司不宜直接比較金額。資料來源：<a href="https://finance.yahoo.com/quote/${encodeURIComponent(payload.symbol)}/financials/" target="_blank" rel="noopener noreferrer">Yahoo Finance</a></div>`;
+    box.querySelector(".financial-content").innerHTML = `<div class="financial-summary"><div><span>${esc(latest.year)} ${esc(meta.label)}</span><strong>${esc(latestValue)}</strong></div><div><span>年增率</span><strong class="${yoy.startsWith("+") ? "up" : yoy.startsWith("-") ? "down" : ""}">${esc(yoy)}</strong></div><div><span>營業利益率</span><strong>${operatingMargin == null ? "—" : operatingMargin.toFixed(1) + "%"}</strong></div><div><span>淨利率</span><strong>${netMargin == null ? "—" : netMargin.toFixed(1) + "%"}</strong></div></div><div class="financial-chart"><svg viewBox="0 0 ${width} ${height}" role="img" aria-label="${esc(meta.label)}近三年${financialChartMode === "both" ? "長條與折線" : financialChartMode === "bar" ? "長條" : "折線"}圖"><line x1="${padL}" x2="${width-padR}" y1="${baseline}" y2="${baseline}" class="grid financial-zero"/>${bars}${trend}${labels}</svg></div><div class="financial-note">年度合併財報・幣別 ${esc(currency || "未標示")}；長條從 0 起算，折線連接同一組年度數值。不同幣別公司不宜直接比較金額。資料來源：<a href="https://finance.yahoo.com/quote/${encodeURIComponent(payload.symbol)}/financials/" target="_blank" rel="noopener noreferrer">Yahoo Finance</a></div>`;
   }
   async function renderFinancials(code, security, name) {
     const box = $("financialPanel"); if (!box) return;
@@ -296,7 +303,17 @@
       if (financialRequestKey !== key) return;
       if (!response.ok || !payload.ok) throw new Error(payload.error || "財務資料暫時無法取得");
       if (!payload.years?.length) throw new Error("目前查無近三年完整年度財報");
-      box.innerHTML = `<div class="financial-heading"><div><h3>近三年財報趨勢</h3><p>${esc(name)}・${esc(payload.years[0].year)}–${esc(payload.years.at(-1).year)} 年度合併財報</p></div><span>${esc(payload.symbol)}</span></div><div class="financial-tabs" role="group" aria-label="選擇財務指標">${Object.entries(financialMetrics).map(([metric, item], index) => `<button type="button" data-financial-metric="${metric}" class="${index === 0 ? "active" : ""}">${item.label}</button>`).join("")}</div><div class="financial-content"></div>`;
+      box.innerHTML = `<div class="financial-heading"><div><h3>近三年財報趨勢</h3><p>${esc(name)}・${esc(payload.years[0].year)}–${esc(payload.years.at(-1).year)} 年度合併財報</p></div><span>${esc(payload.symbol)}</span></div><div class="financial-controls"><div class="financial-tabs" role="group" aria-label="選擇財務指標">${Object.entries(financialMetrics).map(([metric, item], index) => `<button type="button" data-financial-metric="${metric}" class="${index === 0 ? "active" : ""}">${item.label}</button>`).join("")}</div><div class="financial-view" role="group" aria-label="選擇財報圖表類型"><span>圖型</span><button type="button" data-financial-mode="both">長條＋折線</button><button type="button" data-financial-mode="bar">長條</button><button type="button" data-financial-mode="line">折線</button></div></div><div class="financial-content"></div>`;
+      box.querySelectorAll("[data-financial-mode]").forEach(button => {
+        const active = button.dataset.financialMode === financialChartMode;
+        button.classList.toggle("active", active); button.setAttribute("aria-pressed", String(active));
+        button.addEventListener("click", () => {
+          financialChartMode = button.dataset.financialMode; localStorage.setItem("financial-chart-mode", financialChartMode);
+          box.querySelectorAll("[data-financial-mode]").forEach(item => { const selected = item === button; item.classList.toggle("active", selected); item.setAttribute("aria-pressed", String(selected)); });
+          const activeMetric = box.querySelector("[data-financial-metric].active")?.dataset.financialMetric || "revenue";
+          renderFinancialChart(payload, activeMetric);
+        });
+      });
       box.querySelectorAll("[data-financial-metric]").forEach(button => button.addEventListener("click", () => {
         box.querySelectorAll("[data-financial-metric]").forEach(item => item.classList.toggle("active", item === button));
         renderFinancialChart(payload, button.dataset.financialMetric);
