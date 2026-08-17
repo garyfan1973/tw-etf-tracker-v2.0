@@ -62,10 +62,11 @@
   }
   function bollingerValues(rows, index, period = 20, multiplier = 2) {
     const values = rows.slice(Math.max(0, index - period + 1), index + 1).map(r => Number(r.close));
-    if (values.length < period) return null;
-    const mean = values.reduce((a, b) => a + b, 0) / period;
-    const deviation = Math.sqrt(values.reduce((sum, value) => sum + (value - mean) ** 2, 0) / period);
-    return { mid:mean, upper:mean + multiplier * deviation, lower:mean - multiplier * deviation };
+    if (values.length < 2) return null;
+    const sampleSize = values.length;
+    const mean = values.reduce((a, b) => a + b, 0) / sampleSize;
+    const deviation = Math.sqrt(values.reduce((sum, value) => sum + (value - mean) ** 2, 0) / sampleSize);
+    return { mid:mean, upper:mean + multiplier * deviation, lower:mean - multiplier * deviation, sampleSize, warming:sampleSize < period };
   }
   function emaValues(rows, period) {
     const alpha = 2 / (period + 1), result = [];
@@ -83,12 +84,14 @@
   }
   function rsiValues(rows, period = 14) {
     return rows.map((_, index) => {
-      if (index < period) return null;
+      if (index < 1) return null;
       let gains = 0, losses = 0;
-      for (let i = index - period + 1; i <= index; i++) {
+      const start = Math.max(1, index - period + 1);
+      for (let i = start; i <= index; i++) {
         const change = Number(rows[i].close) - Number(rows[i - 1].close);
         if (change >= 0) gains += change; else losses -= change;
       }
+      if (gains === 0 && losses === 0) return 50;
       if (losses === 0) return 100;
       const rs = gains / losses;
       return 100 - 100 / (1 + rs);
@@ -219,7 +222,8 @@
   }
   function updateIndicatorControls() {
     document.querySelectorAll("[data-indicator]").forEach(input => { input.checked = visibleIndicators.has(input.dataset.indicator); });
-    ["bollinger", "macd", "rsi"].forEach(name => { const legend = $(`${name}Legend`); if (legend) legend.style.display = visibleIndicators.has(name) ? "inline-flex" : "none"; });
+    const legendIds = { bollinger:"bbLegend", macd:"macdLegend", rsi:"rsiLegend" };
+    Object.entries(legendIds).forEach(([name, id]) => { const legend = $(id); if (legend) legend.style.display = visibleIndicators.has(name) ? "inline-flex" : "none"; });
   }
   function premiumTone(value) {
     if (value == null) return { label:"資料不足", key:"neutral", note:"尚無同日淨值資料" };
@@ -430,7 +434,13 @@
     [0, .25, .5, .75, 1].forEach(t => { const yy = top + t * priceH, val = max - t * (max - min); svg += `<line x1="${left}" x2="${W - right}" y1="${yy}" y2="${yy}" class="grid"/><text x="4" y="${yy + 4}" class="axis">${price(val)}</text>`; });
     svg += `<line x1="${left}" x2="${W - right}" y1="${volumeBottom}" y2="${volumeBottom}" class="grid"/>`;
     [20,50,80].forEach(v => svg += `<line x1="${left}" x2="${W - right}" y1="${ky(v)}" y2="${ky(v)}" class="grid${v===50?'':' kd-threshold'}"/><text x="24" y="${ky(v)+4}" class="axis">${v}</text>`);
-    svg += `<text x="4" y="${kdTop + 12}" class="axis">KD</text><text x="${x(0)}" y="${H - 8}" text-anchor="middle" class="axis">${dateLabel(currentRows[0].date)}</text><text x="${x(currentRows.length - 1)}" y="${H - 8}" text-anchor="middle" class="axis">${dateLabel(currentRows.at(-1).date)}</text>`;
+    svg += `<text x="4" y="${kdPanel.top + 12}" class="axis">KD</text>`;
+    if (macdPanel) svg += `<line x1="${left}" x2="${W-right}" y1="${macdY(0)}" y2="${macdY(0)}" class="grid kd-threshold"/><text x="4" y="${macdPanel.top + 12}" class="axis">MACD</text>`;
+    if (rsiPanel) {
+      [30, 50, 70].forEach(value => svg += `<line x1="${left}" x2="${W-right}" y1="${rsiY(value)}" y2="${rsiY(value)}" class="grid${value === 50 ? "" : " kd-threshold"}"/><text x="30" y="${rsiY(value)+4}" class="axis">${value}</text>`);
+      svg += `<text x="4" y="${rsiPanel.top + 12}" class="axis">RSI</text>`;
+    }
+    svg += `<text x="${x(0)}" y="${chartHeight - 8}" text-anchor="middle" class="axis">${dateLabel(currentRows[0].date)}</text><text x="${x(currentRows.length - 1)}" y="${chartHeight - 8}" text-anchor="middle" class="axis">${dateLabel(currentRows.at(-1).date)}</text>`;
     currentRows.forEach((r, i) => {
       const cx = x(i), candleW = Math.max(4, Math.min(18, plotW / Math.max(currentRows.length, 1) * .56)), rising = Number(r.close) >= Number(r.open), color = rising ? "var(--up)" : "var(--down)";
       const bodyY = y(Math.max(r.open, r.close)), bodyH = Math.max(1.5, Math.abs(y(r.open) - y(r.close)));
@@ -463,8 +473,9 @@
       svg += `<polygon points="${points}" fill="${color}" stroke="var(--card)" stroke-width="1.5"/><text x="${cx}" y="${buy ? cy+17 : cy-10}" text-anchor="middle" fill="${color}" font-size="10" font-weight="700">${buy ? "買" : "賣"}</text>`;
     });
     svg += `<polyline class="kd-line k-line" points="${kd.map((v,i)=>`${x(i)},${ky(v.k)}`).join(" ")}" fill="none" stroke="${chartColors.k}" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/><polyline class="kd-line d-line" points="${kd.map((v,i)=>`${x(i)},${ky(v.d)}`).join(" ")}" fill="none" stroke="${chartColors.d}" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>`;
-    svg += `<line id="hoverLine" class="crosshair" x1="${left}" x2="${left}" y1="${top}" y2="${H}" visibility="hidden"/>`;
-    svg += `<rect id="chartHit" x="${left}" y="${top}" width="${plotW}" height="${H - top}" fill="transparent" pointer-events="all"/> </svg>`;
+    svg += `<line id="hoverLine" class="crosshair" x1="${left}" x2="${left}" y1="${top}" y2="${chartBottom}" visibility="hidden"/>`;
+    svg += `<rect id="chartHit" x="${left}" y="${top}" width="${plotW}" height="${chartBottom - top}" fill="transparent" pointer-events="all"/> </svg>`;
+    svg = svg.replace(`viewBox="0 0 ${W} ${H}"`, `viewBox="0 0 ${W} ${chartHeight}"`);
     $("chartBox").innerHTML = svg;
     const updateTip = event => {
       const rect = event.currentTarget.getBoundingClientRect(), position = (event.clientX - rect.left) / rect.width * plotW + left;
@@ -483,7 +494,7 @@
       tip.style.top = "0px";
       const tipWidth = tip.offsetWidth, tipHeight = tip.offsetHeight;
       const pointX = chartRect.left + point.x / W * chartRect.width;
-      const pointY = chartRect.top + point.y / H * chartRect.height;
+      const pointY = chartRect.top + point.y / chartHeight * chartRect.height;
       let leftPos = pointX - wrapRect.left + 18;
       if (leftPos + tipWidth > wrapRect.width - 8) leftPos = pointX - wrapRect.left - tipWidth - 18;
       let topPos = pointY - wrapRect.top - tipHeight / 2;
