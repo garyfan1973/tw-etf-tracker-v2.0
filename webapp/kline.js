@@ -542,21 +542,30 @@
       const r = point.row; $("hoverLine").setAttribute("x1", point.x); $("hoverLine").setAttribute("x2", point.x); $("hoverLine").setAttribute("visibility", "visible");
       const chartRect = $("chartBox").getBoundingClientRect(), wrapRect = document.querySelector(".kline-chart-wrap, .chart-wrap").getBoundingClientRect(), tip = $("tip");
       const index = candlePoints.indexOf(point), indicator = kd[index];
-      const dayTrades = personalTrades.markers.filter(fill => fill.fill_date === r.date);
-      const tradeHtml = dayTrades.map(fill => `<br><b class="${fill.side === "buy" ? "trade-buy-text" : "trade-sell-text"}">${fill.side === "buy" ? "買進" : "賣出"} ${num(fill.shares)} 股 @ ${price(fill.price)}</b>`).join("");
-      const bbText = visibleIndicators.has("bollinger") && bb[index] ? `<br>布林 ${price(bb[index].upper)}／${price(bb[index].mid)}／${price(bb[index].lower)}` : "";
-      const macdText = visibleIndicators.has("macd") && macd[index]?.macd != null ? `<br>MACD ${price(macd[index].macd)}　訊號 ${price(macd[index].signal)}` : "";
-      const rsiText = visibleIndicators.has("rsi") && rsi[index] != null ? `<br>RSI ${price(rsi[index])}` : "";
-      tip.innerHTML = `<strong>${esc(r.date)}</strong><br>開 ${price(r.open)}　高 ${price(r.high)}<br>低 ${price(r.low)}　收 ${price(r.close)}<br>量 ${Math.round(Number(r.volume || 0) / 1000).toLocaleString("en-US")} 張<br>K ${price(indicator.k)}　D ${price(indicator.d)}${bbText}${macdText}${rsiText}${tradeHtml}`;
+      const pointerY = top + ((event.clientY - rect.top) / rect.height) * (chartBottom - top);
+      const zone = rsiPanel && pointerY >= rsiPanel.top ? "rsi"
+        : macdPanel && pointerY >= macdPanel.top ? "macd"
+        : pointerY >= kdPanel.top ? "kd"
+        : "price";
+      const dateHtml = `<strong class="tip-date">${esc(r.date)}</strong>`;
+      const priceHtml = `<div class="tip-grid"><span>開 ${price(r.open)}</span><span>高 ${price(r.high)}</span><span>低 ${price(r.low)}</span><span>收 ${price(r.close)}</span><span>量 ${Math.round(Number(r.volume || 0) / 1000).toLocaleString("en-US")} 張</span></div>`;
+      const bbHtml = visibleIndicators.has("bollinger") && bb[index] ? `<div class="tip-extra">布林 ${price(bb[index].upper)}／${price(bb[index].mid)}／${price(bb[index].lower)}</div>` : "";
+      const kdHtml = `<div class="tip-extra">K ${price(indicator.k)}　D ${price(indicator.d)}</div>`;
+      const macdHtml = macd[index]?.macd != null ? `<div class="tip-extra">MACD ${price(macd[index].macd)}　訊號 ${price(macd[index].signal)}<br>柱 ${price(macd[index].histogram)}</div>` : "";
+      const rsiHtml = rsi[index] != null ? `<div class="tip-extra">RSI ${price(rsi[index])}</div>` : "";
+      tip.innerHTML = zone === "kd" ? dateHtml + kdHtml
+        : zone === "macd" ? dateHtml + macdHtml
+        : zone === "rsi" ? dateHtml + rsiHtml
+        : dateHtml + priceHtml + bbHtml;
       tip.style.visibility = "hidden";
       tip.style.left = "0px";
       tip.style.top = "0px";
       const tipWidth = tip.offsetWidth, tipHeight = tip.offsetHeight;
       const pointX = chartRect.left + point.x / W * chartRect.width;
-      const pointY = chartRect.top + point.y / chartHeight * chartRect.height;
+      const hoverY = chartRect.top + pointerY / chartHeight * chartRect.height;
       let leftPos = pointX - wrapRect.left + 18;
       if (leftPos + tipWidth > wrapRect.width - 8) leftPos = pointX - wrapRect.left - tipWidth - 18;
-      let topPos = pointY - wrapRect.top - tipHeight / 2;
+      let topPos = hoverY - wrapRect.top - tipHeight / 2;
       leftPos = Math.max(8, Math.min(wrapRect.width - tipWidth - 8, leftPos));
       topPos = Math.max(8, Math.min(wrapRect.height - tipHeight - 8, topPos));
       tip.style.left = `${leftPos}px`;

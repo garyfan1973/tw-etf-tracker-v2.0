@@ -121,7 +121,12 @@
     #chartBox .kd-threshold { stroke-dasharray:4 4; }
     #chartBox .axis { fill:var(--muted); font-size:11px; }
     #chartBox .crosshair { stroke:var(--muted); stroke-width:1; stroke-dasharray:4 4; opacity:.7; }
-    #tip { position:absolute; z-index:2; top:8px; left:8px; width:220px; max-width:calc(100% - 16px); padding:8px 10px; border:1px solid var(--border); border-radius:8px; background:var(--card); color:var(--text); font-size:12px; line-height:1.7; min-height:24px; pointer-events:none; box-shadow:0 2px 8px rgba(0,0,0,.08); }
+    #tip { position:absolute; z-index:2; top:8px; left:8px; width:184px; max-width:calc(100% - 16px); padding:6px 8px; border:1px solid var(--border); border-radius:7px; background:var(--card); color:var(--text); font-size:11px; line-height:1.45; min-height:24px; pointer-events:none; box-shadow:0 2px 8px rgba(0,0,0,.08); }
+    #tip .tip-date { display:block; margin-bottom:2px; font-size:11px; }
+    #tip .tip-grid { display:grid; grid-template-columns:1fr 1fr; column-gap:10px; }
+    #tip .tip-grid span { white-space:nowrap; }
+    #tip .tip-extra { color:var(--muted); }
+    #tip .tip-extra span, #tip .tip-extra b { display:block; }
     .signal-panel { margin-top:18px; padding-top:16px; border-top:1px solid var(--border); }
     .signal-heading { display:flex; justify-content:space-between; gap:16px; align-items:flex-start; }
     .signal-heading h3 { margin:0 0 4px; font-size:18px; } .signal-heading p, .signal-date, .signal-footnote { margin:0; color:var(--muted); font-size:12px; }
@@ -468,7 +473,7 @@
   <script src="theme.js"></script>
   <script src="config.js"></script>
   <script src="data.js"></script>
-  <script src="kline.js?v=20260817-4"></script>
+  <script src="kline.js?v=20260818-2"></script>
   <script type="module" src="auth.js"></script>
   <script>
     // 若 data.js 尚未產生，給出友善提示
