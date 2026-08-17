@@ -10,7 +10,7 @@
       --bg: #f5f6f8; --card: #ffffff; --text: #1c2430; --muted: #6b7684;
       --border: #e3e7ec; --up: #d64545; --down: #1f9d55; --new: #2563eb;
       --removed: #8a8f98; --accent: #3b5bdb; --detail: #eaeefb; --chip: #eef1f6;
-      --ma5: #e9a23b; --ma10: #258fca; --ma20: #a78bca; --kd-k: #19a7a0; --kd-d: #e06b8b; --trade-buy:#3977f6; --trade-sell:#ef405f; --trade-cost:#8a63d2;
+      --ma5: #e9a23b; --ma10: #258fca; --ma20: #a78bca; --kd-k: #19a7a0; --kd-d: #e06b8b; --bb:#d97706; --bb-mid:#b45309; --macd:#7c3aed; --macd-signal:#db2777; --rsi:#0891b2; --trade-buy:#3977f6; --trade-sell:#ef405f; --trade-cost:#8a63d2;
     }
     /* 深色變數（供系統偏好與手動切換共用） */
     @media (prefers-color-scheme: dark) {
@@ -18,14 +18,14 @@
         --bg: #14181d; --card: #1c2229; --text: #e6e9ed; --muted: #98a2b0;
         --border: #2a323b; --up: #ff6b6b; --down: #51cf82; --new: #4d8dff;
         --removed: #7a828c; --accent: #6c8cff; --detail: #222c3b; --chip: #262d36;
-        --ma5: #e8b66d; --ma10: #69bde8; --ma20: #bca8dc; --kd-k: #5fd1ca; --kd-d: #f09ab1; --trade-buy:#6c9cff; --trade-sell:#ff6b8b; --trade-cost:#ba9cff;
+        --ma5: #e8b66d; --ma10: #69bde8; --ma20: #bca8dc; --kd-k: #5fd1ca; --kd-d: #f09ab1; --bb:#f0a94b; --bb-mid:#f2c078; --macd:#c4a7ff; --macd-signal:#ff9ac4; --rsi:#67d7e8; --trade-buy:#6c9cff; --trade-sell:#ff6b8b; --trade-cost:#ba9cff;
       }
     }
     :root[data-theme="dark"] {
       --bg: #14181d; --card: #1c2229; --text: #e6e9ed; --muted: #98a2b0;
       --border: #2a323b; --up: #ff6b6b; --down: #51cf82; --new: #4d8dff;
       --removed: #7a828c; --accent: #6c8cff; --detail: #222c3b; --chip: #262d36;
-      --ma5: #e8b66d; --ma10: #69bde8; --ma20: #bca8dc; --kd-k: #5fd1ca; --kd-d: #f09ab1; --trade-buy:#6c9cff; --trade-sell:#ff6b8b; --trade-cost:#ba9cff;
+      --ma5: #e8b66d; --ma10: #69bde8; --ma20: #bca8dc; --kd-k: #5fd1ca; --kd-d: #f09ab1; --bb:#f0a94b; --bb-mid:#f2c078; --macd:#c4a7ff; --macd-signal:#ff9ac4; --rsi:#67d7e8; --trade-buy:#6c9cff; --trade-sell:#ff6b8b; --trade-cost:#ba9cff;
     }
     * { box-sizing: border-box; }
     body {
@@ -101,6 +101,7 @@
     .chart-type button { border:0; border-radius:6px; padding:6px 12px; background:transparent; color:var(--muted); font:inherit; cursor:pointer; }
     .chart-type button.active { background:var(--accent); color:#fff; }
     .ma-control>span { display:block; margin-bottom:5px; color:var(--muted); font-size:12px; } .ma-options { display:flex; gap:4px; padding:3px; border:1px solid var(--border); border-radius:9px; background:var(--card); } .ma-options label { display:flex; flex-direction:row; align-items:center; gap:4px; padding:6px 8px; border-radius:6px; color:var(--text); cursor:pointer; } .ma-options label:has(input:checked) { background:var(--detail); color:var(--accent); } .ma-options input { accent-color:var(--accent); }
+    .indicator-control>span { display:block; margin-bottom:5px; color:var(--muted); font-size:12px; } .indicator-options { display:flex; gap:4px; padding:3px; border:1px solid var(--border); border-radius:9px; background:var(--card); } .indicator-options label { display:flex; align-items:center; gap:4px; padding:6px 8px; border-radius:6px; color:var(--text); cursor:pointer; white-space:nowrap; } .indicator-options label:has(input:checked) { background:var(--detail); color:var(--accent); } .indicator-options input { accent-color:var(--accent); }
     .kline-status { margin-left:auto; color:var(--muted); font-size:12px; }
     .kline-chart-head { display:flex; justify-content:space-between; align-items:baseline; gap:12px; margin:4px 0 8px; }
     .kline-chart-title { font-size:18px; font-weight:700; }
@@ -410,6 +411,7 @@
         <label>標的<select id="securitySelect"></select></label>
         <label>圖表<div class="chart-type" role="group" aria-label="圖表類型"><button type="button" data-chart-type="candle">K 線</button><button type="button" data-chart-type="line">收盤價線圖</button></div></label>
         <div class="ma-control"><span>均線</span><div class="ma-options" role="group" aria-label="選擇顯示的均線"><label><input type="checkbox" data-ma-period="5">MA5</label><label><input type="checkbox" data-ma-period="10">MA10</label><label><input type="checkbox" data-ma-period="20">MA20</label></div></div>
+        <div class="indicator-control"><span>技術指標</span><div class="indicator-options" role="group" aria-label="選擇顯示的技術指標"><label><input type="checkbox" data-indicator="bollinger">布林</label><label><input type="checkbox" data-indicator="macd">MACD</label><label><input type="checkbox" data-indicator="rsi">RSI</label></div></div>
         <div id="status" class="kline-status"></div>
       </div>
       <div class="kline-chart-head"><div id="chartTitle" class="kline-chart-title">—</div><div id="quote" class="kline-quote">—</div></div>

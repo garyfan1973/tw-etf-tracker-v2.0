@@ -1,12 +1,18 @@
 (function () {
   const $ = id => document.getElementById(id);
-  const W = 1120, H = 650, left = 62, right = 18, top = 18, priceBottom = 300, volumeTop = 325, volumeBottom = 405, kdTop = 440, kdBottom = 590;
+  const W = 1120, H = 900, left = 62, right = 18, top = 18, priceBottom = 300, volumeTop = 325, volumeBottom = 405, kdTop = 440, kdBottom = 590;
   const data = window.DATA || { etfs: {} };
   let currentRows = [], candlePoints = [], chartType = localStorage.getItem("etf-chart-type") === "line" ? "line" : "candle";
   let personalTrades = { key:"", markers:[], openShares:0, averageCost:null, currency:"" };
   let financialRequestKey = "";
   let financialChartMode = ["both", "bar", "line"].includes(localStorage.getItem("financial-chart-mode")) ? localStorage.getItem("financial-chart-mode") : "both";
   const maPeriods = [5, 10, 20];
+  const indicatorNames = ["bollinger", "macd", "rsi"];
+  let visibleIndicators;
+  try {
+    const saved = JSON.parse(localStorage.getItem("etf-visible-indicators"));
+    visibleIndicators = new Set(Array.isArray(saved) ? saved.filter(name => indicatorNames.includes(name)) : []);
+  } catch (_) { visibleIndicators = new Set(); }
   let visibleMas;
   try {
     const saved = JSON.parse(localStorage.getItem("etf-visible-mas"));
@@ -53,6 +59,40 @@
   function movingAverage(rows, index, period) {
     const values = rows.slice(Math.max(0, index - period + 1), index + 1).map(r => Number(r.close));
     return values.length === period ? values.reduce((a, b) => a + b, 0) / period : null;
+  }
+  function bollingerValues(rows, index, period = 20, multiplier = 2) {
+    const values = rows.slice(Math.max(0, index - period + 1), index + 1).map(r => Number(r.close));
+    if (values.length < period) return null;
+    const mean = values.reduce((a, b) => a + b, 0) / period;
+    const deviation = Math.sqrt(values.reduce((sum, value) => sum + (value - mean) ** 2, 0) / period);
+    return { mid:mean, upper:mean + multiplier * deviation, lower:mean - multiplier * deviation };
+  }
+  function emaValues(rows, period) {
+    const alpha = 2 / (period + 1), result = [];
+    rows.forEach((row, index) => {
+      const close = Number(row.close), previous = result[index - 1];
+      result.push(Number.isFinite(close) ? (previous == null ? close : close * alpha + previous * (1 - alpha)) : null);
+    });
+    return result;
+  }
+  function macdValues(rows) {
+    const fast = emaValues(rows, 12), slow = emaValues(rows, 26), macd = rows.map((_, i) => fast[i] == null || slow[i] == null ? null : fast[i] - slow[i]);
+    const alpha = 2 / 10, signal = [];
+    macd.forEach((value, index) => signal.push(value == null ? null : (signal[index - 1] == null ? value : value * alpha + signal[index - 1] * (1 - alpha))));
+    return rows.map((_, i) => ({ macd:macd[i], signal:signal[i], histogram:macd[i] == null || signal[i] == null ? null : macd[i] - signal[i] }));
+  }
+  function rsiValues(rows, period = 14) {
+    return rows.map((_, index) => {
+      if (index < period) return null;
+      let gains = 0, losses = 0;
+      for (let i = index - period + 1; i <= index; i++) {
+        const change = Number(rows[i].close) - Number(rows[i - 1].close);
+        if (change >= 0) gains += change; else losses -= change;
+      }
+      if (losses === 0) return 100;
+      const rs = gains / losses;
+      return 100 - 100 / (1 + rs);
+    });
   }
   function kdValues(rows) {
     let k = 50, d = 50;
@@ -176,6 +216,10 @@
   function updateMaControls() {
     document.querySelectorAll("[data-ma-period]").forEach(input => { input.checked = visibleMas.has(Number(input.dataset.maPeriod)); });
     maPeriods.forEach(period => { const legend = $(`maLegend${period}`); if (legend) legend.style.display = visibleMas.has(period) ? "inline-flex" : "none"; });
+  }
+  function updateIndicatorControls() {
+    document.querySelectorAll("[data-indicator]").forEach(input => { input.checked = visibleIndicators.has(input.dataset.indicator); });
+    ["bollinger", "macd", "rsi"].forEach(name => { const legend = $(`${name}Legend`); if (legend) legend.style.display = visibleIndicators.has(name) ? "inline-flex" : "none"; });
   }
   function premiumTone(value) {
     if (value == null) return { label:"資料不足", key:"neutral", note:"尚無同日淨值資料" };
@@ -343,6 +387,11 @@
       ma5: rootStyle.getPropertyValue("--ma5").trim() || "#e9a23b",
       ma10: rootStyle.getPropertyValue("--ma10").trim() || "#45a3d8",
       ma20: rootStyle.getPropertyValue("--ma20").trim() || "#a78bca",
+      bb: rootStyle.getPropertyValue("--bb").trim() || "#d97706",
+      bbMid: rootStyle.getPropertyValue("--bb-mid").trim() || "#b45309",
+      macd: rootStyle.getPropertyValue("--macd").trim() || "#7c3aed",
+      macdSignal: rootStyle.getPropertyValue("--macd-signal").trim() || "#db2777",
+      rsi: rootStyle.getPropertyValue("--rsi").trim() || "#0891b2",
       k: rootStyle.getPropertyValue("--kd-k").trim() || "#19a7a0",
       d: rootStyle.getPropertyValue("--kd-d").trim() || "#e06b8b",
       buy: rootStyle.getPropertyValue("--trade-buy").trim() || "#3977f6",
@@ -353,9 +402,17 @@
     const visibleTrades = personalTrades.markers.filter(fill => rowDates.has(fill.fill_date) && Number.isFinite(Number(fill.price)));
     const referenceValues = visibleTrades.map(fill => Number(fill.price));
     if (personalTrades.averageCost != null) referenceValues.push(Number(personalTrades.averageCost));
-    const values = (chartType === "line" ? currentRows.map(r => Number(r.close)) : currentRows.flatMap(r => [Number(r.low), Number(r.high)])).concat(referenceValues).filter(Number.isFinite);
+    const bb = currentRows.map((_, i) => bollingerValues(currentRows, i));
+    const macd = macdValues(currentRows), rsi = rsiValues(currentRows);
+    const indicatorValues = visibleIndicators.has("bollinger") ? bb.flatMap(v => v ? [v.upper, v.lower] : []) : [];
+    const values = (chartType === "line" ? currentRows.map(r => Number(r.close)) : currentRows.flatMap(r => [Number(r.low), Number(r.high)])).concat(referenceValues, indicatorValues).filter(Number.isFinite);
     let min = Math.min(...values), max = Math.max(...values); if (min === max) { min -= 1; max += 1; }
     const maxVol = Math.max(...currentRows.map(r => Number(r.volume) || 0), 1), plotW = W - left - right, priceH = priceBottom - top, kd = kdValues(currentRows);
+    const panels = [{ name:"KD", top:440, height:110 }];
+    if (visibleIndicators.has("macd")) panels.push({ name:"MACD", top:panels.at(-1).top + panels.at(-1).height + 28, height:100 });
+    if (visibleIndicators.has("rsi")) panels.push({ name:"RSI", top:panels.at(-1).top + panels.at(-1).height + 28, height:100 });
+    const panel = name => panels.find(item => item.name === name), kdPanel = panel("KD"), macdPanel = panel("MACD"), rsiPanel = panel("RSI");
+    const chartBottom = panels.at(-1).top + panels.at(-1).height, chartHeight = chartBottom + 42;
     // X 軸使用交易日序號，不把週末／休市日當成空白時間。資料很少時，
     // 讓 K 棒集中在圖中央並保持固定間距；資料變多後才逐步填滿圖寬。
     const slot = Math.min(34, plotW / Math.max(currentRows.length - 1, 1));
@@ -364,7 +421,11 @@
     const x = i => startX + i * slot;
     const y = v => top + (max - v) * priceH / (max - min);
     const vy = v => volumeBottom - (Number(v || 0) / maxVol) * (volumeBottom - volumeTop);
-    const ky = v => kdBottom - Number(v) / 100 * (kdBottom - kdTop);
+    const ky = v => kdPanel.top + kdPanel.height - Number(v) / 100 * kdPanel.height;
+    const extentY = (value, minValue, maxValue, panelInfo) => panelInfo.top + panelInfo.height - (value - minValue) / (maxValue - minValue || 1) * panelInfo.height;
+    const macdFlat = macd.flatMap(v => [v.macd, v.signal]).filter(Number.isFinite), macdMin = Math.min(0, ...macdFlat), macdMax = Math.max(0, ...macdFlat);
+    const macdY = value => macdPanel ? extentY(value, macdMin, macdMax, macdPanel) : 0;
+    const rsiY = value => rsiPanel ? rsiPanel.top + rsiPanel.height - Number(value) / 100 * rsiPanel.height : 0;
     let svg = `<svg viewBox="0 0 ${W} ${H}" role="img" aria-label="${esc($("chartTitle").textContent)} ${chartType === "line" ? "收盤價線圖" : "K 線圖"}">`;
     [0, .25, .5, .75, 1].forEach(t => { const yy = top + t * priceH, val = max - t * (max - min); svg += `<line x1="${left}" x2="${W - right}" y1="${yy}" y2="${yy}" class="grid"/><text x="4" y="${yy + 4}" class="axis">${price(val)}</text>`; });
     svg += `<line x1="${left}" x2="${W - right}" y1="${volumeBottom}" y2="${volumeBottom}" class="grid"/>`;
@@ -381,6 +442,20 @@
     function line(period, color, name) { const pts = currentRows.map((r, i) => { const v = movingAverage(currentRows, i, period); return v == null ? null : `${x(i)},${y(v)}`; }).filter(Boolean).join(" "); return pts ? `<polyline class="ma-line ${name}" points="${pts}" fill="none" stroke="${color}" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>` : ""; }
     if (chartType === "line") svg += `<polyline points="${currentRows.map((r, i) => `${x(i)},${y(Number(r.close))}`).join(" ")}" fill="none" stroke="${chartColors.accent}" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>`;
     maPeriods.forEach(period => { if (visibleMas.has(period)) svg += line(period, chartColors[`ma${period}`], `ma${period}-line`); });
+    function indicatorLine(values, key, color, width = 1.5, dash = "") { const points = values.map((value, i) => Number.isFinite(value) ? `${x(i)},${y(value)}` : null).filter(Boolean).join(" "); return points ? `<polyline points="${points}" fill="none" stroke="${color}" stroke-width="${width}"${dash ? ` stroke-dasharray="${dash}"` : ""} stroke-linecap="round" stroke-linejoin="round"/>` : ""; }
+    function screenLine(values, color, width = 1.5, dash = "") { const points = values.map((value, i) => Number.isFinite(value) ? `${x(i)},${value}` : null).filter(Boolean).join(" "); return points ? `<polyline points="${points}" fill="none" stroke="${color}" stroke-width="${width}"${dash ? ` stroke-dasharray="${dash}"` : ""} stroke-linecap="round" stroke-linejoin="round"/>` : ""; }
+    if (visibleIndicators.has("bollinger")) {
+      svg += indicatorLine(bb.map(v => v?.upper), "upper", chartColors.bb || "#d97706");
+      svg += indicatorLine(bb.map(v => v?.mid), "mid", chartColors.bbMid || "#b45309", 1, "4 3");
+      svg += indicatorLine(bb.map(v => v?.lower), "lower", chartColors.bb || "#d97706");
+    }
+    if (macdPanel) {
+      macd.forEach((value, i) => { if (Number.isFinite(value.histogram)) { const zero = macdY(0), barY = macdY(Math.max(0, value.histogram)), barH = Math.max(1, Math.abs(macdY(value.histogram) - zero)), width = Math.max(3, Math.min(16, plotW / Math.max(currentRows.length, 1) * .52)); svg += `<rect x="${x(i)-width/2}" y="${Math.min(barY, zero)}" width="${width}" height="${barH}" fill="${value.histogram >= 0 ? "var(--up)" : "var(--down)"}" opacity=".55"/>`; } });
+      const macdLine = key => macd.map(v => v[key]);
+      svg += screenLine(macdLine("macd").map(v => Number.isFinite(v) ? macdY(v) : null), chartColors.macd, 1.8);
+      svg += screenLine(macdLine("signal").map(v => Number.isFinite(v) ? macdY(v) : null), chartColors.macdSignal, 1.5);
+    }
+    if (rsiPanel) svg += screenLine(rsi.map(v => Number.isFinite(v) ? rsiY(v) : null), chartColors.rsi, 1.8);
     if (Number.isFinite(personalTrades.averageCost)) svg += `<line x1="${left}" x2="${W-right}" y1="${y(personalTrades.averageCost)}" y2="${y(personalTrades.averageCost)}" stroke="${chartColors.cost}" stroke-width="1.5" stroke-dasharray="7 5"/><text x="${W-right-4}" y="${y(personalTrades.averageCost)-6}" text-anchor="end" fill="${chartColors.cost}" font-size="11">持倉成本 ${price(personalTrades.averageCost)}</text>`;
     visibleTrades.forEach(fill => {
       const index = currentRows.findIndex(row => row.date === fill.fill_date), cx = x(index), cy = y(Number(fill.price)), buy = fill.side === "buy", color = buy ? chartColors.buy : chartColors.sell;
@@ -388,8 +463,8 @@
       svg += `<polygon points="${points}" fill="${color}" stroke="var(--card)" stroke-width="1.5"/><text x="${cx}" y="${buy ? cy+17 : cy-10}" text-anchor="middle" fill="${color}" font-size="10" font-weight="700">${buy ? "買" : "賣"}</text>`;
     });
     svg += `<polyline class="kd-line k-line" points="${kd.map((v,i)=>`${x(i)},${ky(v.k)}`).join(" ")}" fill="none" stroke="${chartColors.k}" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/><polyline class="kd-line d-line" points="${kd.map((v,i)=>`${x(i)},${ky(v.d)}`).join(" ")}" fill="none" stroke="${chartColors.d}" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>`;
-    svg += `<line id="hoverLine" class="crosshair" x1="${left}" x2="${left}" y1="${top}" y2="${kdBottom}" visibility="hidden"/>`;
-    svg += `<rect id="chartHit" x="${left}" y="${top}" width="${plotW}" height="${kdBottom - top}" fill="transparent" pointer-events="all"/> </svg>`;
+    svg += `<line id="hoverLine" class="crosshair" x1="${left}" x2="${left}" y1="${top}" y2="${H}" visibility="hidden"/>`;
+    svg += `<rect id="chartHit" x="${left}" y="${top}" width="${plotW}" height="${H - top}" fill="transparent" pointer-events="all"/> </svg>`;
     $("chartBox").innerHTML = svg;
     const updateTip = event => {
       const rect = event.currentTarget.getBoundingClientRect(), position = (event.clientX - rect.left) / rect.width * plotW + left;
@@ -399,7 +474,10 @@
       const index = candlePoints.indexOf(point), indicator = kd[index];
       const dayTrades = personalTrades.markers.filter(fill => fill.fill_date === r.date);
       const tradeHtml = dayTrades.map(fill => `<br><b class="${fill.side === "buy" ? "trade-buy-text" : "trade-sell-text"}">${fill.side === "buy" ? "買進" : "賣出"} ${num(fill.shares)} 股 @ ${price(fill.price)}</b>`).join("");
-      tip.innerHTML = `<strong>${esc(r.date)}</strong><br>開 ${price(r.open)}　高 ${price(r.high)}<br>低 ${price(r.low)}　收 ${price(r.close)}<br>量 ${Math.round(Number(r.volume || 0) / 1000).toLocaleString("en-US")} 張<br>K ${price(indicator.k)}　D ${price(indicator.d)}${tradeHtml}`;
+      const bbText = visibleIndicators.has("bollinger") && bb[index] ? `<br>布林 ${price(bb[index].upper)}／${price(bb[index].mid)}／${price(bb[index].lower)}` : "";
+      const macdText = visibleIndicators.has("macd") && macd[index]?.macd != null ? `<br>MACD ${price(macd[index].macd)}　訊號 ${price(macd[index].signal)}` : "";
+      const rsiText = visibleIndicators.has("rsi") && rsi[index] != null ? `<br>RSI ${price(rsi[index])}` : "";
+      tip.innerHTML = `<strong>${esc(r.date)}</strong><br>開 ${price(r.open)}　高 ${price(r.high)}<br>低 ${price(r.low)}　收 ${price(r.close)}<br>量 ${Math.round(Number(r.volume || 0) / 1000).toLocaleString("en-US")} 張<br>K ${price(indicator.k)}　D ${price(indicator.d)}${bbText}${macdText}${rsiText}${tradeHtml}`;
       tip.style.visibility = "hidden";
       tip.style.left = "0px";
       tip.style.top = "0px";
@@ -430,6 +508,13 @@
     const period = Number(input.dataset.maPeriod); input.checked ? visibleMas.add(period) : visibleMas.delete(period);
     localStorage.setItem("etf-visible-mas", JSON.stringify([...visibleMas])); updateMaControls(); if (currentRows.length) drawChart();
   }));
+  document.querySelectorAll("[data-indicator]").forEach(input => input.addEventListener("change", () => {
+    const name = input.dataset.indicator;
+    input.checked ? visibleIndicators.add(name) : visibleIndicators.delete(name);
+    localStorage.setItem("etf-visible-indicators", JSON.stringify([...visibleIndicators]));
+    updateIndicatorControls();
+    if (currentRows.length) drawChart();
+  }));
   document.addEventListener("etfwatch:change", () => loadPersonalTrades($("etfSelect").value, $("securitySelect").value));
-  updateChartType(); updateMaControls(); fillEtfs(); fillSecurities();
+  updateChartType(); updateMaControls(); updateIndicatorControls(); fillEtfs(); fillSecurities();
 })();
