@@ -25,6 +25,19 @@
   const price = n => n == null ? "—" : Number(n).toLocaleString("en-US", { minimumFractionDigits: 2, maximumFractionDigits: 2 });
   const dateLabel = d => String(d || "").slice(5).replace("-", "/");
   const esc = value => String(value ?? "").replace(/[&<>"']/g, ch => ({"&":"&amp;","<":"&lt;",">":"&gt;","\"":"&quot;","'":"&#39;"}[ch]));
+  let tooltipEnabled = true;
+  function setTooltipEnabled(enabled) {
+    tooltipEnabled = enabled;
+    const tip = $("tip"), line = $("hoverLine"), button = $("tooltipToggle");
+    if (!enabled) {
+      if (tip) tip.style.visibility = "hidden";
+      if (line) line.setAttribute("visibility", "hidden");
+    }
+    if (button) {
+      button.setAttribute("aria-pressed", String(enabled));
+      button.textContent = enabled ? "提示開" : "提示關";
+    }
+  }
 
   function etfCodes() { return Object.keys(data.etfs).sort(); }
   function holdingsFor(code) {
@@ -537,6 +550,7 @@
     svg = svg.replace(`viewBox="0 0 ${W} ${H}"`, `viewBox="0 0 ${W} ${chartHeight}"`);
     $("chartBox").innerHTML = svg;
     const updateTip = event => {
+      if (!tooltipEnabled) return;
       const rect = event.currentTarget.getBoundingClientRect(), position = (event.clientX - rect.left) / rect.width * plotW + left;
       const point = candlePoints.reduce((best, p) => Math.abs(p.x - position) < Math.abs(best.x - position) ? p : best, candlePoints[0]);
       const r = point.row; $("hoverLine").setAttribute("x1", point.x); $("hoverLine").setAttribute("x2", point.x); $("hoverLine").setAttribute("visibility", "visible");
@@ -573,7 +587,11 @@
       tip.style.visibility = "visible";
     };
     $("chartHit").addEventListener("pointermove", updateTip);
-    $("chartHit").addEventListener("pointerleave", () => $("hoverLine").setAttribute("visibility", "hidden"));
+    $("chartHit").addEventListener("contextmenu", event => { event.preventDefault(); setTooltipEnabled(false); });
+    $("chartHit").addEventListener("pointerleave", () => {
+      $("hoverLine").setAttribute("visibility", "hidden");
+      $("tip").style.visibility = "hidden";
+    });
   }
   function zoomChart(factor, ratio) {
     if (currentRows.length < 6) return;
@@ -583,6 +601,7 @@
   }
   function initChartInteractions() {
     const box = $("chartBox"), pointers = new Map();
+    box.addEventListener("contextmenu", event => { event.preventDefault(); setTooltipEnabled(false); });
     box.addEventListener("wheel", event => {
       if (!currentRows.length) return;
       event.preventDefault();
@@ -591,6 +610,7 @@
     }, { passive:false });
     box.addEventListener("pointerdown", event => {
       if (event.button !== 0 || !currentRows.length) return;
+      if (event.pointerType === "mouse") setTooltipEnabled(true);
       pointers.set(event.pointerId, { x:event.clientX, y:event.clientY });
       box.setPointerCapture?.(event.pointerId);
       if (pointers.size === 1) {
@@ -652,6 +672,7 @@
     setViewport(Math.max(0, currentRows.length - days), currentRows.length, true);
   }));
   $("rangeReset")?.addEventListener("click", () => { resetViewport(viewport.key, defaultRangeDays); drawChart(); });
+  $("tooltipToggle")?.addEventListener("click", () => setTooltipEnabled(!tooltipEnabled));
   document.addEventListener("etfwatch:change", () => loadPersonalTrades($("etfSelect").value, $("securitySelect").value));
   initChartInteractions(); updateChartType(); updateMaControls(); updateIndicatorControls(); fillEtfs(); fillSecurities();
 })();

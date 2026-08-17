@@ -121,12 +121,15 @@
     #chartBox .kd-threshold { stroke-dasharray:4 4; }
     #chartBox .axis { fill:var(--muted); font-size:11px; }
     #chartBox .crosshair { stroke:var(--muted); stroke-width:1; stroke-dasharray:4 4; opacity:.7; }
-    #tip { position:absolute; z-index:2; top:8px; left:8px; width:184px; max-width:calc(100% - 16px); padding:6px 8px; border:1px solid var(--border); border-radius:7px; background:var(--card); color:var(--text); font-size:11px; line-height:1.45; min-height:24px; pointer-events:none; box-shadow:0 2px 8px rgba(0,0,0,.08); }
-    #tip .tip-date { display:block; margin-bottom:2px; font-size:11px; }
-    #tip .tip-grid { display:grid; grid-template-columns:1fr 1fr; column-gap:10px; }
+    #tip { position:absolute; z-index:2; top:8px; left:8px; width:176px; max-width:calc(100% - 16px); padding:5px 7px; border:1px solid var(--border); border-radius:6px; background:var(--card); color:var(--text); font-size:10px; line-height:1.3; min-height:20px; pointer-events:none; box-shadow:0 2px 8px rgba(0,0,0,.08); }
+    #tip .tip-date { display:block; margin-bottom:1px; font-size:10px; }
+    #tip .tip-grid { display:grid; grid-template-columns:repeat(4,1fr); column-gap:5px; }
     #tip .tip-grid span { white-space:nowrap; }
+    #tip .tip-grid span:last-child { grid-column:1/-1; }
     #tip .tip-extra { color:var(--muted); }
     #tip .tip-extra span, #tip .tip-extra b { display:block; }
+    .tooltip-toggle { padding:4px 8px; border:1px solid var(--border); border-radius:7px; background:var(--bg); color:var(--muted); font-size:11px; cursor:pointer; }
+    .tooltip-toggle[aria-pressed="false"] { color:var(--accent); border-color:var(--accent); }
     .signal-panel { margin-top:18px; padding-top:16px; border-top:1px solid var(--border); }
     .signal-heading { display:flex; justify-content:space-between; gap:16px; align-items:flex-start; }
     .signal-heading h3 { margin:0 0 4px; font-size:18px; } .signal-heading p, .signal-date, .signal-footnote { margin:0; color:var(--muted); font-size:12px; }
@@ -428,7 +431,7 @@
       <div class="kline-legend"><span id="closeLegend" style="display:none"><i class="swatch" style="background:var(--accent)"></i>收盤價</span><span id="maLegend5"><i class="swatch" style="background:var(--ma5)"></i>MA5</span><span id="maLegend10"><i class="swatch" style="background:var(--ma10)"></i>MA10</span><span id="maLegend20"><i class="swatch" style="background:var(--ma20)"></i>MA20</span><span><i class="swatch" style="background:var(--kd-k)"></i>K(9)</span><span><i class="swatch" style="background:var(--kd-d)"></i>D(9)</span><span><i class="swatch" style="background:var(--trade-buy);height:7px;width:7px;transform:rotate(45deg)"></i>個人買進</span><span><i class="swatch" style="background:var(--trade-sell);height:7px;width:7px;transform:rotate(45deg)"></i>個人賣出</span><span><i class="swatch" style="border-top:2px dashed var(--trade-cost);background:none"></i>持倉成本</span><span id="candleLegend">紅漲／綠跌</span></div>
       <div class="kline-legend"><span id="bbLegend" style="display:none"><i class="swatch" style="background:var(--bb)"></i>布林通道(20,2)</span><span id="macdLegend" style="display:none"><i class="swatch" style="background:var(--macd)"></i>MACD</span><span id="rsiLegend" style="display:none"><i class="swatch" style="background:var(--rsi)"></i>RSI(14)</span></div>
       <div class="kline-legend"><span id="maLegend60"><i class="swatch" style="background:var(--ma60)"></i>MA60 季線</span><span id="maLegend120"><i class="swatch" style="background:var(--ma120)"></i>MA120 半年線</span><span id="maLegend240"><i class="swatch" style="background:var(--ma240)"></i>MA240 年線</span></div>
-      <div class="range-toolbar" role="group" aria-label="選擇圖表期間"><span>期間</span><button type="button" data-range-days="20">1月</button><button type="button" data-range-days="60">3月</button><button type="button" data-range-days="120">6月</button><button type="button" data-range-days="240">1年</button><button type="button" data-range-days="480">2年</button><button type="button" data-range-days="all">全部</button><button type="button" id="rangeReset">重設</button><small id="visibleRange" class="range-help"></small></div>
+      <div class="range-toolbar" role="group" aria-label="選擇圖表期間"><span>期間</span><button type="button" data-range-days="20">1月</button><button type="button" data-range-days="60">3月</button><button type="button" data-range-days="120">6月</button><button type="button" data-range-days="240">1年</button><button type="button" data-range-days="480">2年</button><button type="button" data-range-days="all">全部</button><button type="button" id="rangeReset">重設</button><button type="button" id="tooltipToggle" class="tooltip-toggle" aria-pressed="true">提示開</button><small id="visibleRange" class="range-help"></small></div>
       <div class="kline-chart-wrap"><div id="chartBox"></div><div id="tip" aria-live="polite">滾輪縮放、拖曳平移；移到 K 線可查看數值。</div></div>
       <div id="signalPanel" class="signal-panel"></div>
       <div id="financialPanel" class="financial-panel"></div>
@@ -473,7 +476,7 @@
   <script src="theme.js"></script>
   <script src="config.js"></script>
   <script src="data.js"></script>
-  <script src="kline.js?v=20260818-2"></script>
+  <script src="kline.js?v=20260818-3"></script>
   <script type="module" src="auth.js"></script>
   <script>
     // 若 data.js 尚未產生，給出友善提示
