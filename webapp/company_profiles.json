@@ -132,6 +132,13 @@
     "business": "無代號海外成分股，暫無可用公開摘要。",
     "source": ""
   },
+  "2026/09富邦科技ETF期貨": {
+    "name": "2026/09富邦科技ETF期貨",
+    "market": "",
+    "industry": "",
+    "business": "無代號海外成分股，暫無可用公開摘要。",
+    "source": ""
+  },
   "2027": {
     "name": "大成鋼",
     "market": "TW",
@@ -1400,6 +1407,14 @@
     "source": "Stock Analysis",
     "sector": "Technology"
   },
+  "AEHR": {
+    "name": "Aehr Test Systems",
+    "market": "US",
+    "industry": "Semiconductor Equipment & Materials",
+    "business": "Aehr Test Systems, Inc. provides test solutions for testing, burn-in, and semiconductor devices at wafer level, singulated die, and package level in the United States, Asia, Europe, and the Middle East. The company offers FOX-XP and FOX-NP systems, which are full wafer contact and singulated die/module test and burn-in systems that test, burn-in, and stabilize a range of devices, including silicon carbide-based (SIC) and gallium nitride (GAN) power semiconductors; 2D and 3D sensors used in mobile phones, tablets, and other computing devices; memory semiconductors; processors; microcontrollers; systems-on-a-chip; and photonics and integrated optical devices used in AI. It also provides the FOX-CP system, a single-wafer compact test solution for logic, memory, and photonic devices; and the FOX WaferPak Contactor, a full wafer contactor capable of testing wafers up to 300mm that enables integrated circuit manufacturers to perform test, burn-in, and stabilization of full wafers on the FOX-P systems. In addition, the company offers the FOX DiePak Carrier, which allows testing, burn-in, and stabilization of singulated bare die and modules; FOX WaferPak Aligner; and FOX DiePak Loader. Further, it provides system installation and repair, applications engineering support, spare parts inventories, customer training, and documentation services. The company sells its products in the United States, Germany, Japan, the Philippines, and Taiwan through distributors and sales representatives. It serves semiconductor manufacturers, semiconductor contract assemblies, electronics manufacturers, and burn-in and test service companies. Aehr Test Systems, Inc. was incorporated in 1977 and is headquartered in Fremont, California.",
+    "source": "Stock Analysis",
+    "sector": "Technology"
+  },
   "AEHR TEST SYSTEMS": {
     "name": "AEHR TEST SYSTEMS",
     "market": "",
@@ -1478,6 +1493,14 @@
     "business": "無代號海外成分股，暫無可用公開摘要。",
     "source": ""
   },
+  "AXTI": {
+    "name": "AXT",
+    "market": "US",
+    "industry": "Semiconductor Equipment & Materials",
+    "business": "AXT, Inc. designs, develops, manufactures, and distributes compound and single element semiconductor substrates. The company provides indium phosphide for use in data center connectivity using light/lasers, high-speed data transfer in data centers, 5G communications, fiber optic lasers and detectors, consumer devices, passive optical networks, silicon photonics, photonic integrated circuits, thermo-photovoltaics, RF amplifier and switching, infrared light-emitting diode (LEDS) motion control, lidar for robotics and autonomous vehicles, and infrared thermal imaging. It also offers semi-insulating gallium arsenide (GaAs) substrates for use in Wi-Fi and IoT devices, transistors, direct broadcast television, power amplifiers, satellite communications, and solar cells; and semi-conducting GaAs substrates that are used in LEDs, screen displays using micro-LEDs, printer head lasers and LEDs, 3-D sensing using VCSELs, data center communication using VCSELs, sensors for industrial robotics/near-infrared sensors, laser machining, cutting and drilling, optical couplers, solar cells, night vision goggles, lidar for robotics and autonomous vehicles, and other lasers. In addition, the company provides germanium substrates for use in multi-junction solar cells for satellites, optical sensors and detectors, terrestrial concentrated photo voltaic cells, infrared detectors, and carrier wafer for LED. Further, it offers 6N+ and 7N+ purified gallium, boron trioxide, gallium-magnesium alloy, pyrolytic boron nitride (pBN) crucibles, and pBN insulating parts. It sells its products through direct salesforce in the United States, China, and Europe, as well as through independent sales representatives and distributors in Japan, Taiwan, Korea, and internationally. The company was formerly known as American Xtal Technology, Inc. and changed its name to AXT, Inc. in July 2000. AXT, Inc. was incorporated in 1986 and is headquartered in Fremont, California.",
+    "source": "Stock Analysis",
+    "sector": "Technology"
+  },
   "BE": {
     "name": "Bloom Energy",
     "market": "US",
@@ -1547,6 +1570,14 @@
     "industry": "",
     "business": "無代號海外成分股，暫無可用公開摘要。",
     "source": ""
+  },
+  "FSLY": {
+    "name": "Fastly",
+    "market": "US",
+    "industry": "Software - Application",
+    "business": "Fastly, Inc. operates an edge cloud platform for processing, serving, and securing its customer’s applications in the United States, the Asia Pacific, Europe, and internationally. The edge cloud is a category of Infrastructure as a Service that enables developers to build, secure, and deliver digital experiences at the edge of the internet. The company offers network services to speed up and optimize the delivery of web and application traffic; content delivery network, such as dynamic site acceleration, origin shield, instant purge, surrogate keys, programmatic control, content compression, reliability features, fanout, domainr, modern protocols and performance services; staging environment; and video/ streaming solutions and services, including live streaming, live event monitoring, video on demand, cache reservation, and media shield. It also provides security solutions, such as DDoS protection, next-gen WAF, bot management, API and ATO protection, advanced rate limiting, privacy, and compliance services; load balancing; image optimization; and origin connect. In addition, the company offers professional services comprising managed and response security services; managed CDN; and support plans services. It serves customers operating in ecommerce, streaming media, gaming, digital publishing, and high tech to financial services industries. The company was formerly known as SkyCache, Inc. and changed its name to Fastly, Inc. in May 2012. Fastly, Inc. was incorporated in 2011 and is headquartered in San Francisco, California.",
+    "source": "Stock Analysis",
+    "sector": "Technology"
   },
   "FURUKAWA ELECTRIC CO LTD": {
     "name": "FURUKAWA ELECTRIC CO LTD",
@@ -1671,6 +1702,14 @@
     "market": "US",
     "industry": "Semiconductors",
     "business": "Micron Technology, Inc. designs, develops, manufactures, and sells memory and storage products in the United States, Taiwan, Japan, Mainland China, Hong Kong, Europe, and internationally. It operates through the Cloud Memory Business Unit; Core Data Center Business Unit; Mobile and Client Business Unit; and Automotive and Embedded Business Unit segments. The company provides memory products, including dynamic random access memory components and modules, CXL-based memory, LPDDR components and modules, graphics memory, high-bandwidth memory, and data center memory products; multichip packages (MCP) comprising embedded multimedia card-based, universal flash storage-based, and NAND-based MCPs; and technology leadership products that include 1y DRAM and G9 NAND technologies. It also offers storage products, such as data center solid-state drives (SSD), client SSD storage, and auto and industrial SSD storage; managed NAND; NAND flash; NOR flash; and memory cards. In addition, the company provides design tools, including FBGA and part decoders; DRAM power calculators; NAND power calculators; simulation models; chipset compatibility guides; serial presence-detection tools; cross-reference tools; UFSparm; SSD firmware; software and drivers; storage executive software; and obsolete part catalogs. It markets its semiconductor memory and storage products under the Micron and Crucial brands. The company serves the data center, PC, graphics, networking, automotive, industrial, and consumer embedded markets, as well as the smartphone and other mobile-device markets. It sells its products through its direct sales force, independent sales representatives, distributors, and retailers; web-based customer direct sales channel; and channel and distribution partners. Micron Technology, Inc. was founded in 1978 and is headquartered in Boise, Idaho.",
+    "source": "Stock Analysis",
+    "sector": "Technology"
+  },
+  "NOW": {
+    "name": "ServiceNow",
+    "market": "US",
+    "industry": "Software - Application",
+    "business": "ServiceNow, Inc. provides cloud-based solution for digital workflows in the North America, Brazil, Europe, the Middle East and Africa, Asia Pacific, and internationally. The company provides asset management, integrated risk management, IT service management, Operational Technology management, Security Operations, strategic portfolio management, IT operations management products; customer service management product; field service management applications; and sales and order management services. It also offers human resources delivery; legal and contract operations; workplace service delivery products; app engine product; automation engine; platform privacy and security product; and source-to-pay operations. In addition, the company provides RaptorDB, a database built to manage workloads at scale; ServiceNow Impact that provides customers with software tools, guided plans, and AI-driven recommendations; customer support; and workflow data fabric. It serves government, financial services, healthcare and life science, manufacturing, Public Sector, retail, technology, and Telecom sectors through service providers and resale partners. The company has a strategic collaboration with Cohesity, Inc. to develop, operate, and safeguard autonomous AI agents and data with enterprise-grade reliability; and with ServiceNow to Advance Ai-Powered Solution for Mission-Critical Infrastructure Monitoring. The company was formerly known as Service-now.com and changed its name to ServiceNow, Inc. in May 2012. ServiceNow, Inc. has a strategic alliance with Accenture for integrated risk management and third-party risk management solutions. ServiceNow, Inc. was founded in 2004 and is headquartered in Santa Clara, California.",
     "source": "Stock Analysis",
     "sector": "Technology"
   },
