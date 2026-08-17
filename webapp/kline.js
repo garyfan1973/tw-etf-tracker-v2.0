@@ -3,10 +3,12 @@
   const W = 1120, H = 900, left = 62, right = 18, top = 18, priceBottom = 300, volumeTop = 325, volumeBottom = 405, kdTop = 440, kdBottom = 590;
   const data = window.DATA || { etfs: {} };
   let currentRows = [], candlePoints = [], chartType = localStorage.getItem("etf-chart-type") === "line" ? "line" : "candle";
+  let renderRequestKey = "", viewport = { key:"", start:0, end:0 }, dragState = null, pinchState = null;
   let personalTrades = { key:"", markers:[], openShares:0, averageCost:null, currency:"" };
   let financialRequestKey = "";
   let financialChartMode = ["both", "bar", "line"].includes(localStorage.getItem("financial-chart-mode")) ? localStorage.getItem("financial-chart-mode") : "both";
-  const maPeriods = [5, 10, 20];
+  const maPeriods = [5, 10, 20, 60, 120, 240];
+  const defaultRangeDays = Number(localStorage.getItem("etf-chart-range")) || 60;
   const indicatorNames = ["bollinger", "macd", "rsi"];
   let visibleIndicators;
   try {
@@ -55,6 +57,38 @@
       const q = security === "__ETF__" ? s.self : (s.holdings || []).find(h => h.code === security);
       return q && [q.open, q.high, q.low, q.close].every(v => v != null) ? { date:s.date, ...q } : null;
     }).filter(Boolean).sort((a, b) => a.date.localeCompare(b.date));
+  }
+  function historyPath(info) {
+    return `price-history/${encodeURIComponent(info.market)}/${encodeURIComponent(info.symbol)}.json`;
+  }
+  function mergePriceRows(historyRows, snapshotRows) {
+    const merged = new Map();
+    (historyRows || []).forEach(row => { if (row?.date) merged.set(row.date, row); });
+    (snapshotRows || []).forEach(row => { if (row?.date) merged.set(row.date, { ...merged.get(row.date), ...row }); });
+    return [...merged.values()].filter(row => [row.open, row.high, row.low, row.close].every(value => value != null)).sort((a, b) => a.date.localeCompare(b.date));
+  }
+  function resetViewport(key, days = defaultRangeDays) {
+    const end = currentRows.length;
+    viewport = { key, start:Math.max(0, end - Math.max(5, days)), end };
+    updateRangeControls();
+  }
+  function setViewport(start, end, persist = false) {
+    const total = currentRows.length, span = Math.max(5, Math.min(total, Math.round(end - start)));
+    let nextStart = Math.round(start), nextEnd = nextStart + span;
+    if (nextStart < 0) { nextEnd -= nextStart; nextStart = 0; }
+    if (nextEnd > total) { nextStart -= nextEnd - total; nextEnd = total; }
+    viewport.start = Math.max(0, nextStart); viewport.end = Math.max(viewport.start + 1, nextEnd);
+    if (persist) localStorage.setItem("etf-chart-range", String(viewport.end - viewport.start));
+    updateRangeControls(); drawChart();
+  }
+  function updateRangeControls() {
+    const span = viewport.end - viewport.start;
+    document.querySelectorAll("[data-range-days]").forEach(button => {
+      const days = button.dataset.rangeDays === "all" ? currentRows.length : Number(button.dataset.rangeDays);
+      button.classList.toggle("active", currentRows.length > 0 && span === Math.min(days, currentRows.length));
+    });
+    const label = $("visibleRange"), first = currentRows[viewport.start], last = currentRows[viewport.end - 1];
+    if (label) label.textContent = first && last ? `${first.date} ～ ${last.date}・${span} 日` : "";
   }
   function movingAverage(rows, index, period) {
     const values = rows.slice(Math.max(0, index - period + 1), index + 1).map(r => Number(r.close));
@@ -371,26 +405,49 @@
       if (financialRequestKey === key) box.innerHTML = `<div class="financial-heading"><div><h3>近三年財報趨勢</h3><p>${esc(name)}・年度合併財報比較</p></div></div><div class="financial-empty">${esc(error.message || "財務資料暫時無法取得")}</div>`;
     }
   }
-  function render() {
+  async function render() {
     const code = $("etfSelect").value, security = $("securitySelect").value, etf = data.etfs[code];
-    currentRows = rowsFor(code, security); candlePoints = [];
-    const name = securityInfo(code, security).name;
+    const snapshotRows = rowsFor(code, security), info = securityInfo(code, security), key = `${info.market}|${info.symbol}`;
+    renderRequestKey = key; currentRows = snapshotRows; candlePoints = [];
+    const name = info.name;
     $("chartTitle").textContent = `${name} ${security === "__ETF__" ? code : security}`;
-    $("status").textContent = currentRows.length ? `資料 ${currentRows.length} 日（${currentRows[0].date} ～ ${currentRows[currentRows.length - 1].date}）` : "尚無完整 OHLC 資料";
+    $("status").textContent = "載入兩年歷史行情…";
     renderPremium(code, security);
     loadPersonalTrades(code, security); renderFinancials(code, security, name);
+    try {
+      const response = await fetch(historyPath(info), { cache:"default" });
+      if (response.ok) {
+        const payload = await response.json();
+        if (renderRequestKey !== key) return;
+        currentRows = mergePriceRows(payload.rows, snapshotRows);
+      }
+    } catch (_) { currentRows = snapshotRows; }
+    if (renderRequestKey !== key) return;
+    $("status").textContent = currentRows.length ? `行情 ${currentRows.length} 日（${currentRows[0].date} ～ ${currentRows.at(-1).date}）` : "尚無完整 OHLC 資料";
     if (!currentRows.length) { $("chartBox").innerHTML = '<div class="empty">目前尚無可繪製的完整開高低收資料。</div>'; $("quote").textContent = "—"; renderSignal([]); return; }
+    if (viewport.key !== key) resetViewport(key); else setViewport(viewport.start, viewport.end);
     const last = currentRows[currentRows.length - 1];
-    $("quote").innerHTML = `收盤 <strong>${price(last.close)}</strong> <span class="${last.change >= 0 ? "up" : "down"}">${last.change >= 0 ? "+" : ""}${price(last.change)} (${last.changePct == null ? "—" : (last.changePct >= 0 ? "+" : "") + last.changePct + "%"})</span>`;
+    const previousClose = Number(currentRows.at(-2)?.close), latestClose = Number(last.close);
+    const change = Number.isFinite(Number(last.change)) ? Number(last.change) : (Number.isFinite(previousClose) ? latestClose - previousClose : null);
+    const changePct = Number.isFinite(Number(last.changePct)) ? Number(last.changePct) : (change != null && previousClose ? change / previousClose * 100 : null);
+    $("quote").innerHTML = `收盤 <strong>${price(last.close)}</strong> <span class="${change >= 0 ? "up" : "down"}">${change >= 0 ? "+" : ""}${price(change)} (${changePct == null ? "—" : (changePct >= 0 ? "+" : "") + changePct.toFixed(2) + "%"})</span>`;
     drawChart(); renderSignal(currentRows); renderNews(code, security, name);
   }
   function drawChart() {
+    if (!currentRows.length) return;
+    candlePoints = [];
+    const viewStart = Math.max(0, Math.min(viewport.start, currentRows.length - 1));
+    const viewEnd = Math.max(viewStart + 1, Math.min(viewport.end || currentRows.length, currentRows.length));
+    const rows = currentRows.slice(viewStart, viewEnd);
     const rootStyle = getComputedStyle(document.documentElement);
     const chartColors = {
       accent: rootStyle.getPropertyValue("--accent").trim() || "#3b5bdb",
       ma5: rootStyle.getPropertyValue("--ma5").trim() || "#e9a23b",
       ma10: rootStyle.getPropertyValue("--ma10").trim() || "#45a3d8",
       ma20: rootStyle.getPropertyValue("--ma20").trim() || "#a78bca",
+      ma60: rootStyle.getPropertyValue("--ma60").trim() || "#16a085",
+      ma120: rootStyle.getPropertyValue("--ma120").trim() || "#e8590c",
+      ma240: rootStyle.getPropertyValue("--ma240").trim() || "#868e96",
       bb: rootStyle.getPropertyValue("--bb").trim() || "#d97706",
       bbMid: rootStyle.getPropertyValue("--bb-mid").trim() || "#b45309",
       macd: rootStyle.getPropertyValue("--macd").trim() || "#7c3aed",
@@ -402,16 +459,18 @@
       sell: rootStyle.getPropertyValue("--trade-sell").trim() || "#ef405f",
       cost: rootStyle.getPropertyValue("--trade-cost").trim() || "#8a63d2"
     };
-    const rowDates = new Set(currentRows.map(row => row.date));
+    const rowDates = new Set(rows.map(row => row.date));
     const visibleTrades = personalTrades.markers.filter(fill => rowDates.has(fill.fill_date) && Number.isFinite(Number(fill.price)));
     const referenceValues = visibleTrades.map(fill => Number(fill.price));
     if (personalTrades.averageCost != null) referenceValues.push(Number(personalTrades.averageCost));
-    const bb = currentRows.map((_, i) => bollingerValues(currentRows, i));
-    const macd = macdValues(currentRows), rsi = rsiValues(currentRows);
+    const bb = currentRows.map((_, i) => bollingerValues(currentRows, i)).slice(viewStart, viewEnd);
+    const macd = macdValues(currentRows).slice(viewStart, viewEnd), rsi = rsiValues(currentRows).slice(viewStart, viewEnd), kd = kdValues(currentRows).slice(viewStart, viewEnd);
+    const maSeries = Object.fromEntries(maPeriods.map(period => [period, currentRows.map((_, index) => movingAverage(currentRows, index, period)).slice(viewStart, viewEnd)]));
     const indicatorValues = visibleIndicators.has("bollinger") ? bb.flatMap(v => v ? [v.upper, v.lower] : []) : [];
-    const values = (chartType === "line" ? currentRows.map(r => Number(r.close)) : currentRows.flatMap(r => [Number(r.low), Number(r.high)])).concat(referenceValues, indicatorValues).filter(Number.isFinite);
+    maPeriods.forEach(period => { if (visibleMas.has(period)) indicatorValues.push(...maSeries[period].filter(Number.isFinite)); });
+    const values = (chartType === "line" ? rows.map(r => Number(r.close)) : rows.flatMap(r => [Number(r.low), Number(r.high)])).concat(referenceValues, indicatorValues).filter(Number.isFinite);
     let min = Math.min(...values), max = Math.max(...values); if (min === max) { min -= 1; max += 1; }
-    const maxVol = Math.max(...currentRows.map(r => Number(r.volume) || 0), 1), plotW = W - left - right, priceH = priceBottom - top, kd = kdValues(currentRows);
+    const maxVol = Math.max(...rows.map(r => Number(r.volume) || 0), 1), plotW = W - left - right, priceH = priceBottom - top;
     const panels = [{ name:"KD", top:440, height:110 }];
     if (visibleIndicators.has("macd")) panels.push({ name:"MACD", top:panels.at(-1).top + panels.at(-1).height + 28, height:100 });
     if (visibleIndicators.has("rsi")) panels.push({ name:"RSI", top:panels.at(-1).top + panels.at(-1).height + 28, height:100 });
@@ -419,8 +478,8 @@
     const chartBottom = panels.at(-1).top + panels.at(-1).height, chartHeight = chartBottom + 42;
     // X 軸使用交易日序號，不把週末／休市日當成空白時間。資料很少時，
     // 讓 K 棒集中在圖中央並保持固定間距；資料變多後才逐步填滿圖寬。
-    const slot = Math.min(34, plotW / Math.max(currentRows.length - 1, 1));
-    const contentW = slot * Math.max(currentRows.length - 1, 0);
+    const slot = Math.min(34, plotW / Math.max(rows.length - 1, 1));
+    const contentW = slot * Math.max(rows.length - 1, 0);
     const startX = left + Math.max(0, (plotW - contentW) / 2);
     const x = i => startX + i * slot;
     const y = v => top + (max - v) * priceH / (max - min);
@@ -440,17 +499,17 @@
       [30, 50, 70].forEach(value => svg += `<line x1="${left}" x2="${W-right}" y1="${rsiY(value)}" y2="${rsiY(value)}" class="grid${value === 50 ? "" : " kd-threshold"}"/><text x="30" y="${rsiY(value)+4}" class="axis">${value}</text>`);
       svg += `<text x="4" y="${rsiPanel.top + 12}" class="axis">RSI</text>`;
     }
-    svg += `<text x="${x(0)}" y="${chartHeight - 8}" text-anchor="middle" class="axis">${dateLabel(currentRows[0].date)}</text><text x="${x(currentRows.length - 1)}" y="${chartHeight - 8}" text-anchor="middle" class="axis">${dateLabel(currentRows.at(-1).date)}</text>`;
-    currentRows.forEach((r, i) => {
-      const cx = x(i), candleW = Math.max(4, Math.min(18, plotW / Math.max(currentRows.length, 1) * .56)), rising = Number(r.close) >= Number(r.open), color = rising ? "var(--up)" : "var(--down)";
+    svg += `<text x="${x(0)}" y="${chartHeight - 8}" text-anchor="middle" class="axis">${dateLabel(rows[0].date)}</text><text x="${x(rows.length - 1)}" y="${chartHeight - 8}" text-anchor="middle" class="axis">${dateLabel(rows.at(-1).date)}</text>`;
+    rows.forEach((r, i) => {
+      const cx = x(i), candleW = Math.max(2, Math.min(18, plotW / Math.max(rows.length, 1) * .56)), rising = Number(r.close) >= Number(r.open), color = rising ? "var(--up)" : "var(--down)";
       const bodyY = y(Math.max(r.open, r.close)), bodyH = Math.max(1.5, Math.abs(y(r.open) - y(r.close)));
       candlePoints.push({ x:cx, y:chartType === "line" ? y(Number(r.close)) : y((Number(r.open) + Number(r.close)) / 2), date:r.date, row:r });
       if (chartType === "candle") svg += `<line x1="${cx}" x2="${cx}" y1="${y(r.high)}" y2="${y(r.low)}" stroke="${color}" stroke-width="1.5"/><rect x="${cx - candleW / 2}" y="${bodyY}" width="${candleW}" height="${bodyH}" fill="${color}" rx="1"/>`;
       svg += `<rect x="${cx - candleW / 2}" y="${vy(r.volume)}" width="${candleW}" height="${volumeBottom - vy(r.volume)}" fill="${color}" opacity=".35"/>`;
-      maPeriods.forEach(period => { const average = movingAverage(currentRows, i, period); if (visibleMas.has(period) && average != null) svg += `<circle class="ma-point ma${period}-point" cx="${cx}" cy="${y(average)}" r="1.15" fill="${chartColors[`ma${period}`]}"/>`; });
+      maPeriods.forEach(period => { const average = maSeries[period][i]; if (visibleMas.has(period) && average != null) svg += `<circle class="ma-point ma${period}-point" cx="${cx}" cy="${y(average)}" r="1.15" fill="${chartColors[`ma${period}`]}"/>`; });
     });
-    function line(period, color, name) { const pts = currentRows.map((r, i) => { const v = movingAverage(currentRows, i, period); return v == null ? null : `${x(i)},${y(v)}`; }).filter(Boolean).join(" "); return pts ? `<polyline class="ma-line ${name}" points="${pts}" fill="none" stroke="${color}" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>` : ""; }
-    if (chartType === "line") svg += `<polyline points="${currentRows.map((r, i) => `${x(i)},${y(Number(r.close))}`).join(" ")}" fill="none" stroke="${chartColors.accent}" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>`;
+    function line(period, color, name) { const pts = maSeries[period].map((value, i) => value == null ? null : `${x(i)},${y(value)}`).filter(Boolean).join(" "); return pts ? `<polyline class="ma-line ${name}" points="${pts}" fill="none" stroke="${color}" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>` : ""; }
+    if (chartType === "line") svg += `<polyline points="${rows.map((r, i) => `${x(i)},${y(Number(r.close))}`).join(" ")}" fill="none" stroke="${chartColors.accent}" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>`;
     maPeriods.forEach(period => { if (visibleMas.has(period)) svg += line(period, chartColors[`ma${period}`], `ma${period}-line`); });
     function indicatorLine(values, key, color, width = 1.5, dash = "") { const points = values.map((value, i) => Number.isFinite(value) ? `${x(i)},${y(value)}` : null).filter(Boolean).join(" "); return points ? `<polyline points="${points}" fill="none" stroke="${color}" stroke-width="${width}"${dash ? ` stroke-dasharray="${dash}"` : ""} stroke-linecap="round" stroke-linejoin="round"/>` : ""; }
     function screenLine(values, color, width = 1.5, dash = "") { const points = values.map((value, i) => Number.isFinite(value) ? `${x(i)},${value}` : null).filter(Boolean).join(" "); return points ? `<polyline points="${points}" fill="none" stroke="${color}" stroke-width="${width}"${dash ? ` stroke-dasharray="${dash}"` : ""} stroke-linecap="round" stroke-linejoin="round"/>` : ""; }
@@ -460,7 +519,7 @@
       svg += indicatorLine(bb.map(v => v?.lower), "lower", chartColors.bb || "#d97706");
     }
     if (macdPanel) {
-      macd.forEach((value, i) => { if (Number.isFinite(value.histogram)) { const zero = macdY(0), barY = macdY(Math.max(0, value.histogram)), barH = Math.max(1, Math.abs(macdY(value.histogram) - zero)), width = Math.max(3, Math.min(16, plotW / Math.max(currentRows.length, 1) * .52)); svg += `<rect x="${x(i)-width/2}" y="${Math.min(barY, zero)}" width="${width}" height="${barH}" fill="${value.histogram >= 0 ? "var(--up)" : "var(--down)"}" opacity=".55"/>`; } });
+      macd.forEach((value, i) => { if (Number.isFinite(value.histogram)) { const zero = macdY(0), barY = macdY(Math.max(0, value.histogram)), barH = Math.max(1, Math.abs(macdY(value.histogram) - zero)), width = Math.max(2, Math.min(16, plotW / Math.max(rows.length, 1) * .52)); svg += `<rect x="${x(i)-width/2}" y="${Math.min(barY, zero)}" width="${width}" height="${barH}" fill="${value.histogram >= 0 ? "var(--up)" : "var(--down)"}" opacity=".55"/>`; } });
       const macdLine = key => macd.map(v => v[key]);
       svg += screenLine(macdLine("macd").map(v => Number.isFinite(v) ? macdY(v) : null), chartColors.macd, 1.8);
       svg += screenLine(macdLine("signal").map(v => Number.isFinite(v) ? macdY(v) : null), chartColors.macdSignal, 1.5);
@@ -468,7 +527,7 @@
     if (rsiPanel) svg += screenLine(rsi.map(v => Number.isFinite(v) ? rsiY(v) : null), chartColors.rsi, 1.8);
     if (Number.isFinite(personalTrades.averageCost)) svg += `<line x1="${left}" x2="${W-right}" y1="${y(personalTrades.averageCost)}" y2="${y(personalTrades.averageCost)}" stroke="${chartColors.cost}" stroke-width="1.5" stroke-dasharray="7 5"/><text x="${W-right-4}" y="${y(personalTrades.averageCost)-6}" text-anchor="end" fill="${chartColors.cost}" font-size="11">持倉成本 ${price(personalTrades.averageCost)}</text>`;
     visibleTrades.forEach(fill => {
-      const index = currentRows.findIndex(row => row.date === fill.fill_date), cx = x(index), cy = y(Number(fill.price)), buy = fill.side === "buy", color = buy ? chartColors.buy : chartColors.sell;
+      const index = rows.findIndex(row => row.date === fill.fill_date), cx = x(index), cy = y(Number(fill.price)), buy = fill.side === "buy", color = buy ? chartColors.buy : chartColors.sell;
       const points = buy ? `${cx},${cy-9} ${cx-7},${cy+4} ${cx+7},${cy+4}` : `${cx},${cy+9} ${cx-7},${cy-4} ${cx+7},${cy-4}`;
       svg += `<polygon points="${points}" fill="${color}" stroke="var(--card)" stroke-width="1.5"/><text x="${cx}" y="${buy ? cy+17 : cy-10}" text-anchor="middle" fill="${color}" font-size="10" font-weight="700">${buy ? "買" : "賣"}</text>`;
     });
@@ -507,6 +566,58 @@
     $("chartHit").addEventListener("pointermove", updateTip);
     $("chartHit").addEventListener("pointerleave", () => $("hoverLine").setAttribute("visibility", "hidden"));
   }
+  function zoomChart(factor, ratio) {
+    if (currentRows.length < 6) return;
+    const span = viewport.end - viewport.start, nextSpan = Math.max(5, Math.min(currentRows.length, span * factor));
+    const anchor = viewport.start + span * ratio;
+    setViewport(anchor - nextSpan * ratio, anchor + nextSpan * (1 - ratio));
+  }
+  function initChartInteractions() {
+    const box = $("chartBox"), pointers = new Map();
+    box.addEventListener("wheel", event => {
+      if (!currentRows.length) return;
+      event.preventDefault();
+      const rect = box.getBoundingClientRect(), ratio = Math.max(0, Math.min(1, (event.clientX - rect.left) / rect.width));
+      zoomChart(Math.exp(event.deltaY * .0015), ratio);
+    }, { passive:false });
+    box.addEventListener("pointerdown", event => {
+      if (event.button !== 0 || !currentRows.length) return;
+      pointers.set(event.pointerId, { x:event.clientX, y:event.clientY });
+      box.setPointerCapture?.(event.pointerId);
+      if (pointers.size === 1) {
+        dragState = { pointerId:event.pointerId, x:event.clientX, start:viewport.start, end:viewport.end };
+        box.classList.add("dragging");
+      } else if (pointers.size === 2) {
+        const points = [...pointers.values()], distance = Math.abs(points[0].x - points[1].x);
+        pinchState = { distance:Math.max(20, distance), start:viewport.start, end:viewport.end };
+        dragState = null;
+      }
+    });
+    box.addEventListener("pointermove", event => {
+      if (!pointers.has(event.pointerId)) return;
+      pointers.set(event.pointerId, { x:event.clientX, y:event.clientY });
+      if (pointers.size === 2 && pinchState) {
+        const points = [...pointers.values()], distance = Math.max(20, Math.abs(points[0].x - points[1].x));
+        const rect = box.getBoundingClientRect(), midpoint = (points[0].x + points[1].x) / 2;
+        const ratio = Math.max(0, Math.min(1, (midpoint - rect.left) / rect.width));
+        viewport.start = pinchState.start; viewport.end = pinchState.end;
+        zoomChart(pinchState.distance / distance, ratio);
+      }
+    });
+    const finishPointer = event => {
+      const wasDragging = dragState?.pointerId === event.pointerId;
+      pointers.delete(event.pointerId);
+      if (wasDragging) {
+        const rect = box.getBoundingClientRect(), span = dragState.end - dragState.start;
+        const shift = -(event.clientX - dragState.x) / Math.max(1, rect.width) * span;
+        if (Math.abs(shift) >= .5) setViewport(dragState.start + shift, dragState.end + shift);
+      }
+      if (pointers.size < 2) pinchState = null;
+      if (!pointers.size) { dragState = null; box.classList.remove("dragging"); }
+    };
+    box.addEventListener("pointerup", finishPointer);
+    box.addEventListener("pointercancel", finishPointer);
+  }
   $("etfSelect").addEventListener("change", fillSecurities);
   $("securitySelect").addEventListener("change", render);
   document.querySelectorAll("[data-chart-type]").forEach(button => button.addEventListener("click", () => {
@@ -526,6 +637,12 @@
     updateIndicatorControls();
     if (currentRows.length) drawChart();
   }));
+  document.querySelectorAll("[data-range-days]").forEach(button => button.addEventListener("click", () => {
+    const days = button.dataset.rangeDays === "all" ? currentRows.length : Number(button.dataset.rangeDays);
+    localStorage.setItem("etf-chart-range", String(days));
+    setViewport(Math.max(0, currentRows.length - days), currentRows.length, true);
+  }));
+  $("rangeReset")?.addEventListener("click", () => { resetViewport(viewport.key, defaultRangeDays); drawChart(); });
   document.addEventListener("etfwatch:change", () => loadPersonalTrades($("etfSelect").value, $("securitySelect").value));
-  updateChartType(); updateMaControls(); updateIndicatorControls(); fillEtfs(); fillSecurities();
+  initChartInteractions(); updateChartType(); updateMaControls(); updateIndicatorControls(); fillEtfs(); fillSecurities();
 })();

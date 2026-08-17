@@ -100,6 +100,7 @@
 - 三大法人：TWSE T86 與 TPEx 公開資料。
 - 融資融券：TWSE MI_MARGN 與 TPEx 公開資料。
 - 海外行情：Yahoo Finance 日線資料。
+- K 線歷史行情：Yahoo Finance 兩年日線 OHLCV，依市場與代號保存於 `webapp/price-history/`。
 - ETF 清單：官方上市／上櫃 ETF 資料。
 - 短線日誌標的清單：台灣使用 TWSE／TPEx，美國使用 Nasdaq Trader 公開掛牌清單；清單是一次性手動更新，日誌仍允許自行輸入清單外代號。
 - 公司產業與業務摘要：公開公司資料，保存於 `webapp/company_profiles.json`。
@@ -139,6 +140,7 @@ cd /Users/garyfan/.codex/tw-etf-tracker-v2.0
 python3 fetch_etf_list.py
 python3 fetch_trade_assets.py
 python3 fetch.py
+python3 fetch_price_history.py
 python3 fetch_company_profiles.py
 ```
 
@@ -152,6 +154,14 @@ python3 fetch_company_profiles.py
 6. 執行行情日期一致性檢查。
 
 如果來源沒有提供指定日期的資料，程式會保留空值，不會拿其他日期的資料代替。
+
+`fetch_price_history.py` 首次以 `--full` 匯入最多兩年資料，之後每日只抓近一個月並合併更新：
+
+```bash
+python3 fetch_price_history.py --full
+```
+
+K 線圖支援 MA5／10／20／60／120／240、布林通道、MACD、RSI、KD，以及 1 個月至 2 年的快捷區間。滑鼠滾輪或觸控板可縮放，拖曳可平移時間區間。
 
 ## GitHub Actions 自動更新
 
@@ -167,9 +177,10 @@ GitHub Actions 會依序：
 
 1. 更新 ETF 清單。
 2. 執行 `fetch.py` 更新持股、行情、配息與參考資料。
-3. 更新公司產業資料。
-4. 執行 `record_daily_snapshots.py` 寫入 Supabase 績效快照。
-5. 有資料變更時 commit 並 push 回 GitHub。
+3. 增量更新兩年 K 線歷史行情。
+4. 更新公司產業資料。
+5. 執行 `record_daily_snapshots.py` 寫入 Supabase 績效快照。
+6. 有資料變更時 commit 並 push 回 GitHub。
 
 也可以在 GitHub repo 的 Actions 頁面手動執行 `更新 ETF 資料`。
 
@@ -272,6 +283,7 @@ ETFS = {
 .
 ├── data/                         # ETF 歷史快照與配息 JSON
 ├── fetch.py                      # 主資料抓取與快照產生
+├── fetch_price_history.py        # 兩年日線 OHLCV 匯入與增量更新
 ├── fetch_etf_list.py             # 更新 ETF 清單
 ├── fetch_trade_assets.py         # 一次性／手動更新短線日誌標的清單
 ├── fetch_company_profiles.py     # 更新公司產業資料
@@ -279,6 +291,7 @@ ETFS = {
 ├── supabase_*.sql                # Supabase 資料表與函式 SQL
 ├── .github/workflows/             # GitHub Actions 排程
 └── webapp/                       # 靜態網站與前端資料
+    └── price-history/            # 各市場、各代號的兩年行情 JSON
 ```
 
 ## 資料與投資風險聲明
