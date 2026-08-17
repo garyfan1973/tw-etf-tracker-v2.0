@@ -1,6 +1,6 @@
 {
   "date": "2026-08-17",
-  "fetched_at": "2026-08-17T21:22:49+08:00",
+  "fetched_at": "2026-08-17T22:04:08+08:00",
   "count": 54,
   "self": {
     "open": 106.4,
@@ -973,45 +973,6 @@
       }
     },
     {
-      "code": "3231",
-      "name": "緯創",
-      "market": "TW",
-      "assetType": "stock",
-      "weight": 0.55,
-      "shares": 70428198,
-      "open": 193.5,
-      "high": 193.5,
-      "low": 184.5,
-      "close": 187.0,
-      "prevClose": 193.5,
-      "change": -6.5,
-      "changePct": -3.36,
-      "amplitude": 4.65,
-      "volume": 51873498.0,
-      "quoteDate": "2026-08-17",
-      "inst": {
-        "foreign": -2722140,
-        "trust": -9905383,
-        "dealer": -523982,
-        "total": -13151505,
-        "date": "2026-08-17"
-      },
-      "margin": {
-        "marginBuy": 1856,
-        "marginSell": 2378,
-        "marginCashRedemption": 277,
-        "marginPrevBalance": 38027,
-        "marginBalance": 37228,
-        "shortBuy": 326,
-        "shortSell": 32,
-        "shortStockRedemption": 0,
-        "shortPrevBalance": 1109,
-        "shortBalance": 815,
-        "offsetting": 34,
-        "date": "2026-08-17"
-      }
-    },
-    {
       "code": "2344",
       "name": "華邦電",
       "market": "TW",
@@ -1047,6 +1008,45 @@
         "shortPrevBalance": 4824,
         "shortBalance": 4765,
         "offsetting": 142,
+        "date": "2026-08-17"
+      }
+    },
+    {
+      "code": "3231",
+      "name": "緯創",
+      "market": "TW",
+      "assetType": "stock",
+      "weight": 0.55,
+      "shares": 70428198,
+      "open": 193.5,
+      "high": 193.5,
+      "low": 184.5,
+      "close": 187.0,
+      "prevClose": 193.5,
+      "change": -6.5,
+      "changePct": -3.36,
+      "amplitude": 4.65,
+      "volume": 51873498.0,
+      "quoteDate": "2026-08-17",
+      "inst": {
+        "foreign": -2722140,
+        "trust": -9905383,
+        "dealer": -523982,
+        "total": -13151505,
+        "date": "2026-08-17"
+      },
+      "margin": {
+        "marginBuy": 1856,
+        "marginSell": 2378,
+        "marginCashRedemption": 277,
+        "marginPrevBalance": 38027,
+        "marginBalance": 37228,
+        "shortBuy": 326,
+        "shortSell": 32,
+        "shortStockRedemption": 0,
+        "shortPrevBalance": 1109,
+        "shortBalance": 815,
+        "offsetting": 34,
         "date": "2026-08-17"
       }
     },
@@ -1129,45 +1129,6 @@
       }
     },
     {
-      "code": "2412",
-      "name": "中華電",
-      "market": "TW",
-      "assetType": "stock",
-      "weight": 0.51,
-      "shares": 89025616,
-      "open": 135.0,
-      "high": 137.0,
-      "low": 135.0,
-      "close": 136.0,
-      "prevClose": 135.0,
-      "change": 1.0,
-      "changePct": 0.74,
-      "amplitude": 1.48,
-      "volume": 10259320.0,
-      "quoteDate": "2026-08-17",
-      "inst": {
-        "foreign": -1486853,
-        "trust": 2113261,
-        "dealer": 46000,
-        "total": 672408,
-        "date": "2026-08-17"
-      },
-      "margin": {
-        "marginBuy": 4,
-        "marginSell": 36,
-        "marginCashRedemption": 0,
-        "marginPrevBalance": 1979,
-        "marginBalance": 1947,
-        "shortBuy": 0,
-        "shortSell": 0,
-        "shortStockRedemption": 0,
-        "shortPrevBalance": 27,
-        "shortBalance": 27,
-        "offsetting": 0,
-        "date": "2026-08-17"
-      }
-    },
-    {
       "code": "2301",
       "name": "光寶科",
       "market": "TW",
@@ -1202,6 +1163,45 @@
         "shortStockRedemption": 0,
         "shortPrevBalance": 0,
         "shortBalance": 0,
+        "offsetting": 0,
+        "date": "2026-08-17"
+      }
+    },
+    {
+      "code": "2412",
+      "name": "中華電",
+      "market": "TW",
+      "assetType": "stock",
+      "weight": 0.51,
+      "shares": 89025616,
+      "open": 135.0,
+      "high": 137.0,
+      "low": 135.0,
+      "close": 136.0,
+      "prevClose": 135.0,
+      "change": 1.0,
+      "changePct": 0.74,
+      "amplitude": 1.48,
+      "volume": 10259320.0,
+      "quoteDate": "2026-08-17",
+      "inst": {
+        "foreign": -1486853,
+        "trust": 2113261,
+        "dealer": 46000,
+        "total": 672408,
+        "date": "2026-08-17"
+      },
+      "margin": {
+        "marginBuy": 4,
+        "marginSell": 36,
+        "marginCashRedemption": 0,
+        "marginPrevBalance": 1979,
+        "marginBalance": 1947,
+        "shortBuy": 0,
+        "shortSell": 0,
+        "shortStockRedemption": 0,
+        "shortPrevBalance": 27,
+        "shortBalance": 27,
         "offsetting": 0,
         "date": "2026-08-17"
       }
