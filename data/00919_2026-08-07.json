@@ -524,17 +524,7 @@
         "shortBalance": 20,
         "offsetting": 1,
         "date": "2026-08-07"
-      },
-      "open": 728.0,
-      "high": 742.0,
-      "low": 721.0,
-      "close": 742.0,
-      "prevClose": 731.0,
-      "change": 11.0,
-      "changePct": 1.5,
-      "amplitude": 2.87,
-      "volume": 1511196.0,
-      "quoteDate": "2026-08-07"
+      }
     },
     {
       "code": "5871",
@@ -985,17 +975,7 @@
         "shortBalance": 7,
         "offsetting": 1,
         "date": "2026-08-07"
-      },
-      "open": 411.0,
-      "high": 411.0,
-      "low": 394.5,
-      "close": 397.5,
-      "prevClose": 409.0,
-      "change": -11.5,
-      "changePct": -2.81,
-      "amplitude": 4.03,
-      "volume": 877470.0,
-      "quoteDate": "2026-08-07"
+      }
     },
     {
       "code": "1477",
