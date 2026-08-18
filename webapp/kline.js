@@ -391,7 +391,7 @@
       const valueY = y(value), rectY = Math.min(valueY, baseline), rectHeight = Math.max(1, Math.abs(baseline - valueY));
       return `<rect x="${x(index) - barWidth / 2}" y="${rectY}" width="${barWidth}" height="${rectHeight}" rx="5" class="financial-bar"/>`;
     }).join("") : "";
-    const trend = showLine ? `<polyline points="${points}" class="financial-line"/>${yoyValues.map((value, index) => Number.isFinite(value) ? `<circle cx="${x(index)}" cy="${yoyY(value)}" r="4" class="financial-dot"/>` : "").join("")}` : "";
+    const trend = showLine ? `<polyline points="${points}" class="financial-line"/>${yoyValues.map((value, index) => Number.isFinite(value) ? `<g data-financial-yoy="${value.toFixed(2)}" data-period="${esc(plotRows[index].year)}"><circle cx="${x(index)}" cy="${yoyY(value)}" r="4" class="financial-dot"/><circle cx="${x(index)}" cy="${yoyY(value)}" r="13" class="financial-dot-hit"/></g>` : "").join("")}` : "";
     const grid = [0, .25, .5, .75, 1].map(ratio => {
       const leftValue = ceiling - ratio * span, rightValue = yoyCeiling - ratio * yoySpan, yy = padT + ratio * plotHeight;
       return `<line x1="${padL}" x2="${width-padR}" y1="${yy}" y2="${yy}" class="grid"/><text x="${padL-12}" y="${yy+4}" text-anchor="end" class="axis">${esc(metric === "eps" ? price(leftValue) : compactMoney(leftValue, ""))}</text><text x="${width-padR+12}" y="${yy+4}" class="axis">${rightValue.toFixed(0)}%</text>`;
@@ -402,7 +402,25 @@
     const yoy = previousIndex >= 0 ? growthText(Number(latest[metric]), Number(rows[previousIndex][metric])) : "—";
     const operatingMargin = Number.isFinite(Number(latest.revenue)) && Number.isFinite(Number(latest.operatingIncome)) && Number(latest.revenue) !== 0 ? Number(latest.operatingIncome) / Number(latest.revenue) * 100 : null;
     const netMargin = Number.isFinite(Number(latest.revenue)) && Number.isFinite(Number(latest.netIncome)) && Number(latest.revenue) !== 0 ? Number(latest.netIncome) / Number(latest.revenue) * 100 : null;
-    box.querySelector(".financial-content").innerHTML = `<div class="financial-summary"><div><span>${esc(latest.year)} ${esc(meta.label)}</span><strong>${esc(latestValue)}</strong></div><div><span>年增率</span><strong class="${yoy.startsWith("+") ? "up" : yoy.startsWith("-") ? "down" : ""}">${esc(yoy)}</strong></div><div><span>營業利益率</span><strong>${operatingMargin == null ? "—" : operatingMargin.toFixed(1) + "%"}</strong></div><div><span>淨利率</span><strong>${netMargin == null ? "—" : netMargin.toFixed(1) + "%"}</strong></div></div><div class="financial-chart"><svg viewBox="0 0 ${width} ${height}" role="img" aria-label="${esc(meta.label)}${financialPeriod === "quarterly" ? "季度" : "年度"}長條與 YoY 折線圖">${grid}<line x1="${padL}" x2="${width-padR}" y1="${baseline}" y2="${baseline}" class="grid financial-zero"/>${bars}${trend}${labels}</svg></div><div class="financial-note">${financialPeriod === "quarterly" ? "季度財報" : "年度合併財報"}・幣別 ${esc(currency || "未標示")}；長條為 ${esc(meta.label)}，折線為 YoY 成長率。不同幣別公司不宜直接比較金額。資料來源：<a href="https://finance.yahoo.com/quote/${encodeURIComponent(payload.symbol)}/financials/" target="_blank" rel="noopener noreferrer">Yahoo Finance</a></div>`;
+    box.querySelector(".financial-content").innerHTML = `<div class="financial-summary"><div><span>${esc(latest.year)} ${esc(meta.label)}</span><strong>${esc(latestValue)}</strong></div><div><span>年增率</span><strong class="${yoy.startsWith("+") ? "up" : yoy.startsWith("-") ? "down" : ""}">${esc(yoy)}</strong></div><div><span>營業利益率</span><strong>${operatingMargin == null ? "—" : operatingMargin.toFixed(1) + "%"}</strong></div><div><span>淨利率</span><strong>${netMargin == null ? "—" : netMargin.toFixed(1) + "%"}</strong></div></div><div class="financial-chart"><svg viewBox="0 0 ${width} ${height}" role="img" aria-label="${esc(meta.label)}${financialPeriod === "quarterly" ? "季度" : "年度"}長條與 YoY 折線圖">${grid}<line x1="${padL}" x2="${width-padR}" y1="${baseline}" y2="${baseline}" class="grid financial-zero"/>${bars}${trend}${labels}</svg><div class="financial-tooltip" hidden></div></div><div class="financial-note">${financialPeriod === "quarterly" ? "季度財報" : "年度合併財報"}・幣別 ${esc(currency || "未標示")}；長條為 ${esc(meta.label)}，折線為 YoY 成長率。不同幣別公司不宜直接比較金額。資料來源：<a href="https://finance.yahoo.com/quote/${encodeURIComponent(payload.symbol)}/financials/" target="_blank" rel="noopener noreferrer">Yahoo Finance</a></div>`;
+    const chart = box.querySelector(".financial-chart"), tooltip = chart.querySelector(".financial-tooltip");
+    const showFinancialTooltip = (event, point) => {
+      const chartRect = chart.getBoundingClientRect();
+      tooltip.innerHTML = `<strong>${esc(point.dataset.period)}</strong><span>YoY ${Number(point.dataset.financialYoy) >= 0 ? "+" : ""}${Number(point.dataset.financialYoy).toFixed(2)}%</span>`;
+      tooltip.hidden = false;
+      const tipWidth = tooltip.offsetWidth, tipHeight = tooltip.offsetHeight;
+      const visibleLeft = chart.scrollLeft + 6;
+      const leftPos = Math.max(visibleLeft, Math.min(visibleLeft + chartRect.width - tipWidth - 12, chart.scrollLeft + event.clientX - chartRect.left + 12));
+      const topPos = Math.max(6, event.clientY - chartRect.top - tipHeight - 12);
+      tooltip.style.left = `${leftPos}px`; tooltip.style.top = `${topPos}px`;
+    };
+    chart.querySelectorAll("[data-financial-yoy]").forEach(point => {
+      point.addEventListener("pointerenter", event => showFinancialTooltip(event, point));
+      point.addEventListener("pointermove", event => showFinancialTooltip(event, point));
+      point.addEventListener("pointerdown", event => showFinancialTooltip(event, point));
+      point.addEventListener("pointerleave", () => { tooltip.hidden = true; });
+    });
+    chart.addEventListener("pointerleave", () => { tooltip.hidden = true; });
   }
   async function renderFinancials(code, security, name) {
     const box = $("financialPanel"); if (!box) return;
