@@ -61,6 +61,28 @@ class FinancialsApiTests(unittest.TestCase):
         self.assertEqual(rows["2024"]["eps"], 3.80)
         self.assertEqual(rows["2025"]["revenue"], 237_553_199_000)
 
+    def test_parses_direct_mops_quarter_instead_of_subtracting_eps(self):
+        result = {
+            "titles": [
+                {"main": "會計項目", "sub": []},
+                {"main": "115年第2季", "sub": [{"main": "金額"}, {"main": "%"}]},
+                {"main": "114年第2季", "sub": [{"main": "金額"}, {"main": "%"}]},
+                {"main": "115年01月01日至115年06月30日", "sub": [{"main": "金額"}, {"main": "%"}]},
+            ],
+            "reportList": [
+                ["營業收入合計", "42,889,818", "100", "32,466,045", "100", "80,336,273", "100"],
+                ["營業利益（損失）", "6,651,152", "15.5", "1,509,357", "4.6", "9,407,786", "11.7"],
+                ["本期淨利（淨損）", "13,342,387", "31.1", "260,125", "0.8", "18,723,125", "23.3"],
+                ["　基本每股盈餘", "8.45", "", "0.02", "", "11.70", ""],
+            ],
+        }
+
+        row = financials_api.parse_mops_direct_quarter(result, 2026, 2)
+
+        self.assertEqual(row["year"], "2026Q2")
+        self.assertEqual(row["eps"], 8.45)
+        self.assertEqual(row["revenue"], 42_889_818_000)
+
     def test_converts_mops_cumulative_values_to_quarters(self):
         html = """
         <table>

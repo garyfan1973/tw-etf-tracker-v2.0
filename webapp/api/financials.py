@@ -117,6 +117,29 @@ def parse_mops_annual(result):
     return rows
 
 
+def parse_mops_direct_quarter(result, requested_year, quarter):
+    target_title = f"{requested_year - 1911}年第{quarter}季"
+    column = next(
+        (index for title, index in mops_title_columns(result.get("titles")) if title == target_title),
+        None,
+    )
+    if column is None:
+        return None
+    reports = result.get("reportList") or []
+    row = {
+        "year": f"{requested_year}Q{quarter}",
+        "date": f"{requested_year}-{quarter * 3:02d}-{31 if quarter in {1, 4} else 30:02d}",
+        "currency": "TWD",
+    }
+    for key in MOPS_LABELS:
+        report_row = matching_report_row(reports, key)
+        if report_row and column < len(report_row):
+            value = number(report_row[column], 1 if key == "eps" else 1000)
+            if value is not None:
+                row[key] = value
+    return row if sum(row.get(key) is not None for key in MOPS_LABELS) >= 2 else None
+
+
 class TableParser(HTMLParser):
     def __init__(self):
         super().__init__()
@@ -191,6 +214,25 @@ def mops_annual_request(code, year):
     return parse_mops_annual(response["result"])
 
 
+def mops_direct_quarter_request(code, year, quarter):
+    payload = {
+        "companyId": code,
+        "dataType": "2",
+        "year": str(year - 1911),
+        "season": str(quarter),
+        "subsidiaryCompanyId": "",
+    }
+    response = fetch_json(MOPS_API + "t164sb04", payload)
+    if response.get("code") != 200 or not isinstance(response.get("result"), dict):
+        return []
+    return [
+        row for row in (
+            parse_mops_direct_quarter(response["result"], target_year, quarter)
+            for target_year in (year, year - 1)
+        ) if row
+    ]
+
+
 def mops_quarter_request(code, year):
     parameters = {
         "co_id": code,
@@ -214,6 +256,19 @@ def mops_quarter_request(code, year):
     return parse_mops_quarters(fetch_text(url), year)
 
 
+def latest_reported_quarter(today):
+    month_day = (today.month, today.day)
+    if month_day >= (11, 15):
+        return today.year, 3
+    if month_day >= (8, 15):
+        return today.year, 2
+    if month_day >= (5, 15):
+        return today.year, 1
+    if month_day >= (4, 1):
+        return today.year - 1, 4
+    return today.year - 1, 3
+
+
 def fetch_mops_financials(code):
     today = datetime.datetime.now(datetime.timezone(datetime.timedelta(hours=8))).date()
     latest_annual = today.year - 1
@@ -221,7 +276,12 @@ def fetch_mops_financials(code):
     # 2013 首年查詢沒有前期比較欄，另查 2014 才能取得 2013 數字。
     if 2014 <= latest_annual and 2014 not in annual_targets:
         annual_targets.append(2014)
-    quarter_targets = [today.year, today.year - 1, today.year - 2]
+    latest_quarter_year, latest_quarter = latest_reported_quarter(today)
+    quarter_targets = [latest_quarter_year, latest_quarter_year - 1, latest_quarter_year - 2]
+    direct_targets = [
+        (latest_quarter_year if quarter <= latest_quarter else latest_quarter_year - 1, quarter)
+        for quarter in range(1, 4)
+    ]
     years_by_label = {}
     quarters_by_label = {}
 
@@ -234,6 +294,10 @@ def fetch_mops_financials(code):
             executor.submit(mops_quarter_request, code, year): ("quarterly", year)
             for year in quarter_targets
         })
+        futures.update({
+            executor.submit(mops_direct_quarter_request, code, year, quarter): ("direct_quarterly", year)
+            for year, quarter in direct_targets
+        })
         for future in as_completed(futures):
             period_type, _ = futures[future]
             try:
@@ -242,8 +306,11 @@ def fetch_mops_financials(code):
                 continue
             if period_type == "annual":
                 years_by_label.update(result)
-            else:
+            elif period_type == "direct_quarterly":
                 quarters_by_label.update({row["year"]: row for row in result})
+            else:
+                for row in result:
+                    quarters_by_label.setdefault(row["year"], row)
 
     years = [years_by_label[key] for key in sorted(years_by_label) if int(key) >= MOPS_FIRST_IFRS_YEAR]
     quarters = [quarters_by_label[key] for key in sorted(quarters_by_label)][-8:]
@@ -254,7 +321,7 @@ def fetch_mops_financials(code):
         "years": years,
         "quarters": quarters,
         "source": {"name": "公開資訊觀測站", "url": MOPS_SOURCE_URL},
-        "quarterlyMethod": "季值由公開資訊觀測站累計數換算",
+        "quarterlyMethod": "Q1～Q3 採觀測站單季值，Q4 由年度累計換算",
     }
 
 
