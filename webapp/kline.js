@@ -366,20 +366,25 @@
   }
   function renderFinancialChart(payload, metric) {
     const box = $("financialPanel"), rows = (financialPeriod === "quarterly" ? payload.quarters : payload.years) || [], meta = financialMetrics[metric];
-    const values = rows.map(row => Number(row[metric])), valid = values.filter(Number.isFinite).length >= 2;
-    if (!valid || rows.length < 2) { box.querySelector(".financial-content").innerHTML = `<div class="financial-empty">這項指標的${financialPeriod === "quarterly" ? "季度" : "年度"}資料不足。</div>`; return; }
+    const plotRows = rows.filter(row => Number.isFinite(Number(row[metric]))), values = plotRows.map(row => Number(row[metric]));
+    if (plotRows.length < 2) { box.querySelector(".financial-content").innerHTML = `<div class="financial-empty">這項指標的${financialPeriod === "quarterly" ? "季度" : "年度"}資料不足，無法繪圖。</div>`; return; }
     const yoyOffset = financialPeriod === "quarterly" ? 4 : 1;
-    const yoyValues = values.map((value, index) => index >= yoyOffset ? Number(growthText(value, values[index - yoyOffset]).replace("%", "")) : null);
+    const yoyValues = plotRows.map((row, index) => {
+      const sourceIndex = rows.indexOf(row), previous = rows[sourceIndex - yoyOffset];
+      return previous && Number.isFinite(Number(previous[metric])) ? Number(growthText(Number(row[metric]), Number(previous[metric])).replace("%", "")) : null;
+    });
     const finiteValues = values.filter(Number.isFinite), finiteYoy = yoyValues.filter(Number.isFinite);
     const width = 900, height = 300, padL = 62, padR = 62, padT = 28, padB = 48;
     const floor = Math.min(0, ...finiteValues), ceiling = Math.max(0, ...finiteValues), span = ceiling - floor || 1;
     const yoyFloor = Math.min(0, ...finiteYoy), yoyCeiling = Math.max(0, ...finiteYoy), yoySpan = yoyCeiling - yoyFloor || 1;
     const plotWidth = width - padL - padR, plotHeight = height - padT - padB;
-    const x = index => padL + index * plotWidth / Math.max(rows.length - 1, 1);
+    const barWidth = Math.min(54, plotWidth / Math.max(plotRows.length, 1) * .58);
+    const plotLeft = padL + barWidth / 2, plotRight = width - padR - barWidth / 2;
+    const x = index => plotLeft + index * (plotRight - plotLeft) / Math.max(plotRows.length - 1, 1);
     const y = value => padT + (ceiling - value) * plotHeight / span;
     const yoyY = value => padT + (yoyCeiling - value) * plotHeight / yoySpan;
     const points = yoyValues.map((value, index) => Number.isFinite(value) ? `${x(index)},${yoyY(value)}` : null).filter(Boolean).join(" ");
-    const baseline = y(0), barWidth = Math.min(54, plotWidth / Math.max(rows.length, 1) * .58);
+    const baseline = y(0);
     const showBar = financialChartMode === "both" || financialChartMode === "bar", showLine = financialChartMode === "both" || financialChartMode === "line";
     const bars = showBar ? values.map((value, index) => {
       if (!Number.isFinite(value)) return "";
@@ -389,10 +394,10 @@
     const trend = showLine ? `<polyline points="${points}" class="financial-line"/>${yoyValues.map((value, index) => Number.isFinite(value) ? `<circle cx="${x(index)}" cy="${yoyY(value)}" r="4" class="financial-dot"/>` : "").join("")}` : "";
     const grid = [0, .25, .5, .75, 1].map(ratio => {
       const leftValue = ceiling - ratio * span, rightValue = yoyCeiling - ratio * yoySpan, yy = padT + ratio * plotHeight;
-      return `<line x1="${padL}" x2="${width-padR}" y1="${yy}" y2="${yy}" class="grid"/><text x="${padL-8}" y="${yy+4}" text-anchor="end" class="axis">${esc(metric === "eps" ? price(leftValue) : compactMoney(leftValue, ""))}</text><text x="${width-padR+8}" y="${yy+4}" class="axis">${rightValue.toFixed(0)}%</text>`;
+      return `<line x1="${padL}" x2="${width-padR}" y1="${yy}" y2="${yy}" class="grid"/><text x="${padL-12}" y="${yy+4}" text-anchor="end" class="axis">${esc(metric === "eps" ? price(leftValue) : compactMoney(leftValue, ""))}</text><text x="${width-padR+12}" y="${yy+4}" class="axis">${rightValue.toFixed(0)}%</text>`;
     }).join("");
-    const labels = rows.map((row, index) => `<g><text x="${x(index)}" y="${Number.isFinite(values[index]) ? Math.max(16, y(values[index]) - 9) : height-padB-8}" text-anchor="middle" class="financial-value">${Number.isFinite(values[index]) ? esc(metric === "eps" ? price(values[index]) : compactMoney(values[index], "")) : "—"}</text><text x="${x(index)}" y="${height - 14}" text-anchor="middle" class="axis">${esc(row.year)}</text></g>`).join("");
-    const latest = rows.at(-1), previousIndex = rows.length - 1 - yoyOffset, currency = latest.currency || "";
+    const labels = plotRows.map((row, index) => `<g><text x="${x(index)}" y="${Math.max(16, y(values[index]) - 9)}" text-anchor="middle" class="financial-value">${esc(metric === "eps" ? price(values[index]) : compactMoney(values[index], ""))}</text><text x="${x(index)}" y="${height - 14}" text-anchor="middle" class="axis">${esc(row.year)}</text></g>`).join("");
+    const latest = plotRows.at(-1), latestIndex = rows.indexOf(latest), previousIndex = latestIndex - yoyOffset, currency = latest.currency || "";
     const latestValue = metric === "eps" ? `${price(latest[metric])} ${currency}` : compactMoney(latest[metric], currency);
     const yoy = previousIndex >= 0 ? growthText(Number(latest[metric]), Number(rows[previousIndex][metric])) : "—";
     const operatingMargin = Number.isFinite(Number(latest.revenue)) && Number.isFinite(Number(latest.operatingIncome)) && Number(latest.revenue) !== 0 ? Number(latest.operatingIncome) / Number(latest.revenue) * 100 : null;
