@@ -146,6 +146,13 @@
     "business": "無代號海外成分股，暫無可用公開摘要。",
     "source": ""
   },
+  "2026/09電子指數期貨": {
+    "name": "2026/09電子指數期貨",
+    "market": "",
+    "industry": "",
+    "business": "無代號海外成分股，暫無可用公開摘要。",
+    "source": ""
+  },
   "2027": {
     "name": "大成鋼",
     "market": "TW",
@@ -370,6 +377,13 @@
     "business": "臺灣上市公司；主要業務請參考公司網站。",
     "source": "臺灣證券交易所"
   },
+  "2404": {
+    "name": "漢唐",
+    "market": "TW",
+    "industry": "其他電子業",
+    "business": "臺灣上市公司；主要業務請參考公司網站。",
+    "source": "臺灣證券交易所"
+  },
   "2408": {
     "name": "南亞科",
     "market": "TW",
@@ -388,6 +402,13 @@
     "name": "中華電",
     "market": "TW",
     "industry": "通信網路業",
+    "business": "臺灣上市公司；主要業務請參考公司網站。",
+    "source": "臺灣證券交易所"
+  },
+  "2428": {
+    "name": "興勤",
+    "market": "TW",
+    "industry": "電子零組件業",
     "business": "臺灣上市公司；主要業務請參考公司網站。",
     "source": "臺灣證券交易所"
   },
@@ -451,6 +472,20 @@
     "name": "可成",
     "market": "TW",
     "industry": "其他電子業",
+    "business": "臺灣上市公司；主要業務請參考公司網站。",
+    "source": "臺灣證券交易所"
+  },
+  "2476": {
+    "name": "鉅祥",
+    "market": "TW",
+    "industry": "電子零組件業",
+    "business": "臺灣上市公司；主要業務請參考公司網站。",
+    "source": "臺灣證券交易所"
+  },
+  "2478": {
+    "name": "大毅",
+    "market": "TW",
+    "industry": "電子零組件業",
     "business": "臺灣上市公司；主要業務請參考公司網站。",
     "source": "臺灣證券交易所"
   },
@@ -699,6 +734,13 @@
     "business": "臺灣上市公司；主要業務請參考公司網站。",
     "source": "臺灣證券交易所"
   },
+  "3081": {
+    "name": "聯亞",
+    "market": "TW",
+    "industry": "",
+    "business": "無代號海外成分股，暫無可用公開摘要。",
+    "source": ""
+  },
   "3090": {
     "name": "日電貿",
     "market": "TW",
@@ -743,6 +785,13 @@
   },
   "3264": {
     "name": "欣銓",
+    "market": "TW",
+    "industry": "",
+    "business": "無代號海外成分股，暫無可用公開摘要。",
+    "source": ""
+  },
+  "3265": {
+    "name": "台星科",
     "market": "TW",
     "industry": "",
     "business": "無代號海外成分股，暫無可用公開摘要。",
@@ -822,6 +871,13 @@
     "name": "辛耘",
     "market": "TW",
     "industry": "半導體業",
+    "business": "臺灣上市公司；主要業務請參考公司網站。",
+    "source": "臺灣證券交易所"
+  },
+  "3617": {
+    "name": "碩天",
+    "market": "TW",
+    "industry": "其他電子業",
     "business": "臺灣上市公司；主要業務請參考公司網站。",
     "source": "臺灣證券交易所"
   },
@@ -965,12 +1021,26 @@
     "business": "無代號海外成分股，暫無可用公開摘要。",
     "source": ""
   },
+  "5425": {
+    "name": "台半",
+    "market": "TW",
+    "industry": "",
+    "business": "無代號海外成分股，暫無可用公開摘要。",
+    "source": ""
+  },
   "5434": {
     "name": "崇越",
     "market": "TW",
     "industry": "電子通路業",
     "business": "臺灣上市公司；主要業務請參考公司網站。",
     "source": "臺灣證券交易所"
+  },
+  "5483": {
+    "name": "中美晶",
+    "market": "TW",
+    "industry": "",
+    "business": "無代號海外成分股，暫無可用公開摘要。",
+    "source": ""
   },
   "5522": {
     "name": "遠雄",
@@ -1067,6 +1137,13 @@
     "name": "聯茂",
     "market": "TW",
     "industry": "電子零組件業",
+    "business": "臺灣上市公司；主要業務請參考公司網站。",
+    "source": "臺灣證券交易所"
+  },
+  "6214": {
+    "name": "精誠",
+    "market": "TW",
+    "industry": "資訊服務業",
     "business": "臺灣上市公司；主要業務請參考公司網站。",
     "source": "臺灣證券交易所"
   },
@@ -1203,6 +1280,13 @@
     "business": "臺灣上市公司；主要業務請參考公司網站。",
     "source": "臺灣證券交易所"
   },
+  "6672": {
+    "name": "騰輝電子-KY",
+    "market": "TW",
+    "industry": "電子零組件業",
+    "business": "臺灣上市公司；主要業務請參考公司網站。",
+    "source": "臺灣證券交易所"
+  },
   "6715": {
     "name": "嘉基",
     "market": "TW",
@@ -1326,6 +1410,13 @@
     "name": "南電",
     "market": "TW",
     "industry": "電子零組件業",
+    "business": "臺灣上市公司；主要業務請參考公司網站。",
+    "source": "臺灣證券交易所"
+  },
+  "8070": {
+    "name": "長華*",
+    "market": "TW",
+    "industry": "電子通路業",
     "business": "臺灣上市公司；主要業務請參考公司網站。",
     "source": "臺灣證券交易所"
   },
@@ -1563,6 +1654,14 @@
     "source": "Stock Analysis",
     "sector": "Technology"
   },
+  "DIOD": {
+    "name": "Diodes",
+    "market": "US",
+    "industry": "Semiconductors",
+    "business": "Diodes Incorporated, together with its subsidiaries, provides semiconductor products in Asia, the Americas, and Europe. The company offers MOSFET and SiC MOSFET discrete semiconductor products; data line protection, power line protection, thyrister, USB Type-C protection, and transient voltage suppressor protection devices; Schottky diodes, small signal switching diodes, Zener diodes, and SiC diodes; and bridges, super barrier rectifiers, Schottky rectifiers, Schottky bridge rectifiers, and fast and ultra-fast rectifiers. It also provides avalanche transistors, gate driver transistors, and pre-bias transistors; power management devices, such as AC-DC and DC-DC converters, digital isolators and isolated gate drivers, USB power switches, low dropout, photocoupler, and linear voltage regulators; standard linear devices, such as operational amplifiers and comparators, current monitors, voltage references, and reset generators; LED lighting drivers; audio amplifiers; and sensor products, including Hall-effect sensors and motor drivers. In addition, the company offers mixed-signal products comprising high speed mux/demux, digital switches, interface, redrivers, universal level shifters/voltage translators, clock ICs, and packet switches; low-voltage complementary metal-oxide-semiconductor (CMOS) and CMOS devices, as well as ultra-low power CMOS logic and analog switches; and multichip products, co-packaged discrete, analog, and mixed-signal silicon in miniature packages. Further, it provides silicon and silicon epitaxial wafers; frequency control products; and contact image sensors. The company serves industrial, automotive, computing, consumer, and communications end-markets through direct sales, marketing personnel, independent sales representatives, and distributors. Diodes Incorporated was incorporated in 1959 and is headquartered in Plano, Texas.",
+    "source": "Stock Analysis",
+    "sector": "Technology"
+  },
   "ENTG": {
     "name": "Entegris",
     "market": "US",
@@ -1692,7 +1791,7 @@
     "name": "Microsoft",
     "market": "US",
     "industry": "Software - Infrastructure",
-    "business": "Microsoft Corporation, a technology company, develops and supports a portfolio of technology solutions for individuals and businesses worldwide. It operates through three segments: Productivity and Business Processes, Intelligent Cloud, and More Personal Computing. The Productivity and Business Processes segment offers Microsoft 365 Commercial, Enterprise Mobility + Security, Power BI, Exchange, SharePoint, Microsoft Teams, Microsoft 365 Security and Compliance, Microsoft 365 Copilot, and Windows Commercial on-premises and Office licensed on-premises. This segment also provides Microsoft 365 Consumer products and cloud services; LinkedIn, including talent solutions, marketing solutions, subscriptions, and sales solutions; Dynamics 365, a set of cloud-based applications; and on-premises ERP and CRM applications. The Intelligent Cloud segment offers server products and cloud services; cloud and AI consumption-based services, GitHub cloud services, health and life sciences cloud services, as well as virtual desktop offerings, and other cloud services; SQL Server, Windows Server, Visual Studio, System Center, and related client access licenses; and enterprise support services, industry solutions, Microsoft partner network, and learning experience. The More Personal Computing segment provides Windows OEM licensing and devices comprising Surface and PC accessories; XBOX hardware, and XBOX first- and third-party content and services; XBOX Game Pass and other subscriptions; XBOX Cloud Gaming, advertising, and other cloud services; and search advertising consisting of Bing, Copilot, Microsoft News, Microsoft Edge, and third-party affiliates. It sells its products through partners and retail networks. The company was founded in 1975 and is headquartered in Redmond, Washington.",
+    "business": "Microsoft Corporation, a technology company, develops and supports a portfolio of technology solutions for individuals and businesses worldwide. Its products include operating systems, server applications, business solution applications, software development tools, desktop and server management tools, and video games; and devices, such as PCs, tablets, gaming and entertainment consoles, other intelligent devices, and related accessories. The company's Productivity and Business Processes segment offers Microsoft 365 Commercial, Enterprise Mobility + Security, Power BI, Exchange, SharePoint, Microsoft Teams, Microsoft 365 Security and Compliance, Microsoft 365 Copilot, and Windows Commercial on-premises and Office licensed on-premises. This segment also provides Microsoft 365 Consumer products and cloud services; LinkedIn, including talent solutions, marketing solutions, subscriptions, and sales solutions; Dynamics 365, a set of cloud-based applications; and on-premises ERP and CRM applications. Its Intelligent Cloud segment offers server products and cloud services; cloud and AI consumption-based services, GitHub cloud services, health and life sciences cloud services, as well as virtual desktop offerings, and other cloud services; SQL Server, Windows Server, Visual Studio, System Center, and related client access licenses; and enterprise support services, industry solutions, Microsoft partner network, and learning experience. The company's More Personal Computing segment provides Windows OEM licensing and devices comprising Surface and PC accessories; XBOX hardware, and XBOX first- and third-party content and services; XBOX Game Pass and other subscriptions; XBOX Cloud Gaming, advertising, and other cloud services; and search advertising consisting of Bing, Copilot, Microsoft News, Microsoft Edge, and third-party affiliates. It sells its products through partners and retail networks. The company was founded in 1975 and is headquartered in Redmond, Washington.",
     "source": "Stock Analysis",
     "sector": "Technology"
   },
@@ -1867,7 +1966,7 @@
     "name": "Atlassian",
     "market": "US",
     "industry": "Software - Application",
-    "business": "Atlassian Corporation provides a collaboration software that enables organizations to connect all teams through a system of work that unlocks productivity at scale worldwide. Its product portfolio includes Jira, a project management platform for planning, tracking, and managing work; Confluence, a connected workspace to create, organize, and share team knowledge, documents, and collaboration content; Loom, an asynchronous video communication tool to record and share videos; Jira Service Management, an intuitive service management solution for IT, HR, and other teams; and Rovo, an AI offering that assists teams with its Search, Chat and Agent capabilities. The company also offers Bitbucket, a git-based source code management platform for professional development teams; Compass, a developer portal that provides a unified view of engineering components; Jira Product Discovery, a tool to capture, prioritize, and roadmap product ideas; Jira Align, an enterprise agility solution that connects business and technology teams to align strategy with execution; Focus, a strategy hub for leadership teams; and Talent, a workforce planning app. In addition, it provides Trello, an AI-powered personal productivity tool; and Guard, an app for detecting and responding to security threats. The company has a strategic collaboration with Mattermost, Inc. for the development of Mattermost Docs, a sovereign, self-hosted successor to Confluence for defense, intelligence, and critical infrastructure organizations. The company was founded in 2002 and is headquartered in Sydney, Australia.",
+    "business": "Atlassian Corporation provides a collaboration software that enables organizations to connect all teams through a system of work that unlocks productivity at scale worldwide. The company’s product portfolio includes Jira, Confluence, Loom, Jira Service Management, Rovo, Bitbucket, Compass, Jira Product Discovery, Focus, Talent, Trello, and Guard. It also offers Collections, a curated sets of apps and agents built on the Atlassian cloud platform and designed to solve cross-functional customer workflows, including teamwork, service, strategy, software, and product collections. The company was founded in 2002 and is headquartered in Sydney, Australia.",
     "source": "Stock Analysis",
     "sector": "Technology"
   },
