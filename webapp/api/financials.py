@@ -12,10 +12,14 @@ YAHOO_TIMESERIES = (
     "?symbol={}&type={}&period1={}&period2={}"
 )
 METRICS = {
-    "annualTotalRevenue": "revenue",
-    "annualOperatingIncome": "operatingIncome",
-    "annualNetIncome": "netIncome",
-    "annualDilutedEPS": "eps",
+    "annualTotalRevenue": ("annual", "revenue"),
+    "annualOperatingIncome": ("annual", "operatingIncome"),
+    "annualNetIncome": ("annual", "netIncome"),
+    "annualDilutedEPS": ("annual", "eps"),
+    "quarterlyTotalRevenue": ("quarterly", "revenue"),
+    "quarterlyOperatingIncome": ("quarterly", "operatingIncome"),
+    "quarterlyNetIncome": ("quarterly", "netIncome"),
+    "quarterlyDilutedEPS": ("quarterly", "eps"),
 }
 
 
@@ -34,26 +38,31 @@ def fetch_json(url):
 
 
 def parse_timeseries(payload, symbol):
-    by_year = {}
+    periods = {"annual": {}, "quarterly": {}}
     results = ((payload or {}).get("timeseries") or {}).get("result") or []
     for series in results:
-        metric_type = next((kind for kind in METRICS if kind in series), None)
-        if not metric_type:
-            continue
-        key = METRICS[metric_type]
-        for item in series.get(metric_type) or []:
-            date = str(item.get("asOfDate") or "")
-            raw = ((item.get("reportedValue") or {}).get("raw"))
-            if len(date) < 4 or not isinstance(raw, (int, float)):
-                continue
-            year = date[:4]
-            row = by_year.setdefault(year, {"year": year, "date": date})
-            row[key] = raw
-            row["currency"] = item.get("currencyCode") or row.get("currency")
-    rows = sorted(by_year.values(), key=lambda row: row["year"])
-    # 只有四個核心欄位中至少三個存在才視為可比較的完整年度。
-    rows = [row for row in rows if sum(row.get(key) is not None for key in METRICS.values()) >= 3]
-    return {"symbol": symbol, "years": rows[-3:]}
+        for metric_type, (period_type, key) in METRICS.items():
+            for item in series.get(metric_type) or []:
+                date = str(item.get("asOfDate") or "")
+                raw = ((item.get("reportedValue") or {}).get("raw"))
+                if len(date) < 4 or not isinstance(raw, (int, float)):
+                    continue
+                if period_type == "annual":
+                    label = date[:4]
+                else:
+                    month = int(date[5:7]) if len(date) >= 7 and date[5:7].isdigit() else 1
+                    label = f"{date[:4]}Q{(month - 1) // 3 + 1}"
+                row = periods[period_type].setdefault(label, {"year": label, "date": date})
+                row[key] = raw
+                row["currency"] = item.get("currencyCode") or row.get("currency")
+    output = {}
+    for period_type, rows_by_label in periods.items():
+        rows = sorted(rows_by_label.values(), key=lambda row: row["date"])
+        metric_keys = ["revenue", "operatingIncome", "netIncome", "eps"]
+        # 至少要有兩個核心欄位，避免單一缺漏造成整期消失。
+        rows = [row for row in rows if sum(row.get(key) is not None for key in metric_keys) >= 2]
+        output["years" if period_type == "annual" else "quarters"] = rows[-5 if period_type == "annual" else -8:]
+    return {"symbol": symbol, **output}
 
 
 def fetch_financials(code, market):
