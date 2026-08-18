@@ -512,7 +512,11 @@
       [30, 50, 70].forEach(value => svg += `<line x1="${left}" x2="${W-right}" y1="${rsiY(value)}" y2="${rsiY(value)}" class="grid${value === 50 ? "" : " kd-threshold"}"/><text x="30" y="${rsiY(value)+4}" class="axis">${value}</text>`);
       svg += `<text x="4" y="${rsiPanel.top + 12}" class="axis">RSI</text>`;
     }
-    svg += `<text x="${x(0)}" y="${chartHeight - 8}" text-anchor="middle" class="axis">${dateLabel(rows[0].date)}</text><text x="${x(rows.length - 1)}" y="${chartHeight - 8}" text-anchor="middle" class="axis">${dateLabel(rows.at(-1).date)}</text>`;
+    const tickCount = Math.min(7, rows.length);
+    const tickIndexes = [...new Set(Array.from({ length: tickCount }, (_, i) => Math.round(i * (rows.length - 1) / Math.max(1, tickCount - 1))))];
+    tickIndexes.forEach(index => {
+      svg += `<text x="${x(index)}" y="${chartHeight - 8}" text-anchor="middle" class="axis">${dateLabel(rows[index].date)}</text>`;
+    });
     rows.forEach((r, i) => {
       const cx = x(i), candleW = Math.max(2, Math.min(18, plotW / Math.max(rows.length, 1) * .56)), rising = Number(r.close) >= Number(r.open), color = rising ? "var(--up)" : "var(--down)";
       const bodyY = y(Math.max(r.open, r.close)), bodyH = Math.max(1.5, Math.abs(y(r.open) - y(r.close)));
