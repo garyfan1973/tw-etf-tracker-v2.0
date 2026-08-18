@@ -351,7 +351,7 @@
   }
   const financialMetrics = {
     revenue:{ label:"營收" }, operatingIncome:{ label:"營業利益" },
-    netIncome:{ label:"稅後淨利" }, eps:{ label:"稀釋 EPS" }
+    netIncome:{ label:"淨利" }, eps:{ label:"EPS" }
   };
   function compactMoney(value, currency) {
     const absolute = Math.abs(Number(value));
@@ -365,7 +365,7 @@
     return `${value >= 0 ? "+" : ""}${value.toFixed(1)}%`;
   }
   function renderFinancialChart(payload, metric) {
-    const box = $("financialPanel"), rows = (financialPeriod === "quarterly" ? payload.quarters : payload.years) || [], meta = financialMetrics[metric];
+    const box = $("financialPanel"), allRows = (financialPeriod === "quarterly" ? payload.quarters : payload.years) || [], rows = financialPeriod === "annual" ? allRows.slice(-5) : allRows, meta = financialMetrics[metric];
     const plotRows = rows.filter(row => Number.isFinite(Number(row[metric]))), values = plotRows.map(row => Number(row[metric]));
     if (plotRows.length < 2) { box.querySelector(".financial-content").innerHTML = `<div class="financial-empty">這項指標的${financialPeriod === "quarterly" ? "季度" : "年度"}資料不足，無法繪圖。</div>`; return; }
     const yoyOffset = financialPeriod === "quarterly" ? 4 : 1;
@@ -402,7 +402,9 @@
     const yoy = previousIndex >= 0 ? growthText(Number(latest[metric]), Number(rows[previousIndex][metric])) : "—";
     const operatingMargin = Number.isFinite(Number(latest.revenue)) && Number.isFinite(Number(latest.operatingIncome)) && Number(latest.revenue) !== 0 ? Number(latest.operatingIncome) / Number(latest.revenue) * 100 : null;
     const netMargin = Number.isFinite(Number(latest.revenue)) && Number.isFinite(Number(latest.netIncome)) && Number(latest.revenue) !== 0 ? Number(latest.netIncome) / Number(latest.revenue) * 100 : null;
-    box.querySelector(".financial-content").innerHTML = `<div class="financial-summary"><div><span>${esc(latest.year)} ${esc(meta.label)}</span><strong>${esc(latestValue)}</strong></div><div><span>年增率</span><strong class="${yoy.startsWith("+") ? "up" : yoy.startsWith("-") ? "down" : ""}">${esc(yoy)}</strong></div><div><span>營業利益率</span><strong>${operatingMargin == null ? "—" : operatingMargin.toFixed(1) + "%"}</strong></div><div><span>淨利率</span><strong>${netMargin == null ? "—" : netMargin.toFixed(1) + "%"}</strong></div></div><div class="financial-chart"><svg viewBox="0 0 ${width} ${height}" role="img" aria-label="${esc(meta.label)}${financialPeriod === "quarterly" ? "季度" : "年度"}長條與 YoY 折線圖">${grid}<line x1="${padL}" x2="${width-padR}" y1="${baseline}" y2="${baseline}" class="grid financial-zero"/>${bars}${trend}${labels}</svg><div class="financial-tooltip" hidden></div></div><div class="financial-note">${financialPeriod === "quarterly" ? "季度財報" : "年度合併財報"}・幣別 ${esc(currency || "未標示")}；長條為 ${esc(meta.label)}，折線為 YoY 成長率。不同幣別公司不宜直接比較金額。資料來源：<a href="https://finance.yahoo.com/quote/${encodeURIComponent(payload.symbol)}/financials/" target="_blank" rel="noopener noreferrer">Yahoo Finance</a></div>`;
+    const source = payload.source || { name:"Yahoo Finance", url:`https://finance.yahoo.com/quote/${encodeURIComponent(payload.symbol)}/financials/` };
+    const quarterNote = financialPeriod === "quarterly" && payload.quarterlyMethod ? `；${esc(payload.quarterlyMethod)}` : "";
+    box.querySelector(".financial-content").innerHTML = `<div class="financial-summary"><div><span>${esc(latest.year)} ${esc(meta.label)}</span><strong>${esc(latestValue)}</strong></div><div><span>年增率</span><strong class="${yoy.startsWith("+") ? "up" : yoy.startsWith("-") ? "down" : ""}">${esc(yoy)}</strong></div><div><span>營業利益率</span><strong>${operatingMargin == null ? "—" : operatingMargin.toFixed(1) + "%"}</strong></div><div><span>淨利率</span><strong>${netMargin == null ? "—" : netMargin.toFixed(1) + "%"}</strong></div></div><div class="financial-chart"><svg viewBox="0 0 ${width} ${height}" role="img" aria-label="${esc(meta.label)}${financialPeriod === "quarterly" ? "季度" : "年度"}長條與 YoY 折線圖">${grid}<line x1="${padL}" x2="${width-padR}" y1="${baseline}" y2="${baseline}" class="grid financial-zero"/>${bars}${trend}${labels}</svg><div class="financial-tooltip" hidden></div></div><div class="financial-note">${financialPeriod === "quarterly" ? "季度財報" : "年度合併財報"}・幣別 ${esc(currency || "未標示")}；長條為 ${esc(meta.label)}，折線為 YoY 成長率${quarterNote}。不同幣別公司不宜直接比較金額。資料來源：<a href="${esc(source.url)}" target="_blank" rel="noopener noreferrer">${esc(source.name)}</a></div>`;
     const chart = box.querySelector(".financial-chart"), tooltip = chart.querySelector(".financial-tooltip");
     const showFinancialTooltip = (event, point) => {
       const chartRect = chart.getBoundingClientRect();
@@ -427,7 +429,7 @@
     if (security === "__ETF__") { financialRequestKey = `${code}|ETF`; box.style.display = "none"; box.innerHTML = ""; return; }
     const info = securityInfo(code, security), key = `${info.symbol}|${info.market}`; financialRequestKey = key;
     box.style.display = "block";
-    box.innerHTML = `<div class="financial-heading"><div><h3>近三年財報趨勢</h3><p>${esc(name)}・年度合併財報比較</p></div><span>載入中…</span></div><div class="financial-empty">正在取得財務資料…</div>`;
+    box.innerHTML = `<div class="financial-heading"><div><h3>財報趨勢</h3><p>${esc(name)}・年度／季度財務表現</p></div><span>載入中…</span></div><div class="financial-empty">正在取得財務資料…</div>`;
     try {
       const response = await fetch(`/api/financials?code=${encodeURIComponent(info.symbol)}&market=${encodeURIComponent(info.market)}`, { cache:"default" });
       const payload = await response.json().catch(() => ({ ok:false, error:"財務資料暫時無法取得" }));
@@ -463,7 +465,7 @@
       }));
       renderFinancialChart(payload, "revenue");
     } catch (error) {
-      if (financialRequestKey === key) box.innerHTML = `<div class="financial-heading"><div><h3>近三年財報趨勢</h3><p>${esc(name)}・年度合併財報比較</p></div></div><div class="financial-empty">${esc(error.message || "財務資料暫時無法取得")}</div>`;
+      if (financialRequestKey === key) box.innerHTML = `<div class="financial-heading"><div><h3>財報趨勢</h3><p>${esc(name)}・年度／季度財務表現</p></div></div><div class="financial-empty">${esc(error.message || "財務資料暫時無法取得")}</div>`;
     }
   }
   async function render() {
