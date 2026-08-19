@@ -1,5 +1,5 @@
 window.DATA = {
-  "generated_at": "2026-08-19T21:30:23+08:00",
+  "generated_at": "2026-08-19T22:22:43+08:00",
   "etfs": {
     "00981A": {
       "name": "主動統一台股增長",
@@ -18139,17 +18139,17 @@ window.DATA = {
               "weight": 4.59,
               "shares": 2443000,
               "margin": {
-                "marginBuy": 136,
-                "marginSell": 72,
-                "marginCashRedemption": 3,
-                "marginPrevBalance": 922,
-                "marginBalance": 983,
-                "shortBuy": 0,
-                "shortSell": 12,
+                "marginBuy": 68,
+                "marginSell": 39,
+                "marginCashRedemption": 1,
+                "marginPrevBalance": 983,
+                "marginBalance": 1011,
+                "shortBuy": 8,
+                "shortSell": 4,
                 "shortStockRedemption": 0,
-                "shortPrevBalance": 24,
-                "shortBalance": 12,
-                "offsetting": 0,
+                "shortPrevBalance": 12,
+                "shortBalance": 16,
+                "offsetting": 1,
                 "date": "2026-08-17"
               },
               "open": 5000.0,
@@ -18405,17 +18405,17 @@ window.DATA = {
               "weight": 2.85,
               "shares": 5499000,
               "margin": {
-                "marginBuy": 818,
-                "marginSell": 1111,
-                "marginCashRedemption": 1,
-                "marginPrevBalance": 10926,
-                "marginBalance": 10632,
-                "shortBuy": 9,
-                "shortSell": 12,
-                "shortStockRedemption": 3,
-                "shortPrevBalance": 123,
-                "shortBalance": 117,
-                "offsetting": 16,
+                "marginBuy": 464,
+                "marginSell": 595,
+                "marginCashRedemption": 3,
+                "marginPrevBalance": 10632,
+                "marginBalance": 10498,
+                "shortBuy": 20,
+                "shortSell": 14,
+                "shortStockRedemption": 0,
+                "shortPrevBalance": 117,
+                "shortBalance": 123,
+                "offsetting": 15,
                 "date": "2026-08-17"
               },
               "open": 1455.0,
@@ -18437,11 +18437,11 @@ window.DATA = {
               "weight": 2.67,
               "shares": 484900,
               "margin": {
-                "marginBuy": 2,
-                "marginSell": 8,
+                "marginBuy": 12,
+                "marginSell": 5,
                 "marginCashRedemption": 0,
-                "marginPrevBalance": 127,
-                "marginBalance": 121,
+                "marginPrevBalance": 121,
+                "marginBalance": 128,
                 "shortBuy": 0,
                 "shortSell": 0,
                 "shortStockRedemption": 0,
@@ -18635,17 +18635,17 @@ window.DATA = {
               "weight": 0.6,
               "shares": 1334000,
               "margin": {
-                "marginBuy": 367,
-                "marginSell": 648,
-                "marginCashRedemption": 1,
-                "marginPrevBalance": 3075,
-                "marginBalance": 2793,
-                "shortBuy": 0,
-                "shortSell": 59,
+                "marginBuy": 466,
+                "marginSell": 265,
+                "marginCashRedemption": 0,
+                "marginPrevBalance": 2793,
+                "marginBalance": 2994,
+                "shortBuy": 10,
+                "shortSell": 4,
                 "shortStockRedemption": 0,
-                "shortPrevBalance": 106,
-                "shortBalance": 47,
-                "offsetting": 2,
+                "shortPrevBalance": 47,
+                "shortBalance": 53,
+                "offsetting": 14,
                 "date": "2026-08-17"
               },
               "open": 1210.0,
@@ -18707,16 +18707,16 @@ window.DATA = {
               "shares": 478000,
               "margin": {
                 "marginBuy": 43,
-                "marginSell": 15,
+                "marginSell": 16,
                 "marginCashRedemption": 0,
-                "marginPrevBalance": 669,
-                "marginBalance": 697,
+                "marginPrevBalance": 697,
+                "marginBalance": 724,
                 "shortBuy": 0,
-                "shortSell": 1,
+                "shortSell": 0,
                 "shortStockRedemption": 0,
-                "shortPrevBalance": 6,
+                "shortPrevBalance": 5,
                 "shortBalance": 5,
-                "offsetting": 1,
+                "offsetting": 0,
                 "date": "2026-08-17"
               },
               "open": 2665.0,
@@ -18777,17 +18777,17 @@ window.DATA = {
               "weight": 0.43,
               "shares": 2424000,
               "margin": {
-                "marginBuy": 157,
-                "marginSell": 265,
-                "marginCashRedemption": 5,
-                "marginPrevBalance": 10657,
-                "marginBalance": 10544,
-                "shortBuy": 2,
-                "shortSell": 16,
-                "shortStockRedemption": 23,
-                "shortPrevBalance": 212,
-                "shortBalance": 175,
-                "offsetting": 169,
+                "marginBuy": 94,
+                "marginSell": 204,
+                "marginCashRedemption": 1,
+                "marginPrevBalance": 10544,
+                "marginBalance": 10433,
+                "shortBuy": 31,
+                "shortSell": 7,
+                "shortStockRedemption": 1,
+                "shortPrevBalance": 175,
+                "shortBalance": 198,
+                "offsetting": 151,
                 "date": "2026-08-17"
               },
               "open": 495.0,
@@ -18809,17 +18809,17 @@ window.DATA = {
               "weight": 0.42,
               "shares": 5918000,
               "margin": {
-                "marginBuy": 253,
-                "marginSell": 513,
-                "marginCashRedemption": 4,
-                "marginPrevBalance": 5608,
-                "marginBalance": 5344,
-                "shortBuy": 15,
-                "shortSell": 47,
+                "marginBuy": 175,
+                "marginSell": 79,
+                "marginCashRedemption": 0,
+                "marginPrevBalance": 5344,
+                "marginBalance": 5440,
+                "shortBuy": 7,
+                "shortSell": 13,
                 "shortStockRedemption": 0,
-                "shortPrevBalance": 116,
-                "shortBalance": 84,
-                "offsetting": 3,
+                "shortPrevBalance": 84,
+                "shortBalance": 78,
+                "offsetting": 2,
                 "date": "2026-08-17"
               },
               "open": 205.0,
@@ -19036,10 +19036,10 @@ window.DATA = {
               "weight": 0.03,
               "shares": 140000,
               "margin": {
-                "marginBuy": 39,
-                "marginSell": 32,
-                "marginCashRedemption": 2,
-                "marginPrevBalance": 3659,
+                "marginBuy": 80,
+                "marginSell": 72,
+                "marginCashRedemption": 8,
+                "marginPrevBalance": 3664,
                 "marginBalance": 3664,
                 "shortBuy": 0,
                 "shortSell": 0,
@@ -19536,17 +19536,17 @@ window.DATA = {
               "weight": 0.0,
               "shares": 1000,
               "margin": {
-                "marginBuy": 364,
-                "marginSell": 498,
-                "marginCashRedemption": 1,
-                "marginPrevBalance": 12403,
-                "marginBalance": 12268,
-                "shortBuy": 29,
-                "shortSell": 41,
+                "marginBuy": 302,
+                "marginSell": 507,
+                "marginCashRedemption": 2,
+                "marginPrevBalance": 12268,
+                "marginBalance": 12061,
+                "shortBuy": 25,
+                "shortSell": 30,
                 "shortStockRedemption": 0,
-                "shortPrevBalance": 247,
-                "shortBalance": 235,
-                "offsetting": 4,
+                "shortPrevBalance": 235,
+                "shortBalance": 230,
+                "offsetting": 9,
                 "date": "2026-08-17"
               },
               "open": 149.0,
@@ -19568,17 +19568,17 @@ window.DATA = {
               "weight": 0.0,
               "shares": 1000,
               "margin": {
-                "marginBuy": 1332,
-                "marginSell": 1287,
+                "marginBuy": 794,
+                "marginSell": 1187,
                 "marginCashRedemption": 0,
-                "marginPrevBalance": 11517,
-                "marginBalance": 11562,
-                "shortBuy": 30,
-                "shortSell": 2,
-                "shortStockRedemption": 1,
-                "shortPrevBalance": 168,
-                "shortBalance": 195,
-                "offsetting": 14,
+                "marginPrevBalance": 11562,
+                "marginBalance": 11169,
+                "shortBuy": 26,
+                "shortSell": 61,
+                "shortStockRedemption": 0,
+                "shortPrevBalance": 195,
+                "shortBalance": 160,
+                "offsetting": 23,
                 "date": "2026-08-17"
               },
               "open": 1010.0,
@@ -19678,17 +19678,17 @@ window.DATA = {
               "weight": 0.0,
               "shares": 1000,
               "margin": {
-                "marginBuy": 2540,
-                "marginSell": 2130,
-                "marginCashRedemption": 3,
-                "marginPrevBalance": 23328,
-                "marginBalance": 23735,
-                "shortBuy": 99,
-                "shortSell": 28,
-                "shortStockRedemption": 0,
-                "shortPrevBalance": 359,
-                "shortBalance": 430,
-                "offsetting": 49,
+                "marginBuy": 906,
+                "marginSell": 1217,
+                "marginCashRedemption": 149,
+                "marginPrevBalance": 23735,
+                "marginBalance": 23275,
+                "shortBuy": 66,
+                "shortSell": 133,
+                "shortStockRedemption": 1,
+                "shortPrevBalance": 430,
+                "shortBalance": 362,
+                "offsetting": 26,
                 "date": "2026-08-17"
               },
               "open": 398.0,
@@ -20111,17 +20111,17 @@ window.DATA = {
               "volume": 1187417.0,
               "quoteDate": "2026-08-18",
               "margin": {
-                "marginBuy": 136,
-                "marginSell": 72,
-                "marginCashRedemption": 3,
-                "marginPrevBalance": 922,
-                "marginBalance": 983,
-                "shortBuy": 0,
-                "shortSell": 12,
+                "marginBuy": 68,
+                "marginSell": 39,
+                "marginCashRedemption": 1,
+                "marginPrevBalance": 983,
+                "marginBalance": 1011,
+                "shortBuy": 8,
+                "shortSell": 4,
                 "shortStockRedemption": 0,
-                "shortPrevBalance": 24,
-                "shortBalance": 12,
-                "offsetting": 0,
+                "shortPrevBalance": 12,
+                "shortBalance": 16,
+                "offsetting": 1,
                 "date": "2026-08-18"
               }
             },
@@ -20338,17 +20338,17 @@ window.DATA = {
               "volume": 5742661.0,
               "quoteDate": "2026-08-18",
               "margin": {
-                "marginBuy": 818,
-                "marginSell": 1111,
-                "marginCashRedemption": 1,
-                "marginPrevBalance": 10926,
-                "marginBalance": 10632,
-                "shortBuy": 9,
-                "shortSell": 12,
-                "shortStockRedemption": 3,
-                "shortPrevBalance": 123,
-                "shortBalance": 117,
-                "offsetting": 16,
+                "marginBuy": 464,
+                "marginSell": 595,
+                "marginCashRedemption": 3,
+                "marginPrevBalance": 10632,
+                "marginBalance": 10498,
+                "shortBuy": 20,
+                "shortSell": 14,
+                "shortStockRedemption": 0,
+                "shortPrevBalance": 117,
+                "shortBalance": 123,
+                "offsetting": 15,
                 "date": "2026-08-18"
               }
             },
@@ -20370,11 +20370,11 @@ window.DATA = {
               "volume": 471821.0,
               "quoteDate": "2026-08-18",
               "margin": {
-                "marginBuy": 2,
-                "marginSell": 8,
+                "marginBuy": 12,
+                "marginSell": 5,
                 "marginCashRedemption": 0,
-                "marginPrevBalance": 127,
-                "marginBalance": 121,
+                "marginPrevBalance": 121,
+                "marginBalance": 128,
                 "shortBuy": 0,
                 "shortSell": 0,
                 "shortStockRedemption": 0,
@@ -20607,17 +20607,17 @@ window.DATA = {
               "volume": 4863908.0,
               "quoteDate": "2026-08-18",
               "margin": {
-                "marginBuy": 367,
-                "marginSell": 648,
-                "marginCashRedemption": 1,
-                "marginPrevBalance": 3075,
-                "marginBalance": 2793,
-                "shortBuy": 0,
-                "shortSell": 59,
+                "marginBuy": 466,
+                "marginSell": 265,
+                "marginCashRedemption": 0,
+                "marginPrevBalance": 2793,
+                "marginBalance": 2994,
+                "shortBuy": 10,
+                "shortSell": 4,
                 "shortStockRedemption": 0,
-                "shortPrevBalance": 106,
-                "shortBalance": 47,
-                "offsetting": 2,
+                "shortPrevBalance": 47,
+                "shortBalance": 53,
+                "offsetting": 14,
                 "date": "2026-08-18"
               }
             },
@@ -20679,16 +20679,16 @@ window.DATA = {
               "quoteDate": "2026-08-18",
               "margin": {
                 "marginBuy": 43,
-                "marginSell": 15,
+                "marginSell": 16,
                 "marginCashRedemption": 0,
-                "marginPrevBalance": 669,
-                "marginBalance": 697,
+                "marginPrevBalance": 697,
+                "marginBalance": 724,
                 "shortBuy": 0,
-                "shortSell": 1,
+                "shortSell": 0,
                 "shortStockRedemption": 0,
-                "shortPrevBalance": 6,
+                "shortPrevBalance": 5,
                 "shortBalance": 5,
-                "offsetting": 1,
+                "offsetting": 0,
                 "date": "2026-08-18"
               }
             },
@@ -20710,17 +20710,17 @@ window.DATA = {
               "volume": 1349596.0,
               "quoteDate": "2026-08-18",
               "margin": {
-                "marginBuy": 157,
-                "marginSell": 265,
-                "marginCashRedemption": 5,
-                "marginPrevBalance": 10657,
-                "marginBalance": 10544,
-                "shortBuy": 2,
-                "shortSell": 16,
-                "shortStockRedemption": 23,
-                "shortPrevBalance": 212,
-                "shortBalance": 175,
-                "offsetting": 169,
+                "marginBuy": 94,
+                "marginSell": 204,
+                "marginCashRedemption": 1,
+                "marginPrevBalance": 10544,
+                "marginBalance": 10433,
+                "shortBuy": 31,
+                "shortSell": 7,
+                "shortStockRedemption": 1,
+                "shortPrevBalance": 175,
+                "shortBalance": 198,
+                "offsetting": 151,
                 "date": "2026-08-18"
               }
             },
@@ -20742,17 +20742,17 @@ window.DATA = {
               "volume": 2994452.0,
               "quoteDate": "2026-08-18",
               "margin": {
-                "marginBuy": 253,
-                "marginSell": 513,
-                "marginCashRedemption": 4,
-                "marginPrevBalance": 5608,
-                "marginBalance": 5344,
-                "shortBuy": 15,
-                "shortSell": 47,
+                "marginBuy": 175,
+                "marginSell": 79,
+                "marginCashRedemption": 0,
+                "marginPrevBalance": 5344,
+                "marginBalance": 5440,
+                "shortBuy": 7,
+                "shortSell": 13,
                 "shortStockRedemption": 0,
-                "shortPrevBalance": 116,
-                "shortBalance": 84,
-                "offsetting": 3,
+                "shortPrevBalance": 84,
+                "shortBalance": 78,
+                "offsetting": 2,
                 "date": "2026-08-18"
               }
             },
@@ -20969,10 +20969,10 @@ window.DATA = {
               "volume": 1624063.0,
               "quoteDate": "2026-08-18",
               "margin": {
-                "marginBuy": 39,
-                "marginSell": 32,
-                "marginCashRedemption": 2,
-                "marginPrevBalance": 3659,
+                "marginBuy": 80,
+                "marginSell": 72,
+                "marginCashRedemption": 8,
+                "marginPrevBalance": 3664,
                 "marginBalance": 3664,
                 "shortBuy": 0,
                 "shortSell": 0,
@@ -21469,17 +21469,17 @@ window.DATA = {
               "volume": 20960649.0,
               "quoteDate": "2026-08-18",
               "margin": {
-                "marginBuy": 364,
-                "marginSell": 498,
-                "marginCashRedemption": 1,
-                "marginPrevBalance": 12403,
-                "marginBalance": 12268,
-                "shortBuy": 29,
-                "shortSell": 41,
+                "marginBuy": 302,
+                "marginSell": 507,
+                "marginCashRedemption": 2,
+                "marginPrevBalance": 12268,
+                "marginBalance": 12061,
+                "shortBuy": 25,
+                "shortSell": 30,
                 "shortStockRedemption": 0,
-                "shortPrevBalance": 247,
-                "shortBalance": 235,
-                "offsetting": 4,
+                "shortPrevBalance": 235,
+                "shortBalance": 230,
+                "offsetting": 9,
                 "date": "2026-08-18"
               }
             },
@@ -21501,17 +21501,17 @@ window.DATA = {
               "volume": 11169571.0,
               "quoteDate": "2026-08-18",
               "margin": {
-                "marginBuy": 1332,
-                "marginSell": 1287,
+                "marginBuy": 794,
+                "marginSell": 1187,
                 "marginCashRedemption": 0,
-                "marginPrevBalance": 11517,
-                "marginBalance": 11562,
-                "shortBuy": 30,
-                "shortSell": 2,
-                "shortStockRedemption": 1,
-                "shortPrevBalance": 168,
-                "shortBalance": 195,
-                "offsetting": 14,
+                "marginPrevBalance": 11562,
+                "marginBalance": 11169,
+                "shortBuy": 26,
+                "shortSell": 61,
+                "shortStockRedemption": 0,
+                "shortPrevBalance": 195,
+                "shortBalance": 160,
+                "offsetting": 23,
                 "date": "2026-08-18"
               }
             },
@@ -21611,17 +21611,17 @@ window.DATA = {
               "volume": 15547200.0,
               "quoteDate": "2026-08-18",
               "margin": {
-                "marginBuy": 2540,
-                "marginSell": 2130,
-                "marginCashRedemption": 3,
-                "marginPrevBalance": 23328,
-                "marginBalance": 23735,
-                "shortBuy": 99,
-                "shortSell": 28,
-                "shortStockRedemption": 0,
-                "shortPrevBalance": 359,
-                "shortBalance": 430,
-                "offsetting": 49,
+                "marginBuy": 906,
+                "marginSell": 1217,
+                "marginCashRedemption": 149,
+                "marginPrevBalance": 23735,
+                "marginBalance": 23275,
+                "shortBuy": 66,
+                "shortSell": 133,
+                "shortStockRedemption": 1,
+                "shortPrevBalance": 430,
+                "shortBalance": 362,
+                "offsetting": 26,
                 "date": "2026-08-18"
               }
             }
@@ -21629,7 +21629,7 @@ window.DATA = {
         },
         {
           "date": "2026-08-19",
-          "fetched_at": "2026-08-19T21:25:54+08:00",
+          "fetched_at": "2026-08-19T22:08:59+08:00",
           "count": 51,
           "self": {
             "open": 28.65,
@@ -21643,13 +21643,7 @@ window.DATA = {
             "volume": 234849451.0,
             "quoteDate": "2026-08-19"
           },
-          "selfInstitutional": {
-            "foreign": 34977433,
-            "trust": 0,
-            "dealer": 4465846,
-            "total": 39443279,
-            "date": "2026-08-19"
-          },
+          "selfInstitutional": null,
           "selfMargin": {
             "marginBuy": 7265,
             "marginSell": 9344,
@@ -21683,11 +21677,11 @@ window.DATA = {
               "volume": 3119237.0,
               "quoteDate": "2026-08-19",
               "inst": {
-                "foreign": 76221,
-                "trust": -191001,
-                "dealer": -16593,
-                "total": -131373,
-                "date": "2026-08-19"
+                "foreign": 428269,
+                "trust": -167415,
+                "dealer": 13948,
+                "total": 274802,
+                "date": "2026-08-18"
               },
               "margin": {
                 "marginBuy": 130,
@@ -21722,11 +21716,11 @@ window.DATA = {
               "volume": 23618612.0,
               "quoteDate": "2026-08-19",
               "inst": {
-                "foreign": -7417943,
-                "trust": -668410,
-                "dealer": 719342,
-                "total": -7367011,
-                "date": "2026-08-19"
+                "foreign": -3245118,
+                "trust": 626690,
+                "dealer": -109919,
+                "total": -2728347,
+                "date": "2026-08-18"
               },
               "margin": {
                 "marginBuy": 800,
@@ -21761,11 +21755,11 @@ window.DATA = {
               "volume": 24496587.0,
               "quoteDate": "2026-08-19",
               "inst": {
-                "foreign": 1638430,
-                "trust": -637001,
-                "dealer": -65704,
-                "total": 935725,
-                "date": "2026-08-19"
+                "foreign": 10676502,
+                "trust": 150000,
+                "dealer": -394898,
+                "total": 10431604,
+                "date": "2026-08-18"
               },
               "margin": {
                 "marginBuy": 1398,
@@ -21800,11 +21794,11 @@ window.DATA = {
               "volume": 7036521.0,
               "quoteDate": "2026-08-19",
               "inst": {
-                "foreign": -216230,
-                "trust": -1046250,
-                "dealer": -265132,
-                "total": -1527612,
-                "date": "2026-08-19"
+                "foreign": -198092,
+                "trust": -1153744,
+                "dealer": -223386,
+                "total": -1575222,
+                "date": "2026-08-18"
               },
               "margin": {
                 "marginBuy": 292,
@@ -21839,11 +21833,11 @@ window.DATA = {
               "volume": 3982151.0,
               "quoteDate": "2026-08-19",
               "inst": {
-                "foreign": 45475,
-                "trust": 534000,
-                "dealer": -228463,
-                "total": 351012,
-                "date": "2026-08-19"
+                "foreign": 828512,
+                "trust": -589100,
+                "dealer": -45819,
+                "total": 193593,
+                "date": "2026-08-18"
               },
               "margin": {
                 "marginBuy": 315,
@@ -21878,11 +21872,11 @@ window.DATA = {
               "volume": 56295383.0,
               "quoteDate": "2026-08-19",
               "inst": {
-                "foreign": -3422361,
-                "trust": -2731000,
-                "dealer": -1341269,
-                "total": -7494630,
-                "date": "2026-08-19"
+                "foreign": -2365705,
+                "trust": -696195,
+                "dealer": -673341,
+                "total": -3735241,
+                "date": "2026-08-18"
               },
               "margin": {
                 "marginBuy": 1957,
@@ -21917,11 +21911,11 @@ window.DATA = {
               "volume": 1289214.0,
               "quoteDate": "2026-08-19",
               "inst": {
-                "foreign": 174888,
-                "trust": -360257,
-                "dealer": 19836,
-                "total": -165533,
-                "date": "2026-08-19"
+                "foreign": 175380,
+                "trust": -355116,
+                "dealer": -3372,
+                "total": -183108,
+                "date": "2026-08-18"
               },
               "margin": {
                 "marginBuy": 59,
@@ -21956,11 +21950,11 @@ window.DATA = {
               "volume": 4040971.0,
               "quoteDate": "2026-08-19",
               "inst": {
-                "foreign": -462188,
-                "trust": -105010,
-                "dealer": 40992,
-                "total": -526206,
-                "date": "2026-08-19"
+                "foreign": -143174,
+                "trust": -345000,
+                "dealer": -16124,
+                "total": -504298,
+                "date": "2026-08-18"
               },
               "margin": {
                 "marginBuy": 73,
@@ -21995,11 +21989,11 @@ window.DATA = {
               "volume": 2804186.0,
               "quoteDate": "2026-08-19",
               "inst": {
-                "foreign": 24735,
-                "trust": 271000,
-                "dealer": -17965,
-                "total": 277770,
-                "date": "2026-08-19"
+                "foreign": 922550,
+                "trust": 306000,
+                "dealer": -121576,
+                "total": 1106974,
+                "date": "2026-08-18"
               },
               "margin": {
                 "marginBuy": 280,
@@ -22034,17 +22028,17 @@ window.DATA = {
               "volume": 1187417.0,
               "quoteDate": "2026-08-19",
               "margin": {
-                "marginBuy": 136,
-                "marginSell": 72,
-                "marginCashRedemption": 3,
-                "marginPrevBalance": 922,
-                "marginBalance": 983,
-                "shortBuy": 0,
-                "shortSell": 12,
+                "marginBuy": 68,
+                "marginSell": 39,
+                "marginCashRedemption": 1,
+                "marginPrevBalance": 983,
+                "marginBalance": 1011,
+                "shortBuy": 8,
+                "shortSell": 4,
                 "shortStockRedemption": 0,
-                "shortPrevBalance": 24,
-                "shortBalance": 12,
-                "offsetting": 0,
+                "shortPrevBalance": 12,
+                "shortBalance": 16,
+                "offsetting": 1,
                 "date": "2026-08-19"
               }
             },
@@ -22066,11 +22060,11 @@ window.DATA = {
               "volume": 12608652.0,
               "quoteDate": "2026-08-19",
               "inst": {
-                "foreign": -2316137,
-                "trust": 68000,
-                "dealer": -191149,
-                "total": -2439286,
-                "date": "2026-08-19"
+                "foreign": -525455,
+                "trust": -527541,
+                "dealer": -202828,
+                "total": -1255824,
+                "date": "2026-08-18"
               },
               "margin": {
                 "marginBuy": 433,
@@ -22105,11 +22099,11 @@ window.DATA = {
               "volume": 22448357.0,
               "quoteDate": "2026-08-19",
               "inst": {
-                "foreign": 2323531,
-                "trust": -3324000,
-                "dealer": -127734,
-                "total": -1128203,
-                "date": "2026-08-19"
+                "foreign": 363414,
+                "trust": -3877203,
+                "dealer": -219991,
+                "total": -3733780,
+                "date": "2026-08-18"
               },
               "margin": {
                 "marginBuy": 371,
@@ -22144,11 +22138,11 @@ window.DATA = {
               "volume": 15143786.0,
               "quoteDate": "2026-08-19",
               "inst": {
-                "foreign": -180038,
-                "trust": -92000,
-                "dealer": -200940,
-                "total": -472978,
-                "date": "2026-08-19"
+                "foreign": -222255,
+                "trust": 69000,
+                "dealer": 129137,
+                "total": -24118,
+                "date": "2026-08-18"
               },
               "margin": {
                 "marginBuy": 1526,
@@ -22183,11 +22177,11 @@ window.DATA = {
               "volume": 2061571.0,
               "quoteDate": "2026-08-19",
               "inst": {
-                "foreign": -125140,
-                "trust": -305000,
-                "dealer": -1761,
-                "total": -431901,
-                "date": "2026-08-19"
+                "foreign": 246591,
+                "trust": -257008,
+                "dealer": 40468,
+                "total": 30051,
+                "date": "2026-08-18"
               },
               "margin": {
                 "marginBuy": 97,
@@ -22222,11 +22216,11 @@ window.DATA = {
               "volume": 110337394.0,
               "quoteDate": "2026-08-19",
               "inst": {
-                "foreign": 7800989,
-                "trust": -20973000,
-                "dealer": -5796260,
-                "total": -18968271,
-                "date": "2026-08-19"
+                "foreign": -3246457,
+                "trust": 1153128,
+                "dealer": -819429,
+                "total": -2912758,
+                "date": "2026-08-18"
               },
               "margin": {
                 "marginBuy": 3549,
@@ -22261,17 +22255,17 @@ window.DATA = {
               "volume": 5742661.0,
               "quoteDate": "2026-08-19",
               "margin": {
-                "marginBuy": 818,
-                "marginSell": 1111,
-                "marginCashRedemption": 1,
-                "marginPrevBalance": 10926,
-                "marginBalance": 10632,
-                "shortBuy": 9,
-                "shortSell": 12,
-                "shortStockRedemption": 3,
-                "shortPrevBalance": 123,
-                "shortBalance": 117,
-                "offsetting": 16,
+                "marginBuy": 464,
+                "marginSell": 595,
+                "marginCashRedemption": 3,
+                "marginPrevBalance": 10632,
+                "marginBalance": 10498,
+                "shortBuy": 20,
+                "shortSell": 14,
+                "shortStockRedemption": 0,
+                "shortPrevBalance": 117,
+                "shortBalance": 123,
+                "offsetting": 15,
                 "date": "2026-08-19"
               }
             },
@@ -22293,11 +22287,11 @@ window.DATA = {
               "volume": 471821.0,
               "quoteDate": "2026-08-19",
               "margin": {
-                "marginBuy": 2,
-                "marginSell": 8,
+                "marginBuy": 12,
+                "marginSell": 5,
                 "marginCashRedemption": 0,
-                "marginPrevBalance": 127,
-                "marginBalance": 121,
+                "marginPrevBalance": 121,
+                "marginBalance": 128,
                 "shortBuy": 0,
                 "shortSell": 0,
                 "shortStockRedemption": 0,
@@ -22335,11 +22329,11 @@ window.DATA = {
               "volume": 1866928.0,
               "quoteDate": "2026-08-19",
               "inst": {
-                "foreign": -36696,
-                "trust": 8000,
-                "dealer": -44556,
-                "total": -73252,
-                "date": "2026-08-19"
+                "foreign": -476969,
+                "trust": 619000,
+                "dealer": 1462,
+                "total": 143493,
+                "date": "2026-08-18"
               },
               "margin": {
                 "marginBuy": 298,
@@ -22374,11 +22368,11 @@ window.DATA = {
               "volume": 15479247.0,
               "quoteDate": "2026-08-19",
               "inst": {
-                "foreign": 1318020,
-                "trust": 39000,
-                "dealer": -67293,
-                "total": 1289727,
-                "date": "2026-08-19"
+                "foreign": -3195214,
+                "trust": -1358588,
+                "dealer": 37537,
+                "total": -4516265,
+                "date": "2026-08-18"
               },
               "margin": {
                 "marginBuy": 490,
@@ -22413,11 +22407,11 @@ window.DATA = {
               "volume": 2094065.0,
               "quoteDate": "2026-08-19",
               "inst": {
-                "foreign": -264715,
-                "trust": -18000,
-                "dealer": -8500,
-                "total": -291215,
-                "date": "2026-08-19"
+                "foreign": -89062,
+                "trust": 37000,
+                "dealer": 25951,
+                "total": -26111,
+                "date": "2026-08-18"
               },
               "margin": {
                 "marginBuy": 246,
@@ -22452,11 +22446,11 @@ window.DATA = {
               "volume": 10290635.0,
               "quoteDate": "2026-08-19",
               "inst": {
-                "foreign": -1163883,
-                "trust": -305000,
-                "dealer": -138135,
-                "total": -1607018,
-                "date": "2026-08-19"
+                "foreign": -1536054,
+                "trust": 1102978,
+                "dealer": -128182,
+                "total": -561258,
+                "date": "2026-08-18"
               },
               "margin": {
                 "marginBuy": 571,
@@ -22491,17 +22485,17 @@ window.DATA = {
               "volume": 1349596.0,
               "quoteDate": "2026-08-19",
               "margin": {
-                "marginBuy": 157,
-                "marginSell": 265,
-                "marginCashRedemption": 5,
-                "marginPrevBalance": 10657,
-                "marginBalance": 10544,
-                "shortBuy": 2,
-                "shortSell": 16,
-                "shortStockRedemption": 23,
-                "shortPrevBalance": 212,
-                "shortBalance": 175,
-                "offsetting": 169,
+                "marginBuy": 94,
+                "marginSell": 204,
+                "marginCashRedemption": 1,
+                "marginPrevBalance": 10544,
+                "marginBalance": 10433,
+                "shortBuy": 31,
+                "shortSell": 7,
+                "shortStockRedemption": 1,
+                "shortPrevBalance": 175,
+                "shortBalance": 198,
+                "offsetting": 151,
                 "date": "2026-08-19"
               }
             },
@@ -22523,11 +22517,11 @@ window.DATA = {
               "volume": 2003400.0,
               "quoteDate": "2026-08-19",
               "inst": {
-                "foreign": -40584,
-                "trust": 175000,
-                "dealer": -22869,
-                "total": 111547,
-                "date": "2026-08-19"
+                "foreign": -177078,
+                "trust": 106000,
+                "dealer": 23810,
+                "total": -47268,
+                "date": "2026-08-18"
               },
               "margin": {
                 "marginBuy": 198,
@@ -22563,16 +22557,16 @@ window.DATA = {
               "quoteDate": "2026-08-19",
               "margin": {
                 "marginBuy": 43,
-                "marginSell": 15,
+                "marginSell": 16,
                 "marginCashRedemption": 0,
-                "marginPrevBalance": 669,
-                "marginBalance": 697,
+                "marginPrevBalance": 697,
+                "marginBalance": 724,
                 "shortBuy": 0,
-                "shortSell": 1,
+                "shortSell": 0,
                 "shortStockRedemption": 0,
-                "shortPrevBalance": 6,
+                "shortPrevBalance": 5,
                 "shortBalance": 5,
-                "offsetting": 1,
+                "offsetting": 0,
                 "date": "2026-08-19"
               }
             },
@@ -22594,17 +22588,17 @@ window.DATA = {
               "volume": 2994452.0,
               "quoteDate": "2026-08-19",
               "margin": {
-                "marginBuy": 253,
-                "marginSell": 513,
-                "marginCashRedemption": 4,
-                "marginPrevBalance": 5608,
-                "marginBalance": 5344,
-                "shortBuy": 15,
-                "shortSell": 47,
+                "marginBuy": 175,
+                "marginSell": 79,
+                "marginCashRedemption": 0,
+                "marginPrevBalance": 5344,
+                "marginBalance": 5440,
+                "shortBuy": 7,
+                "shortSell": 13,
                 "shortStockRedemption": 0,
-                "shortPrevBalance": 116,
-                "shortBalance": 84,
-                "offsetting": 3,
+                "shortPrevBalance": 84,
+                "shortBalance": 78,
+                "offsetting": 2,
                 "date": "2026-08-19"
               }
             },
@@ -22626,17 +22620,17 @@ window.DATA = {
               "volume": 4863908.0,
               "quoteDate": "2026-08-19",
               "margin": {
-                "marginBuy": 367,
-                "marginSell": 648,
-                "marginCashRedemption": 1,
-                "marginPrevBalance": 3075,
-                "marginBalance": 2793,
-                "shortBuy": 0,
-                "shortSell": 59,
+                "marginBuy": 466,
+                "marginSell": 265,
+                "marginCashRedemption": 0,
+                "marginPrevBalance": 2793,
+                "marginBalance": 2994,
+                "shortBuy": 10,
+                "shortSell": 4,
                 "shortStockRedemption": 0,
-                "shortPrevBalance": 106,
-                "shortBalance": 47,
-                "offsetting": 2,
+                "shortPrevBalance": 47,
+                "shortBalance": 53,
+                "offsetting": 14,
                 "date": "2026-08-19"
               }
             },
@@ -22658,11 +22652,11 @@ window.DATA = {
               "volume": 30182657.0,
               "quoteDate": "2026-08-19",
               "inst": {
-                "foreign": -3215170,
-                "trust": -1481000,
-                "dealer": -241456,
-                "total": -4937626,
-                "date": "2026-08-19"
+                "foreign": -8750877,
+                "trust": -433467,
+                "dealer": -684498,
+                "total": -9868842,
+                "date": "2026-08-18"
               },
               "margin": {
                 "marginBuy": 1262,
@@ -22697,11 +22691,11 @@ window.DATA = {
               "volume": 3423570.0,
               "quoteDate": "2026-08-19",
               "inst": {
-                "foreign": 239885,
-                "trust": -776000,
-                "dealer": 37282,
-                "total": -498833,
-                "date": "2026-08-19"
+                "foreign": 51918,
+                "trust": 61592,
+                "dealer": -39694,
+                "total": 73816,
+                "date": "2026-08-18"
               },
               "margin": {
                 "marginBuy": 144,
@@ -22736,11 +22730,11 @@ window.DATA = {
               "volume": 6449418.0,
               "quoteDate": "2026-08-19",
               "inst": {
-                "foreign": 2072707,
-                "trust": -813000,
-                "dealer": -227877,
-                "total": 1031830,
-                "date": "2026-08-19"
+                "foreign": 1541019,
+                "trust": -812000,
+                "dealer": -49031,
+                "total": 679988,
+                "date": "2026-08-18"
               },
               "margin": {
                 "marginBuy": 398,
@@ -22775,11 +22769,11 @@ window.DATA = {
               "volume": 2572129.0,
               "quoteDate": "2026-08-19",
               "inst": {
-                "foreign": -141068,
-                "trust": -1000,
-                "dealer": -21583,
-                "total": -163651,
-                "date": "2026-08-19"
+                "foreign": 325347,
+                "trust": 0,
+                "dealer": -29741,
+                "total": 295606,
+                "date": "2026-08-18"
               },
               "margin": {
                 "marginBuy": 153,
@@ -22814,11 +22808,11 @@ window.DATA = {
               "volume": 2287797.0,
               "quoteDate": "2026-08-19",
               "inst": {
-                "foreign": -1064485,
-                "trust": -5000,
-                "dealer": -30763,
-                "total": -1100248,
-                "date": "2026-08-19"
+                "foreign": -10544,
+                "trust": 251000,
+                "dealer": -13933,
+                "total": 226523,
+                "date": "2026-08-18"
               },
               "margin": {
                 "marginBuy": 166,
@@ -22853,11 +22847,11 @@ window.DATA = {
               "volume": 2366558.0,
               "quoteDate": "2026-08-19",
               "inst": {
-                "foreign": 37769,
-                "trust": -2000,
-                "dealer": -318148,
-                "total": -282379,
-                "date": "2026-08-19"
+                "foreign": -532000,
+                "trust": 0,
+                "dealer": -21627,
+                "total": -553627,
+                "date": "2026-08-18"
               },
               "margin": {
                 "marginBuy": 162,
@@ -22892,10 +22886,10 @@ window.DATA = {
               "volume": 1624063.0,
               "quoteDate": "2026-08-19",
               "margin": {
-                "marginBuy": 39,
-                "marginSell": 32,
-                "marginCashRedemption": 2,
-                "marginPrevBalance": 3659,
+                "marginBuy": 80,
+                "marginSell": 72,
+                "marginCashRedemption": 8,
+                "marginPrevBalance": 3664,
                 "marginBalance": 3664,
                 "shortBuy": 0,
                 "shortSell": 0,
@@ -22924,11 +22918,11 @@ window.DATA = {
               "volume": 31131264.0,
               "quoteDate": "2026-08-19",
               "inst": {
-                "foreign": -1561931,
-                "trust": -101000,
-                "dealer": -1659869,
-                "total": -3322800,
-                "date": "2026-08-19"
+                "foreign": 1628669,
+                "trust": 0,
+                "dealer": -353012,
+                "total": 1275657,
+                "date": "2026-08-18"
               },
               "margin": {
                 "marginBuy": 365,
@@ -22962,13 +22956,6 @@ window.DATA = {
               "amplitude": 5.19,
               "volume": 11208949.0,
               "quoteDate": "2026-08-19",
-              "inst": {
-                "foreign": 1736240,
-                "trust": 197000,
-                "dealer": 42041,
-                "total": 1975281,
-                "date": "2026-08-19"
-              },
               "margin": {
                 "marginBuy": 565,
                 "marginSell": 306,
@@ -23002,11 +22989,11 @@ window.DATA = {
               "volume": 3873944.0,
               "quoteDate": "2026-08-19",
               "inst": {
-                "foreign": -135887,
-                "trust": 84000,
-                "dealer": 132972,
-                "total": 81085,
-                "date": "2026-08-19"
+                "foreign": -142772,
+                "trust": 137000,
+                "dealer": 158902,
+                "total": 153130,
+                "date": "2026-08-18"
               },
               "margin": {
                 "marginBuy": 285,
@@ -23041,11 +23028,11 @@ window.DATA = {
               "volume": 45689068.0,
               "quoteDate": "2026-08-19",
               "inst": {
-                "foreign": -5642997,
-                "trust": 0,
-                "dealer": -488549,
-                "total": -6131546,
-                "date": "2026-08-19"
+                "foreign": -7305470,
+                "trust": 50000,
+                "dealer": -164242,
+                "total": -7419712,
+                "date": "2026-08-18"
               },
               "margin": {
                 "marginBuy": 2187,
@@ -23080,11 +23067,11 @@ window.DATA = {
               "volume": 16525261.0,
               "quoteDate": "2026-08-19",
               "inst": {
-                "foreign": 3227189,
-                "trust": -291167,
-                "dealer": -177193,
-                "total": 2758829,
-                "date": "2026-08-19"
+                "foreign": 288816,
+                "trust": 320332,
+                "dealer": -233999,
+                "total": 375149,
+                "date": "2026-08-18"
               },
               "margin": {
                 "marginBuy": 265,
@@ -23119,11 +23106,11 @@ window.DATA = {
               "volume": 69157927.0,
               "quoteDate": "2026-08-19",
               "inst": {
-                "foreign": -13747190,
-                "trust": 380000,
-                "dealer": -1059651,
-                "total": -14426841,
-                "date": "2026-08-19"
+                "foreign": 2348431,
+                "trust": 742875,
+                "dealer": -197838,
+                "total": 2893468,
+                "date": "2026-08-18"
               },
               "margin": {
                 "marginBuy": 4209,
@@ -23158,11 +23145,11 @@ window.DATA = {
               "volume": 1010966.0,
               "quoteDate": "2026-08-19",
               "inst": {
-                "foreign": -358999,
+                "foreign": -634805,
                 "trust": 0,
-                "dealer": 42292,
-                "total": -316707,
-                "date": "2026-08-19"
+                "dealer": 30817,
+                "total": -603988,
+                "date": "2026-08-18"
               },
               "margin": {
                 "marginBuy": 26,
@@ -23197,11 +23184,11 @@ window.DATA = {
               "volume": 555093.0,
               "quoteDate": "2026-08-19",
               "inst": {
-                "foreign": -105659,
-                "trust": -5000,
-                "dealer": -14672,
-                "total": -125331,
-                "date": "2026-08-19"
+                "foreign": -119612,
+                "trust": -16769,
+                "dealer": 16603,
+                "total": -119778,
+                "date": "2026-08-18"
               },
               "margin": {
                 "marginBuy": 3,
@@ -23236,11 +23223,11 @@ window.DATA = {
               "volume": 13397617.0,
               "quoteDate": "2026-08-19",
               "inst": {
-                "foreign": -2061511,
-                "trust": -652734,
-                "dealer": 201854,
-                "total": -2512391,
-                "date": "2026-08-19"
+                "foreign": -1193499,
+                "trust": 772000,
+                "dealer": -39682,
+                "total": -461181,
+                "date": "2026-08-18"
               },
               "margin": {
                 "marginBuy": 824,
@@ -23275,11 +23262,11 @@ window.DATA = {
               "volume": 36592747.0,
               "quoteDate": "2026-08-19",
               "inst": {
-                "foreign": -10064384,
-                "trust": -300000,
-                "dealer": -822130,
-                "total": -11186514,
-                "date": "2026-08-19"
+                "foreign": -7859901,
+                "trust": -4370881,
+                "dealer": -709701,
+                "total": -12940483,
+                "date": "2026-08-18"
               },
               "margin": {
                 "marginBuy": 874,
@@ -23314,17 +23301,17 @@ window.DATA = {
               "volume": 20960649.0,
               "quoteDate": "2026-08-19",
               "margin": {
-                "marginBuy": 364,
-                "marginSell": 498,
-                "marginCashRedemption": 1,
-                "marginPrevBalance": 12403,
-                "marginBalance": 12268,
-                "shortBuy": 29,
-                "shortSell": 41,
+                "marginBuy": 302,
+                "marginSell": 507,
+                "marginCashRedemption": 2,
+                "marginPrevBalance": 12268,
+                "marginBalance": 12061,
+                "shortBuy": 25,
+                "shortSell": 30,
                 "shortStockRedemption": 0,
-                "shortPrevBalance": 247,
-                "shortBalance": 235,
-                "offsetting": 4,
+                "shortPrevBalance": 235,
+                "shortBalance": 230,
+                "offsetting": 9,
                 "date": "2026-08-19"
               }
             },
@@ -23346,11 +23333,11 @@ window.DATA = {
               "volume": 2510975.0,
               "quoteDate": "2026-08-19",
               "inst": {
-                "foreign": 828793,
-                "trust": -126000,
-                "dealer": -71430,
-                "total": 631363,
-                "date": "2026-08-19"
+                "foreign": 264114,
+                "trust": -45289,
+                "dealer": 37989,
+                "total": 256814,
+                "date": "2026-08-18"
               },
               "margin": {
                 "marginBuy": 183,
@@ -23385,11 +23372,11 @@ window.DATA = {
               "volume": 1950747.0,
               "quoteDate": "2026-08-19",
               "inst": {
-                "foreign": -566539,
-                "trust": 14000,
-                "dealer": 14769,
-                "total": -537770,
-                "date": "2026-08-19"
+                "foreign": -325851,
+                "trust": -66000,
+                "dealer": -88295,
+                "total": -480146,
+                "date": "2026-08-18"
               },
               "margin": {
                 "marginBuy": 179,
@@ -23424,17 +23411,17 @@ window.DATA = {
               "volume": 11169571.0,
               "quoteDate": "2026-08-19",
               "margin": {
-                "marginBuy": 1332,
-                "marginSell": 1287,
+                "marginBuy": 794,
+                "marginSell": 1187,
                 "marginCashRedemption": 0,
-                "marginPrevBalance": 11517,
-                "marginBalance": 11562,
-                "shortBuy": 30,
-                "shortSell": 2,
-                "shortStockRedemption": 1,
-                "shortPrevBalance": 168,
-                "shortBalance": 195,
-                "offsetting": 14,
+                "marginPrevBalance": 11562,
+                "marginBalance": 11169,
+                "shortBuy": 26,
+                "shortSell": 61,
+                "shortStockRedemption": 0,
+                "shortPrevBalance": 195,
+                "shortBalance": 160,
+                "offsetting": 23,
                 "date": "2026-08-19"
               }
             },
@@ -23456,11 +23443,11 @@ window.DATA = {
               "volume": 344112.0,
               "quoteDate": "2026-08-19",
               "inst": {
-                "foreign": 128142,
-                "trust": -102000,
-                "dealer": -5263,
-                "total": 20879,
-                "date": "2026-08-19"
+                "foreign": 24494,
+                "trust": -101003,
+                "dealer": 1040,
+                "total": -75469,
+                "date": "2026-08-18"
               },
               "margin": {
                 "marginBuy": 16,
@@ -23495,17 +23482,17 @@ window.DATA = {
               "volume": 15547200.0,
               "quoteDate": "2026-08-19",
               "margin": {
-                "marginBuy": 2540,
-                "marginSell": 2130,
-                "marginCashRedemption": 3,
-                "marginPrevBalance": 23328,
-                "marginBalance": 23735,
-                "shortBuy": 99,
-                "shortSell": 28,
-                "shortStockRedemption": 0,
-                "shortPrevBalance": 359,
-                "shortBalance": 430,
-                "offsetting": 49,
+                "marginBuy": 906,
+                "marginSell": 1217,
+                "marginCashRedemption": 149,
+                "marginPrevBalance": 23735,
+                "marginBalance": 23275,
+                "shortBuy": 66,
+                "shortSell": 133,
+                "shortStockRedemption": 1,
+                "shortPrevBalance": 430,
+                "shortBalance": 362,
+                "offsetting": 26,
                 "date": "2026-08-19"
               }
             },
@@ -23527,11 +23514,11 @@ window.DATA = {
               "volume": 18501550.0,
               "quoteDate": "2026-08-19",
               "inst": {
-                "foreign": 829456,
-                "trust": -7000,
-                "dealer": -263048,
-                "total": 559408,
-                "date": "2026-08-19"
+                "foreign": -1410356,
+                "trust": -43000,
+                "dealer": -462777,
+                "total": -1916133,
+                "date": "2026-08-18"
               },
               "margin": {
                 "marginBuy": 515,
@@ -43745,17 +43732,17 @@ window.DATA = {
               "weight": 6.33,
               "shares": 3679000,
               "margin": {
-                "marginBuy": 55,
-                "marginSell": 64,
-                "marginCashRedemption": 0,
-                "marginPrevBalance": 890,
-                "marginBalance": 881,
+                "marginBuy": 82,
+                "marginSell": 31,
+                "marginCashRedemption": 2,
+                "marginPrevBalance": 881,
+                "marginBalance": 930,
                 "shortBuy": 0,
                 "shortSell": 0,
                 "shortStockRedemption": 0,
                 "shortPrevBalance": 5,
                 "shortBalance": 5,
-                "offsetting": 1,
+                "offsetting": 0,
                 "date": "2026-08-17"
               },
               "open": 880.0,
@@ -43933,17 +43920,17 @@ window.DATA = {
               "weight": 3.63,
               "shares": 4809000,
               "margin": {
-                "marginBuy": 2129,
-                "marginSell": 1762,
-                "marginCashRedemption": 1,
-                "marginPrevBalance": 45202,
-                "marginBalance": 45568,
-                "shortBuy": 125,
-                "shortSell": 169,
+                "marginBuy": 715,
+                "marginSell": 995,
+                "marginCashRedemption": 4,
+                "marginPrevBalance": 45568,
+                "marginBalance": 45284,
+                "shortBuy": 135,
+                "shortSell": 112,
                 "shortStockRedemption": 0,
-                "shortPrevBalance": 991,
-                "shortBalance": 947,
-                "offsetting": 50,
+                "shortPrevBalance": 947,
+                "shortBalance": 970,
+                "offsetting": 45,
                 "date": "2026-08-17"
               },
               "open": 353.5,
@@ -44004,17 +43991,17 @@ window.DATA = {
               "weight": 3.38,
               "shares": 307000,
               "margin": {
-                "marginBuy": 136,
-                "marginSell": 72,
-                "marginCashRedemption": 3,
-                "marginPrevBalance": 922,
-                "marginBalance": 983,
-                "shortBuy": 0,
-                "shortSell": 12,
+                "marginBuy": 68,
+                "marginSell": 39,
+                "marginCashRedemption": 1,
+                "marginPrevBalance": 983,
+                "marginBalance": 1011,
+                "shortBuy": 8,
+                "shortSell": 4,
                 "shortStockRedemption": 0,
-                "shortPrevBalance": 24,
-                "shortBalance": 12,
-                "offsetting": 0,
+                "shortPrevBalance": 12,
+                "shortBalance": 16,
+                "offsetting": 1,
                 "date": "2026-08-17"
               },
               "open": 5000.0,
@@ -44075,17 +44062,17 @@ window.DATA = {
               "weight": 2.52,
               "shares": 1000000,
               "margin": {
-                "marginBuy": 116,
-                "marginSell": 208,
-                "marginCashRedemption": 1,
-                "marginPrevBalance": 3281,
-                "marginBalance": 3188,
-                "shortBuy": 3,
-                "shortSell": 8,
+                "marginBuy": 37,
+                "marginSell": 112,
+                "marginCashRedemption": 2,
+                "marginPrevBalance": 3188,
+                "marginBalance": 3111,
+                "shortBuy": 2,
+                "shortSell": 9,
                 "shortStockRedemption": 0,
-                "shortPrevBalance": 37,
-                "shortBalance": 32,
-                "offsetting": 1,
+                "shortPrevBalance": 32,
+                "shortBalance": 25,
+                "offsetting": 0,
                 "date": "2026-08-17"
               },
               "open": 1215.0,
@@ -44224,17 +44211,17 @@ window.DATA = {
               "weight": 2.19,
               "shares": 1134000,
               "margin": {
-                "marginBuy": 1332,
-                "marginSell": 1287,
+                "marginBuy": 794,
+                "marginSell": 1187,
                 "marginCashRedemption": 0,
-                "marginPrevBalance": 11517,
-                "marginBalance": 11562,
-                "shortBuy": 30,
-                "shortSell": 2,
-                "shortStockRedemption": 1,
-                "shortPrevBalance": 168,
-                "shortBalance": 195,
-                "offsetting": 14,
+                "marginPrevBalance": 11562,
+                "marginBalance": 11169,
+                "shortBuy": 26,
+                "shortSell": 61,
+                "shortStockRedemption": 0,
+                "shortPrevBalance": 195,
+                "shortBalance": 160,
+                "offsetting": 23,
                 "date": "2026-08-17"
               },
               "open": 1010.0,
@@ -44295,17 +44282,17 @@ window.DATA = {
               "weight": 1.98,
               "shares": 4780000,
               "margin": {
-                "marginBuy": 253,
-                "marginSell": 513,
-                "marginCashRedemption": 4,
-                "marginPrevBalance": 5608,
-                "marginBalance": 5344,
-                "shortBuy": 15,
-                "shortSell": 47,
+                "marginBuy": 175,
+                "marginSell": 79,
+                "marginCashRedemption": 0,
+                "marginPrevBalance": 5344,
+                "marginBalance": 5440,
+                "shortBuy": 7,
+                "shortSell": 13,
                 "shortStockRedemption": 0,
-                "shortPrevBalance": 116,
-                "shortBalance": 84,
-                "offsetting": 3,
+                "shortPrevBalance": 84,
+                "shortBalance": 78,
+                "offsetting": 2,
                 "date": "2026-08-17"
               },
               "open": 205.0,
@@ -44483,17 +44470,17 @@ window.DATA = {
               "weight": 1.37,
               "shares": 450000,
               "margin": {
-                "marginBuy": 818,
-                "marginSell": 1111,
-                "marginCashRedemption": 1,
-                "marginPrevBalance": 10926,
-                "marginBalance": 10632,
-                "shortBuy": 9,
-                "shortSell": 12,
-                "shortStockRedemption": 3,
-                "shortPrevBalance": 123,
-                "shortBalance": 117,
-                "offsetting": 16,
+                "marginBuy": 464,
+                "marginSell": 595,
+                "marginCashRedemption": 3,
+                "marginPrevBalance": 10632,
+                "marginBalance": 10498,
+                "shortBuy": 20,
+                "shortSell": 14,
+                "shortStockRedemption": 0,
+                "shortPrevBalance": 117,
+                "shortBalance": 123,
+                "offsetting": 15,
                 "date": "2026-08-17"
               },
               "open": 1455.0,
@@ -44710,11 +44697,11 @@ window.DATA = {
               "weight": 0.96,
               "shares": 29900,
               "margin": {
-                "marginBuy": 2,
-                "marginSell": 8,
+                "marginBuy": 12,
+                "marginSell": 5,
                 "marginCashRedemption": 0,
-                "marginPrevBalance": 127,
-                "marginBalance": 121,
+                "marginPrevBalance": 121,
+                "marginBalance": 128,
                 "shortBuy": 0,
                 "shortSell": 0,
                 "shortStockRedemption": 0,
@@ -44820,17 +44807,17 @@ window.DATA = {
               "weight": 0.87,
               "shares": 4384000,
               "margin": {
-                "marginBuy": 442,
-                "marginSell": 573,
-                "marginCashRedemption": 10,
-                "marginPrevBalance": 27114,
-                "marginBalance": 26973,
-                "shortBuy": 10,
-                "shortSell": 26,
+                "marginBuy": 373,
+                "marginSell": 538,
+                "marginCashRedemption": 728,
+                "marginPrevBalance": 26973,
+                "marginBalance": 26080,
+                "shortBuy": 19,
+                "shortSell": 19,
                 "shortStockRedemption": 0,
-                "shortPrevBalance": 121,
+                "shortPrevBalance": 105,
                 "shortBalance": 105,
-                "offsetting": 3,
+                "offsetting": 7,
                 "date": "2026-08-17"
               },
               "open": 97.8,
@@ -45008,16 +44995,16 @@ window.DATA = {
               "weight": 0.42,
               "shares": 93000,
               "margin": {
-                "marginBuy": 50,
-                "marginSell": 68,
-                "marginCashRedemption": 1,
-                "marginPrevBalance": 1413,
-                "marginBalance": 1394,
+                "marginBuy": 87,
+                "marginSell": 61,
+                "marginCashRedemption": 0,
+                "marginPrevBalance": 1394,
+                "marginBalance": 1420,
                 "shortBuy": 0,
-                "shortSell": 30,
+                "shortSell": 1,
                 "shortStockRedemption": 0,
-                "shortPrevBalance": 35,
-                "shortBalance": 5,
+                "shortPrevBalance": 5,
+                "shortBalance": 4,
                 "offsetting": 0,
                 "date": "2026-08-17"
               },
@@ -45664,17 +45651,17 @@ window.DATA = {
               "weight": 0.0,
               "shares": 1000,
               "margin": {
-                "marginBuy": 2540,
-                "marginSell": 2130,
-                "marginCashRedemption": 3,
-                "marginPrevBalance": 23328,
-                "marginBalance": 23735,
-                "shortBuy": 99,
-                "shortSell": 28,
-                "shortStockRedemption": 0,
-                "shortPrevBalance": 359,
-                "shortBalance": 430,
-                "offsetting": 49,
+                "marginBuy": 906,
+                "marginSell": 1217,
+                "marginCashRedemption": 149,
+                "marginPrevBalance": 23735,
+                "marginBalance": 23275,
+                "shortBuy": 66,
+                "shortSell": 133,
+                "shortStockRedemption": 1,
+                "shortPrevBalance": 430,
+                "shortBalance": 362,
+                "offsetting": 26,
                 "date": "2026-08-17"
               },
               "open": 398.0,
@@ -45941,17 +45928,17 @@ window.DATA = {
               "volume": 2307204.0,
               "quoteDate": "2026-08-18",
               "margin": {
-                "marginBuy": 55,
-                "marginSell": 64,
-                "marginCashRedemption": 0,
-                "marginPrevBalance": 890,
-                "marginBalance": 881,
+                "marginBuy": 82,
+                "marginSell": 31,
+                "marginCashRedemption": 2,
+                "marginPrevBalance": 881,
+                "marginBalance": 930,
                 "shortBuy": 0,
                 "shortSell": 0,
                 "shortStockRedemption": 0,
                 "shortPrevBalance": 5,
                 "shortBalance": 5,
-                "offsetting": 1,
+                "offsetting": 0,
                 "date": "2026-08-18"
               }
             },
@@ -46090,17 +46077,17 @@ window.DATA = {
               "volume": 17947311.0,
               "quoteDate": "2026-08-18",
               "margin": {
-                "marginBuy": 2129,
-                "marginSell": 1762,
-                "marginCashRedemption": 1,
-                "marginPrevBalance": 45202,
-                "marginBalance": 45568,
-                "shortBuy": 125,
-                "shortSell": 169,
+                "marginBuy": 715,
+                "marginSell": 995,
+                "marginCashRedemption": 4,
+                "marginPrevBalance": 45568,
+                "marginBalance": 45284,
+                "shortBuy": 135,
+                "shortSell": 112,
                 "shortStockRedemption": 0,
-                "shortPrevBalance": 991,
-                "shortBalance": 947,
-                "offsetting": 50,
+                "shortPrevBalance": 947,
+                "shortBalance": 970,
+                "offsetting": 45,
                 "date": "2026-08-18"
               }
             },
@@ -46122,17 +46109,17 @@ window.DATA = {
               "volume": 1187417.0,
               "quoteDate": "2026-08-18",
               "margin": {
-                "marginBuy": 136,
-                "marginSell": 72,
-                "marginCashRedemption": 3,
-                "marginPrevBalance": 922,
-                "marginBalance": 983,
-                "shortBuy": 0,
-                "shortSell": 12,
+                "marginBuy": 68,
+                "marginSell": 39,
+                "marginCashRedemption": 1,
+                "marginPrevBalance": 983,
+                "marginBalance": 1011,
+                "shortBuy": 8,
+                "shortSell": 4,
                 "shortStockRedemption": 0,
-                "shortPrevBalance": 24,
-                "shortBalance": 12,
-                "offsetting": 0,
+                "shortPrevBalance": 12,
+                "shortBalance": 16,
+                "offsetting": 1,
                 "date": "2026-08-18"
               }
             },
@@ -46271,17 +46258,17 @@ window.DATA = {
               "volume": 874196.0,
               "quoteDate": "2026-08-18",
               "margin": {
-                "marginBuy": 116,
-                "marginSell": 208,
-                "marginCashRedemption": 1,
-                "marginPrevBalance": 3281,
-                "marginBalance": 3188,
-                "shortBuy": 3,
-                "shortSell": 8,
+                "marginBuy": 37,
+                "marginSell": 112,
+                "marginCashRedemption": 2,
+                "marginPrevBalance": 3188,
+                "marginBalance": 3111,
+                "shortBuy": 2,
+                "shortSell": 9,
                 "shortStockRedemption": 0,
-                "shortPrevBalance": 37,
-                "shortBalance": 32,
-                "offsetting": 1,
+                "shortPrevBalance": 32,
+                "shortBalance": 25,
+                "offsetting": 0,
                 "date": "2026-08-18"
               }
             },
@@ -46342,17 +46329,17 @@ window.DATA = {
               "volume": 11169571.0,
               "quoteDate": "2026-08-18",
               "margin": {
-                "marginBuy": 1332,
-                "marginSell": 1287,
+                "marginBuy": 794,
+                "marginSell": 1187,
                 "marginCashRedemption": 0,
-                "marginPrevBalance": 11517,
-                "marginBalance": 11562,
-                "shortBuy": 30,
-                "shortSell": 2,
-                "shortStockRedemption": 1,
-                "shortPrevBalance": 168,
-                "shortBalance": 195,
-                "offsetting": 14,
+                "marginPrevBalance": 11562,
+                "marginBalance": 11169,
+                "shortBuy": 26,
+                "shortSell": 61,
+                "shortStockRedemption": 0,
+                "shortPrevBalance": 195,
+                "shortBalance": 160,
+                "offsetting": 23,
                 "date": "2026-08-18"
               }
             },
@@ -46413,17 +46400,17 @@ window.DATA = {
               "volume": 2994452.0,
               "quoteDate": "2026-08-18",
               "margin": {
-                "marginBuy": 253,
-                "marginSell": 513,
-                "marginCashRedemption": 4,
-                "marginPrevBalance": 5608,
-                "marginBalance": 5344,
-                "shortBuy": 15,
-                "shortSell": 47,
+                "marginBuy": 175,
+                "marginSell": 79,
+                "marginCashRedemption": 0,
+                "marginPrevBalance": 5344,
+                "marginBalance": 5440,
+                "shortBuy": 7,
+                "shortSell": 13,
                 "shortStockRedemption": 0,
-                "shortPrevBalance": 116,
-                "shortBalance": 84,
-                "offsetting": 3,
+                "shortPrevBalance": 84,
+                "shortBalance": 78,
+                "offsetting": 2,
                 "date": "2026-08-18"
               }
             },
@@ -46562,17 +46549,17 @@ window.DATA = {
               "volume": 5742661.0,
               "quoteDate": "2026-08-18",
               "margin": {
-                "marginBuy": 818,
-                "marginSell": 1111,
-                "marginCashRedemption": 1,
-                "marginPrevBalance": 10926,
-                "marginBalance": 10632,
-                "shortBuy": 9,
-                "shortSell": 12,
-                "shortStockRedemption": 3,
-                "shortPrevBalance": 123,
-                "shortBalance": 117,
-                "offsetting": 16,
+                "marginBuy": 464,
+                "marginSell": 595,
+                "marginCashRedemption": 3,
+                "marginPrevBalance": 10632,
+                "marginBalance": 10498,
+                "shortBuy": 20,
+                "shortSell": 14,
+                "shortStockRedemption": 0,
+                "shortPrevBalance": 117,
+                "shortBalance": 123,
+                "offsetting": 15,
                 "date": "2026-08-18"
               }
             },
@@ -46672,11 +46659,11 @@ window.DATA = {
               "volume": 471821.0,
               "quoteDate": "2026-08-18",
               "margin": {
-                "marginBuy": 2,
-                "marginSell": 8,
+                "marginBuy": 12,
+                "marginSell": 5,
                 "marginCashRedemption": 0,
-                "marginPrevBalance": 127,
-                "marginBalance": 121,
+                "marginPrevBalance": 121,
+                "marginBalance": 128,
                 "shortBuy": 0,
                 "shortSell": 0,
                 "shortStockRedemption": 0,
@@ -46977,17 +46964,17 @@ window.DATA = {
               "volume": 8038002.0,
               "quoteDate": "2026-08-18",
               "margin": {
-                "marginBuy": 442,
-                "marginSell": 573,
-                "marginCashRedemption": 10,
-                "marginPrevBalance": 27114,
-                "marginBalance": 26973,
-                "shortBuy": 10,
-                "shortSell": 26,
+                "marginBuy": 373,
+                "marginSell": 538,
+                "marginCashRedemption": 728,
+                "marginPrevBalance": 26973,
+                "marginBalance": 26080,
+                "shortBuy": 19,
+                "shortSell": 19,
                 "shortStockRedemption": 0,
-                "shortPrevBalance": 121,
+                "shortPrevBalance": 105,
                 "shortBalance": 105,
-                "offsetting": 3,
+                "offsetting": 7,
                 "date": "2026-08-18"
               }
             },
@@ -47282,17 +47269,17 @@ window.DATA = {
               "volume": 5818500.0,
               "quoteDate": "2026-08-18",
               "margin": {
-                "marginBuy": 195,
-                "marginSell": 152,
+                "marginBuy": 619,
+                "marginSell": 339,
                 "marginCashRedemption": 0,
-                "marginPrevBalance": 3789,
-                "marginBalance": 3832,
-                "shortBuy": 8,
-                "shortSell": 1,
+                "marginPrevBalance": 3832,
+                "marginBalance": 4112,
+                "shortBuy": 10,
+                "shortSell": 3,
                 "shortStockRedemption": 0,
-                "shortPrevBalance": 46,
-                "shortBalance": 53,
-                "offsetting": 11,
+                "shortPrevBalance": 53,
+                "shortBalance": 60,
+                "offsetting": 6,
                 "date": "2026-08-18"
               }
             },
@@ -47392,17 +47379,17 @@ window.DATA = {
               "volume": 18277092.0,
               "quoteDate": "2026-08-18",
               "margin": {
-                "marginBuy": 1345,
-                "marginSell": 1235,
-                "marginCashRedemption": 4,
-                "marginPrevBalance": 17544,
-                "marginBalance": 17650,
-                "shortBuy": 30,
-                "shortSell": 21,
-                "shortStockRedemption": 1,
-                "shortPrevBalance": 252,
-                "shortBalance": 260,
-                "offsetting": 36,
+                "marginBuy": 635,
+                "marginSell": 911,
+                "marginCashRedemption": 111,
+                "marginPrevBalance": 17650,
+                "marginBalance": 17263,
+                "shortBuy": 249,
+                "shortSell": 85,
+                "shortStockRedemption": 0,
+                "shortPrevBalance": 260,
+                "shortBalance": 424,
+                "offsetting": 0,
                 "date": "2026-08-18"
               }
             },
@@ -47424,16 +47411,16 @@ window.DATA = {
               "volume": 1117108.0,
               "quoteDate": "2026-08-18",
               "margin": {
-                "marginBuy": 50,
-                "marginSell": 68,
-                "marginCashRedemption": 1,
-                "marginPrevBalance": 1413,
-                "marginBalance": 1394,
+                "marginBuy": 87,
+                "marginSell": 61,
+                "marginCashRedemption": 0,
+                "marginPrevBalance": 1394,
+                "marginBalance": 1420,
                 "shortBuy": 0,
-                "shortSell": 30,
+                "shortSell": 1,
                 "shortStockRedemption": 0,
-                "shortPrevBalance": 35,
-                "shortBalance": 5,
+                "shortPrevBalance": 5,
+                "shortBalance": 4,
                 "offsetting": 0,
                 "date": "2026-08-18"
               }
@@ -47690,17 +47677,17 @@ window.DATA = {
               "volume": 44297157.0,
               "quoteDate": "2026-08-18",
               "margin": {
-                "marginBuy": 2469,
-                "marginSell": 1953,
-                "marginCashRedemption": 2,
-                "marginPrevBalance": 9547,
-                "marginBalance": 10061,
-                "shortBuy": 43,
-                "shortSell": 8,
+                "marginBuy": 2802,
+                "marginSell": 1075,
+                "marginCashRedemption": 3,
+                "marginPrevBalance": 10061,
+                "marginBalance": 11785,
+                "shortBuy": 87,
+                "shortSell": 26,
                 "shortStockRedemption": 0,
-                "shortPrevBalance": 147,
-                "shortBalance": 182,
-                "offsetting": 83,
+                "shortPrevBalance": 182,
+                "shortBalance": 243,
+                "offsetting": 114,
                 "date": "2026-08-18"
               }
             },
@@ -48346,17 +48333,17 @@ window.DATA = {
               "volume": 15547200.0,
               "quoteDate": "2026-08-18",
               "margin": {
-                "marginBuy": 2540,
-                "marginSell": 2130,
-                "marginCashRedemption": 3,
-                "marginPrevBalance": 23328,
-                "marginBalance": 23735,
-                "shortBuy": 99,
-                "shortSell": 28,
-                "shortStockRedemption": 0,
-                "shortPrevBalance": 359,
-                "shortBalance": 430,
-                "offsetting": 49,
+                "marginBuy": 906,
+                "marginSell": 1217,
+                "marginCashRedemption": 149,
+                "marginPrevBalance": 23735,
+                "marginBalance": 23275,
+                "shortBuy": 66,
+                "shortSell": 133,
+                "shortStockRedemption": 1,
+                "shortPrevBalance": 430,
+                "shortBalance": 362,
+                "offsetting": 26,
                 "date": "2026-08-18"
               }
             },
@@ -48403,7 +48390,7 @@ window.DATA = {
         },
         {
           "date": "2026-08-19",
-          "fetched_at": "2026-08-19T21:25:56+08:00",
+          "fetched_at": "2026-08-19T22:09:01+08:00",
           "count": 70,
           "self": {
             "open": 21.54,
@@ -48417,13 +48404,7 @@ window.DATA = {
             "volume": 27222874.0,
             "quoteDate": "2026-08-19"
           },
-          "selfInstitutional": {
-            "foreign": -5827700,
-            "trust": 0,
-            "dealer": -1943322,
-            "total": -7771022,
-            "date": "2026-08-19"
-          },
+          "selfInstitutional": null,
           "selfMargin": {
             "marginBuy": 237,
             "marginSell": 120,
@@ -48457,11 +48438,11 @@ window.DATA = {
               "volume": 23618612.0,
               "quoteDate": "2026-08-19",
               "inst": {
-                "foreign": -7417943,
-                "trust": -668410,
-                "dealer": 719342,
-                "total": -7367011,
-                "date": "2026-08-19"
+                "foreign": -3245118,
+                "trust": 626690,
+                "dealer": -109919,
+                "total": -2728347,
+                "date": "2026-08-18"
               },
               "margin": {
                 "marginBuy": 800,
@@ -48496,11 +48477,11 @@ window.DATA = {
               "volume": 7036521.0,
               "quoteDate": "2026-08-19",
               "inst": {
-                "foreign": -216230,
-                "trust": -1046250,
-                "dealer": -265132,
-                "total": -1527612,
-                "date": "2026-08-19"
+                "foreign": -198092,
+                "trust": -1153744,
+                "dealer": -223386,
+                "total": -1575222,
+                "date": "2026-08-18"
               },
               "margin": {
                 "marginBuy": 292,
@@ -48535,11 +48516,11 @@ window.DATA = {
               "volume": 1289214.0,
               "quoteDate": "2026-08-19",
               "inst": {
-                "foreign": 174888,
-                "trust": -360257,
-                "dealer": 19836,
-                "total": -165533,
-                "date": "2026-08-19"
+                "foreign": 175380,
+                "trust": -355116,
+                "dealer": -3372,
+                "total": -183108,
+                "date": "2026-08-18"
               },
               "margin": {
                 "marginBuy": 59,
@@ -48574,11 +48555,11 @@ window.DATA = {
               "volume": 2509394.0,
               "quoteDate": "2026-08-19",
               "inst": {
-                "foreign": -335535,
-                "trust": 16000,
-                "dealer": -10101,
-                "total": -329636,
-                "date": "2026-08-19"
+                "foreign": -501113,
+                "trust": -180000,
+                "dealer": -29993,
+                "total": -711106,
+                "date": "2026-08-18"
               },
               "margin": {
                 "marginBuy": 201,
@@ -48613,11 +48594,11 @@ window.DATA = {
               "volume": 526139.0,
               "quoteDate": "2026-08-19",
               "inst": {
-                "foreign": -102444,
-                "trust": 19412,
-                "dealer": 6370,
-                "total": -76662,
-                "date": "2026-08-19"
+                "foreign": -76972,
+                "trust": 386491,
+                "dealer": 624,
+                "total": 310143,
+                "date": "2026-08-18"
               },
               "margin": {
                 "marginBuy": 44,
@@ -48652,11 +48633,11 @@ window.DATA = {
               "volume": 3119237.0,
               "quoteDate": "2026-08-19",
               "inst": {
-                "foreign": 76221,
-                "trust": -191001,
-                "dealer": -16593,
-                "total": -131373,
-                "date": "2026-08-19"
+                "foreign": 428269,
+                "trust": -167415,
+                "dealer": 13948,
+                "total": 274802,
+                "date": "2026-08-18"
               },
               "margin": {
                 "marginBuy": 130,
@@ -48691,11 +48672,11 @@ window.DATA = {
               "volume": 3423570.0,
               "quoteDate": "2026-08-19",
               "inst": {
-                "foreign": 239885,
-                "trust": -776000,
-                "dealer": 37282,
-                "total": -498833,
-                "date": "2026-08-19"
+                "foreign": 51918,
+                "trust": 61592,
+                "dealer": -39694,
+                "total": 73816,
+                "date": "2026-08-18"
               },
               "margin": {
                 "marginBuy": 144,
@@ -48730,17 +48711,17 @@ window.DATA = {
               "volume": 2307204.0,
               "quoteDate": "2026-08-19",
               "margin": {
-                "marginBuy": 55,
-                "marginSell": 64,
-                "marginCashRedemption": 0,
-                "marginPrevBalance": 890,
-                "marginBalance": 881,
+                "marginBuy": 82,
+                "marginSell": 31,
+                "marginCashRedemption": 2,
+                "marginPrevBalance": 881,
+                "marginBalance": 930,
                 "shortBuy": 0,
                 "shortSell": 0,
                 "shortStockRedemption": 0,
                 "shortPrevBalance": 5,
                 "shortBalance": 5,
-                "offsetting": 1,
+                "offsetting": 0,
                 "date": "2026-08-19"
               }
             },
@@ -48762,17 +48743,17 @@ window.DATA = {
               "volume": 17947311.0,
               "quoteDate": "2026-08-19",
               "margin": {
-                "marginBuy": 2129,
-                "marginSell": 1762,
-                "marginCashRedemption": 1,
-                "marginPrevBalance": 45202,
-                "marginBalance": 45568,
-                "shortBuy": 125,
-                "shortSell": 169,
+                "marginBuy": 715,
+                "marginSell": 995,
+                "marginCashRedemption": 4,
+                "marginPrevBalance": 45568,
+                "marginBalance": 45284,
+                "shortBuy": 135,
+                "shortSell": 112,
                 "shortStockRedemption": 0,
-                "shortPrevBalance": 991,
-                "shortBalance": 947,
-                "offsetting": 50,
+                "shortPrevBalance": 947,
+                "shortBalance": 970,
+                "offsetting": 45,
                 "date": "2026-08-19"
               }
             },
@@ -48794,11 +48775,11 @@ window.DATA = {
               "volume": 4040971.0,
               "quoteDate": "2026-08-19",
               "inst": {
-                "foreign": -462188,
-                "trust": -105010,
-                "dealer": 40992,
-                "total": -526206,
-                "date": "2026-08-19"
+                "foreign": -143174,
+                "trust": -345000,
+                "dealer": -16124,
+                "total": -504298,
+                "date": "2026-08-18"
               },
               "margin": {
                 "marginBuy": 73,
@@ -48833,17 +48814,17 @@ window.DATA = {
               "volume": 1187417.0,
               "quoteDate": "2026-08-19",
               "margin": {
-                "marginBuy": 136,
-                "marginSell": 72,
-                "marginCashRedemption": 3,
-                "marginPrevBalance": 922,
-                "marginBalance": 983,
-                "shortBuy": 0,
-                "shortSell": 12,
+                "marginBuy": 68,
+                "marginSell": 39,
+                "marginCashRedemption": 1,
+                "marginPrevBalance": 983,
+                "marginBalance": 1011,
+                "shortBuy": 8,
+                "shortSell": 4,
                 "shortStockRedemption": 0,
-                "shortPrevBalance": 24,
-                "shortBalance": 12,
-                "offsetting": 0,
+                "shortPrevBalance": 12,
+                "shortBalance": 16,
+                "offsetting": 1,
                 "date": "2026-08-19"
               }
             },
@@ -48865,11 +48846,11 @@ window.DATA = {
               "volume": 30182657.0,
               "quoteDate": "2026-08-19",
               "inst": {
-                "foreign": -3215170,
-                "trust": -1481000,
-                "dealer": -241456,
-                "total": -4937626,
-                "date": "2026-08-19"
+                "foreign": -8750877,
+                "trust": -433467,
+                "dealer": -684498,
+                "total": -9868842,
+                "date": "2026-08-18"
               },
               "margin": {
                 "marginBuy": 1262,
@@ -48904,11 +48885,11 @@ window.DATA = {
               "volume": 3873944.0,
               "quoteDate": "2026-08-19",
               "inst": {
-                "foreign": -135887,
-                "trust": 84000,
-                "dealer": 132972,
-                "total": 81085,
-                "date": "2026-08-19"
+                "foreign": -142772,
+                "trust": 137000,
+                "dealer": 158902,
+                "total": 153130,
+                "date": "2026-08-18"
               },
               "margin": {
                 "marginBuy": 285,
@@ -48943,11 +48924,11 @@ window.DATA = {
               "volume": 3982151.0,
               "quoteDate": "2026-08-19",
               "inst": {
-                "foreign": 45475,
-                "trust": 534000,
-                "dealer": -228463,
-                "total": 351012,
-                "date": "2026-08-19"
+                "foreign": 828512,
+                "trust": -589100,
+                "dealer": -45819,
+                "total": 193593,
+                "date": "2026-08-18"
               },
               "margin": {
                 "marginBuy": 315,
@@ -48982,17 +48963,17 @@ window.DATA = {
               "volume": 874196.0,
               "quoteDate": "2026-08-19",
               "margin": {
-                "marginBuy": 116,
-                "marginSell": 208,
-                "marginCashRedemption": 1,
-                "marginPrevBalance": 3281,
-                "marginBalance": 3188,
-                "shortBuy": 3,
-                "shortSell": 8,
+                "marginBuy": 37,
+                "marginSell": 112,
+                "marginCashRedemption": 2,
+                "marginPrevBalance": 3188,
+                "marginBalance": 3111,
+                "shortBuy": 2,
+                "shortSell": 9,
                 "shortStockRedemption": 0,
-                "shortPrevBalance": 37,
-                "shortBalance": 32,
-                "offsetting": 1,
+                "shortPrevBalance": 32,
+                "shortBalance": 25,
+                "offsetting": 0,
                 "date": "2026-08-19"
               }
             },
@@ -49014,11 +48995,11 @@ window.DATA = {
               "volume": 4111029.0,
               "quoteDate": "2026-08-19",
               "inst": {
-                "foreign": 1269841,
-                "trust": -1493000,
-                "dealer": -6013,
-                "total": -229172,
-                "date": "2026-08-19"
+                "foreign": 1845460,
+                "trust": -1753287,
+                "dealer": -74209,
+                "total": 17964,
+                "date": "2026-08-18"
               },
               "margin": {
                 "marginBuy": 225,
@@ -49053,17 +49034,17 @@ window.DATA = {
               "volume": 11169571.0,
               "quoteDate": "2026-08-19",
               "margin": {
-                "marginBuy": 1332,
-                "marginSell": 1287,
+                "marginBuy": 794,
+                "marginSell": 1187,
                 "marginCashRedemption": 0,
-                "marginPrevBalance": 11517,
-                "marginBalance": 11562,
-                "shortBuy": 30,
-                "shortSell": 2,
-                "shortStockRedemption": 1,
-                "shortPrevBalance": 168,
-                "shortBalance": 195,
-                "offsetting": 14,
+                "marginPrevBalance": 11562,
+                "marginBalance": 11169,
+                "shortBuy": 26,
+                "shortSell": 61,
+                "shortStockRedemption": 0,
+                "shortPrevBalance": 195,
+                "shortBalance": 160,
+                "offsetting": 23,
                 "date": "2026-08-19"
               }
             },
@@ -49085,11 +49066,11 @@ window.DATA = {
               "volume": 110337394.0,
               "quoteDate": "2026-08-19",
               "inst": {
-                "foreign": 7800989,
-                "trust": -20973000,
-                "dealer": -5796260,
-                "total": -18968271,
-                "date": "2026-08-19"
+                "foreign": -3246457,
+                "trust": 1153128,
+                "dealer": -819429,
+                "total": -2912758,
+                "date": "2026-08-18"
               },
               "margin": {
                 "marginBuy": 3549,
@@ -49124,17 +49105,17 @@ window.DATA = {
               "volume": 2994452.0,
               "quoteDate": "2026-08-19",
               "margin": {
-                "marginBuy": 253,
-                "marginSell": 513,
-                "marginCashRedemption": 4,
-                "marginPrevBalance": 5608,
-                "marginBalance": 5344,
-                "shortBuy": 15,
-                "shortSell": 47,
+                "marginBuy": 175,
+                "marginSell": 79,
+                "marginCashRedemption": 0,
+                "marginPrevBalance": 5344,
+                "marginBalance": 5440,
+                "shortBuy": 7,
+                "shortSell": 13,
                 "shortStockRedemption": 0,
-                "shortPrevBalance": 116,
-                "shortBalance": 84,
-                "offsetting": 3,
+                "shortPrevBalance": 84,
+                "shortBalance": 78,
+                "offsetting": 2,
                 "date": "2026-08-19"
               }
             },
@@ -49156,11 +49137,11 @@ window.DATA = {
               "volume": 12788664.0,
               "quoteDate": "2026-08-19",
               "inst": {
-                "foreign": -5244462,
-                "trust": -8000,
-                "dealer": 451480,
-                "total": -4800982,
-                "date": "2026-08-19"
+                "foreign": -5228384,
+                "trust": 1984000,
+                "dealer": -324475,
+                "total": -3568859,
+                "date": "2026-08-18"
               },
               "margin": {
                 "marginBuy": 1066,
@@ -49195,11 +49176,11 @@ window.DATA = {
               "volume": 1456683.0,
               "quoteDate": "2026-08-19",
               "inst": {
-                "foreign": 262602,
-                "trust": -192000,
-                "dealer": 14601,
-                "total": 85203,
-                "date": "2026-08-19"
+                "foreign": -261661,
+                "trust": 34000,
+                "dealer": -56751,
+                "total": -284412,
+                "date": "2026-08-18"
               },
               "margin": {
                 "marginBuy": 47,
@@ -49234,17 +49215,17 @@ window.DATA = {
               "volume": 5742661.0,
               "quoteDate": "2026-08-19",
               "margin": {
-                "marginBuy": 818,
-                "marginSell": 1111,
-                "marginCashRedemption": 1,
-                "marginPrevBalance": 10926,
-                "marginBalance": 10632,
-                "shortBuy": 9,
-                "shortSell": 12,
-                "shortStockRedemption": 3,
-                "shortPrevBalance": 123,
-                "shortBalance": 117,
-                "offsetting": 16,
+                "marginBuy": 464,
+                "marginSell": 595,
+                "marginCashRedemption": 3,
+                "marginPrevBalance": 10632,
+                "marginBalance": 10498,
+                "shortBuy": 20,
+                "shortSell": 14,
+                "shortStockRedemption": 0,
+                "shortPrevBalance": 117,
+                "shortBalance": 123,
+                "offsetting": 15,
                 "date": "2026-08-19"
               }
             },
@@ -49266,11 +49247,11 @@ window.DATA = {
               "volume": 471821.0,
               "quoteDate": "2026-08-19",
               "margin": {
-                "marginBuy": 2,
-                "marginSell": 8,
+                "marginBuy": 12,
+                "marginSell": 5,
                 "marginCashRedemption": 0,
-                "marginPrevBalance": 127,
-                "marginBalance": 121,
+                "marginPrevBalance": 121,
+                "marginBalance": 128,
                 "shortBuy": 0,
                 "shortSell": 0,
                 "shortStockRedemption": 0,
@@ -49298,11 +49279,11 @@ window.DATA = {
               "volume": 22448357.0,
               "quoteDate": "2026-08-19",
               "inst": {
-                "foreign": 2323531,
-                "trust": -3324000,
-                "dealer": -127734,
-                "total": -1128203,
-                "date": "2026-08-19"
+                "foreign": 363414,
+                "trust": -3877203,
+                "dealer": -219991,
+                "total": -3733780,
+                "date": "2026-08-18"
               },
               "margin": {
                 "marginBuy": 371,
@@ -49337,11 +49318,11 @@ window.DATA = {
               "volume": 1357774.0,
               "quoteDate": "2026-08-19",
               "inst": {
-                "foreign": 199668,
-                "trust": -481000,
-                "dealer": -4716,
-                "total": -286048,
-                "date": "2026-08-19"
+                "foreign": -5233,
+                "trust": 43702,
+                "dealer": -12981,
+                "total": 25488,
+                "date": "2026-08-18"
               },
               "margin": {
                 "marginBuy": 55,
@@ -49376,11 +49357,11 @@ window.DATA = {
               "volume": 6754187.0,
               "quoteDate": "2026-08-19",
               "inst": {
-                "foreign": -1993240,
-                "trust": 497000,
-                "dealer": 236633,
-                "total": -1259607,
-                "date": "2026-08-19"
+                "foreign": -2233931,
+                "trust": 430701,
+                "dealer": -274651,
+                "total": -2077881,
+                "date": "2026-08-18"
               },
               "margin": {
                 "marginBuy": 313,
@@ -49415,17 +49396,17 @@ window.DATA = {
               "volume": 5818500.0,
               "quoteDate": "2026-08-19",
               "margin": {
-                "marginBuy": 195,
-                "marginSell": 152,
+                "marginBuy": 619,
+                "marginSell": 339,
                 "marginCashRedemption": 0,
-                "marginPrevBalance": 3789,
-                "marginBalance": 3832,
-                "shortBuy": 8,
-                "shortSell": 1,
+                "marginPrevBalance": 3832,
+                "marginBalance": 4112,
+                "shortBuy": 10,
+                "shortSell": 3,
                 "shortStockRedemption": 0,
-                "shortPrevBalance": 46,
-                "shortBalance": 53,
-                "offsetting": 11,
+                "shortPrevBalance": 53,
+                "shortBalance": 60,
+                "offsetting": 6,
                 "date": "2026-08-19"
               }
             },
@@ -49447,11 +49428,11 @@ window.DATA = {
               "volume": 4739840.0,
               "quoteDate": "2026-08-19",
               "inst": {
-                "foreign": -514649,
-                "trust": 572000,
-                "dealer": 54634,
-                "total": 111985,
-                "date": "2026-08-19"
+                "foreign": -1022327,
+                "trust": 1251550,
+                "dealer": 32108,
+                "total": 261331,
+                "date": "2026-08-18"
               },
               "margin": {
                 "marginBuy": 219,
@@ -49486,11 +49467,11 @@ window.DATA = {
               "volume": 35191145.0,
               "quoteDate": "2026-08-19",
               "inst": {
-                "foreign": -936729,
-                "trust": 640000,
-                "dealer": -238070,
-                "total": -534799,
-                "date": "2026-08-19"
+                "foreign": 9583775,
+                "trust": 3148510,
+                "dealer": -475235,
+                "total": 12257050,
+                "date": "2026-08-18"
               },
               "margin": {
                 "marginBuy": 3674,
@@ -49525,11 +49506,11 @@ window.DATA = {
               "volume": 9858275.0,
               "quoteDate": "2026-08-19",
               "inst": {
-                "foreign": 2563526,
+                "foreign": -427788,
                 "trust": 1319000,
-                "dealer": -48448,
-                "total": 3834078,
-                "date": "2026-08-19"
+                "dealer": -18946,
+                "total": 872266,
+                "date": "2026-08-18"
               },
               "margin": {
                 "marginBuy": 179,
@@ -49564,11 +49545,11 @@ window.DATA = {
               "volume": 28162708.0,
               "quoteDate": "2026-08-19",
               "inst": {
-                "foreign": -3046833,
-                "trust": 1039000,
-                "dealer": -893467,
-                "total": -2901300,
-                "date": "2026-08-19"
+                "foreign": -7514726,
+                "trust": -864060,
+                "dealer": -583850,
+                "total": -8962636,
+                "date": "2026-08-18"
               },
               "margin": {
                 "marginBuy": 2116,
@@ -49603,11 +49584,11 @@ window.DATA = {
               "volume": 15313042.0,
               "quoteDate": "2026-08-19",
               "inst": {
-                "foreign": 420170,
-                "trust": 607000,
-                "dealer": -167498,
-                "total": 859672,
-                "date": "2026-08-19"
+                "foreign": -483946,
+                "trust": 495000,
+                "dealer": 24810,
+                "total": 35864,
+                "date": "2026-08-18"
               },
               "margin": {
                 "marginBuy": 943,
@@ -49642,17 +49623,17 @@ window.DATA = {
               "volume": 18277092.0,
               "quoteDate": "2026-08-19",
               "margin": {
-                "marginBuy": 1345,
-                "marginSell": 1235,
-                "marginCashRedemption": 4,
-                "marginPrevBalance": 17544,
-                "marginBalance": 17650,
-                "shortBuy": 30,
-                "shortSell": 21,
-                "shortStockRedemption": 1,
-                "shortPrevBalance": 252,
-                "shortBalance": 260,
-                "offsetting": 36,
+                "marginBuy": 635,
+                "marginSell": 911,
+                "marginCashRedemption": 111,
+                "marginPrevBalance": 17650,
+                "marginBalance": 17263,
+                "shortBuy": 249,
+                "shortSell": 85,
+                "shortStockRedemption": 0,
+                "shortPrevBalance": 260,
+                "shortBalance": 424,
+                "offsetting": 0,
                 "date": "2026-08-19"
               }
             },
@@ -49674,11 +49655,11 @@ window.DATA = {
               "volume": 2003400.0,
               "quoteDate": "2026-08-19",
               "inst": {
-                "foreign": -40584,
-                "trust": 175000,
-                "dealer": -22869,
-                "total": 111547,
-                "date": "2026-08-19"
+                "foreign": -177078,
+                "trust": 106000,
+                "dealer": 23810,
+                "total": -47268,
+                "date": "2026-08-18"
               },
               "margin": {
                 "marginBuy": 198,
@@ -49713,11 +49694,11 @@ window.DATA = {
               "volume": 22770769.0,
               "quoteDate": "2026-08-19",
               "inst": {
-                "foreign": -9652787,
-                "trust": 4672000,
-                "dealer": -33023,
-                "total": -5013810,
-                "date": "2026-08-19"
+                "foreign": 4589058,
+                "trust": 2063000,
+                "dealer": 100962,
+                "total": 6753020,
+                "date": "2026-08-18"
               },
               "margin": {
                 "marginBuy": 1028,
@@ -49752,11 +49733,11 @@ window.DATA = {
               "volume": 5509629.0,
               "quoteDate": "2026-08-19",
               "inst": {
-                "foreign": 288130,
-                "trust": -1585000,
-                "dealer": -206472,
-                "total": -1503342,
-                "date": "2026-08-19"
+                "foreign": -740783,
+                "trust": -1037544,
+                "dealer": -125480,
+                "total": -1903807,
+                "date": "2026-08-18"
               },
               "margin": {
                 "marginBuy": 463,
@@ -49791,11 +49772,11 @@ window.DATA = {
               "volume": 1754672.0,
               "quoteDate": "2026-08-19",
               "inst": {
-                "foreign": 896391,
-                "trust": -689000,
-                "dealer": 4311,
-                "total": 211702,
-                "date": "2026-08-19"
+                "foreign": 500333,
+                "trust": -777000,
+                "dealer": -39234,
+                "total": -315901,
+                "date": "2026-08-18"
               },
               "margin": {
                 "marginBuy": 28,
@@ -49830,16 +49811,16 @@ window.DATA = {
               "volume": 1117108.0,
               "quoteDate": "2026-08-19",
               "margin": {
-                "marginBuy": 50,
-                "marginSell": 68,
-                "marginCashRedemption": 1,
-                "marginPrevBalance": 1413,
-                "marginBalance": 1394,
+                "marginBuy": 87,
+                "marginSell": 61,
+                "marginCashRedemption": 0,
+                "marginPrevBalance": 1394,
+                "marginBalance": 1420,
                 "shortBuy": 0,
-                "shortSell": 30,
+                "shortSell": 1,
                 "shortStockRedemption": 0,
-                "shortPrevBalance": 35,
-                "shortBalance": 5,
+                "shortPrevBalance": 5,
+                "shortBalance": 4,
                 "offsetting": 0,
                 "date": "2026-08-19"
               }
@@ -49862,11 +49843,11 @@ window.DATA = {
               "volume": 18979455.0,
               "quoteDate": "2026-08-19",
               "inst": {
-                "foreign": -3166125,
-                "trust": -1829000,
-                "dealer": 159607,
-                "total": -4835518,
-                "date": "2026-08-19"
+                "foreign": -3045902,
+                "trust": -1593000,
+                "dealer": 71433,
+                "total": -4567469,
+                "date": "2026-08-18"
               },
               "margin": {
                 "marginBuy": 912,
@@ -49901,11 +49882,11 @@ window.DATA = {
               "volume": 450430.0,
               "quoteDate": "2026-08-19",
               "inst": {
-                "foreign": 78455,
-                "trust": -14000,
-                "dealer": -845,
-                "total": 63610,
-                "date": "2026-08-19"
+                "foreign": -67435,
+                "trust": 23000,
+                "dealer": -2846,
+                "total": -47281,
+                "date": "2026-08-18"
               },
               "margin": {
                 "marginBuy": 9,
@@ -49940,11 +49921,11 @@ window.DATA = {
               "volume": 9782257.0,
               "quoteDate": "2026-08-19",
               "inst": {
-                "foreign": 1907361,
-                "trust": -2339000,
-                "dealer": -253758,
-                "total": -685397,
-                "date": "2026-08-19"
+                "foreign": -1644682,
+                "trust": -35827,
+                "dealer": -747713,
+                "total": -2428222,
+                "date": "2026-08-18"
               },
               "margin": {
                 "marginBuy": 404,
@@ -49979,11 +49960,11 @@ window.DATA = {
               "volume": 3257021.0,
               "quoteDate": "2026-08-19",
               "inst": {
-                "foreign": 1047984,
-                "trust": -1144000,
-                "dealer": -1801,
-                "total": -97817,
-                "date": "2026-08-19"
+                "foreign": 503745,
+                "trust": -1149000,
+                "dealer": -62893,
+                "total": -708148,
+                "date": "2026-08-18"
               },
               "margin": {
                 "marginBuy": 121,
@@ -50018,11 +49999,11 @@ window.DATA = {
               "volume": 1221498.0,
               "quoteDate": "2026-08-19",
               "inst": {
-                "foreign": -146016,
-                "trust": 0,
-                "dealer": -18796,
-                "total": -164812,
-                "date": "2026-08-19"
+                "foreign": 65308,
+                "trust": -59000,
+                "dealer": -8016,
+                "total": -1708,
+                "date": "2026-08-18"
               },
               "margin": {
                 "marginBuy": 102,
@@ -50057,11 +50038,11 @@ window.DATA = {
               "volume": 8946264.0,
               "quoteDate": "2026-08-19",
               "inst": {
-                "foreign": 2232318,
-                "trust": -2934000,
-                "dealer": -505191,
-                "total": -1206873,
-                "date": "2026-08-19"
+                "foreign": 822008,
+                "trust": -1638062,
+                "dealer": -156654,
+                "total": -972708,
+                "date": "2026-08-18"
               },
               "margin": {
                 "marginBuy": 331,
@@ -50096,11 +50077,11 @@ window.DATA = {
               "volume": 7890194.0,
               "quoteDate": "2026-08-19",
               "inst": {
-                "foreign": -181461,
-                "trust": -364000,
-                "dealer": -49969,
-                "total": -595430,
-                "date": "2026-08-19"
+                "foreign": -37124,
+                "trust": -460000,
+                "dealer": 126457,
+                "total": -370667,
+                "date": "2026-08-18"
               },
               "margin": {
                 "marginBuy": 587,
@@ -50135,11 +50116,11 @@ window.DATA = {
               "volume": 6449418.0,
               "quoteDate": "2026-08-19",
               "inst": {
-                "foreign": 2072707,
-                "trust": -813000,
-                "dealer": -227877,
-                "total": 1031830,
-                "date": "2026-08-19"
+                "foreign": 1541019,
+                "trust": -812000,
+                "dealer": -49031,
+                "total": 679988,
+                "date": "2026-08-18"
               },
               "margin": {
                 "marginBuy": 398,
@@ -50174,11 +50155,11 @@ window.DATA = {
               "volume": 56295383.0,
               "quoteDate": "2026-08-19",
               "inst": {
-                "foreign": -3422361,
-                "trust": -2731000,
-                "dealer": -1341269,
-                "total": -7494630,
-                "date": "2026-08-19"
+                "foreign": -2365705,
+                "trust": -696195,
+                "dealer": -673341,
+                "total": -3735241,
+                "date": "2026-08-18"
               },
               "margin": {
                 "marginBuy": 1957,
@@ -50213,11 +50194,11 @@ window.DATA = {
               "volume": 44748181.0,
               "quoteDate": "2026-08-19",
               "inst": {
-                "foreign": -19453031,
-                "trust": 436000,
-                "dealer": -154064,
-                "total": -19171095,
-                "date": "2026-08-19"
+                "foreign": -21672909,
+                "trust": -2957061,
+                "dealer": -66448,
+                "total": -24696418,
+                "date": "2026-08-18"
               },
               "margin": {
                 "marginBuy": 432,
@@ -50252,11 +50233,11 @@ window.DATA = {
               "volume": 2844558.0,
               "quoteDate": "2026-08-19",
               "inst": {
-                "foreign": 575055,
-                "trust": -504000,
-                "dealer": 16715,
-                "total": 87770,
-                "date": "2026-08-19"
+                "foreign": 755140,
+                "trust": -573000,
+                "dealer": -44138,
+                "total": 138002,
+                "date": "2026-08-18"
               },
               "margin": {
                 "marginBuy": 139,
@@ -50291,17 +50272,17 @@ window.DATA = {
               "volume": 44297157.0,
               "quoteDate": "2026-08-19",
               "margin": {
-                "marginBuy": 2469,
-                "marginSell": 1953,
-                "marginCashRedemption": 2,
-                "marginPrevBalance": 9547,
-                "marginBalance": 10061,
-                "shortBuy": 43,
-                "shortSell": 8,
+                "marginBuy": 2802,
+                "marginSell": 1075,
+                "marginCashRedemption": 3,
+                "marginPrevBalance": 10061,
+                "marginBalance": 11785,
+                "shortBuy": 87,
+                "shortSell": 26,
                 "shortStockRedemption": 0,
-                "shortPrevBalance": 147,
-                "shortBalance": 182,
-                "offsetting": 83,
+                "shortPrevBalance": 182,
+                "shortBalance": 243,
+                "offsetting": 114,
                 "date": "2026-08-19"
               }
             },
@@ -50323,11 +50304,11 @@ window.DATA = {
               "volume": 944438.0,
               "quoteDate": "2026-08-19",
               "inst": {
-                "foreign": -310784,
+                "foreign": -106219,
                 "trust": 221000,
-                "dealer": 6508,
-                "total": -83276,
-                "date": "2026-08-19"
+                "dealer": -1556,
+                "total": 113225,
+                "date": "2026-08-18"
               },
               "margin": {
                 "marginBuy": 55,
@@ -50362,11 +50343,11 @@ window.DATA = {
               "volume": 838780.0,
               "quoteDate": "2026-08-19",
               "inst": {
-                "foreign": 39660,
-                "trust": 134000,
-                "dealer": -84553,
-                "total": 89107,
-                "date": "2026-08-19"
+                "foreign": 67058,
+                "trust": 153000,
+                "dealer": 13554,
+                "total": 233612,
+                "date": "2026-08-18"
               },
               "margin": {
                 "marginBuy": 27,
@@ -50401,11 +50382,11 @@ window.DATA = {
               "volume": 3111366.0,
               "quoteDate": "2026-08-19",
               "inst": {
-                "foreign": 743110,
-                "trust": 120000,
-                "dealer": -3820,
-                "total": 859290,
-                "date": "2026-08-19"
+                "foreign": 971561,
+                "trust": 486000,
+                "dealer": 177500,
+                "total": 1635061,
+                "date": "2026-08-18"
               },
               "margin": {
                 "marginBuy": 110,
@@ -50440,11 +50421,11 @@ window.DATA = {
               "volume": 7856786.0,
               "quoteDate": "2026-08-19",
               "inst": {
-                "foreign": 202590,
-                "trust": 203000,
-                "dealer": -43947,
-                "total": 361643,
-                "date": "2026-08-19"
+                "foreign": 785270,
+                "trust": 202000,
+                "dealer": 45853,
+                "total": 1033123,
+                "date": "2026-08-18"
               },
               "margin": {
                 "marginBuy": 498,
@@ -50479,11 +50460,11 @@ window.DATA = {
               "volume": 2081413.0,
               "quoteDate": "2026-08-19",
               "inst": {
-                "foreign": -923071,
+                "foreign": -386374,
                 "trust": 481000,
-                "dealer": 95558,
-                "total": -346513,
-                "date": "2026-08-19"
+                "dealer": 656,
+                "total": 95282,
+                "date": "2026-08-18"
               },
               "margin": {
                 "marginBuy": 175,
@@ -50518,11 +50499,11 @@ window.DATA = {
               "volume": 1967772.0,
               "quoteDate": "2026-08-19",
               "inst": {
-                "foreign": -194555,
+                "foreign": -361990,
                 "trust": 226000,
-                "dealer": 9579,
-                "total": 41024,
-                "date": "2026-08-19"
+                "dealer": -2055,
+                "total": -138045,
+                "date": "2026-08-18"
               },
               "margin": {
                 "marginBuy": 90,
@@ -50557,11 +50538,11 @@ window.DATA = {
               "volume": 11550700.0,
               "quoteDate": "2026-08-19",
               "inst": {
-                "foreign": 2156668,
-                "trust": 257000,
-                "dealer": 86157,
-                "total": 2499825,
-                "date": "2026-08-19"
+                "foreign": 382844,
+                "trust": 457000,
+                "dealer": -12765,
+                "total": 827079,
+                "date": "2026-08-18"
               },
               "margin": {
                 "marginBuy": 974,
@@ -50596,11 +50577,11 @@ window.DATA = {
               "volume": 21470953.0,
               "quoteDate": "2026-08-19",
               "inst": {
-                "foreign": 4269258,
-                "trust": -236000,
-                "dealer": 35884,
-                "total": 4069142,
-                "date": "2026-08-19"
+                "foreign": 1075069,
+                "trust": 341000,
+                "dealer": -446,
+                "total": 1415623,
+                "date": "2026-08-18"
               },
               "margin": {
                 "marginBuy": 745,
@@ -50635,11 +50616,11 @@ window.DATA = {
               "volume": 2584371.0,
               "quoteDate": "2026-08-19",
               "inst": {
-                "foreign": -422433,
-                "trust": -9000,
-                "dealer": 6207,
-                "total": -425226,
-                "date": "2026-08-19"
+                "foreign": 144033,
+                "trust": 310772,
+                "dealer": -4483,
+                "total": 450322,
+                "date": "2026-08-18"
               },
               "margin": {
                 "marginBuy": 219,
@@ -50674,11 +50655,11 @@ window.DATA = {
               "volume": 2771873.0,
               "quoteDate": "2026-08-19",
               "inst": {
-                "foreign": 248041,
-                "trust": -175000,
-                "dealer": 26542,
-                "total": 99583,
-                "date": "2026-08-19"
+                "foreign": -1031503,
+                "trust": -173000,
+                "dealer": -41786,
+                "total": -1246289,
+                "date": "2026-08-18"
               },
               "margin": {
                 "marginBuy": 90,
@@ -50713,17 +50694,17 @@ window.DATA = {
               "volume": 8038002.0,
               "quoteDate": "2026-08-19",
               "margin": {
-                "marginBuy": 442,
-                "marginSell": 573,
-                "marginCashRedemption": 10,
-                "marginPrevBalance": 27114,
-                "marginBalance": 26973,
-                "shortBuy": 10,
-                "shortSell": 26,
+                "marginBuy": 373,
+                "marginSell": 538,
+                "marginCashRedemption": 728,
+                "marginPrevBalance": 26973,
+                "marginBalance": 26080,
+                "shortBuy": 19,
+                "shortSell": 19,
                 "shortStockRedemption": 0,
-                "shortPrevBalance": 121,
+                "shortPrevBalance": 105,
                 "shortBalance": 105,
-                "offsetting": 3,
+                "offsetting": 7,
                 "date": "2026-08-19"
               }
             },
@@ -50745,11 +50726,11 @@ window.DATA = {
               "volume": 4152050.0,
               "quoteDate": "2026-08-19",
               "inst": {
-                "foreign": -930280,
+                "foreign": 44052,
                 "trust": 0,
-                "dealer": 151990,
-                "total": -778290,
-                "date": "2026-08-19"
+                "dealer": 122966,
+                "total": 167018,
+                "date": "2026-08-18"
               },
               "margin": {
                 "marginBuy": 32,
@@ -50784,11 +50765,11 @@ window.DATA = {
               "volume": 2510975.0,
               "quoteDate": "2026-08-19",
               "inst": {
-                "foreign": 828793,
-                "trust": -126000,
-                "dealer": -71430,
-                "total": 631363,
-                "date": "2026-08-19"
+                "foreign": 264114,
+                "trust": -45289,
+                "dealer": 37989,
+                "total": 256814,
+                "date": "2026-08-18"
               },
               "margin": {
                 "marginBuy": 183,
@@ -50823,11 +50804,11 @@ window.DATA = {
               "volume": 25322496.0,
               "quoteDate": "2026-08-19",
               "inst": {
-                "foreign": 12062381,
-                "trust": 3285000,
-                "dealer": -783139,
-                "total": 14564242,
-                "date": "2026-08-19"
+                "foreign": 10202794,
+                "trust": 12352505,
+                "dealer": -19152,
+                "total": 22536147,
+                "date": "2026-08-18"
               },
               "margin": {
                 "marginBuy": 47,
@@ -50862,11 +50843,11 @@ window.DATA = {
               "volume": 12785616.0,
               "quoteDate": "2026-08-19",
               "inst": {
-                "foreign": 836335,
-                "trust": -372000,
-                "dealer": -408244,
-                "total": 56091,
-                "date": "2026-08-19"
+                "foreign": 10802898,
+                "trust": -1105681,
+                "dealer": -204221,
+                "total": 9492996,
+                "date": "2026-08-18"
               },
               "margin": {
                 "marginBuy": 135,
@@ -50901,11 +50882,11 @@ window.DATA = {
               "volume": 954237.0,
               "quoteDate": "2026-08-19",
               "inst": {
-                "foreign": -174555,
-                "trust": 1000,
-                "dealer": -4424,
-                "total": -177979,
-                "date": "2026-08-19"
+                "foreign": -370633,
+                "trust": 0,
+                "dealer": -13347,
+                "total": -383980,
+                "date": "2026-08-18"
               },
               "margin": {
                 "marginBuy": 23,
@@ -50940,11 +50921,11 @@ window.DATA = {
               "volume": 8294613.0,
               "quoteDate": "2026-08-19",
               "inst": {
-                "foreign": -2282520,
-                "trust": -11000,
-                "dealer": 2475682,
-                "total": 182162,
-                "date": "2026-08-19"
+                "foreign": -3305388,
+                "trust": 2178000,
+                "dealer": -142433,
+                "total": -1269821,
+                "date": "2026-08-18"
               },
               "margin": {
                 "marginBuy": 248,
@@ -50979,11 +50960,11 @@ window.DATA = {
               "volume": 99308.0,
               "quoteDate": "2026-08-19",
               "inst": {
-                "foreign": 1000,
+                "foreign": -23000,
                 "trust": 0,
                 "dealer": 0,
-                "total": 1000,
-                "date": "2026-08-19"
+                "total": -23000,
+                "date": "2026-08-18"
               },
               "margin": {
                 "marginBuy": 7,
@@ -51018,11 +50999,11 @@ window.DATA = {
               "volume": 15143786.0,
               "quoteDate": "2026-08-19",
               "inst": {
-                "foreign": -180038,
-                "trust": -92000,
-                "dealer": -200940,
-                "total": -472978,
-                "date": "2026-08-19"
+                "foreign": -222255,
+                "trust": 69000,
+                "dealer": 129137,
+                "total": -24118,
+                "date": "2026-08-18"
               },
               "margin": {
                 "marginBuy": 1526,
@@ -51057,17 +51038,17 @@ window.DATA = {
               "volume": 15547200.0,
               "quoteDate": "2026-08-19",
               "margin": {
-                "marginBuy": 2540,
-                "marginSell": 2130,
-                "marginCashRedemption": 3,
-                "marginPrevBalance": 23328,
-                "marginBalance": 23735,
-                "shortBuy": 99,
-                "shortSell": 28,
-                "shortStockRedemption": 0,
-                "shortPrevBalance": 359,
-                "shortBalance": 430,
-                "offsetting": 49,
+                "marginBuy": 906,
+                "marginSell": 1217,
+                "marginCashRedemption": 149,
+                "marginPrevBalance": 23735,
+                "marginBalance": 23275,
+                "shortBuy": 66,
+                "shortSell": 133,
+                "shortStockRedemption": 1,
+                "shortPrevBalance": 430,
+                "shortBalance": 362,
+                "offsetting": 26,
                 "date": "2026-08-19"
               }
             }
@@ -63493,17 +63474,17 @@ window.DATA = {
               "volume": 1187417.0,
               "quoteDate": "2026-08-14",
               "margin": {
-                "marginBuy": 136,
-                "marginSell": 72,
-                "marginCashRedemption": 3,
-                "marginPrevBalance": 922,
-                "marginBalance": 983,
-                "shortBuy": 0,
-                "shortSell": 12,
+                "marginBuy": 68,
+                "marginSell": 39,
+                "marginCashRedemption": 1,
+                "marginPrevBalance": 983,
+                "marginBalance": 1011,
+                "shortBuy": 8,
+                "shortSell": 4,
                 "shortStockRedemption": 0,
-                "shortPrevBalance": 24,
-                "shortBalance": 12,
-                "offsetting": 0,
+                "shortPrevBalance": 12,
+                "shortBalance": 16,
+                "offsetting": 1,
                 "date": "2026-08-14"
               }
             },
@@ -63601,17 +63582,17 @@ window.DATA = {
               "volume": 5742661.0,
               "quoteDate": "2026-08-14",
               "margin": {
-                "marginBuy": 818,
-                "marginSell": 1111,
-                "marginCashRedemption": 1,
-                "marginPrevBalance": 10926,
-                "marginBalance": 10632,
-                "shortBuy": 9,
-                "shortSell": 12,
-                "shortStockRedemption": 3,
-                "shortPrevBalance": 123,
-                "shortBalance": 117,
-                "offsetting": 16,
+                "marginBuy": 464,
+                "marginSell": 595,
+                "marginCashRedemption": 3,
+                "marginPrevBalance": 10632,
+                "marginBalance": 10498,
+                "shortBuy": 20,
+                "shortSell": 14,
+                "shortStockRedemption": 0,
+                "shortPrevBalance": 117,
+                "shortBalance": 123,
+                "offsetting": 15,
                 "date": "2026-08-14"
               }
             },
@@ -64640,17 +64621,17 @@ window.DATA = {
               "volume": 1187417.0,
               "quoteDate": "2026-08-17",
               "margin": {
-                "marginBuy": 136,
-                "marginSell": 72,
-                "marginCashRedemption": 3,
-                "marginPrevBalance": 922,
-                "marginBalance": 983,
-                "shortBuy": 0,
-                "shortSell": 12,
+                "marginBuy": 68,
+                "marginSell": 39,
+                "marginCashRedemption": 1,
+                "marginPrevBalance": 983,
+                "marginBalance": 1011,
+                "shortBuy": 8,
+                "shortSell": 4,
                 "shortStockRedemption": 0,
-                "shortPrevBalance": 24,
-                "shortBalance": 12,
-                "offsetting": 0,
+                "shortPrevBalance": 12,
+                "shortBalance": 16,
+                "offsetting": 1,
                 "date": "2026-08-17"
               }
             },
@@ -64805,17 +64786,17 @@ window.DATA = {
               "volume": 5742661.0,
               "quoteDate": "2026-08-17",
               "margin": {
-                "marginBuy": 818,
-                "marginSell": 1111,
-                "marginCashRedemption": 1,
-                "marginPrevBalance": 10926,
-                "marginBalance": 10632,
-                "shortBuy": 9,
-                "shortSell": 12,
-                "shortStockRedemption": 3,
-                "shortPrevBalance": 123,
-                "shortBalance": 117,
-                "offsetting": 16,
+                "marginBuy": 464,
+                "marginSell": 595,
+                "marginCashRedemption": 3,
+                "marginPrevBalance": 10632,
+                "marginBalance": 10498,
+                "shortBuy": 20,
+                "shortSell": 14,
+                "shortStockRedemption": 0,
+                "shortPrevBalance": 117,
+                "shortBalance": 123,
+                "offsetting": 15,
                 "date": "2026-08-17"
               }
             },
@@ -65093,7 +65074,7 @@ window.DATA = {
         },
         {
           "date": "2026-08-18",
-          "fetched_at": "2026-08-19T21:26:32+08:00",
+          "fetched_at": "2026-08-19T22:11:26+08:00",
           "count": 46,
           "self": {
             "open": 16.92,
@@ -65107,27 +65088,8 @@ window.DATA = {
             "volume": 22575149.0,
             "quoteDate": "2026-08-18"
           },
-          "selfInstitutional": {
-            "foreign": -4280000,
-            "trust": 0,
-            "dealer": 11655406,
-            "total": 7375406,
-            "date": "2026-08-18"
-          },
-          "selfMargin": {
-            "marginBuy": 912,
-            "marginSell": 764,
-            "marginCashRedemption": 0,
-            "marginPrevBalance": 16669,
-            "marginBalance": 16817,
-            "shortBuy": 58,
-            "shortSell": 12,
-            "shortStockRedemption": 0,
-            "shortPrevBalance": 239,
-            "shortBalance": 193,
-            "offsetting": 33,
-            "date": "2026-08-18"
-          },
+          "selfInstitutional": null,
+          "selfMargin": null,
           "holdings": [
             {
               "code": "LITE",
@@ -65280,25 +65242,25 @@ window.DATA = {
               "volume": 38561591.0,
               "quoteDate": "2026-08-18",
               "inst": {
-                "foreign": 10676502,
-                "trust": 150000,
-                "dealer": -394898,
-                "total": 10431604,
-                "date": "2026-08-18"
+                "foreign": 20705461,
+                "trust": 50000,
+                "dealer": 107267,
+                "total": 20862728,
+                "date": "2026-08-17"
               },
               "margin": {
-                "marginBuy": 1693,
-                "marginSell": 2780,
-                "marginCashRedemption": 2,
-                "marginPrevBalance": 37857,
-                "marginBalance": 36768,
-                "shortBuy": 71,
-                "shortSell": 114,
-                "shortStockRedemption": 16,
-                "shortPrevBalance": 903,
-                "shortBalance": 930,
-                "offsetting": 34,
-                "date": "2026-08-18"
+                "marginBuy": 2355,
+                "marginSell": 3373,
+                "marginCashRedemption": 7,
+                "marginPrevBalance": 38882,
+                "marginBalance": 37857,
+                "shortBuy": 44,
+                "shortSell": 242,
+                "shortStockRedemption": 7,
+                "shortPrevBalance": 712,
+                "shortBalance": 903,
+                "offsetting": 4,
+                "date": "2026-08-17"
               }
             },
             {
@@ -65319,25 +65281,25 @@ window.DATA = {
               "volume": 2005998.0,
               "quoteDate": "2026-08-18",
               "inst": {
-                "foreign": 428269,
-                "trust": -167415,
-                "dealer": 13948,
-                "total": 274802,
-                "date": "2026-08-18"
+                "foreign": 141054,
+                "trust": 1988,
+                "dealer": 107788,
+                "total": 250830,
+                "date": "2026-08-17"
               },
               "margin": {
-                "marginBuy": 57,
-                "marginSell": 102,
-                "marginCashRedemption": 0,
-                "marginPrevBalance": 1883,
-                "marginBalance": 1838,
-                "shortBuy": 6,
-                "shortSell": 5,
+                "marginBuy": 116,
+                "marginSell": 54,
+                "marginCashRedemption": 1,
+                "marginPrevBalance": 1822,
+                "marginBalance": 1883,
+                "shortBuy": 2,
+                "shortSell": 4,
                 "shortStockRedemption": 0,
-                "shortPrevBalance": 42,
-                "shortBalance": 41,
+                "shortPrevBalance": 40,
+                "shortBalance": 42,
                 "offsetting": 0,
-                "date": "2026-08-18"
+                "date": "2026-08-17"
               }
             },
             {
@@ -65453,25 +65415,25 @@ window.DATA = {
               "volume": 19997213.0,
               "quoteDate": "2026-08-18",
               "inst": {
-                "foreign": -3245118,
-                "trust": 626690,
-                "dealer": -109919,
-                "total": -2728347,
-                "date": "2026-08-18"
+                "foreign": 4441659,
+                "trust": -2058006,
+                "dealer": 142081,
+                "total": 2525734,
+                "date": "2026-08-17"
               },
               "margin": {
-                "marginBuy": 456,
-                "marginSell": 304,
-                "marginCashRedemption": 23,
-                "marginPrevBalance": 27727,
-                "marginBalance": 27856,
-                "shortBuy": 5,
-                "shortSell": 6,
+                "marginBuy": 245,
+                "marginSell": 441,
+                "marginCashRedemption": 137,
+                "marginPrevBalance": 28060,
+                "marginBalance": 27727,
+                "shortBuy": 3,
+                "shortSell": 4,
                 "shortStockRedemption": 1,
                 "shortPrevBalance": 36,
                 "shortBalance": 36,
-                "offsetting": 0,
-                "date": "2026-08-18"
+                "offsetting": 5,
+                "date": "2026-08-17"
               }
             },
             {
@@ -65492,25 +65454,25 @@ window.DATA = {
               "volume": 9323808.0,
               "quoteDate": "2026-08-18",
               "inst": {
-                "foreign": -198092,
-                "trust": -1153744,
-                "dealer": -223386,
-                "total": -1575222,
-                "date": "2026-08-18"
+                "foreign": 1188504,
+                "trust": -1655252,
+                "dealer": 66824,
+                "total": -399924,
+                "date": "2026-08-17"
               },
               "margin": {
-                "marginBuy": 392,
-                "marginSell": 568,
-                "marginCashRedemption": 4,
-                "marginPrevBalance": 9573,
-                "marginBalance": 9393,
-                "shortBuy": 14,
+                "marginBuy": 562,
+                "marginSell": 716,
+                "marginCashRedemption": 14,
+                "marginPrevBalance": 9741,
+                "marginBalance": 9573,
+                "shortBuy": 11,
                 "shortSell": 4,
                 "shortStockRedemption": 0,
-                "shortPrevBalance": 60,
-                "shortBalance": 50,
-                "offsetting": 1,
-                "date": "2026-08-18"
+                "shortPrevBalance": 67,
+                "shortBalance": 60,
+                "offsetting": 2,
+                "date": "2026-08-17"
               }
             },
             {
@@ -65531,25 +65493,25 @@ window.DATA = {
               "volume": 11391040.0,
               "quoteDate": "2026-08-18",
               "inst": {
-                "foreign": -525455,
-                "trust": -527541,
-                "dealer": -202828,
-                "total": -1255824,
-                "date": "2026-08-18"
+                "foreign": 1368396,
+                "trust": -810703,
+                "dealer": 107886,
+                "total": 665579,
+                "date": "2026-08-17"
               },
               "margin": {
-                "marginBuy": 408,
-                "marginSell": 387,
+                "marginBuy": 424,
+                "marginSell": 335,
                 "marginCashRedemption": 9,
-                "marginPrevBalance": 8000,
-                "marginBalance": 8012,
-                "shortBuy": 8,
-                "shortSell": 9,
+                "marginPrevBalance": 7920,
+                "marginBalance": 8000,
+                "shortBuy": 10,
+                "shortSell": 3,
                 "shortStockRedemption": 0,
-                "shortPrevBalance": 56,
-                "shortBalance": 57,
-                "offsetting": 5,
-                "date": "2026-08-18"
+                "shortPrevBalance": 63,
+                "shortBalance": 56,
+                "offsetting": 8,
+                "date": "2026-08-17"
               }
             },
             {
@@ -65787,17 +65749,17 @@ window.DATA = {
               "volume": 1187417.0,
               "quoteDate": "2026-08-18",
               "margin": {
-                "marginBuy": 136,
-                "marginSell": 72,
-                "marginCashRedemption": 3,
-                "marginPrevBalance": 922,
-                "marginBalance": 983,
-                "shortBuy": 0,
-                "shortSell": 12,
+                "marginBuy": 68,
+                "marginSell": 39,
+                "marginCashRedemption": 1,
+                "marginPrevBalance": 983,
+                "marginBalance": 1011,
+                "shortBuy": 8,
+                "shortSell": 4,
                 "shortStockRedemption": 0,
-                "shortPrevBalance": 24,
-                "shortBalance": 12,
-                "offsetting": 0,
+                "shortPrevBalance": 12,
+                "shortBalance": 16,
+                "offsetting": 1,
                 "date": "2026-08-18"
               }
             },
@@ -65895,17 +65857,17 @@ window.DATA = {
               "volume": 5742661.0,
               "quoteDate": "2026-08-18",
               "margin": {
-                "marginBuy": 818,
-                "marginSell": 1111,
-                "marginCashRedemption": 1,
-                "marginPrevBalance": 10926,
-                "marginBalance": 10632,
-                "shortBuy": 9,
-                "shortSell": 12,
-                "shortStockRedemption": 3,
-                "shortPrevBalance": 123,
-                "shortBalance": 117,
-                "offsetting": 16,
+                "marginBuy": 464,
+                "marginSell": 595,
+                "marginCashRedemption": 3,
+                "marginPrevBalance": 10632,
+                "marginBalance": 10498,
+                "shortBuy": 20,
+                "shortSell": 14,
+                "shortStockRedemption": 0,
+                "shortPrevBalance": 117,
+                "shortBalance": 123,
+                "offsetting": 15,
                 "date": "2026-08-18"
               }
             },
@@ -65965,25 +65927,25 @@ window.DATA = {
               "volume": 20070634.0,
               "quoteDate": "2026-08-18",
               "inst": {
-                "foreign": 363414,
-                "trust": -3877203,
-                "dealer": -219991,
-                "total": -3733780,
-                "date": "2026-08-18"
+                "foreign": 9654105,
+                "trust": -5689540,
+                "dealer": 300365,
+                "total": 4264930,
+                "date": "2026-08-17"
               },
               "margin": {
-                "marginBuy": 655,
-                "marginSell": 1041,
+                "marginBuy": 408,
+                "marginSell": 662,
                 "marginCashRedemption": 2,
-                "marginPrevBalance": 12069,
-                "marginBalance": 11681,
-                "shortBuy": 24,
-                "shortSell": 29,
+                "marginPrevBalance": 12325,
+                "marginBalance": 12069,
+                "shortBuy": 14,
+                "shortSell": 7,
                 "shortStockRedemption": 0,
-                "shortPrevBalance": 178,
-                "shortBalance": 183,
-                "offsetting": 18,
-                "date": "2026-08-18"
+                "shortPrevBalance": 185,
+                "shortBalance": 178,
+                "offsetting": 3,
+                "date": "2026-08-17"
               }
             },
             {
@@ -66004,25 +65966,25 @@ window.DATA = {
               "volume": 3175549.0,
               "quoteDate": "2026-08-18",
               "inst": {
-                "foreign": -143174,
-                "trust": -345000,
-                "dealer": -16124,
-                "total": -504298,
-                "date": "2026-08-18"
+                "foreign": -211895,
+                "trust": -338000,
+                "dealer": -3541,
+                "total": -553436,
+                "date": "2026-08-17"
               },
               "margin": {
-                "marginBuy": 50,
-                "marginSell": 181,
-                "marginCashRedemption": 1,
-                "marginPrevBalance": 1868,
-                "marginBalance": 1736,
+                "marginBuy": 102,
+                "marginSell": 49,
+                "marginCashRedemption": 2,
+                "marginPrevBalance": 1817,
+                "marginBalance": 1868,
                 "shortBuy": 1,
-                "shortSell": 2,
+                "shortSell": 1,
                 "shortStockRedemption": 0,
                 "shortPrevBalance": 17,
-                "shortBalance": 18,
-                "offsetting": 0,
-                "date": "2026-08-18"
+                "shortBalance": 17,
+                "offsetting": 7,
+                "date": "2026-08-17"
               }
             },
             {
@@ -66062,25 +66024,25 @@ window.DATA = {
               "volume": 10339787.0,
               "quoteDate": "2026-08-18",
               "inst": {
-                "foreign": -222255,
-                "trust": 69000,
-                "dealer": 129137,
-                "total": -24118,
-                "date": "2026-08-18"
+                "foreign": -2488026,
+                "trust": 787000,
+                "dealer": -316277,
+                "total": -2017303,
+                "date": "2026-08-17"
               },
               "margin": {
-                "marginBuy": 641,
-                "marginSell": 1013,
+                "marginBuy": 1678,
+                "marginSell": 1095,
                 "marginCashRedemption": 0,
-                "marginPrevBalance": 11601,
-                "marginBalance": 11229,
-                "shortBuy": 48,
+                "marginPrevBalance": 11018,
+                "marginBalance": 11601,
+                "shortBuy": 54,
                 "shortSell": 15,
                 "shortStockRedemption": 0,
-                "shortPrevBalance": 723,
-                "shortBalance": 690,
-                "offsetting": 6,
-                "date": "2026-08-18"
+                "shortPrevBalance": 762,
+                "shortBalance": 723,
+                "offsetting": 30,
+                "date": "2026-08-17"
               }
             },
             {
@@ -66158,25 +66120,25 @@ window.DATA = {
               "volume": 20381684.0,
               "quoteDate": "2026-08-18",
               "inst": {
-                "foreign": -3195214,
-                "trust": -1358588,
-                "dealer": 37537,
-                "total": -4516265,
-                "date": "2026-08-18"
+                "foreign": 1647123,
+                "trust": -1627836,
+                "dealer": 146480,
+                "total": 165767,
+                "date": "2026-08-17"
               },
               "margin": {
-                "marginBuy": 1247,
-                "marginSell": 807,
-                "marginCashRedemption": 13,
-                "marginPrevBalance": 20374,
-                "marginBalance": 20801,
-                "shortBuy": 182,
-                "shortSell": 193,
+                "marginBuy": 536,
+                "marginSell": 645,
+                "marginCashRedemption": 2,
+                "marginPrevBalance": 20485,
+                "marginBalance": 20374,
+                "shortBuy": 14,
+                "shortSell": 42,
                 "shortStockRedemption": 0,
-                "shortPrevBalance": 266,
-                "shortBalance": 277,
-                "offsetting": 9,
-                "date": "2026-08-18"
+                "shortPrevBalance": 238,
+                "shortBalance": 266,
+                "offsetting": 6,
+                "date": "2026-08-17"
               }
             },
             {
@@ -79899,17 +79861,17 @@ window.DATA = {
               "weight": 3.44,
               "shares": 263000,
               "margin": {
-                "marginBuy": 136,
-                "marginSell": 72,
-                "marginCashRedemption": 3,
-                "marginPrevBalance": 922,
-                "marginBalance": 983,
-                "shortBuy": 0,
-                "shortSell": 12,
+                "marginBuy": 68,
+                "marginSell": 39,
+                "marginCashRedemption": 1,
+                "marginPrevBalance": 983,
+                "marginBalance": 1011,
+                "shortBuy": 8,
+                "shortSell": 4,
                 "shortStockRedemption": 0,
-                "shortPrevBalance": 24,
-                "shortBalance": 12,
-                "offsetting": 0,
+                "shortPrevBalance": 12,
+                "shortBalance": 16,
+                "offsetting": 1,
                 "date": "2026-08-17"
               },
               "open": 5000.0,
@@ -79970,16 +79932,16 @@ window.DATA = {
               "weight": 3.0,
               "shares": 2231000,
               "margin": {
-                "marginBuy": 33,
-                "marginSell": 52,
+                "marginBuy": 32,
+                "marginSell": 32,
                 "marginCashRedemption": 0,
-                "marginPrevBalance": 1854,
+                "marginPrevBalance": 1835,
                 "marginBalance": 1835,
-                "shortBuy": 2,
-                "shortSell": 2,
+                "shortBuy": 1,
+                "shortSell": 3,
                 "shortStockRedemption": 0,
                 "shortPrevBalance": 21,
-                "shortBalance": 21,
+                "shortBalance": 19,
                 "offsetting": 0,
                 "date": "2026-08-17"
               },
@@ -80158,17 +80120,17 @@ window.DATA = {
               "weight": 2.37,
               "shares": 10877000,
               "margin": {
-                "marginBuy": 5037,
-                "marginSell": 3890,
-                "marginCashRedemption": 14,
-                "marginPrevBalance": 41721,
-                "marginBalance": 42854,
-                "shortBuy": 190,
-                "shortSell": 63,
+                "marginBuy": 2251,
+                "marginSell": 2396,
+                "marginCashRedemption": 6,
+                "marginPrevBalance": 42854,
+                "marginBalance": 42703,
+                "shortBuy": 281,
+                "shortSell": 117,
                 "shortStockRedemption": 0,
-                "shortPrevBalance": 695,
-                "shortBalance": 822,
-                "offsetting": 89,
+                "shortPrevBalance": 822,
+                "shortBalance": 986,
+                "offsetting": 84,
                 "date": "2026-08-17"
               },
               "open": 93.0,
@@ -80580,15 +80542,15 @@ window.DATA = {
               "weight": 0.39,
               "shares": 56000,
               "margin": {
-                "marginBuy": 24,
-                "marginSell": 12,
+                "marginBuy": 23,
+                "marginSell": 27,
                 "marginCashRedemption": 0,
-                "marginPrevBalance": 665,
-                "marginBalance": 677,
+                "marginPrevBalance": 677,
+                "marginBalance": 673,
                 "shortBuy": 0,
-                "shortSell": 1,
+                "shortSell": 0,
                 "shortStockRedemption": 0,
-                "shortPrevBalance": 1,
+                "shortPrevBalance": 0,
                 "shortBalance": 0,
                 "offsetting": 0,
                 "date": "2026-08-17"
@@ -80651,16 +80613,16 @@ window.DATA = {
               "weight": 0.34,
               "shares": 98000,
               "margin": {
-                "marginBuy": 159,
-                "marginSell": 192,
-                "marginCashRedemption": 1,
-                "marginPrevBalance": 4396,
-                "marginBalance": 4362,
-                "shortBuy": 5,
-                "shortSell": 1,
+                "marginBuy": 147,
+                "marginSell": 149,
+                "marginCashRedemption": 2,
+                "marginPrevBalance": 4362,
+                "marginBalance": 4358,
+                "shortBuy": 11,
+                "shortSell": 6,
                 "shortStockRedemption": 0,
-                "shortPrevBalance": 8,
-                "shortBalance": 12,
+                "shortPrevBalance": 12,
+                "shortBalance": 17,
                 "offsetting": 0,
                 "date": "2026-08-17"
               },
@@ -80683,17 +80645,17 @@ window.DATA = {
               "weight": 0.32,
               "shares": 358000,
               "margin": {
-                "marginBuy": 683,
-                "marginSell": 477,
-                "marginCashRedemption": 1,
-                "marginPrevBalance": 20251,
-                "marginBalance": 20456,
-                "shortBuy": 231,
-                "shortSell": 292,
+                "marginBuy": 352,
+                "marginSell": 256,
+                "marginCashRedemption": 2,
+                "marginPrevBalance": 20456,
+                "marginBalance": 20550,
+                "shortBuy": 120,
+                "shortSell": 267,
                 "shortStockRedemption": 0,
-                "shortPrevBalance": 1398,
-                "shortBalance": 1337,
-                "offsetting": 8,
+                "shortPrevBalance": 1337,
+                "shortBalance": 1190,
+                "offsetting": 5,
                 "date": "2026-08-17"
               },
               "open": 377.5,
@@ -80754,17 +80716,17 @@ window.DATA = {
               "weight": 0.23,
               "shares": 629000,
               "margin": {
-                "marginBuy": 364,
-                "marginSell": 498,
-                "marginCashRedemption": 1,
-                "marginPrevBalance": 12403,
-                "marginBalance": 12268,
-                "shortBuy": 29,
-                "shortSell": 41,
+                "marginBuy": 302,
+                "marginSell": 507,
+                "marginCashRedemption": 2,
+                "marginPrevBalance": 12268,
+                "marginBalance": 12061,
+                "shortBuy": 25,
+                "shortSell": 30,
                 "shortStockRedemption": 0,
-                "shortPrevBalance": 247,
-                "shortBalance": 235,
-                "offsetting": 4,
+                "shortPrevBalance": 235,
+                "shortBalance": 230,
+                "offsetting": 9,
                 "date": "2026-08-17"
               },
               "open": 149.0,
@@ -80786,17 +80748,17 @@ window.DATA = {
               "weight": 0.08,
               "shares": 25000,
               "margin": {
-                "marginBuy": 100,
-                "marginSell": 54,
+                "marginBuy": 113,
+                "marginSell": 39,
                 "marginCashRedemption": 0,
-                "marginPrevBalance": 183,
-                "marginBalance": 229,
+                "marginPrevBalance": 229,
+                "marginBalance": 303,
                 "shortBuy": 0,
                 "shortSell": 0,
                 "shortStockRedemption": 0,
                 "shortPrevBalance": 0,
                 "shortBalance": 0,
-                "offsetting": 1,
+                "offsetting": 0,
                 "date": "2026-08-17"
               },
               "open": 1435.0,
@@ -80818,17 +80780,17 @@ window.DATA = {
               "weight": 0.04,
               "shares": 72000,
               "margin": {
-                "marginBuy": 253,
-                "marginSell": 513,
-                "marginCashRedemption": 4,
-                "marginPrevBalance": 5608,
-                "marginBalance": 5344,
-                "shortBuy": 15,
-                "shortSell": 47,
+                "marginBuy": 175,
+                "marginSell": 79,
+                "marginCashRedemption": 0,
+                "marginPrevBalance": 5344,
+                "marginBalance": 5440,
+                "shortBuy": 7,
+                "shortSell": 13,
                 "shortStockRedemption": 0,
-                "shortPrevBalance": 116,
-                "shortBalance": 84,
-                "offsetting": 3,
+                "shortPrevBalance": 84,
+                "shortBalance": 78,
+                "offsetting": 2,
                 "date": "2026-08-17"
               },
               "open": 205.0,
@@ -81290,17 +81252,17 @@ window.DATA = {
               "volume": 1187417.0,
               "quoteDate": "2026-08-18",
               "margin": {
-                "marginBuy": 136,
-                "marginSell": 72,
-                "marginCashRedemption": 3,
-                "marginPrevBalance": 922,
-                "marginBalance": 983,
-                "shortBuy": 0,
-                "shortSell": 12,
+                "marginBuy": 68,
+                "marginSell": 39,
+                "marginCashRedemption": 1,
+                "marginPrevBalance": 983,
+                "marginBalance": 1011,
+                "shortBuy": 8,
+                "shortSell": 4,
                 "shortStockRedemption": 0,
-                "shortPrevBalance": 24,
-                "shortBalance": 12,
-                "offsetting": 0,
+                "shortPrevBalance": 12,
+                "shortBalance": 16,
+                "offsetting": 1,
                 "date": "2026-08-18"
               }
             },
@@ -81322,16 +81284,16 @@ window.DATA = {
               "volume": 718419.0,
               "quoteDate": "2026-08-18",
               "margin": {
-                "marginBuy": 33,
-                "marginSell": 52,
+                "marginBuy": 32,
+                "marginSell": 32,
                 "marginCashRedemption": 0,
-                "marginPrevBalance": 1854,
+                "marginPrevBalance": 1835,
                 "marginBalance": 1835,
-                "shortBuy": 2,
-                "shortSell": 2,
+                "shortBuy": 1,
+                "shortSell": 3,
                 "shortStockRedemption": 0,
                 "shortPrevBalance": 21,
-                "shortBalance": 21,
+                "shortBalance": 19,
                 "offsetting": 0,
                 "date": "2026-08-18"
               }
@@ -81549,17 +81511,17 @@ window.DATA = {
               "volume": 42898775.0,
               "quoteDate": "2026-08-18",
               "margin": {
-                "marginBuy": 5037,
-                "marginSell": 3890,
-                "marginCashRedemption": 14,
-                "marginPrevBalance": 41721,
-                "marginBalance": 42854,
-                "shortBuy": 190,
-                "shortSell": 63,
+                "marginBuy": 2251,
+                "marginSell": 2396,
+                "marginCashRedemption": 6,
+                "marginPrevBalance": 42854,
+                "marginBalance": 42703,
+                "shortBuy": 281,
+                "shortSell": 117,
                 "shortStockRedemption": 0,
-                "shortPrevBalance": 695,
-                "shortBalance": 822,
-                "offsetting": 89,
+                "shortPrevBalance": 822,
+                "shortBalance": 986,
+                "offsetting": 84,
                 "date": "2026-08-18"
               }
             },
@@ -81932,11 +81894,11 @@ window.DATA = {
               "volume": 471821.0,
               "quoteDate": "2026-08-18",
               "margin": {
-                "marginBuy": 2,
-                "marginSell": 8,
+                "marginBuy": 12,
+                "marginSell": 5,
                 "marginCashRedemption": 0,
-                "marginPrevBalance": 127,
-                "marginBalance": 121,
+                "marginPrevBalance": 121,
+                "marginBalance": 128,
                 "shortBuy": 0,
                 "shortSell": 0,
                 "shortStockRedemption": 0,
@@ -81964,17 +81926,17 @@ window.DATA = {
               "volume": 5486735.0,
               "quoteDate": "2026-08-18",
               "margin": {
-                "marginBuy": 535,
-                "marginSell": 565,
-                "marginCashRedemption": 4,
-                "marginPrevBalance": 5428,
-                "marginBalance": 5394,
-                "shortBuy": 33,
-                "shortSell": 9,
-                "shortStockRedemption": 2,
-                "shortPrevBalance": 142,
-                "shortBalance": 164,
-                "offsetting": 13,
+                "marginBuy": 537,
+                "marginSell": 362,
+                "marginCashRedemption": 2,
+                "marginPrevBalance": 5394,
+                "marginBalance": 5567,
+                "shortBuy": 31,
+                "shortSell": 36,
+                "shortStockRedemption": 8,
+                "shortPrevBalance": 164,
+                "shortBalance": 151,
+                "offsetting": 6,
                 "date": "2026-08-18"
               }
             },
@@ -82269,17 +82231,17 @@ window.DATA = {
               "volume": 5742661.0,
               "quoteDate": "2026-08-18",
               "margin": {
-                "marginBuy": 818,
-                "marginSell": 1111,
-                "marginCashRedemption": 1,
-                "marginPrevBalance": 10926,
-                "marginBalance": 10632,
-                "shortBuy": 9,
-                "shortSell": 12,
-                "shortStockRedemption": 3,
-                "shortPrevBalance": 123,
-                "shortBalance": 117,
-                "offsetting": 16,
+                "marginBuy": 464,
+                "marginSell": 595,
+                "marginCashRedemption": 3,
+                "marginPrevBalance": 10632,
+                "marginBalance": 10498,
+                "shortBuy": 20,
+                "shortSell": 14,
+                "shortStockRedemption": 0,
+                "shortPrevBalance": 117,
+                "shortBalance": 123,
+                "offsetting": 15,
                 "date": "2026-08-18"
               }
             },
@@ -82379,17 +82341,17 @@ window.DATA = {
               "volume": 4863908.0,
               "quoteDate": "2026-08-18",
               "margin": {
-                "marginBuy": 367,
-                "marginSell": 648,
-                "marginCashRedemption": 1,
-                "marginPrevBalance": 3075,
-                "marginBalance": 2793,
-                "shortBuy": 0,
-                "shortSell": 59,
+                "marginBuy": 466,
+                "marginSell": 265,
+                "marginCashRedemption": 0,
+                "marginPrevBalance": 2793,
+                "marginBalance": 2994,
+                "shortBuy": 10,
+                "shortSell": 4,
                 "shortStockRedemption": 0,
-                "shortPrevBalance": 106,
-                "shortBalance": 47,
-                "offsetting": 2,
+                "shortPrevBalance": 47,
+                "shortBalance": 53,
+                "offsetting": 14,
                 "date": "2026-08-18"
               }
             },
@@ -82411,16 +82373,16 @@ window.DATA = {
               "volume": 2236174.0,
               "quoteDate": "2026-08-18",
               "margin": {
-                "marginBuy": 159,
-                "marginSell": 192,
-                "marginCashRedemption": 1,
-                "marginPrevBalance": 4396,
-                "marginBalance": 4362,
-                "shortBuy": 5,
-                "shortSell": 1,
+                "marginBuy": 147,
+                "marginSell": 149,
+                "marginCashRedemption": 2,
+                "marginPrevBalance": 4362,
+                "marginBalance": 4358,
+                "shortBuy": 11,
+                "shortSell": 6,
                 "shortStockRedemption": 0,
-                "shortPrevBalance": 8,
-                "shortBalance": 12,
+                "shortPrevBalance": 12,
+                "shortBalance": 17,
                 "offsetting": 0,
                 "date": "2026-08-18"
               }
@@ -82482,17 +82444,17 @@ window.DATA = {
               "volume": 20960649.0,
               "quoteDate": "2026-08-18",
               "margin": {
-                "marginBuy": 364,
-                "marginSell": 498,
-                "marginCashRedemption": 1,
-                "marginPrevBalance": 12403,
-                "marginBalance": 12268,
-                "shortBuy": 29,
-                "shortSell": 41,
+                "marginBuy": 302,
+                "marginSell": 507,
+                "marginCashRedemption": 2,
+                "marginPrevBalance": 12268,
+                "marginBalance": 12061,
+                "shortBuy": 25,
+                "shortSell": 30,
                 "shortStockRedemption": 0,
-                "shortPrevBalance": 247,
-                "shortBalance": 235,
-                "offsetting": 4,
+                "shortPrevBalance": 235,
+                "shortBalance": 230,
+                "offsetting": 9,
                 "date": "2026-08-18"
               }
             },
@@ -82514,17 +82476,17 @@ window.DATA = {
               "volume": 510072.0,
               "quoteDate": "2026-08-18",
               "margin": {
-                "marginBuy": 100,
-                "marginSell": 54,
+                "marginBuy": 113,
+                "marginSell": 39,
                 "marginCashRedemption": 0,
-                "marginPrevBalance": 183,
-                "marginBalance": 229,
+                "marginPrevBalance": 229,
+                "marginBalance": 303,
                 "shortBuy": 0,
                 "shortSell": 0,
                 "shortStockRedemption": 0,
                 "shortPrevBalance": 0,
                 "shortBalance": 0,
-                "offsetting": 1,
+                "offsetting": 0,
                 "date": "2026-08-18"
               }
             },
@@ -82546,17 +82508,17 @@ window.DATA = {
               "volume": 2994452.0,
               "quoteDate": "2026-08-18",
               "margin": {
-                "marginBuy": 253,
-                "marginSell": 513,
-                "marginCashRedemption": 4,
-                "marginPrevBalance": 5608,
-                "marginBalance": 5344,
-                "shortBuy": 15,
-                "shortSell": 47,
+                "marginBuy": 175,
+                "marginSell": 79,
+                "marginCashRedemption": 0,
+                "marginPrevBalance": 5344,
+                "marginBalance": 5440,
+                "shortBuy": 7,
+                "shortSell": 13,
                 "shortStockRedemption": 0,
-                "shortPrevBalance": 116,
-                "shortBalance": 84,
-                "offsetting": 3,
+                "shortPrevBalance": 84,
+                "shortBalance": 78,
+                "offsetting": 2,
                 "date": "2026-08-18"
               }
             }
@@ -82564,7 +82526,7 @@ window.DATA = {
         },
         {
           "date": "2026-08-19",
-          "fetched_at": "2026-08-19T21:26:34+08:00",
+          "fetched_at": "2026-08-19T22:11:28+08:00",
           "count": 41,
           "self": {
             "open": 17.37,
@@ -82578,13 +82540,7 @@ window.DATA = {
             "volume": 41106189.0,
             "quoteDate": "2026-08-19"
           },
-          "selfInstitutional": {
-            "foreign": 1727843,
-            "trust": 0,
-            "dealer": 2586876,
-            "total": 4314719,
-            "date": "2026-08-19"
-          },
+          "selfInstitutional": null,
           "selfMargin": {
             "marginBuy": 1965,
             "marginSell": 5546,
@@ -82618,11 +82574,11 @@ window.DATA = {
               "volume": 526139.0,
               "quoteDate": "2026-08-19",
               "inst": {
-                "foreign": -102444,
-                "trust": 19412,
-                "dealer": 6370,
-                "total": -76662,
-                "date": "2026-08-19"
+                "foreign": -76972,
+                "trust": 386491,
+                "dealer": 624,
+                "total": 310143,
+                "date": "2026-08-18"
               },
               "margin": {
                 "marginBuy": 44,
@@ -82657,11 +82613,11 @@ window.DATA = {
               "volume": 3982151.0,
               "quoteDate": "2026-08-19",
               "inst": {
-                "foreign": 45475,
-                "trust": 534000,
-                "dealer": -228463,
-                "total": 351012,
-                "date": "2026-08-19"
+                "foreign": 828512,
+                "trust": -589100,
+                "dealer": -45819,
+                "total": 193593,
+                "date": "2026-08-18"
               },
               "margin": {
                 "marginBuy": 315,
@@ -82696,11 +82652,11 @@ window.DATA = {
               "volume": 23618612.0,
               "quoteDate": "2026-08-19",
               "inst": {
-                "foreign": -7417943,
-                "trust": -668410,
-                "dealer": 719342,
-                "total": -7367011,
-                "date": "2026-08-19"
+                "foreign": -3245118,
+                "trust": 626690,
+                "dealer": -109919,
+                "total": -2728347,
+                "date": "2026-08-18"
               },
               "margin": {
                 "marginBuy": 800,
@@ -82735,11 +82691,11 @@ window.DATA = {
               "volume": 24496587.0,
               "quoteDate": "2026-08-19",
               "inst": {
-                "foreign": 1638430,
-                "trust": -637001,
-                "dealer": -65704,
-                "total": 935725,
-                "date": "2026-08-19"
+                "foreign": 10676502,
+                "trust": 150000,
+                "dealer": -394898,
+                "total": 10431604,
+                "date": "2026-08-18"
               },
               "margin": {
                 "marginBuy": 1398,
@@ -82774,11 +82730,11 @@ window.DATA = {
               "volume": 3119237.0,
               "quoteDate": "2026-08-19",
               "inst": {
-                "foreign": 76221,
-                "trust": -191001,
-                "dealer": -16593,
-                "total": -131373,
-                "date": "2026-08-19"
+                "foreign": 428269,
+                "trust": -167415,
+                "dealer": 13948,
+                "total": 274802,
+                "date": "2026-08-18"
               },
               "margin": {
                 "marginBuy": 130,
@@ -82813,11 +82769,11 @@ window.DATA = {
               "volume": 2061571.0,
               "quoteDate": "2026-08-19",
               "inst": {
-                "foreign": -125140,
-                "trust": -305000,
-                "dealer": -1761,
-                "total": -431901,
-                "date": "2026-08-19"
+                "foreign": 246591,
+                "trust": -257008,
+                "dealer": 40468,
+                "total": 30051,
+                "date": "2026-08-18"
               },
               "margin": {
                 "marginBuy": 97,
@@ -82852,11 +82808,11 @@ window.DATA = {
               "volume": 3873944.0,
               "quoteDate": "2026-08-19",
               "inst": {
-                "foreign": -135887,
-                "trust": 84000,
-                "dealer": 132972,
-                "total": 81085,
-                "date": "2026-08-19"
+                "foreign": -142772,
+                "trust": 137000,
+                "dealer": 158902,
+                "total": 153130,
+                "date": "2026-08-18"
               },
               "margin": {
                 "marginBuy": 285,
@@ -82891,11 +82847,11 @@ window.DATA = {
               "volume": 4040971.0,
               "quoteDate": "2026-08-19",
               "inst": {
-                "foreign": -462188,
-                "trust": -105010,
-                "dealer": 40992,
-                "total": -526206,
-                "date": "2026-08-19"
+                "foreign": -143174,
+                "trust": -345000,
+                "dealer": -16124,
+                "total": -504298,
+                "date": "2026-08-18"
               },
               "margin": {
                 "marginBuy": 73,
@@ -82930,11 +82886,11 @@ window.DATA = {
               "volume": 2003400.0,
               "quoteDate": "2026-08-19",
               "inst": {
-                "foreign": -40584,
-                "trust": 175000,
-                "dealer": -22869,
-                "total": 111547,
-                "date": "2026-08-19"
+                "foreign": -177078,
+                "trust": 106000,
+                "dealer": 23810,
+                "total": -47268,
+                "date": "2026-08-18"
               },
               "margin": {
                 "marginBuy": 198,
@@ -82969,17 +82925,17 @@ window.DATA = {
               "volume": 1187417.0,
               "quoteDate": "2026-08-19",
               "margin": {
-                "marginBuy": 136,
-                "marginSell": 72,
-                "marginCashRedemption": 3,
-                "marginPrevBalance": 922,
-                "marginBalance": 983,
-                "shortBuy": 0,
-                "shortSell": 12,
+                "marginBuy": 68,
+                "marginSell": 39,
+                "marginCashRedemption": 1,
+                "marginPrevBalance": 983,
+                "marginBalance": 1011,
+                "shortBuy": 8,
+                "shortSell": 4,
                 "shortStockRedemption": 0,
-                "shortPrevBalance": 24,
-                "shortBalance": 12,
-                "offsetting": 0,
+                "shortPrevBalance": 12,
+                "shortBalance": 16,
+                "offsetting": 1,
                 "date": "2026-08-19"
               }
             },
@@ -83001,16 +82957,16 @@ window.DATA = {
               "volume": 718419.0,
               "quoteDate": "2026-08-19",
               "margin": {
-                "marginBuy": 33,
-                "marginSell": 52,
+                "marginBuy": 32,
+                "marginSell": 32,
                 "marginCashRedemption": 0,
-                "marginPrevBalance": 1854,
+                "marginPrevBalance": 1835,
                 "marginBalance": 1835,
-                "shortBuy": 2,
-                "shortSell": 2,
+                "shortBuy": 1,
+                "shortSell": 3,
                 "shortStockRedemption": 0,
                 "shortPrevBalance": 21,
-                "shortBalance": 21,
+                "shortBalance": 19,
                 "offsetting": 0,
                 "date": "2026-08-19"
               }
@@ -83033,11 +82989,11 @@ window.DATA = {
               "volume": 28162708.0,
               "quoteDate": "2026-08-19",
               "inst": {
-                "foreign": -3046833,
-                "trust": 1039000,
-                "dealer": -893467,
-                "total": -2901300,
-                "date": "2026-08-19"
+                "foreign": -7514726,
+                "trust": -864060,
+                "dealer": -583850,
+                "total": -8962636,
+                "date": "2026-08-18"
               },
               "margin": {
                 "marginBuy": 2116,
@@ -83072,11 +83028,11 @@ window.DATA = {
               "volume": 12608652.0,
               "quoteDate": "2026-08-19",
               "inst": {
-                "foreign": -2316137,
-                "trust": 68000,
-                "dealer": -191149,
-                "total": -2439286,
-                "date": "2026-08-19"
+                "foreign": -525455,
+                "trust": -527541,
+                "dealer": -202828,
+                "total": -1255824,
+                "date": "2026-08-18"
               },
               "margin": {
                 "marginBuy": 433,
@@ -83111,11 +83067,11 @@ window.DATA = {
               "volume": 15313042.0,
               "quoteDate": "2026-08-19",
               "inst": {
-                "foreign": 420170,
-                "trust": 607000,
-                "dealer": -167498,
-                "total": 859672,
-                "date": "2026-08-19"
+                "foreign": -483946,
+                "trust": 495000,
+                "dealer": 24810,
+                "total": 35864,
+                "date": "2026-08-18"
               },
               "margin": {
                 "marginBuy": 943,
@@ -83150,17 +83106,17 @@ window.DATA = {
               "volume": 42898775.0,
               "quoteDate": "2026-08-19",
               "margin": {
-                "marginBuy": 5037,
-                "marginSell": 3890,
-                "marginCashRedemption": 14,
-                "marginPrevBalance": 41721,
-                "marginBalance": 42854,
-                "shortBuy": 190,
-                "shortSell": 63,
+                "marginBuy": 2251,
+                "marginSell": 2396,
+                "marginCashRedemption": 6,
+                "marginPrevBalance": 42854,
+                "marginBalance": 42703,
+                "shortBuy": 281,
+                "shortSell": 117,
                 "shortStockRedemption": 0,
-                "shortPrevBalance": 695,
-                "shortBalance": 822,
-                "offsetting": 89,
+                "shortPrevBalance": 822,
+                "shortBalance": 986,
+                "offsetting": 84,
                 "date": "2026-08-19"
               }
             },
@@ -83182,11 +83138,11 @@ window.DATA = {
               "volume": 5308156.0,
               "quoteDate": "2026-08-19",
               "inst": {
-                "foreign": 9755,
-                "trust": -760000,
-                "dealer": -24178,
-                "total": -774423,
-                "date": "2026-08-19"
+                "foreign": -2832367,
+                "trust": -34000,
+                "dealer": -132507,
+                "total": -2998874,
+                "date": "2026-08-18"
               },
               "margin": {
                 "marginBuy": 394,
@@ -83221,11 +83177,11 @@ window.DATA = {
               "volume": 72639511.0,
               "quoteDate": "2026-08-19",
               "inst": {
-                "foreign": -2351542,
-                "trust": -288000,
-                "dealer": -2176772,
-                "total": -4816314,
-                "date": "2026-08-19"
+                "foreign": -1787676,
+                "trust": 1260962,
+                "dealer": 569138,
+                "total": 42424,
+                "date": "2026-08-18"
               },
               "margin": {
                 "marginBuy": 5049,
@@ -83260,11 +83216,11 @@ window.DATA = {
               "volume": 7036521.0,
               "quoteDate": "2026-08-19",
               "inst": {
-                "foreign": -216230,
-                "trust": -1046250,
-                "dealer": -265132,
-                "total": -1527612,
-                "date": "2026-08-19"
+                "foreign": -198092,
+                "trust": -1153744,
+                "dealer": -223386,
+                "total": -1575222,
+                "date": "2026-08-18"
               },
               "margin": {
                 "marginBuy": 292,
@@ -83299,11 +83255,11 @@ window.DATA = {
               "volume": 2510975.0,
               "quoteDate": "2026-08-19",
               "inst": {
-                "foreign": 828793,
-                "trust": -126000,
-                "dealer": -71430,
-                "total": 631363,
-                "date": "2026-08-19"
+                "foreign": 264114,
+                "trust": -45289,
+                "dealer": 37989,
+                "total": 256814,
+                "date": "2026-08-18"
               },
               "margin": {
                 "marginBuy": 183,
@@ -83338,11 +83294,11 @@ window.DATA = {
               "volume": 1950747.0,
               "quoteDate": "2026-08-19",
               "inst": {
-                "foreign": -566539,
-                "trust": 14000,
-                "dealer": 14769,
-                "total": -537770,
-                "date": "2026-08-19"
+                "foreign": -325851,
+                "trust": -66000,
+                "dealer": -88295,
+                "total": -480146,
+                "date": "2026-08-18"
               },
               "margin": {
                 "marginBuy": 179,
@@ -83377,11 +83333,11 @@ window.DATA = {
               "volume": 21079068.0,
               "quoteDate": "2026-08-19",
               "inst": {
-                "foreign": 660327,
-                "trust": 399000,
-                "dealer": -747218,
-                "total": 312109,
-                "date": "2026-08-19"
+                "foreign": 132846,
+                "trust": 50611,
+                "dealer": -686915,
+                "total": -503458,
+                "date": "2026-08-18"
               },
               "margin": {
                 "marginBuy": 887,
@@ -83416,11 +83372,11 @@ window.DATA = {
               "volume": 1289214.0,
               "quoteDate": "2026-08-19",
               "inst": {
-                "foreign": 174888,
-                "trust": -360257,
-                "dealer": 19836,
-                "total": -165533,
-                "date": "2026-08-19"
+                "foreign": 175380,
+                "trust": -355116,
+                "dealer": -3372,
+                "total": -183108,
+                "date": "2026-08-18"
               },
               "margin": {
                 "marginBuy": 59,
@@ -83455,11 +83411,11 @@ window.DATA = {
               "volume": 30182657.0,
               "quoteDate": "2026-08-19",
               "inst": {
-                "foreign": -3215170,
-                "trust": -1481000,
-                "dealer": -241456,
-                "total": -4937626,
-                "date": "2026-08-19"
+                "foreign": -8750877,
+                "trust": -433467,
+                "dealer": -684498,
+                "total": -9868842,
+                "date": "2026-08-18"
               },
               "margin": {
                 "marginBuy": 1262,
@@ -83494,11 +83450,11 @@ window.DATA = {
               "volume": 22448357.0,
               "quoteDate": "2026-08-19",
               "inst": {
-                "foreign": 2323531,
-                "trust": -3324000,
-                "dealer": -127734,
-                "total": -1128203,
-                "date": "2026-08-19"
+                "foreign": 363414,
+                "trust": -3877203,
+                "dealer": -219991,
+                "total": -3733780,
+                "date": "2026-08-18"
               },
               "margin": {
                 "marginBuy": 371,
@@ -83533,11 +83489,11 @@ window.DATA = {
               "volume": 15143786.0,
               "quoteDate": "2026-08-19",
               "inst": {
-                "foreign": -180038,
-                "trust": -92000,
-                "dealer": -200940,
-                "total": -472978,
-                "date": "2026-08-19"
+                "foreign": -222255,
+                "trust": 69000,
+                "dealer": 129137,
+                "total": -24118,
+                "date": "2026-08-18"
               },
               "margin": {
                 "marginBuy": 1526,
@@ -83572,11 +83528,11 @@ window.DATA = {
               "volume": 2509394.0,
               "quoteDate": "2026-08-19",
               "inst": {
-                "foreign": -335535,
-                "trust": 16000,
-                "dealer": -10101,
-                "total": -329636,
-                "date": "2026-08-19"
+                "foreign": -501113,
+                "trust": -180000,
+                "dealer": -29993,
+                "total": -711106,
+                "date": "2026-08-18"
               },
               "margin": {
                 "marginBuy": 201,
@@ -83611,11 +83567,11 @@ window.DATA = {
               "volume": 3111366.0,
               "quoteDate": "2026-08-19",
               "inst": {
-                "foreign": 743110,
-                "trust": 120000,
-                "dealer": -3820,
-                "total": 859290,
-                "date": "2026-08-19"
+                "foreign": 971561,
+                "trust": 486000,
+                "dealer": 177500,
+                "total": 1635061,
+                "date": "2026-08-18"
               },
               "margin": {
                 "marginBuy": 110,
@@ -83650,11 +83606,11 @@ window.DATA = {
               "volume": 2985654.0,
               "quoteDate": "2026-08-19",
               "inst": {
-                "foreign": -15576,
-                "trust": -41341,
-                "dealer": -74952,
-                "total": -131869,
-                "date": "2026-08-19"
+                "foreign": -587204,
+                "trust": 488307,
+                "dealer": -35464,
+                "total": -134361,
+                "date": "2026-08-18"
               },
               "margin": {
                 "marginBuy": 127,
@@ -83689,11 +83645,11 @@ window.DATA = {
               "volume": 35191145.0,
               "quoteDate": "2026-08-19",
               "inst": {
-                "foreign": -936729,
-                "trust": 640000,
-                "dealer": -238070,
-                "total": -534799,
-                "date": "2026-08-19"
+                "foreign": 9583775,
+                "trust": 3148510,
+                "dealer": -475235,
+                "total": 12257050,
+                "date": "2026-08-18"
               },
               "margin": {
                 "marginBuy": 3674,
@@ -83728,11 +83684,11 @@ window.DATA = {
               "volume": 1797462.0,
               "quoteDate": "2026-08-19",
               "inst": {
-                "foreign": 106957,
-                "trust": -80000,
-                "dealer": 24342,
-                "total": 51299,
-                "date": "2026-08-19"
+                "foreign": 47288,
+                "trust": 136000,
+                "dealer": 1453,
+                "total": 184741,
+                "date": "2026-08-18"
               },
               "margin": {
                 "marginBuy": 48,
@@ -83767,11 +83723,11 @@ window.DATA = {
               "volume": 6754187.0,
               "quoteDate": "2026-08-19",
               "inst": {
-                "foreign": -1993240,
-                "trust": 497000,
-                "dealer": 236633,
-                "total": -1259607,
-                "date": "2026-08-19"
+                "foreign": -2233931,
+                "trust": 430701,
+                "dealer": -274651,
+                "total": -2077881,
+                "date": "2026-08-18"
               },
               "margin": {
                 "marginBuy": 313,
@@ -83806,11 +83762,11 @@ window.DATA = {
               "volume": 2804186.0,
               "quoteDate": "2026-08-19",
               "inst": {
-                "foreign": 24735,
-                "trust": 271000,
-                "dealer": -17965,
-                "total": 277770,
-                "date": "2026-08-19"
+                "foreign": 922550,
+                "trust": 306000,
+                "dealer": -121576,
+                "total": 1106974,
+                "date": "2026-08-18"
               },
               "margin": {
                 "marginBuy": 280,
@@ -83845,17 +83801,17 @@ window.DATA = {
               "volume": 4863908.0,
               "quoteDate": "2026-08-19",
               "margin": {
-                "marginBuy": 367,
-                "marginSell": 648,
-                "marginCashRedemption": 1,
-                "marginPrevBalance": 3075,
-                "marginBalance": 2793,
-                "shortBuy": 0,
-                "shortSell": 59,
+                "marginBuy": 466,
+                "marginSell": 265,
+                "marginCashRedemption": 0,
+                "marginPrevBalance": 2793,
+                "marginBalance": 2994,
+                "shortBuy": 10,
+                "shortSell": 4,
                 "shortStockRedemption": 0,
-                "shortPrevBalance": 106,
-                "shortBalance": 47,
-                "offsetting": 2,
+                "shortPrevBalance": 47,
+                "shortBalance": 53,
+                "offsetting": 14,
                 "date": "2026-08-19"
               }
             },
@@ -83877,11 +83833,11 @@ window.DATA = {
               "volume": 471821.0,
               "quoteDate": "2026-08-19",
               "margin": {
-                "marginBuy": 2,
-                "marginSell": 8,
+                "marginBuy": 12,
+                "marginSell": 5,
                 "marginCashRedemption": 0,
-                "marginPrevBalance": 127,
-                "marginBalance": 121,
+                "marginPrevBalance": 121,
+                "marginBalance": 128,
                 "shortBuy": 0,
                 "shortSell": 0,
                 "shortStockRedemption": 0,
@@ -83909,17 +83865,17 @@ window.DATA = {
               "volume": 5486735.0,
               "quoteDate": "2026-08-19",
               "margin": {
-                "marginBuy": 535,
-                "marginSell": 565,
-                "marginCashRedemption": 4,
-                "marginPrevBalance": 5428,
-                "marginBalance": 5394,
-                "shortBuy": 33,
-                "shortSell": 9,
-                "shortStockRedemption": 2,
-                "shortPrevBalance": 142,
-                "shortBalance": 164,
-                "offsetting": 13,
+                "marginBuy": 537,
+                "marginSell": 362,
+                "marginCashRedemption": 2,
+                "marginPrevBalance": 5394,
+                "marginBalance": 5567,
+                "shortBuy": 31,
+                "shortSell": 36,
+                "shortStockRedemption": 8,
+                "shortPrevBalance": 164,
+                "shortBalance": 151,
+                "offsetting": 6,
                 "date": "2026-08-19"
               }
             },
@@ -83941,11 +83897,11 @@ window.DATA = {
               "volume": 1111902.0,
               "quoteDate": "2026-08-19",
               "inst": {
-                "foreign": 141756,
-                "trust": 5000,
-                "dealer": -117968,
-                "total": 28788,
-                "date": "2026-08-19"
+                "foreign": -285189,
+                "trust": 155000,
+                "dealer": -62080,
+                "total": -192269,
+                "date": "2026-08-18"
               },
               "margin": {
                 "marginBuy": 15,
@@ -83980,11 +83936,11 @@ window.DATA = {
               "volume": 18501550.0,
               "quoteDate": "2026-08-19",
               "inst": {
-                "foreign": 829456,
-                "trust": -7000,
-                "dealer": -263048,
-                "total": 559408,
-                "date": "2026-08-19"
+                "foreign": -1410356,
+                "trust": -43000,
+                "dealer": -462777,
+                "total": -1916133,
+                "date": "2026-08-18"
               },
               "margin": {
                 "marginBuy": 515,
@@ -84019,17 +83975,17 @@ window.DATA = {
               "volume": 5742661.0,
               "quoteDate": "2026-08-19",
               "margin": {
-                "marginBuy": 818,
-                "marginSell": 1111,
-                "marginCashRedemption": 1,
-                "marginPrevBalance": 10926,
-                "marginBalance": 10632,
-                "shortBuy": 9,
-                "shortSell": 12,
-                "shortStockRedemption": 3,
-                "shortPrevBalance": 123,
-                "shortBalance": 117,
-                "offsetting": 16,
+                "marginBuy": 464,
+                "marginSell": 595,
+                "marginCashRedemption": 3,
+                "marginPrevBalance": 10632,
+                "marginBalance": 10498,
+                "shortBuy": 20,
+                "shortSell": 14,
+                "shortStockRedemption": 0,
+                "shortPrevBalance": 117,
+                "shortBalance": 123,
+                "offsetting": 15,
                 "date": "2026-08-19"
               }
             },
@@ -84051,11 +84007,11 @@ window.DATA = {
               "volume": 3423570.0,
               "quoteDate": "2026-08-19",
               "inst": {
-                "foreign": 239885,
-                "trust": -776000,
-                "dealer": 37282,
-                "total": -498833,
-                "date": "2026-08-19"
+                "foreign": 51918,
+                "trust": 61592,
+                "dealer": -39694,
+                "total": 73816,
+                "date": "2026-08-18"
               },
               "margin": {
                 "marginBuy": 144,
@@ -84090,16 +84046,16 @@ window.DATA = {
               "volume": 2236174.0,
               "quoteDate": "2026-08-19",
               "margin": {
-                "marginBuy": 159,
-                "marginSell": 192,
-                "marginCashRedemption": 1,
-                "marginPrevBalance": 4396,
-                "marginBalance": 4362,
-                "shortBuy": 5,
-                "shortSell": 1,
+                "marginBuy": 147,
+                "marginSell": 149,
+                "marginCashRedemption": 2,
+                "marginPrevBalance": 4362,
+                "marginBalance": 4358,
+                "shortBuy": 11,
+                "shortSell": 6,
                 "shortStockRedemption": 0,
-                "shortPrevBalance": 8,
-                "shortBalance": 12,
+                "shortPrevBalance": 12,
+                "shortBalance": 17,
                 "offsetting": 0,
                 "date": "2026-08-19"
               }
@@ -84122,17 +84078,17 @@ window.DATA = {
               "volume": 20960649.0,
               "quoteDate": "2026-08-19",
               "margin": {
-                "marginBuy": 364,
-                "marginSell": 498,
-                "marginCashRedemption": 1,
-                "marginPrevBalance": 12403,
-                "marginBalance": 12268,
-                "shortBuy": 29,
-                "shortSell": 41,
+                "marginBuy": 302,
+                "marginSell": 507,
+                "marginCashRedemption": 2,
+                "marginPrevBalance": 12268,
+                "marginBalance": 12061,
+                "shortBuy": 25,
+                "shortSell": 30,
                 "shortStockRedemption": 0,
-                "shortPrevBalance": 247,
-                "shortBalance": 235,
-                "offsetting": 4,
+                "shortPrevBalance": 235,
+                "shortBalance": 230,
+                "offsetting": 9,
                 "date": "2026-08-19"
               }
             }
@@ -102779,17 +102735,17 @@ window.DATA = {
               "weight": 4.55,
               "shares": 238000,
               "margin": {
-                "marginBuy": 136,
-                "marginSell": 72,
-                "marginCashRedemption": 3,
-                "marginPrevBalance": 922,
-                "marginBalance": 983,
-                "shortBuy": 0,
-                "shortSell": 12,
+                "marginBuy": 68,
+                "marginSell": 39,
+                "marginCashRedemption": 1,
+                "marginPrevBalance": 983,
+                "marginBalance": 1011,
+                "shortBuy": 8,
+                "shortSell": 4,
                 "shortStockRedemption": 0,
-                "shortPrevBalance": 24,
-                "shortBalance": 12,
-                "offsetting": 0,
+                "shortPrevBalance": 12,
+                "shortBalance": 16,
+                "offsetting": 1,
                 "date": "2026-08-17"
               },
               "open": 5000.0,
@@ -102967,17 +102923,17 @@ window.DATA = {
               "weight": 3.16,
               "shares": 938000,
               "margin": {
-                "marginBuy": 1332,
-                "marginSell": 1287,
+                "marginBuy": 794,
+                "marginSell": 1187,
                 "marginCashRedemption": 0,
-                "marginPrevBalance": 11517,
-                "marginBalance": 11562,
-                "shortBuy": 30,
-                "shortSell": 2,
-                "shortStockRedemption": 1,
-                "shortPrevBalance": 168,
-                "shortBalance": 195,
-                "offsetting": 14,
+                "marginPrevBalance": 11562,
+                "marginBalance": 11169,
+                "shortBuy": 26,
+                "shortSell": 61,
+                "shortStockRedemption": 0,
+                "shortPrevBalance": 195,
+                "shortBalance": 160,
+                "offsetting": 23,
                 "date": "2026-08-17"
               },
               "open": 1010.0,
@@ -103038,11 +102994,11 @@ window.DATA = {
               "weight": 2.94,
               "shares": 52400,
               "margin": {
-                "marginBuy": 2,
-                "marginSell": 8,
+                "marginBuy": 12,
+                "marginSell": 5,
                 "marginCashRedemption": 0,
-                "marginPrevBalance": 127,
-                "marginBalance": 121,
+                "marginPrevBalance": 121,
+                "marginBalance": 128,
                 "shortBuy": 0,
                 "shortSell": 0,
                 "shortStockRedemption": 0,
@@ -103109,17 +103065,17 @@ window.DATA = {
               "weight": 2.72,
               "shares": 596000,
               "margin": {
-                "marginBuy": 367,
-                "marginSell": 648,
-                "marginCashRedemption": 1,
-                "marginPrevBalance": 3075,
-                "marginBalance": 2793,
-                "shortBuy": 0,
-                "shortSell": 59,
+                "marginBuy": 466,
+                "marginSell": 265,
+                "marginCashRedemption": 0,
+                "marginPrevBalance": 2793,
+                "marginBalance": 2994,
+                "shortBuy": 10,
+                "shortSell": 4,
                 "shortStockRedemption": 0,
-                "shortPrevBalance": 106,
-                "shortBalance": 47,
-                "offsetting": 2,
+                "shortPrevBalance": 47,
+                "shortBalance": 53,
+                "offsetting": 14,
                 "date": "2026-08-17"
               },
               "open": 1210.0,
@@ -103531,17 +103487,17 @@ window.DATA = {
               "weight": 1.1,
               "shares": 208000,
               "margin": {
-                "marginBuy": 818,
-                "marginSell": 1111,
-                "marginCashRedemption": 1,
-                "marginPrevBalance": 10926,
-                "marginBalance": 10632,
-                "shortBuy": 9,
-                "shortSell": 12,
-                "shortStockRedemption": 3,
-                "shortPrevBalance": 123,
-                "shortBalance": 117,
-                "offsetting": 16,
+                "marginBuy": 464,
+                "marginSell": 595,
+                "marginCashRedemption": 3,
+                "marginPrevBalance": 10632,
+                "marginBalance": 10498,
+                "shortBuy": 20,
+                "shortSell": 14,
+                "shortStockRedemption": 0,
+                "shortPrevBalance": 117,
+                "shortBalance": 123,
+                "offsetting": 15,
                 "date": "2026-08-17"
               },
               "open": 1455.0,
@@ -103602,16 +103558,16 @@ window.DATA = {
               "weight": 0.96,
               "shares": 122000,
               "margin": {
-                "marginBuy": 50,
-                "marginSell": 68,
-                "marginCashRedemption": 1,
-                "marginPrevBalance": 1413,
-                "marginBalance": 1394,
+                "marginBuy": 87,
+                "marginSell": 61,
+                "marginCashRedemption": 0,
+                "marginPrevBalance": 1394,
+                "marginBalance": 1420,
                 "shortBuy": 0,
-                "shortSell": 30,
+                "shortSell": 1,
                 "shortStockRedemption": 0,
-                "shortPrevBalance": 35,
-                "shortBalance": 5,
+                "shortPrevBalance": 5,
+                "shortBalance": 4,
                 "offsetting": 0,
                 "date": "2026-08-17"
               },
@@ -103751,17 +103707,17 @@ window.DATA = {
               "weight": 0.8,
               "shares": 618000,
               "margin": {
-                "marginBuy": 441,
-                "marginSell": 487,
-                "marginCashRedemption": 1,
-                "marginPrevBalance": 11376,
-                "marginBalance": 11329,
-                "shortBuy": 18,
-                "shortSell": 48,
+                "marginBuy": 197,
+                "marginSell": 385,
+                "marginCashRedemption": 0,
+                "marginPrevBalance": 11329,
+                "marginBalance": 11141,
+                "shortBuy": 6,
+                "shortSell": 55,
                 "shortStockRedemption": 0,
-                "shortPrevBalance": 184,
-                "shortBalance": 154,
-                "offsetting": 10,
+                "shortPrevBalance": 154,
+                "shortBalance": 105,
+                "offsetting": 7,
                 "date": "2026-08-17"
               },
               "open": 374.5,
@@ -103900,17 +103856,17 @@ window.DATA = {
               "weight": 0.72,
               "shares": 1351000,
               "margin": {
-                "marginBuy": 364,
-                "marginSell": 498,
-                "marginCashRedemption": 1,
-                "marginPrevBalance": 12403,
-                "marginBalance": 12268,
-                "shortBuy": 29,
-                "shortSell": 41,
+                "marginBuy": 302,
+                "marginSell": 507,
+                "marginCashRedemption": 2,
+                "marginPrevBalance": 12268,
+                "marginBalance": 12061,
+                "shortBuy": 25,
+                "shortSell": 30,
                 "shortStockRedemption": 0,
-                "shortPrevBalance": 247,
-                "shortBalance": 235,
-                "offsetting": 4,
+                "shortPrevBalance": 235,
+                "shortBalance": 230,
+                "offsetting": 9,
                 "date": "2026-08-17"
               },
               "open": 149.0,
@@ -104010,17 +103966,17 @@ window.DATA = {
               "weight": 0.53,
               "shares": 293000,
               "margin": {
-                "marginBuy": 157,
-                "marginSell": 265,
-                "marginCashRedemption": 5,
-                "marginPrevBalance": 10657,
-                "marginBalance": 10544,
-                "shortBuy": 2,
-                "shortSell": 16,
-                "shortStockRedemption": 23,
-                "shortPrevBalance": 212,
-                "shortBalance": 175,
-                "offsetting": 169,
+                "marginBuy": 94,
+                "marginSell": 204,
+                "marginCashRedemption": 1,
+                "marginPrevBalance": 10544,
+                "marginBalance": 10433,
+                "shortBuy": 31,
+                "shortSell": 7,
+                "shortStockRedemption": 1,
+                "shortPrevBalance": 175,
+                "shortBalance": 198,
+                "offsetting": 151,
                 "date": "2026-08-17"
               },
               "open": 495.0,
@@ -104159,17 +104115,17 @@ window.DATA = {
               "weight": 0.32,
               "shares": 133000,
               "margin": {
-                "marginBuy": 47,
-                "marginSell": 48,
-                "marginCashRedemption": 1,
-                "marginPrevBalance": 2208,
-                "marginBalance": 2206,
+                "marginBuy": 41,
+                "marginSell": 87,
+                "marginCashRedemption": 0,
+                "marginPrevBalance": 2206,
+                "marginBalance": 2160,
                 "shortBuy": 0,
-                "shortSell": 1,
+                "shortSell": 0,
                 "shortStockRedemption": 0,
-                "shortPrevBalance": 8,
+                "shortPrevBalance": 7,
                 "shortBalance": 7,
-                "offsetting": 0,
+                "offsetting": 1,
                 "date": "2026-08-17"
               },
               "open": 742.0,
@@ -104230,17 +104186,17 @@ window.DATA = {
               "weight": 0.26,
               "shares": 271000,
               "margin": {
-                "marginBuy": 1257,
-                "marginSell": 2016,
-                "marginCashRedemption": 13,
-                "marginPrevBalance": 27775,
-                "marginBalance": 27003,
-                "shortBuy": 115,
-                "shortSell": 1710,
-                "shortStockRedemption": 0,
-                "shortPrevBalance": 1858,
-                "shortBalance": 263,
-                "offsetting": 39,
+                "marginBuy": 1084,
+                "marginSell": 849,
+                "marginCashRedemption": 10,
+                "marginPrevBalance": 27003,
+                "marginBalance": 27228,
+                "shortBuy": 53,
+                "shortSell": 93,
+                "shortStockRedemption": 4,
+                "shortPrevBalance": 263,
+                "shortBalance": 219,
+                "offsetting": 10,
                 "date": "2026-08-17"
               },
               "open": 296.0,
@@ -104262,15 +104218,15 @@ window.DATA = {
               "weight": 0.24,
               "shares": 178000,
               "margin": {
-                "marginBuy": 61,
-                "marginSell": 23,
-                "marginCashRedemption": 1,
-                "marginPrevBalance": 481,
-                "marginBalance": 518,
+                "marginBuy": 6,
+                "marginSell": 12,
+                "marginCashRedemption": 0,
+                "marginPrevBalance": 518,
+                "marginBalance": 512,
                 "shortBuy": 0,
-                "shortSell": 2,
+                "shortSell": 0,
                 "shortStockRedemption": 0,
-                "shortPrevBalance": 2,
+                "shortPrevBalance": 0,
                 "shortBalance": 0,
                 "offsetting": 0,
                 "date": "2026-08-17"
@@ -104695,17 +104651,17 @@ window.DATA = {
               "volume": 1187417.0,
               "quoteDate": "2026-08-18",
               "margin": {
-                "marginBuy": 136,
-                "marginSell": 72,
-                "marginCashRedemption": 3,
-                "marginPrevBalance": 922,
-                "marginBalance": 983,
-                "shortBuy": 0,
-                "shortSell": 12,
+                "marginBuy": 68,
+                "marginSell": 39,
+                "marginCashRedemption": 1,
+                "marginPrevBalance": 983,
+                "marginBalance": 1011,
+                "shortBuy": 8,
+                "shortSell": 4,
                 "shortStockRedemption": 0,
-                "shortPrevBalance": 24,
-                "shortBalance": 12,
-                "offsetting": 0,
+                "shortPrevBalance": 12,
+                "shortBalance": 16,
+                "offsetting": 1,
                 "date": "2026-08-18"
               }
             },
@@ -104844,17 +104800,17 @@ window.DATA = {
               "volume": 11169571.0,
               "quoteDate": "2026-08-18",
               "margin": {
-                "marginBuy": 1332,
-                "marginSell": 1287,
+                "marginBuy": 794,
+                "marginSell": 1187,
                 "marginCashRedemption": 0,
-                "marginPrevBalance": 11517,
-                "marginBalance": 11562,
-                "shortBuy": 30,
-                "shortSell": 2,
-                "shortStockRedemption": 1,
-                "shortPrevBalance": 168,
-                "shortBalance": 195,
-                "offsetting": 14,
+                "marginPrevBalance": 11562,
+                "marginBalance": 11169,
+                "shortBuy": 26,
+                "shortSell": 61,
+                "shortStockRedemption": 0,
+                "shortPrevBalance": 195,
+                "shortBalance": 160,
+                "offsetting": 23,
                 "date": "2026-08-18"
               }
             },
@@ -104915,11 +104871,11 @@ window.DATA = {
               "volume": 471821.0,
               "quoteDate": "2026-08-18",
               "margin": {
-                "marginBuy": 2,
-                "marginSell": 8,
+                "marginBuy": 12,
+                "marginSell": 5,
                 "marginCashRedemption": 0,
-                "marginPrevBalance": 127,
-                "marginBalance": 121,
+                "marginPrevBalance": 121,
+                "marginBalance": 128,
                 "shortBuy": 0,
                 "shortSell": 0,
                 "shortStockRedemption": 0,
@@ -105064,17 +105020,17 @@ window.DATA = {
               "volume": 4863908.0,
               "quoteDate": "2026-08-18",
               "margin": {
-                "marginBuy": 367,
-                "marginSell": 648,
-                "marginCashRedemption": 1,
-                "marginPrevBalance": 3075,
-                "marginBalance": 2793,
-                "shortBuy": 0,
-                "shortSell": 59,
+                "marginBuy": 466,
+                "marginSell": 265,
+                "marginCashRedemption": 0,
+                "marginPrevBalance": 2793,
+                "marginBalance": 2994,
+                "shortBuy": 10,
+                "shortSell": 4,
                 "shortStockRedemption": 0,
-                "shortPrevBalance": 106,
-                "shortBalance": 47,
-                "offsetting": 2,
+                "shortPrevBalance": 47,
+                "shortBalance": 53,
+                "offsetting": 14,
                 "date": "2026-08-18"
               }
             },
@@ -105330,17 +105286,17 @@ window.DATA = {
               "volume": 5742661.0,
               "quoteDate": "2026-08-18",
               "margin": {
-                "marginBuy": 818,
-                "marginSell": 1111,
-                "marginCashRedemption": 1,
-                "marginPrevBalance": 10926,
-                "marginBalance": 10632,
-                "shortBuy": 9,
-                "shortSell": 12,
-                "shortStockRedemption": 3,
-                "shortPrevBalance": 123,
-                "shortBalance": 117,
-                "offsetting": 16,
+                "marginBuy": 464,
+                "marginSell": 595,
+                "marginCashRedemption": 3,
+                "marginPrevBalance": 10632,
+                "marginBalance": 10498,
+                "shortBuy": 20,
+                "shortSell": 14,
+                "shortStockRedemption": 0,
+                "shortPrevBalance": 117,
+                "shortBalance": 123,
+                "offsetting": 15,
                 "date": "2026-08-18"
               }
             },
@@ -105440,16 +105396,16 @@ window.DATA = {
               "volume": 1117108.0,
               "quoteDate": "2026-08-18",
               "margin": {
-                "marginBuy": 50,
-                "marginSell": 68,
-                "marginCashRedemption": 1,
-                "marginPrevBalance": 1413,
-                "marginBalance": 1394,
+                "marginBuy": 87,
+                "marginSell": 61,
+                "marginCashRedemption": 0,
+                "marginPrevBalance": 1394,
+                "marginBalance": 1420,
                 "shortBuy": 0,
-                "shortSell": 30,
+                "shortSell": 1,
                 "shortStockRedemption": 0,
-                "shortPrevBalance": 35,
-                "shortBalance": 5,
+                "shortPrevBalance": 5,
+                "shortBalance": 4,
                 "offsetting": 0,
                 "date": "2026-08-18"
               }
@@ -105628,17 +105584,17 @@ window.DATA = {
               "volume": 2999585.0,
               "quoteDate": "2026-08-18",
               "margin": {
-                "marginBuy": 441,
-                "marginSell": 487,
-                "marginCashRedemption": 1,
-                "marginPrevBalance": 11376,
-                "marginBalance": 11329,
-                "shortBuy": 18,
-                "shortSell": 48,
+                "marginBuy": 197,
+                "marginSell": 385,
+                "marginCashRedemption": 0,
+                "marginPrevBalance": 11329,
+                "marginBalance": 11141,
+                "shortBuy": 6,
+                "shortSell": 55,
                 "shortStockRedemption": 0,
-                "shortPrevBalance": 184,
-                "shortBalance": 154,
-                "offsetting": 10,
+                "shortPrevBalance": 154,
+                "shortBalance": 105,
+                "offsetting": 7,
                 "date": "2026-08-18"
               }
             },
@@ -105816,17 +105772,17 @@ window.DATA = {
               "volume": 20960649.0,
               "quoteDate": "2026-08-18",
               "margin": {
-                "marginBuy": 364,
-                "marginSell": 498,
-                "marginCashRedemption": 1,
-                "marginPrevBalance": 12403,
-                "marginBalance": 12268,
-                "shortBuy": 29,
-                "shortSell": 41,
+                "marginBuy": 302,
+                "marginSell": 507,
+                "marginCashRedemption": 2,
+                "marginPrevBalance": 12268,
+                "marginBalance": 12061,
+                "shortBuy": 25,
+                "shortSell": 30,
                 "shortStockRedemption": 0,
-                "shortPrevBalance": 247,
-                "shortBalance": 235,
-                "offsetting": 4,
+                "shortPrevBalance": 235,
+                "shortBalance": 230,
+                "offsetting": 9,
                 "date": "2026-08-18"
               }
             },
@@ -105848,17 +105804,17 @@ window.DATA = {
               "volume": 1349596.0,
               "quoteDate": "2026-08-18",
               "margin": {
-                "marginBuy": 157,
-                "marginSell": 265,
-                "marginCashRedemption": 5,
-                "marginPrevBalance": 10657,
-                "marginBalance": 10544,
-                "shortBuy": 2,
-                "shortSell": 16,
-                "shortStockRedemption": 23,
-                "shortPrevBalance": 212,
-                "shortBalance": 175,
-                "offsetting": 169,
+                "marginBuy": 94,
+                "marginSell": 204,
+                "marginCashRedemption": 1,
+                "marginPrevBalance": 10544,
+                "marginBalance": 10433,
+                "shortBuy": 31,
+                "shortSell": 7,
+                "shortStockRedemption": 1,
+                "shortPrevBalance": 175,
+                "shortBalance": 198,
+                "offsetting": 151,
                 "date": "2026-08-18"
               }
             },
@@ -105997,17 +105953,17 @@ window.DATA = {
               "volume": 2246442.0,
               "quoteDate": "2026-08-18",
               "margin": {
-                "marginBuy": 47,
-                "marginSell": 48,
-                "marginCashRedemption": 1,
-                "marginPrevBalance": 2208,
-                "marginBalance": 2206,
+                "marginBuy": 41,
+                "marginSell": 87,
+                "marginCashRedemption": 0,
+                "marginPrevBalance": 2206,
+                "marginBalance": 2160,
                 "shortBuy": 0,
-                "shortSell": 1,
+                "shortSell": 0,
                 "shortStockRedemption": 0,
-                "shortPrevBalance": 8,
+                "shortPrevBalance": 7,
                 "shortBalance": 7,
-                "offsetting": 0,
+                "offsetting": 1,
                 "date": "2026-08-18"
               }
             },
@@ -106068,17 +106024,17 @@ window.DATA = {
               "volume": 11900457.0,
               "quoteDate": "2026-08-18",
               "margin": {
-                "marginBuy": 1257,
-                "marginSell": 2016,
-                "marginCashRedemption": 13,
-                "marginPrevBalance": 27775,
-                "marginBalance": 27003,
-                "shortBuy": 115,
-                "shortSell": 1710,
-                "shortStockRedemption": 0,
-                "shortPrevBalance": 1858,
-                "shortBalance": 263,
-                "offsetting": 39,
+                "marginBuy": 1084,
+                "marginSell": 849,
+                "marginCashRedemption": 10,
+                "marginPrevBalance": 27003,
+                "marginBalance": 27228,
+                "shortBuy": 53,
+                "shortSell": 93,
+                "shortStockRedemption": 4,
+                "shortPrevBalance": 263,
+                "shortBalance": 219,
+                "offsetting": 10,
                 "date": "2026-08-18"
               }
             },
@@ -106100,15 +106056,15 @@ window.DATA = {
               "volume": 819073.0,
               "quoteDate": "2026-08-18",
               "margin": {
-                "marginBuy": 61,
-                "marginSell": 23,
-                "marginCashRedemption": 1,
-                "marginPrevBalance": 481,
-                "marginBalance": 518,
+                "marginBuy": 6,
+                "marginSell": 12,
+                "marginCashRedemption": 0,
+                "marginPrevBalance": 518,
+                "marginBalance": 512,
                 "shortBuy": 0,
-                "shortSell": 2,
+                "shortSell": 0,
                 "shortStockRedemption": 0,
-                "shortPrevBalance": 2,
+                "shortPrevBalance": 0,
                 "shortBalance": 0,
                 "offsetting": 0,
                 "date": "2026-08-18"
@@ -106235,7 +106191,7 @@ window.DATA = {
         },
         {
           "date": "2026-08-19",
-          "fetched_at": "2026-08-19T21:26:35+08:00",
+          "fetched_at": "2026-08-19T22:11:29+08:00",
           "count": 47,
           "self": {
             "open": 14.39,
@@ -106249,13 +106205,7 @@ window.DATA = {
             "volume": 38690696.0,
             "quoteDate": "2026-08-19"
           },
-          "selfInstitutional": {
-            "foreign": 2536350,
-            "trust": 0,
-            "dealer": -6743246,
-            "total": -4206896,
-            "date": "2026-08-19"
-          },
+          "selfInstitutional": null,
           "selfMargin": {
             "marginBuy": 833,
             "marginSell": 180,
@@ -106289,11 +106239,11 @@ window.DATA = {
               "volume": 23618612.0,
               "quoteDate": "2026-08-19",
               "inst": {
-                "foreign": -7417943,
-                "trust": -668410,
-                "dealer": 719342,
-                "total": -7367011,
-                "date": "2026-08-19"
+                "foreign": -3245118,
+                "trust": 626690,
+                "dealer": -109919,
+                "total": -2728347,
+                "date": "2026-08-18"
               },
               "margin": {
                 "marginBuy": 800,
@@ -106328,11 +106278,11 @@ window.DATA = {
               "volume": 7036521.0,
               "quoteDate": "2026-08-19",
               "inst": {
-                "foreign": -216230,
-                "trust": -1046250,
-                "dealer": -265132,
-                "total": -1527612,
-                "date": "2026-08-19"
+                "foreign": -198092,
+                "trust": -1153744,
+                "dealer": -223386,
+                "total": -1575222,
+                "date": "2026-08-18"
               },
               "margin": {
                 "marginBuy": 292,
@@ -106367,11 +106317,11 @@ window.DATA = {
               "volume": 526139.0,
               "quoteDate": "2026-08-19",
               "inst": {
-                "foreign": -102444,
-                "trust": 19412,
-                "dealer": 6370,
-                "total": -76662,
-                "date": "2026-08-19"
+                "foreign": -76972,
+                "trust": 386491,
+                "dealer": 624,
+                "total": 310143,
+                "date": "2026-08-18"
               },
               "margin": {
                 "marginBuy": 44,
@@ -106406,11 +106356,11 @@ window.DATA = {
               "volume": 24496587.0,
               "quoteDate": "2026-08-19",
               "inst": {
-                "foreign": 1638430,
-                "trust": -637001,
-                "dealer": -65704,
-                "total": 935725,
-                "date": "2026-08-19"
+                "foreign": 10676502,
+                "trust": 150000,
+                "dealer": -394898,
+                "total": 10431604,
+                "date": "2026-08-18"
               },
               "margin": {
                 "marginBuy": 1398,
@@ -106445,11 +106395,11 @@ window.DATA = {
               "volume": 3119237.0,
               "quoteDate": "2026-08-19",
               "inst": {
-                "foreign": 76221,
-                "trust": -191001,
-                "dealer": -16593,
-                "total": -131373,
-                "date": "2026-08-19"
+                "foreign": 428269,
+                "trust": -167415,
+                "dealer": 13948,
+                "total": 274802,
+                "date": "2026-08-18"
               },
               "margin": {
                 "marginBuy": 130,
@@ -106484,11 +106434,11 @@ window.DATA = {
               "volume": 2804186.0,
               "quoteDate": "2026-08-19",
               "inst": {
-                "foreign": 24735,
-                "trust": 271000,
-                "dealer": -17965,
-                "total": 277770,
-                "date": "2026-08-19"
+                "foreign": 922550,
+                "trust": 306000,
+                "dealer": -121576,
+                "total": 1106974,
+                "date": "2026-08-18"
               },
               "margin": {
                 "marginBuy": 280,
@@ -106523,17 +106473,17 @@ window.DATA = {
               "volume": 1187417.0,
               "quoteDate": "2026-08-19",
               "margin": {
-                "marginBuy": 136,
-                "marginSell": 72,
-                "marginCashRedemption": 3,
-                "marginPrevBalance": 922,
-                "marginBalance": 983,
-                "shortBuy": 0,
-                "shortSell": 12,
+                "marginBuy": 68,
+                "marginSell": 39,
+                "marginCashRedemption": 1,
+                "marginPrevBalance": 983,
+                "marginBalance": 1011,
+                "shortBuy": 8,
+                "shortSell": 4,
                 "shortStockRedemption": 0,
-                "shortPrevBalance": 24,
-                "shortBalance": 12,
-                "offsetting": 0,
+                "shortPrevBalance": 12,
+                "shortBalance": 16,
+                "offsetting": 1,
                 "date": "2026-08-19"
               }
             },
@@ -106555,11 +106505,11 @@ window.DATA = {
               "volume": 3982151.0,
               "quoteDate": "2026-08-19",
               "inst": {
-                "foreign": 45475,
-                "trust": 534000,
-                "dealer": -228463,
-                "total": 351012,
-                "date": "2026-08-19"
+                "foreign": 828512,
+                "trust": -589100,
+                "dealer": -45819,
+                "total": 193593,
+                "date": "2026-08-18"
               },
               "margin": {
                 "marginBuy": 315,
@@ -106594,11 +106544,11 @@ window.DATA = {
               "volume": 2510975.0,
               "quoteDate": "2026-08-19",
               "inst": {
-                "foreign": 828793,
-                "trust": -126000,
-                "dealer": -71430,
-                "total": 631363,
-                "date": "2026-08-19"
+                "foreign": 264114,
+                "trust": -45289,
+                "dealer": 37989,
+                "total": 256814,
+                "date": "2026-08-18"
               },
               "margin": {
                 "marginBuy": 183,
@@ -106633,11 +106583,11 @@ window.DATA = {
               "volume": 3423570.0,
               "quoteDate": "2026-08-19",
               "inst": {
-                "foreign": 239885,
-                "trust": -776000,
-                "dealer": 37282,
-                "total": -498833,
-                "date": "2026-08-19"
+                "foreign": 51918,
+                "trust": 61592,
+                "dealer": -39694,
+                "total": 73816,
+                "date": "2026-08-18"
               },
               "margin": {
                 "marginBuy": 144,
@@ -106672,17 +106622,17 @@ window.DATA = {
               "volume": 11169571.0,
               "quoteDate": "2026-08-19",
               "margin": {
-                "marginBuy": 1332,
-                "marginSell": 1287,
+                "marginBuy": 794,
+                "marginSell": 1187,
                 "marginCashRedemption": 0,
-                "marginPrevBalance": 11517,
-                "marginBalance": 11562,
-                "shortBuy": 30,
-                "shortSell": 2,
-                "shortStockRedemption": 1,
-                "shortPrevBalance": 168,
-                "shortBalance": 195,
-                "offsetting": 14,
+                "marginPrevBalance": 11562,
+                "marginBalance": 11169,
+                "shortBuy": 26,
+                "shortSell": 61,
+                "shortStockRedemption": 0,
+                "shortPrevBalance": 195,
+                "shortBalance": 160,
+                "offsetting": 23,
                 "date": "2026-08-19"
               }
             },
@@ -106704,11 +106654,11 @@ window.DATA = {
               "volume": 1289214.0,
               "quoteDate": "2026-08-19",
               "inst": {
-                "foreign": 174888,
-                "trust": -360257,
-                "dealer": 19836,
-                "total": -165533,
-                "date": "2026-08-19"
+                "foreign": 175380,
+                "trust": -355116,
+                "dealer": -3372,
+                "total": -183108,
+                "date": "2026-08-18"
               },
               "margin": {
                 "marginBuy": 59,
@@ -106743,11 +106693,11 @@ window.DATA = {
               "volume": 3873944.0,
               "quoteDate": "2026-08-19",
               "inst": {
-                "foreign": -135887,
-                "trust": 84000,
-                "dealer": 132972,
-                "total": 81085,
-                "date": "2026-08-19"
+                "foreign": -142772,
+                "trust": 137000,
+                "dealer": 158902,
+                "total": 153130,
+                "date": "2026-08-18"
               },
               "margin": {
                 "marginBuy": 285,
@@ -106782,11 +106732,11 @@ window.DATA = {
               "volume": 471821.0,
               "quoteDate": "2026-08-19",
               "margin": {
-                "marginBuy": 2,
-                "marginSell": 8,
+                "marginBuy": 12,
+                "marginSell": 5,
                 "marginCashRedemption": 0,
-                "marginPrevBalance": 127,
-                "marginBalance": 121,
+                "marginPrevBalance": 121,
+                "marginBalance": 128,
                 "shortBuy": 0,
                 "shortSell": 0,
                 "shortStockRedemption": 0,
@@ -106814,11 +106764,11 @@ window.DATA = {
               "volume": 12608652.0,
               "quoteDate": "2026-08-19",
               "inst": {
-                "foreign": -2316137,
-                "trust": 68000,
-                "dealer": -191149,
-                "total": -2439286,
-                "date": "2026-08-19"
+                "foreign": -525455,
+                "trust": -527541,
+                "dealer": -202828,
+                "total": -1255824,
+                "date": "2026-08-18"
               },
               "margin": {
                 "marginBuy": 433,
@@ -106853,17 +106803,17 @@ window.DATA = {
               "volume": 4863908.0,
               "quoteDate": "2026-08-19",
               "margin": {
-                "marginBuy": 367,
-                "marginSell": 648,
-                "marginCashRedemption": 1,
-                "marginPrevBalance": 3075,
-                "marginBalance": 2793,
-                "shortBuy": 0,
-                "shortSell": 59,
+                "marginBuy": 466,
+                "marginSell": 265,
+                "marginCashRedemption": 0,
+                "marginPrevBalance": 2793,
+                "marginBalance": 2994,
+                "shortBuy": 10,
+                "shortSell": 4,
                 "shortStockRedemption": 0,
-                "shortPrevBalance": 106,
-                "shortBalance": 47,
-                "offsetting": 2,
+                "shortPrevBalance": 47,
+                "shortBalance": 53,
+                "offsetting": 14,
                 "date": "2026-08-19"
               }
             },
@@ -106885,11 +106835,11 @@ window.DATA = {
               "volume": 2061571.0,
               "quoteDate": "2026-08-19",
               "inst": {
-                "foreign": -125140,
-                "trust": -305000,
-                "dealer": -1761,
-                "total": -431901,
-                "date": "2026-08-19"
+                "foreign": 246591,
+                "trust": -257008,
+                "dealer": 40468,
+                "total": 30051,
+                "date": "2026-08-18"
               },
               "margin": {
                 "marginBuy": 97,
@@ -106924,11 +106874,11 @@ window.DATA = {
               "volume": 69157927.0,
               "quoteDate": "2026-08-19",
               "inst": {
-                "foreign": -13747190,
-                "trust": 380000,
-                "dealer": -1059651,
-                "total": -14426841,
-                "date": "2026-08-19"
+                "foreign": 2348431,
+                "trust": 742875,
+                "dealer": -197838,
+                "total": 2893468,
+                "date": "2026-08-18"
               },
               "margin": {
                 "marginBuy": 4209,
@@ -106963,11 +106913,11 @@ window.DATA = {
               "volume": 4782368.0,
               "quoteDate": "2026-08-19",
               "inst": {
-                "foreign": -1147842,
-                "trust": 26000,
-                "dealer": -307709,
-                "total": -1429551,
-                "date": "2026-08-19"
+                "foreign": -99164,
+                "trust": 327971,
+                "dealer": -30871,
+                "total": 197936,
+                "date": "2026-08-18"
               },
               "margin": {
                 "marginBuy": 520,
@@ -107002,11 +106952,11 @@ window.DATA = {
               "volume": 4040971.0,
               "quoteDate": "2026-08-19",
               "inst": {
-                "foreign": -462188,
-                "trust": -105010,
-                "dealer": 40992,
-                "total": -526206,
-                "date": "2026-08-19"
+                "foreign": -143174,
+                "trust": -345000,
+                "dealer": -16124,
+                "total": -504298,
+                "date": "2026-08-18"
               },
               "margin": {
                 "marginBuy": 73,
@@ -107041,11 +106991,11 @@ window.DATA = {
               "volume": 44748181.0,
               "quoteDate": "2026-08-19",
               "inst": {
-                "foreign": -19453031,
-                "trust": 436000,
-                "dealer": -154064,
-                "total": -19171095,
-                "date": "2026-08-19"
+                "foreign": -21672909,
+                "trust": -2957061,
+                "dealer": -66448,
+                "total": -24696418,
+                "date": "2026-08-18"
               },
               "margin": {
                 "marginBuy": 432,
@@ -107080,11 +107030,11 @@ window.DATA = {
               "volume": 10290635.0,
               "quoteDate": "2026-08-19",
               "inst": {
-                "foreign": -1163883,
-                "trust": -305000,
-                "dealer": -138135,
-                "total": -1607018,
-                "date": "2026-08-19"
+                "foreign": -1536054,
+                "trust": 1102978,
+                "dealer": -128182,
+                "total": -561258,
+                "date": "2026-08-18"
               },
               "margin": {
                 "marginBuy": 571,
@@ -107119,17 +107069,17 @@ window.DATA = {
               "volume": 5742661.0,
               "quoteDate": "2026-08-19",
               "margin": {
-                "marginBuy": 818,
-                "marginSell": 1111,
-                "marginCashRedemption": 1,
-                "marginPrevBalance": 10926,
-                "marginBalance": 10632,
-                "shortBuy": 9,
-                "shortSell": 12,
-                "shortStockRedemption": 3,
-                "shortPrevBalance": 123,
-                "shortBalance": 117,
-                "offsetting": 16,
+                "marginBuy": 464,
+                "marginSell": 595,
+                "marginCashRedemption": 3,
+                "marginPrevBalance": 10632,
+                "marginBalance": 10498,
+                "shortBuy": 20,
+                "shortSell": 14,
+                "shortStockRedemption": 0,
+                "shortPrevBalance": 117,
+                "shortBalance": 123,
+                "offsetting": 15,
                 "date": "2026-08-19"
               }
             },
@@ -107151,11 +107101,11 @@ window.DATA = {
               "volume": 8946264.0,
               "quoteDate": "2026-08-19",
               "inst": {
-                "foreign": 2232318,
-                "trust": -2934000,
-                "dealer": -505191,
-                "total": -1206873,
-                "date": "2026-08-19"
+                "foreign": 822008,
+                "trust": -1638062,
+                "dealer": -156654,
+                "total": -972708,
+                "date": "2026-08-18"
               },
               "margin": {
                 "marginBuy": 331,
@@ -107190,11 +107140,11 @@ window.DATA = {
               "volume": 737142.0,
               "quoteDate": "2026-08-19",
               "inst": {
-                "foreign": -107892,
-                "trust": 217000,
-                "dealer": 10128,
-                "total": 119236,
-                "date": "2026-08-19"
+                "foreign": 85552,
+                "trust": 83000,
+                "dealer": 14053,
+                "total": 182605,
+                "date": "2026-08-18"
               },
               "margin": {
                 "marginBuy": 35,
@@ -107229,11 +107179,11 @@ window.DATA = {
               "volume": 15143786.0,
               "quoteDate": "2026-08-19",
               "inst": {
-                "foreign": -180038,
-                "trust": -92000,
-                "dealer": -200940,
-                "total": -472978,
-                "date": "2026-08-19"
+                "foreign": -222255,
+                "trust": 69000,
+                "dealer": 129137,
+                "total": -24118,
+                "date": "2026-08-18"
               },
               "margin": {
                 "marginBuy": 1526,
@@ -107268,16 +107218,16 @@ window.DATA = {
               "volume": 1117108.0,
               "quoteDate": "2026-08-19",
               "margin": {
-                "marginBuy": 50,
-                "marginSell": 68,
-                "marginCashRedemption": 1,
-                "marginPrevBalance": 1413,
-                "marginBalance": 1394,
+                "marginBuy": 87,
+                "marginSell": 61,
+                "marginCashRedemption": 0,
+                "marginPrevBalance": 1394,
+                "marginBalance": 1420,
                 "shortBuy": 0,
-                "shortSell": 30,
+                "shortSell": 1,
                 "shortStockRedemption": 0,
-                "shortPrevBalance": 35,
-                "shortBalance": 5,
+                "shortPrevBalance": 5,
+                "shortBalance": 4,
                 "offsetting": 0,
                 "date": "2026-08-19"
               }
@@ -107300,11 +107250,11 @@ window.DATA = {
               "volume": 1998293.0,
               "quoteDate": "2026-08-19",
               "inst": {
-                "foreign": 221293,
-                "trust": 0,
-                "dealer": -8391,
-                "total": 212902,
-                "date": "2026-08-19"
+                "foreign": -406391,
+                "trust": -3000,
+                "dealer": 230,
+                "total": -409161,
+                "date": "2026-08-18"
               },
               "margin": {
                 "marginBuy": 77,
@@ -107339,11 +107289,11 @@ window.DATA = {
               "volume": 15479247.0,
               "quoteDate": "2026-08-19",
               "inst": {
-                "foreign": 1318020,
-                "trust": 39000,
-                "dealer": -67293,
-                "total": 1289727,
-                "date": "2026-08-19"
+                "foreign": -3195214,
+                "trust": -1358588,
+                "dealer": 37537,
+                "total": -4516265,
+                "date": "2026-08-18"
               },
               "margin": {
                 "marginBuy": 490,
@@ -107378,11 +107328,11 @@ window.DATA = {
               "volume": 36592747.0,
               "quoteDate": "2026-08-19",
               "inst": {
-                "foreign": -10064384,
-                "trust": -300000,
-                "dealer": -822130,
-                "total": -11186514,
-                "date": "2026-08-19"
+                "foreign": -7859901,
+                "trust": -4370881,
+                "dealer": -709701,
+                "total": -12940483,
+                "date": "2026-08-18"
               },
               "margin": {
                 "marginBuy": 874,
@@ -107417,11 +107367,11 @@ window.DATA = {
               "volume": 13397617.0,
               "quoteDate": "2026-08-19",
               "inst": {
-                "foreign": -2061511,
-                "trust": -652734,
-                "dealer": 201854,
-                "total": -2512391,
-                "date": "2026-08-19"
+                "foreign": -1193499,
+                "trust": 772000,
+                "dealer": -39682,
+                "total": -461181,
+                "date": "2026-08-18"
               },
               "margin": {
                 "marginBuy": 824,
@@ -107456,17 +107406,17 @@ window.DATA = {
               "volume": 2999585.0,
               "quoteDate": "2026-08-19",
               "margin": {
-                "marginBuy": 441,
-                "marginSell": 487,
-                "marginCashRedemption": 1,
-                "marginPrevBalance": 11376,
-                "marginBalance": 11329,
-                "shortBuy": 18,
-                "shortSell": 48,
+                "marginBuy": 197,
+                "marginSell": 385,
+                "marginCashRedemption": 0,
+                "marginPrevBalance": 11329,
+                "marginBalance": 11141,
+                "shortBuy": 6,
+                "shortSell": 55,
                 "shortStockRedemption": 0,
-                "shortPrevBalance": 184,
-                "shortBalance": 154,
-                "offsetting": 10,
+                "shortPrevBalance": 154,
+                "shortBalance": 105,
+                "offsetting": 7,
                 "date": "2026-08-19"
               }
             },
@@ -107488,11 +107438,11 @@ window.DATA = {
               "volume": 16525261.0,
               "quoteDate": "2026-08-19",
               "inst": {
-                "foreign": 3227189,
-                "trust": -291167,
-                "dealer": -177193,
-                "total": 2758829,
-                "date": "2026-08-19"
+                "foreign": 288816,
+                "trust": 320332,
+                "dealer": -233999,
+                "total": 375149,
+                "date": "2026-08-18"
               },
               "margin": {
                 "marginBuy": 265,
@@ -107527,11 +107477,11 @@ window.DATA = {
               "volume": 12785616.0,
               "quoteDate": "2026-08-19",
               "inst": {
-                "foreign": 836335,
-                "trust": -372000,
-                "dealer": -408244,
-                "total": 56091,
-                "date": "2026-08-19"
+                "foreign": 10802898,
+                "trust": -1105681,
+                "dealer": -204221,
+                "total": 9492996,
+                "date": "2026-08-18"
               },
               "margin": {
                 "marginBuy": 135,
@@ -107566,11 +107516,11 @@ window.DATA = {
               "volume": 450430.0,
               "quoteDate": "2026-08-19",
               "inst": {
-                "foreign": 78455,
-                "trust": -14000,
-                "dealer": -845,
-                "total": 63610,
-                "date": "2026-08-19"
+                "foreign": -67435,
+                "trust": 23000,
+                "dealer": -2846,
+                "total": -47281,
+                "date": "2026-08-18"
               },
               "margin": {
                 "marginBuy": 9,
@@ -107605,17 +107555,17 @@ window.DATA = {
               "volume": 20960649.0,
               "quoteDate": "2026-08-19",
               "margin": {
-                "marginBuy": 364,
-                "marginSell": 498,
-                "marginCashRedemption": 1,
-                "marginPrevBalance": 12403,
-                "marginBalance": 12268,
-                "shortBuy": 29,
-                "shortSell": 41,
+                "marginBuy": 302,
+                "marginSell": 507,
+                "marginCashRedemption": 2,
+                "marginPrevBalance": 12268,
+                "marginBalance": 12061,
+                "shortBuy": 25,
+                "shortSell": 30,
                 "shortStockRedemption": 0,
-                "shortPrevBalance": 247,
-                "shortBalance": 235,
-                "offsetting": 4,
+                "shortPrevBalance": 235,
+                "shortBalance": 230,
+                "offsetting": 9,
                 "date": "2026-08-19"
               }
             },
@@ -107637,17 +107587,17 @@ window.DATA = {
               "volume": 1349596.0,
               "quoteDate": "2026-08-19",
               "margin": {
-                "marginBuy": 157,
-                "marginSell": 265,
-                "marginCashRedemption": 5,
-                "marginPrevBalance": 10657,
-                "marginBalance": 10544,
-                "shortBuy": 2,
-                "shortSell": 16,
-                "shortStockRedemption": 23,
-                "shortPrevBalance": 212,
-                "shortBalance": 175,
-                "offsetting": 169,
+                "marginBuy": 94,
+                "marginSell": 204,
+                "marginCashRedemption": 1,
+                "marginPrevBalance": 10544,
+                "marginBalance": 10433,
+                "shortBuy": 31,
+                "shortSell": 7,
+                "shortStockRedemption": 1,
+                "shortPrevBalance": 175,
+                "shortBalance": 198,
+                "offsetting": 151,
                 "date": "2026-08-19"
               }
             },
@@ -107669,11 +107619,11 @@ window.DATA = {
               "volume": 344112.0,
               "quoteDate": "2026-08-19",
               "inst": {
-                "foreign": 128142,
-                "trust": -102000,
-                "dealer": -5263,
-                "total": 20879,
-                "date": "2026-08-19"
+                "foreign": 24494,
+                "trust": -101003,
+                "dealer": 1040,
+                "total": -75469,
+                "date": "2026-08-18"
               },
               "margin": {
                 "marginBuy": 16,
@@ -107708,11 +107658,11 @@ window.DATA = {
               "volume": 9782257.0,
               "quoteDate": "2026-08-19",
               "inst": {
-                "foreign": 1907361,
-                "trust": -2339000,
-                "dealer": -253758,
-                "total": -685397,
-                "date": "2026-08-19"
+                "foreign": -1644682,
+                "trust": -35827,
+                "dealer": -747713,
+                "total": -2428222,
+                "date": "2026-08-18"
               },
               "margin": {
                 "marginBuy": 404,
@@ -107747,11 +107697,11 @@ window.DATA = {
               "volume": 72639511.0,
               "quoteDate": "2026-08-19",
               "inst": {
-                "foreign": -2351542,
-                "trust": -288000,
-                "dealer": -2176772,
-                "total": -4816314,
-                "date": "2026-08-19"
+                "foreign": -1787676,
+                "trust": 1260962,
+                "dealer": 569138,
+                "total": 42424,
+                "date": "2026-08-18"
               },
               "margin": {
                 "marginBuy": 5049,
@@ -107786,11 +107736,11 @@ window.DATA = {
               "volume": 1627243.0,
               "quoteDate": "2026-08-19",
               "inst": {
-                "foreign": -486154,
-                "trust": -4000,
-                "dealer": -33077,
-                "total": -523231,
-                "date": "2026-08-19"
+                "foreign": 196260,
+                "trust": 459527,
+                "dealer": -1380,
+                "total": 654407,
+                "date": "2026-08-18"
               },
               "margin": {
                 "marginBuy": 56,
@@ -107825,11 +107775,11 @@ window.DATA = {
               "volume": 21470953.0,
               "quoteDate": "2026-08-19",
               "inst": {
-                "foreign": 4269258,
-                "trust": -236000,
-                "dealer": 35884,
-                "total": 4069142,
-                "date": "2026-08-19"
+                "foreign": 1075069,
+                "trust": 341000,
+                "dealer": -446,
+                "total": 1415623,
+                "date": "2026-08-18"
               },
               "margin": {
                 "marginBuy": 745,
@@ -107864,17 +107814,17 @@ window.DATA = {
               "volume": 2246442.0,
               "quoteDate": "2026-08-19",
               "margin": {
-                "marginBuy": 47,
-                "marginSell": 48,
-                "marginCashRedemption": 1,
-                "marginPrevBalance": 2208,
-                "marginBalance": 2206,
+                "marginBuy": 41,
+                "marginSell": 87,
+                "marginCashRedemption": 0,
+                "marginPrevBalance": 2206,
+                "marginBalance": 2160,
                 "shortBuy": 0,
-                "shortSell": 1,
+                "shortSell": 0,
                 "shortStockRedemption": 0,
-                "shortPrevBalance": 8,
+                "shortPrevBalance": 7,
                 "shortBalance": 7,
-                "offsetting": 0,
+                "offsetting": 1,
                 "date": "2026-08-19"
               }
             },
@@ -107896,17 +107846,17 @@ window.DATA = {
               "volume": 11900457.0,
               "quoteDate": "2026-08-19",
               "margin": {
-                "marginBuy": 1257,
-                "marginSell": 2016,
-                "marginCashRedemption": 13,
-                "marginPrevBalance": 27775,
-                "marginBalance": 27003,
-                "shortBuy": 115,
-                "shortSell": 1710,
-                "shortStockRedemption": 0,
-                "shortPrevBalance": 1858,
-                "shortBalance": 263,
-                "offsetting": 39,
+                "marginBuy": 1084,
+                "marginSell": 849,
+                "marginCashRedemption": 10,
+                "marginPrevBalance": 27003,
+                "marginBalance": 27228,
+                "shortBuy": 53,
+                "shortSell": 93,
+                "shortStockRedemption": 4,
+                "shortPrevBalance": 263,
+                "shortBalance": 219,
+                "offsetting": 10,
                 "date": "2026-08-19"
               }
             },
@@ -107928,15 +107878,15 @@ window.DATA = {
               "volume": 819073.0,
               "quoteDate": "2026-08-19",
               "margin": {
-                "marginBuy": 61,
-                "marginSell": 23,
-                "marginCashRedemption": 1,
-                "marginPrevBalance": 481,
-                "marginBalance": 518,
+                "marginBuy": 6,
+                "marginSell": 12,
+                "marginCashRedemption": 0,
+                "marginPrevBalance": 518,
+                "marginBalance": 512,
                 "shortBuy": 0,
-                "shortSell": 2,
+                "shortSell": 0,
                 "shortStockRedemption": 0,
-                "shortPrevBalance": 2,
+                "shortPrevBalance": 0,
                 "shortBalance": 0,
                 "offsetting": 0,
                 "date": "2026-08-19"
@@ -107960,11 +107910,11 @@ window.DATA = {
               "volume": 1063567.0,
               "quoteDate": "2026-08-19",
               "inst": {
-                "foreign": 553000,
-                "trust": -3000,
-                "dealer": -8470,
-                "total": 541530,
-                "date": "2026-08-19"
+                "foreign": -318525,
+                "trust": -5000,
+                "dealer": -11469,
+                "total": -334994,
+                "date": "2026-08-18"
               },
               "margin": {
                 "marginBuy": 4,
@@ -107999,11 +107949,11 @@ window.DATA = {
               "volume": 110337394.0,
               "quoteDate": "2026-08-19",
               "inst": {
-                "foreign": 7800989,
-                "trust": -20973000,
-                "dealer": -5796260,
-                "total": -18968271,
-                "date": "2026-08-19"
+                "foreign": -3246457,
+                "trust": 1153128,
+                "dealer": -819429,
+                "total": -2912758,
+                "date": "2026-08-18"
               },
               "margin": {
                 "marginBuy": 3549,
@@ -130850,7 +130800,7 @@ window.DATA = {
         },
         {
           "date": "2026-08-19",
-          "fetched_at": "2026-08-19T21:26:37+08:00",
+          "fetched_at": "2026-08-19T22:11:31+08:00",
           "count": 52,
           "self": {
             "open": 103.05,
@@ -130864,13 +130814,7 @@ window.DATA = {
             "volume": 100818593.0,
             "quoteDate": "2026-08-19"
           },
-          "selfInstitutional": {
-            "foreign": -34668003,
-            "trust": 0,
-            "dealer": -17900433,
-            "total": -52568436,
-            "date": "2026-08-19"
-          },
+          "selfInstitutional": null,
           "selfMargin": {
             "marginBuy": 1725,
             "marginSell": 655,
@@ -130904,11 +130848,11 @@ window.DATA = {
               "volume": 23618612.0,
               "quoteDate": "2026-08-19",
               "inst": {
-                "foreign": -7417943,
-                "trust": -668410,
-                "dealer": 719342,
-                "total": -7367011,
-                "date": "2026-08-19"
+                "foreign": -3245118,
+                "trust": 626690,
+                "dealer": -109919,
+                "total": -2728347,
+                "date": "2026-08-18"
               },
               "margin": {
                 "marginBuy": 800,
@@ -130943,11 +130887,11 @@ window.DATA = {
               "volume": 7036521.0,
               "quoteDate": "2026-08-19",
               "inst": {
-                "foreign": -216230,
-                "trust": -1046250,
-                "dealer": -265132,
-                "total": -1527612,
-                "date": "2026-08-19"
+                "foreign": -198092,
+                "trust": -1153744,
+                "dealer": -223386,
+                "total": -1575222,
+                "date": "2026-08-18"
               },
               "margin": {
                 "marginBuy": 292,
@@ -130982,11 +130926,11 @@ window.DATA = {
               "volume": 12608652.0,
               "quoteDate": "2026-08-19",
               "inst": {
-                "foreign": -2316137,
-                "trust": 68000,
-                "dealer": -191149,
-                "total": -2439286,
-                "date": "2026-08-19"
+                "foreign": -525455,
+                "trust": -527541,
+                "dealer": -202828,
+                "total": -1255824,
+                "date": "2026-08-18"
               },
               "margin": {
                 "marginBuy": 433,
@@ -131021,11 +130965,11 @@ window.DATA = {
               "volume": 36592747.0,
               "quoteDate": "2026-08-19",
               "inst": {
-                "foreign": -10064384,
-                "trust": -300000,
-                "dealer": -822130,
-                "total": -11186514,
-                "date": "2026-08-19"
+                "foreign": -7859901,
+                "trust": -4370881,
+                "dealer": -709701,
+                "total": -12940483,
+                "date": "2026-08-18"
               },
               "margin": {
                 "marginBuy": 874,
@@ -131060,11 +131004,11 @@ window.DATA = {
               "volume": 22448357.0,
               "quoteDate": "2026-08-19",
               "inst": {
-                "foreign": 2323531,
-                "trust": -3324000,
-                "dealer": -127734,
-                "total": -1128203,
-                "date": "2026-08-19"
+                "foreign": 363414,
+                "trust": -3877203,
+                "dealer": -219991,
+                "total": -3733780,
+                "date": "2026-08-18"
               },
               "margin": {
                 "marginBuy": 371,
@@ -131099,11 +131043,11 @@ window.DATA = {
               "volume": 3119237.0,
               "quoteDate": "2026-08-19",
               "inst": {
-                "foreign": 76221,
-                "trust": -191001,
-                "dealer": -16593,
-                "total": -131373,
-                "date": "2026-08-19"
+                "foreign": 428269,
+                "trust": -167415,
+                "dealer": 13948,
+                "total": 274802,
+                "date": "2026-08-18"
               },
               "margin": {
                 "marginBuy": 130,
@@ -131138,11 +131082,11 @@ window.DATA = {
               "volume": 24496587.0,
               "quoteDate": "2026-08-19",
               "inst": {
-                "foreign": 1638430,
-                "trust": -637001,
-                "dealer": -65704,
-                "total": 935725,
-                "date": "2026-08-19"
+                "foreign": 10676502,
+                "trust": 150000,
+                "dealer": -394898,
+                "total": 10431604,
+                "date": "2026-08-18"
               },
               "margin": {
                 "marginBuy": 1398,
@@ -131177,11 +131121,11 @@ window.DATA = {
               "volume": 110337394.0,
               "quoteDate": "2026-08-19",
               "inst": {
-                "foreign": 7800989,
-                "trust": -20973000,
-                "dealer": -5796260,
-                "total": -18968271,
-                "date": "2026-08-19"
+                "foreign": -3246457,
+                "trust": 1153128,
+                "dealer": -819429,
+                "total": -2912758,
+                "date": "2026-08-18"
               },
               "margin": {
                 "marginBuy": 3549,
@@ -131216,11 +131160,11 @@ window.DATA = {
               "volume": 34561497.0,
               "quoteDate": "2026-08-19",
               "inst": {
-                "foreign": -16472475,
-                "trust": -104000,
-                "dealer": 522051,
-                "total": -16054424,
-                "date": "2026-08-19"
+                "foreign": 2394562,
+                "trust": -1261411,
+                "dealer": -112355,
+                "total": 1020796,
+                "date": "2026-08-18"
               },
               "margin": {
                 "marginBuy": 400,
@@ -131255,11 +131199,11 @@ window.DATA = {
               "volume": 12785616.0,
               "quoteDate": "2026-08-19",
               "inst": {
-                "foreign": 836335,
-                "trust": -372000,
-                "dealer": -408244,
-                "total": 56091,
-                "date": "2026-08-19"
+                "foreign": 10802898,
+                "trust": -1105681,
+                "dealer": -204221,
+                "total": 9492996,
+                "date": "2026-08-18"
               },
               "margin": {
                 "marginBuy": 135,
@@ -131294,11 +131238,11 @@ window.DATA = {
               "volume": 4040971.0,
               "quoteDate": "2026-08-19",
               "inst": {
-                "foreign": -462188,
-                "trust": -105010,
-                "dealer": 40992,
-                "total": -526206,
-                "date": "2026-08-19"
+                "foreign": -143174,
+                "trust": -345000,
+                "dealer": -16124,
+                "total": -504298,
+                "date": "2026-08-18"
               },
               "margin": {
                 "marginBuy": 73,
@@ -131333,11 +131277,11 @@ window.DATA = {
               "volume": 3982151.0,
               "quoteDate": "2026-08-19",
               "inst": {
-                "foreign": 45475,
-                "trust": 534000,
-                "dealer": -228463,
-                "total": 351012,
-                "date": "2026-08-19"
+                "foreign": 828512,
+                "trust": -589100,
+                "dealer": -45819,
+                "total": 193593,
+                "date": "2026-08-18"
               },
               "margin": {
                 "marginBuy": 315,
@@ -131372,11 +131316,11 @@ window.DATA = {
               "volume": 11073498.0,
               "quoteDate": "2026-08-19",
               "inst": {
-                "foreign": -890660,
-                "trust": 0,
-                "dealer": -1038095,
-                "total": -1928755,
-                "date": "2026-08-19"
+                "foreign": 558524,
+                "trust": -555357,
+                "dealer": 116349,
+                "total": 119516,
+                "date": "2026-08-18"
               },
               "margin": {
                 "marginBuy": 132,
@@ -131411,11 +131355,11 @@ window.DATA = {
               "volume": 72639511.0,
               "quoteDate": "2026-08-19",
               "inst": {
-                "foreign": -2351542,
-                "trust": -288000,
-                "dealer": -2176772,
-                "total": -4816314,
-                "date": "2026-08-19"
+                "foreign": -1787676,
+                "trust": 1260962,
+                "dealer": 569138,
+                "total": 42424,
+                "date": "2026-08-18"
               },
               "margin": {
                 "marginBuy": 5049,
@@ -131450,11 +131394,11 @@ window.DATA = {
               "volume": 56295383.0,
               "quoteDate": "2026-08-19",
               "inst": {
-                "foreign": -3422361,
-                "trust": -2731000,
-                "dealer": -1341269,
-                "total": -7494630,
-                "date": "2026-08-19"
+                "foreign": -2365705,
+                "trust": -696195,
+                "dealer": -673341,
+                "total": -3735241,
+                "date": "2026-08-18"
               },
               "margin": {
                 "marginBuy": 1957,
@@ -131489,11 +131433,11 @@ window.DATA = {
               "volume": 16525261.0,
               "quoteDate": "2026-08-19",
               "inst": {
-                "foreign": 3227189,
-                "trust": -291167,
-                "dealer": -177193,
-                "total": 2758829,
-                "date": "2026-08-19"
+                "foreign": 288816,
+                "trust": 320332,
+                "dealer": -233999,
+                "total": 375149,
+                "date": "2026-08-18"
               },
               "margin": {
                 "marginBuy": 265,
@@ -131528,11 +131472,11 @@ window.DATA = {
               "volume": 70118504.0,
               "quoteDate": "2026-08-19",
               "inst": {
-                "foreign": -29823211,
-                "trust": 21897000,
-                "dealer": -813762,
-                "total": -8739973,
-                "date": "2026-08-19"
+                "foreign": -27653790,
+                "trust": 25106438,
+                "dealer": -81023,
+                "total": -2628375,
+                "date": "2026-08-18"
               },
               "margin": {
                 "marginBuy": 501,
@@ -131567,11 +131511,11 @@ window.DATA = {
               "volume": 3423570.0,
               "quoteDate": "2026-08-19",
               "inst": {
-                "foreign": 239885,
-                "trust": -776000,
-                "dealer": 37282,
-                "total": -498833,
-                "date": "2026-08-19"
+                "foreign": 51918,
+                "trust": 61592,
+                "dealer": -39694,
+                "total": 73816,
+                "date": "2026-08-18"
               },
               "margin": {
                 "marginBuy": 144,
@@ -131606,11 +131550,11 @@ window.DATA = {
               "volume": 526139.0,
               "quoteDate": "2026-08-19",
               "inst": {
-                "foreign": -102444,
-                "trust": 19412,
-                "dealer": 6370,
-                "total": -76662,
-                "date": "2026-08-19"
+                "foreign": -76972,
+                "trust": 386491,
+                "dealer": 624,
+                "total": 310143,
+                "date": "2026-08-18"
               },
               "margin": {
                 "marginBuy": 44,
@@ -131645,11 +131589,11 @@ window.DATA = {
               "volume": 44748181.0,
               "quoteDate": "2026-08-19",
               "inst": {
-                "foreign": -19453031,
-                "trust": 436000,
-                "dealer": -154064,
-                "total": -19171095,
-                "date": "2026-08-19"
+                "foreign": -21672909,
+                "trust": -2957061,
+                "dealer": -66448,
+                "total": -24696418,
+                "date": "2026-08-18"
               },
               "margin": {
                 "marginBuy": 432,
@@ -131684,11 +131628,11 @@ window.DATA = {
               "volume": 1289214.0,
               "quoteDate": "2026-08-19",
               "inst": {
-                "foreign": 174888,
-                "trust": -360257,
-                "dealer": 19836,
-                "total": -165533,
-                "date": "2026-08-19"
+                "foreign": 175380,
+                "trust": -355116,
+                "dealer": -3372,
+                "total": -183108,
+                "date": "2026-08-18"
               },
               "margin": {
                 "marginBuy": 59,
@@ -131723,11 +131667,11 @@ window.DATA = {
               "volume": 2985654.0,
               "quoteDate": "2026-08-19",
               "inst": {
-                "foreign": -15576,
-                "trust": -41341,
-                "dealer": -74952,
-                "total": -131869,
-                "date": "2026-08-19"
+                "foreign": -587204,
+                "trust": 488307,
+                "dealer": -35464,
+                "total": -134361,
+                "date": "2026-08-18"
               },
               "margin": {
                 "marginBuy": 127,
@@ -131762,11 +131706,11 @@ window.DATA = {
               "volume": 103424075.0,
               "quoteDate": "2026-08-19",
               "inst": {
-                "foreign": -25211898,
-                "trust": 24766000,
-                "dealer": -141971,
-                "total": -587869,
-                "date": "2026-08-19"
+                "foreign": -14426240,
+                "trust": 18674309,
+                "dealer": -154099,
+                "total": 4093970,
+                "date": "2026-08-18"
               },
               "margin": {
                 "marginBuy": 348,
@@ -131801,11 +131745,11 @@ window.DATA = {
               "volume": 25322496.0,
               "quoteDate": "2026-08-19",
               "inst": {
-                "foreign": 12062381,
-                "trust": 3285000,
-                "dealer": -783139,
-                "total": 14564242,
-                "date": "2026-08-19"
+                "foreign": 10202794,
+                "trust": 12352505,
+                "dealer": -19152,
+                "total": 22536147,
+                "date": "2026-08-18"
               },
               "margin": {
                 "marginBuy": 47,
@@ -131840,11 +131784,11 @@ window.DATA = {
               "volume": 69157927.0,
               "quoteDate": "2026-08-19",
               "inst": {
-                "foreign": -13747190,
-                "trust": 380000,
-                "dealer": -1059651,
-                "total": -14426841,
-                "date": "2026-08-19"
+                "foreign": 2348431,
+                "trust": 742875,
+                "dealer": -197838,
+                "total": 2893468,
+                "date": "2026-08-18"
               },
               "margin": {
                 "marginBuy": 4209,
@@ -131879,11 +131823,11 @@ window.DATA = {
               "volume": 28162708.0,
               "quoteDate": "2026-08-19",
               "inst": {
-                "foreign": -3046833,
-                "trust": 1039000,
-                "dealer": -893467,
-                "total": -2901300,
-                "date": "2026-08-19"
+                "foreign": -7514726,
+                "trust": -864060,
+                "dealer": -583850,
+                "total": -8962636,
+                "date": "2026-08-18"
               },
               "margin": {
                 "marginBuy": 2116,
@@ -131918,11 +131862,11 @@ window.DATA = {
               "volume": 35191145.0,
               "quoteDate": "2026-08-19",
               "inst": {
-                "foreign": -936729,
-                "trust": 640000,
-                "dealer": -238070,
-                "total": -534799,
-                "date": "2026-08-19"
+                "foreign": 9583775,
+                "trust": 3148510,
+                "dealer": -475235,
+                "total": 12257050,
+                "date": "2026-08-18"
               },
               "margin": {
                 "marginBuy": 3674,
@@ -131957,11 +131901,11 @@ window.DATA = {
               "volume": 113062347.0,
               "quoteDate": "2026-08-19",
               "inst": {
-                "foreign": -4640893,
-                "trust": -17582000,
-                "dealer": 75860,
-                "total": -22147033,
-                "date": "2026-08-19"
+                "foreign": 897255,
+                "trust": -468880,
+                "dealer": -740105,
+                "total": -311730,
+                "date": "2026-08-18"
               },
               "margin": {
                 "marginBuy": 5376,
@@ -131996,11 +131940,11 @@ window.DATA = {
               "volume": 7120614.0,
               "quoteDate": "2026-08-19",
               "inst": {
-                "foreign": -1119614,
-                "trust": -63000,
-                "dealer": -42133,
-                "total": -1224747,
-                "date": "2026-08-19"
+                "foreign": -2004926,
+                "trust": 4381667,
+                "dealer": -49000,
+                "total": 2327741,
+                "date": "2026-08-18"
               },
               "margin": {
                 "marginBuy": 35,
@@ -132035,11 +131979,11 @@ window.DATA = {
               "volume": 3873944.0,
               "quoteDate": "2026-08-19",
               "inst": {
-                "foreign": -135887,
-                "trust": 84000,
-                "dealer": 132972,
-                "total": 81085,
-                "date": "2026-08-19"
+                "foreign": -142772,
+                "trust": 137000,
+                "dealer": 158902,
+                "total": 153130,
+                "date": "2026-08-18"
               },
               "margin": {
                 "marginBuy": 285,
@@ -132074,11 +132018,11 @@ window.DATA = {
               "volume": 24546731.0,
               "quoteDate": "2026-08-19",
               "inst": {
-                "foreign": -11297163,
-                "trust": 8368000,
-                "dealer": -15486,
-                "total": -2944649,
-                "date": "2026-08-19"
+                "foreign": -8148892,
+                "trust": 13974047,
+                "dealer": 7334,
+                "total": 5832489,
+                "date": "2026-08-18"
               },
               "margin": {
                 "marginBuy": 36,
@@ -132113,11 +132057,11 @@ window.DATA = {
               "volume": 41106180.0,
               "quoteDate": "2026-08-19",
               "inst": {
-                "foreign": -15105393,
-                "trust": 7935000,
-                "dealer": -641978,
-                "total": -7812371,
-                "date": "2026-08-19"
+                "foreign": -27234113,
+                "trust": 22147264,
+                "dealer": -114832,
+                "total": -5201681,
+                "date": "2026-08-18"
               },
               "margin": {
                 "marginBuy": 1093,
@@ -132152,11 +132096,11 @@ window.DATA = {
               "volume": 2804186.0,
               "quoteDate": "2026-08-19",
               "inst": {
-                "foreign": 24735,
-                "trust": 271000,
-                "dealer": -17965,
-                "total": 277770,
-                "date": "2026-08-19"
+                "foreign": 922550,
+                "trust": 306000,
+                "dealer": -121576,
+                "total": 1106974,
+                "date": "2026-08-18"
               },
               "margin": {
                 "marginBuy": 280,
@@ -132191,11 +132135,11 @@ window.DATA = {
               "volume": 2510975.0,
               "quoteDate": "2026-08-19",
               "inst": {
-                "foreign": 828793,
-                "trust": -126000,
-                "dealer": -71430,
-                "total": 631363,
-                "date": "2026-08-19"
+                "foreign": 264114,
+                "trust": -45289,
+                "dealer": 37989,
+                "total": 256814,
+                "date": "2026-08-18"
               },
               "margin": {
                 "marginBuy": 183,
@@ -132230,11 +132174,11 @@ window.DATA = {
               "volume": 2061571.0,
               "quoteDate": "2026-08-19",
               "inst": {
-                "foreign": -125140,
-                "trust": -305000,
-                "dealer": -1761,
-                "total": -431901,
-                "date": "2026-08-19"
+                "foreign": 246591,
+                "trust": -257008,
+                "dealer": 40468,
+                "total": 30051,
+                "date": "2026-08-18"
               },
               "margin": {
                 "marginBuy": 97,
@@ -132269,11 +132213,11 @@ window.DATA = {
               "volume": 16977370.0,
               "quoteDate": "2026-08-19",
               "inst": {
-                "foreign": 13274283,
-                "trust": -539000,
-                "dealer": -643234,
-                "total": 12092049,
-                "date": "2026-08-19"
+                "foreign": 5570730,
+                "trust": 349000,
+                "dealer": -44683,
+                "total": 5875047,
+                "date": "2026-08-18"
               },
               "margin": {
                 "marginBuy": 26,
@@ -132308,11 +132252,11 @@ window.DATA = {
               "volume": 16299693.0,
               "quoteDate": "2026-08-19",
               "inst": {
-                "foreign": 3265498,
-                "trust": -1569000,
-                "dealer": -634152,
-                "total": 1062346,
-                "date": "2026-08-19"
+                "foreign": -1562981,
+                "trust": 13662769,
+                "dealer": 21685,
+                "total": 12121473,
+                "date": "2026-08-18"
               },
               "margin": {
                 "marginBuy": 56,
@@ -132347,11 +132291,11 @@ window.DATA = {
               "volume": 450430.0,
               "quoteDate": "2026-08-19",
               "inst": {
-                "foreign": 78455,
-                "trust": -14000,
-                "dealer": -845,
-                "total": 63610,
-                "date": "2026-08-19"
+                "foreign": -67435,
+                "trust": 23000,
+                "dealer": -2846,
+                "total": -47281,
+                "date": "2026-08-18"
               },
               "margin": {
                 "marginBuy": 9,
@@ -132386,11 +132330,11 @@ window.DATA = {
               "volume": 24299348.0,
               "quoteDate": "2026-08-19",
               "inst": {
-                "foreign": -5691385,
-                "trust": 3974000,
-                "dealer": -6841,
-                "total": -1724226,
-                "date": "2026-08-19"
+                "foreign": 1505502,
+                "trust": 11612000,
+                "dealer": -308444,
+                "total": 12809058,
+                "date": "2026-08-18"
               },
               "margin": {
                 "marginBuy": 760,
@@ -132425,11 +132369,11 @@ window.DATA = {
               "volume": 10290635.0,
               "quoteDate": "2026-08-19",
               "inst": {
-                "foreign": -1163883,
-                "trust": -305000,
-                "dealer": -138135,
-                "total": -1607018,
-                "date": "2026-08-19"
+                "foreign": -1536054,
+                "trust": 1102978,
+                "dealer": -128182,
+                "total": -561258,
+                "date": "2026-08-18"
               },
               "margin": {
                 "marginBuy": 571,
@@ -132464,11 +132408,11 @@ window.DATA = {
               "volume": 30182657.0,
               "quoteDate": "2026-08-19",
               "inst": {
-                "foreign": -3215170,
-                "trust": -1481000,
-                "dealer": -241456,
-                "total": -4937626,
-                "date": "2026-08-19"
+                "foreign": -8750877,
+                "trust": -433467,
+                "dealer": -684498,
+                "total": -9868842,
+                "date": "2026-08-18"
               },
               "margin": {
                 "marginBuy": 1262,
@@ -132503,11 +132447,11 @@ window.DATA = {
               "volume": 4739840.0,
               "quoteDate": "2026-08-19",
               "inst": {
-                "foreign": -514649,
-                "trust": 572000,
-                "dealer": 54634,
-                "total": 111985,
-                "date": "2026-08-19"
+                "foreign": -1022327,
+                "trust": 1251550,
+                "dealer": 32108,
+                "total": 261331,
+                "date": "2026-08-18"
               },
               "margin": {
                 "marginBuy": 219,
@@ -132542,11 +132486,11 @@ window.DATA = {
               "volume": 1950747.0,
               "quoteDate": "2026-08-19",
               "inst": {
-                "foreign": -566539,
-                "trust": 14000,
-                "dealer": 14769,
-                "total": -537770,
-                "date": "2026-08-19"
+                "foreign": -325851,
+                "trust": -66000,
+                "dealer": -88295,
+                "total": -480146,
+                "date": "2026-08-18"
               },
               "margin": {
                 "marginBuy": 179,
@@ -132581,11 +132525,11 @@ window.DATA = {
               "volume": 33352232.0,
               "quoteDate": "2026-08-19",
               "inst": {
-                "foreign": -9964193,
-                "trust": 11897000,
-                "dealer": -890663,
-                "total": 1042144,
-                "date": "2026-08-19"
+                "foreign": -6734185,
+                "trust": 12003000,
+                "dealer": -102864,
+                "total": 5165951,
+                "date": "2026-08-18"
               },
               "margin": {
                 "marginBuy": 27,
@@ -132620,11 +132564,11 @@ window.DATA = {
               "volume": 15479247.0,
               "quoteDate": "2026-08-19",
               "inst": {
-                "foreign": 1318020,
-                "trust": 39000,
-                "dealer": -67293,
-                "total": 1289727,
-                "date": "2026-08-19"
+                "foreign": -3195214,
+                "trust": -1358588,
+                "dealer": 37537,
+                "total": -4516265,
+                "date": "2026-08-18"
               },
               "margin": {
                 "marginBuy": 490,
@@ -132659,11 +132603,11 @@ window.DATA = {
               "volume": 20579536.0,
               "quoteDate": "2026-08-19",
               "inst": {
-                "foreign": 8541302,
-                "trust": 6000,
-                "dealer": -843024,
-                "total": 7704278,
-                "date": "2026-08-19"
+                "foreign": 15066712,
+                "trust": -77000,
+                "dealer": -227064,
+                "total": 14762648,
+                "date": "2026-08-18"
               },
               "margin": {
                 "marginBuy": 854,
@@ -132698,11 +132642,11 @@ window.DATA = {
               "volume": 15143786.0,
               "quoteDate": "2026-08-19",
               "inst": {
-                "foreign": -180038,
-                "trust": -92000,
-                "dealer": -200940,
-                "total": -472978,
-                "date": "2026-08-19"
+                "foreign": -222255,
+                "trust": 69000,
+                "dealer": 129137,
+                "total": -24118,
+                "date": "2026-08-18"
               },
               "margin": {
                 "marginBuy": 1526,
@@ -132747,11 +132691,11 @@ window.DATA = {
               "volume": 4101489.0,
               "quoteDate": "2026-08-19",
               "inst": {
-                "foreign": 1048338,
-                "trust": 88000,
-                "dealer": 152983,
-                "total": 1289321,
-                "date": "2026-08-19"
+                "foreign": 3389203,
+                "trust": -568091,
+                "dealer": -5320,
+                "total": 2815792,
+                "date": "2026-08-18"
               },
               "margin": {
                 "marginBuy": 4,
@@ -132786,11 +132730,11 @@ window.DATA = {
               "volume": 26629390.0,
               "quoteDate": "2026-08-19",
               "inst": {
-                "foreign": 18646206,
-                "trust": 51000,
-                "dealer": -458967,
-                "total": 18238239,
-                "date": "2026-08-19"
+                "foreign": 2941517,
+                "trust": 200210,
+                "dealer": -42020,
+                "total": 3099707,
+                "date": "2026-08-18"
               },
               "margin": {
                 "marginBuy": 37,
@@ -132825,11 +132769,11 @@ window.DATA = {
               "volume": 20727704.0,
               "quoteDate": "2026-08-19",
               "inst": {
-                "foreign": -4262618,
-                "trust": -51000,
-                "dealer": -1649827,
-                "total": -5963445,
-                "date": "2026-08-19"
+                "foreign": 10209358,
+                "trust": -9538000,
+                "dealer": 698618,
+                "total": 1369976,
+                "date": "2026-08-18"
               },
               "margin": {
                 "marginBuy": 998,
@@ -165338,7 +165282,7 @@ window.DATA = {
         },
         {
           "date": "2026-08-19",
-          "fetched_at": "2026-08-19T21:26:39+08:00",
+          "fetched_at": "2026-08-19T22:11:32+08:00",
           "count": 74,
           "self": {
             "open": 59.65,
@@ -165352,13 +165296,7 @@ window.DATA = {
             "volume": 12817722.0,
             "quoteDate": "2026-08-19"
           },
-          "selfInstitutional": {
-            "foreign": -928410,
-            "trust": 0,
-            "dealer": -167305,
-            "total": -1095715,
-            "date": "2026-08-19"
-          },
+          "selfInstitutional": null,
           "selfMargin": {
             "marginBuy": 141,
             "marginSell": 221,
@@ -165392,11 +165330,11 @@ window.DATA = {
               "volume": 23618612.0,
               "quoteDate": "2026-08-19",
               "inst": {
-                "foreign": -7417943,
-                "trust": -668410,
-                "dealer": 719342,
-                "total": -7367011,
-                "date": "2026-08-19"
+                "foreign": -3245118,
+                "trust": 626690,
+                "dealer": -109919,
+                "total": -2728347,
+                "date": "2026-08-18"
               },
               "margin": {
                 "marginBuy": 800,
@@ -165431,11 +165369,11 @@ window.DATA = {
               "volume": 7036521.0,
               "quoteDate": "2026-08-19",
               "inst": {
-                "foreign": -216230,
-                "trust": -1046250,
-                "dealer": -265132,
-                "total": -1527612,
-                "date": "2026-08-19"
+                "foreign": -198092,
+                "trust": -1153744,
+                "dealer": -223386,
+                "total": -1575222,
+                "date": "2026-08-18"
               },
               "margin": {
                 "marginBuy": 292,
@@ -165470,11 +165408,11 @@ window.DATA = {
               "volume": 36592747.0,
               "quoteDate": "2026-08-19",
               "inst": {
-                "foreign": -10064384,
-                "trust": -300000,
-                "dealer": -822130,
-                "total": -11186514,
-                "date": "2026-08-19"
+                "foreign": -7859901,
+                "trust": -4370881,
+                "dealer": -709701,
+                "total": -12940483,
+                "date": "2026-08-18"
               },
               "margin": {
                 "marginBuy": 874,
@@ -165509,11 +165447,11 @@ window.DATA = {
               "volume": 22448357.0,
               "quoteDate": "2026-08-19",
               "inst": {
-                "foreign": 2323531,
-                "trust": -3324000,
-                "dealer": -127734,
-                "total": -1128203,
-                "date": "2026-08-19"
+                "foreign": 363414,
+                "trust": -3877203,
+                "dealer": -219991,
+                "total": -3733780,
+                "date": "2026-08-18"
               },
               "margin": {
                 "marginBuy": 371,
@@ -165548,11 +165486,11 @@ window.DATA = {
               "volume": 3119237.0,
               "quoteDate": "2026-08-19",
               "inst": {
-                "foreign": 76221,
-                "trust": -191001,
-                "dealer": -16593,
-                "total": -131373,
-                "date": "2026-08-19"
+                "foreign": 428269,
+                "trust": -167415,
+                "dealer": 13948,
+                "total": 274802,
+                "date": "2026-08-18"
               },
               "margin": {
                 "marginBuy": 130,
@@ -165587,11 +165525,11 @@ window.DATA = {
               "volume": 24496587.0,
               "quoteDate": "2026-08-19",
               "inst": {
-                "foreign": 1638430,
-                "trust": -637001,
-                "dealer": -65704,
-                "total": 935725,
-                "date": "2026-08-19"
+                "foreign": 10676502,
+                "trust": 150000,
+                "dealer": -394898,
+                "total": 10431604,
+                "date": "2026-08-18"
               },
               "margin": {
                 "marginBuy": 1398,
@@ -165626,11 +165564,11 @@ window.DATA = {
               "volume": 110337394.0,
               "quoteDate": "2026-08-19",
               "inst": {
-                "foreign": 7800989,
-                "trust": -20973000,
-                "dealer": -5796260,
-                "total": -18968271,
-                "date": "2026-08-19"
+                "foreign": -3246457,
+                "trust": 1153128,
+                "dealer": -819429,
+                "total": -2912758,
+                "date": "2026-08-18"
               },
               "margin": {
                 "marginBuy": 3549,
@@ -165665,11 +165603,11 @@ window.DATA = {
               "volume": 3982151.0,
               "quoteDate": "2026-08-19",
               "inst": {
-                "foreign": 45475,
-                "trust": 534000,
-                "dealer": -228463,
-                "total": 351012,
-                "date": "2026-08-19"
+                "foreign": 828512,
+                "trust": -589100,
+                "dealer": -45819,
+                "total": 193593,
+                "date": "2026-08-18"
               },
               "margin": {
                 "marginBuy": 315,
@@ -165704,11 +165642,11 @@ window.DATA = {
               "volume": 56295383.0,
               "quoteDate": "2026-08-19",
               "inst": {
-                "foreign": -3422361,
-                "trust": -2731000,
-                "dealer": -1341269,
-                "total": -7494630,
-                "date": "2026-08-19"
+                "foreign": -2365705,
+                "trust": -696195,
+                "dealer": -673341,
+                "total": -3735241,
+                "date": "2026-08-18"
               },
               "margin": {
                 "marginBuy": 1957,
@@ -165743,11 +165681,11 @@ window.DATA = {
               "volume": 16525261.0,
               "quoteDate": "2026-08-19",
               "inst": {
-                "foreign": 3227189,
-                "trust": -291167,
-                "dealer": -177193,
-                "total": 2758829,
-                "date": "2026-08-19"
+                "foreign": 288816,
+                "trust": 320332,
+                "dealer": -233999,
+                "total": 375149,
+                "date": "2026-08-18"
               },
               "margin": {
                 "marginBuy": 265,
@@ -165782,11 +165720,11 @@ window.DATA = {
               "volume": 1289214.0,
               "quoteDate": "2026-08-19",
               "inst": {
-                "foreign": 174888,
-                "trust": -360257,
-                "dealer": 19836,
-                "total": -165533,
-                "date": "2026-08-19"
+                "foreign": 175380,
+                "trust": -355116,
+                "dealer": -3372,
+                "total": -183108,
+                "date": "2026-08-18"
               },
               "margin": {
                 "marginBuy": 59,
@@ -165821,11 +165759,11 @@ window.DATA = {
               "volume": 2985654.0,
               "quoteDate": "2026-08-19",
               "inst": {
-                "foreign": -15576,
-                "trust": -41341,
-                "dealer": -74952,
-                "total": -131869,
-                "date": "2026-08-19"
+                "foreign": -587204,
+                "trust": 488307,
+                "dealer": -35464,
+                "total": -134361,
+                "date": "2026-08-18"
               },
               "margin": {
                 "marginBuy": 127,
@@ -165860,11 +165798,11 @@ window.DATA = {
               "volume": 28162708.0,
               "quoteDate": "2026-08-19",
               "inst": {
-                "foreign": -3046833,
-                "trust": 1039000,
-                "dealer": -893467,
-                "total": -2901300,
-                "date": "2026-08-19"
+                "foreign": -7514726,
+                "trust": -864060,
+                "dealer": -583850,
+                "total": -8962636,
+                "date": "2026-08-18"
               },
               "margin": {
                 "marginBuy": 2116,
@@ -165899,11 +165837,11 @@ window.DATA = {
               "volume": 69157927.0,
               "quoteDate": "2026-08-19",
               "inst": {
-                "foreign": -13747190,
-                "trust": 380000,
-                "dealer": -1059651,
-                "total": -14426841,
-                "date": "2026-08-19"
+                "foreign": 2348431,
+                "trust": 742875,
+                "dealer": -197838,
+                "total": 2893468,
+                "date": "2026-08-18"
               },
               "margin": {
                 "marginBuy": 4209,
@@ -165938,11 +165876,11 @@ window.DATA = {
               "volume": 35191145.0,
               "quoteDate": "2026-08-19",
               "inst": {
-                "foreign": -936729,
-                "trust": 640000,
-                "dealer": -238070,
-                "total": -534799,
-                "date": "2026-08-19"
+                "foreign": 9583775,
+                "trust": 3148510,
+                "dealer": -475235,
+                "total": 12257050,
+                "date": "2026-08-18"
               },
               "margin": {
                 "marginBuy": 3674,
@@ -165977,11 +165915,11 @@ window.DATA = {
               "volume": 3873944.0,
               "quoteDate": "2026-08-19",
               "inst": {
-                "foreign": -135887,
-                "trust": 84000,
-                "dealer": 132972,
-                "total": 81085,
-                "date": "2026-08-19"
+                "foreign": -142772,
+                "trust": 137000,
+                "dealer": 158902,
+                "total": 153130,
+                "date": "2026-08-18"
               },
               "margin": {
                 "marginBuy": 285,
@@ -166016,11 +165954,11 @@ window.DATA = {
               "volume": 113062347.0,
               "quoteDate": "2026-08-19",
               "inst": {
-                "foreign": -4640893,
-                "trust": -17582000,
-                "dealer": 75860,
-                "total": -22147033,
-                "date": "2026-08-19"
+                "foreign": 897255,
+                "trust": -468880,
+                "dealer": -740105,
+                "total": -311730,
+                "date": "2026-08-18"
               },
               "margin": {
                 "marginBuy": 5376,
@@ -166055,11 +165993,11 @@ window.DATA = {
               "volume": 2804186.0,
               "quoteDate": "2026-08-19",
               "inst": {
-                "foreign": 24735,
-                "trust": 271000,
-                "dealer": -17965,
-                "total": 277770,
-                "date": "2026-08-19"
+                "foreign": 922550,
+                "trust": 306000,
+                "dealer": -121576,
+                "total": 1106974,
+                "date": "2026-08-18"
               },
               "margin": {
                 "marginBuy": 280,
@@ -166094,11 +166032,11 @@ window.DATA = {
               "volume": 2510975.0,
               "quoteDate": "2026-08-19",
               "inst": {
-                "foreign": 828793,
-                "trust": -126000,
-                "dealer": -71430,
-                "total": 631363,
-                "date": "2026-08-19"
+                "foreign": 264114,
+                "trust": -45289,
+                "dealer": 37989,
+                "total": 256814,
+                "date": "2026-08-18"
               },
               "margin": {
                 "marginBuy": 183,
@@ -166133,11 +166071,11 @@ window.DATA = {
               "volume": 2061571.0,
               "quoteDate": "2026-08-19",
               "inst": {
-                "foreign": -125140,
-                "trust": -305000,
-                "dealer": -1761,
-                "total": -431901,
-                "date": "2026-08-19"
+                "foreign": 246591,
+                "trust": -257008,
+                "dealer": 40468,
+                "total": 30051,
+                "date": "2026-08-18"
               },
               "margin": {
                 "marginBuy": 97,
@@ -166172,11 +166110,11 @@ window.DATA = {
               "volume": 450430.0,
               "quoteDate": "2026-08-19",
               "inst": {
-                "foreign": 78455,
-                "trust": -14000,
-                "dealer": -845,
-                "total": 63610,
-                "date": "2026-08-19"
+                "foreign": -67435,
+                "trust": 23000,
+                "dealer": -2846,
+                "total": -47281,
+                "date": "2026-08-18"
               },
               "margin": {
                 "marginBuy": 9,
@@ -166211,11 +166149,11 @@ window.DATA = {
               "volume": 3984481.0,
               "quoteDate": "2026-08-19",
               "inst": {
-                "foreign": 638638,
-                "trust": 71000,
-                "dealer": 141475,
-                "total": 851113,
-                "date": "2026-08-19"
+                "foreign": -483367,
+                "trust": 124167,
+                "dealer": -4985,
+                "total": -364185,
+                "date": "2026-08-18"
               },
               "margin": {
                 "marginBuy": 73,
@@ -166250,11 +166188,11 @@ window.DATA = {
               "volume": 10290635.0,
               "quoteDate": "2026-08-19",
               "inst": {
-                "foreign": -1163883,
-                "trust": -305000,
-                "dealer": -138135,
-                "total": -1607018,
-                "date": "2026-08-19"
+                "foreign": -1536054,
+                "trust": 1102978,
+                "dealer": -128182,
+                "total": -561258,
+                "date": "2026-08-18"
               },
               "margin": {
                 "marginBuy": 571,
@@ -166289,11 +166227,11 @@ window.DATA = {
               "volume": 30182657.0,
               "quoteDate": "2026-08-19",
               "inst": {
-                "foreign": -3215170,
-                "trust": -1481000,
-                "dealer": -241456,
-                "total": -4937626,
-                "date": "2026-08-19"
+                "foreign": -8750877,
+                "trust": -433467,
+                "dealer": -684498,
+                "total": -9868842,
+                "date": "2026-08-18"
               },
               "margin": {
                 "marginBuy": 1262,
@@ -166328,11 +166266,11 @@ window.DATA = {
               "volume": 225153342.0,
               "quoteDate": "2026-08-19",
               "inst": {
-                "foreign": -61131261,
-                "trust": -25000,
-                "dealer": -5707789,
-                "total": -66864050,
-                "date": "2026-08-19"
+                "foreign": -29691966,
+                "trust": 13592224,
+                "dealer": -1827639,
+                "total": -17927381,
+                "date": "2026-08-18"
               },
               "margin": {
                 "marginBuy": 12521,
@@ -166367,11 +166305,11 @@ window.DATA = {
               "volume": 4739840.0,
               "quoteDate": "2026-08-19",
               "inst": {
-                "foreign": -514649,
-                "trust": 572000,
-                "dealer": 54634,
-                "total": 111985,
-                "date": "2026-08-19"
+                "foreign": -1022327,
+                "trust": 1251550,
+                "dealer": 32108,
+                "total": 261331,
+                "date": "2026-08-18"
               },
               "margin": {
                 "marginBuy": 219,
@@ -166406,11 +166344,11 @@ window.DATA = {
               "volume": 4731319.0,
               "quoteDate": "2026-08-19",
               "inst": {
-                "foreign": 1250910,
-                "trust": 66000,
-                "dealer": 82541,
-                "total": 1399451,
-                "date": "2026-08-19"
+                "foreign": -334922,
+                "trust": 452954,
+                "dealer": -20338,
+                "total": 97694,
+                "date": "2026-08-18"
               },
               "margin": {
                 "marginBuy": 41,
@@ -166445,11 +166383,11 @@ window.DATA = {
               "volume": 1950747.0,
               "quoteDate": "2026-08-19",
               "inst": {
-                "foreign": -566539,
-                "trust": 14000,
-                "dealer": 14769,
-                "total": -537770,
-                "date": "2026-08-19"
+                "foreign": -325851,
+                "trust": -66000,
+                "dealer": -88295,
+                "total": -480146,
+                "date": "2026-08-18"
               },
               "margin": {
                 "marginBuy": 179,
@@ -166484,11 +166422,11 @@ window.DATA = {
               "volume": 21079068.0,
               "quoteDate": "2026-08-19",
               "inst": {
-                "foreign": 660327,
-                "trust": 399000,
-                "dealer": -747218,
-                "total": 312109,
-                "date": "2026-08-19"
+                "foreign": 132846,
+                "trust": 50611,
+                "dealer": -686915,
+                "total": -503458,
+                "date": "2026-08-18"
               },
               "margin": {
                 "marginBuy": 887,
@@ -166523,11 +166461,11 @@ window.DATA = {
               "volume": 15479247.0,
               "quoteDate": "2026-08-19",
               "inst": {
-                "foreign": 1318020,
-                "trust": 39000,
-                "dealer": -67293,
-                "total": 1289727,
-                "date": "2026-08-19"
+                "foreign": -3195214,
+                "trust": -1358588,
+                "dealer": 37537,
+                "total": -4516265,
+                "date": "2026-08-18"
               },
               "margin": {
                 "marginBuy": 490,
@@ -166572,11 +166510,11 @@ window.DATA = {
               "volume": 15143786.0,
               "quoteDate": "2026-08-19",
               "inst": {
-                "foreign": -180038,
-                "trust": -92000,
-                "dealer": -200940,
-                "total": -472978,
-                "date": "2026-08-19"
+                "foreign": -222255,
+                "trust": 69000,
+                "dealer": 129137,
+                "total": -24118,
+                "date": "2026-08-18"
               },
               "margin": {
                 "marginBuy": 1526,
@@ -166611,11 +166549,11 @@ window.DATA = {
               "volume": 50155092.0,
               "quoteDate": "2026-08-19",
               "inst": {
-                "foreign": -4119706,
-                "trust": 85000,
-                "dealer": -2184884,
-                "total": -6219590,
-                "date": "2026-08-19"
+                "foreign": 8135195,
+                "trust": -17860000,
+                "dealer": -967558,
+                "total": -10692363,
+                "date": "2026-08-18"
               },
               "margin": {
                 "marginBuy": 1523,
@@ -166650,11 +166588,11 @@ window.DATA = {
               "volume": 176388814.0,
               "quoteDate": "2026-08-19",
               "inst": {
-                "foreign": -48520819,
-                "trust": -23000,
-                "dealer": -1879449,
-                "total": -50423268,
-                "date": "2026-08-19"
+                "foreign": -35766505,
+                "trust": -361000,
+                "dealer": -2309621,
+                "total": -38437126,
+                "date": "2026-08-18"
               },
               "margin": {
                 "marginBuy": 7536,
@@ -166689,11 +166627,11 @@ window.DATA = {
               "volume": 13397617.0,
               "quoteDate": "2026-08-19",
               "inst": {
-                "foreign": -2061511,
-                "trust": -652734,
-                "dealer": 201854,
-                "total": -2512391,
-                "date": "2026-08-19"
+                "foreign": -1193499,
+                "trust": 772000,
+                "dealer": -39682,
+                "total": -461181,
+                "date": "2026-08-18"
               },
               "margin": {
                 "marginBuy": 824,
@@ -166728,11 +166666,11 @@ window.DATA = {
               "volume": 4782368.0,
               "quoteDate": "2026-08-19",
               "inst": {
-                "foreign": -1147842,
-                "trust": 26000,
-                "dealer": -307709,
-                "total": -1429551,
-                "date": "2026-08-19"
+                "foreign": -99164,
+                "trust": 327971,
+                "dealer": -30871,
+                "total": 197936,
+                "date": "2026-08-18"
               },
               "margin": {
                 "marginBuy": 520,
@@ -166767,11 +166705,11 @@ window.DATA = {
               "volume": 6754187.0,
               "quoteDate": "2026-08-19",
               "inst": {
-                "foreign": -1993240,
-                "trust": 497000,
-                "dealer": 236633,
-                "total": -1259607,
-                "date": "2026-08-19"
+                "foreign": -2233931,
+                "trust": 430701,
+                "dealer": -274651,
+                "total": -2077881,
+                "date": "2026-08-18"
               },
               "margin": {
                 "marginBuy": 313,
@@ -166806,11 +166744,11 @@ window.DATA = {
               "volume": 9782257.0,
               "quoteDate": "2026-08-19",
               "inst": {
-                "foreign": 1907361,
-                "trust": -2339000,
-                "dealer": -253758,
-                "total": -685397,
-                "date": "2026-08-19"
+                "foreign": -1644682,
+                "trust": -35827,
+                "dealer": -747713,
+                "total": -2428222,
+                "date": "2026-08-18"
               },
               "margin": {
                 "marginBuy": 404,
@@ -166845,11 +166783,11 @@ window.DATA = {
               "volume": 10010075.0,
               "quoteDate": "2026-08-19",
               "inst": {
-                "foreign": -3756644,
-                "trust": 1092000,
-                "dealer": -117158,
-                "total": -2781802,
-                "date": "2026-08-19"
+                "foreign": -1787385,
+                "trust": 1950000,
+                "dealer": -39239,
+                "total": 123376,
+                "date": "2026-08-18"
               },
               "margin": {
                 "marginBuy": 182,
@@ -166884,11 +166822,11 @@ window.DATA = {
               "volume": 15165045.0,
               "quoteDate": "2026-08-19",
               "inst": {
-                "foreign": 821004,
-                "trust": -25000,
-                "dealer": -204583,
-                "total": 591421,
-                "date": "2026-08-19"
+                "foreign": -3470275,
+                "trust": -291227,
+                "dealer": -891047,
+                "total": -4652549,
+                "date": "2026-08-18"
               },
               "margin": {
                 "marginBuy": 301,
@@ -166923,11 +166861,11 @@ window.DATA = {
               "volume": 92963808.0,
               "quoteDate": "2026-08-19",
               "inst": {
-                "foreign": -20436250,
-                "trust": -90000,
-                "dealer": 1352917,
-                "total": -19173333,
-                "date": "2026-08-19"
+                "foreign": 5994170,
+                "trust": -78923,
+                "dealer": -1989895,
+                "total": 3925352,
+                "date": "2026-08-18"
               },
               "margin": {
                 "marginBuy": 4431,
@@ -166962,11 +166900,11 @@ window.DATA = {
               "volume": 344112.0,
               "quoteDate": "2026-08-19",
               "inst": {
-                "foreign": 128142,
-                "trust": -102000,
-                "dealer": -5263,
-                "total": 20879,
-                "date": "2026-08-19"
+                "foreign": 24494,
+                "trust": -101003,
+                "dealer": 1040,
+                "total": -75469,
+                "date": "2026-08-18"
               },
               "margin": {
                 "marginBuy": 16,
@@ -167001,11 +166939,11 @@ window.DATA = {
               "volume": 8946264.0,
               "quoteDate": "2026-08-19",
               "inst": {
-                "foreign": 2232318,
-                "trust": -2934000,
-                "dealer": -505191,
-                "total": -1206873,
-                "date": "2026-08-19"
+                "foreign": 822008,
+                "trust": -1638062,
+                "dealer": -156654,
+                "total": -972708,
+                "date": "2026-08-18"
               },
               "margin": {
                 "marginBuy": 331,
@@ -167040,11 +166978,11 @@ window.DATA = {
               "volume": 134445281.0,
               "quoteDate": "2026-08-19",
               "inst": {
-                "foreign": -3698673,
-                "trust": 5000,
-                "dealer": -3977630,
-                "total": -7671303,
-                "date": "2026-08-19"
+                "foreign": -32023397,
+                "trust": -53890,
+                "dealer": -4451718,
+                "total": -36529005,
+                "date": "2026-08-18"
               },
               "margin": {
                 "marginBuy": 5796,
@@ -167079,11 +167017,11 @@ window.DATA = {
               "volume": 18979455.0,
               "quoteDate": "2026-08-19",
               "inst": {
-                "foreign": -3166125,
-                "trust": -1829000,
-                "dealer": 159607,
-                "total": -4835518,
-                "date": "2026-08-19"
+                "foreign": -3045902,
+                "trust": -1593000,
+                "dealer": 71433,
+                "total": -4567469,
+                "date": "2026-08-18"
               },
               "margin": {
                 "marginBuy": 912,
@@ -167118,11 +167056,11 @@ window.DATA = {
               "volume": 1881027.0,
               "quoteDate": "2026-08-19",
               "inst": {
-                "foreign": -27504,
-                "trust": -1000,
-                "dealer": -14016,
-                "total": -42520,
-                "date": "2026-08-19"
+                "foreign": -9784,
+                "trust": -221000,
+                "dealer": -16281,
+                "total": -247065,
+                "date": "2026-08-18"
               },
               "margin": {
                 "marginBuy": 53,
@@ -167157,11 +167095,11 @@ window.DATA = {
               "volume": 1585723.0,
               "quoteDate": "2026-08-19",
               "inst": {
-                "foreign": -69499,
-                "trust": -101159,
-                "dealer": -44156,
-                "total": -214814,
-                "date": "2026-08-19"
+                "foreign": -306104,
+                "trust": -114000,
+                "dealer": 4324,
+                "total": -415780,
+                "date": "2026-08-18"
               },
               "margin": {
                 "marginBuy": 55,
@@ -167196,11 +167134,11 @@ window.DATA = {
               "volume": 2827204.0,
               "quoteDate": "2026-08-19",
               "inst": {
-                "foreign": 79079,
-                "trust": 18000,
-                "dealer": -180022,
-                "total": -82943,
-                "date": "2026-08-19"
+                "foreign": -2000168,
+                "trust": 654000,
+                "dealer": -15154,
+                "total": -1361322,
+                "date": "2026-08-18"
               },
               "margin": {
                 "marginBuy": 36,
@@ -167235,11 +167173,11 @@ window.DATA = {
               "volume": 3111366.0,
               "quoteDate": "2026-08-19",
               "inst": {
-                "foreign": 743110,
-                "trust": 120000,
-                "dealer": -3820,
-                "total": 859290,
-                "date": "2026-08-19"
+                "foreign": 971561,
+                "trust": 486000,
+                "dealer": 177500,
+                "total": 1635061,
+                "date": "2026-08-18"
               },
               "margin": {
                 "marginBuy": 110,
@@ -167284,11 +167222,11 @@ window.DATA = {
               "volume": 12788664.0,
               "quoteDate": "2026-08-19",
               "inst": {
-                "foreign": -5244462,
-                "trust": -8000,
-                "dealer": 451480,
-                "total": -4800982,
-                "date": "2026-08-19"
+                "foreign": -5228384,
+                "trust": 1984000,
+                "dealer": -324475,
+                "total": -3568859,
+                "date": "2026-08-18"
               },
               "margin": {
                 "marginBuy": 1066,
@@ -167323,11 +167261,11 @@ window.DATA = {
               "volume": 1866928.0,
               "quoteDate": "2026-08-19",
               "inst": {
-                "foreign": -36696,
-                "trust": 8000,
-                "dealer": -44556,
-                "total": -73252,
-                "date": "2026-08-19"
+                "foreign": -476969,
+                "trust": 619000,
+                "dealer": 1462,
+                "total": 143493,
+                "date": "2026-08-18"
               },
               "margin": {
                 "marginBuy": 298,
@@ -167362,11 +167300,11 @@ window.DATA = {
               "volume": 2608302.0,
               "quoteDate": "2026-08-19",
               "inst": {
-                "foreign": -61319,
-                "trust": 9000,
-                "dealer": 23278,
-                "total": -29041,
-                "date": "2026-08-19"
+                "foreign": -562840,
+                "trust": 377000,
+                "dealer": -63765,
+                "total": -249605,
+                "date": "2026-08-18"
               },
               "margin": {
                 "marginBuy": 34,
@@ -167401,11 +167339,11 @@ window.DATA = {
               "volume": 1797462.0,
               "quoteDate": "2026-08-19",
               "inst": {
-                "foreign": 106957,
-                "trust": -80000,
-                "dealer": 24342,
-                "total": 51299,
-                "date": "2026-08-19"
+                "foreign": 47288,
+                "trust": 136000,
+                "dealer": 1453,
+                "total": 184741,
+                "date": "2026-08-18"
               },
               "margin": {
                 "marginBuy": 48,
@@ -167440,11 +167378,11 @@ window.DATA = {
               "volume": 5509629.0,
               "quoteDate": "2026-08-19",
               "inst": {
-                "foreign": 288130,
-                "trust": -1585000,
-                "dealer": -206472,
-                "total": -1503342,
-                "date": "2026-08-19"
+                "foreign": -740783,
+                "trust": -1037544,
+                "dealer": -125480,
+                "total": -1903807,
+                "date": "2026-08-18"
               },
               "margin": {
                 "marginBuy": 463,
@@ -167479,11 +167417,11 @@ window.DATA = {
               "volume": 1627243.0,
               "quoteDate": "2026-08-19",
               "inst": {
-                "foreign": -486154,
-                "trust": -4000,
-                "dealer": -33077,
-                "total": -523231,
-                "date": "2026-08-19"
+                "foreign": 196260,
+                "trust": 459527,
+                "dealer": -1380,
+                "total": 654407,
+                "date": "2026-08-18"
               },
               "margin": {
                 "marginBuy": 56,
@@ -167518,11 +167456,11 @@ window.DATA = {
               "volume": 12354545.0,
               "quoteDate": "2026-08-19",
               "inst": {
-                "foreign": 2130167,
-                "trust": 24000,
-                "dealer": 264836,
-                "total": 2419003,
-                "date": "2026-08-19"
+                "foreign": -3571930,
+                "trust": 186191,
+                "dealer": 163684,
+                "total": -3222055,
+                "date": "2026-08-18"
               },
               "margin": {
                 "marginBuy": 438,
@@ -167557,11 +167495,11 @@ window.DATA = {
               "volume": 4111029.0,
               "quoteDate": "2026-08-19",
               "inst": {
-                "foreign": 1269841,
-                "trust": -1493000,
-                "dealer": -6013,
-                "total": -229172,
-                "date": "2026-08-19"
+                "foreign": 1845460,
+                "trust": -1753287,
+                "dealer": -74209,
+                "total": 17964,
+                "date": "2026-08-18"
               },
               "margin": {
                 "marginBuy": 225,
@@ -167596,11 +167534,11 @@ window.DATA = {
               "volume": 46494666.0,
               "quoteDate": "2026-08-19",
               "inst": {
-                "foreign": 3180325,
-                "trust": -2000,
-                "dealer": 92651,
-                "total": 3270976,
-                "date": "2026-08-19"
+                "foreign": -2399414,
+                "trust": -15000,
+                "dealer": -552199,
+                "total": -2966613,
+                "date": "2026-08-18"
               },
               "margin": {
                 "marginBuy": 1600,
@@ -167635,11 +167573,11 @@ window.DATA = {
               "volume": 8294613.0,
               "quoteDate": "2026-08-19",
               "inst": {
-                "foreign": -2282520,
-                "trust": -11000,
-                "dealer": 2475682,
-                "total": 182162,
-                "date": "2026-08-19"
+                "foreign": -3305388,
+                "trust": 2178000,
+                "dealer": -142433,
+                "total": -1269821,
+                "date": "2026-08-18"
               },
               "margin": {
                 "marginBuy": 248,
@@ -167674,11 +167612,11 @@ window.DATA = {
               "volume": 15313042.0,
               "quoteDate": "2026-08-19",
               "inst": {
-                "foreign": 420170,
-                "trust": 607000,
-                "dealer": -167498,
-                "total": 859672,
-                "date": "2026-08-19"
+                "foreign": -483946,
+                "trust": 495000,
+                "dealer": 24810,
+                "total": 35864,
+                "date": "2026-08-18"
               },
               "margin": {
                 "marginBuy": 943,
@@ -167713,11 +167651,11 @@ window.DATA = {
               "volume": 2094065.0,
               "quoteDate": "2026-08-19",
               "inst": {
-                "foreign": -264715,
-                "trust": -18000,
-                "dealer": -8500,
-                "total": -291215,
-                "date": "2026-08-19"
+                "foreign": -89062,
+                "trust": 37000,
+                "dealer": 25951,
+                "total": -26111,
+                "date": "2026-08-18"
               },
               "margin": {
                 "marginBuy": 246,
@@ -167752,11 +167690,11 @@ window.DATA = {
               "volume": 7265810.0,
               "quoteDate": "2026-08-19",
               "inst": {
-                "foreign": -514560,
-                "trust": -10000,
-                "dealer": 124425,
-                "total": -400135,
-                "date": "2026-08-19"
+                "foreign": 418394,
+                "trust": -7000,
+                "dealer": -84729,
+                "total": 326665,
+                "date": "2026-08-18"
               },
               "margin": {
                 "marginBuy": 304,
@@ -167791,11 +167729,11 @@ window.DATA = {
               "volume": 2195357.0,
               "quoteDate": "2026-08-19",
               "inst": {
-                "foreign": 1306501,
-                "trust": -131000,
-                "dealer": -200198,
-                "total": 975303,
-                "date": "2026-08-19"
+                "foreign": -538914,
+                "trust": 41844,
+                "dealer": -10334,
+                "total": -507404,
+                "date": "2026-08-18"
               },
               "margin": {
                 "marginBuy": 62,
@@ -167830,11 +167768,11 @@ window.DATA = {
               "volume": 1187531.0,
               "quoteDate": "2026-08-19",
               "inst": {
-                "foreign": 260997,
-                "trust": -29000,
-                "dealer": 249504,
-                "total": 481501,
-                "date": "2026-08-19"
+                "foreign": -69722,
+                "trust": -5000,
+                "dealer": -7058,
+                "total": -81780,
+                "date": "2026-08-18"
               },
               "margin": {
                 "marginBuy": 46,
@@ -167869,11 +167807,11 @@ window.DATA = {
               "volume": 2771873.0,
               "quoteDate": "2026-08-19",
               "inst": {
-                "foreign": 248041,
-                "trust": -175000,
-                "dealer": 26542,
-                "total": 99583,
-                "date": "2026-08-19"
+                "foreign": -1031503,
+                "trust": -173000,
+                "dealer": -41786,
+                "total": -1246289,
+                "date": "2026-08-18"
               },
               "margin": {
                 "marginBuy": 90,
@@ -167908,11 +167846,11 @@ window.DATA = {
               "volume": 1357774.0,
               "quoteDate": "2026-08-19",
               "inst": {
-                "foreign": 199668,
-                "trust": -481000,
-                "dealer": -4716,
-                "total": -286048,
-                "date": "2026-08-19"
+                "foreign": -5233,
+                "trust": 43702,
+                "dealer": -12981,
+                "total": 25488,
+                "date": "2026-08-18"
               },
               "margin": {
                 "marginBuy": 55,
@@ -167947,11 +167885,11 @@ window.DATA = {
               "volume": 838780.0,
               "quoteDate": "2026-08-19",
               "inst": {
-                "foreign": 39660,
-                "trust": 134000,
-                "dealer": -84553,
-                "total": 89107,
-                "date": "2026-08-19"
+                "foreign": 67058,
+                "trust": 153000,
+                "dealer": 13554,
+                "total": 233612,
+                "date": "2026-08-18"
               },
               "margin": {
                 "marginBuy": 27,
@@ -167986,11 +167924,11 @@ window.DATA = {
               "volume": 3204424.0,
               "quoteDate": "2026-08-19",
               "inst": {
-                "foreign": -320893,
-                "trust": -2000,
-                "dealer": -211386,
-                "total": -534279,
-                "date": "2026-08-19"
+                "foreign": -1306300,
+                "trust": -9000,
+                "dealer": -544685,
+                "total": -1859985,
+                "date": "2026-08-18"
               },
               "margin": {
                 "marginBuy": 130,
@@ -168025,11 +167963,11 @@ window.DATA = {
               "volume": 780625.0,
               "quoteDate": "2026-08-19",
               "inst": {
-                "foreign": -1689,
-                "trust": 2000,
-                "dealer": -48994,
-                "total": -48683,
-                "date": "2026-08-19"
+                "foreign": -71422,
+                "trust": 3000,
+                "dealer": -8788,
+                "total": -77210,
+                "date": "2026-08-18"
               },
               "margin": {
                 "marginBuy": 34,
@@ -168064,11 +168002,11 @@ window.DATA = {
               "volume": 791770.0,
               "quoteDate": "2026-08-19",
               "inst": {
-                "foreign": 3875,
-                "trust": -2000,
-                "dealer": -37564,
-                "total": -35689,
-                "date": "2026-08-19"
+                "foreign": -131853,
+                "trust": -1000,
+                "dealer": -44617,
+                "total": -177470,
+                "date": "2026-08-18"
               },
               "margin": {
                 "marginBuy": 26,
@@ -168103,11 +168041,11 @@ window.DATA = {
               "volume": 284469.0,
               "quoteDate": "2026-08-19",
               "inst": {
-                "foreign": 50257,
-                "trust": -1000,
-                "dealer": -14979,
-                "total": 34278,
-                "date": "2026-08-19"
+                "foreign": -31513,
+                "trust": -124000,
+                "dealer": -5213,
+                "total": -160726,
+                "date": "2026-08-18"
               },
               "margin": {
                 "marginBuy": 14,
@@ -168142,11 +168080,11 @@ window.DATA = {
               "volume": 7431947.0,
               "quoteDate": "2026-08-19",
               "inst": {
-                "foreign": -414533,
-                "trust": -174000,
-                "dealer": 273617,
-                "total": -314916,
-                "date": "2026-08-19"
+                "foreign": -2408879,
+                "trust": 2131000,
+                "dealer": -223442,
+                "total": -501321,
+                "date": "2026-08-18"
               },
               "margin": {
                 "marginBuy": 276,
@@ -168181,11 +168119,11 @@ window.DATA = {
               "volume": 4261748.0,
               "quoteDate": "2026-08-19",
               "inst": {
-                "foreign": 110869,
-                "trust": -8000,
-                "dealer": 281764,
-                "total": 384633,
-                "date": "2026-08-19"
+                "foreign": -587062,
+                "trust": -1000,
+                "dealer": -115571,
+                "total": -703633,
+                "date": "2026-08-18"
               },
               "margin": {
                 "marginBuy": 151,
@@ -190992,7 +190930,7 @@ window.DATA = {
         },
         {
           "date": "2026-08-19",
-          "fetched_at": "2026-08-19T21:26:41+08:00",
+          "fetched_at": "2026-08-19T22:11:34+08:00",
           "count": 51,
           "self": {
             "open": 51.7,
@@ -191006,13 +190944,7 @@ window.DATA = {
             "volume": 29889911.0,
             "quoteDate": "2026-08-19"
           },
-          "selfInstitutional": {
-            "foreign": -5991160,
-            "trust": 0,
-            "dealer": -4089576,
-            "total": -10080736,
-            "date": "2026-08-19"
-          },
+          "selfInstitutional": null,
           "selfMargin": {
             "marginBuy": 154,
             "marginSell": 49,
@@ -191046,11 +190978,11 @@ window.DATA = {
               "volume": 72639511.0,
               "quoteDate": "2026-08-19",
               "inst": {
-                "foreign": -2351542,
-                "trust": -288000,
-                "dealer": -2176772,
-                "total": -4816314,
-                "date": "2026-08-19"
+                "foreign": -1787676,
+                "trust": 1260962,
+                "dealer": 569138,
+                "total": 42424,
+                "date": "2026-08-18"
               },
               "margin": {
                 "marginBuy": 5049,
@@ -191085,11 +191017,11 @@ window.DATA = {
               "volume": 2985654.0,
               "quoteDate": "2026-08-19",
               "inst": {
-                "foreign": -15576,
-                "trust": -41341,
-                "dealer": -74952,
-                "total": -131869,
-                "date": "2026-08-19"
+                "foreign": -587204,
+                "trust": 488307,
+                "dealer": -35464,
+                "total": -134361,
+                "date": "2026-08-18"
               },
               "margin": {
                 "marginBuy": 127,
@@ -191124,11 +191056,11 @@ window.DATA = {
               "volume": 69157927.0,
               "quoteDate": "2026-08-19",
               "inst": {
-                "foreign": -13747190,
-                "trust": 380000,
-                "dealer": -1059651,
-                "total": -14426841,
-                "date": "2026-08-19"
+                "foreign": 2348431,
+                "trust": 742875,
+                "dealer": -197838,
+                "total": 2893468,
+                "date": "2026-08-18"
               },
               "margin": {
                 "marginBuy": 4209,
@@ -191163,11 +191095,11 @@ window.DATA = {
               "volume": 24546731.0,
               "quoteDate": "2026-08-19",
               "inst": {
-                "foreign": -11297163,
-                "trust": 8368000,
-                "dealer": -15486,
-                "total": -2944649,
-                "date": "2026-08-19"
+                "foreign": -8148892,
+                "trust": 13974047,
+                "dealer": 7334,
+                "total": 5832489,
+                "date": "2026-08-18"
               },
               "margin": {
                 "marginBuy": 36,
@@ -191202,11 +191134,11 @@ window.DATA = {
               "volume": 113062347.0,
               "quoteDate": "2026-08-19",
               "inst": {
-                "foreign": -4640893,
-                "trust": -17582000,
-                "dealer": 75860,
-                "total": -22147033,
-                "date": "2026-08-19"
+                "foreign": 897255,
+                "trust": -468880,
+                "dealer": -740105,
+                "total": -311730,
+                "date": "2026-08-18"
               },
               "margin": {
                 "marginBuy": 5376,
@@ -191241,11 +191173,11 @@ window.DATA = {
               "volume": 34561497.0,
               "quoteDate": "2026-08-19",
               "inst": {
-                "foreign": -16472475,
-                "trust": -104000,
-                "dealer": 522051,
-                "total": -16054424,
-                "date": "2026-08-19"
+                "foreign": 2394562,
+                "trust": -1261411,
+                "dealer": -112355,
+                "total": 1020796,
+                "date": "2026-08-18"
               },
               "margin": {
                 "marginBuy": 400,
@@ -191280,11 +191212,11 @@ window.DATA = {
               "volume": 28162708.0,
               "quoteDate": "2026-08-19",
               "inst": {
-                "foreign": -3046833,
-                "trust": 1039000,
-                "dealer": -893467,
-                "total": -2901300,
-                "date": "2026-08-19"
+                "foreign": -7514726,
+                "trust": -864060,
+                "dealer": -583850,
+                "total": -8962636,
+                "date": "2026-08-18"
               },
               "margin": {
                 "marginBuy": 2116,
@@ -191319,11 +191251,11 @@ window.DATA = {
               "volume": 16525261.0,
               "quoteDate": "2026-08-19",
               "inst": {
-                "foreign": 3227189,
-                "trust": -291167,
-                "dealer": -177193,
-                "total": 2758829,
-                "date": "2026-08-19"
+                "foreign": 288816,
+                "trust": 320332,
+                "dealer": -233999,
+                "total": 375149,
+                "date": "2026-08-18"
               },
               "margin": {
                 "marginBuy": 265,
@@ -191358,11 +191290,11 @@ window.DATA = {
               "volume": 24299348.0,
               "quoteDate": "2026-08-19",
               "inst": {
-                "foreign": -5691385,
-                "trust": 3974000,
-                "dealer": -6841,
-                "total": -1724226,
-                "date": "2026-08-19"
+                "foreign": 1505502,
+                "trust": 11612000,
+                "dealer": -308444,
+                "total": 12809058,
+                "date": "2026-08-18"
               },
               "margin": {
                 "marginBuy": 760,
@@ -191397,11 +191329,11 @@ window.DATA = {
               "volume": 25322496.0,
               "quoteDate": "2026-08-19",
               "inst": {
-                "foreign": 12062381,
-                "trust": 3285000,
-                "dealer": -783139,
-                "total": 14564242,
-                "date": "2026-08-19"
+                "foreign": 10202794,
+                "trust": 12352505,
+                "dealer": -19152,
+                "total": 22536147,
+                "date": "2026-08-18"
               },
               "margin": {
                 "marginBuy": 47,
@@ -191436,11 +191368,11 @@ window.DATA = {
               "volume": 20579536.0,
               "quoteDate": "2026-08-19",
               "inst": {
-                "foreign": 8541302,
-                "trust": 6000,
-                "dealer": -843024,
-                "total": 7704278,
-                "date": "2026-08-19"
+                "foreign": 15066712,
+                "trust": -77000,
+                "dealer": -227064,
+                "total": 14762648,
+                "date": "2026-08-18"
               },
               "margin": {
                 "marginBuy": 854,
@@ -191475,11 +191407,11 @@ window.DATA = {
               "volume": 16977370.0,
               "quoteDate": "2026-08-19",
               "inst": {
-                "foreign": 13274283,
-                "trust": -539000,
-                "dealer": -643234,
-                "total": 12092049,
-                "date": "2026-08-19"
+                "foreign": 5570730,
+                "trust": 349000,
+                "dealer": -44683,
+                "total": 5875047,
+                "date": "2026-08-18"
               },
               "margin": {
                 "marginBuy": 26,
@@ -191514,11 +191446,11 @@ window.DATA = {
               "volume": 35191145.0,
               "quoteDate": "2026-08-19",
               "inst": {
-                "foreign": -936729,
-                "trust": 640000,
-                "dealer": -238070,
-                "total": -534799,
-                "date": "2026-08-19"
+                "foreign": 9583775,
+                "trust": 3148510,
+                "dealer": -475235,
+                "total": 12257050,
+                "date": "2026-08-18"
               },
               "margin": {
                 "marginBuy": 3674,
@@ -191553,11 +191485,11 @@ window.DATA = {
               "volume": 41106180.0,
               "quoteDate": "2026-08-19",
               "inst": {
-                "foreign": -15105393,
-                "trust": 7935000,
-                "dealer": -641978,
-                "total": -7812371,
-                "date": "2026-08-19"
+                "foreign": -27234113,
+                "trust": 22147264,
+                "dealer": -114832,
+                "total": -5201681,
+                "date": "2026-08-18"
               },
               "margin": {
                 "marginBuy": 1093,
@@ -191592,11 +191524,11 @@ window.DATA = {
               "volume": 70118504.0,
               "quoteDate": "2026-08-19",
               "inst": {
-                "foreign": -29823211,
-                "trust": 21897000,
-                "dealer": -813762,
-                "total": -8739973,
-                "date": "2026-08-19"
+                "foreign": -27653790,
+                "trust": 25106438,
+                "dealer": -81023,
+                "total": -2628375,
+                "date": "2026-08-18"
               },
               "margin": {
                 "marginBuy": 501,
@@ -191631,11 +191563,11 @@ window.DATA = {
               "volume": 44748181.0,
               "quoteDate": "2026-08-19",
               "inst": {
-                "foreign": -19453031,
-                "trust": 436000,
-                "dealer": -154064,
-                "total": -19171095,
-                "date": "2026-08-19"
+                "foreign": -21672909,
+                "trust": -2957061,
+                "dealer": -66448,
+                "total": -24696418,
+                "date": "2026-08-18"
               },
               "margin": {
                 "marginBuy": 432,
@@ -191670,11 +191602,11 @@ window.DATA = {
               "volume": 3984481.0,
               "quoteDate": "2026-08-19",
               "inst": {
-                "foreign": 638638,
-                "trust": 71000,
-                "dealer": 141475,
-                "total": 851113,
-                "date": "2026-08-19"
+                "foreign": -483367,
+                "trust": 124167,
+                "dealer": -4985,
+                "total": -364185,
+                "date": "2026-08-18"
               },
               "margin": {
                 "marginBuy": 73,
@@ -191709,11 +191641,11 @@ window.DATA = {
               "volume": 103424075.0,
               "quoteDate": "2026-08-19",
               "inst": {
-                "foreign": -25211898,
-                "trust": 24766000,
-                "dealer": -141971,
-                "total": -587869,
-                "date": "2026-08-19"
+                "foreign": -14426240,
+                "trust": 18674309,
+                "dealer": -154099,
+                "total": 4093970,
+                "date": "2026-08-18"
               },
               "margin": {
                 "marginBuy": 348,
@@ -191748,11 +191680,11 @@ window.DATA = {
               "volume": 36592747.0,
               "quoteDate": "2026-08-19",
               "inst": {
-                "foreign": -10064384,
-                "trust": -300000,
-                "dealer": -822130,
-                "total": -11186514,
-                "date": "2026-08-19"
+                "foreign": -7859901,
+                "trust": -4370881,
+                "dealer": -709701,
+                "total": -12940483,
+                "date": "2026-08-18"
               },
               "margin": {
                 "marginBuy": 874,
@@ -191787,11 +191719,11 @@ window.DATA = {
               "volume": 4101489.0,
               "quoteDate": "2026-08-19",
               "inst": {
-                "foreign": 1048338,
-                "trust": 88000,
-                "dealer": 152983,
-                "total": 1289321,
-                "date": "2026-08-19"
+                "foreign": 3389203,
+                "trust": -568091,
+                "dealer": -5320,
+                "total": 2815792,
+                "date": "2026-08-18"
               },
               "margin": {
                 "marginBuy": 4,
@@ -191826,11 +191758,11 @@ window.DATA = {
               "volume": 26629390.0,
               "quoteDate": "2026-08-19",
               "inst": {
-                "foreign": 18646206,
-                "trust": 51000,
-                "dealer": -458967,
-                "total": 18238239,
-                "date": "2026-08-19"
+                "foreign": 2941517,
+                "trust": 200210,
+                "dealer": -42020,
+                "total": 3099707,
+                "date": "2026-08-18"
               },
               "margin": {
                 "marginBuy": 37,
@@ -191865,11 +191797,11 @@ window.DATA = {
               "volume": 4731319.0,
               "quoteDate": "2026-08-19",
               "inst": {
-                "foreign": 1250910,
-                "trust": 66000,
-                "dealer": 82541,
-                "total": 1399451,
-                "date": "2026-08-19"
+                "foreign": -334922,
+                "trust": 452954,
+                "dealer": -20338,
+                "total": 97694,
+                "date": "2026-08-18"
               },
               "margin": {
                 "marginBuy": 41,
@@ -191904,11 +191836,11 @@ window.DATA = {
               "volume": 110337394.0,
               "quoteDate": "2026-08-19",
               "inst": {
-                "foreign": 7800989,
-                "trust": -20973000,
-                "dealer": -5796260,
-                "total": -18968271,
-                "date": "2026-08-19"
+                "foreign": -3246457,
+                "trust": 1153128,
+                "dealer": -819429,
+                "total": -2912758,
+                "date": "2026-08-18"
               },
               "margin": {
                 "marginBuy": 3549,
@@ -191943,11 +191875,11 @@ window.DATA = {
               "volume": 4782368.0,
               "quoteDate": "2026-08-19",
               "inst": {
-                "foreign": -1147842,
-                "trust": 26000,
-                "dealer": -307709,
-                "total": -1429551,
-                "date": "2026-08-19"
+                "foreign": -99164,
+                "trust": 327971,
+                "dealer": -30871,
+                "total": 197936,
+                "date": "2026-08-18"
               },
               "margin": {
                 "marginBuy": 520,
@@ -191982,11 +191914,11 @@ window.DATA = {
               "volume": 8946264.0,
               "quoteDate": "2026-08-19",
               "inst": {
-                "foreign": 2232318,
-                "trust": -2934000,
-                "dealer": -505191,
-                "total": -1206873,
-                "date": "2026-08-19"
+                "foreign": 822008,
+                "trust": -1638062,
+                "dealer": -156654,
+                "total": -972708,
+                "date": "2026-08-18"
               },
               "margin": {
                 "marginBuy": 331,
@@ -192021,11 +191953,11 @@ window.DATA = {
               "volume": 10010075.0,
               "quoteDate": "2026-08-19",
               "inst": {
-                "foreign": -3756644,
-                "trust": 1092000,
-                "dealer": -117158,
-                "total": -2781802,
-                "date": "2026-08-19"
+                "foreign": -1787385,
+                "trust": 1950000,
+                "dealer": -39239,
+                "total": 123376,
+                "date": "2026-08-18"
               },
               "margin": {
                 "marginBuy": 182,
@@ -192070,11 +192002,11 @@ window.DATA = {
               "volume": 6754187.0,
               "quoteDate": "2026-08-19",
               "inst": {
-                "foreign": -1993240,
-                "trust": 497000,
-                "dealer": 236633,
-                "total": -1259607,
-                "date": "2026-08-19"
+                "foreign": -2233931,
+                "trust": 430701,
+                "dealer": -274651,
+                "total": -2077881,
+                "date": "2026-08-18"
               },
               "margin": {
                 "marginBuy": 313,
@@ -192109,11 +192041,11 @@ window.DATA = {
               "volume": 22448357.0,
               "quoteDate": "2026-08-19",
               "inst": {
-                "foreign": 2323531,
-                "trust": -3324000,
-                "dealer": -127734,
-                "total": -1128203,
-                "date": "2026-08-19"
+                "foreign": 363414,
+                "trust": -3877203,
+                "dealer": -219991,
+                "total": -3733780,
+                "date": "2026-08-18"
               },
               "margin": {
                 "marginBuy": 371,
@@ -192148,11 +192080,11 @@ window.DATA = {
               "volume": 15165045.0,
               "quoteDate": "2026-08-19",
               "inst": {
-                "foreign": 821004,
-                "trust": -25000,
-                "dealer": -204583,
-                "total": 591421,
-                "date": "2026-08-19"
+                "foreign": -3470275,
+                "trust": -291227,
+                "dealer": -891047,
+                "total": -4652549,
+                "date": "2026-08-18"
               },
               "margin": {
                 "marginBuy": 301,
@@ -192187,11 +192119,11 @@ window.DATA = {
               "volume": 17734556.0,
               "quoteDate": "2026-08-19",
               "inst": {
-                "foreign": 2892631,
-                "trust": 53000,
-                "dealer": -1473771,
-                "total": 1471860,
-                "date": "2026-08-19"
+                "foreign": 10175743,
+                "trust": -982286,
+                "dealer": -575222,
+                "total": 8618235,
+                "date": "2026-08-18"
               },
               "margin": {
                 "marginBuy": 284,
@@ -192226,11 +192158,11 @@ window.DATA = {
               "volume": 7036521.0,
               "quoteDate": "2026-08-19",
               "inst": {
-                "foreign": -216230,
-                "trust": -1046250,
-                "dealer": -265132,
-                "total": -1527612,
-                "date": "2026-08-19"
+                "foreign": -198092,
+                "trust": -1153744,
+                "dealer": -223386,
+                "total": -1575222,
+                "date": "2026-08-18"
               },
               "margin": {
                 "marginBuy": 292,
@@ -192265,11 +192197,11 @@ window.DATA = {
               "volume": 7353841.0,
               "quoteDate": "2026-08-19",
               "inst": {
-                "foreign": 2051391,
-                "trust": 185000,
-                "dealer": -227799,
-                "total": 2008592,
-                "date": "2026-08-19"
+                "foreign": 1666491,
+                "trust": 519000,
+                "dealer": -22300,
+                "total": 2163191,
+                "date": "2026-08-18"
               },
               "margin": {
                 "marginBuy": 1,
@@ -192304,11 +192236,11 @@ window.DATA = {
               "volume": 9782257.0,
               "quoteDate": "2026-08-19",
               "inst": {
-                "foreign": 1907361,
-                "trust": -2339000,
-                "dealer": -253758,
-                "total": -685397,
-                "date": "2026-08-19"
+                "foreign": -1644682,
+                "trust": -35827,
+                "dealer": -747713,
+                "total": -2428222,
+                "date": "2026-08-18"
               },
               "margin": {
                 "marginBuy": 404,
@@ -192343,11 +192275,11 @@ window.DATA = {
               "volume": 18979455.0,
               "quoteDate": "2026-08-19",
               "inst": {
-                "foreign": -3166125,
-                "trust": -1829000,
-                "dealer": 159607,
-                "total": -4835518,
-                "date": "2026-08-19"
+                "foreign": -3045902,
+                "trust": -1593000,
+                "dealer": 71433,
+                "total": -4567469,
+                "date": "2026-08-18"
               },
               "margin": {
                 "marginBuy": 912,
@@ -192382,11 +192314,11 @@ window.DATA = {
               "volume": 92963808.0,
               "quoteDate": "2026-08-19",
               "inst": {
-                "foreign": -20436250,
-                "trust": -90000,
-                "dealer": 1352917,
-                "total": -19173333,
-                "date": "2026-08-19"
+                "foreign": 5994170,
+                "trust": -78923,
+                "dealer": -1989895,
+                "total": 3925352,
+                "date": "2026-08-18"
               },
               "margin": {
                 "marginBuy": 4431,
@@ -192421,11 +192353,11 @@ window.DATA = {
               "volume": 15479247.0,
               "quoteDate": "2026-08-19",
               "inst": {
-                "foreign": 1318020,
-                "trust": 39000,
-                "dealer": -67293,
-                "total": 1289727,
-                "date": "2026-08-19"
+                "foreign": -3195214,
+                "trust": -1358588,
+                "dealer": 37537,
+                "total": -4516265,
+                "date": "2026-08-18"
               },
               "margin": {
                 "marginBuy": 490,
@@ -192460,11 +192392,11 @@ window.DATA = {
               "volume": 2827204.0,
               "quoteDate": "2026-08-19",
               "inst": {
-                "foreign": 79079,
-                "trust": 18000,
-                "dealer": -180022,
-                "total": -82943,
-                "date": "2026-08-19"
+                "foreign": -2000168,
+                "trust": 654000,
+                "dealer": -15154,
+                "total": -1361322,
+                "date": "2026-08-18"
               },
               "margin": {
                 "marginBuy": 36,
@@ -192499,11 +192431,11 @@ window.DATA = {
               "volume": 12788664.0,
               "quoteDate": "2026-08-19",
               "inst": {
-                "foreign": -5244462,
-                "trust": -8000,
-                "dealer": 451480,
-                "total": -4800982,
-                "date": "2026-08-19"
+                "foreign": -5228384,
+                "trust": 1984000,
+                "dealer": -324475,
+                "total": -3568859,
+                "date": "2026-08-18"
               },
               "margin": {
                 "marginBuy": 1066,
@@ -192538,11 +192470,11 @@ window.DATA = {
               "volume": 18075115.0,
               "quoteDate": "2026-08-19",
               "inst": {
-                "foreign": 8038518,
-                "trust": -20000,
-                "dealer": -2320506,
-                "total": 5698012,
-                "date": "2026-08-19"
+                "foreign": 2447743,
+                "trust": -2300000,
+                "dealer": -296698,
+                "total": -148955,
+                "date": "2026-08-18"
               },
               "margin": {
                 "marginBuy": 455,
@@ -192577,11 +192509,11 @@ window.DATA = {
               "volume": 3436699.0,
               "quoteDate": "2026-08-19",
               "inst": {
-                "foreign": -223157,
-                "trust": -22000,
-                "dealer": -146118,
-                "total": -391275,
-                "date": "2026-08-19"
+                "foreign": -583404,
+                "trust": 17000,
+                "dealer": -42180,
+                "total": -608584,
+                "date": "2026-08-18"
               },
               "margin": {
                 "marginBuy": 217,
@@ -192616,11 +192548,11 @@ window.DATA = {
               "volume": 2608302.0,
               "quoteDate": "2026-08-19",
               "inst": {
-                "foreign": -61319,
-                "trust": 9000,
-                "dealer": 23278,
-                "total": -29041,
-                "date": "2026-08-19"
+                "foreign": -562840,
+                "trust": 377000,
+                "dealer": -63765,
+                "total": -249605,
+                "date": "2026-08-18"
               },
               "margin": {
                 "marginBuy": 34,
@@ -192655,11 +192587,11 @@ window.DATA = {
               "volume": 11995199.0,
               "quoteDate": "2026-08-19",
               "inst": {
-                "foreign": 7594008,
-                "trust": 31000,
-                "dealer": 78065,
-                "total": 7703073,
-                "date": "2026-08-19"
+                "foreign": 508099,
+                "trust": 218175,
+                "dealer": -62806,
+                "total": 663468,
+                "date": "2026-08-18"
               },
               "margin": {
                 "marginBuy": 31,
@@ -192694,11 +192626,11 @@ window.DATA = {
               "volume": 5213792.0,
               "quoteDate": "2026-08-19",
               "inst": {
-                "foreign": 2294984,
-                "trust": 25000,
-                "dealer": -222515,
-                "total": 2097469,
-                "date": "2026-08-19"
+                "foreign": 2803338,
+                "trust": 191000,
+                "dealer": 43631,
+                "total": 3037969,
+                "date": "2026-08-18"
               },
               "margin": {
                 "marginBuy": 128,
@@ -192733,11 +192665,11 @@ window.DATA = {
               "volume": 12354545.0,
               "quoteDate": "2026-08-19",
               "inst": {
-                "foreign": 2130167,
-                "trust": 24000,
-                "dealer": 264836,
-                "total": 2419003,
-                "date": "2026-08-19"
+                "foreign": -3571930,
+                "trust": 186191,
+                "dealer": 163684,
+                "total": -3222055,
+                "date": "2026-08-18"
               },
               "margin": {
                 "marginBuy": 438,
@@ -192772,11 +192704,11 @@ window.DATA = {
               "volume": 2253967.0,
               "quoteDate": "2026-08-19",
               "inst": {
-                "foreign": -301233,
-                "trust": -4000,
-                "dealer": -228911,
-                "total": -534144,
-                "date": "2026-08-19"
+                "foreign": -461279,
+                "trust": -1000,
+                "dealer": -154715,
+                "total": -616994,
+                "date": "2026-08-18"
               },
               "margin": {
                 "marginBuy": 92,
@@ -192811,11 +192743,11 @@ window.DATA = {
               "volume": 1915444.0,
               "quoteDate": "2026-08-19",
               "inst": {
-                "foreign": 700708,
-                "trust": 56000,
-                "dealer": 19850,
-                "total": 776558,
-                "date": "2026-08-19"
+                "foreign": -65324,
+                "trust": -19000,
+                "dealer": 6138,
+                "total": -78186,
+                "date": "2026-08-18"
               },
               "margin": {
                 "marginBuy": 112,
@@ -192850,11 +192782,11 @@ window.DATA = {
               "volume": 2195357.0,
               "quoteDate": "2026-08-19",
               "inst": {
-                "foreign": 1306501,
-                "trust": -131000,
-                "dealer": -200198,
-                "total": 975303,
-                "date": "2026-08-19"
+                "foreign": -538914,
+                "trust": 41844,
+                "dealer": -10334,
+                "total": -507404,
+                "date": "2026-08-18"
               },
               "margin": {
                 "marginBuy": 62,
@@ -192889,11 +192821,11 @@ window.DATA = {
               "volume": 3204424.0,
               "quoteDate": "2026-08-19",
               "inst": {
-                "foreign": -320893,
-                "trust": -2000,
-                "dealer": -211386,
-                "total": -534279,
-                "date": "2026-08-19"
+                "foreign": -1306300,
+                "trust": -9000,
+                "dealer": -544685,
+                "total": -1859985,
+                "date": "2026-08-18"
               },
               "margin": {
                 "marginBuy": 130,
@@ -192928,11 +192860,11 @@ window.DATA = {
               "volume": 17298721.0,
               "quoteDate": "2026-08-19",
               "inst": {
-                "foreign": 1365437,
-                "trust": 43000,
-                "dealer": -480162,
-                "total": 928275,
-                "date": "2026-08-19"
+                "foreign": -4243134,
+                "trust": 98000,
+                "dealer": -17809,
+                "total": -4162943,
+                "date": "2026-08-18"
               },
               "margin": {
                 "marginBuy": 451,
@@ -192967,11 +192899,11 @@ window.DATA = {
               "volume": 2505634.0,
               "quoteDate": "2026-08-19",
               "inst": {
-                "foreign": -653975,
-                "trust": -5000,
-                "dealer": -4043,
-                "total": -663018,
-                "date": "2026-08-19"
+                "foreign": -1676539,
+                "trust": 0,
+                "dealer": -17672,
+                "total": -1694211,
+                "date": "2026-08-18"
               },
               "margin": {
                 "marginBuy": 200,
@@ -205058,17 +204990,17 @@ window.DATA = {
               "volume": 20960649.0,
               "quoteDate": "2026-08-17",
               "margin": {
-                "marginBuy": 364,
-                "marginSell": 498,
-                "marginCashRedemption": 1,
-                "marginPrevBalance": 12403,
-                "marginBalance": 12268,
-                "shortBuy": 29,
-                "shortSell": 41,
+                "marginBuy": 302,
+                "marginSell": 507,
+                "marginCashRedemption": 2,
+                "marginPrevBalance": 12268,
+                "marginBalance": 12061,
+                "shortBuy": 25,
+                "shortSell": 30,
                 "shortStockRedemption": 0,
-                "shortPrevBalance": 247,
-                "shortBalance": 235,
-                "offsetting": 4,
+                "shortPrevBalance": 235,
+                "shortBalance": 230,
+                "offsetting": 9,
                 "date": "2026-08-17"
               }
             },
@@ -205607,17 +205539,17 @@ window.DATA = {
               "volume": 2246442.0,
               "quoteDate": "2026-08-17",
               "margin": {
-                "marginBuy": 47,
-                "marginSell": 48,
-                "marginCashRedemption": 1,
-                "marginPrevBalance": 2208,
-                "marginBalance": 2206,
+                "marginBuy": 41,
+                "marginSell": 87,
+                "marginCashRedemption": 0,
+                "marginPrevBalance": 2206,
+                "marginBalance": 2160,
                 "shortBuy": 0,
-                "shortSell": 1,
+                "shortSell": 0,
                 "shortStockRedemption": 0,
-                "shortPrevBalance": 8,
+                "shortPrevBalance": 7,
                 "shortBalance": 7,
-                "offsetting": 0,
+                "offsetting": 1,
                 "date": "2026-08-17"
               }
             },
@@ -206303,17 +206235,17 @@ window.DATA = {
               "volume": 20960649.0,
               "quoteDate": "2026-08-18",
               "margin": {
-                "marginBuy": 364,
-                "marginSell": 498,
-                "marginCashRedemption": 1,
-                "marginPrevBalance": 12403,
-                "marginBalance": 12268,
-                "shortBuy": 29,
-                "shortSell": 41,
+                "marginBuy": 302,
+                "marginSell": 507,
+                "marginCashRedemption": 2,
+                "marginPrevBalance": 12268,
+                "marginBalance": 12061,
+                "shortBuy": 25,
+                "shortSell": 30,
                 "shortStockRedemption": 0,
-                "shortPrevBalance": 247,
-                "shortBalance": 235,
-                "offsetting": 4,
+                "shortPrevBalance": 235,
+                "shortBalance": 230,
+                "offsetting": 9,
                 "date": "2026-08-18"
               }
             },
@@ -206813,17 +206745,17 @@ window.DATA = {
               "volume": 2246442.0,
               "quoteDate": "2026-08-18",
               "margin": {
-                "marginBuy": 47,
-                "marginSell": 48,
-                "marginCashRedemption": 1,
-                "marginPrevBalance": 2208,
-                "marginBalance": 2206,
+                "marginBuy": 41,
+                "marginSell": 87,
+                "marginCashRedemption": 0,
+                "marginPrevBalance": 2206,
+                "marginBalance": 2160,
                 "shortBuy": 0,
-                "shortSell": 1,
+                "shortSell": 0,
                 "shortStockRedemption": 0,
-                "shortPrevBalance": 8,
+                "shortPrevBalance": 7,
                 "shortBalance": 7,
-                "offsetting": 0,
+                "offsetting": 1,
                 "date": "2026-08-18"
               }
             },
@@ -206870,7 +206802,7 @@ window.DATA = {
         },
         {
           "date": "2026-08-19",
-          "fetched_at": "2026-08-19T21:26:43+08:00",
+          "fetched_at": "2026-08-19T22:11:35+08:00",
           "count": 31,
           "self": {
             "open": 32.03,
@@ -206884,13 +206816,7 @@ window.DATA = {
             "volume": 39841825.0,
             "quoteDate": "2026-08-19"
           },
-          "selfInstitutional": {
-            "foreign": -3914599,
-            "trust": 0,
-            "dealer": -8319146,
-            "total": -12233745,
-            "date": "2026-08-19"
-          },
+          "selfInstitutional": null,
           "selfMargin": {
             "marginBuy": 169,
             "marginSell": 196,
@@ -206924,11 +206850,11 @@ window.DATA = {
               "volume": 34561497.0,
               "quoteDate": "2026-08-19",
               "inst": {
-                "foreign": -16472475,
-                "trust": -104000,
-                "dealer": 522051,
-                "total": -16054424,
-                "date": "2026-08-19"
+                "foreign": 2394562,
+                "trust": -1261411,
+                "dealer": -112355,
+                "total": 1020796,
+                "date": "2026-08-18"
               },
               "margin": {
                 "marginBuy": 400,
@@ -206963,11 +206889,11 @@ window.DATA = {
               "volume": 16525261.0,
               "quoteDate": "2026-08-19",
               "inst": {
-                "foreign": 3227189,
-                "trust": -291167,
-                "dealer": -177193,
-                "total": 2758829,
-                "date": "2026-08-19"
+                "foreign": 288816,
+                "trust": 320332,
+                "dealer": -233999,
+                "total": 375149,
+                "date": "2026-08-18"
               },
               "margin": {
                 "marginBuy": 265,
@@ -207002,11 +206928,11 @@ window.DATA = {
               "volume": 11073498.0,
               "quoteDate": "2026-08-19",
               "inst": {
-                "foreign": -890660,
-                "trust": 0,
-                "dealer": -1038095,
-                "total": -1928755,
-                "date": "2026-08-19"
+                "foreign": 558524,
+                "trust": -555357,
+                "dealer": 116349,
+                "total": 119516,
+                "date": "2026-08-18"
               },
               "margin": {
                 "marginBuy": 132,
@@ -207041,11 +206967,11 @@ window.DATA = {
               "volume": 2985654.0,
               "quoteDate": "2026-08-19",
               "inst": {
-                "foreign": -15576,
-                "trust": -41341,
-                "dealer": -74952,
-                "total": -131869,
-                "date": "2026-08-19"
+                "foreign": -587204,
+                "trust": 488307,
+                "dealer": -35464,
+                "total": -134361,
+                "date": "2026-08-18"
               },
               "margin": {
                 "marginBuy": 127,
@@ -207080,11 +207006,11 @@ window.DATA = {
               "volume": 20579536.0,
               "quoteDate": "2026-08-19",
               "inst": {
-                "foreign": 8541302,
-                "trust": 6000,
-                "dealer": -843024,
-                "total": 7704278,
-                "date": "2026-08-19"
+                "foreign": 15066712,
+                "trust": -77000,
+                "dealer": -227064,
+                "total": 14762648,
+                "date": "2026-08-18"
               },
               "margin": {
                 "marginBuy": 854,
@@ -207119,11 +207045,11 @@ window.DATA = {
               "volume": 70118504.0,
               "quoteDate": "2026-08-19",
               "inst": {
-                "foreign": -29823211,
-                "trust": 21897000,
-                "dealer": -813762,
-                "total": -8739973,
-                "date": "2026-08-19"
+                "foreign": -27653790,
+                "trust": 25106438,
+                "dealer": -81023,
+                "total": -2628375,
+                "date": "2026-08-18"
               },
               "margin": {
                 "marginBuy": 501,
@@ -207158,11 +207084,11 @@ window.DATA = {
               "volume": 110337394.0,
               "quoteDate": "2026-08-19",
               "inst": {
-                "foreign": 7800989,
-                "trust": -20973000,
-                "dealer": -5796260,
-                "total": -18968271,
-                "date": "2026-08-19"
+                "foreign": -3246457,
+                "trust": 1153128,
+                "dealer": -819429,
+                "total": -2912758,
+                "date": "2026-08-18"
               },
               "margin": {
                 "marginBuy": 3549,
@@ -207197,11 +207123,11 @@ window.DATA = {
               "volume": 3984481.0,
               "quoteDate": "2026-08-19",
               "inst": {
-                "foreign": 638638,
-                "trust": 71000,
-                "dealer": 141475,
-                "total": 851113,
-                "date": "2026-08-19"
+                "foreign": -483367,
+                "trust": 124167,
+                "dealer": -4985,
+                "total": -364185,
+                "date": "2026-08-18"
               },
               "margin": {
                 "marginBuy": 73,
@@ -207236,11 +207162,11 @@ window.DATA = {
               "volume": 7036521.0,
               "quoteDate": "2026-08-19",
               "inst": {
-                "foreign": -216230,
-                "trust": -1046250,
-                "dealer": -265132,
-                "total": -1527612,
-                "date": "2026-08-19"
+                "foreign": -198092,
+                "trust": -1153744,
+                "dealer": -223386,
+                "total": -1575222,
+                "date": "2026-08-18"
               },
               "margin": {
                 "marginBuy": 292,
@@ -207275,11 +207201,11 @@ window.DATA = {
               "volume": 24299348.0,
               "quoteDate": "2026-08-19",
               "inst": {
-                "foreign": -5691385,
-                "trust": 3974000,
-                "dealer": -6841,
-                "total": -1724226,
-                "date": "2026-08-19"
+                "foreign": 1505502,
+                "trust": 11612000,
+                "dealer": -308444,
+                "total": 12809058,
+                "date": "2026-08-18"
               },
               "margin": {
                 "marginBuy": 760,
@@ -207314,11 +207240,11 @@ window.DATA = {
               "volume": 35191145.0,
               "quoteDate": "2026-08-19",
               "inst": {
-                "foreign": -936729,
-                "trust": 640000,
-                "dealer": -238070,
-                "total": -534799,
-                "date": "2026-08-19"
+                "foreign": 9583775,
+                "trust": 3148510,
+                "dealer": -475235,
+                "total": 12257050,
+                "date": "2026-08-18"
               },
               "margin": {
                 "marginBuy": 3674,
@@ -207353,11 +207279,11 @@ window.DATA = {
               "volume": 12785616.0,
               "quoteDate": "2026-08-19",
               "inst": {
-                "foreign": 836335,
-                "trust": -372000,
-                "dealer": -408244,
-                "total": 56091,
-                "date": "2026-08-19"
+                "foreign": 10802898,
+                "trust": -1105681,
+                "dealer": -204221,
+                "total": 9492996,
+                "date": "2026-08-18"
               },
               "margin": {
                 "marginBuy": 135,
@@ -207392,11 +207318,11 @@ window.DATA = {
               "volume": 25322496.0,
               "quoteDate": "2026-08-19",
               "inst": {
-                "foreign": 12062381,
-                "trust": 3285000,
-                "dealer": -783139,
-                "total": 14564242,
-                "date": "2026-08-19"
+                "foreign": 10202794,
+                "trust": 12352505,
+                "dealer": -19152,
+                "total": 22536147,
+                "date": "2026-08-18"
               },
               "margin": {
                 "marginBuy": 47,
@@ -207431,11 +207357,11 @@ window.DATA = {
               "volume": 4731319.0,
               "quoteDate": "2026-08-19",
               "inst": {
-                "foreign": 1250910,
-                "trust": 66000,
-                "dealer": 82541,
-                "total": 1399451,
-                "date": "2026-08-19"
+                "foreign": -334922,
+                "trust": 452954,
+                "dealer": -20338,
+                "total": 97694,
+                "date": "2026-08-18"
               },
               "margin": {
                 "marginBuy": 41,
@@ -207470,11 +207396,11 @@ window.DATA = {
               "volume": 16977370.0,
               "quoteDate": "2026-08-19",
               "inst": {
-                "foreign": 13274283,
-                "trust": -539000,
-                "dealer": -643234,
-                "total": 12092049,
-                "date": "2026-08-19"
+                "foreign": 5570730,
+                "trust": 349000,
+                "dealer": -44683,
+                "total": 5875047,
+                "date": "2026-08-18"
               },
               "margin": {
                 "marginBuy": 26,
@@ -207509,11 +207435,11 @@ window.DATA = {
               "volume": 22448357.0,
               "quoteDate": "2026-08-19",
               "inst": {
-                "foreign": 2323531,
-                "trust": -3324000,
-                "dealer": -127734,
-                "total": -1128203,
-                "date": "2026-08-19"
+                "foreign": 363414,
+                "trust": -3877203,
+                "dealer": -219991,
+                "total": -3733780,
+                "date": "2026-08-18"
               },
               "margin": {
                 "marginBuy": 371,
@@ -207548,11 +207474,11 @@ window.DATA = {
               "volume": 28162708.0,
               "quoteDate": "2026-08-19",
               "inst": {
-                "foreign": -3046833,
-                "trust": 1039000,
-                "dealer": -893467,
-                "total": -2901300,
-                "date": "2026-08-19"
+                "foreign": -7514726,
+                "trust": -864060,
+                "dealer": -583850,
+                "total": -8962636,
+                "date": "2026-08-18"
               },
               "margin": {
                 "marginBuy": 2116,
@@ -207587,17 +207513,17 @@ window.DATA = {
               "volume": 20960649.0,
               "quoteDate": "2026-08-19",
               "margin": {
-                "marginBuy": 364,
-                "marginSell": 498,
-                "marginCashRedemption": 1,
-                "marginPrevBalance": 12403,
-                "marginBalance": 12268,
-                "shortBuy": 29,
-                "shortSell": 41,
+                "marginBuy": 302,
+                "marginSell": 507,
+                "marginCashRedemption": 2,
+                "marginPrevBalance": 12268,
+                "marginBalance": 12061,
+                "shortBuy": 25,
+                "shortSell": 30,
                 "shortStockRedemption": 0,
-                "shortPrevBalance": 247,
-                "shortBalance": 235,
-                "offsetting": 4,
+                "shortPrevBalance": 235,
+                "shortBalance": 230,
+                "offsetting": 9,
                 "date": "2026-08-19"
               }
             },
@@ -207619,11 +207545,11 @@ window.DATA = {
               "volume": 26629390.0,
               "quoteDate": "2026-08-19",
               "inst": {
-                "foreign": 18646206,
-                "trust": 51000,
-                "dealer": -458967,
-                "total": 18238239,
-                "date": "2026-08-19"
+                "foreign": 2941517,
+                "trust": 200210,
+                "dealer": -42020,
+                "total": 3099707,
+                "date": "2026-08-18"
               },
               "margin": {
                 "marginBuy": 37,
@@ -207658,11 +207584,11 @@ window.DATA = {
               "volume": 44748181.0,
               "quoteDate": "2026-08-19",
               "inst": {
-                "foreign": -19453031,
-                "trust": 436000,
-                "dealer": -154064,
-                "total": -19171095,
-                "date": "2026-08-19"
+                "foreign": -21672909,
+                "trust": -2957061,
+                "dealer": -66448,
+                "total": -24696418,
+                "date": "2026-08-18"
               },
               "margin": {
                 "marginBuy": 432,
@@ -207697,11 +207623,11 @@ window.DATA = {
               "volume": 4101489.0,
               "quoteDate": "2026-08-19",
               "inst": {
-                "foreign": 1048338,
-                "trust": 88000,
-                "dealer": 152983,
-                "total": 1289321,
-                "date": "2026-08-19"
+                "foreign": 3389203,
+                "trust": -568091,
+                "dealer": -5320,
+                "total": 2815792,
+                "date": "2026-08-18"
               },
               "margin": {
                 "marginBuy": 4,
@@ -207736,11 +207662,11 @@ window.DATA = {
               "volume": 7120614.0,
               "quoteDate": "2026-08-19",
               "inst": {
-                "foreign": -1119614,
-                "trust": -63000,
-                "dealer": -42133,
-                "total": -1224747,
-                "date": "2026-08-19"
+                "foreign": -2004926,
+                "trust": 4381667,
+                "dealer": -49000,
+                "total": 2327741,
+                "date": "2026-08-18"
               },
               "margin": {
                 "marginBuy": 35,
@@ -207775,11 +207701,11 @@ window.DATA = {
               "volume": 30182657.0,
               "quoteDate": "2026-08-19",
               "inst": {
-                "foreign": -3215170,
-                "trust": -1481000,
-                "dealer": -241456,
-                "total": -4937626,
-                "date": "2026-08-19"
+                "foreign": -8750877,
+                "trust": -433467,
+                "dealer": -684498,
+                "total": -9868842,
+                "date": "2026-08-18"
               },
               "margin": {
                 "marginBuy": 1262,
@@ -207814,11 +207740,11 @@ window.DATA = {
               "volume": 6754187.0,
               "quoteDate": "2026-08-19",
               "inst": {
-                "foreign": -1993240,
-                "trust": 497000,
-                "dealer": 236633,
-                "total": -1259607,
-                "date": "2026-08-19"
+                "foreign": -2233931,
+                "trust": 430701,
+                "dealer": -274651,
+                "total": -2077881,
+                "date": "2026-08-18"
               },
               "margin": {
                 "marginBuy": 313,
@@ -207853,11 +207779,11 @@ window.DATA = {
               "volume": 15165045.0,
               "quoteDate": "2026-08-19",
               "inst": {
-                "foreign": 821004,
-                "trust": -25000,
-                "dealer": -204583,
-                "total": 591421,
-                "date": "2026-08-19"
+                "foreign": -3470275,
+                "trust": -291227,
+                "dealer": -891047,
+                "total": -4652549,
+                "date": "2026-08-18"
               },
               "margin": {
                 "marginBuy": 301,
@@ -207902,11 +207828,11 @@ window.DATA = {
               "volume": 2623132.0,
               "quoteDate": "2026-08-19",
               "inst": {
-                "foreign": 1607825,
-                "trust": 1000,
-                "dealer": -19771,
-                "total": 1589054,
-                "date": "2026-08-19"
+                "foreign": 5836,
+                "trust": -2000,
+                "dealer": 2000,
+                "total": 5836,
+                "date": "2026-08-18"
               },
               "margin": {
                 "marginBuy": 8,
@@ -207941,11 +207867,11 @@ window.DATA = {
               "volume": 17734556.0,
               "quoteDate": "2026-08-19",
               "inst": {
-                "foreign": 2892631,
-                "trust": 53000,
-                "dealer": -1473771,
-                "total": 1471860,
-                "date": "2026-08-19"
+                "foreign": 10175743,
+                "trust": -982286,
+                "dealer": -575222,
+                "total": 8618235,
+                "date": "2026-08-18"
               },
               "margin": {
                 "marginBuy": 284,
@@ -207980,11 +207906,11 @@ window.DATA = {
               "volume": 7353841.0,
               "quoteDate": "2026-08-19",
               "inst": {
-                "foreign": 2051391,
-                "trust": 185000,
-                "dealer": -227799,
-                "total": 2008592,
-                "date": "2026-08-19"
+                "foreign": 1666491,
+                "trust": 519000,
+                "dealer": -22300,
+                "total": 2163191,
+                "date": "2026-08-18"
               },
               "margin": {
                 "marginBuy": 1,
@@ -208019,11 +207945,11 @@ window.DATA = {
               "volume": 2897216.0,
               "quoteDate": "2026-08-19",
               "inst": {
-                "foreign": 547225,
-                "trust": -13000,
-                "dealer": -131316,
-                "total": 402909,
-                "date": "2026-08-19"
+                "foreign": -416793,
+                "trust": 46000,
+                "dealer": -21196,
+                "total": -391989,
+                "date": "2026-08-18"
               },
               "margin": {
                 "marginBuy": 63,
@@ -208058,17 +207984,17 @@ window.DATA = {
               "volume": 2246442.0,
               "quoteDate": "2026-08-19",
               "margin": {
-                "marginBuy": 47,
-                "marginSell": 48,
-                "marginCashRedemption": 1,
-                "marginPrevBalance": 2208,
-                "marginBalance": 2206,
+                "marginBuy": 41,
+                "marginSell": 87,
+                "marginCashRedemption": 0,
+                "marginPrevBalance": 2206,
+                "marginBalance": 2160,
                 "shortBuy": 0,
-                "shortSell": 1,
+                "shortSell": 0,
                 "shortStockRedemption": 0,
-                "shortPrevBalance": 8,
+                "shortPrevBalance": 7,
                 "shortBalance": 7,
-                "offsetting": 0,
+                "offsetting": 1,
                 "date": "2026-08-19"
               }
             }
@@ -220087,17 +220013,17 @@ window.DATA = {
               "weight": 1.39,
               "shares": 365000,
               "margin": {
-                "marginBuy": 136,
-                "marginSell": 72,
-                "marginCashRedemption": 3,
-                "marginPrevBalance": 922,
-                "marginBalance": 983,
-                "shortBuy": 0,
-                "shortSell": 12,
+                "marginBuy": 68,
+                "marginSell": 39,
+                "marginCashRedemption": 1,
+                "marginPrevBalance": 983,
+                "marginBalance": 1011,
+                "shortBuy": 8,
+                "shortSell": 4,
                 "shortStockRedemption": 0,
-                "shortPrevBalance": 24,
-                "shortBalance": 12,
-                "offsetting": 0,
+                "shortPrevBalance": 12,
+                "shortBalance": 16,
+                "offsetting": 1,
                 "date": "2026-08-17"
               },
               "open": 5000.0,
@@ -220119,17 +220045,17 @@ window.DATA = {
               "weight": 1.39,
               "shares": 1324000,
               "margin": {
-                "marginBuy": 818,
-                "marginSell": 1111,
-                "marginCashRedemption": 1,
-                "marginPrevBalance": 10926,
-                "marginBalance": 10632,
-                "shortBuy": 9,
-                "shortSell": 12,
-                "shortStockRedemption": 3,
-                "shortPrevBalance": 123,
-                "shortBalance": 117,
-                "offsetting": 16,
+                "marginBuy": 464,
+                "marginSell": 595,
+                "marginCashRedemption": 3,
+                "marginPrevBalance": 10632,
+                "marginBalance": 10498,
+                "shortBuy": 20,
+                "shortSell": 14,
+                "shortStockRedemption": 0,
+                "shortPrevBalance": 117,
+                "shortBalance": 123,
+                "offsetting": 15,
                 "date": "2026-08-17"
               },
               "open": 1455.0,
@@ -220619,17 +220545,17 @@ window.DATA = {
               "weight": 0.52,
               "shares": 1993000,
               "margin": {
-                "marginBuy": 2129,
-                "marginSell": 1762,
-                "marginCashRedemption": 1,
-                "marginPrevBalance": 45202,
-                "marginBalance": 45568,
-                "shortBuy": 125,
-                "shortSell": 169,
+                "marginBuy": 715,
+                "marginSell": 995,
+                "marginCashRedemption": 4,
+                "marginPrevBalance": 45568,
+                "marginBalance": 45284,
+                "shortBuy": 135,
+                "shortSell": 112,
                 "shortStockRedemption": 0,
-                "shortPrevBalance": 991,
-                "shortBalance": 947,
-                "offsetting": 50,
+                "shortPrevBalance": 947,
+                "shortBalance": 970,
+                "offsetting": 45,
                 "date": "2026-08-17"
               },
               "open": 353.5,
@@ -221286,17 +221212,17 @@ window.DATA = {
               "volume": 5742661.0,
               "quoteDate": "2026-08-18",
               "margin": {
-                "marginBuy": 818,
-                "marginSell": 1111,
-                "marginCashRedemption": 1,
-                "marginPrevBalance": 10926,
-                "marginBalance": 10632,
-                "shortBuy": 9,
-                "shortSell": 12,
-                "shortStockRedemption": 3,
-                "shortPrevBalance": 123,
-                "shortBalance": 117,
-                "offsetting": 16,
+                "marginBuy": 464,
+                "marginSell": 595,
+                "marginCashRedemption": 3,
+                "marginPrevBalance": 10632,
+                "marginBalance": 10498,
+                "shortBuy": 20,
+                "shortSell": 14,
+                "shortStockRedemption": 0,
+                "shortPrevBalance": 117,
+                "shortBalance": 123,
+                "offsetting": 15,
                 "date": "2026-08-18"
               }
             },
@@ -221328,17 +221254,17 @@ window.DATA = {
               "volume": 1187417.0,
               "quoteDate": "2026-08-18",
               "margin": {
-                "marginBuy": 136,
-                "marginSell": 72,
-                "marginCashRedemption": 3,
-                "marginPrevBalance": 922,
-                "marginBalance": 983,
-                "shortBuy": 0,
-                "shortSell": 12,
+                "marginBuy": 68,
+                "marginSell": 39,
+                "marginCashRedemption": 1,
+                "marginPrevBalance": 983,
+                "marginBalance": 1011,
+                "shortBuy": 8,
+                "shortSell": 4,
                 "shortStockRedemption": 0,
-                "shortPrevBalance": 24,
-                "shortBalance": 12,
-                "offsetting": 0,
+                "shortPrevBalance": 12,
+                "shortBalance": 16,
+                "offsetting": 1,
                 "date": "2026-08-18"
               }
             },
@@ -221828,17 +221754,17 @@ window.DATA = {
               "volume": 17947311.0,
               "quoteDate": "2026-08-18",
               "margin": {
-                "marginBuy": 2129,
-                "marginSell": 1762,
-                "marginCashRedemption": 1,
-                "marginPrevBalance": 45202,
-                "marginBalance": 45568,
-                "shortBuy": 125,
-                "shortSell": 169,
+                "marginBuy": 715,
+                "marginSell": 995,
+                "marginCashRedemption": 4,
+                "marginPrevBalance": 45568,
+                "marginBalance": 45284,
+                "shortBuy": 135,
+                "shortSell": 112,
                 "shortStockRedemption": 0,
-                "shortPrevBalance": 991,
-                "shortBalance": 947,
-                "offsetting": 50,
+                "shortPrevBalance": 947,
+                "shortBalance": 970,
+                "offsetting": 45,
                 "date": "2026-08-18"
               }
             },
@@ -221885,7 +221811,7 @@ window.DATA = {
         },
         {
           "date": "2026-08-19",
-          "fetched_at": "2026-08-19T21:26:45+08:00",
+          "fetched_at": "2026-08-19T22:11:37+08:00",
           "count": 31,
           "self": {
             "open": 48.24,
@@ -221899,13 +221825,7 @@ window.DATA = {
             "volume": 47412727.0,
             "quoteDate": "2026-08-19"
           },
-          "selfInstitutional": {
-            "foreign": 1144514,
-            "trust": 0,
-            "dealer": -28874059,
-            "total": -27729545,
-            "date": "2026-08-19"
-          },
+          "selfInstitutional": null,
           "selfMargin": {
             "marginBuy": 548,
             "marginSell": 443,
@@ -221939,11 +221859,11 @@ window.DATA = {
               "volume": 23618612.0,
               "quoteDate": "2026-08-19",
               "inst": {
-                "foreign": -7417943,
-                "trust": -668410,
-                "dealer": 719342,
-                "total": -7367011,
-                "date": "2026-08-19"
+                "foreign": -3245118,
+                "trust": 626690,
+                "dealer": -109919,
+                "total": -2728347,
+                "date": "2026-08-18"
               },
               "margin": {
                 "marginBuy": 800,
@@ -221978,11 +221898,11 @@ window.DATA = {
               "volume": 7036521.0,
               "quoteDate": "2026-08-19",
               "inst": {
-                "foreign": -216230,
-                "trust": -1046250,
-                "dealer": -265132,
-                "total": -1527612,
-                "date": "2026-08-19"
+                "foreign": -198092,
+                "trust": -1153744,
+                "dealer": -223386,
+                "total": -1575222,
+                "date": "2026-08-18"
               },
               "margin": {
                 "marginBuy": 292,
@@ -222017,11 +221937,11 @@ window.DATA = {
               "volume": 12608652.0,
               "quoteDate": "2026-08-19",
               "inst": {
-                "foreign": -2316137,
-                "trust": 68000,
-                "dealer": -191149,
-                "total": -2439286,
-                "date": "2026-08-19"
+                "foreign": -525455,
+                "trust": -527541,
+                "dealer": -202828,
+                "total": -1255824,
+                "date": "2026-08-18"
               },
               "margin": {
                 "marginBuy": 433,
@@ -222056,11 +221976,11 @@ window.DATA = {
               "volume": 36592747.0,
               "quoteDate": "2026-08-19",
               "inst": {
-                "foreign": -10064384,
-                "trust": -300000,
-                "dealer": -822130,
-                "total": -11186514,
-                "date": "2026-08-19"
+                "foreign": -7859901,
+                "trust": -4370881,
+                "dealer": -709701,
+                "total": -12940483,
+                "date": "2026-08-18"
               },
               "margin": {
                 "marginBuy": 874,
@@ -222095,11 +222015,11 @@ window.DATA = {
               "volume": 24496587.0,
               "quoteDate": "2026-08-19",
               "inst": {
-                "foreign": 1638430,
-                "trust": -637001,
-                "dealer": -65704,
-                "total": 935725,
-                "date": "2026-08-19"
+                "foreign": 10676502,
+                "trust": 150000,
+                "dealer": -394898,
+                "total": 10431604,
+                "date": "2026-08-18"
               },
               "margin": {
                 "marginBuy": 1398,
@@ -222134,11 +222054,11 @@ window.DATA = {
               "volume": 526139.0,
               "quoteDate": "2026-08-19",
               "inst": {
-                "foreign": -102444,
-                "trust": 19412,
-                "dealer": 6370,
-                "total": -76662,
-                "date": "2026-08-19"
+                "foreign": -76972,
+                "trust": 386491,
+                "dealer": 624,
+                "total": 310143,
+                "date": "2026-08-18"
               },
               "margin": {
                 "marginBuy": 44,
@@ -222173,11 +222093,11 @@ window.DATA = {
               "volume": 3119237.0,
               "quoteDate": "2026-08-19",
               "inst": {
-                "foreign": 76221,
-                "trust": -191001,
-                "dealer": -16593,
-                "total": -131373,
-                "date": "2026-08-19"
+                "foreign": 428269,
+                "trust": -167415,
+                "dealer": 13948,
+                "total": 274802,
+                "date": "2026-08-18"
               },
               "margin": {
                 "marginBuy": 130,
@@ -222212,11 +222132,11 @@ window.DATA = {
               "volume": 110337394.0,
               "quoteDate": "2026-08-19",
               "inst": {
-                "foreign": 7800989,
-                "trust": -20973000,
-                "dealer": -5796260,
-                "total": -18968271,
-                "date": "2026-08-19"
+                "foreign": -3246457,
+                "trust": 1153128,
+                "dealer": -819429,
+                "total": -2912758,
+                "date": "2026-08-18"
               },
               "margin": {
                 "marginBuy": 3549,
@@ -222251,11 +222171,11 @@ window.DATA = {
               "volume": 3982151.0,
               "quoteDate": "2026-08-19",
               "inst": {
-                "foreign": 45475,
-                "trust": 534000,
-                "dealer": -228463,
-                "total": 351012,
-                "date": "2026-08-19"
+                "foreign": 828512,
+                "trust": -589100,
+                "dealer": -45819,
+                "total": 193593,
+                "date": "2026-08-18"
               },
               "margin": {
                 "marginBuy": 315,
@@ -222290,11 +222210,11 @@ window.DATA = {
               "volume": 3423570.0,
               "quoteDate": "2026-08-19",
               "inst": {
-                "foreign": 239885,
-                "trust": -776000,
-                "dealer": 37282,
-                "total": -498833,
-                "date": "2026-08-19"
+                "foreign": 51918,
+                "trust": 61592,
+                "dealer": -39694,
+                "total": 73816,
+                "date": "2026-08-18"
               },
               "margin": {
                 "marginBuy": 144,
@@ -222329,11 +222249,11 @@ window.DATA = {
               "volume": 3873944.0,
               "quoteDate": "2026-08-19",
               "inst": {
-                "foreign": -135887,
-                "trust": 84000,
-                "dealer": 132972,
-                "total": 81085,
-                "date": "2026-08-19"
+                "foreign": -142772,
+                "trust": 137000,
+                "dealer": 158902,
+                "total": 153130,
+                "date": "2026-08-18"
               },
               "margin": {
                 "marginBuy": 285,
@@ -222368,11 +222288,11 @@ window.DATA = {
               "volume": 4040971.0,
               "quoteDate": "2026-08-19",
               "inst": {
-                "foreign": -462188,
-                "trust": -105010,
-                "dealer": 40992,
-                "total": -526206,
-                "date": "2026-08-19"
+                "foreign": -143174,
+                "trust": -345000,
+                "dealer": -16124,
+                "total": -504298,
+                "date": "2026-08-18"
               },
               "margin": {
                 "marginBuy": 73,
@@ -222407,11 +222327,11 @@ window.DATA = {
               "volume": 28162708.0,
               "quoteDate": "2026-08-19",
               "inst": {
-                "foreign": -3046833,
-                "trust": 1039000,
-                "dealer": -893467,
-                "total": -2901300,
-                "date": "2026-08-19"
+                "foreign": -7514726,
+                "trust": -864060,
+                "dealer": -583850,
+                "total": -8962636,
+                "date": "2026-08-18"
               },
               "margin": {
                 "marginBuy": 2116,
@@ -222446,11 +222366,11 @@ window.DATA = {
               "volume": 16525261.0,
               "quoteDate": "2026-08-19",
               "inst": {
-                "foreign": 3227189,
-                "trust": -291167,
-                "dealer": -177193,
-                "total": 2758829,
-                "date": "2026-08-19"
+                "foreign": 288816,
+                "trust": 320332,
+                "dealer": -233999,
+                "total": 375149,
+                "date": "2026-08-18"
               },
               "margin": {
                 "marginBuy": 265,
@@ -222485,17 +222405,17 @@ window.DATA = {
               "volume": 5742661.0,
               "quoteDate": "2026-08-19",
               "margin": {
-                "marginBuy": 818,
-                "marginSell": 1111,
-                "marginCashRedemption": 1,
-                "marginPrevBalance": 10926,
-                "marginBalance": 10632,
-                "shortBuy": 9,
-                "shortSell": 12,
-                "shortStockRedemption": 3,
-                "shortPrevBalance": 123,
-                "shortBalance": 117,
-                "offsetting": 16,
+                "marginBuy": 464,
+                "marginSell": 595,
+                "marginCashRedemption": 3,
+                "marginPrevBalance": 10632,
+                "marginBalance": 10498,
+                "shortBuy": 20,
+                "shortSell": 14,
+                "shortStockRedemption": 0,
+                "shortPrevBalance": 117,
+                "shortBalance": 123,
+                "offsetting": 15,
                 "date": "2026-08-19"
               }
             },
@@ -222527,17 +222447,17 @@ window.DATA = {
               "volume": 1187417.0,
               "quoteDate": "2026-08-19",
               "margin": {
-                "marginBuy": 136,
-                "marginSell": 72,
-                "marginCashRedemption": 3,
-                "marginPrevBalance": 922,
-                "marginBalance": 983,
-                "shortBuy": 0,
-                "shortSell": 12,
+                "marginBuy": 68,
+                "marginSell": 39,
+                "marginCashRedemption": 1,
+                "marginPrevBalance": 983,
+                "marginBalance": 1011,
+                "shortBuy": 8,
+                "shortSell": 4,
                 "shortStockRedemption": 0,
-                "shortPrevBalance": 24,
-                "shortBalance": 12,
-                "offsetting": 0,
+                "shortPrevBalance": 12,
+                "shortBalance": 16,
+                "offsetting": 1,
                 "date": "2026-08-19"
               }
             },
@@ -222559,11 +222479,11 @@ window.DATA = {
               "volume": 2061571.0,
               "quoteDate": "2026-08-19",
               "inst": {
-                "foreign": -125140,
-                "trust": -305000,
-                "dealer": -1761,
-                "total": -431901,
-                "date": "2026-08-19"
+                "foreign": 246591,
+                "trust": -257008,
+                "dealer": 40468,
+                "total": 30051,
+                "date": "2026-08-18"
               },
               "margin": {
                 "marginBuy": 97,
@@ -222598,11 +222518,11 @@ window.DATA = {
               "volume": 30182657.0,
               "quoteDate": "2026-08-19",
               "inst": {
-                "foreign": -3215170,
-                "trust": -1481000,
-                "dealer": -241456,
-                "total": -4937626,
-                "date": "2026-08-19"
+                "foreign": -8750877,
+                "trust": -433467,
+                "dealer": -684498,
+                "total": -9868842,
+                "date": "2026-08-18"
               },
               "margin": {
                 "marginBuy": 1262,
@@ -222637,11 +222557,11 @@ window.DATA = {
               "volume": 3984481.0,
               "quoteDate": "2026-08-19",
               "inst": {
-                "foreign": 638638,
-                "trust": 71000,
-                "dealer": 141475,
-                "total": 851113,
-                "date": "2026-08-19"
+                "foreign": -483367,
+                "trust": 124167,
+                "dealer": -4985,
+                "total": -364185,
+                "date": "2026-08-18"
               },
               "margin": {
                 "marginBuy": 73,
@@ -222676,11 +222596,11 @@ window.DATA = {
               "volume": 10290635.0,
               "quoteDate": "2026-08-19",
               "inst": {
-                "foreign": -1163883,
-                "trust": -305000,
-                "dealer": -138135,
-                "total": -1607018,
-                "date": "2026-08-19"
+                "foreign": -1536054,
+                "trust": 1102978,
+                "dealer": -128182,
+                "total": -561258,
+                "date": "2026-08-18"
               },
               "margin": {
                 "marginBuy": 571,
@@ -222715,11 +222635,11 @@ window.DATA = {
               "volume": 4731319.0,
               "quoteDate": "2026-08-19",
               "inst": {
-                "foreign": 1250910,
-                "trust": 66000,
-                "dealer": 82541,
-                "total": 1399451,
-                "date": "2026-08-19"
+                "foreign": -334922,
+                "trust": 452954,
+                "dealer": -20338,
+                "total": 97694,
+                "date": "2026-08-18"
               },
               "margin": {
                 "marginBuy": 41,
@@ -222754,11 +222674,11 @@ window.DATA = {
               "volume": 15479247.0,
               "quoteDate": "2026-08-19",
               "inst": {
-                "foreign": 1318020,
-                "trust": 39000,
-                "dealer": -67293,
-                "total": 1289727,
-                "date": "2026-08-19"
+                "foreign": -3195214,
+                "trust": -1358588,
+                "dealer": 37537,
+                "total": -4516265,
+                "date": "2026-08-18"
               },
               "margin": {
                 "marginBuy": 490,
@@ -222793,11 +222713,11 @@ window.DATA = {
               "volume": 4782368.0,
               "quoteDate": "2026-08-19",
               "inst": {
-                "foreign": -1147842,
-                "trust": 26000,
-                "dealer": -307709,
-                "total": -1429551,
-                "date": "2026-08-19"
+                "foreign": -99164,
+                "trust": 327971,
+                "dealer": -30871,
+                "total": 197936,
+                "date": "2026-08-18"
               },
               "margin": {
                 "marginBuy": 520,
@@ -222832,11 +222752,11 @@ window.DATA = {
               "volume": 26629390.0,
               "quoteDate": "2026-08-19",
               "inst": {
-                "foreign": 18646206,
-                "trust": 51000,
-                "dealer": -458967,
-                "total": 18238239,
-                "date": "2026-08-19"
+                "foreign": 2941517,
+                "trust": 200210,
+                "dealer": -42020,
+                "total": 3099707,
+                "date": "2026-08-18"
               },
               "margin": {
                 "marginBuy": 37,
@@ -222871,11 +222791,11 @@ window.DATA = {
               "volume": 4101489.0,
               "quoteDate": "2026-08-19",
               "inst": {
-                "foreign": 1048338,
-                "trust": 88000,
-                "dealer": 152983,
-                "total": 1289321,
-                "date": "2026-08-19"
+                "foreign": 3389203,
+                "trust": -568091,
+                "dealer": -5320,
+                "total": 2815792,
+                "date": "2026-08-18"
               },
               "margin": {
                 "marginBuy": 4,
@@ -222910,11 +222830,11 @@ window.DATA = {
               "volume": 13397617.0,
               "quoteDate": "2026-08-19",
               "inst": {
-                "foreign": -2061511,
-                "trust": -652734,
-                "dealer": 201854,
-                "total": -2512391,
-                "date": "2026-08-19"
+                "foreign": -1193499,
+                "trust": 772000,
+                "dealer": -39682,
+                "total": -461181,
+                "date": "2026-08-18"
               },
               "margin": {
                 "marginBuy": 824,
@@ -222949,11 +222869,11 @@ window.DATA = {
               "volume": 10010075.0,
               "quoteDate": "2026-08-19",
               "inst": {
-                "foreign": -3756644,
-                "trust": 1092000,
-                "dealer": -117158,
-                "total": -2781802,
-                "date": "2026-08-19"
+                "foreign": -1787385,
+                "trust": 1950000,
+                "dealer": -39239,
+                "total": 123376,
+                "date": "2026-08-18"
               },
               "margin": {
                 "marginBuy": 182,
@@ -222988,11 +222908,11 @@ window.DATA = {
               "volume": 344112.0,
               "quoteDate": "2026-08-19",
               "inst": {
-                "foreign": 128142,
-                "trust": -102000,
-                "dealer": -5263,
-                "total": 20879,
-                "date": "2026-08-19"
+                "foreign": 24494,
+                "trust": -101003,
+                "dealer": 1040,
+                "total": -75469,
+                "date": "2026-08-18"
               },
               "margin": {
                 "marginBuy": 16,
@@ -223027,11 +222947,11 @@ window.DATA = {
               "volume": 8946264.0,
               "quoteDate": "2026-08-19",
               "inst": {
-                "foreign": 2232318,
-                "trust": -2934000,
-                "dealer": -505191,
-                "total": -1206873,
-                "date": "2026-08-19"
+                "foreign": 822008,
+                "trust": -1638062,
+                "dealer": -156654,
+                "total": -972708,
+                "date": "2026-08-18"
               },
               "margin": {
                 "marginBuy": 331,
@@ -223066,17 +222986,17 @@ window.DATA = {
               "volume": 17947311.0,
               "quoteDate": "2026-08-19",
               "margin": {
-                "marginBuy": 2129,
-                "marginSell": 1762,
-                "marginCashRedemption": 1,
-                "marginPrevBalance": 45202,
-                "marginBalance": 45568,
-                "shortBuy": 125,
-                "shortSell": 169,
+                "marginBuy": 715,
+                "marginSell": 995,
+                "marginCashRedemption": 4,
+                "marginPrevBalance": 45568,
+                "marginBalance": 45284,
+                "shortBuy": 135,
+                "shortSell": 112,
                 "shortStockRedemption": 0,
-                "shortPrevBalance": 991,
-                "shortBalance": 947,
-                "offsetting": 50,
+                "shortPrevBalance": 947,
+                "shortBalance": 970,
+                "offsetting": 45,
                 "date": "2026-08-19"
               }
             }
@@ -238624,17 +238544,17 @@ window.DATA = {
               "weight": 1.51,
               "shares": 11430000,
               "margin": {
-                "marginBuy": 47,
-                "marginSell": 48,
-                "marginCashRedemption": 1,
-                "marginPrevBalance": 2208,
-                "marginBalance": 2206,
+                "marginBuy": 41,
+                "marginSell": 87,
+                "marginCashRedemption": 0,
+                "marginPrevBalance": 2206,
+                "marginBalance": 2160,
                 "shortBuy": 0,
-                "shortSell": 1,
+                "shortSell": 0,
                 "shortStockRedemption": 0,
-                "shortPrevBalance": 8,
+                "shortPrevBalance": 7,
                 "shortBalance": 7,
-                "offsetting": 0,
+                "offsetting": 1,
                 "date": "2026-08-17"
               },
               "open": 742.0,
@@ -239046,15 +238966,15 @@ window.DATA = {
               "weight": 0.63,
               "shares": 8504000,
               "margin": {
-                "marginBuy": 61,
-                "marginSell": 23,
-                "marginCashRedemption": 1,
-                "marginPrevBalance": 481,
-                "marginBalance": 518,
+                "marginBuy": 6,
+                "marginSell": 12,
+                "marginCashRedemption": 0,
+                "marginPrevBalance": 518,
+                "marginBalance": 512,
                 "shortBuy": 0,
-                "shortSell": 2,
+                "shortSell": 0,
                 "shortStockRedemption": 0,
-                "shortPrevBalance": 2,
+                "shortPrevBalance": 0,
                 "shortBalance": 0,
                 "offsetting": 0,
                 "date": "2026-08-17"
@@ -240220,17 +240140,17 @@ window.DATA = {
               "volume": 2246442.0,
               "quoteDate": "2026-08-18",
               "margin": {
-                "marginBuy": 47,
-                "marginSell": 48,
-                "marginCashRedemption": 1,
-                "marginPrevBalance": 2208,
-                "marginBalance": 2206,
+                "marginBuy": 41,
+                "marginSell": 87,
+                "marginCashRedemption": 0,
+                "marginPrevBalance": 2206,
+                "marginBalance": 2160,
                 "shortBuy": 0,
-                "shortSell": 1,
+                "shortSell": 0,
                 "shortStockRedemption": 0,
-                "shortPrevBalance": 8,
+                "shortPrevBalance": 7,
                 "shortBalance": 7,
-                "offsetting": 0,
+                "offsetting": 1,
                 "date": "2026-08-18"
               }
             },
@@ -240642,15 +240562,15 @@ window.DATA = {
               "volume": 819073.0,
               "quoteDate": "2026-08-18",
               "margin": {
-                "marginBuy": 61,
-                "marginSell": 23,
-                "marginCashRedemption": 1,
-                "marginPrevBalance": 481,
-                "marginBalance": 518,
+                "marginBuy": 6,
+                "marginSell": 12,
+                "marginCashRedemption": 0,
+                "marginPrevBalance": 518,
+                "marginBalance": 512,
                 "shortBuy": 0,
-                "shortSell": 2,
+                "shortSell": 0,
                 "shortStockRedemption": 0,
-                "shortPrevBalance": 2,
+                "shortPrevBalance": 0,
                 "shortBalance": 0,
                 "offsetting": 0,
                 "date": "2026-08-18"
@@ -241284,7 +241204,7 @@ window.DATA = {
         },
         {
           "date": "2026-08-19",
-          "fetched_at": "2026-08-19T21:26:46+08:00",
+          "fetched_at": "2026-08-19T22:11:39+08:00",
           "count": 40,
           "self": {
             "open": 30.15,
@@ -241298,13 +241218,7 @@ window.DATA = {
             "volume": 40346797.0,
             "quoteDate": "2026-08-19"
           },
-          "selfInstitutional": {
-            "foreign": -4257645,
-            "trust": 0,
-            "dealer": 3807609,
-            "total": -450036,
-            "date": "2026-08-19"
-          },
+          "selfInstitutional": null,
           "selfMargin": {
             "marginBuy": 197,
             "marginSell": 132,
@@ -241338,11 +241252,11 @@ window.DATA = {
               "volume": 12785616.0,
               "quoteDate": "2026-08-19",
               "inst": {
-                "foreign": 836335,
-                "trust": -372000,
-                "dealer": -408244,
-                "total": 56091,
-                "date": "2026-08-19"
+                "foreign": 10802898,
+                "trust": -1105681,
+                "dealer": -204221,
+                "total": 9492996,
+                "date": "2026-08-18"
               },
               "margin": {
                 "marginBuy": 135,
@@ -241377,11 +241291,11 @@ window.DATA = {
               "volume": 11073498.0,
               "quoteDate": "2026-08-19",
               "inst": {
-                "foreign": -890660,
-                "trust": 0,
-                "dealer": -1038095,
-                "total": -1928755,
-                "date": "2026-08-19"
+                "foreign": 558524,
+                "trust": -555357,
+                "dealer": 116349,
+                "total": 119516,
+                "date": "2026-08-18"
               },
               "margin": {
                 "marginBuy": 132,
@@ -241416,11 +241330,11 @@ window.DATA = {
               "volume": 16525261.0,
               "quoteDate": "2026-08-19",
               "inst": {
-                "foreign": 3227189,
-                "trust": -291167,
-                "dealer": -177193,
-                "total": 2758829,
-                "date": "2026-08-19"
+                "foreign": 288816,
+                "trust": 320332,
+                "dealer": -233999,
+                "total": 375149,
+                "date": "2026-08-18"
               },
               "margin": {
                 "marginBuy": 265,
@@ -241455,11 +241369,11 @@ window.DATA = {
               "volume": 34561497.0,
               "quoteDate": "2026-08-19",
               "inst": {
-                "foreign": -16472475,
-                "trust": -104000,
-                "dealer": 522051,
-                "total": -16054424,
-                "date": "2026-08-19"
+                "foreign": 2394562,
+                "trust": -1261411,
+                "dealer": -112355,
+                "total": 1020796,
+                "date": "2026-08-18"
               },
               "margin": {
                 "marginBuy": 400,
@@ -241494,11 +241408,11 @@ window.DATA = {
               "volume": 70118504.0,
               "quoteDate": "2026-08-19",
               "inst": {
-                "foreign": -29823211,
-                "trust": 21897000,
-                "dealer": -813762,
-                "total": -8739973,
-                "date": "2026-08-19"
+                "foreign": -27653790,
+                "trust": 25106438,
+                "dealer": -81023,
+                "total": -2628375,
+                "date": "2026-08-18"
               },
               "margin": {
                 "marginBuy": 501,
@@ -241533,11 +241447,11 @@ window.DATA = {
               "volume": 2985654.0,
               "quoteDate": "2026-08-19",
               "inst": {
-                "foreign": -15576,
-                "trust": -41341,
-                "dealer": -74952,
-                "total": -131869,
-                "date": "2026-08-19"
+                "foreign": -587204,
+                "trust": 488307,
+                "dealer": -35464,
+                "total": -134361,
+                "date": "2026-08-18"
               },
               "margin": {
                 "marginBuy": 127,
@@ -241572,11 +241486,11 @@ window.DATA = {
               "volume": 41106180.0,
               "quoteDate": "2026-08-19",
               "inst": {
-                "foreign": -15105393,
-                "trust": 7935000,
-                "dealer": -641978,
-                "total": -7812371,
-                "date": "2026-08-19"
+                "foreign": -27234113,
+                "trust": 22147264,
+                "dealer": -114832,
+                "total": -5201681,
+                "date": "2026-08-18"
               },
               "margin": {
                 "marginBuy": 1093,
@@ -241611,11 +241525,11 @@ window.DATA = {
               "volume": 20579536.0,
               "quoteDate": "2026-08-19",
               "inst": {
-                "foreign": 8541302,
-                "trust": 6000,
-                "dealer": -843024,
-                "total": 7704278,
-                "date": "2026-08-19"
+                "foreign": 15066712,
+                "trust": -77000,
+                "dealer": -227064,
+                "total": 14762648,
+                "date": "2026-08-18"
               },
               "margin": {
                 "marginBuy": 854,
@@ -241650,11 +241564,11 @@ window.DATA = {
               "volume": 4731319.0,
               "quoteDate": "2026-08-19",
               "inst": {
-                "foreign": 1250910,
-                "trust": 66000,
-                "dealer": 82541,
-                "total": 1399451,
-                "date": "2026-08-19"
+                "foreign": -334922,
+                "trust": 452954,
+                "dealer": -20338,
+                "total": 97694,
+                "date": "2026-08-18"
               },
               "margin": {
                 "marginBuy": 41,
@@ -241689,11 +241603,11 @@ window.DATA = {
               "volume": 3984481.0,
               "quoteDate": "2026-08-19",
               "inst": {
-                "foreign": 638638,
-                "trust": 71000,
-                "dealer": 141475,
-                "total": 851113,
-                "date": "2026-08-19"
+                "foreign": -483367,
+                "trust": 124167,
+                "dealer": -4985,
+                "total": -364185,
+                "date": "2026-08-18"
               },
               "margin": {
                 "marginBuy": 73,
@@ -241728,11 +241642,11 @@ window.DATA = {
               "volume": 10010075.0,
               "quoteDate": "2026-08-19",
               "inst": {
-                "foreign": -3756644,
-                "trust": 1092000,
-                "dealer": -117158,
-                "total": -2781802,
-                "date": "2026-08-19"
+                "foreign": -1787385,
+                "trust": 1950000,
+                "dealer": -39239,
+                "total": 123376,
+                "date": "2026-08-18"
               },
               "margin": {
                 "marginBuy": 182,
@@ -241767,11 +241681,11 @@ window.DATA = {
               "volume": 17734556.0,
               "quoteDate": "2026-08-19",
               "inst": {
-                "foreign": 2892631,
-                "trust": 53000,
-                "dealer": -1473771,
-                "total": 1471860,
-                "date": "2026-08-19"
+                "foreign": 10175743,
+                "trust": -982286,
+                "dealer": -575222,
+                "total": 8618235,
+                "date": "2026-08-18"
               },
               "margin": {
                 "marginBuy": 284,
@@ -241806,17 +241720,17 @@ window.DATA = {
               "volume": 2246442.0,
               "quoteDate": "2026-08-19",
               "margin": {
-                "marginBuy": 47,
-                "marginSell": 48,
-                "marginCashRedemption": 1,
-                "marginPrevBalance": 2208,
-                "marginBalance": 2206,
+                "marginBuy": 41,
+                "marginSell": 87,
+                "marginCashRedemption": 0,
+                "marginPrevBalance": 2206,
+                "marginBalance": 2160,
                 "shortBuy": 0,
-                "shortSell": 1,
+                "shortSell": 0,
                 "shortStockRedemption": 0,
-                "shortPrevBalance": 8,
+                "shortPrevBalance": 7,
                 "shortBalance": 7,
-                "offsetting": 0,
+                "offsetting": 1,
                 "date": "2026-08-19"
               }
             },
@@ -241838,11 +241752,11 @@ window.DATA = {
               "volume": 2897216.0,
               "quoteDate": "2026-08-19",
               "inst": {
-                "foreign": 547225,
-                "trust": -13000,
-                "dealer": -131316,
-                "total": 402909,
-                "date": "2026-08-19"
+                "foreign": -416793,
+                "trust": 46000,
+                "dealer": -21196,
+                "total": -391989,
+                "date": "2026-08-18"
               },
               "margin": {
                 "marginBuy": 63,
@@ -241877,11 +241791,11 @@ window.DATA = {
               "volume": 13261815.0,
               "quoteDate": "2026-08-19",
               "inst": {
-                "foreign": 6109539,
-                "trust": 901000,
-                "dealer": 168665,
-                "total": 7179204,
-                "date": "2026-08-19"
+                "foreign": 7937559,
+                "trust": 209705,
+                "dealer": 60670,
+                "total": 8207934,
+                "date": "2026-08-18"
               },
               "margin": {
                 "marginBuy": 191,
@@ -241916,11 +241830,11 @@ window.DATA = {
               "volume": 2827204.0,
               "quoteDate": "2026-08-19",
               "inst": {
-                "foreign": 79079,
-                "trust": 18000,
-                "dealer": -180022,
-                "total": -82943,
-                "date": "2026-08-19"
+                "foreign": -2000168,
+                "trust": 654000,
+                "dealer": -15154,
+                "total": -1361322,
+                "date": "2026-08-18"
               },
               "margin": {
                 "marginBuy": 36,
@@ -241955,11 +241869,11 @@ window.DATA = {
               "volume": 2608302.0,
               "quoteDate": "2026-08-19",
               "inst": {
-                "foreign": -61319,
-                "trust": 9000,
-                "dealer": 23278,
-                "total": -29041,
-                "date": "2026-08-19"
+                "foreign": -562840,
+                "trust": 377000,
+                "dealer": -63765,
+                "total": -249605,
+                "date": "2026-08-18"
               },
               "margin": {
                 "marginBuy": 34,
@@ -241994,11 +241908,11 @@ window.DATA = {
               "volume": 605299.0,
               "quoteDate": "2026-08-19",
               "inst": {
-                "foreign": 171508,
-                "trust": -3000,
-                "dealer": -23000,
-                "total": 145508,
-                "date": "2026-08-19"
+                "foreign": 178000,
+                "trust": 0,
+                "dealer": -16000,
+                "total": 162000,
+                "date": "2026-08-18"
               },
               "margin": {
                 "marginBuy": 1,
@@ -242033,11 +241947,11 @@ window.DATA = {
               "volume": 3260081.0,
               "quoteDate": "2026-08-19",
               "inst": {
-                "foreign": -1552239,
-                "trust": 983000,
+                "foreign": 65891,
+                "trust": 613000,
                 "dealer": 0,
-                "total": -569239,
-                "date": "2026-08-19"
+                "total": 678891,
+                "date": "2026-08-18"
               },
               "margin": {
                 "marginBuy": 18,
@@ -242072,11 +241986,11 @@ window.DATA = {
               "volume": 2195357.0,
               "quoteDate": "2026-08-19",
               "inst": {
-                "foreign": 1306501,
-                "trust": -131000,
-                "dealer": -200198,
-                "total": 975303,
-                "date": "2026-08-19"
+                "foreign": -538914,
+                "trust": 41844,
+                "dealer": -10334,
+                "total": -507404,
+                "date": "2026-08-18"
               },
               "margin": {
                 "marginBuy": 62,
@@ -242111,11 +242025,11 @@ window.DATA = {
               "volume": 13205723.0,
               "quoteDate": "2026-08-19",
               "inst": {
-                "foreign": 6655818,
-                "trust": 212000,
-                "dealer": -104669,
-                "total": 6763149,
-                "date": "2026-08-19"
+                "foreign": 9866323,
+                "trust": 883000,
+                "dealer": 159096,
+                "total": 10908419,
+                "date": "2026-08-18"
               },
               "margin": {
                 "marginBuy": 151,
@@ -242150,11 +242064,11 @@ window.DATA = {
               "volume": 5213792.0,
               "quoteDate": "2026-08-19",
               "inst": {
-                "foreign": 2294984,
-                "trust": 25000,
-                "dealer": -222515,
-                "total": 2097469,
-                "date": "2026-08-19"
+                "foreign": 2803338,
+                "trust": 191000,
+                "dealer": 43631,
+                "total": 3037969,
+                "date": "2026-08-18"
               },
               "margin": {
                 "marginBuy": 128,
@@ -242189,11 +242103,11 @@ window.DATA = {
               "volume": 1324841.0,
               "quoteDate": "2026-08-19",
               "inst": {
-                "foreign": 342000,
-                "trust": -12000,
-                "dealer": -42000,
-                "total": 288000,
-                "date": "2026-08-19"
+                "foreign": 13737,
+                "trust": 0,
+                "dealer": -14000,
+                "total": -263,
+                "date": "2026-08-18"
               },
               "margin": {
                 "marginBuy": 9,
@@ -242228,15 +242142,15 @@ window.DATA = {
               "volume": 819073.0,
               "quoteDate": "2026-08-19",
               "margin": {
-                "marginBuy": 61,
-                "marginSell": 23,
-                "marginCashRedemption": 1,
-                "marginPrevBalance": 481,
-                "marginBalance": 518,
+                "marginBuy": 6,
+                "marginSell": 12,
+                "marginCashRedemption": 0,
+                "marginPrevBalance": 518,
+                "marginBalance": 512,
                 "shortBuy": 0,
-                "shortSell": 2,
+                "shortSell": 0,
                 "shortStockRedemption": 0,
-                "shortPrevBalance": 2,
+                "shortPrevBalance": 0,
                 "shortBalance": 0,
                 "offsetting": 0,
                 "date": "2026-08-19"
@@ -242260,11 +242174,11 @@ window.DATA = {
               "volume": 314966.0,
               "quoteDate": "2026-08-19",
               "inst": {
-                "foreign": 45623,
-                "trust": -16000,
-                "dealer": 303,
-                "total": 29926,
-                "date": "2026-08-19"
+                "foreign": 23521,
+                "trust": -181,
+                "dealer": -276,
+                "total": 23064,
+                "date": "2026-08-18"
               },
               "margin": {
                 "marginBuy": 22,
@@ -242299,11 +242213,11 @@ window.DATA = {
               "volume": 11208949.0,
               "quoteDate": "2026-08-19",
               "inst": {
-                "foreign": 1736240,
-                "trust": 197000,
-                "dealer": 42041,
-                "total": 1975281,
-                "date": "2026-08-19"
+                "foreign": 1005769,
+                "trust": -6000,
+                "dealer": 7686,
+                "total": 1007455,
+                "date": "2026-08-18"
               },
               "margin": {
                 "marginBuy": 565,
@@ -242338,11 +242252,11 @@ window.DATA = {
               "volume": 5172015.0,
               "quoteDate": "2026-08-19",
               "inst": {
-                "foreign": 221942,
-                "trust": -4000,
-                "dealer": -80889,
-                "total": 137053,
-                "date": "2026-08-19"
+                "foreign": 2140785,
+                "trust": 5000,
+                "dealer": 1800,
+                "total": 2147585,
+                "date": "2026-08-18"
               },
               "margin": {
                 "marginBuy": 281,
@@ -242377,11 +242291,11 @@ window.DATA = {
               "volume": 4283583.0,
               "quoteDate": "2026-08-19",
               "inst": {
-                "foreign": 538622,
-                "trust": 140000,
-                "dealer": -9586,
-                "total": 669036,
-                "date": "2026-08-19"
+                "foreign": -1322507,
+                "trust": 22000,
+                "dealer": -79081,
+                "total": -1379588,
+                "date": "2026-08-18"
               },
               "margin": {
                 "marginBuy": 130,
@@ -242416,11 +242330,11 @@ window.DATA = {
               "volume": 1448912.0,
               "quoteDate": "2026-08-19",
               "inst": {
-                "foreign": 983372,
-                "trust": 16000,
-                "dealer": -99713,
-                "total": 899659,
-                "date": "2026-08-19"
+                "foreign": -262851,
+                "trust": 99000,
+                "dealer": -8256,
+                "total": -172107,
+                "date": "2026-08-18"
               },
               "margin": {
                 "marginBuy": 3,
@@ -242455,11 +242369,11 @@ window.DATA = {
               "volume": 792784.0,
               "quoteDate": "2026-08-19",
               "inst": {
-                "foreign": 375904,
-                "trust": 0,
-                "dealer": -3673,
-                "total": 372231,
-                "date": "2026-08-19"
+                "foreign": 159148,
+                "trust": -7000,
+                "dealer": -375,
+                "total": 151773,
+                "date": "2026-08-18"
               },
               "margin": {
                 "marginBuy": 24,
@@ -242494,11 +242408,11 @@ window.DATA = {
               "volume": 8972080.0,
               "quoteDate": "2026-08-19",
               "inst": {
-                "foreign": -843668,
-                "trust": 0,
-                "dealer": -70810,
-                "total": -914478,
-                "date": "2026-08-19"
+                "foreign": -3043686,
+                "trust": 55000,
+                "dealer": -120920,
+                "total": -3109606,
+                "date": "2026-08-18"
               },
               "margin": {
                 "marginBuy": 556,
@@ -242533,11 +242447,11 @@ window.DATA = {
               "volume": 100343.0,
               "quoteDate": "2026-08-19",
               "inst": {
-                "foreign": 17416,
-                "trust": 0,
-                "dealer": -1946,
-                "total": 15470,
-                "date": "2026-08-19"
+                "foreign": 2385,
+                "trust": -1000,
+                "dealer": -3583,
+                "total": -2198,
+                "date": "2026-08-18"
               },
               "margin": {
                 "marginBuy": 1,
@@ -242572,11 +242486,11 @@ window.DATA = {
               "volume": 3186377.0,
               "quoteDate": "2026-08-19",
               "inst": {
-                "foreign": -1145373,
-                "trust": -5000,
-                "dealer": 317568,
-                "total": -832805,
-                "date": "2026-08-19"
+                "foreign": -1359779,
+                "trust": -153000,
+                "dealer": -3614,
+                "total": -1516393,
+                "date": "2026-08-18"
               },
               "margin": {
                 "marginBuy": 91,
@@ -242611,11 +242525,11 @@ window.DATA = {
               "volume": 2429556.0,
               "quoteDate": "2026-08-19",
               "inst": {
-                "foreign": 1262374,
-                "trust": -4000,
-                "dealer": -159868,
-                "total": 1098506,
-                "date": "2026-08-19"
+                "foreign": 87676,
+                "trust": -6000,
+                "dealer": -99040,
+                "total": -17364,
+                "date": "2026-08-18"
               },
               "margin": {
                 "marginBuy": 66,
@@ -242650,11 +242564,11 @@ window.DATA = {
               "volume": 1664951.0,
               "quoteDate": "2026-08-19",
               "inst": {
-                "foreign": 688908,
-                "trust": 51000,
-                "dealer": -397471,
-                "total": 342437,
-                "date": "2026-08-19"
+                "foreign": 1195316,
+                "trust": 0,
+                "dealer": -62940,
+                "total": 1132376,
+                "date": "2026-08-18"
               },
               "margin": {
                 "marginBuy": 6,
@@ -242689,11 +242603,11 @@ window.DATA = {
               "volume": 249365.0,
               "quoteDate": "2026-08-19",
               "inst": {
-                "foreign": 174000,
+                "foreign": 26299,
                 "trust": -1000,
-                "dealer": -2000,
-                "total": 171000,
-                "date": "2026-08-19"
+                "dealer": -1000,
+                "total": 24299,
+                "date": "2026-08-18"
               },
               "margin": {
                 "marginBuy": 11,
@@ -242728,11 +242642,11 @@ window.DATA = {
               "volume": 327398.0,
               "quoteDate": "2026-08-19",
               "inst": {
-                "foreign": -87304,
-                "trust": -3000,
-                "dealer": 240,
-                "total": -90064,
-                "date": "2026-08-19"
+                "foreign": -103855,
+                "trust": 0,
+                "dealer": -3445,
+                "total": -107300,
+                "date": "2026-08-18"
               },
               "margin": {
                 "marginBuy": 4,
@@ -242767,11 +242681,11 @@ window.DATA = {
               "volume": 3005171.0,
               "quoteDate": "2026-08-19",
               "inst": {
-                "foreign": -5654,
-                "trust": -4000,
-                "dealer": -2164,
-                "total": -11818,
-                "date": "2026-08-19"
+                "foreign": 717224,
+                "trust": -2000,
+                "dealer": 157208,
+                "total": 872432,
+                "date": "2026-08-18"
               },
               "margin": {
                 "marginBuy": 352,
@@ -242806,11 +242720,11 @@ window.DATA = {
               "volume": 2428500.0,
               "quoteDate": "2026-08-19",
               "inst": {
-                "foreign": -34513,
-                "trust": 574000,
-                "dealer": -305,
-                "total": 539182,
-                "date": "2026-08-19"
+                "foreign": -565000,
+                "trust": -9000,
+                "dealer": -134899,
+                "total": -708899,
+                "date": "2026-08-18"
               },
               "margin": {
                 "marginBuy": 27,
@@ -242845,11 +242759,11 @@ window.DATA = {
               "volume": 785780.0,
               "quoteDate": "2026-08-19",
               "inst": {
-                "foreign": 152205,
-                "trust": -4000,
-                "dealer": -736,
-                "total": 147469,
-                "date": "2026-08-19"
+                "foreign": 34150,
+                "trust": -6000,
+                "dealer": -291,
+                "total": 27859,
+                "date": "2026-08-18"
               },
               "margin": {
                 "marginBuy": 57,
@@ -262646,11 +262560,11 @@ window.DATA = {
               "weight": 0.68,
               "shares": 35450,
               "margin": {
-                "marginBuy": 2,
-                "marginSell": 8,
+                "marginBuy": 12,
+                "marginSell": 5,
                 "marginCashRedemption": 0,
-                "marginPrevBalance": 127,
-                "marginBalance": 121,
+                "marginPrevBalance": 121,
+                "marginBalance": 128,
                 "shortBuy": 0,
                 "shortSell": 0,
                 "shortStockRedemption": 0,
@@ -263380,17 +263294,17 @@ window.DATA = {
               "weight": 0.35,
               "shares": 54136,
               "margin": {
-                "marginBuy": 136,
-                "marginSell": 72,
-                "marginCashRedemption": 3,
-                "marginPrevBalance": 922,
-                "marginBalance": 983,
-                "shortBuy": 0,
-                "shortSell": 12,
+                "marginBuy": 68,
+                "marginSell": 39,
+                "marginCashRedemption": 1,
+                "marginPrevBalance": 983,
+                "marginBalance": 1011,
+                "shortBuy": 8,
+                "shortSell": 4,
                 "shortStockRedemption": 0,
-                "shortPrevBalance": 24,
-                "shortBalance": 12,
-                "offsetting": 0,
+                "shortPrevBalance": 12,
+                "shortBalance": 16,
+                "offsetting": 1,
                 "date": "2026-08-17"
               },
               "open": 5000.0,
@@ -263451,16 +263365,16 @@ window.DATA = {
               "weight": 0.24,
               "shares": 88615,
               "margin": {
-                "marginBuy": 50,
-                "marginSell": 68,
-                "marginCashRedemption": 1,
-                "marginPrevBalance": 1413,
-                "marginBalance": 1394,
+                "marginBuy": 87,
+                "marginSell": 61,
+                "marginCashRedemption": 0,
+                "marginPrevBalance": 1394,
+                "marginBalance": 1420,
                 "shortBuy": 0,
-                "shortSell": 30,
+                "shortSell": 1,
                 "shortStockRedemption": 0,
-                "shortPrevBalance": 35,
-                "shortBalance": 5,
+                "shortPrevBalance": 5,
+                "shortBalance": 4,
                 "offsetting": 0,
                 "date": "2026-08-17"
               },
@@ -264635,11 +264549,11 @@ window.DATA = {
               "volume": 471821.0,
               "quoteDate": "2026-08-18",
               "margin": {
-                "marginBuy": 2,
-                "marginSell": 8,
+                "marginBuy": 12,
+                "marginSell": 5,
                 "marginCashRedemption": 0,
-                "marginPrevBalance": 127,
-                "marginBalance": 121,
+                "marginPrevBalance": 121,
+                "marginBalance": 128,
                 "shortBuy": 0,
                 "shortSell": 0,
                 "shortStockRedemption": 0,
@@ -265369,17 +265283,17 @@ window.DATA = {
               "volume": 1187417.0,
               "quoteDate": "2026-08-18",
               "margin": {
-                "marginBuy": 136,
-                "marginSell": 72,
-                "marginCashRedemption": 3,
-                "marginPrevBalance": 922,
-                "marginBalance": 983,
-                "shortBuy": 0,
-                "shortSell": 12,
+                "marginBuy": 68,
+                "marginSell": 39,
+                "marginCashRedemption": 1,
+                "marginPrevBalance": 983,
+                "marginBalance": 1011,
+                "shortBuy": 8,
+                "shortSell": 4,
                 "shortStockRedemption": 0,
-                "shortPrevBalance": 24,
-                "shortBalance": 12,
-                "offsetting": 0,
+                "shortPrevBalance": 12,
+                "shortBalance": 16,
+                "offsetting": 1,
                 "date": "2026-08-18"
               }
             },
@@ -265440,16 +265354,16 @@ window.DATA = {
               "volume": 1117108.0,
               "quoteDate": "2026-08-18",
               "margin": {
-                "marginBuy": 50,
-                "marginSell": 68,
-                "marginCashRedemption": 1,
-                "marginPrevBalance": 1413,
-                "marginBalance": 1394,
+                "marginBuy": 87,
+                "marginSell": 61,
+                "marginCashRedemption": 0,
+                "marginPrevBalance": 1394,
+                "marginBalance": 1420,
                 "shortBuy": 0,
-                "shortSell": 30,
+                "shortSell": 1,
                 "shortStockRedemption": 0,
-                "shortPrevBalance": 35,
-                "shortBalance": 5,
+                "shortPrevBalance": 5,
+                "shortBalance": 4,
                 "offsetting": 0,
                 "date": "2026-08-18"
               }
@@ -265458,7 +265372,7 @@ window.DATA = {
         },
         {
           "date": "2026-08-19",
-          "fetched_at": "2026-08-19T21:26:48+08:00",
+          "fetched_at": "2026-08-19T22:11:40+08:00",
           "count": 51,
           "self": {
             "open": 39.82,
@@ -265472,13 +265386,7 @@ window.DATA = {
             "volume": 7282722.0,
             "quoteDate": "2026-08-19"
           },
-          "selfInstitutional": {
-            "foreign": 48755,
-            "trust": -2000000,
-            "dealer": -427733,
-            "total": -2378978,
-            "date": "2026-08-19"
-          },
+          "selfInstitutional": null,
           "selfMargin": {
             "marginBuy": 126,
             "marginSell": 27,
@@ -265512,11 +265420,11 @@ window.DATA = {
               "volume": 23618612.0,
               "quoteDate": "2026-08-19",
               "inst": {
-                "foreign": -7417943,
-                "trust": -668410,
-                "dealer": 719342,
-                "total": -7367011,
-                "date": "2026-08-19"
+                "foreign": -3245118,
+                "trust": 626690,
+                "dealer": -109919,
+                "total": -2728347,
+                "date": "2026-08-18"
               },
               "margin": {
                 "marginBuy": 800,
@@ -265551,11 +265459,11 @@ window.DATA = {
               "volume": 7036521.0,
               "quoteDate": "2026-08-19",
               "inst": {
-                "foreign": -216230,
-                "trust": -1046250,
-                "dealer": -265132,
-                "total": -1527612,
-                "date": "2026-08-19"
+                "foreign": -198092,
+                "trust": -1153744,
+                "dealer": -223386,
+                "total": -1575222,
+                "date": "2026-08-18"
               },
               "margin": {
                 "marginBuy": 292,
@@ -265590,11 +265498,11 @@ window.DATA = {
               "volume": 12608652.0,
               "quoteDate": "2026-08-19",
               "inst": {
-                "foreign": -2316137,
-                "trust": 68000,
-                "dealer": -191149,
-                "total": -2439286,
-                "date": "2026-08-19"
+                "foreign": -525455,
+                "trust": -527541,
+                "dealer": -202828,
+                "total": -1255824,
+                "date": "2026-08-18"
               },
               "margin": {
                 "marginBuy": 433,
@@ -265629,11 +265537,11 @@ window.DATA = {
               "volume": 36592747.0,
               "quoteDate": "2026-08-19",
               "inst": {
-                "foreign": -10064384,
-                "trust": -300000,
-                "dealer": -822130,
-                "total": -11186514,
-                "date": "2026-08-19"
+                "foreign": -7859901,
+                "trust": -4370881,
+                "dealer": -709701,
+                "total": -12940483,
+                "date": "2026-08-18"
               },
               "margin": {
                 "marginBuy": 874,
@@ -265668,11 +265576,11 @@ window.DATA = {
               "volume": 22448357.0,
               "quoteDate": "2026-08-19",
               "inst": {
-                "foreign": 2323531,
-                "trust": -3324000,
-                "dealer": -127734,
-                "total": -1128203,
-                "date": "2026-08-19"
+                "foreign": 363414,
+                "trust": -3877203,
+                "dealer": -219991,
+                "total": -3733780,
+                "date": "2026-08-18"
               },
               "margin": {
                 "marginBuy": 371,
@@ -265707,11 +265615,11 @@ window.DATA = {
               "volume": 3119237.0,
               "quoteDate": "2026-08-19",
               "inst": {
-                "foreign": 76221,
-                "trust": -191001,
-                "dealer": -16593,
-                "total": -131373,
-                "date": "2026-08-19"
+                "foreign": 428269,
+                "trust": -167415,
+                "dealer": 13948,
+                "total": 274802,
+                "date": "2026-08-18"
               },
               "margin": {
                 "marginBuy": 130,
@@ -265746,11 +265654,11 @@ window.DATA = {
               "volume": 110337394.0,
               "quoteDate": "2026-08-19",
               "inst": {
-                "foreign": 7800989,
-                "trust": -20973000,
-                "dealer": -5796260,
-                "total": -18968271,
-                "date": "2026-08-19"
+                "foreign": -3246457,
+                "trust": 1153128,
+                "dealer": -819429,
+                "total": -2912758,
+                "date": "2026-08-18"
               },
               "margin": {
                 "marginBuy": 3549,
@@ -265785,11 +265693,11 @@ window.DATA = {
               "volume": 56295383.0,
               "quoteDate": "2026-08-19",
               "inst": {
-                "foreign": -3422361,
-                "trust": -2731000,
-                "dealer": -1341269,
-                "total": -7494630,
-                "date": "2026-08-19"
+                "foreign": -2365705,
+                "trust": -696195,
+                "dealer": -673341,
+                "total": -3735241,
+                "date": "2026-08-18"
               },
               "margin": {
                 "marginBuy": 1957,
@@ -265824,11 +265732,11 @@ window.DATA = {
               "volume": 3982151.0,
               "quoteDate": "2026-08-19",
               "inst": {
-                "foreign": 45475,
-                "trust": 534000,
-                "dealer": -228463,
-                "total": 351012,
-                "date": "2026-08-19"
+                "foreign": 828512,
+                "trust": -589100,
+                "dealer": -45819,
+                "total": 193593,
+                "date": "2026-08-18"
               },
               "margin": {
                 "marginBuy": 315,
@@ -265863,11 +265771,11 @@ window.DATA = {
               "volume": 1289214.0,
               "quoteDate": "2026-08-19",
               "inst": {
-                "foreign": 174888,
-                "trust": -360257,
-                "dealer": 19836,
-                "total": -165533,
-                "date": "2026-08-19"
+                "foreign": 175380,
+                "trust": -355116,
+                "dealer": -3372,
+                "total": -183108,
+                "date": "2026-08-18"
               },
               "margin": {
                 "marginBuy": 59,
@@ -265902,11 +265810,11 @@ window.DATA = {
               "volume": 24496587.0,
               "quoteDate": "2026-08-19",
               "inst": {
-                "foreign": 1638430,
-                "trust": -637001,
-                "dealer": -65704,
-                "total": 935725,
-                "date": "2026-08-19"
+                "foreign": 10676502,
+                "trust": 150000,
+                "dealer": -394898,
+                "total": 10431604,
+                "date": "2026-08-18"
               },
               "margin": {
                 "marginBuy": 1398,
@@ -265941,11 +265849,11 @@ window.DATA = {
               "volume": 4040971.0,
               "quoteDate": "2026-08-19",
               "inst": {
-                "foreign": -462188,
-                "trust": -105010,
-                "dealer": 40992,
-                "total": -526206,
-                "date": "2026-08-19"
+                "foreign": -143174,
+                "trust": -345000,
+                "dealer": -16124,
+                "total": -504298,
+                "date": "2026-08-18"
               },
               "margin": {
                 "marginBuy": 73,
@@ -265990,11 +265898,11 @@ window.DATA = {
               "volume": 34561497.0,
               "quoteDate": "2026-08-19",
               "inst": {
-                "foreign": -16472475,
-                "trust": -104000,
-                "dealer": 522051,
-                "total": -16054424,
-                "date": "2026-08-19"
+                "foreign": 2394562,
+                "trust": -1261411,
+                "dealer": -112355,
+                "total": 1020796,
+                "date": "2026-08-18"
               },
               "margin": {
                 "marginBuy": 400,
@@ -266029,11 +265937,11 @@ window.DATA = {
               "volume": 12785616.0,
               "quoteDate": "2026-08-19",
               "inst": {
-                "foreign": 836335,
-                "trust": -372000,
-                "dealer": -408244,
-                "total": 56091,
-                "date": "2026-08-19"
+                "foreign": 10802898,
+                "trust": -1105681,
+                "dealer": -204221,
+                "total": 9492996,
+                "date": "2026-08-18"
               },
               "margin": {
                 "marginBuy": 135,
@@ -266068,11 +265976,11 @@ window.DATA = {
               "volume": 11073498.0,
               "quoteDate": "2026-08-19",
               "inst": {
-                "foreign": -890660,
-                "trust": 0,
-                "dealer": -1038095,
-                "total": -1928755,
-                "date": "2026-08-19"
+                "foreign": 558524,
+                "trust": -555357,
+                "dealer": 116349,
+                "total": 119516,
+                "date": "2026-08-18"
               },
               "margin": {
                 "marginBuy": 132,
@@ -266107,11 +266015,11 @@ window.DATA = {
               "volume": 70118504.0,
               "quoteDate": "2026-08-19",
               "inst": {
-                "foreign": -29823211,
-                "trust": 21897000,
-                "dealer": -813762,
-                "total": -8739973,
-                "date": "2026-08-19"
+                "foreign": -27653790,
+                "trust": 25106438,
+                "dealer": -81023,
+                "total": -2628375,
+                "date": "2026-08-18"
               },
               "margin": {
                 "marginBuy": 501,
@@ -266146,11 +266054,11 @@ window.DATA = {
               "volume": 44748181.0,
               "quoteDate": "2026-08-19",
               "inst": {
-                "foreign": -19453031,
-                "trust": 436000,
-                "dealer": -154064,
-                "total": -19171095,
-                "date": "2026-08-19"
+                "foreign": -21672909,
+                "trust": -2957061,
+                "dealer": -66448,
+                "total": -24696418,
+                "date": "2026-08-18"
               },
               "margin": {
                 "marginBuy": 432,
@@ -266185,11 +266093,11 @@ window.DATA = {
               "volume": 526139.0,
               "quoteDate": "2026-08-19",
               "inst": {
-                "foreign": -102444,
-                "trust": 19412,
-                "dealer": 6370,
-                "total": -76662,
-                "date": "2026-08-19"
+                "foreign": -76972,
+                "trust": 386491,
+                "dealer": 624,
+                "total": 310143,
+                "date": "2026-08-18"
               },
               "margin": {
                 "marginBuy": 44,
@@ -266224,11 +266132,11 @@ window.DATA = {
               "volume": 16525261.0,
               "quoteDate": "2026-08-19",
               "inst": {
-                "foreign": 3227189,
-                "trust": -291167,
-                "dealer": -177193,
-                "total": 2758829,
-                "date": "2026-08-19"
+                "foreign": 288816,
+                "trust": 320332,
+                "dealer": -233999,
+                "total": 375149,
+                "date": "2026-08-18"
               },
               "margin": {
                 "marginBuy": 265,
@@ -266263,11 +266171,11 @@ window.DATA = {
               "volume": 72639511.0,
               "quoteDate": "2026-08-19",
               "inst": {
-                "foreign": -2351542,
-                "trust": -288000,
-                "dealer": -2176772,
-                "total": -4816314,
-                "date": "2026-08-19"
+                "foreign": -1787676,
+                "trust": 1260962,
+                "dealer": 569138,
+                "total": 42424,
+                "date": "2026-08-18"
               },
               "margin": {
                 "marginBuy": 5049,
@@ -266302,11 +266210,11 @@ window.DATA = {
               "volume": 35191145.0,
               "quoteDate": "2026-08-19",
               "inst": {
-                "foreign": -936729,
-                "trust": 640000,
-                "dealer": -238070,
-                "total": -534799,
-                "date": "2026-08-19"
+                "foreign": 9583775,
+                "trust": 3148510,
+                "dealer": -475235,
+                "total": 12257050,
+                "date": "2026-08-18"
               },
               "margin": {
                 "marginBuy": 3674,
@@ -266341,11 +266249,11 @@ window.DATA = {
               "volume": 3873944.0,
               "quoteDate": "2026-08-19",
               "inst": {
-                "foreign": -135887,
-                "trust": 84000,
-                "dealer": 132972,
-                "total": 81085,
-                "date": "2026-08-19"
+                "foreign": -142772,
+                "trust": 137000,
+                "dealer": 158902,
+                "total": 153130,
+                "date": "2026-08-18"
               },
               "margin": {
                 "marginBuy": 285,
@@ -266380,11 +266288,11 @@ window.DATA = {
               "volume": 41106180.0,
               "quoteDate": "2026-08-19",
               "inst": {
-                "foreign": -15105393,
-                "trust": 7935000,
-                "dealer": -641978,
-                "total": -7812371,
-                "date": "2026-08-19"
+                "foreign": -27234113,
+                "trust": 22147264,
+                "dealer": -114832,
+                "total": -5201681,
+                "date": "2026-08-18"
               },
               "margin": {
                 "marginBuy": 1093,
@@ -266419,11 +266327,11 @@ window.DATA = {
               "volume": 2985654.0,
               "quoteDate": "2026-08-19",
               "inst": {
-                "foreign": -15576,
-                "trust": -41341,
-                "dealer": -74952,
-                "total": -131869,
-                "date": "2026-08-19"
+                "foreign": -587204,
+                "trust": 488307,
+                "dealer": -35464,
+                "total": -134361,
+                "date": "2026-08-18"
               },
               "margin": {
                 "marginBuy": 127,
@@ -266458,11 +266366,11 @@ window.DATA = {
               "volume": 3423570.0,
               "quoteDate": "2026-08-19",
               "inst": {
-                "foreign": 239885,
-                "trust": -776000,
-                "dealer": 37282,
-                "total": -498833,
-                "date": "2026-08-19"
+                "foreign": 51918,
+                "trust": 61592,
+                "dealer": -39694,
+                "total": 73816,
+                "date": "2026-08-18"
               },
               "margin": {
                 "marginBuy": 144,
@@ -266497,11 +266405,11 @@ window.DATA = {
               "volume": 103424075.0,
               "quoteDate": "2026-08-19",
               "inst": {
-                "foreign": -25211898,
-                "trust": 24766000,
-                "dealer": -141971,
-                "total": -587869,
-                "date": "2026-08-19"
+                "foreign": -14426240,
+                "trust": 18674309,
+                "dealer": -154099,
+                "total": 4093970,
+                "date": "2026-08-18"
               },
               "margin": {
                 "marginBuy": 348,
@@ -266536,11 +266444,11 @@ window.DATA = {
               "volume": 28162708.0,
               "quoteDate": "2026-08-19",
               "inst": {
-                "foreign": -3046833,
-                "trust": 1039000,
-                "dealer": -893467,
-                "total": -2901300,
-                "date": "2026-08-19"
+                "foreign": -7514726,
+                "trust": -864060,
+                "dealer": -583850,
+                "total": -8962636,
+                "date": "2026-08-18"
               },
               "margin": {
                 "marginBuy": 2116,
@@ -266575,11 +266483,11 @@ window.DATA = {
               "volume": 7120614.0,
               "quoteDate": "2026-08-19",
               "inst": {
-                "foreign": -1119614,
-                "trust": -63000,
-                "dealer": -42133,
-                "total": -1224747,
-                "date": "2026-08-19"
+                "foreign": -2004926,
+                "trust": 4381667,
+                "dealer": -49000,
+                "total": 2327741,
+                "date": "2026-08-18"
               },
               "margin": {
                 "marginBuy": 35,
@@ -266614,11 +266522,11 @@ window.DATA = {
               "volume": 2804186.0,
               "quoteDate": "2026-08-19",
               "inst": {
-                "foreign": 24735,
-                "trust": 271000,
-                "dealer": -17965,
-                "total": 277770,
-                "date": "2026-08-19"
+                "foreign": 922550,
+                "trust": 306000,
+                "dealer": -121576,
+                "total": 1106974,
+                "date": "2026-08-18"
               },
               "margin": {
                 "marginBuy": 280,
@@ -266653,11 +266561,11 @@ window.DATA = {
               "volume": 2584371.0,
               "quoteDate": "2026-08-19",
               "inst": {
-                "foreign": -422433,
-                "trust": -9000,
-                "dealer": 6207,
-                "total": -425226,
-                "date": "2026-08-19"
+                "foreign": 144033,
+                "trust": 310772,
+                "dealer": -4483,
+                "total": 450322,
+                "date": "2026-08-18"
               },
               "margin": {
                 "marginBuy": 219,
@@ -266692,11 +266600,11 @@ window.DATA = {
               "volume": 3984481.0,
               "quoteDate": "2026-08-19",
               "inst": {
-                "foreign": 638638,
-                "trust": 71000,
-                "dealer": 141475,
-                "total": 851113,
-                "date": "2026-08-19"
+                "foreign": -483367,
+                "trust": 124167,
+                "dealer": -4985,
+                "total": -364185,
+                "date": "2026-08-18"
               },
               "margin": {
                 "marginBuy": 73,
@@ -266731,11 +266639,11 @@ window.DATA = {
               "volume": 471821.0,
               "quoteDate": "2026-08-19",
               "margin": {
-                "marginBuy": 2,
-                "marginSell": 8,
+                "marginBuy": 12,
+                "marginSell": 5,
                 "marginCashRedemption": 0,
-                "marginPrevBalance": 127,
-                "marginBalance": 121,
+                "marginPrevBalance": 121,
+                "marginBalance": 128,
                 "shortBuy": 0,
                 "shortSell": 0,
                 "shortStockRedemption": 0,
@@ -266763,11 +266671,11 @@ window.DATA = {
               "volume": 24546731.0,
               "quoteDate": "2026-08-19",
               "inst": {
-                "foreign": -11297163,
-                "trust": 8368000,
-                "dealer": -15486,
-                "total": -2944649,
-                "date": "2026-08-19"
+                "foreign": -8148892,
+                "trust": 13974047,
+                "dealer": 7334,
+                "total": 5832489,
+                "date": "2026-08-18"
               },
               "margin": {
                 "marginBuy": 36,
@@ -266802,11 +266710,11 @@ window.DATA = {
               "volume": 2510975.0,
               "quoteDate": "2026-08-19",
               "inst": {
-                "foreign": 828793,
-                "trust": -126000,
-                "dealer": -71430,
-                "total": 631363,
-                "date": "2026-08-19"
+                "foreign": 264114,
+                "trust": -45289,
+                "dealer": 37989,
+                "total": 256814,
+                "date": "2026-08-18"
               },
               "margin": {
                 "marginBuy": 183,
@@ -266841,11 +266749,11 @@ window.DATA = {
               "volume": 16977370.0,
               "quoteDate": "2026-08-19",
               "inst": {
-                "foreign": 13274283,
-                "trust": -539000,
-                "dealer": -643234,
-                "total": 12092049,
-                "date": "2026-08-19"
+                "foreign": 5570730,
+                "trust": 349000,
+                "dealer": -44683,
+                "total": 5875047,
+                "date": "2026-08-18"
               },
               "margin": {
                 "marginBuy": 26,
@@ -266880,11 +266788,11 @@ window.DATA = {
               "volume": 2061571.0,
               "quoteDate": "2026-08-19",
               "inst": {
-                "foreign": -125140,
-                "trust": -305000,
-                "dealer": -1761,
-                "total": -431901,
-                "date": "2026-08-19"
+                "foreign": 246591,
+                "trust": -257008,
+                "dealer": 40468,
+                "total": 30051,
+                "date": "2026-08-18"
               },
               "margin": {
                 "marginBuy": 97,
@@ -266919,11 +266827,11 @@ window.DATA = {
               "volume": 4731319.0,
               "quoteDate": "2026-08-19",
               "inst": {
-                "foreign": 1250910,
-                "trust": 66000,
-                "dealer": 82541,
-                "total": 1399451,
-                "date": "2026-08-19"
+                "foreign": -334922,
+                "trust": 452954,
+                "dealer": -20338,
+                "total": 97694,
+                "date": "2026-08-18"
               },
               "margin": {
                 "marginBuy": 41,
@@ -266958,11 +266866,11 @@ window.DATA = {
               "volume": 4739840.0,
               "quoteDate": "2026-08-19",
               "inst": {
-                "foreign": -514649,
-                "trust": 572000,
-                "dealer": 54634,
-                "total": 111985,
-                "date": "2026-08-19"
+                "foreign": -1022327,
+                "trust": 1251550,
+                "dealer": 32108,
+                "total": 261331,
+                "date": "2026-08-18"
               },
               "margin": {
                 "marginBuy": 219,
@@ -266997,11 +266905,11 @@ window.DATA = {
               "volume": 16299693.0,
               "quoteDate": "2026-08-19",
               "inst": {
-                "foreign": 3265498,
-                "trust": -1569000,
-                "dealer": -634152,
-                "total": 1062346,
-                "date": "2026-08-19"
+                "foreign": -1562981,
+                "trust": 13662769,
+                "dealer": 21685,
+                "total": 12121473,
+                "date": "2026-08-18"
               },
               "margin": {
                 "marginBuy": 56,
@@ -267036,11 +266944,11 @@ window.DATA = {
               "volume": 25322496.0,
               "quoteDate": "2026-08-19",
               "inst": {
-                "foreign": 12062381,
-                "trust": 3285000,
-                "dealer": -783139,
-                "total": 14564242,
-                "date": "2026-08-19"
+                "foreign": 10202794,
+                "trust": 12352505,
+                "dealer": -19152,
+                "total": 22536147,
+                "date": "2026-08-18"
               },
               "margin": {
                 "marginBuy": 47,
@@ -267075,11 +266983,11 @@ window.DATA = {
               "volume": 2897216.0,
               "quoteDate": "2026-08-19",
               "inst": {
-                "foreign": 547225,
-                "trust": -13000,
-                "dealer": -131316,
-                "total": 402909,
-                "date": "2026-08-19"
+                "foreign": -416793,
+                "trust": 46000,
+                "dealer": -21196,
+                "total": -391989,
+                "date": "2026-08-18"
               },
               "margin": {
                 "marginBuy": 63,
@@ -267114,11 +267022,11 @@ window.DATA = {
               "volume": 24299348.0,
               "quoteDate": "2026-08-19",
               "inst": {
-                "foreign": -5691385,
-                "trust": 3974000,
-                "dealer": -6841,
-                "total": -1724226,
-                "date": "2026-08-19"
+                "foreign": 1505502,
+                "trust": 11612000,
+                "dealer": -308444,
+                "total": 12809058,
+                "date": "2026-08-18"
               },
               "margin": {
                 "marginBuy": 760,
@@ -267153,11 +267061,11 @@ window.DATA = {
               "volume": 30182657.0,
               "quoteDate": "2026-08-19",
               "inst": {
-                "foreign": -3215170,
-                "trust": -1481000,
-                "dealer": -241456,
-                "total": -4937626,
-                "date": "2026-08-19"
+                "foreign": -8750877,
+                "trust": -433467,
+                "dealer": -684498,
+                "total": -9868842,
+                "date": "2026-08-18"
               },
               "margin": {
                 "marginBuy": 1262,
@@ -267192,11 +267100,11 @@ window.DATA = {
               "volume": 1950747.0,
               "quoteDate": "2026-08-19",
               "inst": {
-                "foreign": -566539,
-                "trust": 14000,
-                "dealer": 14769,
-                "total": -537770,
-                "date": "2026-08-19"
+                "foreign": -325851,
+                "trust": -66000,
+                "dealer": -88295,
+                "total": -480146,
+                "date": "2026-08-18"
               },
               "margin": {
                 "marginBuy": 179,
@@ -267231,11 +267139,11 @@ window.DATA = {
               "volume": 555093.0,
               "quoteDate": "2026-08-19",
               "inst": {
-                "foreign": -105659,
-                "trust": -5000,
-                "dealer": -14672,
-                "total": -125331,
-                "date": "2026-08-19"
+                "foreign": -119612,
+                "trust": -16769,
+                "dealer": 16603,
+                "total": -119778,
+                "date": "2026-08-18"
               },
               "margin": {
                 "marginBuy": 3,
@@ -267270,11 +267178,11 @@ window.DATA = {
               "volume": 10290635.0,
               "quoteDate": "2026-08-19",
               "inst": {
-                "foreign": -1163883,
-                "trust": -305000,
-                "dealer": -138135,
-                "total": -1607018,
-                "date": "2026-08-19"
+                "foreign": -1536054,
+                "trust": 1102978,
+                "dealer": -128182,
+                "total": -561258,
+                "date": "2026-08-18"
               },
               "margin": {
                 "marginBuy": 571,
@@ -267309,11 +267217,11 @@ window.DATA = {
               "volume": 33352232.0,
               "quoteDate": "2026-08-19",
               "inst": {
-                "foreign": -9964193,
-                "trust": 11897000,
-                "dealer": -890663,
-                "total": 1042144,
-                "date": "2026-08-19"
+                "foreign": -6734185,
+                "trust": 12003000,
+                "dealer": -102864,
+                "total": 5165951,
+                "date": "2026-08-18"
               },
               "margin": {
                 "marginBuy": 27,
@@ -267348,17 +267256,17 @@ window.DATA = {
               "volume": 1187417.0,
               "quoteDate": "2026-08-19",
               "margin": {
-                "marginBuy": 136,
-                "marginSell": 72,
-                "marginCashRedemption": 3,
-                "marginPrevBalance": 922,
-                "marginBalance": 983,
-                "shortBuy": 0,
-                "shortSell": 12,
+                "marginBuy": 68,
+                "marginSell": 39,
+                "marginCashRedemption": 1,
+                "marginPrevBalance": 983,
+                "marginBalance": 1011,
+                "shortBuy": 8,
+                "shortSell": 4,
                 "shortStockRedemption": 0,
-                "shortPrevBalance": 24,
-                "shortBalance": 12,
-                "offsetting": 0,
+                "shortPrevBalance": 12,
+                "shortBalance": 16,
+                "offsetting": 1,
                 "date": "2026-08-19"
               }
             },
@@ -267380,11 +267288,11 @@ window.DATA = {
               "volume": 15479247.0,
               "quoteDate": "2026-08-19",
               "inst": {
-                "foreign": 1318020,
-                "trust": 39000,
-                "dealer": -67293,
-                "total": 1289727,
-                "date": "2026-08-19"
+                "foreign": -3195214,
+                "trust": -1358588,
+                "dealer": 37537,
+                "total": -4516265,
+                "date": "2026-08-18"
               },
               "margin": {
                 "marginBuy": 490,
@@ -267419,16 +267327,16 @@ window.DATA = {
               "volume": 1117108.0,
               "quoteDate": "2026-08-19",
               "margin": {
-                "marginBuy": 50,
-                "marginSell": 68,
-                "marginCashRedemption": 1,
-                "marginPrevBalance": 1413,
-                "marginBalance": 1394,
+                "marginBuy": 87,
+                "marginSell": 61,
+                "marginCashRedemption": 0,
+                "marginPrevBalance": 1394,
+                "marginBalance": 1420,
                 "shortBuy": 0,
-                "shortSell": 30,
+                "shortSell": 1,
                 "shortStockRedemption": 0,
-                "shortPrevBalance": 35,
-                "shortBalance": 5,
+                "shortPrevBalance": 5,
+                "shortBalance": 4,
                 "offsetting": 0,
                 "date": "2026-08-19"
               }
@@ -283730,7 +283638,7 @@ window.DATA = {
         },
         {
           "date": "2026-08-19",
-          "fetched_at": "2026-08-19T21:26:57+08:00",
+          "fetched_at": "2026-08-19T22:11:48+08:00",
           "count": 51,
           "self": {
             "open": 236.2,
@@ -283744,13 +283652,7 @@ window.DATA = {
             "volume": 2859041.0,
             "quoteDate": "2026-08-19"
           },
-          "selfInstitutional": {
-            "foreign": 114727,
-            "trust": -491000,
-            "dealer": -820748,
-            "total": -1197021,
-            "date": "2026-08-19"
-          },
+          "selfInstitutional": null,
           "selfMargin": {
             "marginBuy": 8,
             "marginSell": 5,
@@ -283784,11 +283686,11 @@ window.DATA = {
               "volume": 23618612.0,
               "quoteDate": "2026-08-19",
               "inst": {
-                "foreign": -7417943,
-                "trust": -668410,
-                "dealer": 719342,
-                "total": -7367011,
-                "date": "2026-08-19"
+                "foreign": -3245118,
+                "trust": 626690,
+                "dealer": -109919,
+                "total": -2728347,
+                "date": "2026-08-18"
               },
               "margin": {
                 "marginBuy": 800,
@@ -283823,11 +283725,11 @@ window.DATA = {
               "volume": 7036521.0,
               "quoteDate": "2026-08-19",
               "inst": {
-                "foreign": -216230,
-                "trust": -1046250,
-                "dealer": -265132,
-                "total": -1527612,
-                "date": "2026-08-19"
+                "foreign": -198092,
+                "trust": -1153744,
+                "dealer": -223386,
+                "total": -1575222,
+                "date": "2026-08-18"
               },
               "margin": {
                 "marginBuy": 292,
@@ -283862,11 +283764,11 @@ window.DATA = {
               "volume": 12608652.0,
               "quoteDate": "2026-08-19",
               "inst": {
-                "foreign": -2316137,
-                "trust": 68000,
-                "dealer": -191149,
-                "total": -2439286,
-                "date": "2026-08-19"
+                "foreign": -525455,
+                "trust": -527541,
+                "dealer": -202828,
+                "total": -1255824,
+                "date": "2026-08-18"
               },
               "margin": {
                 "marginBuy": 433,
@@ -283901,11 +283803,11 @@ window.DATA = {
               "volume": 36592747.0,
               "quoteDate": "2026-08-19",
               "inst": {
-                "foreign": -10064384,
-                "trust": -300000,
-                "dealer": -822130,
-                "total": -11186514,
-                "date": "2026-08-19"
+                "foreign": -7859901,
+                "trust": -4370881,
+                "dealer": -709701,
+                "total": -12940483,
+                "date": "2026-08-18"
               },
               "margin": {
                 "marginBuy": 874,
@@ -283940,11 +283842,11 @@ window.DATA = {
               "volume": 22448357.0,
               "quoteDate": "2026-08-19",
               "inst": {
-                "foreign": 2323531,
-                "trust": -3324000,
-                "dealer": -127734,
-                "total": -1128203,
-                "date": "2026-08-19"
+                "foreign": 363414,
+                "trust": -3877203,
+                "dealer": -219991,
+                "total": -3733780,
+                "date": "2026-08-18"
               },
               "margin": {
                 "marginBuy": 371,
@@ -283979,11 +283881,11 @@ window.DATA = {
               "volume": 3119237.0,
               "quoteDate": "2026-08-19",
               "inst": {
-                "foreign": 76221,
-                "trust": -191001,
-                "dealer": -16593,
-                "total": -131373,
-                "date": "2026-08-19"
+                "foreign": 428269,
+                "trust": -167415,
+                "dealer": 13948,
+                "total": 274802,
+                "date": "2026-08-18"
               },
               "margin": {
                 "marginBuy": 130,
@@ -284018,11 +283920,11 @@ window.DATA = {
               "volume": 24496587.0,
               "quoteDate": "2026-08-19",
               "inst": {
-                "foreign": 1638430,
-                "trust": -637001,
-                "dealer": -65704,
-                "total": 935725,
-                "date": "2026-08-19"
+                "foreign": 10676502,
+                "trust": 150000,
+                "dealer": -394898,
+                "total": 10431604,
+                "date": "2026-08-18"
               },
               "margin": {
                 "marginBuy": 1398,
@@ -284057,11 +283959,11 @@ window.DATA = {
               "volume": 110337394.0,
               "quoteDate": "2026-08-19",
               "inst": {
-                "foreign": 7800989,
-                "trust": -20973000,
-                "dealer": -5796260,
-                "total": -18968271,
-                "date": "2026-08-19"
+                "foreign": -3246457,
+                "trust": 1153128,
+                "dealer": -819429,
+                "total": -2912758,
+                "date": "2026-08-18"
               },
               "margin": {
                 "marginBuy": 3549,
@@ -284096,11 +283998,11 @@ window.DATA = {
               "volume": 34561497.0,
               "quoteDate": "2026-08-19",
               "inst": {
-                "foreign": -16472475,
-                "trust": -104000,
-                "dealer": 522051,
-                "total": -16054424,
-                "date": "2026-08-19"
+                "foreign": 2394562,
+                "trust": -1261411,
+                "dealer": -112355,
+                "total": 1020796,
+                "date": "2026-08-18"
               },
               "margin": {
                 "marginBuy": 400,
@@ -284135,11 +284037,11 @@ window.DATA = {
               "volume": 12785616.0,
               "quoteDate": "2026-08-19",
               "inst": {
-                "foreign": 836335,
-                "trust": -372000,
-                "dealer": -408244,
-                "total": 56091,
-                "date": "2026-08-19"
+                "foreign": 10802898,
+                "trust": -1105681,
+                "dealer": -204221,
+                "total": 9492996,
+                "date": "2026-08-18"
               },
               "margin": {
                 "marginBuy": 135,
@@ -284174,11 +284076,11 @@ window.DATA = {
               "volume": 4040971.0,
               "quoteDate": "2026-08-19",
               "inst": {
-                "foreign": -462188,
-                "trust": -105010,
-                "dealer": 40992,
-                "total": -526206,
-                "date": "2026-08-19"
+                "foreign": -143174,
+                "trust": -345000,
+                "dealer": -16124,
+                "total": -504298,
+                "date": "2026-08-18"
               },
               "margin": {
                 "marginBuy": 73,
@@ -284213,11 +284115,11 @@ window.DATA = {
               "volume": 3982151.0,
               "quoteDate": "2026-08-19",
               "inst": {
-                "foreign": 45475,
-                "trust": 534000,
-                "dealer": -228463,
-                "total": 351012,
-                "date": "2026-08-19"
+                "foreign": 828512,
+                "trust": -589100,
+                "dealer": -45819,
+                "total": 193593,
+                "date": "2026-08-18"
               },
               "margin": {
                 "marginBuy": 315,
@@ -284252,11 +284154,11 @@ window.DATA = {
               "volume": 11073498.0,
               "quoteDate": "2026-08-19",
               "inst": {
-                "foreign": -890660,
-                "trust": 0,
-                "dealer": -1038095,
-                "total": -1928755,
-                "date": "2026-08-19"
+                "foreign": 558524,
+                "trust": -555357,
+                "dealer": 116349,
+                "total": 119516,
+                "date": "2026-08-18"
               },
               "margin": {
                 "marginBuy": 132,
@@ -284291,11 +284193,11 @@ window.DATA = {
               "volume": 72639511.0,
               "quoteDate": "2026-08-19",
               "inst": {
-                "foreign": -2351542,
-                "trust": -288000,
-                "dealer": -2176772,
-                "total": -4816314,
-                "date": "2026-08-19"
+                "foreign": -1787676,
+                "trust": 1260962,
+                "dealer": 569138,
+                "total": 42424,
+                "date": "2026-08-18"
               },
               "margin": {
                 "marginBuy": 5049,
@@ -284330,11 +284232,11 @@ window.DATA = {
               "volume": 56295383.0,
               "quoteDate": "2026-08-19",
               "inst": {
-                "foreign": -3422361,
-                "trust": -2731000,
-                "dealer": -1341269,
-                "total": -7494630,
-                "date": "2026-08-19"
+                "foreign": -2365705,
+                "trust": -696195,
+                "dealer": -673341,
+                "total": -3735241,
+                "date": "2026-08-18"
               },
               "margin": {
                 "marginBuy": 1957,
@@ -284369,11 +284271,11 @@ window.DATA = {
               "volume": 16525261.0,
               "quoteDate": "2026-08-19",
               "inst": {
-                "foreign": 3227189,
-                "trust": -291167,
-                "dealer": -177193,
-                "total": 2758829,
-                "date": "2026-08-19"
+                "foreign": 288816,
+                "trust": 320332,
+                "dealer": -233999,
+                "total": 375149,
+                "date": "2026-08-18"
               },
               "margin": {
                 "marginBuy": 265,
@@ -284408,11 +284310,11 @@ window.DATA = {
               "volume": 70118504.0,
               "quoteDate": "2026-08-19",
               "inst": {
-                "foreign": -29823211,
-                "trust": 21897000,
-                "dealer": -813762,
-                "total": -8739973,
-                "date": "2026-08-19"
+                "foreign": -27653790,
+                "trust": 25106438,
+                "dealer": -81023,
+                "total": -2628375,
+                "date": "2026-08-18"
               },
               "margin": {
                 "marginBuy": 501,
@@ -284447,11 +284349,11 @@ window.DATA = {
               "volume": 3423570.0,
               "quoteDate": "2026-08-19",
               "inst": {
-                "foreign": 239885,
-                "trust": -776000,
-                "dealer": 37282,
-                "total": -498833,
-                "date": "2026-08-19"
+                "foreign": 51918,
+                "trust": 61592,
+                "dealer": -39694,
+                "total": 73816,
+                "date": "2026-08-18"
               },
               "margin": {
                 "marginBuy": 144,
@@ -284486,11 +284388,11 @@ window.DATA = {
               "volume": 526139.0,
               "quoteDate": "2026-08-19",
               "inst": {
-                "foreign": -102444,
-                "trust": 19412,
-                "dealer": 6370,
-                "total": -76662,
-                "date": "2026-08-19"
+                "foreign": -76972,
+                "trust": 386491,
+                "dealer": 624,
+                "total": 310143,
+                "date": "2026-08-18"
               },
               "margin": {
                 "marginBuy": 44,
@@ -284525,11 +284427,11 @@ window.DATA = {
               "volume": 44748181.0,
               "quoteDate": "2026-08-19",
               "inst": {
-                "foreign": -19453031,
-                "trust": 436000,
-                "dealer": -154064,
-                "total": -19171095,
-                "date": "2026-08-19"
+                "foreign": -21672909,
+                "trust": -2957061,
+                "dealer": -66448,
+                "total": -24696418,
+                "date": "2026-08-18"
               },
               "margin": {
                 "marginBuy": 432,
@@ -284564,11 +284466,11 @@ window.DATA = {
               "volume": 1289214.0,
               "quoteDate": "2026-08-19",
               "inst": {
-                "foreign": 174888,
-                "trust": -360257,
-                "dealer": 19836,
-                "total": -165533,
-                "date": "2026-08-19"
+                "foreign": 175380,
+                "trust": -355116,
+                "dealer": -3372,
+                "total": -183108,
+                "date": "2026-08-18"
               },
               "margin": {
                 "marginBuy": 59,
@@ -284603,11 +284505,11 @@ window.DATA = {
               "volume": 2985654.0,
               "quoteDate": "2026-08-19",
               "inst": {
-                "foreign": -15576,
-                "trust": -41341,
-                "dealer": -74952,
-                "total": -131869,
-                "date": "2026-08-19"
+                "foreign": -587204,
+                "trust": 488307,
+                "dealer": -35464,
+                "total": -134361,
+                "date": "2026-08-18"
               },
               "margin": {
                 "marginBuy": 127,
@@ -284642,11 +284544,11 @@ window.DATA = {
               "volume": 103424075.0,
               "quoteDate": "2026-08-19",
               "inst": {
-                "foreign": -25211898,
-                "trust": 24766000,
-                "dealer": -141971,
-                "total": -587869,
-                "date": "2026-08-19"
+                "foreign": -14426240,
+                "trust": 18674309,
+                "dealer": -154099,
+                "total": 4093970,
+                "date": "2026-08-18"
               },
               "margin": {
                 "marginBuy": 348,
@@ -284681,11 +284583,11 @@ window.DATA = {
               "volume": 25322496.0,
               "quoteDate": "2026-08-19",
               "inst": {
-                "foreign": 12062381,
-                "trust": 3285000,
-                "dealer": -783139,
-                "total": 14564242,
-                "date": "2026-08-19"
+                "foreign": 10202794,
+                "trust": 12352505,
+                "dealer": -19152,
+                "total": 22536147,
+                "date": "2026-08-18"
               },
               "margin": {
                 "marginBuy": 47,
@@ -284720,11 +284622,11 @@ window.DATA = {
               "volume": 28162708.0,
               "quoteDate": "2026-08-19",
               "inst": {
-                "foreign": -3046833,
-                "trust": 1039000,
-                "dealer": -893467,
-                "total": -2901300,
-                "date": "2026-08-19"
+                "foreign": -7514726,
+                "trust": -864060,
+                "dealer": -583850,
+                "total": -8962636,
+                "date": "2026-08-18"
               },
               "margin": {
                 "marginBuy": 2116,
@@ -284759,11 +284661,11 @@ window.DATA = {
               "volume": 69157927.0,
               "quoteDate": "2026-08-19",
               "inst": {
-                "foreign": -13747190,
-                "trust": 380000,
-                "dealer": -1059651,
-                "total": -14426841,
-                "date": "2026-08-19"
+                "foreign": 2348431,
+                "trust": 742875,
+                "dealer": -197838,
+                "total": 2893468,
+                "date": "2026-08-18"
               },
               "margin": {
                 "marginBuy": 4209,
@@ -284798,11 +284700,11 @@ window.DATA = {
               "volume": 35191145.0,
               "quoteDate": "2026-08-19",
               "inst": {
-                "foreign": -936729,
-                "trust": 640000,
-                "dealer": -238070,
-                "total": -534799,
-                "date": "2026-08-19"
+                "foreign": 9583775,
+                "trust": 3148510,
+                "dealer": -475235,
+                "total": 12257050,
+                "date": "2026-08-18"
               },
               "margin": {
                 "marginBuy": 3674,
@@ -284837,11 +284739,11 @@ window.DATA = {
               "volume": 3873944.0,
               "quoteDate": "2026-08-19",
               "inst": {
-                "foreign": -135887,
-                "trust": 84000,
-                "dealer": 132972,
-                "total": 81085,
-                "date": "2026-08-19"
+                "foreign": -142772,
+                "trust": 137000,
+                "dealer": 158902,
+                "total": 153130,
+                "date": "2026-08-18"
               },
               "margin": {
                 "marginBuy": 285,
@@ -284876,11 +284778,11 @@ window.DATA = {
               "volume": 113062347.0,
               "quoteDate": "2026-08-19",
               "inst": {
-                "foreign": -4640893,
-                "trust": -17582000,
-                "dealer": 75860,
-                "total": -22147033,
-                "date": "2026-08-19"
+                "foreign": 897255,
+                "trust": -468880,
+                "dealer": -740105,
+                "total": -311730,
+                "date": "2026-08-18"
               },
               "margin": {
                 "marginBuy": 5376,
@@ -284915,11 +284817,11 @@ window.DATA = {
               "volume": 7120614.0,
               "quoteDate": "2026-08-19",
               "inst": {
-                "foreign": -1119614,
-                "trust": -63000,
-                "dealer": -42133,
-                "total": -1224747,
-                "date": "2026-08-19"
+                "foreign": -2004926,
+                "trust": 4381667,
+                "dealer": -49000,
+                "total": 2327741,
+                "date": "2026-08-18"
               },
               "margin": {
                 "marginBuy": 35,
@@ -284954,11 +284856,11 @@ window.DATA = {
               "volume": 24546731.0,
               "quoteDate": "2026-08-19",
               "inst": {
-                "foreign": -11297163,
-                "trust": 8368000,
-                "dealer": -15486,
-                "total": -2944649,
-                "date": "2026-08-19"
+                "foreign": -8148892,
+                "trust": 13974047,
+                "dealer": 7334,
+                "total": 5832489,
+                "date": "2026-08-18"
               },
               "margin": {
                 "marginBuy": 36,
@@ -284993,11 +284895,11 @@ window.DATA = {
               "volume": 41106180.0,
               "quoteDate": "2026-08-19",
               "inst": {
-                "foreign": -15105393,
-                "trust": 7935000,
-                "dealer": -641978,
-                "total": -7812371,
-                "date": "2026-08-19"
+                "foreign": -27234113,
+                "trust": 22147264,
+                "dealer": -114832,
+                "total": -5201681,
+                "date": "2026-08-18"
               },
               "margin": {
                 "marginBuy": 1093,
@@ -285032,11 +284934,11 @@ window.DATA = {
               "volume": 2804186.0,
               "quoteDate": "2026-08-19",
               "inst": {
-                "foreign": 24735,
-                "trust": 271000,
-                "dealer": -17965,
-                "total": 277770,
-                "date": "2026-08-19"
+                "foreign": 922550,
+                "trust": 306000,
+                "dealer": -121576,
+                "total": 1106974,
+                "date": "2026-08-18"
               },
               "margin": {
                 "marginBuy": 280,
@@ -285071,11 +284973,11 @@ window.DATA = {
               "volume": 2510975.0,
               "quoteDate": "2026-08-19",
               "inst": {
-                "foreign": 828793,
-                "trust": -126000,
-                "dealer": -71430,
-                "total": 631363,
-                "date": "2026-08-19"
+                "foreign": 264114,
+                "trust": -45289,
+                "dealer": 37989,
+                "total": 256814,
+                "date": "2026-08-18"
               },
               "margin": {
                 "marginBuy": 183,
@@ -285110,11 +285012,11 @@ window.DATA = {
               "volume": 2061571.0,
               "quoteDate": "2026-08-19",
               "inst": {
-                "foreign": -125140,
-                "trust": -305000,
-                "dealer": -1761,
-                "total": -431901,
-                "date": "2026-08-19"
+                "foreign": 246591,
+                "trust": -257008,
+                "dealer": 40468,
+                "total": 30051,
+                "date": "2026-08-18"
               },
               "margin": {
                 "marginBuy": 97,
@@ -285159,11 +285061,11 @@ window.DATA = {
               "volume": 16977370.0,
               "quoteDate": "2026-08-19",
               "inst": {
-                "foreign": 13274283,
-                "trust": -539000,
-                "dealer": -643234,
-                "total": 12092049,
-                "date": "2026-08-19"
+                "foreign": 5570730,
+                "trust": 349000,
+                "dealer": -44683,
+                "total": 5875047,
+                "date": "2026-08-18"
               },
               "margin": {
                 "marginBuy": 26,
@@ -285198,11 +285100,11 @@ window.DATA = {
               "volume": 16299693.0,
               "quoteDate": "2026-08-19",
               "inst": {
-                "foreign": 3265498,
-                "trust": -1569000,
-                "dealer": -634152,
-                "total": 1062346,
-                "date": "2026-08-19"
+                "foreign": -1562981,
+                "trust": 13662769,
+                "dealer": 21685,
+                "total": 12121473,
+                "date": "2026-08-18"
               },
               "margin": {
                 "marginBuy": 56,
@@ -285237,11 +285139,11 @@ window.DATA = {
               "volume": 450430.0,
               "quoteDate": "2026-08-19",
               "inst": {
-                "foreign": 78455,
-                "trust": -14000,
-                "dealer": -845,
-                "total": 63610,
-                "date": "2026-08-19"
+                "foreign": -67435,
+                "trust": 23000,
+                "dealer": -2846,
+                "total": -47281,
+                "date": "2026-08-18"
               },
               "margin": {
                 "marginBuy": 9,
@@ -285276,11 +285178,11 @@ window.DATA = {
               "volume": 24299348.0,
               "quoteDate": "2026-08-19",
               "inst": {
-                "foreign": -5691385,
-                "trust": 3974000,
-                "dealer": -6841,
-                "total": -1724226,
-                "date": "2026-08-19"
+                "foreign": 1505502,
+                "trust": 11612000,
+                "dealer": -308444,
+                "total": 12809058,
+                "date": "2026-08-18"
               },
               "margin": {
                 "marginBuy": 760,
@@ -285315,11 +285217,11 @@ window.DATA = {
               "volume": 10290635.0,
               "quoteDate": "2026-08-19",
               "inst": {
-                "foreign": -1163883,
-                "trust": -305000,
-                "dealer": -138135,
-                "total": -1607018,
-                "date": "2026-08-19"
+                "foreign": -1536054,
+                "trust": 1102978,
+                "dealer": -128182,
+                "total": -561258,
+                "date": "2026-08-18"
               },
               "margin": {
                 "marginBuy": 571,
@@ -285354,11 +285256,11 @@ window.DATA = {
               "volume": 30182657.0,
               "quoteDate": "2026-08-19",
               "inst": {
-                "foreign": -3215170,
-                "trust": -1481000,
-                "dealer": -241456,
-                "total": -4937626,
-                "date": "2026-08-19"
+                "foreign": -8750877,
+                "trust": -433467,
+                "dealer": -684498,
+                "total": -9868842,
+                "date": "2026-08-18"
               },
               "margin": {
                 "marginBuy": 1262,
@@ -285393,11 +285295,11 @@ window.DATA = {
               "volume": 4739840.0,
               "quoteDate": "2026-08-19",
               "inst": {
-                "foreign": -514649,
-                "trust": 572000,
-                "dealer": 54634,
-                "total": 111985,
-                "date": "2026-08-19"
+                "foreign": -1022327,
+                "trust": 1251550,
+                "dealer": 32108,
+                "total": 261331,
+                "date": "2026-08-18"
               },
               "margin": {
                 "marginBuy": 219,
@@ -285432,11 +285334,11 @@ window.DATA = {
               "volume": 1950747.0,
               "quoteDate": "2026-08-19",
               "inst": {
-                "foreign": -566539,
-                "trust": 14000,
-                "dealer": 14769,
-                "total": -537770,
-                "date": "2026-08-19"
+                "foreign": -325851,
+                "trust": -66000,
+                "dealer": -88295,
+                "total": -480146,
+                "date": "2026-08-18"
               },
               "margin": {
                 "marginBuy": 179,
@@ -285471,11 +285373,11 @@ window.DATA = {
               "volume": 15479247.0,
               "quoteDate": "2026-08-19",
               "inst": {
-                "foreign": 1318020,
-                "trust": 39000,
-                "dealer": -67293,
-                "total": 1289727,
-                "date": "2026-08-19"
+                "foreign": -3195214,
+                "trust": -1358588,
+                "dealer": 37537,
+                "total": -4516265,
+                "date": "2026-08-18"
               },
               "margin": {
                 "marginBuy": 490,
@@ -285510,11 +285412,11 @@ window.DATA = {
               "volume": 33352232.0,
               "quoteDate": "2026-08-19",
               "inst": {
-                "foreign": -9964193,
-                "trust": 11897000,
-                "dealer": -890663,
-                "total": 1042144,
-                "date": "2026-08-19"
+                "foreign": -6734185,
+                "trust": 12003000,
+                "dealer": -102864,
+                "total": 5165951,
+                "date": "2026-08-18"
               },
               "margin": {
                 "marginBuy": 27,
@@ -285549,11 +285451,11 @@ window.DATA = {
               "volume": 20579536.0,
               "quoteDate": "2026-08-19",
               "inst": {
-                "foreign": 8541302,
-                "trust": 6000,
-                "dealer": -843024,
-                "total": 7704278,
-                "date": "2026-08-19"
+                "foreign": 15066712,
+                "trust": -77000,
+                "dealer": -227064,
+                "total": 14762648,
+                "date": "2026-08-18"
               },
               "margin": {
                 "marginBuy": 854,
@@ -285588,11 +285490,11 @@ window.DATA = {
               "volume": 15143786.0,
               "quoteDate": "2026-08-19",
               "inst": {
-                "foreign": -180038,
-                "trust": -92000,
-                "dealer": -200940,
-                "total": -472978,
-                "date": "2026-08-19"
+                "foreign": -222255,
+                "trust": 69000,
+                "dealer": 129137,
+                "total": -24118,
+                "date": "2026-08-18"
               },
               "margin": {
                 "marginBuy": 1526,
@@ -285627,11 +285529,11 @@ window.DATA = {
               "volume": 4101489.0,
               "quoteDate": "2026-08-19",
               "inst": {
-                "foreign": 1048338,
-                "trust": 88000,
-                "dealer": 152983,
-                "total": 1289321,
-                "date": "2026-08-19"
+                "foreign": 3389203,
+                "trust": -568091,
+                "dealer": -5320,
+                "total": 2815792,
+                "date": "2026-08-18"
               },
               "margin": {
                 "marginBuy": 4,
@@ -285666,11 +285568,11 @@ window.DATA = {
               "volume": 26629390.0,
               "quoteDate": "2026-08-19",
               "inst": {
-                "foreign": 18646206,
-                "trust": 51000,
-                "dealer": -458967,
-                "total": 18238239,
-                "date": "2026-08-19"
+                "foreign": 2941517,
+                "trust": 200210,
+                "dealer": -42020,
+                "total": 3099707,
+                "date": "2026-08-18"
               },
               "margin": {
                 "marginBuy": 37,
@@ -285705,11 +285607,11 @@ window.DATA = {
               "volume": 20727704.0,
               "quoteDate": "2026-08-19",
               "inst": {
-                "foreign": -4262618,
-                "trust": -51000,
-                "dealer": -1649827,
-                "total": -5963445,
-                "date": "2026-08-19"
+                "foreign": 10209358,
+                "trust": -9538000,
+                "dealer": 698618,
+                "total": 1369976,
+                "date": "2026-08-18"
               },
               "margin": {
                 "marginBuy": 998,
@@ -293770,7 +293672,7 @@ window.DATA = {
         },
         {
           "date": "2026-08-18",
-          "fetched_at": "2026-08-19T21:26:55+08:00",
+          "fetched_at": "2026-08-19T22:11:46+08:00",
           "count": 30,
           "self": {
             "open": 89.05,
@@ -293784,27 +293686,8 @@ window.DATA = {
             "volume": 4124556.0,
             "quoteDate": "2026-08-18"
           },
-          "selfInstitutional": {
-            "foreign": 852664,
-            "trust": 0,
-            "dealer": 158863,
-            "total": 1011527,
-            "date": "2026-08-18"
-          },
-          "selfMargin": {
-            "marginBuy": 363,
-            "marginSell": 246,
-            "marginCashRedemption": 0,
-            "marginPrevBalance": 4850,
-            "marginBalance": 4967,
-            "shortBuy": 12,
-            "shortSell": 17,
-            "shortStockRedemption": 0,
-            "shortPrevBalance": 319,
-            "shortBalance": 324,
-            "offsetting": 0,
-            "date": "2026-08-18"
-          },
+          "selfInstitutional": null,
+          "selfMargin": null,
           "holdings": [
             {
               "code": "NVDA",

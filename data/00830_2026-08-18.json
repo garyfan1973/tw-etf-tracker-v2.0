@@ -1,6 +1,6 @@
 {
   "date": "2026-08-18",
-  "fetched_at": "2026-08-19T21:26:55+08:00",
+  "fetched_at": "2026-08-19T22:11:46+08:00",
   "count": 30,
   "self": {
     "open": 89.05,
@@ -14,27 +14,8 @@
     "volume": 4124556.0,
     "quoteDate": "2026-08-18"
   },
-  "selfInstitutional": {
-    "foreign": 852664,
-    "trust": 0,
-    "dealer": 158863,
-    "total": 1011527,
-    "date": "2026-08-18"
-  },
-  "selfMargin": {
-    "marginBuy": 363,
-    "marginSell": 246,
-    "marginCashRedemption": 0,
-    "marginPrevBalance": 4850,
-    "marginBalance": 4967,
-    "shortBuy": 12,
-    "shortSell": 17,
-    "shortStockRedemption": 0,
-    "shortPrevBalance": 319,
-    "shortBalance": 324,
-    "offsetting": 0,
-    "date": "2026-08-18"
-  },
+  "selfInstitutional": null,
+  "selfMargin": null,
   "holdings": [
     {
       "code": "NVDA",
