@@ -247,7 +247,7 @@
       .detail { display: grid; grid-template-columns: repeat(2, 1fr); overflow-x: visible; }
       .detail div { min-width: 0; flex: initial; }
     }
-    .overview-panel, .shareholder-panel { background:var(--card); border:1px solid var(--border); border-radius:14px; padding:16px; }
+    .overview-panel, .institutional-margin-panel { background:var(--card); border:1px solid var(--border); border-radius:14px; padding:16px; }
     .overview-head { display:flex; justify-content:space-between; gap:12px; align-items:flex-start; flex-wrap:wrap; }
     .overview-title { font-size:21px; font-weight:700; }
     .overview-code { color:var(--muted); font-size:15px; margin-left:6px; }
@@ -268,6 +268,15 @@
     .shareholder-total { border:1px solid var(--border); border-radius:10px; padding:8px 12px; text-align:right; background:var(--bg); }
     .shareholder-total .k { color:var(--muted); font-size:12px; }
     .shareholder-total .v { font-size:20px; font-weight:700; }
+    .overview-shareholders { margin-top:16px; padding-top:16px; border-top:1px solid var(--border); }
+    .data-accordion { border:1px solid var(--border); border-radius:11px; background:var(--bg); overflow:hidden; }
+    .data-accordion + .data-accordion { margin-top:10px; }
+    .data-accordion summary { cursor:pointer; list-style:none; padding:12px 14px; font-size:16px; font-weight:700; color:var(--text); }
+    .data-accordion summary::-webkit-details-marker { display:none; }
+    .data-accordion summary::before { content:"▸"; display:inline-block; margin-right:8px; color:var(--accent); transition:transform .15s; }
+    .data-accordion[open] summary::before { transform:rotate(90deg); }
+    .accordion-body { padding:0 14px 14px; }
+    .accordion-body h2 { margin-top:4px; }
     .shareholder-legend { color:var(--muted); font-size:12px; margin:12px 0; }
     .shareholder-bars { display:grid; gap:6px; }
     .shareholder-row { display:grid; grid-template-columns:1fr 110px 1fr; gap:10px; align-items:center; }
@@ -385,24 +394,21 @@
       </div>
     </div>
 
-    <div class="cards">
-      <div class="card new"><div class="n" id="c-new">0</div><div class="l">新增</div></div>
-      <div class="card up"><div class="n" id="c-up">0</div><div class="l">加碼</div></div>
-      <div class="card down"><div class="n" id="c-down">0</div><div class="l">減碼</div></div>
-      <div class="card removed"><div class="n" id="c-rm">0</div><div class="l">剔除</div></div>
-    </div>
-
     <div class="view-switch" role="tablist" aria-label="持股資訊檢視方式">
       <button id="overviewViewBtn" type="button" role="tab" aria-selected="false">總覽</button>
       <button id="changeViewBtn" class="active" type="button" role="tab" aria-selected="true">加減碼</button>
       <button id="klineViewBtn" type="button" role="tab" aria-selected="false">K線圖</button>
-      <button id="institutionalViewBtn" type="button" role="tab" aria-selected="false">三大法人</button>
-      <button id="marginViewBtn" type="button" role="tab" aria-selected="false">融資融券</button>
-      <button id="shareholdersViewBtn" type="button" role="tab" aria-selected="false">股東分佈</button>
+      <button id="institutionalViewBtn" type="button" role="tab" aria-selected="false">法人/資券</button>
     </div>
     <div id="selectedEtfSummary" class="selected-etf-summary"></div>
     <section id="overviewPanel" class="overview-panel" style="display:none;"></section>
     <section id="changeChartPanel" class="treemap-panel">
+      <div class="cards">
+        <div class="card new"><div class="n" id="c-new">0</div><div class="l">新增</div></div>
+        <div class="card up"><div class="n" id="c-up">0</div><div class="l">加碼</div></div>
+        <div class="card down"><div class="n" id="c-down">0</div><div class="l">減碼</div></div>
+        <div class="card removed"><div class="n" id="c-rm">0</div><div class="l">剔除</div></div>
+      </div>
       <div class="treemap-head"><h2>加減碼圖</h2><span id="treemapMeta" class="treemap-meta"></span></div>
       <div id="treemapLegend" class="treemap-legend"></div>
       <div id="treemap" class="treemap"></div>
@@ -446,18 +452,25 @@
       <div id="newsPanel" class="news-panel"></div>
     </section>
 
-    <section id="institutionalPanel" class="institutional-panel" style="display:none;">
-      <h2>近三個交易日・三大法人買賣超金額</h2>
-      <div class="institutional-note">紅色＝買超、綠色＝賣超；金額以買賣超股數 × 當日收盤價估算。點擊列可查看外資、投信與自營商明細。</div>
-      <div id="institutionalTable"></div>
+    <section id="institutionalMarginPanel" class="institutional-margin-panel" style="display:none;">
+      <details class="data-accordion" open>
+        <summary>三大法人</summary>
+        <div class="accordion-body">
+          <h2>近三個交易日・三大法人買賣超金額</h2>
+          <div class="institutional-note">紅色＝買超、綠色＝賣超；金額以買賣超股數 × 當日收盤價估算。點擊列可查看外資、投信與自營商明細。</div>
+          <div id="institutionalTable"></div>
+        </div>
+      </details>
+      <details class="data-accordion">
+        <summary>融資融券</summary>
+        <div class="accordion-body">
+          <h2>融資融券餘額</h2>
+          <div class="margin-note">資料來自證交所／櫃買中心每日信用交易資料；「資」為融資餘額，「券」為融券餘額，括號為當日增減。</div>
+          <div id="marginTrend" class="margin-trend"></div>
+          <div id="marginTable"></div>
+        </div>
+      </details>
     </section>
-    <section id="marginPanel" class="margin-panel" style="display:none;">
-      <h2>融資融券餘額</h2>
-      <div class="margin-note">資料來自證交所／櫃買中心每日信用交易資料；「資」為融資餘額，「券」為融券餘額，括號為當日增減。</div>
-      <div id="marginTrend" class="margin-trend"></div>
-      <div id="marginTable"></div>
-    </section>
-    <section id="shareholdersPanel" class="shareholder-panel" style="display:none;"></section>
 
     <div id="holdingsDataPanel">
     <h2>股票持股（目標日）<span style="font-size:12px;color:var(--muted);font-weight:400;">　點任一列展開開高低收明細</span></h2>
@@ -758,13 +771,13 @@
         viewMode = mode;
         const panels = {
           overview: ["overviewPanel"], change: ["changeChartPanel", "changeTablePanel"], kline: ["klinePanel"],
-          institutional: ["institutionalPanel"], margin: ["marginPanel"], shareholders: ["shareholdersPanel"]
+          institutional: ["institutionalMarginPanel"]
         };
         Object.entries(panels).forEach(([name, ids]) => {
           ids.forEach(id => { document.getElementById(id).style.display = name === mode ? "block" : "none"; });
         });
         document.getElementById("holdingsDataPanel").style.display = mode === "change" ? "block" : "none";
-        ["overview", "change", "kline", "institutional", "margin", "shareholders"].forEach(name => {
+        ["overview", "change", "kline", "institutional"].forEach(name => {
           const btn = document.getElementById(name + "ViewBtn");
           btn.classList.toggle("active", name === mode);
           btn.setAttribute("aria-selected", name === mode);
@@ -813,26 +826,29 @@
         const pctClass = pct > 0 ? "price-up" : pct < 0 ? "price-down" : "";
         box.innerHTML = '<div class="overview-head"><div><div class="overview-title">' + esc(etf.name || "—") + '<span class="overview-code">' + esc(etfSel.value) + '</span></div>' +
           '<div class="overview-tags">' + overviewTags.map(t => '<span class="overview-tag">' + esc(t) + '</span>').join("") + '</div></div>' +
-          '<div class="overview-quote">現價 ' + px(quote.close) + ' <span class="' + pctClass + '">' + (pct == null ? "—" : (pct > 0 ? "▲ " : pct < 0 ? "▼ " : "") + signW(pct) + "%") + '</span></div></div>' +
+          '<div class="overview-quote">' + px(quote.close) + ' <span class="' + pctClass + '">' + (quote.change == null ? "—" : signW(quote.change)) + '　' + (pct == null ? "—" : (pct > 0 ? "▲ " : pct < 0 ? "▼ " : "") + signW(pct) + "%") + '</span></div></div>' +
           '<div class="overview-grid"><div class="overview-kpi"><div class="k">基金規模</div><div class="v' + (fundSize === "暫無資料" ? ' data-gap' : '') + '">' + esc(fundSize) + '</div></div>' +
           '<div class="overview-kpi"><div class="k">受益人數</div><div class="v' + (beneficiaries === "暫無資料" ? ' data-gap' : '') + '">' + esc(beneficiaries) + '</div></div>' +
           '<div class="overview-kpi"><div class="k">資料日</div><div class="v">' + esc(latest.date || "—") + '</div></div>' +
           '<div class="overview-kpi"><div class="k">持股檔數</div><div class="v">' + ((latest.holdings || []).filter(isStockAsset).length || "—") + '</div></div></div>' +
           '<div class="overview-dividend"><div class="dividend-card"><div class="title">最近配息</div>' + dividendText(recent) + '</div>' +
-          '<div class="dividend-card"><div class="title">下次配息</div>' + dividendText(next) + '</div></div>';
+          '<div class="dividend-card"><div class="title">下次配息</div>' + dividendText(next) + '</div></div>' +
+          '<div id="overviewShareholders" class="overview-shareholders"></div>';
+        renderShareholderDistribution();
       }
 
       function renderShareholderDistribution() {
-        const box = document.getElementById("shareholdersPanel");
+        const box = document.getElementById("overviewShareholders");
+        if (!box) return;
         const etf = D.etfs[etfSel.value] || {};
         const dist = etf.shareholderDistribution;
         if (!dist || !Array.isArray(dist.buckets) || !dist.buckets.length) {
-          box.innerHTML = '<h2 style="margin-top:0;">持股級距金字塔</h2><div class="empty">目前資料來源尚未提供 ' + esc(etfSel.value) + ' 的股東分佈資料。</div><div class="data-gap">待接入集保／基金公開資料後，這裡會顯示人數占比與持股占比。</div>';
+          box.innerHTML = '<h2 style="margin-top:0;">股東分布</h2><div class="empty">目前資料來源尚未提供 ' + esc(etfSel.value) + ' 的股東分布資料。</div><div class="data-gap">待接入集保／基金公開資料後，這裡會顯示人數占比與持股占比。</div>';
           return;
         }
         const maxPeople = Math.max(...dist.buckets.map(b => Number(b.peoplePct) || 0), 1);
         const maxHolding = Math.max(...dist.buckets.map(b => Number(b.holdingPct) || 0), 1);
-        box.innerHTML = '<div class="shareholder-head"><div><h2 style="margin:0;">持股級距金字塔</h2><div class="data-gap">左：人數占比　右：持股占比　資料日 ' + esc(dist.date || "—") + '</div></div>' +
+        box.innerHTML = '<div class="shareholder-head"><div><h2 style="margin:0;">股東分布</h2><div class="data-gap">左：人數占比　右：持股占比　資料日 ' + esc(dist.date || "—") + '</div></div>' +
           '<div class="shareholder-total"><div class="k">總股東</div><div class="v">' + (dist.totalHolders == null ? "—" : fmt(dist.totalHolders)) + '</div></div></div>' +
           '<div class="shareholder-legend">🔵 人數占比　 🔴 持股占比</div><div class="shareholder-bars">' + dist.buckets.map(b => {
             const people = Number(b.peoplePct) || 0, holding = Number(b.holdingPct) || 0;
@@ -953,8 +969,8 @@
         const arrow = pctValue > 0 ? "▲ " : pctValue < 0 ? "▼ " : "";
         box.innerHTML = '<span class="code">' + esc(etfSel.value || "—") + '</span>' +
           '<span class="name">' + esc(etf ? etf.name : "—") + '</span>' +
-          '<span class="quote-label">最新行情　現價</span>' +
           '<span class="quote">' + px(quote.close) + '</span>' +
+          '<span class="quote ' + pctClass + '">' + (quote.change == null ? "—" : signW(quote.change)) + '</span>' +
           '<span class="quote ' + pctClass + '">' + (pctValue == null ? "—" : arrow + signW(pctValue) + "%") + '</span>';
       }
 
@@ -964,7 +980,6 @@
         if (!currSnap) return;
         renderEtfSummary();
         renderOverview();
-        renderShareholderDistribution();
         renderInstitutionalTable();
         renderMarginTable();
         let diffRows = computeDiff(prevSnap, currSnap);
@@ -1148,8 +1163,6 @@
       document.getElementById("changeViewBtn").addEventListener("click", () => setViewMode("change"));
       document.getElementById("klineViewBtn").addEventListener("click", () => setViewMode("kline"));
       document.getElementById("institutionalViewBtn").addEventListener("click", () => setViewMode("institutional"));
-      document.getElementById("marginViewBtn").addEventListener("click", () => setViewMode("margin"));
-      document.getElementById("shareholdersViewBtn").addEventListener("click", () => setViewMode("shareholders"));
 
       etfSel.addEventListener("change", () => { expandedInstitutional = ""; marginTrendAsset = "__etf__"; fillDates(); render(); if (viewMode === "kline") syncKlineEtf(); });
       fromSel.addEventListener("change", render);
