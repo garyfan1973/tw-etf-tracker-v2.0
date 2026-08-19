@@ -14,7 +14,13 @@
     "volume": 2772929.0,
     "quoteDate": "2026-08-17"
   },
-  "selfInstitutional": null,
+  "selfInstitutional": {
+    "foreign": 615078,
+    "trust": 0,
+    "dealer": -29893,
+    "total": 585185,
+    "date": "2026-08-17"
+  },
   "selfMargin": {
     "marginBuy": 214,
     "marginSell": 160,
