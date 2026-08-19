@@ -1,5 +1,5 @@
 window.DATA = {
-  "generated_at": "2026-08-19T19:57:54+08:00",
+  "generated_at": "2026-08-19T20:47:48+08:00",
   "etfs": {
     "00981A": {
       "name": "主動統一台股增長",
@@ -21629,7 +21629,7 @@ window.DATA = {
         },
         {
           "date": "2026-08-19",
-          "fetched_at": "2026-08-19T19:52:08+08:00",
+          "fetched_at": "2026-08-19T20:38:02+08:00",
           "count": 51,
           "self": {
             "open": 28.65,
@@ -21650,7 +21650,20 @@ window.DATA = {
             "total": 39443279,
             "date": "2026-08-19"
           },
-          "selfMargin": null,
+          "selfMargin": {
+            "marginBuy": 7265,
+            "marginSell": 9344,
+            "marginCashRedemption": 20,
+            "marginPrevBalance": 175517,
+            "marginBalance": 173418,
+            "shortBuy": 652,
+            "shortSell": 442,
+            "shortStockRedemption": 0,
+            "shortPrevBalance": 4569,
+            "shortBalance": 4359,
+            "offsetting": 166,
+            "date": "2026-08-19"
+          },
           "holdings": [
             {
               "code": "2383",
@@ -21677,18 +21690,18 @@ window.DATA = {
                 "date": "2026-08-19"
               },
               "margin": {
-                "marginBuy": 57,
-                "marginSell": 102,
-                "marginCashRedemption": 0,
-                "marginPrevBalance": 1883,
-                "marginBalance": 1838,
-                "shortBuy": 6,
-                "shortSell": 5,
-                "shortStockRedemption": 0,
-                "shortPrevBalance": 42,
-                "shortBalance": 41,
-                "offsetting": 0,
-                "date": "2026-08-18"
+                "marginBuy": 130,
+                "marginSell": 82,
+                "marginCashRedemption": 2,
+                "marginPrevBalance": 1838,
+                "marginBalance": 1884,
+                "shortBuy": 16,
+                "shortSell": 3,
+                "shortStockRedemption": 1,
+                "shortPrevBalance": 41,
+                "shortBalance": 27,
+                "offsetting": 2,
+                "date": "2026-08-19"
               }
             },
             {
@@ -21716,18 +21729,18 @@ window.DATA = {
                 "date": "2026-08-19"
               },
               "margin": {
-                "marginBuy": 456,
-                "marginSell": 304,
-                "marginCashRedemption": 23,
-                "marginPrevBalance": 27727,
-                "marginBalance": 27856,
-                "shortBuy": 5,
-                "shortSell": 6,
-                "shortStockRedemption": 1,
+                "marginBuy": 800,
+                "marginSell": 224,
+                "marginCashRedemption": 10,
+                "marginPrevBalance": 27856,
+                "marginBalance": 28422,
+                "shortBuy": 9,
+                "shortSell": 2,
+                "shortStockRedemption": 0,
                 "shortPrevBalance": 36,
-                "shortBalance": 36,
+                "shortBalance": 29,
                 "offsetting": 0,
-                "date": "2026-08-18"
+                "date": "2026-08-19"
               }
             },
             {
@@ -21755,18 +21768,18 @@ window.DATA = {
                 "date": "2026-08-19"
               },
               "margin": {
-                "marginBuy": 1693,
-                "marginSell": 2780,
-                "marginCashRedemption": 2,
-                "marginPrevBalance": 37857,
-                "marginBalance": 36768,
-                "shortBuy": 71,
-                "shortSell": 114,
-                "shortStockRedemption": 16,
-                "shortPrevBalance": 903,
-                "shortBalance": 930,
-                "offsetting": 34,
-                "date": "2026-08-18"
+                "marginBuy": 1398,
+                "marginSell": 917,
+                "marginCashRedemption": 3,
+                "marginPrevBalance": 36768,
+                "marginBalance": 37246,
+                "shortBuy": 142,
+                "shortSell": 56,
+                "shortStockRedemption": 47,
+                "shortPrevBalance": 930,
+                "shortBalance": 797,
+                "offsetting": 31,
+                "date": "2026-08-19"
               }
             },
             {
@@ -21788,24 +21801,24 @@ window.DATA = {
               "quoteDate": "2026-08-19",
               "inst": {
                 "foreign": -216230,
-                "trust": -372250,
+                "trust": -1046250,
                 "dealer": -265132,
-                "total": -853612,
+                "total": -1527612,
                 "date": "2026-08-19"
               },
               "margin": {
-                "marginBuy": 392,
-                "marginSell": 568,
+                "marginBuy": 292,
+                "marginSell": 151,
                 "marginCashRedemption": 4,
-                "marginPrevBalance": 9573,
-                "marginBalance": 9393,
-                "shortBuy": 14,
-                "shortSell": 4,
+                "marginPrevBalance": 9393,
+                "marginBalance": 9530,
+                "shortBuy": 15,
+                "shortSell": 14,
                 "shortStockRedemption": 0,
-                "shortPrevBalance": 60,
-                "shortBalance": 50,
+                "shortPrevBalance": 50,
+                "shortBalance": 49,
                 "offsetting": 1,
-                "date": "2026-08-18"
+                "date": "2026-08-19"
               }
             },
             {
@@ -21827,24 +21840,24 @@ window.DATA = {
               "quoteDate": "2026-08-19",
               "inst": {
                 "foreign": 45475,
-                "trust": 601000,
+                "trust": 534000,
                 "dealer": -228463,
-                "total": 418012,
+                "total": 351012,
                 "date": "2026-08-19"
               },
               "margin": {
-                "marginBuy": 231,
-                "marginSell": 300,
-                "marginCashRedemption": 1,
-                "marginPrevBalance": 4262,
-                "marginBalance": 4192,
+                "marginBuy": 315,
+                "marginSell": 351,
+                "marginCashRedemption": 0,
+                "marginPrevBalance": 4192,
+                "marginBalance": 4156,
                 "shortBuy": 0,
-                "shortSell": 0,
+                "shortSell": 9,
                 "shortStockRedemption": 0,
                 "shortPrevBalance": 0,
-                "shortBalance": 0,
-                "offsetting": 0,
-                "date": "2026-08-18"
+                "shortBalance": 9,
+                "offsetting": 41,
+                "date": "2026-08-19"
               }
             },
             {
@@ -21866,24 +21879,24 @@ window.DATA = {
               "quoteDate": "2026-08-19",
               "inst": {
                 "foreign": -3422361,
-                "trust": -595000,
+                "trust": -2731000,
                 "dealer": -1341269,
-                "total": -5358630,
+                "total": -7494630,
                 "date": "2026-08-19"
               },
               "margin": {
-                "marginBuy": 1954,
-                "marginSell": 2816,
-                "marginCashRedemption": 19,
-                "marginPrevBalance": 37683,
-                "marginBalance": 36802,
-                "shortBuy": 100,
-                "shortSell": 286,
-                "shortStockRedemption": 5,
-                "shortPrevBalance": 443,
-                "shortBalance": 624,
-                "offsetting": 23,
-                "date": "2026-08-18"
+                "marginBuy": 1957,
+                "marginSell": 1181,
+                "marginCashRedemption": 9,
+                "marginPrevBalance": 36802,
+                "marginBalance": 37569,
+                "shortBuy": 286,
+                "shortSell": 78,
+                "shortStockRedemption": 0,
+                "shortPrevBalance": 624,
+                "shortBalance": 416,
+                "offsetting": 91,
+                "date": "2026-08-19"
               }
             },
             {
@@ -21905,24 +21918,24 @@ window.DATA = {
               "quoteDate": "2026-08-19",
               "inst": {
                 "foreign": 174888,
-                "trust": -360000,
+                "trust": -360257,
                 "dealer": 19836,
-                "total": -165276,
+                "total": -165533,
                 "date": "2026-08-19"
               },
               "margin": {
-                "marginBuy": 97,
-                "marginSell": 172,
-                "marginCashRedemption": 3,
-                "marginPrevBalance": 1406,
-                "marginBalance": 1328,
-                "shortBuy": 2,
+                "marginBuy": 59,
+                "marginSell": 42,
+                "marginCashRedemption": 2,
+                "marginPrevBalance": 1328,
+                "marginBalance": 1343,
+                "shortBuy": 5,
                 "shortSell": 0,
-                "shortStockRedemption": 0,
-                "shortPrevBalance": 27,
-                "shortBalance": 25,
+                "shortStockRedemption": 6,
+                "shortPrevBalance": 25,
+                "shortBalance": 14,
                 "offsetting": 0,
-                "date": "2026-08-18"
+                "date": "2026-08-19"
               }
             },
             {
@@ -21950,18 +21963,18 @@ window.DATA = {
                 "date": "2026-08-19"
               },
               "margin": {
-                "marginBuy": 50,
-                "marginSell": 181,
+                "marginBuy": 73,
+                "marginSell": 41,
                 "marginCashRedemption": 1,
-                "marginPrevBalance": 1868,
-                "marginBalance": 1736,
-                "shortBuy": 1,
-                "shortSell": 2,
+                "marginPrevBalance": 1736,
+                "marginBalance": 1767,
+                "shortBuy": 10,
+                "shortSell": 0,
                 "shortStockRedemption": 0,
-                "shortPrevBalance": 17,
-                "shortBalance": 18,
+                "shortPrevBalance": 18,
+                "shortBalance": 8,
                 "offsetting": 0,
-                "date": "2026-08-18"
+                "date": "2026-08-19"
               }
             },
             {
@@ -21989,18 +22002,18 @@ window.DATA = {
                 "date": "2026-08-19"
               },
               "margin": {
-                "marginBuy": 251,
-                "marginSell": 267,
+                "marginBuy": 280,
+                "marginSell": 325,
                 "marginCashRedemption": 2,
-                "marginPrevBalance": 3111,
-                "marginBalance": 3093,
-                "shortBuy": 8,
-                "shortSell": 9,
-                "shortStockRedemption": 11,
-                "shortPrevBalance": 63,
-                "shortBalance": 53,
-                "offsetting": 9,
-                "date": "2026-08-18"
+                "marginPrevBalance": 3093,
+                "marginBalance": 3046,
+                "shortBuy": 0,
+                "shortSell": 0,
+                "shortStockRedemption": 1,
+                "shortPrevBalance": 53,
+                "shortBalance": 52,
+                "offsetting": 3,
+                "date": "2026-08-19"
               }
             },
             {
@@ -22060,18 +22073,18 @@ window.DATA = {
                 "date": "2026-08-19"
               },
               "margin": {
-                "marginBuy": 408,
-                "marginSell": 387,
-                "marginCashRedemption": 9,
-                "marginPrevBalance": 8000,
-                "marginBalance": 8012,
-                "shortBuy": 8,
-                "shortSell": 9,
+                "marginBuy": 433,
+                "marginSell": 424,
+                "marginCashRedemption": 1,
+                "marginPrevBalance": 8012,
+                "marginBalance": 8020,
+                "shortBuy": 22,
+                "shortSell": 5,
                 "shortStockRedemption": 0,
-                "shortPrevBalance": 56,
-                "shortBalance": 57,
-                "offsetting": 5,
-                "date": "2026-08-18"
+                "shortPrevBalance": 57,
+                "shortBalance": 40,
+                "offsetting": 0,
+                "date": "2026-08-19"
               }
             },
             {
@@ -22099,18 +22112,18 @@ window.DATA = {
                 "date": "2026-08-19"
               },
               "margin": {
-                "marginBuy": 655,
-                "marginSell": 1041,
-                "marginCashRedemption": 2,
-                "marginPrevBalance": 12069,
-                "marginBalance": 11681,
-                "shortBuy": 24,
-                "shortSell": 29,
+                "marginBuy": 371,
+                "marginSell": 188,
+                "marginCashRedemption": 3,
+                "marginPrevBalance": 11681,
+                "marginBalance": 11861,
+                "shortBuy": 29,
+                "shortSell": 102,
                 "shortStockRedemption": 0,
-                "shortPrevBalance": 178,
-                "shortBalance": 183,
-                "offsetting": 18,
-                "date": "2026-08-18"
+                "shortPrevBalance": 183,
+                "shortBalance": 256,
+                "offsetting": 6,
+                "date": "2026-08-19"
               }
             },
             {
@@ -22138,18 +22151,18 @@ window.DATA = {
                 "date": "2026-08-19"
               },
               "margin": {
-                "marginBuy": 641,
-                "marginSell": 1013,
+                "marginBuy": 1526,
+                "marginSell": 2000,
                 "marginCashRedemption": 0,
-                "marginPrevBalance": 11601,
-                "marginBalance": 11229,
-                "shortBuy": 48,
-                "shortSell": 15,
+                "marginPrevBalance": 11229,
+                "marginBalance": 10755,
+                "shortBuy": 154,
+                "shortSell": 36,
                 "shortStockRedemption": 0,
-                "shortPrevBalance": 723,
-                "shortBalance": 690,
-                "offsetting": 6,
-                "date": "2026-08-18"
+                "shortPrevBalance": 690,
+                "shortBalance": 572,
+                "offsetting": 18,
+                "date": "2026-08-19"
               }
             },
             {
@@ -22177,18 +22190,18 @@ window.DATA = {
                 "date": "2026-08-19"
               },
               "margin": {
-                "marginBuy": 219,
-                "marginSell": 199,
-                "marginCashRedemption": 4,
-                "marginPrevBalance": 2631,
-                "marginBalance": 2647,
-                "shortBuy": 2,
-                "shortSell": 5,
+                "marginBuy": 97,
+                "marginSell": 61,
+                "marginCashRedemption": 0,
+                "marginPrevBalance": 2647,
+                "marginBalance": 2683,
+                "shortBuy": 5,
+                "shortSell": 1,
                 "shortStockRedemption": 0,
-                "shortPrevBalance": 16,
-                "shortBalance": 19,
-                "offsetting": 0,
-                "date": "2026-08-18"
+                "shortPrevBalance": 19,
+                "shortBalance": 15,
+                "offsetting": 1,
+                "date": "2026-08-19"
               }
             },
             {
@@ -22216,18 +22229,18 @@ window.DATA = {
                 "date": "2026-08-19"
               },
               "margin": {
-                "marginBuy": 3648,
-                "marginSell": 8113,
-                "marginCashRedemption": 153,
-                "marginPrevBalance": 164090,
-                "marginBalance": 159472,
-                "shortBuy": 200,
-                "shortSell": 283,
+                "marginBuy": 3549,
+                "marginSell": 7905,
+                "marginCashRedemption": 47,
+                "marginPrevBalance": 159472,
+                "marginBalance": 155069,
+                "shortBuy": 235,
+                "shortSell": 463,
                 "shortStockRedemption": 0,
-                "shortPrevBalance": 2471,
-                "shortBalance": 2554,
-                "offsetting": 30,
-                "date": "2026-08-18"
+                "shortPrevBalance": 2554,
+                "shortBalance": 2782,
+                "offsetting": 25,
+                "date": "2026-08-19"
               }
             },
             {
@@ -22329,18 +22342,18 @@ window.DATA = {
                 "date": "2026-08-19"
               },
               "margin": {
-                "marginBuy": 292,
-                "marginSell": 184,
+                "marginBuy": 298,
+                "marginSell": 314,
                 "marginCashRedemption": 0,
-                "marginPrevBalance": 2925,
-                "marginBalance": 3033,
+                "marginPrevBalance": 3033,
+                "marginBalance": 3017,
                 "shortBuy": 0,
                 "shortSell": 0,
                 "shortStockRedemption": 0,
                 "shortPrevBalance": 0,
                 "shortBalance": 0,
                 "offsetting": 0,
-                "date": "2026-08-18"
+                "date": "2026-08-19"
               }
             },
             {
@@ -22368,18 +22381,18 @@ window.DATA = {
                 "date": "2026-08-19"
               },
               "margin": {
-                "marginBuy": 1247,
-                "marginSell": 807,
-                "marginCashRedemption": 13,
-                "marginPrevBalance": 20374,
-                "marginBalance": 20801,
-                "shortBuy": 182,
-                "shortSell": 193,
+                "marginBuy": 490,
+                "marginSell": 478,
+                "marginCashRedemption": 5,
+                "marginPrevBalance": 20801,
+                "marginBalance": 20808,
+                "shortBuy": 189,
+                "shortSell": 67,
                 "shortStockRedemption": 0,
-                "shortPrevBalance": 266,
-                "shortBalance": 277,
-                "offsetting": 9,
-                "date": "2026-08-18"
+                "shortPrevBalance": 277,
+                "shortBalance": 155,
+                "offsetting": 1,
+                "date": "2026-08-19"
               }
             },
             {
@@ -22407,18 +22420,18 @@ window.DATA = {
                 "date": "2026-08-19"
               },
               "margin": {
-                "marginBuy": 122,
-                "marginSell": 151,
+                "marginBuy": 246,
+                "marginSell": 56,
                 "marginCashRedemption": 0,
-                "marginPrevBalance": 3179,
-                "marginBalance": 3150,
-                "shortBuy": 2,
-                "shortSell": 0,
+                "marginPrevBalance": 3150,
+                "marginBalance": 3340,
+                "shortBuy": 0,
+                "shortSell": 51,
                 "shortStockRedemption": 0,
-                "shortPrevBalance": 18,
-                "shortBalance": 16,
+                "shortPrevBalance": 16,
+                "shortBalance": 67,
                 "offsetting": 0,
-                "date": "2026-08-18"
+                "date": "2026-08-19"
               }
             },
             {
@@ -22446,18 +22459,18 @@ window.DATA = {
                 "date": "2026-08-19"
               },
               "margin": {
-                "marginBuy": 693,
-                "marginSell": 1209,
-                "marginCashRedemption": 11,
-                "marginPrevBalance": 7706,
-                "marginBalance": 7179,
-                "shortBuy": 9,
-                "shortSell": 36,
-                "shortStockRedemption": 159,
-                "shortPrevBalance": 399,
-                "shortBalance": 267,
-                "offsetting": 10,
-                "date": "2026-08-18"
+                "marginBuy": 571,
+                "marginSell": 581,
+                "marginCashRedemption": 0,
+                "marginPrevBalance": 7179,
+                "marginBalance": 7169,
+                "shortBuy": 26,
+                "shortSell": 15,
+                "shortStockRedemption": 55,
+                "shortPrevBalance": 267,
+                "shortBalance": 201,
+                "offsetting": 6,
+                "date": "2026-08-19"
               }
             },
             {
@@ -22517,18 +22530,18 @@ window.DATA = {
                 "date": "2026-08-19"
               },
               "margin": {
-                "marginBuy": 211,
-                "marginSell": 290,
+                "marginBuy": 198,
+                "marginSell": 286,
                 "marginCashRedemption": 1,
-                "marginPrevBalance": 5964,
-                "marginBalance": 5884,
-                "shortBuy": 18,
+                "marginPrevBalance": 5884,
+                "marginBalance": 5795,
+                "shortBuy": 19,
                 "shortSell": 8,
                 "shortStockRedemption": 0,
-                "shortPrevBalance": 132,
-                "shortBalance": 122,
-                "offsetting": 1,
-                "date": "2026-08-18"
+                "shortPrevBalance": 122,
+                "shortBalance": 111,
+                "offsetting": 2,
+                "date": "2026-08-19"
               }
             },
             {
@@ -22652,18 +22665,18 @@ window.DATA = {
                 "date": "2026-08-19"
               },
               "margin": {
-                "marginBuy": 3165,
-                "marginSell": 2597,
-                "marginCashRedemption": 1,
-                "marginPrevBalance": 34302,
-                "marginBalance": 34869,
-                "shortBuy": 59,
-                "shortSell": 106,
+                "marginBuy": 1262,
+                "marginSell": 1893,
+                "marginCashRedemption": 9,
+                "marginPrevBalance": 34869,
+                "marginBalance": 34229,
+                "shortBuy": 161,
+                "shortSell": 58,
                 "shortStockRedemption": 0,
-                "shortPrevBalance": 370,
-                "shortBalance": 417,
-                "offsetting": 34,
-                "date": "2026-08-18"
+                "shortPrevBalance": 417,
+                "shortBalance": 314,
+                "offsetting": 43,
+                "date": "2026-08-19"
               }
             },
             {
@@ -22691,18 +22704,18 @@ window.DATA = {
                 "date": "2026-08-19"
               },
               "margin": {
-                "marginBuy": 54,
-                "marginSell": 121,
+                "marginBuy": 144,
+                "marginSell": 192,
                 "marginCashRedemption": 0,
-                "marginPrevBalance": 1494,
-                "marginBalance": 1427,
-                "shortBuy": 0,
-                "shortSell": 8,
+                "marginPrevBalance": 1427,
+                "marginBalance": 1379,
+                "shortBuy": 10,
+                "shortSell": 1,
                 "shortStockRedemption": 0,
-                "shortPrevBalance": 35,
-                "shortBalance": 43,
-                "offsetting": 2,
-                "date": "2026-08-18"
+                "shortPrevBalance": 43,
+                "shortBalance": 34,
+                "offsetting": 3,
+                "date": "2026-08-19"
               }
             },
             {
@@ -22730,18 +22743,18 @@ window.DATA = {
                 "date": "2026-08-19"
               },
               "margin": {
-                "marginBuy": 200,
-                "marginSell": 380,
-                "marginCashRedemption": 2,
-                "marginPrevBalance": 9566,
-                "marginBalance": 9384,
-                "shortBuy": 13,
-                "shortSell": 9,
-                "shortStockRedemption": 2,
-                "shortPrevBalance": 93,
-                "shortBalance": 87,
-                "offsetting": 0,
-                "date": "2026-08-18"
+                "marginBuy": 398,
+                "marginSell": 328,
+                "marginCashRedemption": 0,
+                "marginPrevBalance": 9384,
+                "marginBalance": 9454,
+                "shortBuy": 15,
+                "shortSell": 16,
+                "shortStockRedemption": 0,
+                "shortPrevBalance": 87,
+                "shortBalance": 88,
+                "offsetting": 3,
+                "date": "2026-08-19"
               }
             },
             {
@@ -22769,18 +22782,18 @@ window.DATA = {
                 "date": "2026-08-19"
               },
               "margin": {
-                "marginBuy": 168,
-                "marginSell": 192,
-                "marginCashRedemption": 0,
-                "marginPrevBalance": 7156,
-                "marginBalance": 7132,
-                "shortBuy": 15,
-                "shortSell": 17,
+                "marginBuy": 153,
+                "marginSell": 118,
+                "marginCashRedemption": 1,
+                "marginPrevBalance": 7132,
+                "marginBalance": 7166,
+                "shortBuy": 8,
+                "shortSell": 12,
                 "shortStockRedemption": 0,
-                "shortPrevBalance": 53,
-                "shortBalance": 55,
-                "offsetting": 2,
-                "date": "2026-08-18"
+                "shortPrevBalance": 55,
+                "shortBalance": 59,
+                "offsetting": 0,
+                "date": "2026-08-19"
               }
             },
             {
@@ -22808,18 +22821,18 @@ window.DATA = {
                 "date": "2026-08-19"
               },
               "margin": {
-                "marginBuy": 43,
-                "marginSell": 77,
-                "marginCashRedemption": 0,
-                "marginPrevBalance": 18587,
-                "marginBalance": 18553,
-                "shortBuy": 0,
+                "marginBuy": 166,
+                "marginSell": 40,
+                "marginCashRedemption": 3,
+                "marginPrevBalance": 18553,
+                "marginBalance": 18676,
+                "shortBuy": 5,
                 "shortSell": 2,
                 "shortStockRedemption": 0,
-                "shortPrevBalance": 115,
-                "shortBalance": 117,
+                "shortPrevBalance": 117,
+                "shortBalance": 114,
                 "offsetting": 1,
-                "date": "2026-08-18"
+                "date": "2026-08-19"
               }
             },
             {
@@ -22847,18 +22860,18 @@ window.DATA = {
                 "date": "2026-08-19"
               },
               "margin": {
-                "marginBuy": 637,
-                "marginSell": 555,
-                "marginCashRedemption": 3,
-                "marginPrevBalance": 11129,
-                "marginBalance": 11208,
-                "shortBuy": 4,
-                "shortSell": 6,
+                "marginBuy": 162,
+                "marginSell": 73,
+                "marginCashRedemption": 6,
+                "marginPrevBalance": 11208,
+                "marginBalance": 11291,
+                "shortBuy": 18,
+                "shortSell": 12,
                 "shortStockRedemption": 0,
-                "shortPrevBalance": 31,
-                "shortBalance": 33,
+                "shortPrevBalance": 33,
+                "shortBalance": 27,
                 "offsetting": 0,
-                "date": "2026-08-18"
+                "date": "2026-08-19"
               }
             },
             {
@@ -22918,18 +22931,18 @@ window.DATA = {
                 "date": "2026-08-19"
               },
               "margin": {
-                "marginBuy": 756,
-                "marginSell": 911,
-                "marginCashRedemption": 5,
-                "marginPrevBalance": 43590,
-                "marginBalance": 43430,
-                "shortBuy": 2,
-                "shortSell": 2,
+                "marginBuy": 365,
+                "marginSell": 633,
+                "marginCashRedemption": 6,
+                "marginPrevBalance": 43430,
+                "marginBalance": 43156,
+                "shortBuy": 4,
+                "shortSell": 3,
                 "shortStockRedemption": 0,
                 "shortPrevBalance": 94,
-                "shortBalance": 94,
-                "offsetting": 0,
-                "date": "2026-08-18"
+                "shortBalance": 93,
+                "offsetting": 4,
+                "date": "2026-08-19"
               }
             },
             {
@@ -22955,6 +22968,20 @@ window.DATA = {
                 "dealer": 42041,
                 "total": 1975281,
                 "date": "2026-08-19"
+              },
+              "margin": {
+                "marginBuy": 565,
+                "marginSell": 306,
+                "marginCashRedemption": 0,
+                "marginPrevBalance": 2453,
+                "marginBalance": 2712,
+                "shortBuy": 2,
+                "shortSell": 34,
+                "shortStockRedemption": 0,
+                "shortPrevBalance": 38,
+                "shortBalance": 70,
+                "offsetting": 21,
+                "date": "2026-08-19"
               }
             },
             {
@@ -22976,24 +23003,24 @@ window.DATA = {
               "quoteDate": "2026-08-19",
               "inst": {
                 "foreign": -135887,
-                "trust": 65000,
+                "trust": 84000,
                 "dealer": 132972,
-                "total": 62085,
+                "total": 81085,
                 "date": "2026-08-19"
               },
               "margin": {
-                "marginBuy": 289,
-                "marginSell": 258,
+                "marginBuy": 285,
+                "marginSell": 172,
                 "marginCashRedemption": 0,
-                "marginPrevBalance": 2608,
-                "marginBalance": 2639,
-                "shortBuy": 4,
-                "shortSell": 14,
+                "marginPrevBalance": 2639,
+                "marginBalance": 2752,
+                "shortBuy": 1,
+                "shortSell": 13,
                 "shortStockRedemption": 0,
-                "shortPrevBalance": 22,
-                "shortBalance": 32,
-                "offsetting": 3,
-                "date": "2026-08-18"
+                "shortPrevBalance": 32,
+                "shortBalance": 44,
+                "offsetting": 2,
+                "date": "2026-08-19"
               }
             },
             {
@@ -23021,18 +23048,18 @@ window.DATA = {
                 "date": "2026-08-19"
               },
               "margin": {
-                "marginBuy": 2447,
-                "marginSell": 1781,
-                "marginCashRedemption": 2,
-                "marginPrevBalance": 15908,
-                "marginBalance": 16572,
-                "shortBuy": 72,
-                "shortSell": 26,
+                "marginBuy": 2187,
+                "marginSell": 2102,
+                "marginCashRedemption": 1,
+                "marginPrevBalance": 16572,
+                "marginBalance": 16656,
+                "shortBuy": 126,
+                "shortSell": 221,
                 "shortStockRedemption": 1,
-                "shortPrevBalance": 675,
-                "shortBalance": 628,
-                "offsetting": 72,
-                "date": "2026-08-18"
+                "shortPrevBalance": 628,
+                "shortBalance": 722,
+                "offsetting": 88,
+                "date": "2026-08-19"
               }
             },
             {
@@ -23060,18 +23087,18 @@ window.DATA = {
                 "date": "2026-08-19"
               },
               "margin": {
-                "marginBuy": 453,
-                "marginSell": 832,
-                "marginCashRedemption": 7,
-                "marginPrevBalance": 16662,
-                "marginBalance": 16276,
-                "shortBuy": 10,
+                "marginBuy": 265,
+                "marginSell": 439,
+                "marginCashRedemption": 3,
+                "marginPrevBalance": 16276,
+                "marginBalance": 16099,
+                "shortBuy": 9,
                 "shortSell": 14,
                 "shortStockRedemption": 0,
-                "shortPrevBalance": 66,
-                "shortBalance": 70,
-                "offsetting": 0,
-                "date": "2026-08-18"
+                "shortPrevBalance": 70,
+                "shortBalance": 75,
+                "offsetting": 4,
+                "date": "2026-08-19"
               }
             },
             {
@@ -23099,18 +23126,18 @@ window.DATA = {
                 "date": "2026-08-19"
               },
               "margin": {
-                "marginBuy": 4990,
-                "marginSell": 6851,
-                "marginCashRedemption": 12,
-                "marginPrevBalance": 83585,
-                "marginBalance": 81712,
-                "shortBuy": 158,
-                "shortSell": 491,
-                "shortStockRedemption": 1,
-                "shortPrevBalance": 2787,
-                "shortBalance": 3119,
-                "offsetting": 139,
-                "date": "2026-08-18"
+                "marginBuy": 4209,
+                "marginSell": 4996,
+                "marginCashRedemption": 32,
+                "marginPrevBalance": 81712,
+                "marginBalance": 80893,
+                "shortBuy": 761,
+                "shortSell": 277,
+                "shortStockRedemption": 3,
+                "shortPrevBalance": 3119,
+                "shortBalance": 2632,
+                "offsetting": 53,
+                "date": "2026-08-19"
               }
             },
             {
@@ -23138,18 +23165,18 @@ window.DATA = {
                 "date": "2026-08-19"
               },
               "margin": {
-                "marginBuy": 34,
-                "marginSell": 12,
+                "marginBuy": 26,
+                "marginSell": 19,
                 "marginCashRedemption": 0,
-                "marginPrevBalance": 3897,
-                "marginBalance": 3919,
-                "shortBuy": 1,
-                "shortSell": 20,
+                "marginPrevBalance": 3919,
+                "marginBalance": 3926,
+                "shortBuy": 4,
+                "shortSell": 0,
                 "shortStockRedemption": 0,
-                "shortPrevBalance": 8,
-                "shortBalance": 27,
+                "shortPrevBalance": 27,
+                "shortBalance": 23,
                 "offsetting": 0,
-                "date": "2026-08-18"
+                "date": "2026-08-19"
               }
             },
             {
@@ -23177,18 +23204,18 @@ window.DATA = {
                 "date": "2026-08-19"
               },
               "margin": {
-                "marginBuy": 7,
-                "marginSell": 27,
+                "marginBuy": 3,
+                "marginSell": 1,
                 "marginCashRedemption": 0,
-                "marginPrevBalance": 209,
-                "marginBalance": 189,
+                "marginPrevBalance": 189,
+                "marginBalance": 191,
                 "shortBuy": 0,
                 "shortSell": 0,
                 "shortStockRedemption": 0,
                 "shortPrevBalance": 0,
                 "shortBalance": 0,
                 "offsetting": 0,
-                "date": "2026-08-18"
+                "date": "2026-08-19"
               }
             },
             {
@@ -23216,18 +23243,18 @@ window.DATA = {
                 "date": "2026-08-19"
               },
               "margin": {
-                "marginBuy": 729,
-                "marginSell": 560,
-                "marginCashRedemption": 75,
-                "marginPrevBalance": 30537,
-                "marginBalance": 30631,
-                "shortBuy": 74,
-                "shortSell": 96,
+                "marginBuy": 824,
+                "marginSell": 348,
+                "marginCashRedemption": 3,
+                "marginPrevBalance": 30631,
+                "marginBalance": 31104,
+                "shortBuy": 210,
+                "shortSell": 110,
                 "shortStockRedemption": 0,
-                "shortPrevBalance": 1056,
-                "shortBalance": 1078,
+                "shortPrevBalance": 1078,
+                "shortBalance": 978,
                 "offsetting": 10,
-                "date": "2026-08-18"
+                "date": "2026-08-19"
               }
             },
             {
@@ -23255,18 +23282,18 @@ window.DATA = {
                 "date": "2026-08-19"
               },
               "margin": {
-                "marginBuy": 1650,
-                "marginSell": 1405,
-                "marginCashRedemption": 35,
-                "marginPrevBalance": 51454,
-                "marginBalance": 51664,
-                "shortBuy": 86,
-                "shortSell": 45,
+                "marginBuy": 874,
+                "marginSell": 701,
+                "marginCashRedemption": 5,
+                "marginPrevBalance": 51664,
+                "marginBalance": 51832,
+                "shortBuy": 64,
+                "shortSell": 20,
                 "shortStockRedemption": 0,
-                "shortPrevBalance": 608,
-                "shortBalance": 567,
-                "offsetting": 4,
-                "date": "2026-08-18"
+                "shortPrevBalance": 567,
+                "shortBalance": 523,
+                "offsetting": 5,
+                "date": "2026-08-19"
               }
             },
             {
@@ -23320,24 +23347,24 @@ window.DATA = {
               "quoteDate": "2026-08-19",
               "inst": {
                 "foreign": 828793,
-                "trust": 9000,
+                "trust": -126000,
                 "dealer": -71430,
-                "total": 766363,
+                "total": 631363,
                 "date": "2026-08-19"
               },
               "margin": {
-                "marginBuy": 315,
-                "marginSell": 437,
-                "marginCashRedemption": 0,
-                "marginPrevBalance": 5080,
-                "marginBalance": 4958,
-                "shortBuy": 26,
-                "shortSell": 0,
+                "marginBuy": 183,
+                "marginSell": 374,
+                "marginCashRedemption": 3,
+                "marginPrevBalance": 4958,
+                "marginBalance": 4764,
+                "shortBuy": 17,
+                "shortSell": 16,
                 "shortStockRedemption": 0,
-                "shortPrevBalance": 123,
-                "shortBalance": 97,
+                "shortPrevBalance": 97,
+                "shortBalance": 96,
                 "offsetting": 2,
-                "date": "2026-08-18"
+                "date": "2026-08-19"
               }
             },
             {
@@ -23365,18 +23392,18 @@ window.DATA = {
                 "date": "2026-08-19"
               },
               "margin": {
-                "marginBuy": 417,
-                "marginSell": 510,
-                "marginCashRedemption": 3,
-                "marginPrevBalance": 6176,
-                "marginBalance": 6080,
-                "shortBuy": 8,
-                "shortSell": 4,
-                "shortStockRedemption": 0,
-                "shortPrevBalance": 52,
-                "shortBalance": 48,
+                "marginBuy": 179,
+                "marginSell": 30,
+                "marginCashRedemption": 1,
+                "marginPrevBalance": 6080,
+                "marginBalance": 6228,
+                "shortBuy": 15,
+                "shortSell": 1,
+                "shortStockRedemption": 3,
+                "shortPrevBalance": 48,
+                "shortBalance": 31,
                 "offsetting": 0,
-                "date": "2026-08-18"
+                "date": "2026-08-19"
               }
             },
             {
@@ -23436,18 +23463,18 @@ window.DATA = {
                 "date": "2026-08-19"
               },
               "margin": {
-                "marginBuy": 18,
-                "marginSell": 10,
-                "marginCashRedemption": 1,
-                "marginPrevBalance": 511,
-                "marginBalance": 518,
+                "marginBuy": 16,
+                "marginSell": 14,
+                "marginCashRedemption": 0,
+                "marginPrevBalance": 518,
+                "marginBalance": 520,
                 "shortBuy": 1,
-                "shortSell": 1,
+                "shortSell": 3,
                 "shortStockRedemption": 0,
                 "shortPrevBalance": 1,
-                "shortBalance": 1,
+                "shortBalance": 3,
                 "offsetting": 0,
-                "date": "2026-08-18"
+                "date": "2026-08-19"
               }
             },
             {
@@ -23507,18 +23534,18 @@ window.DATA = {
                 "date": "2026-08-19"
               },
               "margin": {
-                "marginBuy": 924,
-                "marginSell": 1253,
-                "marginCashRedemption": 3,
-                "marginPrevBalance": 21418,
-                "marginBalance": 21086,
-                "shortBuy": 91,
-                "shortSell": 110,
+                "marginBuy": 515,
+                "marginSell": 1122,
+                "marginCashRedemption": 2,
+                "marginPrevBalance": 21086,
+                "marginBalance": 20477,
+                "shortBuy": 76,
+                "shortSell": 120,
                 "shortStockRedemption": 0,
-                "shortPrevBalance": 350,
-                "shortBalance": 369,
-                "offsetting": 42,
-                "date": "2026-08-18"
+                "shortPrevBalance": 369,
+                "shortBalance": 413,
+                "offsetting": 31,
+                "date": "2026-08-19"
               }
             }
           ]
@@ -48368,6 +48395,2678 @@ window.DATA = {
               }
             }
           ]
+        },
+        {
+          "date": "2026-08-19",
+          "fetched_at": "2026-08-19T20:38:04+08:00",
+          "count": 70,
+          "self": {
+            "open": 21.54,
+            "high": 22.03,
+            "low": 21.53,
+            "close": 21.63,
+            "prevClose": 22.14,
+            "change": -0.51,
+            "changePct": -2.3,
+            "amplitude": 2.26,
+            "volume": 27222874.0,
+            "quoteDate": "2026-08-19"
+          },
+          "selfInstitutional": {
+            "foreign": -5827700,
+            "trust": 0,
+            "dealer": -1943322,
+            "total": -7771022,
+            "date": "2026-08-19"
+          },
+          "selfMargin": {
+            "marginBuy": 237,
+            "marginSell": 120,
+            "marginCashRedemption": 0,
+            "marginPrevBalance": 12365,
+            "marginBalance": 12482,
+            "shortBuy": 9,
+            "shortSell": 203,
+            "shortStockRedemption": 0,
+            "shortPrevBalance": 9,
+            "shortBalance": 203,
+            "offsetting": 22,
+            "date": "2026-08-19"
+          },
+          "holdings": [
+            {
+              "code": "2330",
+              "name": "台積電",
+              "market": "TW",
+              "assetType": "stock",
+              "weight": 8.54,
+              "shares": 1794000,
+              "open": 2340.0,
+              "high": 2355.0,
+              "low": 2335.0,
+              "close": 2350.0,
+              "prevClose": 2380.0,
+              "change": -30.0,
+              "changePct": -1.26,
+              "amplitude": 0.84,
+              "volume": 23618612.0,
+              "quoteDate": "2026-08-19",
+              "inst": {
+                "foreign": -7417943,
+                "trust": -668410,
+                "dealer": 719342,
+                "total": -7367011,
+                "date": "2026-08-19"
+              },
+              "margin": {
+                "marginBuy": 800,
+                "marginSell": 224,
+                "marginCashRedemption": 10,
+                "marginPrevBalance": 27856,
+                "marginBalance": 28422,
+                "shortBuy": 9,
+                "shortSell": 2,
+                "shortStockRedemption": 0,
+                "shortPrevBalance": 36,
+                "shortBalance": 29,
+                "offsetting": 0,
+                "date": "2026-08-19"
+              }
+            },
+            {
+              "code": "2454",
+              "name": "聯發科",
+              "market": "TW",
+              "assetType": "stock",
+              "weight": 6.8,
+              "shares": 872000,
+              "open": 3750.0,
+              "high": 3910.0,
+              "low": 3750.0,
+              "close": 3845.0,
+              "prevClose": 3885.0,
+              "change": -40.0,
+              "changePct": -1.03,
+              "amplitude": 4.12,
+              "volume": 7036521.0,
+              "quoteDate": "2026-08-19",
+              "inst": {
+                "foreign": -216230,
+                "trust": -1046250,
+                "dealer": -265132,
+                "total": -1527612,
+                "date": "2026-08-19"
+              },
+              "margin": {
+                "marginBuy": 292,
+                "marginSell": 151,
+                "marginCashRedemption": 4,
+                "marginPrevBalance": 9393,
+                "marginBalance": 9530,
+                "shortBuy": 15,
+                "shortSell": 14,
+                "shortStockRedemption": 0,
+                "shortPrevBalance": 50,
+                "shortBalance": 49,
+                "offsetting": 1,
+                "date": "2026-08-19"
+              }
+            },
+            {
+              "code": "6669",
+              "name": "緯穎",
+              "market": "TW",
+              "assetType": "stock",
+              "weight": 6.59,
+              "shares": 510000,
+              "open": 6190.0,
+              "high": 6425.0,
+              "low": 6190.0,
+              "close": 6375.0,
+              "prevClose": 6400.0,
+              "change": -25.0,
+              "changePct": -0.39,
+              "amplitude": 3.67,
+              "volume": 1289214.0,
+              "quoteDate": "2026-08-19",
+              "inst": {
+                "foreign": 174888,
+                "trust": -360257,
+                "dealer": 19836,
+                "total": -165533,
+                "date": "2026-08-19"
+              },
+              "margin": {
+                "marginBuy": 59,
+                "marginSell": 42,
+                "marginCashRedemption": 2,
+                "marginPrevBalance": 1328,
+                "marginBalance": 1343,
+                "shortBuy": 5,
+                "shortSell": 0,
+                "shortStockRedemption": 6,
+                "shortPrevBalance": 25,
+                "shortBalance": 14,
+                "offsetting": 0,
+                "date": "2026-08-19"
+              }
+            },
+            {
+              "code": "6139",
+              "name": "亞翔",
+              "market": "TW",
+              "assetType": "stock",
+              "weight": 6.25,
+              "shares": 4025000,
+              "open": 770.0,
+              "high": 794.0,
+              "low": 763.0,
+              "close": 766.0,
+              "prevClose": 782.0,
+              "change": -16.0,
+              "changePct": -2.05,
+              "amplitude": 3.96,
+              "volume": 2509394.0,
+              "quoteDate": "2026-08-19",
+              "inst": {
+                "foreign": -335535,
+                "trust": 16000,
+                "dealer": -10101,
+                "total": -329636,
+                "date": "2026-08-19"
+              },
+              "margin": {
+                "marginBuy": 201,
+                "marginSell": 137,
+                "marginCashRedemption": 2,
+                "marginPrevBalance": 8481,
+                "marginBalance": 8543,
+                "shortBuy": 5,
+                "shortSell": 2,
+                "shortStockRedemption": 0,
+                "shortPrevBalance": 32,
+                "shortBalance": 29,
+                "offsetting": 0,
+                "date": "2026-08-19"
+              }
+            },
+            {
+              "code": "2059",
+              "name": "川湖",
+              "market": "TW",
+              "assetType": "stock",
+              "weight": 5.29,
+              "shares": 185000,
+              "open": 13895.0,
+              "high": 14500.0,
+              "low": 13895.0,
+              "close": 14095.0,
+              "prevClose": 14370.0,
+              "change": -275.0,
+              "changePct": -1.91,
+              "amplitude": 4.21,
+              "volume": 526139.0,
+              "quoteDate": "2026-08-19",
+              "inst": {
+                "foreign": -102444,
+                "trust": 19412,
+                "dealer": 6370,
+                "total": -76662,
+                "date": "2026-08-19"
+              },
+              "margin": {
+                "marginBuy": 44,
+                "marginSell": 10,
+                "marginCashRedemption": 0,
+                "marginPrevBalance": 585,
+                "marginBalance": 619,
+                "shortBuy": 0,
+                "shortSell": 0,
+                "shortStockRedemption": 0,
+                "shortPrevBalance": 6,
+                "shortBalance": 6,
+                "offsetting": 0,
+                "date": "2026-08-19"
+              }
+            },
+            {
+              "code": "2383",
+              "name": "台光電",
+              "market": "TW",
+              "assetType": "stock",
+              "weight": 3.9,
+              "shares": 327000,
+              "open": 5855.0,
+              "high": 6130.0,
+              "low": 5810.0,
+              "close": 5880.0,
+              "prevClose": 6205.0,
+              "change": -325.0,
+              "changePct": -5.24,
+              "amplitude": 5.16,
+              "volume": 3119237.0,
+              "quoteDate": "2026-08-19",
+              "inst": {
+                "foreign": 76221,
+                "trust": -191001,
+                "dealer": -16593,
+                "total": -131373,
+                "date": "2026-08-19"
+              },
+              "margin": {
+                "marginBuy": 130,
+                "marginSell": 82,
+                "marginCashRedemption": 2,
+                "marginPrevBalance": 1838,
+                "marginBalance": 1884,
+                "shortBuy": 16,
+                "shortSell": 3,
+                "shortStockRedemption": 1,
+                "shortPrevBalance": 41,
+                "shortBalance": 27,
+                "offsetting": 2,
+                "date": "2026-08-19"
+              }
+            },
+            {
+              "code": "2360",
+              "name": "致茂",
+              "market": "TW",
+              "assetType": "stock",
+              "weight": 3.6,
+              "shares": 837000,
+              "open": 2190.0,
+              "high": 2235.0,
+              "low": 2085.0,
+              "close": 2120.0,
+              "prevClose": 2305.0,
+              "change": -185.0,
+              "changePct": -8.03,
+              "amplitude": 6.51,
+              "volume": 3423570.0,
+              "quoteDate": "2026-08-19",
+              "inst": {
+                "foreign": 239885,
+                "trust": -776000,
+                "dealer": 37282,
+                "total": -498833,
+                "date": "2026-08-19"
+              },
+              "margin": {
+                "marginBuy": 144,
+                "marginSell": 192,
+                "marginCashRedemption": 0,
+                "marginPrevBalance": 1427,
+                "marginBalance": 1379,
+                "shortBuy": 10,
+                "shortSell": 1,
+                "shortStockRedemption": 0,
+                "shortPrevBalance": 43,
+                "shortBalance": 34,
+                "offsetting": 3,
+                "date": "2026-08-19"
+              }
+            },
+            {
+              "code": "5536",
+              "name": "聖暉*",
+              "market": "TW",
+              "assetType": "stock",
+              "weight": 3.57,
+              "shares": 2017000,
+              "open": 880.0,
+              "high": 921.0,
+              "low": 860.0,
+              "close": 873.0,
+              "prevClose": 889.0,
+              "change": -16.0,
+              "changePct": -1.8,
+              "amplitude": 6.86,
+              "volume": 2307204.0,
+              "quoteDate": "2026-08-19",
+              "margin": {
+                "marginBuy": 55,
+                "marginSell": 64,
+                "marginCashRedemption": 0,
+                "marginPrevBalance": 890,
+                "marginBalance": 881,
+                "shortBuy": 0,
+                "shortSell": 0,
+                "shortStockRedemption": 0,
+                "shortPrevBalance": 5,
+                "shortBalance": 5,
+                "offsetting": 1,
+                "date": "2026-08-19"
+              }
+            },
+            {
+              "code": "3105",
+              "name": "穩懋",
+              "market": "TW",
+              "assetType": "stock",
+              "weight": 3.54,
+              "shares": 4809000,
+              "open": 353.5,
+              "high": 374.0,
+              "low": 351.0,
+              "close": 363.5,
+              "prevClose": 374.5,
+              "change": -11.0,
+              "changePct": -2.94,
+              "amplitude": 6.14,
+              "volume": 17947311.0,
+              "quoteDate": "2026-08-19",
+              "margin": {
+                "marginBuy": 2129,
+                "marginSell": 1762,
+                "marginCashRedemption": 1,
+                "marginPrevBalance": 45202,
+                "marginBalance": 45568,
+                "shortBuy": 125,
+                "shortSell": 169,
+                "shortStockRedemption": 0,
+                "shortPrevBalance": 991,
+                "shortBalance": 947,
+                "offsetting": 50,
+                "date": "2026-08-19"
+              }
+            },
+            {
+              "code": "2345",
+              "name": "智邦",
+              "market": "TW",
+              "assetType": "stock",
+              "weight": 3.52,
+              "shares": 817000,
+              "open": 2060.0,
+              "high": 2145.0,
+              "low": 2060.0,
+              "close": 2125.0,
+              "prevClose": 2225.0,
+              "change": -100.0,
+              "changePct": -4.49,
+              "amplitude": 3.82,
+              "volume": 4040971.0,
+              "quoteDate": "2026-08-19",
+              "inst": {
+                "foreign": -462188,
+                "trust": -105010,
+                "dealer": 40992,
+                "total": -526206,
+                "date": "2026-08-19"
+              },
+              "margin": {
+                "marginBuy": 73,
+                "marginSell": 41,
+                "marginCashRedemption": 1,
+                "marginPrevBalance": 1736,
+                "marginBalance": 1767,
+                "shortBuy": 10,
+                "shortSell": 0,
+                "shortStockRedemption": 0,
+                "shortPrevBalance": 18,
+                "shortBalance": 8,
+                "offsetting": 0,
+                "date": "2026-08-19"
+              }
+            },
+            {
+              "code": "6223",
+              "name": "旺矽",
+              "market": "TW",
+              "assetType": "stock",
+              "weight": 3.27,
+              "shares": 307000,
+              "open": 5000.0,
+              "high": 5550.0,
+              "low": 5000.0,
+              "close": 5255.0,
+              "prevClose": 5270.0,
+              "change": -15.0,
+              "changePct": -0.28,
+              "amplitude": 10.44,
+              "volume": 1187417.0,
+              "quoteDate": "2026-08-19",
+              "margin": {
+                "marginBuy": 136,
+                "marginSell": 72,
+                "marginCashRedemption": 3,
+                "marginPrevBalance": 922,
+                "marginBalance": 983,
+                "shortBuy": 0,
+                "shortSell": 12,
+                "shortStockRedemption": 0,
+                "shortPrevBalance": 24,
+                "shortBalance": 12,
+                "offsetting": 0,
+                "date": "2026-08-19"
+              }
+            },
+            {
+              "code": "4958",
+              "name": "臻鼎-KY",
+              "market": "TW",
+              "assetType": "stock",
+              "weight": 2.94,
+              "shares": 3178000,
+              "open": 451.0,
+              "high": 476.5,
+              "low": 451.0,
+              "close": 457.0,
+              "prevClose": 474.0,
+              "change": -17.0,
+              "changePct": -3.59,
+              "amplitude": 5.38,
+              "volume": 30182657.0,
+              "quoteDate": "2026-08-19",
+              "inst": {
+                "foreign": -3215170,
+                "trust": -1481000,
+                "dealer": -241456,
+                "total": -4937626,
+                "date": "2026-08-19"
+              },
+              "margin": {
+                "marginBuy": 1262,
+                "marginSell": 1893,
+                "marginCashRedemption": 9,
+                "marginPrevBalance": 34869,
+                "marginBalance": 34229,
+                "shortBuy": 161,
+                "shortSell": 58,
+                "shortStockRedemption": 0,
+                "shortPrevBalance": 417,
+                "shortBalance": 314,
+                "offsetting": 43,
+                "date": "2026-08-19"
+              }
+            },
+            {
+              "code": "3008",
+              "name": "大立光",
+              "market": "TW",
+              "assetType": "stock",
+              "weight": 2.79,
+              "shares": 248000,
+              "open": 5135.0,
+              "high": 5720.0,
+              "low": 5110.0,
+              "close": 5550.0,
+              "prevClose": 5290.0,
+              "change": 260.0,
+              "changePct": 4.91,
+              "amplitude": 11.53,
+              "volume": 3873944.0,
+              "quoteDate": "2026-08-19",
+              "inst": {
+                "foreign": -135887,
+                "trust": 84000,
+                "dealer": 132972,
+                "total": 81085,
+                "date": "2026-08-19"
+              },
+              "margin": {
+                "marginBuy": 285,
+                "marginSell": 172,
+                "marginCashRedemption": 0,
+                "marginPrevBalance": 2639,
+                "marginBalance": 2752,
+                "shortBuy": 1,
+                "shortSell": 13,
+                "shortStockRedemption": 0,
+                "shortPrevBalance": 32,
+                "shortBalance": 44,
+                "offsetting": 2,
+                "date": "2026-08-19"
+              }
+            },
+            {
+              "code": "3017",
+              "name": "奇鋐",
+              "market": "TW",
+              "assetType": "stock",
+              "weight": 2.62,
+              "shares": 417000,
+              "open": 2915.0,
+              "high": 3160.0,
+              "low": 2900.0,
+              "close": 3095.0,
+              "prevClose": 3095.0,
+              "change": 0.0,
+              "changePct": 0.0,
+              "amplitude": 8.4,
+              "volume": 3982151.0,
+              "quoteDate": "2026-08-19",
+              "inst": {
+                "foreign": 45475,
+                "trust": 534000,
+                "dealer": -228463,
+                "total": 351012,
+                "date": "2026-08-19"
+              },
+              "margin": {
+                "marginBuy": 315,
+                "marginSell": 351,
+                "marginCashRedemption": 0,
+                "marginPrevBalance": 4192,
+                "marginBalance": 4156,
+                "shortBuy": 0,
+                "shortSell": 9,
+                "shortStockRedemption": 0,
+                "shortPrevBalance": 0,
+                "shortBalance": 9,
+                "offsetting": 41,
+                "date": "2026-08-19"
+              }
+            },
+            {
+              "code": "3491",
+              "name": "昇達科",
+              "market": "TW",
+              "assetType": "stock",
+              "weight": 2.48,
+              "shares": 1000000,
+              "open": 1215.0,
+              "high": 1275.0,
+              "low": 1210.0,
+              "close": 1225.0,
+              "prevClose": 1250.0,
+              "change": -25.0,
+              "changePct": -2.0,
+              "amplitude": 5.2,
+              "volume": 874196.0,
+              "quoteDate": "2026-08-19",
+              "margin": {
+                "marginBuy": 116,
+                "marginSell": 208,
+                "marginCashRedemption": 1,
+                "marginPrevBalance": 3281,
+                "marginBalance": 3188,
+                "shortBuy": 3,
+                "shortSell": 8,
+                "shortStockRedemption": 0,
+                "shortPrevBalance": 37,
+                "shortBalance": 32,
+                "offsetting": 1,
+                "date": "2026-08-19"
+              }
+            },
+            {
+              "code": "6531",
+              "name": "愛普*",
+              "market": "TW",
+              "assetType": "stock",
+              "weight": 2.44,
+              "shares": 1440000,
+              "open": 833.0,
+              "high": 870.0,
+              "low": 829.0,
+              "close": 837.0,
+              "prevClose": 863.0,
+              "change": -26.0,
+              "changePct": -3.01,
+              "amplitude": 4.75,
+              "volume": 4111029.0,
+              "quoteDate": "2026-08-19",
+              "inst": {
+                "foreign": 1269841,
+                "trust": -1493000,
+                "dealer": -6013,
+                "total": -229172,
+                "date": "2026-08-19"
+              },
+              "margin": {
+                "marginBuy": 225,
+                "marginSell": 296,
+                "marginCashRedemption": 0,
+                "marginPrevBalance": 5603,
+                "marginBalance": 5532,
+                "shortBuy": 2,
+                "shortSell": 8,
+                "shortStockRedemption": 0,
+                "shortPrevBalance": 41,
+                "shortBalance": 47,
+                "offsetting": 1,
+                "date": "2026-08-19"
+              }
+            },
+            {
+              "code": "6488",
+              "name": "環球晶",
+              "market": "TW",
+              "assetType": "stock",
+              "weight": 2.26,
+              "shares": 1134000,
+              "open": 1010.0,
+              "high": 1030.0,
+              "low": 972.0,
+              "close": 983.0,
+              "prevClose": 1060.0,
+              "change": -77.0,
+              "changePct": -7.26,
+              "amplitude": 5.47,
+              "volume": 11169571.0,
+              "quoteDate": "2026-08-19",
+              "margin": {
+                "marginBuy": 1332,
+                "marginSell": 1287,
+                "marginCashRedemption": 0,
+                "marginPrevBalance": 11517,
+                "marginBalance": 11562,
+                "shortBuy": 30,
+                "shortSell": 2,
+                "shortStockRedemption": 1,
+                "shortPrevBalance": 168,
+                "shortBalance": 195,
+                "offsetting": 14,
+                "date": "2026-08-19"
+              }
+            },
+            {
+              "code": "2303",
+              "name": "聯電",
+              "market": "TW",
+              "assetType": "stock",
+              "weight": 2.13,
+              "shares": 9109000,
+              "open": 115.0,
+              "high": 117.0,
+              "low": 113.5,
+              "close": 115.5,
+              "prevClose": 119.0,
+              "change": -3.5,
+              "changePct": -2.94,
+              "amplitude": 2.94,
+              "volume": 110337394.0,
+              "quoteDate": "2026-08-19",
+              "inst": {
+                "foreign": 7800989,
+                "trust": -20973000,
+                "dealer": -5796260,
+                "total": -18968271,
+                "date": "2026-08-19"
+              },
+              "margin": {
+                "marginBuy": 3549,
+                "marginSell": 7905,
+                "marginCashRedemption": 47,
+                "marginPrevBalance": 159472,
+                "marginBalance": 155069,
+                "shortBuy": 235,
+                "shortSell": 463,
+                "shortStockRedemption": 0,
+                "shortPrevBalance": 2554,
+                "shortBalance": 2782,
+                "offsetting": 25,
+                "date": "2026-08-19"
+              }
+            },
+            {
+              "code": "3264",
+              "name": "欣銓",
+              "market": "TW",
+              "assetType": "stock",
+              "weight": 2.0,
+              "shares": 4780000,
+              "open": 205.0,
+              "high": 210.5,
+              "low": 202.5,
+              "close": 206.5,
+              "prevClose": 210.5,
+              "change": -4.0,
+              "changePct": -1.9,
+              "amplitude": 3.8,
+              "volume": 2994452.0,
+              "quoteDate": "2026-08-19",
+              "margin": {
+                "marginBuy": 253,
+                "marginSell": 513,
+                "marginCashRedemption": 4,
+                "marginPrevBalance": 5608,
+                "marginBalance": 5344,
+                "shortBuy": 15,
+                "shortSell": 47,
+                "shortStockRedemption": 0,
+                "shortPrevBalance": 116,
+                "shortBalance": 84,
+                "offsetting": 3,
+                "date": "2026-08-19"
+              }
+            },
+            {
+              "code": "2377",
+              "name": "微星",
+              "market": "TW",
+              "assetType": "stock",
+              "weight": 1.69,
+              "shares": 5678000,
+              "open": 145.0,
+              "high": 148.0,
+              "low": 144.5,
+              "close": 146.5,
+              "prevClose": 148.0,
+              "change": -1.5,
+              "changePct": -1.01,
+              "amplitude": 2.36,
+              "volume": 12788664.0,
+              "quoteDate": "2026-08-19",
+              "inst": {
+                "foreign": -5244462,
+                "trust": -8000,
+                "dealer": 451480,
+                "total": -4800982,
+                "date": "2026-08-19"
+              },
+              "margin": {
+                "marginBuy": 1066,
+                "marginSell": 579,
+                "marginCashRedemption": 14,
+                "marginPrevBalance": 14801,
+                "marginBalance": 15274,
+                "shortBuy": 0,
+                "shortSell": 0,
+                "shortStockRedemption": 0,
+                "shortPrevBalance": 0,
+                "shortBalance": 0,
+                "offsetting": 0,
+                "date": "2026-08-19"
+              }
+            },
+            {
+              "code": "3583",
+              "name": "辛耘",
+              "market": "TW",
+              "assetType": "stock",
+              "weight": 1.66,
+              "shares": 1158000,
+              "open": 690.0,
+              "high": 739.0,
+              "low": 684.0,
+              "close": 706.0,
+              "prevClose": 702.0,
+              "change": 4.0,
+              "changePct": 0.57,
+              "amplitude": 7.83,
+              "volume": 1456683.0,
+              "quoteDate": "2026-08-19",
+              "inst": {
+                "foreign": 262602,
+                "trust": -192000,
+                "dealer": 14601,
+                "total": 85203,
+                "date": "2026-08-19"
+              },
+              "margin": {
+                "marginBuy": 47,
+                "marginSell": 61,
+                "marginCashRedemption": 1,
+                "marginPrevBalance": 1901,
+                "marginBalance": 1886,
+                "shortBuy": 0,
+                "shortSell": 4,
+                "shortStockRedemption": 0,
+                "shortPrevBalance": 26,
+                "shortBalance": 30,
+                "offsetting": 0,
+                "date": "2026-08-19"
+              }
+            },
+            {
+              "code": "6274",
+              "name": "台燿",
+              "market": "TW",
+              "assetType": "stock",
+              "weight": 1.37,
+              "shares": 450000,
+              "open": 1455.0,
+              "high": 1575.0,
+              "low": 1455.0,
+              "close": 1500.0,
+              "prevClose": 1545.0,
+              "change": -45.0,
+              "changePct": -2.91,
+              "amplitude": 7.77,
+              "volume": 5742661.0,
+              "quoteDate": "2026-08-19",
+              "margin": {
+                "marginBuy": 818,
+                "marginSell": 1111,
+                "marginCashRedemption": 1,
+                "marginPrevBalance": 10926,
+                "marginBalance": 10632,
+                "shortBuy": 9,
+                "shortSell": 12,
+                "shortStockRedemption": 3,
+                "shortPrevBalance": 123,
+                "shortBalance": 117,
+                "offsetting": 16,
+                "date": "2026-08-19"
+              }
+            },
+            {
+              "code": "5274",
+              "name": "信驊",
+              "market": "TW",
+              "assetType": "stock",
+              "weight": 1.22,
+              "shares": 37900,
+              "open": 16250.0,
+              "high": 16700.0,
+              "low": 15585.0,
+              "close": 15830.0,
+              "prevClose": 17055.0,
+              "change": -1225.0,
+              "changePct": -7.18,
+              "amplitude": 6.54,
+              "volume": 471821.0,
+              "quoteDate": "2026-08-19",
+              "margin": {
+                "marginBuy": 2,
+                "marginSell": 8,
+                "marginCashRedemption": 0,
+                "marginPrevBalance": 127,
+                "marginBalance": 121,
+                "shortBuy": 0,
+                "shortSell": 0,
+                "shortStockRedemption": 0,
+                "shortPrevBalance": 0,
+                "shortBalance": 0,
+                "offsetting": 0,
+                "date": "2026-08-19"
+              }
+            },
+            {
+              "code": "3711",
+              "name": "日月光投控",
+              "market": "TW",
+              "assetType": "stock",
+              "weight": 1.21,
+              "shares": 1016000,
+              "open": 568.0,
+              "high": 596.0,
+              "low": 564.0,
+              "close": 588.0,
+              "prevClose": 599.0,
+              "change": -11.0,
+              "changePct": -1.84,
+              "amplitude": 5.34,
+              "volume": 22448357.0,
+              "quoteDate": "2026-08-19",
+              "inst": {
+                "foreign": 2323531,
+                "trust": -3324000,
+                "dealer": -127734,
+                "total": -1128203,
+                "date": "2026-08-19"
+              },
+              "margin": {
+                "marginBuy": 371,
+                "marginSell": 188,
+                "marginCashRedemption": 3,
+                "marginPrevBalance": 11681,
+                "marginBalance": 11861,
+                "shortBuy": 29,
+                "shortSell": 102,
+                "shortStockRedemption": 0,
+                "shortPrevBalance": 183,
+                "shortBalance": 256,
+                "offsetting": 6,
+                "date": "2026-08-19"
+              }
+            },
+            {
+              "code": "2467",
+              "name": "志聖",
+              "market": "TW",
+              "assetType": "stock",
+              "weight": 1.11,
+              "shares": 1000000,
+              "open": 552.0,
+              "high": 566.0,
+              "low": 538.0,
+              "close": 547.0,
+              "prevClose": 564.0,
+              "change": -17.0,
+              "changePct": -3.01,
+              "amplitude": 4.96,
+              "volume": 1357774.0,
+              "quoteDate": "2026-08-19",
+              "inst": {
+                "foreign": 199668,
+                "trust": -481000,
+                "dealer": -4716,
+                "total": -286048,
+                "date": "2026-08-19"
+              },
+              "margin": {
+                "marginBuy": 55,
+                "marginSell": 86,
+                "marginCashRedemption": 0,
+                "marginPrevBalance": 1718,
+                "marginBalance": 1687,
+                "shortBuy": 4,
+                "shortSell": 2,
+                "shortStockRedemption": 0,
+                "shortPrevBalance": 59,
+                "shortBalance": 57,
+                "offsetting": 0,
+                "date": "2026-08-19"
+              }
+            },
+            {
+              "code": "2376",
+              "name": "技嘉",
+              "market": "TW",
+              "assetType": "stock",
+              "weight": 1.02,
+              "shares": 1445000,
+              "open": 343.0,
+              "high": 352.5,
+              "low": 339.0,
+              "close": 348.5,
+              "prevClose": 348.0,
+              "change": 0.5,
+              "changePct": 0.14,
+              "amplitude": 3.88,
+              "volume": 6754187.0,
+              "quoteDate": "2026-08-19",
+              "inst": {
+                "foreign": -1993240,
+                "trust": 497000,
+                "dealer": 236633,
+                "total": -1259607,
+                "date": "2026-08-19"
+              },
+              "margin": {
+                "marginBuy": 313,
+                "marginSell": 281,
+                "marginCashRedemption": 1,
+                "marginPrevBalance": 6839,
+                "marginBalance": 6870,
+                "shortBuy": 34,
+                "shortSell": 13,
+                "shortStockRedemption": 0,
+                "shortPrevBalance": 171,
+                "shortBalance": 150,
+                "offsetting": 2,
+                "date": "2026-08-19"
+              }
+            },
+            {
+              "code": "3265",
+              "name": "台星科",
+              "market": "TW",
+              "assetType": "stock",
+              "weight": 0.99,
+              "shares": 2716000,
+              "open": 171.0,
+              "high": 187.0,
+              "low": 167.5,
+              "close": 180.5,
+              "prevClose": 171.0,
+              "change": 9.5,
+              "changePct": 5.56,
+              "amplitude": 11.4,
+              "volume": 5818500.0,
+              "quoteDate": "2026-08-19",
+              "margin": {
+                "marginBuy": 195,
+                "marginSell": 152,
+                "marginCashRedemption": 0,
+                "marginPrevBalance": 3789,
+                "marginBalance": 3832,
+                "shortBuy": 8,
+                "shortSell": 1,
+                "shortStockRedemption": 0,
+                "shortPrevBalance": 46,
+                "shortBalance": 53,
+                "offsetting": 11,
+                "date": "2026-08-19"
+              }
+            },
+            {
+              "code": "2395",
+              "name": "研華",
+              "market": "TW",
+              "assetType": "stock",
+              "weight": 0.97,
+              "shares": 688000,
+              "open": 674.0,
+              "high": 704.0,
+              "low": 667.0,
+              "close": 694.0,
+              "prevClose": 679.0,
+              "change": 15.0,
+              "changePct": 2.21,
+              "amplitude": 5.45,
+              "volume": 4739840.0,
+              "quoteDate": "2026-08-19",
+              "inst": {
+                "foreign": -514649,
+                "trust": 572000,
+                "dealer": 54634,
+                "total": 111985,
+                "date": "2026-08-19"
+              },
+              "margin": {
+                "marginBuy": 219,
+                "marginSell": 124,
+                "marginCashRedemption": 1,
+                "marginPrevBalance": 1735,
+                "marginBalance": 1829,
+                "shortBuy": 5,
+                "shortSell": 12,
+                "shortStockRedemption": 0,
+                "shortPrevBalance": 52,
+                "shortBalance": 59,
+                "offsetting": 6,
+                "date": "2026-08-19"
+              }
+            },
+            {
+              "code": "2301",
+              "name": "光寶科",
+              "market": "TW",
+              "assetType": "stock",
+              "weight": 0.97,
+              "shares": 1758000,
+              "open": 268.0,
+              "high": 282.0,
+              "low": 265.0,
+              "close": 273.5,
+              "prevClose": 273.5,
+              "change": 0.0,
+              "changePct": 0.0,
+              "amplitude": 6.22,
+              "volume": 35191145.0,
+              "quoteDate": "2026-08-19",
+              "inst": {
+                "foreign": -936729,
+                "trust": 640000,
+                "dealer": -238070,
+                "total": -534799,
+                "date": "2026-08-19"
+              },
+              "margin": {
+                "marginBuy": 3674,
+                "marginSell": 2071,
+                "marginCashRedemption": 0,
+                "marginPrevBalance": 13778,
+                "marginBalance": 15381,
+                "shortBuy": 0,
+                "shortSell": 126,
+                "shortStockRedemption": 0,
+                "shortPrevBalance": 0,
+                "shortBalance": 126,
+                "offsetting": 282,
+                "date": "2026-08-19"
+              }
+            },
+            {
+              "code": "6214",
+              "name": "精誠",
+              "market": "TW",
+              "assetType": "stock",
+              "weight": 0.95,
+              "shares": 2638000,
+              "open": 174.5,
+              "high": 181.5,
+              "low": 174.5,
+              "close": 178.5,
+              "prevClose": 176.0,
+              "change": 2.5,
+              "changePct": 1.42,
+              "amplitude": 3.98,
+              "volume": 9858275.0,
+              "quoteDate": "2026-08-19",
+              "inst": {
+                "foreign": 2563526,
+                "trust": 1319000,
+                "dealer": -48448,
+                "total": 3834078,
+                "date": "2026-08-19"
+              },
+              "margin": {
+                "marginBuy": 179,
+                "marginSell": 1903,
+                "marginCashRedemption": 30,
+                "marginPrevBalance": 3240,
+                "marginBalance": 1486,
+                "shortBuy": 25,
+                "shortSell": 17,
+                "shortStockRedemption": 2,
+                "shortPrevBalance": 53,
+                "shortBalance": 43,
+                "offsetting": 8,
+                "date": "2026-08-19"
+              }
+            },
+            {
+              "code": "3231",
+              "name": "緯創",
+              "market": "TW",
+              "assetType": "stock",
+              "weight": 0.92,
+              "shares": 2507000,
+              "open": 177.0,
+              "high": 182.0,
+              "low": 175.0,
+              "close": 182.0,
+              "prevClose": 181.0,
+              "change": 1.0,
+              "changePct": 0.55,
+              "amplitude": 3.87,
+              "volume": 28162708.0,
+              "quoteDate": "2026-08-19",
+              "inst": {
+                "foreign": -3046833,
+                "trust": 1039000,
+                "dealer": -893467,
+                "total": -2901300,
+                "date": "2026-08-19"
+              },
+              "margin": {
+                "marginBuy": 2116,
+                "marginSell": 1281,
+                "marginCashRedemption": 1,
+                "marginPrevBalance": 37557,
+                "marginBalance": 38391,
+                "shortBuy": 91,
+                "shortSell": 187,
+                "shortStockRedemption": 0,
+                "shortPrevBalance": 708,
+                "shortBalance": 804,
+                "offsetting": 22,
+                "date": "2026-08-19"
+              }
+            },
+            {
+              "code": "2455",
+              "name": "全新",
+              "market": "TW",
+              "assetType": "stock",
+              "weight": 0.89,
+              "shares": 1110000,
+              "open": 385.5,
+              "high": 415.0,
+              "low": 385.0,
+              "close": 396.5,
+              "prevClose": 417.5,
+              "change": -21.0,
+              "changePct": -5.03,
+              "amplitude": 7.19,
+              "volume": 15313042.0,
+              "quoteDate": "2026-08-19",
+              "inst": {
+                "foreign": 420170,
+                "trust": 607000,
+                "dealer": -167498,
+                "total": 859672,
+                "date": "2026-08-19"
+              },
+              "margin": {
+                "marginBuy": 943,
+                "marginSell": 1658,
+                "marginCashRedemption": 0,
+                "marginPrevBalance": 12253,
+                "marginBalance": 11538,
+                "shortBuy": 99,
+                "shortSell": 78,
+                "shortStockRedemption": 1,
+                "shortPrevBalance": 494,
+                "shortBalance": 472,
+                "offsetting": 38,
+                "date": "2026-08-19"
+              }
+            },
+            {
+              "code": "5483",
+              "name": "中美晶",
+              "market": "TW",
+              "assetType": "stock",
+              "weight": 0.89,
+              "shares": 2484000,
+              "open": 179.0,
+              "high": 179.5,
+              "low": 174.0,
+              "close": 176.5,
+              "prevClose": 185.0,
+              "change": -8.5,
+              "changePct": -4.59,
+              "amplitude": 2.97,
+              "volume": 18277092.0,
+              "quoteDate": "2026-08-19",
+              "margin": {
+                "marginBuy": 1345,
+                "marginSell": 1235,
+                "marginCashRedemption": 4,
+                "marginPrevBalance": 17544,
+                "marginBalance": 17650,
+                "shortBuy": 30,
+                "shortSell": 21,
+                "shortStockRedemption": 1,
+                "shortPrevBalance": 252,
+                "shortBalance": 260,
+                "offsetting": 36,
+                "date": "2026-08-19"
+              }
+            },
+            {
+              "code": "8996",
+              "name": "高力",
+              "market": "TW",
+              "assetType": "stock",
+              "weight": 0.88,
+              "shares": 382000,
+              "open": 1105.0,
+              "high": 1155.0,
+              "low": 1105.0,
+              "close": 1135.0,
+              "prevClose": 1175.0,
+              "change": -40.0,
+              "changePct": -3.4,
+              "amplitude": 4.26,
+              "volume": 2003400.0,
+              "quoteDate": "2026-08-19",
+              "inst": {
+                "foreign": -40584,
+                "trust": 175000,
+                "dealer": -22869,
+                "total": 111547,
+                "date": "2026-08-19"
+              },
+              "margin": {
+                "marginBuy": 198,
+                "marginSell": 286,
+                "marginCashRedemption": 1,
+                "marginPrevBalance": 5884,
+                "marginBalance": 5795,
+                "shortBuy": 19,
+                "shortSell": 8,
+                "shortStockRedemption": 0,
+                "shortPrevBalance": 122,
+                "shortBalance": 111,
+                "offsetting": 2,
+                "date": "2026-08-19"
+              }
+            },
+            {
+              "code": "8070",
+              "name": "長華*",
+              "market": "TW",
+              "assetType": "stock",
+              "weight": 0.7,
+              "shares": 6753000,
+              "open": 53.8,
+              "high": 54.5,
+              "low": 50.9,
+              "close": 51.0,
+              "prevClose": 54.4,
+              "change": -3.4,
+              "changePct": -6.25,
+              "amplitude": 6.62,
+              "volume": 22770769.0,
+              "quoteDate": "2026-08-19",
+              "inst": {
+                "foreign": -9652787,
+                "trust": 4672000,
+                "dealer": -33023,
+                "total": -5013810,
+                "date": "2026-08-19"
+              },
+              "margin": {
+                "marginBuy": 1028,
+                "marginSell": 252,
+                "marginCashRedemption": 2,
+                "marginPrevBalance": 4785,
+                "marginBalance": 5559,
+                "shortBuy": 37,
+                "shortSell": 9,
+                "shortStockRedemption": 1,
+                "shortPrevBalance": 62,
+                "shortBalance": 33,
+                "offsetting": 7,
+                "date": "2026-08-19"
+              }
+            },
+            {
+              "code": "6257",
+              "name": "矽格",
+              "market": "TW",
+              "assetType": "stock",
+              "weight": 0.66,
+              "shares": 1639000,
+              "open": 194.0,
+              "high": 201.0,
+              "low": 192.5,
+              "close": 199.5,
+              "prevClose": 199.5,
+              "change": 0.0,
+              "changePct": 0.0,
+              "amplitude": 4.26,
+              "volume": 5509629.0,
+              "quoteDate": "2026-08-19",
+              "inst": {
+                "foreign": 288130,
+                "trust": -1585000,
+                "dealer": -206472,
+                "total": -1503342,
+                "date": "2026-08-19"
+              },
+              "margin": {
+                "marginBuy": 463,
+                "marginSell": 182,
+                "marginCashRedemption": 4,
+                "marginPrevBalance": 10994,
+                "marginBalance": 11271,
+                "shortBuy": 21,
+                "shortSell": 16,
+                "shortStockRedemption": 0,
+                "shortPrevBalance": 134,
+                "shortBalance": 129,
+                "offsetting": 3,
+                "date": "2026-08-19"
+              }
+            },
+            {
+              "code": "8016",
+              "name": "矽創",
+              "market": "TW",
+              "assetType": "stock",
+              "weight": 0.46,
+              "shares": 772000,
+              "open": 283.0,
+              "high": 298.0,
+              "low": 282.5,
+              "close": 296.0,
+              "prevClose": 288.0,
+              "change": 8.0,
+              "changePct": 2.78,
+              "amplitude": 5.38,
+              "volume": 1754672.0,
+              "quoteDate": "2026-08-19",
+              "inst": {
+                "foreign": 896391,
+                "trust": -689000,
+                "dealer": 4311,
+                "total": 211702,
+                "date": "2026-08-19"
+              },
+              "margin": {
+                "marginBuy": 28,
+                "marginSell": 50,
+                "marginCashRedemption": 1,
+                "marginPrevBalance": 1392,
+                "marginBalance": 1369,
+                "shortBuy": 3,
+                "shortSell": 2,
+                "shortStockRedemption": 0,
+                "shortPrevBalance": 5,
+                "shortBalance": 4,
+                "offsetting": 1,
+                "date": "2026-08-19"
+              }
+            },
+            {
+              "code": "3529",
+              "name": "力旺",
+              "market": "TW",
+              "assetType": "stock",
+              "weight": 0.43,
+              "shares": 93000,
+              "open": 2300.0,
+              "high": 2380.0,
+              "low": 2230.0,
+              "close": 2260.0,
+              "prevClose": 2340.0,
+              "change": -80.0,
+              "changePct": -3.42,
+              "amplitude": 6.41,
+              "volume": 1117108.0,
+              "quoteDate": "2026-08-19",
+              "margin": {
+                "marginBuy": 50,
+                "marginSell": 68,
+                "marginCashRedemption": 1,
+                "marginPrevBalance": 1413,
+                "marginBalance": 1394,
+                "shortBuy": 0,
+                "shortSell": 30,
+                "shortStockRedemption": 0,
+                "shortPrevBalance": 35,
+                "shortBalance": 5,
+                "offsetting": 0,
+                "date": "2026-08-19"
+              }
+            },
+            {
+              "code": "3702",
+              "name": "大聯大",
+              "market": "TW",
+              "assetType": "stock",
+              "weight": 0.42,
+              "shares": 1930000,
+              "open": 106.0,
+              "high": 107.5,
+              "low": 103.0,
+              "close": 106.5,
+              "prevClose": 106.5,
+              "change": 0.0,
+              "changePct": 0.0,
+              "amplitude": 4.23,
+              "volume": 18979455.0,
+              "quoteDate": "2026-08-19",
+              "inst": {
+                "foreign": -3166125,
+                "trust": -1829000,
+                "dealer": 159607,
+                "total": -4835518,
+                "date": "2026-08-19"
+              },
+              "margin": {
+                "marginBuy": 912,
+                "marginSell": 332,
+                "marginCashRedemption": 2,
+                "marginPrevBalance": 8497,
+                "marginBalance": 9075,
+                "shortBuy": 20,
+                "shortSell": 2,
+                "shortStockRedemption": 33,
+                "shortPrevBalance": 137,
+                "shortBalance": 86,
+                "offsetting": 8,
+                "date": "2026-08-19"
+              }
+            },
+            {
+              "code": "7769",
+              "name": "鴻勁",
+              "market": "TW",
+              "assetType": "stock",
+              "weight": 0.4,
+              "shares": 31000,
+              "open": 6350.0,
+              "high": 6705.0,
+              "low": 6300.0,
+              "close": 6445.0,
+              "prevClose": 6525.0,
+              "change": -80.0,
+              "changePct": -1.23,
+              "amplitude": 6.21,
+              "volume": 450430.0,
+              "quoteDate": "2026-08-19",
+              "inst": {
+                "foreign": 78455,
+                "trust": -14000,
+                "dealer": -845,
+                "total": 63610,
+                "date": "2026-08-19"
+              },
+              "margin": {
+                "marginBuy": 9,
+                "marginSell": 28,
+                "marginCashRedemption": 0,
+                "marginPrevBalance": 346,
+                "marginBalance": 327,
+                "shortBuy": 2,
+                "shortSell": 0,
+                "shortStockRedemption": 0,
+                "shortPrevBalance": 2,
+                "shortBalance": 0,
+                "offsetting": 0,
+                "date": "2026-08-19"
+              }
+            },
+            {
+              "code": "6239",
+              "name": "力成",
+              "market": "TW",
+              "assetType": "stock",
+              "weight": 0.38,
+              "shares": 710000,
+              "open": 258.0,
+              "high": 267.5,
+              "low": 255.0,
+              "close": 262.5,
+              "prevClose": 265.5,
+              "change": -3.0,
+              "changePct": -1.13,
+              "amplitude": 4.71,
+              "volume": 9782257.0,
+              "quoteDate": "2026-08-19",
+              "inst": {
+                "foreign": 1907361,
+                "trust": -2339000,
+                "dealer": -253758,
+                "total": -685397,
+                "date": "2026-08-19"
+              },
+              "margin": {
+                "marginBuy": 404,
+                "marginSell": 465,
+                "marginCashRedemption": 14,
+                "marginPrevBalance": 22181,
+                "marginBalance": 22106,
+                "shortBuy": 41,
+                "shortSell": 28,
+                "shortStockRedemption": 0,
+                "shortPrevBalance": 131,
+                "shortBalance": 118,
+                "offsetting": 7,
+                "date": "2026-08-19"
+              }
+            },
+            {
+              "code": "2316",
+              "name": "楠梓電",
+              "market": "TW",
+              "assetType": "stock",
+              "weight": 0.37,
+              "shares": 1181000,
+              "open": 153.0,
+              "high": 163.0,
+              "low": 153.0,
+              "close": 155.5,
+              "prevClose": 159.0,
+              "change": -3.5,
+              "changePct": -2.2,
+              "amplitude": 6.29,
+              "volume": 3257021.0,
+              "quoteDate": "2026-08-19",
+              "inst": {
+                "foreign": 1047984,
+                "trust": -1144000,
+                "dealer": -1801,
+                "total": -97817,
+                "date": "2026-08-19"
+              },
+              "margin": {
+                "marginBuy": 121,
+                "marginSell": 146,
+                "marginCashRedemption": 1,
+                "marginPrevBalance": 3898,
+                "marginBalance": 3872,
+                "shortBuy": 10,
+                "shortSell": 7,
+                "shortStockRedemption": 0,
+                "shortPrevBalance": 50,
+                "shortBalance": 47,
+                "offsetting": 13,
+                "date": "2026-08-19"
+              }
+            },
+            {
+              "code": "6831",
+              "name": "邁科",
+              "market": "TW",
+              "assetType": "stock",
+              "weight": 0.36,
+              "shares": 300000,
+              "open": 637.0,
+              "high": 660.0,
+              "low": 595.0,
+              "close": 599.0,
+              "prevClose": 655.0,
+              "change": -56.0,
+              "changePct": -8.55,
+              "amplitude": 9.92,
+              "volume": 1221498.0,
+              "quoteDate": "2026-08-19",
+              "inst": {
+                "foreign": -146016,
+                "trust": 0,
+                "dealer": -18796,
+                "total": -164812,
+                "date": "2026-08-19"
+              },
+              "margin": {
+                "marginBuy": 102,
+                "marginSell": 75,
+                "marginCashRedemption": 0,
+                "marginPrevBalance": 778,
+                "marginBalance": 805,
+                "shortBuy": 2,
+                "shortSell": 3,
+                "shortStockRedemption": 0,
+                "shortPrevBalance": 35,
+                "shortBalance": 36,
+                "offsetting": 0,
+                "date": "2026-08-19"
+              }
+            },
+            {
+              "code": "3036",
+              "name": "文曄",
+              "market": "TW",
+              "assetType": "stock",
+              "weight": 0.33,
+              "shares": 818000,
+              "open": 198.5,
+              "high": 204.5,
+              "low": 196.5,
+              "close": 201.5,
+              "prevClose": 202.0,
+              "change": -0.5,
+              "changePct": -0.25,
+              "amplitude": 3.96,
+              "volume": 8946264.0,
+              "quoteDate": "2026-08-19",
+              "inst": {
+                "foreign": 2232318,
+                "trust": -2934000,
+                "dealer": -505191,
+                "total": -1206873,
+                "date": "2026-08-19"
+              },
+              "margin": {
+                "marginBuy": 331,
+                "marginSell": 141,
+                "marginCashRedemption": 1,
+                "marginPrevBalance": 11451,
+                "marginBalance": 11640,
+                "shortBuy": 11,
+                "shortSell": 2,
+                "shortStockRedemption": 0,
+                "shortPrevBalance": 78,
+                "shortBalance": 69,
+                "offsetting": 1,
+                "date": "2026-08-19"
+              }
+            },
+            {
+              "code": "2351",
+              "name": "順德",
+              "market": "TW",
+              "assetType": "stock",
+              "weight": 0.3,
+              "shares": 788000,
+              "open": 172.0,
+              "high": 191.0,
+              "low": 170.5,
+              "close": 185.0,
+              "prevClose": 176.0,
+              "change": 9.0,
+              "changePct": 5.11,
+              "amplitude": 11.65,
+              "volume": 7890194.0,
+              "quoteDate": "2026-08-19",
+              "inst": {
+                "foreign": -181461,
+                "trust": -364000,
+                "dealer": -49969,
+                "total": -595430,
+                "date": "2026-08-19"
+              },
+              "margin": {
+                "marginBuy": 587,
+                "marginSell": 559,
+                "marginCashRedemption": 0,
+                "marginPrevBalance": 11936,
+                "marginBalance": 11964,
+                "shortBuy": 4,
+                "shortSell": 110,
+                "shortStockRedemption": 11,
+                "shortPrevBalance": 174,
+                "shortBalance": 269,
+                "offsetting": 8,
+                "date": "2026-08-19"
+              }
+            },
+            {
+              "code": "6278",
+              "name": "台表科",
+              "market": "TW",
+              "assetType": "stock",
+              "weight": 0.3,
+              "shares": 836000,
+              "open": 168.0,
+              "high": 181.5,
+              "low": 168.0,
+              "close": 174.5,
+              "prevClose": 172.0,
+              "change": 2.5,
+              "changePct": 1.45,
+              "amplitude": 7.85,
+              "volume": 6449418.0,
+              "quoteDate": "2026-08-19",
+              "inst": {
+                "foreign": 2072707,
+                "trust": -813000,
+                "dealer": -227877,
+                "total": 1031830,
+                "date": "2026-08-19"
+              },
+              "margin": {
+                "marginBuy": 398,
+                "marginSell": 328,
+                "marginCashRedemption": 0,
+                "marginPrevBalance": 9384,
+                "marginBalance": 9454,
+                "shortBuy": 15,
+                "shortSell": 16,
+                "shortStockRedemption": 0,
+                "shortPrevBalance": 87,
+                "shortBalance": 88,
+                "offsetting": 3,
+                "date": "2026-08-19"
+              }
+            },
+            {
+              "code": "2327",
+              "name": "國巨*",
+              "market": "TW",
+              "assetType": "stock",
+              "weight": 0.28,
+              "shares": 236000,
+              "open": 547.0,
+              "high": 590.0,
+              "low": 547.0,
+              "close": 576.0,
+              "prevClose": 576.0,
+              "change": 0.0,
+              "changePct": 0.0,
+              "amplitude": 7.47,
+              "volume": 56295383.0,
+              "quoteDate": "2026-08-19",
+              "inst": {
+                "foreign": -3422361,
+                "trust": -2731000,
+                "dealer": -1341269,
+                "total": -7494630,
+                "date": "2026-08-19"
+              },
+              "margin": {
+                "marginBuy": 1957,
+                "marginSell": 1181,
+                "marginCashRedemption": 9,
+                "marginPrevBalance": 36802,
+                "marginBalance": 37569,
+                "shortBuy": 286,
+                "shortSell": 78,
+                "shortStockRedemption": 0,
+                "shortPrevBalance": 624,
+                "shortBalance": 416,
+                "offsetting": 91,
+                "date": "2026-08-19"
+              }
+            },
+            {
+              "code": "2885",
+              "name": "元大金",
+              "market": "TW",
+              "assetType": "stock",
+              "weight": 0.28,
+              "shares": 2213556,
+              "open": 63.9,
+              "high": 63.9,
+              "low": 62.1,
+              "close": 62.5,
+              "prevClose": 64.0,
+              "change": -1.5,
+              "changePct": -2.34,
+              "amplitude": 2.81,
+              "volume": 44748181.0,
+              "quoteDate": "2026-08-19",
+              "inst": {
+                "foreign": -19453031,
+                "trust": 436000,
+                "dealer": -154064,
+                "total": -19171095,
+                "date": "2026-08-19"
+              },
+              "margin": {
+                "marginBuy": 432,
+                "marginSell": 23,
+                "marginCashRedemption": 2,
+                "marginPrevBalance": 2253,
+                "marginBalance": 2660,
+                "shortBuy": 0,
+                "shortSell": 0,
+                "shortStockRedemption": 0,
+                "shortPrevBalance": 0,
+                "shortBalance": 0,
+                "offsetting": 0,
+                "date": "2026-08-19"
+              }
+            },
+            {
+              "code": "2472",
+              "name": "立隆電",
+              "market": "TW",
+              "assetType": "stock",
+              "weight": 0.25,
+              "shares": 518000,
+              "open": 218.5,
+              "high": 238.5,
+              "low": 218.5,
+              "close": 234.0,
+              "prevClose": 228.5,
+              "change": 5.5,
+              "changePct": 2.41,
+              "amplitude": 8.75,
+              "volume": 2844558.0,
+              "quoteDate": "2026-08-19",
+              "inst": {
+                "foreign": 575055,
+                "trust": -504000,
+                "dealer": 16715,
+                "total": 87770,
+                "date": "2026-08-19"
+              },
+              "margin": {
+                "marginBuy": 139,
+                "marginSell": 123,
+                "marginCashRedemption": 5,
+                "marginPrevBalance": 5009,
+                "marginBalance": 5020,
+                "shortBuy": 0,
+                "shortSell": 0,
+                "shortStockRedemption": 0,
+                "shortPrevBalance": 0,
+                "shortBalance": 0,
+                "offsetting": 0,
+                "date": "2026-08-19"
+              }
+            },
+            {
+              "code": "5425",
+              "name": "台半",
+              "market": "TW",
+              "assetType": "stock",
+              "weight": 0.24,
+              "shares": 1278000,
+              "open": 90.2,
+              "high": 98.5,
+              "low": 89.4,
+              "close": 91.8,
+              "prevClose": 91.5,
+              "change": 0.3,
+              "changePct": 0.33,
+              "amplitude": 9.95,
+              "volume": 44297157.0,
+              "quoteDate": "2026-08-19",
+              "margin": {
+                "marginBuy": 2469,
+                "marginSell": 1953,
+                "marginCashRedemption": 2,
+                "marginPrevBalance": 9547,
+                "marginBalance": 10061,
+                "shortBuy": 43,
+                "shortSell": 8,
+                "shortStockRedemption": 0,
+                "shortPrevBalance": 147,
+                "shortBalance": 182,
+                "offsetting": 83,
+                "date": "2026-08-19"
+              }
+            },
+            {
+              "code": "3617",
+              "name": "碩天",
+              "market": "TW",
+              "assetType": "stock",
+              "weight": 0.23,
+              "shares": 442000,
+              "open": 255.5,
+              "high": 258.0,
+              "low": 247.5,
+              "close": 257.0,
+              "prevClose": 255.5,
+              "change": 1.5,
+              "changePct": 0.59,
+              "amplitude": 4.11,
+              "volume": 944438.0,
+              "quoteDate": "2026-08-19",
+              "inst": {
+                "foreign": -310784,
+                "trust": 221000,
+                "dealer": 6508,
+                "total": -83276,
+                "date": "2026-08-19"
+              },
+              "margin": {
+                "marginBuy": 55,
+                "marginSell": 21,
+                "marginCashRedemption": 0,
+                "marginPrevBalance": 1944,
+                "marginBalance": 1978,
+                "shortBuy": 1,
+                "shortSell": 3,
+                "shortStockRedemption": 0,
+                "shortPrevBalance": 15,
+                "shortBalance": 17,
+                "offsetting": 0,
+                "date": "2026-08-19"
+              }
+            },
+            {
+              "code": "6196",
+              "name": "帆宣",
+              "market": "TW",
+              "assetType": "stock",
+              "weight": 0.23,
+              "shares": 226000,
+              "open": 493.5,
+              "high": 512.0,
+              "low": 493.0,
+              "close": 500.0,
+              "prevClose": 503.0,
+              "change": -3.0,
+              "changePct": -0.6,
+              "amplitude": 3.78,
+              "volume": 838780.0,
+              "quoteDate": "2026-08-19",
+              "inst": {
+                "foreign": 39660,
+                "trust": 134000,
+                "dealer": -84553,
+                "total": 89107,
+                "date": "2026-08-19"
+              },
+              "margin": {
+                "marginBuy": 27,
+                "marginSell": 27,
+                "marginCashRedemption": 0,
+                "marginPrevBalance": 1481,
+                "marginBalance": 1481,
+                "shortBuy": 0,
+                "shortSell": 2,
+                "shortStockRedemption": 0,
+                "shortPrevBalance": 17,
+                "shortBalance": 19,
+                "offsetting": 0,
+                "date": "2026-08-19"
+              }
+            },
+            {
+              "code": "6213",
+              "name": "聯茂",
+              "market": "TW",
+              "assetType": "stock",
+              "weight": 0.23,
+              "shares": 238000,
+              "open": 466.5,
+              "high": 500.0,
+              "low": 466.5,
+              "close": 484.0,
+              "prevClose": 488.0,
+              "change": -4.0,
+              "changePct": -0.82,
+              "amplitude": 6.86,
+              "volume": 3111366.0,
+              "quoteDate": "2026-08-19",
+              "inst": {
+                "foreign": 743110,
+                "trust": 120000,
+                "dealer": -3820,
+                "total": 859290,
+                "date": "2026-08-19"
+              },
+              "margin": {
+                "marginBuy": 110,
+                "marginSell": 347,
+                "marginCashRedemption": 1,
+                "marginPrevBalance": 17760,
+                "marginBalance": 17522,
+                "shortBuy": 70,
+                "shortSell": 20,
+                "shortStockRedemption": 0,
+                "shortPrevBalance": 1253,
+                "shortBalance": 1203,
+                "offsetting": 378,
+                "date": "2026-08-19"
+              }
+            },
+            {
+              "code": "6672",
+              "name": "騰輝電子-KY",
+              "market": "TW",
+              "assetType": "stock",
+              "weight": 0.23,
+              "shares": 406000,
+              "open": 280.0,
+              "high": 293.0,
+              "low": 280.0,
+              "close": 284.0,
+              "prevClose": 288.0,
+              "change": -4.0,
+              "changePct": -1.39,
+              "amplitude": 4.51,
+              "volume": 7856786.0,
+              "quoteDate": "2026-08-19",
+              "inst": {
+                "foreign": 202590,
+                "trust": 203000,
+                "dealer": -43947,
+                "total": 361643,
+                "date": "2026-08-19"
+              },
+              "margin": {
+                "marginBuy": 498,
+                "marginSell": 505,
+                "marginCashRedemption": 0,
+                "marginPrevBalance": 6126,
+                "marginBalance": 6119,
+                "shortBuy": 49,
+                "shortSell": 8,
+                "shortStockRedemption": 0,
+                "shortPrevBalance": 115,
+                "shortBalance": 74,
+                "offsetting": 9,
+                "date": "2026-08-19"
+              }
+            },
+            {
+              "code": "2476",
+              "name": "鉅祥",
+              "market": "TW",
+              "assetType": "stock",
+              "weight": 0.23,
+              "shares": 962000,
+              "open": 117.5,
+              "high": 121.0,
+              "low": 117.0,
+              "close": 119.0,
+              "prevClose": 119.5,
+              "change": -0.5,
+              "changePct": -0.42,
+              "amplitude": 3.35,
+              "volume": 2081413.0,
+              "quoteDate": "2026-08-19",
+              "inst": {
+                "foreign": -923071,
+                "trust": 481000,
+                "dealer": 95558,
+                "total": -346513,
+                "date": "2026-08-19"
+              },
+              "margin": {
+                "marginBuy": 175,
+                "marginSell": 39,
+                "marginCashRedemption": 0,
+                "marginPrevBalance": 41618,
+                "marginBalance": 41754,
+                "shortBuy": 3,
+                "shortSell": 0,
+                "shortStockRedemption": 0,
+                "shortPrevBalance": 23,
+                "shortBalance": 20,
+                "offsetting": 0,
+                "date": "2026-08-19"
+              }
+            },
+            {
+              "code": "2428",
+              "name": "興勤",
+              "market": "TW",
+              "assetType": "stock",
+              "weight": 0.23,
+              "shares": 452000,
+              "open": 248.0,
+              "high": 262.5,
+              "low": 247.0,
+              "close": 256.5,
+              "prevClose": 252.0,
+              "change": 4.5,
+              "changePct": 1.79,
+              "amplitude": 6.15,
+              "volume": 1967772.0,
+              "quoteDate": "2026-08-19",
+              "inst": {
+                "foreign": -194555,
+                "trust": 226000,
+                "dealer": 9579,
+                "total": 41024,
+                "date": "2026-08-19"
+              },
+              "margin": {
+                "marginBuy": 90,
+                "marginSell": 116,
+                "marginCashRedemption": 0,
+                "marginPrevBalance": 2786,
+                "marginBalance": 2760,
+                "shortBuy": 0,
+                "shortSell": 1,
+                "shortStockRedemption": 0,
+                "shortPrevBalance": 10,
+                "shortBalance": 11,
+                "offsetting": 0,
+                "date": "2026-08-19"
+              }
+            },
+            {
+              "code": "2478",
+              "name": "大毅",
+              "market": "TW",
+              "assetType": "stock",
+              "weight": 0.2,
+              "shares": 717000,
+              "open": 118.5,
+              "high": 134.5,
+              "low": 118.0,
+              "close": 134.5,
+              "prevClose": 122.5,
+              "change": 12.0,
+              "changePct": 9.8,
+              "amplitude": 13.47,
+              "volume": 11550700.0,
+              "quoteDate": "2026-08-19",
+              "inst": {
+                "foreign": 2156668,
+                "trust": 257000,
+                "dealer": 86157,
+                "total": 2499825,
+                "date": "2026-08-19"
+              },
+              "margin": {
+                "marginBuy": 974,
+                "marginSell": 1165,
+                "marginCashRedemption": 3,
+                "marginPrevBalance": 9120,
+                "marginBalance": 8926,
+                "shortBuy": 2,
+                "shortSell": 105,
+                "shortStockRedemption": 0,
+                "shortPrevBalance": 41,
+                "shortBalance": 144,
+                "offsetting": 15,
+                "date": "2026-08-19"
+              }
+            },
+            {
+              "code": "3090",
+              "name": "日電貿",
+              "market": "TW",
+              "assetType": "stock",
+              "weight": 0.19,
+              "shares": 532000,
+              "open": 158.0,
+              "high": 177.5,
+              "low": 158.0,
+              "close": 177.5,
+              "prevClose": 161.5,
+              "change": 16.0,
+              "changePct": 9.91,
+              "amplitude": 12.07,
+              "volume": 21470953.0,
+              "quoteDate": "2026-08-19",
+              "inst": {
+                "foreign": 4269258,
+                "trust": -236000,
+                "dealer": 35884,
+                "total": 4069142,
+                "date": "2026-08-19"
+              },
+              "margin": {
+                "marginBuy": 745,
+                "marginSell": 1799,
+                "marginCashRedemption": 0,
+                "marginPrevBalance": 7777,
+                "marginBalance": 6723,
+                "shortBuy": 16,
+                "shortSell": 172,
+                "shortStockRedemption": 0,
+                "shortPrevBalance": 66,
+                "shortBalance": 222,
+                "offsetting": 40,
+                "date": "2026-08-19"
+              }
+            },
+            {
+              "code": "6446",
+              "name": "藥華藥",
+              "market": "TW",
+              "assetType": "stock",
+              "weight": 0.12,
+              "shares": 42000,
+              "open": 1410.0,
+              "high": 1435.0,
+              "low": 1370.0,
+              "close": 1400.0,
+              "prevClose": 1400.0,
+              "change": 0.0,
+              "changePct": 0.0,
+              "amplitude": 4.64,
+              "volume": 2584371.0,
+              "quoteDate": "2026-08-19",
+              "inst": {
+                "foreign": -422433,
+                "trust": -9000,
+                "dealer": 6207,
+                "total": -425226,
+                "date": "2026-08-19"
+              },
+              "margin": {
+                "marginBuy": 219,
+                "marginSell": 90,
+                "marginCashRedemption": 3,
+                "marginPrevBalance": 9003,
+                "marginBalance": 9129,
+                "shortBuy": 2,
+                "shortSell": 8,
+                "shortStockRedemption": 0,
+                "shortPrevBalance": 28,
+                "shortBalance": 34,
+                "offsetting": 0,
+                "date": "2026-08-19"
+              }
+            },
+            {
+              "code": "2451",
+              "name": "創見",
+              "market": "TW",
+              "assetType": "stock",
+              "weight": 0.1,
+              "shares": 177000,
+              "open": 275.5,
+              "high": 281.5,
+              "low": 273.0,
+              "close": 281.0,
+              "prevClose": 280.0,
+              "change": 1.0,
+              "changePct": 0.36,
+              "amplitude": 3.04,
+              "volume": 2771873.0,
+              "quoteDate": "2026-08-19",
+              "inst": {
+                "foreign": 248041,
+                "trust": -175000,
+                "dealer": 26542,
+                "total": 99583,
+                "date": "2026-08-19"
+              },
+              "margin": {
+                "marginBuy": 90,
+                "marginSell": 133,
+                "marginCashRedemption": 5,
+                "marginPrevBalance": 6301,
+                "marginBalance": 6253,
+                "shortBuy": 48,
+                "shortSell": 26,
+                "shortStockRedemption": 0,
+                "shortPrevBalance": 473,
+                "shortBalance": 451,
+                "offsetting": 1,
+                "date": "2026-08-19"
+              }
+            },
+            {
+              "code": "1785",
+              "name": "光洋科",
+              "market": "TW",
+              "assetType": "stock",
+              "weight": 0.06,
+              "shares": 290000,
+              "open": 97.8,
+              "high": 101.5,
+              "low": 97.4,
+              "close": 101.0,
+              "prevClose": 100.0,
+              "change": 1.0,
+              "changePct": 1.0,
+              "amplitude": 4.1,
+              "volume": 8038002.0,
+              "quoteDate": "2026-08-19",
+              "margin": {
+                "marginBuy": 442,
+                "marginSell": 573,
+                "marginCashRedemption": 10,
+                "marginPrevBalance": 27114,
+                "marginBalance": 26973,
+                "shortBuy": 10,
+                "shortSell": 26,
+                "shortStockRedemption": 0,
+                "shortPrevBalance": 121,
+                "shortBalance": 105,
+                "offsetting": 3,
+                "date": "2026-08-19"
+              }
+            },
+            {
+              "code": "6177",
+              "name": "達麗",
+              "market": "TW",
+              "assetType": "stock",
+              "weight": 0.02,
+              "shares": 194350,
+              "open": 49.0,
+              "high": 49.5,
+              "low": 48.0,
+              "close": 48.4,
+              "prevClose": 49.1,
+              "change": -0.7,
+              "changePct": -1.43,
+              "amplitude": 3.05,
+              "volume": 4152050.0,
+              "quoteDate": "2026-08-19",
+              "inst": {
+                "foreign": -930280,
+                "trust": 0,
+                "dealer": 151990,
+                "total": -778290,
+                "date": "2026-08-19"
+              },
+              "margin": {
+                "marginBuy": 32,
+                "marginSell": 157,
+                "marginCashRedemption": 0,
+                "marginPrevBalance": 2396,
+                "marginBalance": 2271,
+                "shortBuy": 0,
+                "shortSell": 0,
+                "shortStockRedemption": 0,
+                "shortPrevBalance": 0,
+                "shortBalance": 0,
+                "offsetting": 0,
+                "date": "2026-08-19"
+              }
+            },
+            {
+              "code": "3443",
+              "name": "創意",
+              "market": "TW",
+              "assetType": "stock",
+              "weight": 0.01,
+              "shares": 1000,
+              "open": 5350.0,
+              "high": 5530.0,
+              "low": 5230.0,
+              "close": 5295.0,
+              "prevClose": 5535.0,
+              "change": -240.0,
+              "changePct": -4.34,
+              "amplitude": 5.42,
+              "volume": 2510975.0,
+              "quoteDate": "2026-08-19",
+              "inst": {
+                "foreign": 828793,
+                "trust": -126000,
+                "dealer": -71430,
+                "total": 631363,
+                "date": "2026-08-19"
+              },
+              "margin": {
+                "marginBuy": 183,
+                "marginSell": 374,
+                "marginCashRedemption": 3,
+                "marginPrevBalance": 4958,
+                "marginBalance": 4764,
+                "shortBuy": 17,
+                "shortSell": 16,
+                "shortStockRedemption": 0,
+                "shortPrevBalance": 97,
+                "shortBalance": 96,
+                "offsetting": 2,
+                "date": "2026-08-19"
+              }
+            },
+            {
+              "code": "2886",
+              "name": "兆豐金",
+              "market": "TW",
+              "assetType": "stock",
+              "weight": 0.0,
+              "shares": 1000,
+              "open": 46.9,
+              "high": 47.05,
+              "low": 46.3,
+              "close": 47.05,
+              "prevClose": 46.9,
+              "change": 0.15,
+              "changePct": 0.32,
+              "amplitude": 1.6,
+              "volume": 25322496.0,
+              "quoteDate": "2026-08-19",
+              "inst": {
+                "foreign": 12062381,
+                "trust": 3285000,
+                "dealer": -783139,
+                "total": 14564242,
+                "date": "2026-08-19"
+              },
+              "margin": {
+                "marginBuy": 47,
+                "marginSell": 27,
+                "marginCashRedemption": 0,
+                "marginPrevBalance": 2109,
+                "marginBalance": 2129,
+                "shortBuy": 2,
+                "shortSell": 4,
+                "shortStockRedemption": 0,
+                "shortPrevBalance": 16,
+                "shortBalance": 18,
+                "offsetting": 0,
+                "date": "2026-08-19"
+              }
+            },
+            {
+              "code": "2881",
+              "name": "富邦金",
+              "market": "TW",
+              "assetType": "stock",
+              "weight": 0.0,
+              "shares": 250,
+              "open": 129.0,
+              "high": 129.5,
+              "low": 127.5,
+              "close": 128.5,
+              "prevClose": 129.5,
+              "change": -1.0,
+              "changePct": -0.77,
+              "amplitude": 1.54,
+              "volume": 12785616.0,
+              "quoteDate": "2026-08-19",
+              "inst": {
+                "foreign": 836335,
+                "trust": -372000,
+                "dealer": -408244,
+                "total": 56091,
+                "date": "2026-08-19"
+              },
+              "margin": {
+                "marginBuy": 135,
+                "marginSell": 56,
+                "marginCashRedemption": 0,
+                "marginPrevBalance": 6157,
+                "marginBalance": 6236,
+                "shortBuy": 8,
+                "shortSell": 1,
+                "shortStockRedemption": 0,
+                "shortPrevBalance": 189,
+                "shortBalance": 182,
+                "offsetting": 0,
+                "date": "2026-08-19"
+              }
+            },
+            {
+              "code": "1519",
+              "name": "華城",
+              "market": "TW",
+              "assetType": "stock",
+              "weight": 0.0,
+              "shares": 660,
+              "open": 709.0,
+              "high": 719.0,
+              "low": 701.0,
+              "close": 718.0,
+              "prevClose": 714.0,
+              "change": 4.0,
+              "changePct": 0.56,
+              "amplitude": 2.52,
+              "volume": 954237.0,
+              "quoteDate": "2026-08-19",
+              "inst": {
+                "foreign": -174555,
+                "trust": 1000,
+                "dealer": -4424,
+                "total": -177979,
+                "date": "2026-08-19"
+              },
+              "margin": {
+                "marginBuy": 23,
+                "marginSell": 21,
+                "marginCashRedemption": 0,
+                "marginPrevBalance": 2858,
+                "marginBalance": 2860,
+                "shortBuy": 0,
+                "shortSell": 3,
+                "shortStockRedemption": 0,
+                "shortPrevBalance": 10,
+                "shortBalance": 13,
+                "offsetting": 0,
+                "date": "2026-08-19"
+              }
+            },
+            {
+              "code": "3706",
+              "name": "神達",
+              "market": "TW",
+              "assetType": "stock",
+              "weight": 0.0,
+              "shares": 1400,
+              "open": 89.9,
+              "high": 91.8,
+              "low": 89.3,
+              "close": 90.7,
+              "prevClose": 90.6,
+              "change": 0.1,
+              "changePct": 0.11,
+              "amplitude": 2.76,
+              "volume": 8294613.0,
+              "quoteDate": "2026-08-19",
+              "inst": {
+                "foreign": -2282520,
+                "trust": -11000,
+                "dealer": 2475682,
+                "total": 182162,
+                "date": "2026-08-19"
+              },
+              "margin": {
+                "marginBuy": 248,
+                "marginSell": 404,
+                "marginCashRedemption": 7,
+                "marginPrevBalance": 28029,
+                "marginBalance": 27866,
+                "shortBuy": 10,
+                "shortSell": 12,
+                "shortStockRedemption": 0,
+                "shortPrevBalance": 166,
+                "shortBalance": 168,
+                "offsetting": 0,
+                "date": "2026-08-19"
+              }
+            },
+            {
+              "code": "4441",
+              "name": "振大環球",
+              "market": "TW",
+              "assetType": "stock",
+              "weight": 0.0,
+              "shares": 4000,
+              "open": 190.5,
+              "high": 198.0,
+              "low": 190.5,
+              "close": 196.5,
+              "prevClose": 192.0,
+              "change": 4.5,
+              "changePct": 2.34,
+              "amplitude": 3.91,
+              "volume": 99308.0,
+              "quoteDate": "2026-08-19",
+              "inst": {
+                "foreign": 1000,
+                "trust": 0,
+                "dealer": 0,
+                "total": 1000,
+                "date": "2026-08-19"
+              },
+              "margin": {
+                "marginBuy": 7,
+                "marginSell": 7,
+                "marginCashRedemption": 1,
+                "marginPrevBalance": 201,
+                "marginBalance": 200,
+                "shortBuy": 0,
+                "shortSell": 0,
+                "shortStockRedemption": 0,
+                "shortPrevBalance": 0,
+                "shortBalance": 0,
+                "offsetting": 0,
+                "date": "2026-08-19"
+              }
+            },
+            {
+              "code": "8046",
+              "name": "南電",
+              "market": "TW",
+              "assetType": "stock",
+              "weight": 0.0,
+              "shares": 1000,
+              "open": 1175.0,
+              "high": 1280.0,
+              "low": 1150.0,
+              "close": 1180.0,
+              "prevClose": 1245.0,
+              "change": -65.0,
+              "changePct": -5.22,
+              "amplitude": 10.44,
+              "volume": 15143786.0,
+              "quoteDate": "2026-08-19",
+              "inst": {
+                "foreign": -180038,
+                "trust": -92000,
+                "dealer": -200940,
+                "total": -472978,
+                "date": "2026-08-19"
+              },
+              "margin": {
+                "marginBuy": 1526,
+                "marginSell": 2000,
+                "marginCashRedemption": 0,
+                "marginPrevBalance": 11229,
+                "marginBalance": 10755,
+                "shortBuy": 154,
+                "shortSell": 36,
+                "shortStockRedemption": 0,
+                "shortPrevBalance": 690,
+                "shortBalance": 572,
+                "offsetting": 18,
+                "date": "2026-08-19"
+              }
+            },
+            {
+              "code": "8358",
+              "name": "金居",
+              "market": "TW",
+              "assetType": "stock",
+              "weight": 0.0,
+              "shares": 1000,
+              "open": 398.0,
+              "high": 413.5,
+              "low": 392.0,
+              "close": 410.5,
+              "prevClose": 416.0,
+              "change": -5.5,
+              "changePct": -1.32,
+              "amplitude": 5.17,
+              "volume": 15547200.0,
+              "quoteDate": "2026-08-19",
+              "margin": {
+                "marginBuy": 2540,
+                "marginSell": 2130,
+                "marginCashRedemption": 3,
+                "marginPrevBalance": 23328,
+                "marginBalance": 23735,
+                "shortBuy": 99,
+                "shortSell": 28,
+                "shortStockRedemption": 0,
+                "shortPrevBalance": 359,
+                "shortBalance": 430,
+                "offsetting": 49,
+                "date": "2026-08-19"
+              }
+            }
+          ]
         }
       ],
       "dividends": [
@@ -62389,7 +65088,7 @@ window.DATA = {
         },
         {
           "date": "2026-08-18",
-          "fetched_at": "2026-08-19T19:53:05+08:00",
+          "fetched_at": "2026-08-19T20:38:29+08:00",
           "count": 46,
           "self": {
             "open": 16.92,
@@ -79860,7 +82559,7 @@ window.DATA = {
         },
         {
           "date": "2026-08-19",
-          "fetched_at": "2026-08-19T19:53:07+08:00",
+          "fetched_at": "2026-08-19T20:38:31+08:00",
           "count": 41,
           "self": {
             "open": 17.37,
@@ -79881,7 +82580,20 @@ window.DATA = {
             "total": 4314719,
             "date": "2026-08-19"
           },
-          "selfMargin": null,
+          "selfMargin": {
+            "marginBuy": 1965,
+            "marginSell": 5546,
+            "marginCashRedemption": 0,
+            "marginPrevBalance": 22603,
+            "marginBalance": 19022,
+            "shortBuy": 155,
+            "shortSell": 132,
+            "shortStockRedemption": 0,
+            "shortPrevBalance": 947,
+            "shortBalance": 924,
+            "offsetting": 26,
+            "date": "2026-08-19"
+          },
           "holdings": [
             {
               "code": "2059",
@@ -79902,24 +82614,24 @@ window.DATA = {
               "quoteDate": "2026-08-19",
               "inst": {
                 "foreign": -102444,
-                "trust": 19000,
+                "trust": 19412,
                 "dealer": 6370,
-                "total": -77074,
+                "total": -76662,
                 "date": "2026-08-19"
               },
               "margin": {
-                "marginBuy": 50,
-                "marginSell": 59,
-                "marginCashRedemption": 1,
-                "marginPrevBalance": 595,
-                "marginBalance": 585,
-                "shortBuy": 5,
-                "shortSell": 1,
+                "marginBuy": 44,
+                "marginSell": 10,
+                "marginCashRedemption": 0,
+                "marginPrevBalance": 585,
+                "marginBalance": 619,
+                "shortBuy": 0,
+                "shortSell": 0,
                 "shortStockRedemption": 0,
-                "shortPrevBalance": 10,
+                "shortPrevBalance": 6,
                 "shortBalance": 6,
                 "offsetting": 0,
-                "date": "2026-08-18"
+                "date": "2026-08-19"
               }
             },
             {
@@ -79941,24 +82653,24 @@ window.DATA = {
               "quoteDate": "2026-08-19",
               "inst": {
                 "foreign": 45475,
-                "trust": 601000,
+                "trust": 534000,
                 "dealer": -228463,
-                "total": 418012,
+                "total": 351012,
                 "date": "2026-08-19"
               },
               "margin": {
-                "marginBuy": 231,
-                "marginSell": 300,
-                "marginCashRedemption": 1,
-                "marginPrevBalance": 4262,
-                "marginBalance": 4192,
+                "marginBuy": 315,
+                "marginSell": 351,
+                "marginCashRedemption": 0,
+                "marginPrevBalance": 4192,
+                "marginBalance": 4156,
                 "shortBuy": 0,
-                "shortSell": 0,
+                "shortSell": 9,
                 "shortStockRedemption": 0,
                 "shortPrevBalance": 0,
-                "shortBalance": 0,
-                "offsetting": 0,
-                "date": "2026-08-18"
+                "shortBalance": 9,
+                "offsetting": 41,
+                "date": "2026-08-19"
               }
             },
             {
@@ -79986,18 +82698,18 @@ window.DATA = {
                 "date": "2026-08-19"
               },
               "margin": {
-                "marginBuy": 456,
-                "marginSell": 304,
-                "marginCashRedemption": 23,
-                "marginPrevBalance": 27727,
-                "marginBalance": 27856,
-                "shortBuy": 5,
-                "shortSell": 6,
-                "shortStockRedemption": 1,
+                "marginBuy": 800,
+                "marginSell": 224,
+                "marginCashRedemption": 10,
+                "marginPrevBalance": 27856,
+                "marginBalance": 28422,
+                "shortBuy": 9,
+                "shortSell": 2,
+                "shortStockRedemption": 0,
                 "shortPrevBalance": 36,
-                "shortBalance": 36,
+                "shortBalance": 29,
                 "offsetting": 0,
-                "date": "2026-08-18"
+                "date": "2026-08-19"
               }
             },
             {
@@ -80025,18 +82737,18 @@ window.DATA = {
                 "date": "2026-08-19"
               },
               "margin": {
-                "marginBuy": 1693,
-                "marginSell": 2780,
-                "marginCashRedemption": 2,
-                "marginPrevBalance": 37857,
-                "marginBalance": 36768,
-                "shortBuy": 71,
-                "shortSell": 114,
-                "shortStockRedemption": 16,
-                "shortPrevBalance": 903,
-                "shortBalance": 930,
-                "offsetting": 34,
-                "date": "2026-08-18"
+                "marginBuy": 1398,
+                "marginSell": 917,
+                "marginCashRedemption": 3,
+                "marginPrevBalance": 36768,
+                "marginBalance": 37246,
+                "shortBuy": 142,
+                "shortSell": 56,
+                "shortStockRedemption": 47,
+                "shortPrevBalance": 930,
+                "shortBalance": 797,
+                "offsetting": 31,
+                "date": "2026-08-19"
               }
             },
             {
@@ -80064,18 +82776,18 @@ window.DATA = {
                 "date": "2026-08-19"
               },
               "margin": {
-                "marginBuy": 57,
-                "marginSell": 102,
-                "marginCashRedemption": 0,
-                "marginPrevBalance": 1883,
-                "marginBalance": 1838,
-                "shortBuy": 6,
-                "shortSell": 5,
-                "shortStockRedemption": 0,
-                "shortPrevBalance": 42,
-                "shortBalance": 41,
-                "offsetting": 0,
-                "date": "2026-08-18"
+                "marginBuy": 130,
+                "marginSell": 82,
+                "marginCashRedemption": 2,
+                "marginPrevBalance": 1838,
+                "marginBalance": 1884,
+                "shortBuy": 16,
+                "shortSell": 3,
+                "shortStockRedemption": 1,
+                "shortPrevBalance": 41,
+                "shortBalance": 27,
+                "offsetting": 2,
+                "date": "2026-08-19"
               }
             },
             {
@@ -80103,18 +82815,18 @@ window.DATA = {
                 "date": "2026-08-19"
               },
               "margin": {
-                "marginBuy": 219,
-                "marginSell": 199,
-                "marginCashRedemption": 4,
-                "marginPrevBalance": 2631,
-                "marginBalance": 2647,
-                "shortBuy": 2,
-                "shortSell": 5,
+                "marginBuy": 97,
+                "marginSell": 61,
+                "marginCashRedemption": 0,
+                "marginPrevBalance": 2647,
+                "marginBalance": 2683,
+                "shortBuy": 5,
+                "shortSell": 1,
                 "shortStockRedemption": 0,
-                "shortPrevBalance": 16,
-                "shortBalance": 19,
-                "offsetting": 0,
-                "date": "2026-08-18"
+                "shortPrevBalance": 19,
+                "shortBalance": 15,
+                "offsetting": 1,
+                "date": "2026-08-19"
               }
             },
             {
@@ -80136,24 +82848,24 @@ window.DATA = {
               "quoteDate": "2026-08-19",
               "inst": {
                 "foreign": -135887,
-                "trust": 65000,
+                "trust": 84000,
                 "dealer": 132972,
-                "total": 62085,
+                "total": 81085,
                 "date": "2026-08-19"
               },
               "margin": {
-                "marginBuy": 289,
-                "marginSell": 258,
+                "marginBuy": 285,
+                "marginSell": 172,
                 "marginCashRedemption": 0,
-                "marginPrevBalance": 2608,
-                "marginBalance": 2639,
-                "shortBuy": 4,
-                "shortSell": 14,
+                "marginPrevBalance": 2639,
+                "marginBalance": 2752,
+                "shortBuy": 1,
+                "shortSell": 13,
                 "shortStockRedemption": 0,
-                "shortPrevBalance": 22,
-                "shortBalance": 32,
-                "offsetting": 3,
-                "date": "2026-08-18"
+                "shortPrevBalance": 32,
+                "shortBalance": 44,
+                "offsetting": 2,
+                "date": "2026-08-19"
               }
             },
             {
@@ -80181,18 +82893,18 @@ window.DATA = {
                 "date": "2026-08-19"
               },
               "margin": {
-                "marginBuy": 50,
-                "marginSell": 181,
+                "marginBuy": 73,
+                "marginSell": 41,
                 "marginCashRedemption": 1,
-                "marginPrevBalance": 1868,
-                "marginBalance": 1736,
-                "shortBuy": 1,
-                "shortSell": 2,
+                "marginPrevBalance": 1736,
+                "marginBalance": 1767,
+                "shortBuy": 10,
+                "shortSell": 0,
                 "shortStockRedemption": 0,
-                "shortPrevBalance": 17,
-                "shortBalance": 18,
+                "shortPrevBalance": 18,
+                "shortBalance": 8,
                 "offsetting": 0,
-                "date": "2026-08-18"
+                "date": "2026-08-19"
               }
             },
             {
@@ -80220,18 +82932,18 @@ window.DATA = {
                 "date": "2026-08-19"
               },
               "margin": {
-                "marginBuy": 211,
-                "marginSell": 290,
+                "marginBuy": 198,
+                "marginSell": 286,
                 "marginCashRedemption": 1,
-                "marginPrevBalance": 5964,
-                "marginBalance": 5884,
-                "shortBuy": 18,
+                "marginPrevBalance": 5884,
+                "marginBalance": 5795,
+                "shortBuy": 19,
                 "shortSell": 8,
                 "shortStockRedemption": 0,
-                "shortPrevBalance": 132,
-                "shortBalance": 122,
-                "offsetting": 1,
-                "date": "2026-08-18"
+                "shortPrevBalance": 122,
+                "shortBalance": 111,
+                "offsetting": 2,
+                "date": "2026-08-19"
               }
             },
             {
@@ -80323,18 +83035,18 @@ window.DATA = {
                 "date": "2026-08-19"
               },
               "margin": {
-                "marginBuy": 1936,
-                "marginSell": 1602,
-                "marginCashRedemption": 5,
-                "marginPrevBalance": 37228,
-                "marginBalance": 37557,
-                "shortBuy": 162,
-                "shortSell": 55,
+                "marginBuy": 2116,
+                "marginSell": 1281,
+                "marginCashRedemption": 1,
+                "marginPrevBalance": 37557,
+                "marginBalance": 38391,
+                "shortBuy": 91,
+                "shortSell": 187,
                 "shortStockRedemption": 0,
-                "shortPrevBalance": 815,
-                "shortBalance": 708,
-                "offsetting": 7,
-                "date": "2026-08-18"
+                "shortPrevBalance": 708,
+                "shortBalance": 804,
+                "offsetting": 22,
+                "date": "2026-08-19"
               }
             },
             {
@@ -80362,18 +83074,18 @@ window.DATA = {
                 "date": "2026-08-19"
               },
               "margin": {
-                "marginBuy": 408,
-                "marginSell": 387,
-                "marginCashRedemption": 9,
-                "marginPrevBalance": 8000,
-                "marginBalance": 8012,
-                "shortBuy": 8,
-                "shortSell": 9,
+                "marginBuy": 433,
+                "marginSell": 424,
+                "marginCashRedemption": 1,
+                "marginPrevBalance": 8012,
+                "marginBalance": 8020,
+                "shortBuy": 22,
+                "shortSell": 5,
                 "shortStockRedemption": 0,
-                "shortPrevBalance": 56,
-                "shortBalance": 57,
-                "offsetting": 5,
-                "date": "2026-08-18"
+                "shortPrevBalance": 57,
+                "shortBalance": 40,
+                "offsetting": 0,
+                "date": "2026-08-19"
               }
             },
             {
@@ -80401,18 +83113,18 @@ window.DATA = {
                 "date": "2026-08-19"
               },
               "margin": {
-                "marginBuy": 3350,
-                "marginSell": 2754,
+                "marginBuy": 943,
+                "marginSell": 1658,
                 "marginCashRedemption": 0,
-                "marginPrevBalance": 11657,
-                "marginBalance": 12253,
-                "shortBuy": 42,
-                "shortSell": 82,
-                "shortStockRedemption": 0,
-                "shortPrevBalance": 454,
-                "shortBalance": 494,
-                "offsetting": 70,
-                "date": "2026-08-18"
+                "marginPrevBalance": 12253,
+                "marginBalance": 11538,
+                "shortBuy": 99,
+                "shortSell": 78,
+                "shortStockRedemption": 1,
+                "shortPrevBalance": 494,
+                "shortBalance": 472,
+                "offsetting": 38,
+                "date": "2026-08-19"
               }
             },
             {
@@ -80466,24 +83178,24 @@ window.DATA = {
               "quoteDate": "2026-08-19",
               "inst": {
                 "foreign": 9755,
-                "trust": -745000,
+                "trust": -760000,
                 "dealer": -24178,
-                "total": -759423,
+                "total": -774423,
                 "date": "2026-08-19"
               },
               "margin": {
-                "marginBuy": 1383,
-                "marginSell": 933,
-                "marginCashRedemption": 0,
-                "marginPrevBalance": 10165,
-                "marginBalance": 10615,
-                "shortBuy": 14,
-                "shortSell": 10,
-                "shortStockRedemption": 0,
-                "shortPrevBalance": 122,
-                "shortBalance": 118,
-                "offsetting": 22,
-                "date": "2026-08-18"
+                "marginBuy": 394,
+                "marginSell": 681,
+                "marginCashRedemption": 1,
+                "marginPrevBalance": 10615,
+                "marginBalance": 10327,
+                "shortBuy": 9,
+                "shortSell": 19,
+                "shortStockRedemption": 1,
+                "shortPrevBalance": 118,
+                "shortBalance": 127,
+                "offsetting": 5,
+                "date": "2026-08-19"
               }
             },
             {
@@ -80511,18 +83223,18 @@ window.DATA = {
                 "date": "2026-08-19"
               },
               "margin": {
-                "marginBuy": 6778,
-                "marginSell": 8709,
-                "marginCashRedemption": 6,
-                "marginPrevBalance": 47900,
-                "marginBalance": 45963,
-                "shortBuy": 167,
-                "shortSell": 140,
-                "shortStockRedemption": 1,
-                "shortPrevBalance": 1941,
-                "shortBalance": 1913,
-                "offsetting": 98,
-                "date": "2026-08-18"
+                "marginBuy": 5049,
+                "marginSell": 7144,
+                "marginCashRedemption": 3,
+                "marginPrevBalance": 45963,
+                "marginBalance": 43865,
+                "shortBuy": 553,
+                "shortSell": 287,
+                "shortStockRedemption": 3,
+                "shortPrevBalance": 1913,
+                "shortBalance": 1644,
+                "offsetting": 69,
+                "date": "2026-08-19"
               }
             },
             {
@@ -80544,24 +83256,24 @@ window.DATA = {
               "quoteDate": "2026-08-19",
               "inst": {
                 "foreign": -216230,
-                "trust": -372250,
+                "trust": -1046250,
                 "dealer": -265132,
-                "total": -853612,
+                "total": -1527612,
                 "date": "2026-08-19"
               },
               "margin": {
-                "marginBuy": 392,
-                "marginSell": 568,
+                "marginBuy": 292,
+                "marginSell": 151,
                 "marginCashRedemption": 4,
-                "marginPrevBalance": 9573,
-                "marginBalance": 9393,
-                "shortBuy": 14,
-                "shortSell": 4,
+                "marginPrevBalance": 9393,
+                "marginBalance": 9530,
+                "shortBuy": 15,
+                "shortSell": 14,
                 "shortStockRedemption": 0,
-                "shortPrevBalance": 60,
-                "shortBalance": 50,
+                "shortPrevBalance": 50,
+                "shortBalance": 49,
                 "offsetting": 1,
-                "date": "2026-08-18"
+                "date": "2026-08-19"
               }
             },
             {
@@ -80583,24 +83295,24 @@ window.DATA = {
               "quoteDate": "2026-08-19",
               "inst": {
                 "foreign": 828793,
-                "trust": 9000,
+                "trust": -126000,
                 "dealer": -71430,
-                "total": 766363,
+                "total": 631363,
                 "date": "2026-08-19"
               },
               "margin": {
-                "marginBuy": 315,
-                "marginSell": 437,
-                "marginCashRedemption": 0,
-                "marginPrevBalance": 5080,
-                "marginBalance": 4958,
-                "shortBuy": 26,
-                "shortSell": 0,
+                "marginBuy": 183,
+                "marginSell": 374,
+                "marginCashRedemption": 3,
+                "marginPrevBalance": 4958,
+                "marginBalance": 4764,
+                "shortBuy": 17,
+                "shortSell": 16,
                 "shortStockRedemption": 0,
-                "shortPrevBalance": 123,
-                "shortBalance": 97,
+                "shortPrevBalance": 97,
+                "shortBalance": 96,
                 "offsetting": 2,
-                "date": "2026-08-18"
+                "date": "2026-08-19"
               }
             },
             {
@@ -80628,18 +83340,18 @@ window.DATA = {
                 "date": "2026-08-19"
               },
               "margin": {
-                "marginBuy": 417,
-                "marginSell": 510,
-                "marginCashRedemption": 3,
-                "marginPrevBalance": 6176,
-                "marginBalance": 6080,
-                "shortBuy": 8,
-                "shortSell": 4,
-                "shortStockRedemption": 0,
-                "shortPrevBalance": 52,
-                "shortBalance": 48,
+                "marginBuy": 179,
+                "marginSell": 30,
+                "marginCashRedemption": 1,
+                "marginPrevBalance": 6080,
+                "marginBalance": 6228,
+                "shortBuy": 15,
+                "shortSell": 1,
+                "shortStockRedemption": 3,
+                "shortPrevBalance": 48,
+                "shortBalance": 31,
                 "offsetting": 0,
-                "date": "2026-08-18"
+                "date": "2026-08-19"
               }
             },
             {
@@ -80667,18 +83379,18 @@ window.DATA = {
                 "date": "2026-08-19"
               },
               "margin": {
-                "marginBuy": 1589,
-                "marginSell": 1845,
-                "marginCashRedemption": 3,
-                "marginPrevBalance": 21935,
-                "marginBalance": 21676,
-                "shortBuy": 40,
-                "shortSell": 66,
-                "shortStockRedemption": 1,
-                "shortPrevBalance": 310,
-                "shortBalance": 335,
-                "offsetting": 23,
-                "date": "2026-08-18"
+                "marginBuy": 887,
+                "marginSell": 890,
+                "marginCashRedemption": 248,
+                "marginPrevBalance": 21676,
+                "marginBalance": 21425,
+                "shortBuy": 44,
+                "shortSell": 41,
+                "shortStockRedemption": 0,
+                "shortPrevBalance": 335,
+                "shortBalance": 332,
+                "offsetting": 53,
+                "date": "2026-08-19"
               }
             },
             {
@@ -80700,24 +83412,24 @@ window.DATA = {
               "quoteDate": "2026-08-19",
               "inst": {
                 "foreign": 174888,
-                "trust": -360000,
+                "trust": -360257,
                 "dealer": 19836,
-                "total": -165276,
+                "total": -165533,
                 "date": "2026-08-19"
               },
               "margin": {
-                "marginBuy": 97,
-                "marginSell": 172,
-                "marginCashRedemption": 3,
-                "marginPrevBalance": 1406,
-                "marginBalance": 1328,
-                "shortBuy": 2,
+                "marginBuy": 59,
+                "marginSell": 42,
+                "marginCashRedemption": 2,
+                "marginPrevBalance": 1328,
+                "marginBalance": 1343,
+                "shortBuy": 5,
                 "shortSell": 0,
-                "shortStockRedemption": 0,
-                "shortPrevBalance": 27,
-                "shortBalance": 25,
+                "shortStockRedemption": 6,
+                "shortPrevBalance": 25,
+                "shortBalance": 14,
                 "offsetting": 0,
-                "date": "2026-08-18"
+                "date": "2026-08-19"
               }
             },
             {
@@ -80745,18 +83457,18 @@ window.DATA = {
                 "date": "2026-08-19"
               },
               "margin": {
-                "marginBuy": 3165,
-                "marginSell": 2597,
-                "marginCashRedemption": 1,
-                "marginPrevBalance": 34302,
-                "marginBalance": 34869,
-                "shortBuy": 59,
-                "shortSell": 106,
+                "marginBuy": 1262,
+                "marginSell": 1893,
+                "marginCashRedemption": 9,
+                "marginPrevBalance": 34869,
+                "marginBalance": 34229,
+                "shortBuy": 161,
+                "shortSell": 58,
                 "shortStockRedemption": 0,
-                "shortPrevBalance": 370,
-                "shortBalance": 417,
-                "offsetting": 34,
-                "date": "2026-08-18"
+                "shortPrevBalance": 417,
+                "shortBalance": 314,
+                "offsetting": 43,
+                "date": "2026-08-19"
               }
             },
             {
@@ -80784,18 +83496,18 @@ window.DATA = {
                 "date": "2026-08-19"
               },
               "margin": {
-                "marginBuy": 655,
-                "marginSell": 1041,
-                "marginCashRedemption": 2,
-                "marginPrevBalance": 12069,
-                "marginBalance": 11681,
-                "shortBuy": 24,
-                "shortSell": 29,
+                "marginBuy": 371,
+                "marginSell": 188,
+                "marginCashRedemption": 3,
+                "marginPrevBalance": 11681,
+                "marginBalance": 11861,
+                "shortBuy": 29,
+                "shortSell": 102,
                 "shortStockRedemption": 0,
-                "shortPrevBalance": 178,
-                "shortBalance": 183,
-                "offsetting": 18,
-                "date": "2026-08-18"
+                "shortPrevBalance": 183,
+                "shortBalance": 256,
+                "offsetting": 6,
+                "date": "2026-08-19"
               }
             },
             {
@@ -80823,18 +83535,18 @@ window.DATA = {
                 "date": "2026-08-19"
               },
               "margin": {
-                "marginBuy": 641,
-                "marginSell": 1013,
+                "marginBuy": 1526,
+                "marginSell": 2000,
                 "marginCashRedemption": 0,
-                "marginPrevBalance": 11601,
-                "marginBalance": 11229,
-                "shortBuy": 48,
-                "shortSell": 15,
+                "marginPrevBalance": 11229,
+                "marginBalance": 10755,
+                "shortBuy": 154,
+                "shortSell": 36,
                 "shortStockRedemption": 0,
-                "shortPrevBalance": 723,
-                "shortBalance": 690,
-                "offsetting": 6,
-                "date": "2026-08-18"
+                "shortPrevBalance": 690,
+                "shortBalance": 572,
+                "offsetting": 18,
+                "date": "2026-08-19"
               }
             },
             {
@@ -80862,18 +83574,18 @@ window.DATA = {
                 "date": "2026-08-19"
               },
               "margin": {
-                "marginBuy": 501,
-                "marginSell": 169,
-                "marginCashRedemption": 6,
-                "marginPrevBalance": 8155,
-                "marginBalance": 8481,
-                "shortBuy": 3,
-                "shortSell": 3,
+                "marginBuy": 201,
+                "marginSell": 137,
+                "marginCashRedemption": 2,
+                "marginPrevBalance": 8481,
+                "marginBalance": 8543,
+                "shortBuy": 5,
+                "shortSell": 2,
                 "shortStockRedemption": 0,
                 "shortPrevBalance": 32,
-                "shortBalance": 32,
+                "shortBalance": 29,
                 "offsetting": 0,
-                "date": "2026-08-18"
+                "date": "2026-08-19"
               }
             },
             {
@@ -80901,18 +83613,18 @@ window.DATA = {
                 "date": "2026-08-19"
               },
               "margin": {
-                "marginBuy": 130,
-                "marginSell": 451,
-                "marginCashRedemption": 19,
-                "marginPrevBalance": 18100,
-                "marginBalance": 17760,
-                "shortBuy": 26,
-                "shortSell": 67,
-                "shortStockRedemption": 4,
-                "shortPrevBalance": 1216,
-                "shortBalance": 1253,
-                "offsetting": 484,
-                "date": "2026-08-18"
+                "marginBuy": 110,
+                "marginSell": 347,
+                "marginCashRedemption": 1,
+                "marginPrevBalance": 17760,
+                "marginBalance": 17522,
+                "shortBuy": 70,
+                "shortSell": 20,
+                "shortStockRedemption": 0,
+                "shortPrevBalance": 1253,
+                "shortBalance": 1203,
+                "offsetting": 378,
+                "date": "2026-08-19"
               }
             },
             {
@@ -80940,18 +83652,18 @@ window.DATA = {
                 "date": "2026-08-19"
               },
               "margin": {
-                "marginBuy": 100,
-                "marginSell": 97,
-                "marginCashRedemption": 14,
-                "marginPrevBalance": 1552,
-                "marginBalance": 1541,
-                "shortBuy": 24,
-                "shortSell": 3,
+                "marginBuy": 127,
+                "marginSell": 36,
+                "marginCashRedemption": 1,
+                "marginPrevBalance": 1541,
+                "marginBalance": 1631,
+                "shortBuy": 2,
+                "shortSell": 5,
                 "shortStockRedemption": 0,
-                "shortPrevBalance": 61,
-                "shortBalance": 40,
+                "shortPrevBalance": 40,
+                "shortBalance": 43,
                 "offsetting": 1,
-                "date": "2026-08-18"
+                "date": "2026-08-19"
               }
             },
             {
@@ -80979,18 +83691,18 @@ window.DATA = {
                 "date": "2026-08-19"
               },
               "margin": {
-                "marginBuy": 2646,
-                "marginSell": 2257,
-                "marginCashRedemption": 10,
-                "marginPrevBalance": 13399,
-                "marginBalance": 13778,
+                "marginBuy": 3674,
+                "marginSell": 2071,
+                "marginCashRedemption": 0,
+                "marginPrevBalance": 13778,
+                "marginBalance": 15381,
                 "shortBuy": 0,
-                "shortSell": 0,
+                "shortSell": 126,
                 "shortStockRedemption": 0,
                 "shortPrevBalance": 0,
-                "shortBalance": 0,
-                "offsetting": 0,
-                "date": "2026-08-18"
+                "shortBalance": 126,
+                "offsetting": 282,
+                "date": "2026-08-19"
               }
             },
             {
@@ -81018,18 +83730,18 @@ window.DATA = {
                 "date": "2026-08-19"
               },
               "margin": {
-                "marginBuy": 13,
-                "marginSell": 315,
+                "marginBuy": 48,
+                "marginSell": 152,
                 "marginCashRedemption": 0,
-                "marginPrevBalance": 11240,
-                "marginBalance": 10938,
+                "marginPrevBalance": 10938,
+                "marginBalance": 10834,
                 "shortBuy": 9,
-                "shortSell": 3,
-                "shortStockRedemption": 33,
-                "shortPrevBalance": 315,
-                "shortBalance": 276,
-                "offsetting": 43,
-                "date": "2026-08-18"
+                "shortSell": 7,
+                "shortStockRedemption": 0,
+                "shortPrevBalance": 276,
+                "shortBalance": 274,
+                "offsetting": 154,
+                "date": "2026-08-19"
               }
             },
             {
@@ -81057,18 +83769,18 @@ window.DATA = {
                 "date": "2026-08-19"
               },
               "margin": {
-                "marginBuy": 663,
-                "marginSell": 1539,
+                "marginBuy": 313,
+                "marginSell": 281,
                 "marginCashRedemption": 1,
-                "marginPrevBalance": 7716,
-                "marginBalance": 6839,
-                "shortBuy": 354,
-                "shortSell": 0,
+                "marginPrevBalance": 6839,
+                "marginBalance": 6870,
+                "shortBuy": 34,
+                "shortSell": 13,
                 "shortStockRedemption": 0,
-                "shortPrevBalance": 525,
-                "shortBalance": 171,
-                "offsetting": 0,
-                "date": "2026-08-18"
+                "shortPrevBalance": 171,
+                "shortBalance": 150,
+                "offsetting": 2,
+                "date": "2026-08-19"
               }
             },
             {
@@ -81096,18 +83808,18 @@ window.DATA = {
                 "date": "2026-08-19"
               },
               "margin": {
-                "marginBuy": 251,
-                "marginSell": 267,
+                "marginBuy": 280,
+                "marginSell": 325,
                 "marginCashRedemption": 2,
-                "marginPrevBalance": 3111,
-                "marginBalance": 3093,
-                "shortBuy": 8,
-                "shortSell": 9,
-                "shortStockRedemption": 11,
-                "shortPrevBalance": 63,
-                "shortBalance": 53,
-                "offsetting": 9,
-                "date": "2026-08-18"
+                "marginPrevBalance": 3093,
+                "marginBalance": 3046,
+                "shortBuy": 0,
+                "shortSell": 0,
+                "shortStockRedemption": 1,
+                "shortPrevBalance": 53,
+                "shortBalance": 52,
+                "offsetting": 3,
+                "date": "2026-08-19"
               }
             },
             {
@@ -81231,18 +83943,18 @@ window.DATA = {
                 "date": "2026-08-19"
               },
               "margin": {
-                "marginBuy": 38,
-                "marginSell": 55,
-                "marginCashRedemption": 9,
-                "marginPrevBalance": 2291,
-                "marginBalance": 2265,
-                "shortBuy": 5,
+                "marginBuy": 15,
+                "marginSell": 135,
+                "marginCashRedemption": 8,
+                "marginPrevBalance": 2265,
+                "marginBalance": 2137,
+                "shortBuy": 1,
                 "shortSell": 0,
                 "shortStockRedemption": 0,
-                "shortPrevBalance": 11,
-                "shortBalance": 6,
+                "shortPrevBalance": 6,
+                "shortBalance": 5,
                 "offsetting": 0,
-                "date": "2026-08-18"
+                "date": "2026-08-19"
               }
             },
             {
@@ -81270,18 +83982,18 @@ window.DATA = {
                 "date": "2026-08-19"
               },
               "margin": {
-                "marginBuy": 924,
-                "marginSell": 1253,
-                "marginCashRedemption": 3,
-                "marginPrevBalance": 21418,
-                "marginBalance": 21086,
-                "shortBuy": 91,
-                "shortSell": 110,
+                "marginBuy": 515,
+                "marginSell": 1122,
+                "marginCashRedemption": 2,
+                "marginPrevBalance": 21086,
+                "marginBalance": 20477,
+                "shortBuy": 76,
+                "shortSell": 120,
                 "shortStockRedemption": 0,
-                "shortPrevBalance": 350,
-                "shortBalance": 369,
-                "offsetting": 42,
-                "date": "2026-08-18"
+                "shortPrevBalance": 369,
+                "shortBalance": 413,
+                "offsetting": 31,
+                "date": "2026-08-19"
               }
             },
             {
@@ -81341,18 +84053,18 @@ window.DATA = {
                 "date": "2026-08-19"
               },
               "margin": {
-                "marginBuy": 54,
-                "marginSell": 121,
+                "marginBuy": 144,
+                "marginSell": 192,
                 "marginCashRedemption": 0,
-                "marginPrevBalance": 1494,
-                "marginBalance": 1427,
-                "shortBuy": 0,
-                "shortSell": 8,
+                "marginPrevBalance": 1427,
+                "marginBalance": 1379,
+                "shortBuy": 10,
+                "shortSell": 1,
                 "shortStockRedemption": 0,
-                "shortPrevBalance": 35,
-                "shortBalance": 43,
-                "offsetting": 2,
-                "date": "2026-08-18"
+                "shortPrevBalance": 43,
+                "shortBalance": 34,
+                "offsetting": 3,
+                "date": "2026-08-19"
               }
             },
             {
@@ -103518,7 +106230,7 @@ window.DATA = {
         },
         {
           "date": "2026-08-19",
-          "fetched_at": "2026-08-19T19:53:10+08:00",
+          "fetched_at": "2026-08-19T20:38:32+08:00",
           "count": 47,
           "self": {
             "open": 14.39,
@@ -103539,7 +106251,20 @@ window.DATA = {
             "total": -4206896,
             "date": "2026-08-19"
           },
-          "selfMargin": null,
+          "selfMargin": {
+            "marginBuy": 833,
+            "marginSell": 180,
+            "marginCashRedemption": 0,
+            "marginPrevBalance": 8150,
+            "marginBalance": 8803,
+            "shortBuy": 12,
+            "shortSell": 0,
+            "shortStockRedemption": 0,
+            "shortPrevBalance": 32,
+            "shortBalance": 20,
+            "offsetting": 12,
+            "date": "2026-08-19"
+          },
           "holdings": [
             {
               "code": "2330",
@@ -103566,18 +106291,18 @@ window.DATA = {
                 "date": "2026-08-19"
               },
               "margin": {
-                "marginBuy": 456,
-                "marginSell": 304,
-                "marginCashRedemption": 23,
-                "marginPrevBalance": 27727,
-                "marginBalance": 27856,
-                "shortBuy": 5,
-                "shortSell": 6,
-                "shortStockRedemption": 1,
+                "marginBuy": 800,
+                "marginSell": 224,
+                "marginCashRedemption": 10,
+                "marginPrevBalance": 27856,
+                "marginBalance": 28422,
+                "shortBuy": 9,
+                "shortSell": 2,
+                "shortStockRedemption": 0,
                 "shortPrevBalance": 36,
-                "shortBalance": 36,
+                "shortBalance": 29,
                 "offsetting": 0,
-                "date": "2026-08-18"
+                "date": "2026-08-19"
               }
             },
             {
@@ -103599,24 +106324,24 @@ window.DATA = {
               "quoteDate": "2026-08-19",
               "inst": {
                 "foreign": -216230,
-                "trust": -372250,
+                "trust": -1046250,
                 "dealer": -265132,
-                "total": -853612,
+                "total": -1527612,
                 "date": "2026-08-19"
               },
               "margin": {
-                "marginBuy": 392,
-                "marginSell": 568,
+                "marginBuy": 292,
+                "marginSell": 151,
                 "marginCashRedemption": 4,
-                "marginPrevBalance": 9573,
-                "marginBalance": 9393,
-                "shortBuy": 14,
-                "shortSell": 4,
+                "marginPrevBalance": 9393,
+                "marginBalance": 9530,
+                "shortBuy": 15,
+                "shortSell": 14,
                 "shortStockRedemption": 0,
-                "shortPrevBalance": 60,
-                "shortBalance": 50,
+                "shortPrevBalance": 50,
+                "shortBalance": 49,
                 "offsetting": 1,
-                "date": "2026-08-18"
+                "date": "2026-08-19"
               }
             },
             {
@@ -103638,24 +106363,24 @@ window.DATA = {
               "quoteDate": "2026-08-19",
               "inst": {
                 "foreign": -102444,
-                "trust": 19000,
+                "trust": 19412,
                 "dealer": 6370,
-                "total": -77074,
+                "total": -76662,
                 "date": "2026-08-19"
               },
               "margin": {
-                "marginBuy": 50,
-                "marginSell": 59,
-                "marginCashRedemption": 1,
-                "marginPrevBalance": 595,
-                "marginBalance": 585,
-                "shortBuy": 5,
-                "shortSell": 1,
+                "marginBuy": 44,
+                "marginSell": 10,
+                "marginCashRedemption": 0,
+                "marginPrevBalance": 585,
+                "marginBalance": 619,
+                "shortBuy": 0,
+                "shortSell": 0,
                 "shortStockRedemption": 0,
-                "shortPrevBalance": 10,
+                "shortPrevBalance": 6,
                 "shortBalance": 6,
                 "offsetting": 0,
-                "date": "2026-08-18"
+                "date": "2026-08-19"
               }
             },
             {
@@ -103683,18 +106408,18 @@ window.DATA = {
                 "date": "2026-08-19"
               },
               "margin": {
-                "marginBuy": 1693,
-                "marginSell": 2780,
-                "marginCashRedemption": 2,
-                "marginPrevBalance": 37857,
-                "marginBalance": 36768,
-                "shortBuy": 71,
-                "shortSell": 114,
-                "shortStockRedemption": 16,
-                "shortPrevBalance": 903,
-                "shortBalance": 930,
-                "offsetting": 34,
-                "date": "2026-08-18"
+                "marginBuy": 1398,
+                "marginSell": 917,
+                "marginCashRedemption": 3,
+                "marginPrevBalance": 36768,
+                "marginBalance": 37246,
+                "shortBuy": 142,
+                "shortSell": 56,
+                "shortStockRedemption": 47,
+                "shortPrevBalance": 930,
+                "shortBalance": 797,
+                "offsetting": 31,
+                "date": "2026-08-19"
               }
             },
             {
@@ -103722,18 +106447,18 @@ window.DATA = {
                 "date": "2026-08-19"
               },
               "margin": {
-                "marginBuy": 57,
-                "marginSell": 102,
-                "marginCashRedemption": 0,
-                "marginPrevBalance": 1883,
-                "marginBalance": 1838,
-                "shortBuy": 6,
-                "shortSell": 5,
-                "shortStockRedemption": 0,
-                "shortPrevBalance": 42,
-                "shortBalance": 41,
-                "offsetting": 0,
-                "date": "2026-08-18"
+                "marginBuy": 130,
+                "marginSell": 82,
+                "marginCashRedemption": 2,
+                "marginPrevBalance": 1838,
+                "marginBalance": 1884,
+                "shortBuy": 16,
+                "shortSell": 3,
+                "shortStockRedemption": 1,
+                "shortPrevBalance": 41,
+                "shortBalance": 27,
+                "offsetting": 2,
+                "date": "2026-08-19"
               }
             },
             {
@@ -103761,18 +106486,18 @@ window.DATA = {
                 "date": "2026-08-19"
               },
               "margin": {
-                "marginBuy": 251,
-                "marginSell": 267,
+                "marginBuy": 280,
+                "marginSell": 325,
                 "marginCashRedemption": 2,
-                "marginPrevBalance": 3111,
-                "marginBalance": 3093,
-                "shortBuy": 8,
-                "shortSell": 9,
-                "shortStockRedemption": 11,
-                "shortPrevBalance": 63,
-                "shortBalance": 53,
-                "offsetting": 9,
-                "date": "2026-08-18"
+                "marginPrevBalance": 3093,
+                "marginBalance": 3046,
+                "shortBuy": 0,
+                "shortSell": 0,
+                "shortStockRedemption": 1,
+                "shortPrevBalance": 53,
+                "shortBalance": 52,
+                "offsetting": 3,
+                "date": "2026-08-19"
               }
             },
             {
@@ -103826,24 +106551,24 @@ window.DATA = {
               "quoteDate": "2026-08-19",
               "inst": {
                 "foreign": 45475,
-                "trust": 601000,
+                "trust": 534000,
                 "dealer": -228463,
-                "total": 418012,
+                "total": 351012,
                 "date": "2026-08-19"
               },
               "margin": {
-                "marginBuy": 231,
-                "marginSell": 300,
-                "marginCashRedemption": 1,
-                "marginPrevBalance": 4262,
-                "marginBalance": 4192,
+                "marginBuy": 315,
+                "marginSell": 351,
+                "marginCashRedemption": 0,
+                "marginPrevBalance": 4192,
+                "marginBalance": 4156,
                 "shortBuy": 0,
-                "shortSell": 0,
+                "shortSell": 9,
                 "shortStockRedemption": 0,
                 "shortPrevBalance": 0,
-                "shortBalance": 0,
-                "offsetting": 0,
-                "date": "2026-08-18"
+                "shortBalance": 9,
+                "offsetting": 41,
+                "date": "2026-08-19"
               }
             },
             {
@@ -103865,24 +106590,24 @@ window.DATA = {
               "quoteDate": "2026-08-19",
               "inst": {
                 "foreign": 828793,
-                "trust": 9000,
+                "trust": -126000,
                 "dealer": -71430,
-                "total": 766363,
+                "total": 631363,
                 "date": "2026-08-19"
               },
               "margin": {
-                "marginBuy": 315,
-                "marginSell": 437,
-                "marginCashRedemption": 0,
-                "marginPrevBalance": 5080,
-                "marginBalance": 4958,
-                "shortBuy": 26,
-                "shortSell": 0,
+                "marginBuy": 183,
+                "marginSell": 374,
+                "marginCashRedemption": 3,
+                "marginPrevBalance": 4958,
+                "marginBalance": 4764,
+                "shortBuy": 17,
+                "shortSell": 16,
                 "shortStockRedemption": 0,
-                "shortPrevBalance": 123,
-                "shortBalance": 97,
+                "shortPrevBalance": 97,
+                "shortBalance": 96,
                 "offsetting": 2,
-                "date": "2026-08-18"
+                "date": "2026-08-19"
               }
             },
             {
@@ -103910,18 +106635,18 @@ window.DATA = {
                 "date": "2026-08-19"
               },
               "margin": {
-                "marginBuy": 54,
-                "marginSell": 121,
+                "marginBuy": 144,
+                "marginSell": 192,
                 "marginCashRedemption": 0,
-                "marginPrevBalance": 1494,
-                "marginBalance": 1427,
-                "shortBuy": 0,
-                "shortSell": 8,
+                "marginPrevBalance": 1427,
+                "marginBalance": 1379,
+                "shortBuy": 10,
+                "shortSell": 1,
                 "shortStockRedemption": 0,
-                "shortPrevBalance": 35,
-                "shortBalance": 43,
-                "offsetting": 2,
-                "date": "2026-08-18"
+                "shortPrevBalance": 43,
+                "shortBalance": 34,
+                "offsetting": 3,
+                "date": "2026-08-19"
               }
             },
             {
@@ -103975,24 +106700,24 @@ window.DATA = {
               "quoteDate": "2026-08-19",
               "inst": {
                 "foreign": 174888,
-                "trust": -360000,
+                "trust": -360257,
                 "dealer": 19836,
-                "total": -165276,
+                "total": -165533,
                 "date": "2026-08-19"
               },
               "margin": {
-                "marginBuy": 97,
-                "marginSell": 172,
-                "marginCashRedemption": 3,
-                "marginPrevBalance": 1406,
-                "marginBalance": 1328,
-                "shortBuy": 2,
+                "marginBuy": 59,
+                "marginSell": 42,
+                "marginCashRedemption": 2,
+                "marginPrevBalance": 1328,
+                "marginBalance": 1343,
+                "shortBuy": 5,
                 "shortSell": 0,
-                "shortStockRedemption": 0,
-                "shortPrevBalance": 27,
-                "shortBalance": 25,
+                "shortStockRedemption": 6,
+                "shortPrevBalance": 25,
+                "shortBalance": 14,
                 "offsetting": 0,
-                "date": "2026-08-18"
+                "date": "2026-08-19"
               }
             },
             {
@@ -104014,24 +106739,24 @@ window.DATA = {
               "quoteDate": "2026-08-19",
               "inst": {
                 "foreign": -135887,
-                "trust": 65000,
+                "trust": 84000,
                 "dealer": 132972,
-                "total": 62085,
+                "total": 81085,
                 "date": "2026-08-19"
               },
               "margin": {
-                "marginBuy": 289,
-                "marginSell": 258,
+                "marginBuy": 285,
+                "marginSell": 172,
                 "marginCashRedemption": 0,
-                "marginPrevBalance": 2608,
-                "marginBalance": 2639,
-                "shortBuy": 4,
-                "shortSell": 14,
+                "marginPrevBalance": 2639,
+                "marginBalance": 2752,
+                "shortBuy": 1,
+                "shortSell": 13,
                 "shortStockRedemption": 0,
-                "shortPrevBalance": 22,
-                "shortBalance": 32,
-                "offsetting": 3,
-                "date": "2026-08-18"
+                "shortPrevBalance": 32,
+                "shortBalance": 44,
+                "offsetting": 2,
+                "date": "2026-08-19"
               }
             },
             {
@@ -104091,18 +106816,18 @@ window.DATA = {
                 "date": "2026-08-19"
               },
               "margin": {
-                "marginBuy": 408,
-                "marginSell": 387,
-                "marginCashRedemption": 9,
-                "marginPrevBalance": 8000,
-                "marginBalance": 8012,
-                "shortBuy": 8,
-                "shortSell": 9,
+                "marginBuy": 433,
+                "marginSell": 424,
+                "marginCashRedemption": 1,
+                "marginPrevBalance": 8012,
+                "marginBalance": 8020,
+                "shortBuy": 22,
+                "shortSell": 5,
                 "shortStockRedemption": 0,
-                "shortPrevBalance": 56,
-                "shortBalance": 57,
-                "offsetting": 5,
-                "date": "2026-08-18"
+                "shortPrevBalance": 57,
+                "shortBalance": 40,
+                "offsetting": 0,
+                "date": "2026-08-19"
               }
             },
             {
@@ -104162,18 +106887,18 @@ window.DATA = {
                 "date": "2026-08-19"
               },
               "margin": {
-                "marginBuy": 219,
-                "marginSell": 199,
-                "marginCashRedemption": 4,
-                "marginPrevBalance": 2631,
-                "marginBalance": 2647,
-                "shortBuy": 2,
-                "shortSell": 5,
+                "marginBuy": 97,
+                "marginSell": 61,
+                "marginCashRedemption": 0,
+                "marginPrevBalance": 2647,
+                "marginBalance": 2683,
+                "shortBuy": 5,
+                "shortSell": 1,
                 "shortStockRedemption": 0,
-                "shortPrevBalance": 16,
-                "shortBalance": 19,
-                "offsetting": 0,
-                "date": "2026-08-18"
+                "shortPrevBalance": 19,
+                "shortBalance": 15,
+                "offsetting": 1,
+                "date": "2026-08-19"
               }
             },
             {
@@ -104201,18 +106926,18 @@ window.DATA = {
                 "date": "2026-08-19"
               },
               "margin": {
-                "marginBuy": 4990,
-                "marginSell": 6851,
-                "marginCashRedemption": 12,
-                "marginPrevBalance": 83585,
-                "marginBalance": 81712,
-                "shortBuy": 158,
-                "shortSell": 491,
-                "shortStockRedemption": 1,
-                "shortPrevBalance": 2787,
-                "shortBalance": 3119,
-                "offsetting": 139,
-                "date": "2026-08-18"
+                "marginBuy": 4209,
+                "marginSell": 4996,
+                "marginCashRedemption": 32,
+                "marginPrevBalance": 81712,
+                "marginBalance": 80893,
+                "shortBuy": 761,
+                "shortSell": 277,
+                "shortStockRedemption": 3,
+                "shortPrevBalance": 3119,
+                "shortBalance": 2632,
+                "offsetting": 53,
+                "date": "2026-08-19"
               }
             },
             {
@@ -104240,18 +106965,18 @@ window.DATA = {
                 "date": "2026-08-19"
               },
               "margin": {
-                "marginBuy": 227,
-                "marginSell": 257,
+                "marginBuy": 520,
+                "marginSell": 205,
                 "marginCashRedemption": 0,
-                "marginPrevBalance": 6295,
-                "marginBalance": 6265,
-                "shortBuy": 2,
-                "shortSell": 3,
+                "marginPrevBalance": 6265,
+                "marginBalance": 6580,
+                "shortBuy": 4,
+                "shortSell": 1,
                 "shortStockRedemption": 0,
-                "shortPrevBalance": 27,
-                "shortBalance": 28,
-                "offsetting": 1,
-                "date": "2026-08-18"
+                "shortPrevBalance": 28,
+                "shortBalance": 25,
+                "offsetting": 7,
+                "date": "2026-08-19"
               }
             },
             {
@@ -104279,18 +107004,18 @@ window.DATA = {
                 "date": "2026-08-19"
               },
               "margin": {
-                "marginBuy": 50,
-                "marginSell": 181,
+                "marginBuy": 73,
+                "marginSell": 41,
                 "marginCashRedemption": 1,
-                "marginPrevBalance": 1868,
-                "marginBalance": 1736,
-                "shortBuy": 1,
-                "shortSell": 2,
+                "marginPrevBalance": 1736,
+                "marginBalance": 1767,
+                "shortBuy": 10,
+                "shortSell": 0,
                 "shortStockRedemption": 0,
-                "shortPrevBalance": 17,
-                "shortBalance": 18,
+                "shortPrevBalance": 18,
+                "shortBalance": 8,
                 "offsetting": 0,
-                "date": "2026-08-18"
+                "date": "2026-08-19"
               }
             },
             {
@@ -104318,18 +107043,18 @@ window.DATA = {
                 "date": "2026-08-19"
               },
               "margin": {
-                "marginBuy": 522,
-                "marginSell": 117,
-                "marginCashRedemption": 0,
-                "marginPrevBalance": 1848,
-                "marginBalance": 2253,
+                "marginBuy": 432,
+                "marginSell": 23,
+                "marginCashRedemption": 2,
+                "marginPrevBalance": 2253,
+                "marginBalance": 2660,
                 "shortBuy": 0,
                 "shortSell": 0,
                 "shortStockRedemption": 0,
                 "shortPrevBalance": 0,
                 "shortBalance": 0,
-                "offsetting": 2,
-                "date": "2026-08-18"
+                "offsetting": 0,
+                "date": "2026-08-19"
               }
             },
             {
@@ -104357,18 +107082,18 @@ window.DATA = {
                 "date": "2026-08-19"
               },
               "margin": {
-                "marginBuy": 693,
-                "marginSell": 1209,
-                "marginCashRedemption": 11,
-                "marginPrevBalance": 7706,
-                "marginBalance": 7179,
-                "shortBuy": 9,
-                "shortSell": 36,
-                "shortStockRedemption": 159,
-                "shortPrevBalance": 399,
-                "shortBalance": 267,
-                "offsetting": 10,
-                "date": "2026-08-18"
+                "marginBuy": 571,
+                "marginSell": 581,
+                "marginCashRedemption": 0,
+                "marginPrevBalance": 7179,
+                "marginBalance": 7169,
+                "shortBuy": 26,
+                "shortSell": 15,
+                "shortStockRedemption": 55,
+                "shortPrevBalance": 267,
+                "shortBalance": 201,
+                "offsetting": 6,
+                "date": "2026-08-19"
               }
             },
             {
@@ -104428,18 +107153,18 @@ window.DATA = {
                 "date": "2026-08-19"
               },
               "margin": {
-                "marginBuy": 138,
-                "marginSell": 257,
-                "marginCashRedemption": 0,
-                "marginPrevBalance": 11570,
-                "marginBalance": 11451,
-                "shortBuy": 20,
-                "shortSell": 11,
-                "shortStockRedemption": 1,
-                "shortPrevBalance": 88,
-                "shortBalance": 78,
-                "offsetting": 0,
-                "date": "2026-08-18"
+                "marginBuy": 331,
+                "marginSell": 141,
+                "marginCashRedemption": 1,
+                "marginPrevBalance": 11451,
+                "marginBalance": 11640,
+                "shortBuy": 11,
+                "shortSell": 2,
+                "shortStockRedemption": 0,
+                "shortPrevBalance": 78,
+                "shortBalance": 69,
+                "offsetting": 1,
+                "date": "2026-08-19"
               }
             },
             {
@@ -104467,18 +107192,18 @@ window.DATA = {
                 "date": "2026-08-19"
               },
               "margin": {
-                "marginBuy": 106,
-                "marginSell": 122,
+                "marginBuy": 35,
+                "marginSell": 90,
                 "marginCashRedemption": 0,
-                "marginPrevBalance": 624,
-                "marginBalance": 608,
+                "marginPrevBalance": 608,
+                "marginBalance": 553,
                 "shortBuy": 0,
                 "shortSell": 0,
                 "shortStockRedemption": 0,
                 "shortPrevBalance": 1,
                 "shortBalance": 1,
-                "offsetting": 1,
-                "date": "2026-08-18"
+                "offsetting": 0,
+                "date": "2026-08-19"
               }
             },
             {
@@ -104506,18 +107231,18 @@ window.DATA = {
                 "date": "2026-08-19"
               },
               "margin": {
-                "marginBuy": 641,
-                "marginSell": 1013,
+                "marginBuy": 1526,
+                "marginSell": 2000,
                 "marginCashRedemption": 0,
-                "marginPrevBalance": 11601,
-                "marginBalance": 11229,
-                "shortBuy": 48,
-                "shortSell": 15,
+                "marginPrevBalance": 11229,
+                "marginBalance": 10755,
+                "shortBuy": 154,
+                "shortSell": 36,
                 "shortStockRedemption": 0,
-                "shortPrevBalance": 723,
-                "shortBalance": 690,
-                "offsetting": 6,
-                "date": "2026-08-18"
+                "shortPrevBalance": 690,
+                "shortBalance": 572,
+                "offsetting": 18,
+                "date": "2026-08-19"
               }
             },
             {
@@ -104577,18 +107302,18 @@ window.DATA = {
                 "date": "2026-08-19"
               },
               "margin": {
-                "marginBuy": 354,
-                "marginSell": 378,
-                "marginCashRedemption": 4,
-                "marginPrevBalance": 4471,
-                "marginBalance": 4443,
-                "shortBuy": 9,
-                "shortSell": 3,
+                "marginBuy": 77,
+                "marginSell": 140,
+                "marginCashRedemption": 0,
+                "marginPrevBalance": 4443,
+                "marginBalance": 4380,
+                "shortBuy": 2,
+                "shortSell": 4,
                 "shortStockRedemption": 0,
-                "shortPrevBalance": 43,
-                "shortBalance": 37,
-                "offsetting": 3,
-                "date": "2026-08-18"
+                "shortPrevBalance": 37,
+                "shortBalance": 39,
+                "offsetting": 0,
+                "date": "2026-08-19"
               }
             },
             {
@@ -104616,18 +107341,18 @@ window.DATA = {
                 "date": "2026-08-19"
               },
               "margin": {
-                "marginBuy": 1247,
-                "marginSell": 807,
-                "marginCashRedemption": 13,
-                "marginPrevBalance": 20374,
-                "marginBalance": 20801,
-                "shortBuy": 182,
-                "shortSell": 193,
+                "marginBuy": 490,
+                "marginSell": 478,
+                "marginCashRedemption": 5,
+                "marginPrevBalance": 20801,
+                "marginBalance": 20808,
+                "shortBuy": 189,
+                "shortSell": 67,
                 "shortStockRedemption": 0,
-                "shortPrevBalance": 266,
-                "shortBalance": 277,
-                "offsetting": 9,
-                "date": "2026-08-18"
+                "shortPrevBalance": 277,
+                "shortBalance": 155,
+                "offsetting": 1,
+                "date": "2026-08-19"
               }
             },
             {
@@ -104655,18 +107380,18 @@ window.DATA = {
                 "date": "2026-08-19"
               },
               "margin": {
-                "marginBuy": 1650,
-                "marginSell": 1405,
-                "marginCashRedemption": 35,
-                "marginPrevBalance": 51454,
-                "marginBalance": 51664,
-                "shortBuy": 86,
-                "shortSell": 45,
+                "marginBuy": 874,
+                "marginSell": 701,
+                "marginCashRedemption": 5,
+                "marginPrevBalance": 51664,
+                "marginBalance": 51832,
+                "shortBuy": 64,
+                "shortSell": 20,
                 "shortStockRedemption": 0,
-                "shortPrevBalance": 608,
-                "shortBalance": 567,
-                "offsetting": 4,
-                "date": "2026-08-18"
+                "shortPrevBalance": 567,
+                "shortBalance": 523,
+                "offsetting": 5,
+                "date": "2026-08-19"
               }
             },
             {
@@ -104694,18 +107419,18 @@ window.DATA = {
                 "date": "2026-08-19"
               },
               "margin": {
-                "marginBuy": 729,
-                "marginSell": 560,
-                "marginCashRedemption": 75,
-                "marginPrevBalance": 30537,
-                "marginBalance": 30631,
-                "shortBuy": 74,
-                "shortSell": 96,
+                "marginBuy": 824,
+                "marginSell": 348,
+                "marginCashRedemption": 3,
+                "marginPrevBalance": 30631,
+                "marginBalance": 31104,
+                "shortBuy": 210,
+                "shortSell": 110,
                 "shortStockRedemption": 0,
-                "shortPrevBalance": 1056,
-                "shortBalance": 1078,
+                "shortPrevBalance": 1078,
+                "shortBalance": 978,
                 "offsetting": 10,
-                "date": "2026-08-18"
+                "date": "2026-08-19"
               }
             },
             {
@@ -104765,18 +107490,18 @@ window.DATA = {
                 "date": "2026-08-19"
               },
               "margin": {
-                "marginBuy": 453,
-                "marginSell": 832,
-                "marginCashRedemption": 7,
-                "marginPrevBalance": 16662,
-                "marginBalance": 16276,
-                "shortBuy": 10,
+                "marginBuy": 265,
+                "marginSell": 439,
+                "marginCashRedemption": 3,
+                "marginPrevBalance": 16276,
+                "marginBalance": 16099,
+                "shortBuy": 9,
                 "shortSell": 14,
                 "shortStockRedemption": 0,
-                "shortPrevBalance": 66,
-                "shortBalance": 70,
-                "offsetting": 0,
-                "date": "2026-08-18"
+                "shortPrevBalance": 70,
+                "shortBalance": 75,
+                "offsetting": 4,
+                "date": "2026-08-19"
               }
             },
             {
@@ -104804,18 +107529,18 @@ window.DATA = {
                 "date": "2026-08-19"
               },
               "margin": {
-                "marginBuy": 52,
-                "marginSell": 771,
+                "marginBuy": 135,
+                "marginSell": 56,
                 "marginCashRedemption": 0,
-                "marginPrevBalance": 6876,
-                "marginBalance": 6157,
-                "shortBuy": 1,
-                "shortSell": 42,
+                "marginPrevBalance": 6157,
+                "marginBalance": 6236,
+                "shortBuy": 8,
+                "shortSell": 1,
                 "shortStockRedemption": 0,
-                "shortPrevBalance": 148,
-                "shortBalance": 189,
-                "offsetting": 1,
-                "date": "2026-08-18"
+                "shortPrevBalance": 189,
+                "shortBalance": 182,
+                "offsetting": 0,
+                "date": "2026-08-19"
               }
             },
             {
@@ -104843,18 +107568,18 @@ window.DATA = {
                 "date": "2026-08-19"
               },
               "margin": {
-                "marginBuy": 39,
-                "marginSell": 21,
+                "marginBuy": 9,
+                "marginSell": 28,
                 "marginCashRedemption": 0,
-                "marginPrevBalance": 328,
-                "marginBalance": 346,
-                "shortBuy": 0,
+                "marginPrevBalance": 346,
+                "marginBalance": 327,
+                "shortBuy": 2,
                 "shortSell": 0,
                 "shortStockRedemption": 0,
                 "shortPrevBalance": 2,
-                "shortBalance": 2,
+                "shortBalance": 0,
                 "offsetting": 0,
-                "date": "2026-08-18"
+                "date": "2026-08-19"
               }
             },
             {
@@ -104946,18 +107671,18 @@ window.DATA = {
                 "date": "2026-08-19"
               },
               "margin": {
-                "marginBuy": 18,
-                "marginSell": 10,
-                "marginCashRedemption": 1,
-                "marginPrevBalance": 511,
-                "marginBalance": 518,
+                "marginBuy": 16,
+                "marginSell": 14,
+                "marginCashRedemption": 0,
+                "marginPrevBalance": 518,
+                "marginBalance": 520,
                 "shortBuy": 1,
-                "shortSell": 1,
+                "shortSell": 3,
                 "shortStockRedemption": 0,
                 "shortPrevBalance": 1,
-                "shortBalance": 1,
+                "shortBalance": 3,
                 "offsetting": 0,
-                "date": "2026-08-18"
+                "date": "2026-08-19"
               }
             },
             {
@@ -104985,18 +107710,18 @@ window.DATA = {
                 "date": "2026-08-19"
               },
               "margin": {
-                "marginBuy": 731,
-                "marginSell": 1366,
-                "marginCashRedemption": 9,
-                "marginPrevBalance": 22825,
-                "marginBalance": 22181,
-                "shortBuy": 10,
-                "shortSell": 51,
+                "marginBuy": 404,
+                "marginSell": 465,
+                "marginCashRedemption": 14,
+                "marginPrevBalance": 22181,
+                "marginBalance": 22106,
+                "shortBuy": 41,
+                "shortSell": 28,
                 "shortStockRedemption": 0,
-                "shortPrevBalance": 90,
-                "shortBalance": 131,
-                "offsetting": 3,
-                "date": "2026-08-18"
+                "shortPrevBalance": 131,
+                "shortBalance": 118,
+                "offsetting": 7,
+                "date": "2026-08-19"
               }
             },
             {
@@ -105024,18 +107749,18 @@ window.DATA = {
                 "date": "2026-08-19"
               },
               "margin": {
-                "marginBuy": 6778,
-                "marginSell": 8709,
-                "marginCashRedemption": 6,
-                "marginPrevBalance": 47900,
-                "marginBalance": 45963,
-                "shortBuy": 167,
-                "shortSell": 140,
-                "shortStockRedemption": 1,
-                "shortPrevBalance": 1941,
-                "shortBalance": 1913,
-                "offsetting": 98,
-                "date": "2026-08-18"
+                "marginBuy": 5049,
+                "marginSell": 7144,
+                "marginCashRedemption": 3,
+                "marginPrevBalance": 45963,
+                "marginBalance": 43865,
+                "shortBuy": 553,
+                "shortSell": 287,
+                "shortStockRedemption": 3,
+                "shortPrevBalance": 1913,
+                "shortBalance": 1644,
+                "offsetting": 69,
+                "date": "2026-08-19"
               }
             },
             {
@@ -105063,18 +107788,18 @@ window.DATA = {
                 "date": "2026-08-19"
               },
               "margin": {
-                "marginBuy": 109,
-                "marginSell": 276,
-                "marginCashRedemption": 1,
-                "marginPrevBalance": 1031,
-                "marginBalance": 863,
-                "shortBuy": 0,
-                "shortSell": 1,
+                "marginBuy": 56,
+                "marginSell": 64,
+                "marginCashRedemption": 0,
+                "marginPrevBalance": 863,
+                "marginBalance": 855,
+                "shortBuy": 1,
+                "shortSell": 3,
                 "shortStockRedemption": 0,
-                "shortPrevBalance": 1,
-                "shortBalance": 2,
-                "offsetting": 8,
-                "date": "2026-08-18"
+                "shortPrevBalance": 2,
+                "shortBalance": 4,
+                "offsetting": 0,
+                "date": "2026-08-19"
               }
             },
             {
@@ -105102,18 +107827,18 @@ window.DATA = {
                 "date": "2026-08-19"
               },
               "margin": {
-                "marginBuy": 153,
-                "marginSell": 515,
+                "marginBuy": 745,
+                "marginSell": 1799,
                 "marginCashRedemption": 0,
-                "marginPrevBalance": 8139,
-                "marginBalance": 7777,
-                "shortBuy": 116,
-                "shortSell": 24,
+                "marginPrevBalance": 7777,
+                "marginBalance": 6723,
+                "shortBuy": 16,
+                "shortSell": 172,
                 "shortStockRedemption": 0,
-                "shortPrevBalance": 158,
-                "shortBalance": 66,
-                "offsetting": 26,
-                "date": "2026-08-18"
+                "shortPrevBalance": 66,
+                "shortBalance": 222,
+                "offsetting": 40,
+                "date": "2026-08-19"
               }
             },
             {
@@ -105237,18 +107962,18 @@ window.DATA = {
                 "date": "2026-08-19"
               },
               "margin": {
-                "marginBuy": 68,
-                "marginSell": 87,
+                "marginBuy": 4,
+                "marginSell": 80,
                 "marginCashRedemption": 0,
-                "marginPrevBalance": 1339,
-                "marginBalance": 1320,
+                "marginPrevBalance": 1320,
+                "marginBalance": 1244,
                 "shortBuy": 0,
-                "shortSell": 1,
+                "shortSell": 0,
                 "shortStockRedemption": 0,
-                "shortPrevBalance": 0,
+                "shortPrevBalance": 1,
                 "shortBalance": 1,
                 "offsetting": 0,
-                "date": "2026-08-18"
+                "date": "2026-08-19"
               }
             },
             {
@@ -105276,18 +108001,18 @@ window.DATA = {
                 "date": "2026-08-19"
               },
               "margin": {
-                "marginBuy": 3648,
-                "marginSell": 8113,
-                "marginCashRedemption": 153,
-                "marginPrevBalance": 164090,
-                "marginBalance": 159472,
-                "shortBuy": 200,
-                "shortSell": 283,
+                "marginBuy": 3549,
+                "marginSell": 7905,
+                "marginCashRedemption": 47,
+                "marginPrevBalance": 159472,
+                "marginBalance": 155069,
+                "shortBuy": 235,
+                "shortSell": 463,
                 "shortStockRedemption": 0,
-                "shortPrevBalance": 2471,
-                "shortBalance": 2554,
-                "offsetting": 30,
-                "date": "2026-08-18"
+                "shortPrevBalance": 2554,
+                "shortBalance": 2782,
+                "offsetting": 25,
+                "date": "2026-08-19"
               }
             }
           ]
@@ -128113,6 +130838,2016 @@ window.DATA = {
               "assetType": "future",
               "weight": 0.03,
               "quantity": 80.0,
+              "unit": "口",
+              "amount": null
+            }
+          ]
+        },
+        {
+          "date": "2026-08-19",
+          "fetched_at": "2026-08-19T20:38:34+08:00",
+          "count": 52,
+          "self": {
+            "open": 103.05,
+            "high": 103.85,
+            "low": 102.7,
+            "close": 103.1,
+            "prevClose": 104.9,
+            "change": -1.8,
+            "changePct": -1.72,
+            "amplitude": 1.1,
+            "volume": 100818593.0,
+            "quoteDate": "2026-08-19"
+          },
+          "selfInstitutional": {
+            "foreign": -34668003,
+            "trust": 0,
+            "dealer": -17900433,
+            "total": -52568436,
+            "date": "2026-08-19"
+          },
+          "selfMargin": {
+            "marginBuy": 1725,
+            "marginSell": 655,
+            "marginCashRedemption": 6,
+            "marginPrevBalance": 18104,
+            "marginBalance": 19168,
+            "shortBuy": 164,
+            "shortSell": 104,
+            "shortStockRedemption": 0,
+            "shortPrevBalance": 585,
+            "shortBalance": 525,
+            "offsetting": 18,
+            "date": "2026-08-19"
+          },
+          "holdings": [
+            {
+              "code": "2330",
+              "name": "台積電",
+              "market": "TW",
+              "assetType": "stock",
+              "weight": 57.71,
+              "shares": 567660452,
+              "open": 2340.0,
+              "high": 2355.0,
+              "low": 2335.0,
+              "close": 2350.0,
+              "prevClose": 2380.0,
+              "change": -30.0,
+              "changePct": -1.26,
+              "amplitude": 0.84,
+              "volume": 23618612.0,
+              "quoteDate": "2026-08-19",
+              "inst": {
+                "foreign": -7417943,
+                "trust": -668410,
+                "dealer": 719342,
+                "total": -7367011,
+                "date": "2026-08-19"
+              },
+              "margin": {
+                "marginBuy": 800,
+                "marginSell": 224,
+                "marginCashRedemption": 10,
+                "marginPrevBalance": 27856,
+                "marginBalance": 28422,
+                "shortBuy": 9,
+                "shortSell": 2,
+                "shortStockRedemption": 0,
+                "shortPrevBalance": 36,
+                "shortBalance": 29,
+                "offsetting": 0,
+                "date": "2026-08-19"
+              }
+            },
+            {
+              "code": "2454",
+              "name": "聯發科",
+              "market": "TW",
+              "assetType": "stock",
+              "weight": 5.69,
+              "shares": 34200529,
+              "open": 3750.0,
+              "high": 3910.0,
+              "low": 3750.0,
+              "close": 3845.0,
+              "prevClose": 3885.0,
+              "change": -40.0,
+              "changePct": -1.03,
+              "amplitude": 4.12,
+              "volume": 7036521.0,
+              "quoteDate": "2026-08-19",
+              "inst": {
+                "foreign": -216230,
+                "trust": -1046250,
+                "dealer": -265132,
+                "total": -1527612,
+                "date": "2026-08-19"
+              },
+              "margin": {
+                "marginBuy": 292,
+                "marginSell": 151,
+                "marginCashRedemption": 4,
+                "marginPrevBalance": 9393,
+                "marginBalance": 9530,
+                "shortBuy": 15,
+                "shortSell": 14,
+                "shortStockRedemption": 0,
+                "shortPrevBalance": 50,
+                "shortBalance": 49,
+                "offsetting": 1,
+                "date": "2026-08-19"
+              }
+            },
+            {
+              "code": "2308",
+              "name": "台達電",
+              "market": "TW",
+              "assetType": "stock",
+              "weight": 3.43,
+              "shares": 44868633,
+              "open": 1745.0,
+              "high": 1800.0,
+              "low": 1740.0,
+              "close": 1765.0,
+              "prevClose": 1820.0,
+              "change": -55.0,
+              "changePct": -3.02,
+              "amplitude": 3.3,
+              "volume": 12608652.0,
+              "quoteDate": "2026-08-19",
+              "inst": {
+                "foreign": -2316137,
+                "trust": 68000,
+                "dealer": -191149,
+                "total": -2439286,
+                "date": "2026-08-19"
+              },
+              "margin": {
+                "marginBuy": 433,
+                "marginSell": 424,
+                "marginCashRedemption": 1,
+                "marginPrevBalance": 8012,
+                "marginBalance": 8020,
+                "shortBuy": 22,
+                "shortSell": 5,
+                "shortStockRedemption": 0,
+                "shortPrevBalance": 57,
+                "shortBalance": 40,
+                "offsetting": 0,
+                "date": "2026-08-19"
+              }
+            },
+            {
+              "code": "2317",
+              "name": "鴻海",
+              "market": "TW",
+              "assetType": "stock",
+              "weight": 3.01,
+              "shares": 283763431,
+              "open": 245.0,
+              "high": 247.0,
+              "low": 242.5,
+              "close": 245.0,
+              "prevClose": 249.0,
+              "change": -4.0,
+              "changePct": -1.61,
+              "amplitude": 1.81,
+              "volume": 36592747.0,
+              "quoteDate": "2026-08-19",
+              "inst": {
+                "foreign": -10064384,
+                "trust": -300000,
+                "dealer": -822130,
+                "total": -11186514,
+                "date": "2026-08-19"
+              },
+              "margin": {
+                "marginBuy": 874,
+                "marginSell": 701,
+                "marginCashRedemption": 5,
+                "marginPrevBalance": 51664,
+                "marginBalance": 51832,
+                "shortBuy": 64,
+                "shortSell": 20,
+                "shortStockRedemption": 0,
+                "shortPrevBalance": 567,
+                "shortBalance": 523,
+                "offsetting": 5,
+                "date": "2026-08-19"
+              }
+            },
+            {
+              "code": "3711",
+              "name": "日月光投控",
+              "market": "TW",
+              "assetType": "stock",
+              "weight": 1.96,
+              "shares": 77103705,
+              "open": 568.0,
+              "high": 596.0,
+              "low": 564.0,
+              "close": 588.0,
+              "prevClose": 599.0,
+              "change": -11.0,
+              "changePct": -1.84,
+              "amplitude": 5.34,
+              "volume": 22448357.0,
+              "quoteDate": "2026-08-19",
+              "inst": {
+                "foreign": 2323531,
+                "trust": -3324000,
+                "dealer": -127734,
+                "total": -1128203,
+                "date": "2026-08-19"
+              },
+              "margin": {
+                "marginBuy": 371,
+                "marginSell": 188,
+                "marginCashRedemption": 3,
+                "marginPrevBalance": 11681,
+                "marginBalance": 11861,
+                "shortBuy": 29,
+                "shortSell": 102,
+                "shortStockRedemption": 0,
+                "shortPrevBalance": 183,
+                "shortBalance": 256,
+                "offsetting": 6,
+                "date": "2026-08-19"
+              }
+            },
+            {
+              "code": "2383",
+              "name": "台光電",
+              "market": "TW",
+              "assetType": "stock",
+              "weight": 1.72,
+              "shares": 6752667,
+              "open": 5855.0,
+              "high": 6130.0,
+              "low": 5810.0,
+              "close": 5880.0,
+              "prevClose": 6205.0,
+              "change": -325.0,
+              "changePct": -5.24,
+              "amplitude": 5.16,
+              "volume": 3119237.0,
+              "quoteDate": "2026-08-19",
+              "inst": {
+                "foreign": 76221,
+                "trust": -191001,
+                "dealer": -16593,
+                "total": -131373,
+                "date": "2026-08-19"
+              },
+              "margin": {
+                "marginBuy": 130,
+                "marginSell": 82,
+                "marginCashRedemption": 2,
+                "marginPrevBalance": 1838,
+                "marginBalance": 1884,
+                "shortBuy": 16,
+                "shortSell": 3,
+                "shortStockRedemption": 1,
+                "shortPrevBalance": 41,
+                "shortBalance": 27,
+                "offsetting": 2,
+                "date": "2026-08-19"
+              }
+            },
+            {
+              "code": "3037",
+              "name": "欣興",
+              "market": "TW",
+              "assetType": "stock",
+              "weight": 1.5,
+              "shares": 30652669,
+              "open": 1110.0,
+              "high": 1165.0,
+              "low": 1085.0,
+              "close": 1130.0,
+              "prevClose": 1145.0,
+              "change": -15.0,
+              "changePct": -1.31,
+              "amplitude": 6.99,
+              "volume": 24496587.0,
+              "quoteDate": "2026-08-19",
+              "inst": {
+                "foreign": 1638430,
+                "trust": -637001,
+                "dealer": -65704,
+                "total": 935725,
+                "date": "2026-08-19"
+              },
+              "margin": {
+                "marginBuy": 1398,
+                "marginSell": 917,
+                "marginCashRedemption": 3,
+                "marginPrevBalance": 36768,
+                "marginBalance": 37246,
+                "shortBuy": 142,
+                "shortSell": 56,
+                "shortStockRedemption": 47,
+                "shortPrevBalance": 930,
+                "shortBalance": 797,
+                "offsetting": 31,
+                "date": "2026-08-19"
+              }
+            },
+            {
+              "code": "2303",
+              "name": "聯電",
+              "market": "TW",
+              "assetType": "stock",
+              "weight": 1.35,
+              "shares": 270986741,
+              "open": 115.0,
+              "high": 117.0,
+              "low": 113.5,
+              "close": 115.5,
+              "prevClose": 119.0,
+              "change": -3.5,
+              "changePct": -2.94,
+              "amplitude": 2.94,
+              "volume": 110337394.0,
+              "quoteDate": "2026-08-19",
+              "inst": {
+                "foreign": 7800989,
+                "trust": -20973000,
+                "dealer": -5796260,
+                "total": -18968271,
+                "date": "2026-08-19"
+              },
+              "margin": {
+                "marginBuy": 3549,
+                "marginSell": 7905,
+                "marginCashRedemption": 47,
+                "marginPrevBalance": 159472,
+                "marginBalance": 155069,
+                "shortBuy": 235,
+                "shortSell": 463,
+                "shortStockRedemption": 0,
+                "shortPrevBalance": 2554,
+                "shortBalance": 2782,
+                "offsetting": 25,
+                "date": "2026-08-19"
+              }
+            },
+            {
+              "code": "2891",
+              "name": "中信金",
+              "market": "TW",
+              "assetType": "stock",
+              "weight": 1.16,
+              "shares": 411450181,
+              "open": 66.4,
+              "high": 66.4,
+              "low": 64.7,
+              "close": 64.9,
+              "prevClose": 66.5,
+              "change": -1.6,
+              "changePct": -2.41,
+              "amplitude": 2.56,
+              "volume": 34561497.0,
+              "quoteDate": "2026-08-19",
+              "inst": {
+                "foreign": -16472475,
+                "trust": -104000,
+                "dealer": 522051,
+                "total": -16054424,
+                "date": "2026-08-19"
+              },
+              "margin": {
+                "marginBuy": 400,
+                "marginSell": 6,
+                "marginCashRedemption": 1,
+                "marginPrevBalance": 3010,
+                "marginBalance": 3403,
+                "shortBuy": 7,
+                "shortSell": 4,
+                "shortStockRedemption": 0,
+                "shortPrevBalance": 49,
+                "shortBalance": 46,
+                "offsetting": 0,
+                "date": "2026-08-19"
+              }
+            },
+            {
+              "code": "2881",
+              "name": "富邦金",
+              "market": "TW",
+              "assetType": "stock",
+              "weight": 1.08,
+              "shares": 193950299,
+              "open": 129.0,
+              "high": 129.5,
+              "low": 127.5,
+              "close": 128.5,
+              "prevClose": 129.5,
+              "change": -1.0,
+              "changePct": -0.77,
+              "amplitude": 1.54,
+              "volume": 12785616.0,
+              "quoteDate": "2026-08-19",
+              "inst": {
+                "foreign": 836335,
+                "trust": -372000,
+                "dealer": -408244,
+                "total": 56091,
+                "date": "2026-08-19"
+              },
+              "margin": {
+                "marginBuy": 135,
+                "marginSell": 56,
+                "marginCashRedemption": 0,
+                "marginPrevBalance": 6157,
+                "marginBalance": 6236,
+                "shortBuy": 8,
+                "shortSell": 1,
+                "shortStockRedemption": 0,
+                "shortPrevBalance": 189,
+                "shortBalance": 182,
+                "offsetting": 0,
+                "date": "2026-08-19"
+              }
+            },
+            {
+              "code": "2345",
+              "name": "智邦",
+              "market": "TW",
+              "assetType": "stock",
+              "weight": 1.06,
+              "shares": 11513048,
+              "open": 2060.0,
+              "high": 2145.0,
+              "low": 2060.0,
+              "close": 2125.0,
+              "prevClose": 2225.0,
+              "change": -100.0,
+              "changePct": -4.49,
+              "amplitude": 3.82,
+              "volume": 4040971.0,
+              "quoteDate": "2026-08-19",
+              "inst": {
+                "foreign": -462188,
+                "trust": -105010,
+                "dealer": 40992,
+                "total": -526206,
+                "date": "2026-08-19"
+              },
+              "margin": {
+                "marginBuy": 73,
+                "marginSell": 41,
+                "marginCashRedemption": 1,
+                "marginPrevBalance": 1736,
+                "marginBalance": 1767,
+                "shortBuy": 10,
+                "shortSell": 0,
+                "shortStockRedemption": 0,
+                "shortPrevBalance": 18,
+                "shortBalance": 8,
+                "offsetting": 0,
+                "date": "2026-08-19"
+              }
+            },
+            {
+              "code": "3017",
+              "name": "奇鋐",
+              "market": "TW",
+              "assetType": "stock",
+              "weight": 1.0,
+              "shares": 7435868,
+              "open": 2915.0,
+              "high": 3160.0,
+              "low": 2900.0,
+              "close": 3095.0,
+              "prevClose": 3095.0,
+              "change": 0.0,
+              "changePct": 0.0,
+              "amplitude": 8.4,
+              "volume": 3982151.0,
+              "quoteDate": "2026-08-19",
+              "inst": {
+                "foreign": 45475,
+                "trust": 534000,
+                "dealer": -228463,
+                "total": 351012,
+                "date": "2026-08-19"
+              },
+              "margin": {
+                "marginBuy": 315,
+                "marginSell": 351,
+                "marginCashRedemption": 0,
+                "marginPrevBalance": 4192,
+                "marginBalance": 4156,
+                "shortBuy": 0,
+                "shortSell": 9,
+                "shortStockRedemption": 0,
+                "shortPrevBalance": 0,
+                "shortBalance": 9,
+                "offsetting": 41,
+                "date": "2026-08-19"
+              }
+            },
+            {
+              "code": "2882",
+              "name": "國泰金",
+              "market": "TW",
+              "assetType": "stock",
+              "weight": 0.94,
+              "shares": 221756715,
+              "open": 99.2,
+              "high": 99.2,
+              "low": 98.0,
+              "close": 98.3,
+              "prevClose": 99.2,
+              "change": -0.9,
+              "changePct": -0.91,
+              "amplitude": 1.21,
+              "volume": 11073498.0,
+              "quoteDate": "2026-08-19",
+              "inst": {
+                "foreign": -890660,
+                "trust": 0,
+                "dealer": -1038095,
+                "total": -1928755,
+                "date": "2026-08-19"
+              },
+              "margin": {
+                "marginBuy": 132,
+                "marginSell": 14,
+                "marginCashRedemption": 13,
+                "marginPrevBalance": 4086,
+                "marginBalance": 4191,
+                "shortBuy": 9,
+                "shortSell": 0,
+                "shortStockRedemption": 0,
+                "shortPrevBalance": 210,
+                "shortBalance": 201,
+                "offsetting": 0,
+                "date": "2026-08-19"
+              }
+            },
+            {
+              "code": "1303",
+              "name": "南亞",
+              "market": "TW",
+              "assetType": "stock",
+              "weight": 0.93,
+              "shares": 114523276,
+              "open": 193.0,
+              "high": 197.0,
+              "low": 186.0,
+              "close": 187.5,
+              "prevClose": 200.0,
+              "change": -12.5,
+              "changePct": -6.25,
+              "amplitude": 5.5,
+              "volume": 72639511.0,
+              "quoteDate": "2026-08-19",
+              "inst": {
+                "foreign": -2351542,
+                "trust": -288000,
+                "dealer": -2176772,
+                "total": -4816314,
+                "date": "2026-08-19"
+              },
+              "margin": {
+                "marginBuy": 5049,
+                "marginSell": 7144,
+                "marginCashRedemption": 3,
+                "marginPrevBalance": 45963,
+                "marginBalance": 43865,
+                "shortBuy": 553,
+                "shortSell": 287,
+                "shortStockRedemption": 3,
+                "shortPrevBalance": 1913,
+                "shortBalance": 1644,
+                "offsetting": 69,
+                "date": "2026-08-19"
+              }
+            },
+            {
+              "code": "2327",
+              "name": "國巨*",
+              "market": "TW",
+              "assetType": "stock",
+              "weight": 0.91,
+              "shares": 36588290,
+              "open": 547.0,
+              "high": 590.0,
+              "low": 547.0,
+              "close": 576.0,
+              "prevClose": 576.0,
+              "change": 0.0,
+              "changePct": 0.0,
+              "amplitude": 7.47,
+              "volume": 56295383.0,
+              "quoteDate": "2026-08-19",
+              "inst": {
+                "foreign": -3422361,
+                "trust": -2731000,
+                "dealer": -1341269,
+                "total": -7494630,
+                "date": "2026-08-19"
+              },
+              "margin": {
+                "marginBuy": 1957,
+                "marginSell": 1181,
+                "marginCashRedemption": 9,
+                "marginPrevBalance": 36802,
+                "marginBalance": 37569,
+                "shortBuy": 286,
+                "shortSell": 78,
+                "shortStockRedemption": 0,
+                "shortPrevBalance": 624,
+                "shortBalance": 416,
+                "offsetting": 91,
+                "date": "2026-08-19"
+              }
+            },
+            {
+              "code": "2382",
+              "name": "廣達",
+              "market": "TW",
+              "assetType": "stock",
+              "weight": 0.88,
+              "shares": 61463939,
+              "open": 321.5,
+              "high": 333.5,
+              "low": 317.5,
+              "close": 331.0,
+              "prevClose": 327.0,
+              "change": 4.0,
+              "changePct": 1.22,
+              "amplitude": 4.89,
+              "volume": 16525261.0,
+              "quoteDate": "2026-08-19",
+              "inst": {
+                "foreign": 3227189,
+                "trust": -291167,
+                "dealer": -177193,
+                "total": 2758829,
+                "date": "2026-08-19"
+              },
+              "margin": {
+                "marginBuy": 265,
+                "marginSell": 439,
+                "marginCashRedemption": 3,
+                "marginPrevBalance": 16276,
+                "marginBalance": 16099,
+                "shortBuy": 9,
+                "shortSell": 14,
+                "shortStockRedemption": 0,
+                "shortPrevBalance": 70,
+                "shortBalance": 75,
+                "offsetting": 4,
+                "date": "2026-08-19"
+              }
+            },
+            {
+              "code": "2887",
+              "name": "台新新光金",
+              "market": "TW",
+              "assetType": "stock",
+              "weight": 0.86,
+              "shares": 544634532,
+              "open": 36.85,
+              "high": 36.85,
+              "low": 36.0,
+              "close": 36.4,
+              "prevClose": 36.9,
+              "change": -0.5,
+              "changePct": -1.36,
+              "amplitude": 2.3,
+              "volume": 70118504.0,
+              "quoteDate": "2026-08-19",
+              "inst": {
+                "foreign": -29823211,
+                "trust": 21897000,
+                "dealer": -813762,
+                "total": -8739973,
+                "date": "2026-08-19"
+              },
+              "margin": {
+                "marginBuy": 501,
+                "marginSell": 181,
+                "marginCashRedemption": 15,
+                "marginPrevBalance": 40462,
+                "marginBalance": 40767,
+                "shortBuy": 649,
+                "shortSell": 24,
+                "shortStockRedemption": 0,
+                "shortPrevBalance": 751,
+                "shortBalance": 126,
+                "offsetting": 42,
+                "date": "2026-08-19"
+              }
+            },
+            {
+              "code": "2360",
+              "name": "致茂",
+              "market": "TW",
+              "assetType": "stock",
+              "weight": 0.79,
+              "shares": 8566716,
+              "open": 2190.0,
+              "high": 2235.0,
+              "low": 2085.0,
+              "close": 2120.0,
+              "prevClose": 2305.0,
+              "change": -185.0,
+              "changePct": -8.03,
+              "amplitude": 6.51,
+              "volume": 3423570.0,
+              "quoteDate": "2026-08-19",
+              "inst": {
+                "foreign": 239885,
+                "trust": -776000,
+                "dealer": 37282,
+                "total": -498833,
+                "date": "2026-08-19"
+              },
+              "margin": {
+                "marginBuy": 144,
+                "marginSell": 192,
+                "marginCashRedemption": 0,
+                "marginPrevBalance": 1427,
+                "marginBalance": 1379,
+                "shortBuy": 10,
+                "shortSell": 1,
+                "shortStockRedemption": 0,
+                "shortPrevBalance": 43,
+                "shortBalance": 34,
+                "offsetting": 3,
+                "date": "2026-08-19"
+              }
+            },
+            {
+              "code": "2059",
+              "name": "川湖",
+              "market": "TW",
+              "assetType": "stock",
+              "weight": 0.78,
+              "shares": 1281220,
+              "open": 13895.0,
+              "high": 14500.0,
+              "low": 13895.0,
+              "close": 14095.0,
+              "prevClose": 14370.0,
+              "change": -275.0,
+              "changePct": -1.91,
+              "amplitude": 4.21,
+              "volume": 526139.0,
+              "quoteDate": "2026-08-19",
+              "inst": {
+                "foreign": -102444,
+                "trust": 19412,
+                "dealer": 6370,
+                "total": -76662,
+                "date": "2026-08-19"
+              },
+              "margin": {
+                "marginBuy": 44,
+                "marginSell": 10,
+                "marginCashRedemption": 0,
+                "marginPrevBalance": 585,
+                "marginBalance": 619,
+                "shortBuy": 0,
+                "shortSell": 0,
+                "shortStockRedemption": 0,
+                "shortPrevBalance": 6,
+                "shortBalance": 6,
+                "offsetting": 0,
+                "date": "2026-08-19"
+              }
+            },
+            {
+              "code": "2885",
+              "name": "元大金",
+              "market": "TW",
+              "assetType": "stock",
+              "weight": 0.72,
+              "shares": 266764498,
+              "open": 63.9,
+              "high": 63.9,
+              "low": 62.1,
+              "close": 62.5,
+              "prevClose": 64.0,
+              "change": -1.5,
+              "changePct": -2.34,
+              "amplitude": 2.81,
+              "volume": 44748181.0,
+              "quoteDate": "2026-08-19",
+              "inst": {
+                "foreign": -19453031,
+                "trust": 436000,
+                "dealer": -154064,
+                "total": -19171095,
+                "date": "2026-08-19"
+              },
+              "margin": {
+                "marginBuy": 432,
+                "marginSell": 23,
+                "marginCashRedemption": 2,
+                "marginPrevBalance": 2253,
+                "marginBalance": 2660,
+                "shortBuy": 0,
+                "shortSell": 0,
+                "shortStockRedemption": 0,
+                "shortPrevBalance": 0,
+                "shortBalance": 0,
+                "offsetting": 0,
+                "date": "2026-08-19"
+              }
+            },
+            {
+              "code": "6669",
+              "name": "緯穎",
+              "market": "TW",
+              "assetType": "stock",
+              "weight": 0.67,
+              "shares": 2415452,
+              "open": 6190.0,
+              "high": 6425.0,
+              "low": 6190.0,
+              "close": 6375.0,
+              "prevClose": 6400.0,
+              "change": -25.0,
+              "changePct": -0.39,
+              "amplitude": 3.67,
+              "volume": 1289214.0,
+              "quoteDate": "2026-08-19",
+              "inst": {
+                "foreign": 174888,
+                "trust": -360257,
+                "dealer": 19836,
+                "total": -165533,
+                "date": "2026-08-19"
+              },
+              "margin": {
+                "marginBuy": 59,
+                "marginSell": 42,
+                "marginCashRedemption": 2,
+                "marginPrevBalance": 1328,
+                "marginBalance": 1343,
+                "shortBuy": 5,
+                "shortSell": 0,
+                "shortStockRedemption": 6,
+                "shortPrevBalance": 25,
+                "shortBalance": 14,
+                "offsetting": 0,
+                "date": "2026-08-19"
+              }
+            },
+            {
+              "code": "2357",
+              "name": "華碩",
+              "market": "TW",
+              "assetType": "stock",
+              "weight": 0.63,
+              "shares": 15696233,
+              "open": 896.0,
+              "high": 925.0,
+              "low": 891.0,
+              "close": 925.0,
+              "prevClose": 910.0,
+              "change": 15.0,
+              "changePct": 1.65,
+              "amplitude": 3.74,
+              "volume": 2985654.0,
+              "quoteDate": "2026-08-19",
+              "inst": {
+                "foreign": -15576,
+                "trust": -41341,
+                "dealer": -74952,
+                "total": -131869,
+                "date": "2026-08-19"
+              },
+              "margin": {
+                "marginBuy": 127,
+                "marginSell": 36,
+                "marginCashRedemption": 1,
+                "marginPrevBalance": 1541,
+                "marginBalance": 1631,
+                "shortBuy": 2,
+                "shortSell": 5,
+                "shortStockRedemption": 0,
+                "shortPrevBalance": 40,
+                "shortBalance": 43,
+                "offsetting": 1,
+                "date": "2026-08-19"
+              }
+            },
+            {
+              "code": "2884",
+              "name": "玉山金",
+              "market": "TW",
+              "assetType": "stock",
+              "weight": 0.61,
+              "shares": 371936522,
+              "open": 38.3,
+              "high": 38.5,
+              "low": 37.75,
+              "close": 37.8,
+              "prevClose": 38.1,
+              "change": -0.3,
+              "changePct": -0.79,
+              "amplitude": 1.97,
+              "volume": 103424075.0,
+              "quoteDate": "2026-08-19",
+              "inst": {
+                "foreign": -25211898,
+                "trust": 24766000,
+                "dealer": -141971,
+                "total": -587869,
+                "date": "2026-08-19"
+              },
+              "margin": {
+                "marginBuy": 348,
+                "marginSell": 205,
+                "marginCashRedemption": 0,
+                "marginPrevBalance": 5026,
+                "marginBalance": 5169,
+                "shortBuy": 401,
+                "shortSell": 220,
+                "shortStockRedemption": 0,
+                "shortPrevBalance": 816,
+                "shortBalance": 635,
+                "offsetting": 45,
+                "date": "2026-08-19"
+              }
+            },
+            {
+              "code": "2886",
+              "name": "兆豐金",
+              "market": "TW",
+              "assetType": "stock",
+              "weight": 0.56,
+              "shares": 275008688,
+              "open": 46.9,
+              "high": 47.05,
+              "low": 46.3,
+              "close": 47.05,
+              "prevClose": 46.9,
+              "change": 0.15,
+              "changePct": 0.32,
+              "amplitude": 1.6,
+              "volume": 25322496.0,
+              "quoteDate": "2026-08-19",
+              "inst": {
+                "foreign": 12062381,
+                "trust": 3285000,
+                "dealer": -783139,
+                "total": 14564242,
+                "date": "2026-08-19"
+              },
+              "margin": {
+                "marginBuy": 47,
+                "marginSell": 27,
+                "marginCashRedemption": 0,
+                "marginPrevBalance": 2109,
+                "marginBalance": 2129,
+                "shortBuy": 2,
+                "shortSell": 4,
+                "shortStockRedemption": 0,
+                "shortPrevBalance": 16,
+                "shortBalance": 18,
+                "offsetting": 0,
+                "date": "2026-08-19"
+              }
+            },
+            {
+              "code": "2408",
+              "name": "南亞科",
+              "market": "TW",
+              "assetType": "stock",
+              "weight": 0.55,
+              "shares": 26540060,
+              "open": 489.0,
+              "high": 494.5,
+              "low": 480.0,
+              "close": 481.0,
+              "prevClose": 515.0,
+              "change": -34.0,
+              "changePct": -6.6,
+              "amplitude": 2.82,
+              "volume": 69157927.0,
+              "quoteDate": "2026-08-19",
+              "inst": {
+                "foreign": -13747190,
+                "trust": 380000,
+                "dealer": -1059651,
+                "total": -14426841,
+                "date": "2026-08-19"
+              },
+              "margin": {
+                "marginBuy": 4209,
+                "marginSell": 4996,
+                "marginCashRedemption": 32,
+                "marginPrevBalance": 81712,
+                "marginBalance": 80893,
+                "shortBuy": 761,
+                "shortSell": 277,
+                "shortStockRedemption": 3,
+                "shortPrevBalance": 3119,
+                "shortBalance": 2632,
+                "offsetting": 53,
+                "date": "2026-08-19"
+              }
+            },
+            {
+              "code": "3231",
+              "name": "緯創",
+              "market": "TW",
+              "assetType": "stock",
+              "weight": 0.55,
+              "shares": 70218324,
+              "open": 177.0,
+              "high": 182.0,
+              "low": 175.0,
+              "close": 182.0,
+              "prevClose": 181.0,
+              "change": 1.0,
+              "changePct": 0.55,
+              "amplitude": 3.87,
+              "volume": 28162708.0,
+              "quoteDate": "2026-08-19",
+              "inst": {
+                "foreign": -3046833,
+                "trust": 1039000,
+                "dealer": -893467,
+                "total": -2901300,
+                "date": "2026-08-19"
+              },
+              "margin": {
+                "marginBuy": 2116,
+                "marginSell": 1281,
+                "marginCashRedemption": 1,
+                "marginPrevBalance": 37557,
+                "marginBalance": 38391,
+                "shortBuy": 91,
+                "shortSell": 187,
+                "shortStockRedemption": 0,
+                "shortPrevBalance": 708,
+                "shortBalance": 804,
+                "offsetting": 22,
+                "date": "2026-08-19"
+              }
+            },
+            {
+              "code": "2301",
+              "name": "光寶科",
+              "market": "TW",
+              "assetType": "stock",
+              "weight": 0.54,
+              "shares": 45495089,
+              "open": 268.0,
+              "high": 282.0,
+              "low": 265.0,
+              "close": 273.5,
+              "prevClose": 273.5,
+              "change": 0.0,
+              "changePct": 0.0,
+              "amplitude": 6.22,
+              "volume": 35191145.0,
+              "quoteDate": "2026-08-19",
+              "inst": {
+                "foreign": -936729,
+                "trust": 640000,
+                "dealer": -238070,
+                "total": -534799,
+                "date": "2026-08-19"
+              },
+              "margin": {
+                "marginBuy": 3674,
+                "marginSell": 2071,
+                "marginCashRedemption": 0,
+                "marginPrevBalance": 13778,
+                "marginBalance": 15381,
+                "shortBuy": 0,
+                "shortSell": 126,
+                "shortStockRedemption": 0,
+                "shortPrevBalance": 0,
+                "shortBalance": 126,
+                "offsetting": 282,
+                "date": "2026-08-19"
+              }
+            },
+            {
+              "code": "2344",
+              "name": "華邦電",
+              "market": "TW",
+              "assetType": "stock",
+              "weight": 0.52,
+              "shares": 71910160,
+              "open": 167.0,
+              "high": 169.5,
+              "low": 165.0,
+              "close": 168.0,
+              "prevClose": 176.5,
+              "change": -8.5,
+              "changePct": -4.82,
+              "amplitude": 2.55,
+              "volume": 113062347.0,
+              "quoteDate": "2026-08-19",
+              "inst": {
+                "foreign": -4640893,
+                "trust": -17582000,
+                "dealer": 75860,
+                "total": -22147033,
+                "date": "2026-08-19"
+              },
+              "margin": {
+                "marginBuy": 5376,
+                "marginSell": 4316,
+                "marginCashRedemption": 145,
+                "marginPrevBalance": 125690,
+                "marginBalance": 126605,
+                "shortBuy": 845,
+                "shortSell": 288,
+                "shortStockRedemption": 0,
+                "shortPrevBalance": 4696,
+                "shortBalance": 4139,
+                "offsetting": 70,
+                "date": "2026-08-19"
+              }
+            },
+            {
+              "code": "2412",
+              "name": "中華電",
+              "market": "TW",
+              "assetType": "stock",
+              "weight": 0.52,
+              "shares": 88760414,
+              "open": 136.5,
+              "high": 137.0,
+              "low": 136.0,
+              "close": 136.0,
+              "prevClose": 137.0,
+              "change": -1.0,
+              "changePct": -0.73,
+              "amplitude": 0.73,
+              "volume": 7120614.0,
+              "quoteDate": "2026-08-19",
+              "inst": {
+                "foreign": -1119614,
+                "trust": -63000,
+                "dealer": -42133,
+                "total": -1224747,
+                "date": "2026-08-19"
+              },
+              "margin": {
+                "marginBuy": 35,
+                "marginSell": 58,
+                "marginCashRedemption": 0,
+                "marginPrevBalance": 1781,
+                "marginBalance": 1758,
+                "shortBuy": 0,
+                "shortSell": 0,
+                "shortStockRedemption": 0,
+                "shortPrevBalance": 27,
+                "shortBalance": 27,
+                "offsetting": 0,
+                "date": "2026-08-19"
+              }
+            },
+            {
+              "code": "3008",
+              "name": "大立光",
+              "market": "TW",
+              "assetType": "stock",
+              "weight": 0.52,
+              "shares": 2186068,
+              "open": 5135.0,
+              "high": 5720.0,
+              "low": 5110.0,
+              "close": 5550.0,
+              "prevClose": 5290.0,
+              "change": 260.0,
+              "changePct": 4.91,
+              "amplitude": 11.53,
+              "volume": 3873944.0,
+              "quoteDate": "2026-08-19",
+              "inst": {
+                "foreign": -135887,
+                "trust": 84000,
+                "dealer": 132972,
+                "total": 81085,
+                "date": "2026-08-19"
+              },
+              "margin": {
+                "marginBuy": 285,
+                "marginSell": 172,
+                "marginCashRedemption": 0,
+                "marginPrevBalance": 2639,
+                "marginBalance": 2752,
+                "shortBuy": 1,
+                "shortSell": 13,
+                "shortStockRedemption": 0,
+                "shortPrevBalance": 32,
+                "shortBalance": 44,
+                "offsetting": 2,
+                "date": "2026-08-19"
+              }
+            },
+            {
+              "code": "2890",
+              "name": "永豐金",
+              "market": "TW",
+              "assetType": "stock",
+              "weight": 0.52,
+              "shares": 304638324,
+              "open": 39.6,
+              "high": 39.7,
+              "low": 39.1,
+              "close": 39.4,
+              "prevClose": 39.6,
+              "change": -0.2,
+              "changePct": -0.51,
+              "amplitude": 1.52,
+              "volume": 24546731.0,
+              "quoteDate": "2026-08-19",
+              "inst": {
+                "foreign": -11297163,
+                "trust": 8368000,
+                "dealer": -15486,
+                "total": -2944649,
+                "date": "2026-08-19"
+              },
+              "margin": {
+                "marginBuy": 36,
+                "marginSell": 13,
+                "marginCashRedemption": 1,
+                "marginPrevBalance": 2125,
+                "marginBalance": 2147,
+                "shortBuy": 6,
+                "shortSell": 11,
+                "shortStockRedemption": 0,
+                "shortPrevBalance": 61,
+                "shortBalance": 66,
+                "offsetting": 0,
+                "date": "2026-08-19"
+              }
+            },
+            {
+              "code": "2883",
+              "name": "凱基金",
+              "market": "TW",
+              "assetType": "stock",
+              "weight": 0.48,
+              "shares": 366234876,
+              "open": 30.7,
+              "high": 30.85,
+              "low": 30.3,
+              "close": 30.4,
+              "prevClose": 30.95,
+              "change": -0.55,
+              "changePct": -1.78,
+              "amplitude": 1.78,
+              "volume": 41106180.0,
+              "quoteDate": "2026-08-19",
+              "inst": {
+                "foreign": -15105393,
+                "trust": 7935000,
+                "dealer": -641978,
+                "total": -7812371,
+                "date": "2026-08-19"
+              },
+              "margin": {
+                "marginBuy": 1093,
+                "marginSell": 115,
+                "marginCashRedemption": 34,
+                "marginPrevBalance": 9568,
+                "marginBalance": 10512,
+                "shortBuy": 17,
+                "shortSell": 3,
+                "shortStockRedemption": 0,
+                "shortPrevBalance": 71,
+                "shortBalance": 57,
+                "offsetting": 0,
+                "date": "2026-08-19"
+              }
+            },
+            {
+              "code": "3653",
+              "name": "健策",
+              "market": "TW",
+              "assetType": "stock",
+              "weight": 0.48,
+              "shares": 2022885,
+              "open": 4895.0,
+              "high": 5540.0,
+              "low": 4890.0,
+              "close": 5460.0,
+              "prevClose": 5150.0,
+              "change": 310.0,
+              "changePct": 6.02,
+              "amplitude": 12.62,
+              "volume": 2804186.0,
+              "quoteDate": "2026-08-19",
+              "inst": {
+                "foreign": 24735,
+                "trust": 271000,
+                "dealer": -17965,
+                "total": 277770,
+                "date": "2026-08-19"
+              },
+              "margin": {
+                "marginBuy": 280,
+                "marginSell": 325,
+                "marginCashRedemption": 2,
+                "marginPrevBalance": 3093,
+                "marginBalance": 3046,
+                "shortBuy": 0,
+                "shortSell": 0,
+                "shortStockRedemption": 1,
+                "shortPrevBalance": 53,
+                "shortBalance": 52,
+                "offsetting": 3,
+                "date": "2026-08-19"
+              }
+            },
+            {
+              "code": "3443",
+              "name": "創意",
+              "market": "TW",
+              "assetType": "stock",
+              "weight": 0.43,
+              "shares": 1864342,
+              "open": 5350.0,
+              "high": 5530.0,
+              "low": 5230.0,
+              "close": 5295.0,
+              "prevClose": 5535.0,
+              "change": -240.0,
+              "changePct": -4.34,
+              "amplitude": 5.42,
+              "volume": 2510975.0,
+              "quoteDate": "2026-08-19",
+              "inst": {
+                "foreign": 828793,
+                "trust": -126000,
+                "dealer": -71430,
+                "total": 631363,
+                "date": "2026-08-19"
+              },
+              "margin": {
+                "marginBuy": 183,
+                "marginSell": 374,
+                "marginCashRedemption": 3,
+                "marginPrevBalance": 4958,
+                "marginBalance": 4764,
+                "shortBuy": 17,
+                "shortSell": 16,
+                "shortStockRedemption": 0,
+                "shortPrevBalance": 97,
+                "shortBalance": 96,
+                "offsetting": 2,
+                "date": "2026-08-19"
+              }
+            },
+            {
+              "code": "3665",
+              "name": "貿聯-KY",
+              "market": "TW",
+              "assetType": "stock",
+              "weight": 0.4,
+              "shares": 4157866,
+              "open": 2150.0,
+              "high": 2210.0,
+              "low": 2120.0,
+              "close": 2200.0,
+              "prevClose": 2240.0,
+              "change": -40.0,
+              "changePct": -1.79,
+              "amplitude": 4.02,
+              "volume": 2061571.0,
+              "quoteDate": "2026-08-19",
+              "inst": {
+                "foreign": -125140,
+                "trust": -305000,
+                "dealer": -1761,
+                "total": -431901,
+                "date": "2026-08-19"
+              },
+              "margin": {
+                "marginBuy": 97,
+                "marginSell": 61,
+                "marginCashRedemption": 0,
+                "marginPrevBalance": 2647,
+                "marginBalance": 2683,
+                "shortBuy": 5,
+                "shortSell": 1,
+                "shortStockRedemption": 0,
+                "shortPrevBalance": 19,
+                "shortBalance": 15,
+                "offsetting": 1,
+                "date": "2026-08-19"
+              }
+            },
+            {
+              "code": "1216",
+              "name": "統一",
+              "market": "TW",
+              "assetType": "stock",
+              "weight": 0.39,
+              "shares": 115093662,
+              "open": 76.2,
+              "high": 77.5,
+              "low": 75.6,
+              "close": 77.5,
+              "prevClose": 76.2,
+              "change": 1.3,
+              "changePct": 1.71,
+              "amplitude": 2.49,
+              "volume": 16977370.0,
+              "quoteDate": "2026-08-19",
+              "inst": {
+                "foreign": 13274283,
+                "trust": -539000,
+                "dealer": -643234,
+                "total": 12092049,
+                "date": "2026-08-19"
+              },
+              "margin": {
+                "marginBuy": 26,
+                "marginSell": 114,
+                "marginCashRedemption": 0,
+                "marginPrevBalance": 1031,
+                "marginBalance": 943,
+                "shortBuy": 0,
+                "shortSell": 1,
+                "shortStockRedemption": 0,
+                "shortPrevBalance": 1,
+                "shortBalance": 2,
+                "offsetting": 1,
+                "date": "2026-08-19"
+              }
+            },
+            {
+              "code": "2892",
+              "name": "第一金",
+              "market": "TW",
+              "assetType": "stock",
+              "weight": 0.38,
+              "shares": 260761956,
+              "open": 33.65,
+              "high": 33.8,
+              "low": 33.3,
+              "close": 33.6,
+              "prevClose": 33.7,
+              "change": -0.1,
+              "changePct": -0.3,
+              "amplitude": 1.48,
+              "volume": 16299693.0,
+              "quoteDate": "2026-08-19",
+              "inst": {
+                "foreign": 3265498,
+                "trust": -1569000,
+                "dealer": -634152,
+                "total": 1062346,
+                "date": "2026-08-19"
+              },
+              "margin": {
+                "marginBuy": 56,
+                "marginSell": 41,
+                "marginCashRedemption": 2,
+                "marginPrevBalance": 2264,
+                "marginBalance": 2277,
+                "shortBuy": 10,
+                "shortSell": 2,
+                "shortStockRedemption": 0,
+                "shortPrevBalance": 28,
+                "shortBalance": 20,
+                "offsetting": 0,
+                "date": "2026-08-19"
+              }
+            },
+            {
+              "code": "7769",
+              "name": "鴻勁",
+              "market": "TW",
+              "assetType": "stock",
+              "weight": 0.37,
+              "shares": 1325148,
+              "open": 6350.0,
+              "high": 6705.0,
+              "low": 6300.0,
+              "close": 6445.0,
+              "prevClose": 6525.0,
+              "change": -80.0,
+              "changePct": -1.23,
+              "amplitude": 6.21,
+              "volume": 450430.0,
+              "quoteDate": "2026-08-19",
+              "inst": {
+                "foreign": 78455,
+                "trust": -14000,
+                "dealer": -845,
+                "total": 63610,
+                "date": "2026-08-19"
+              },
+              "margin": {
+                "marginBuy": 9,
+                "marginSell": 28,
+                "marginCashRedemption": 0,
+                "marginPrevBalance": 346,
+                "marginBalance": 327,
+                "shortBuy": 2,
+                "shortSell": 0,
+                "shortStockRedemption": 0,
+                "shortPrevBalance": 2,
+                "shortBalance": 0,
+                "offsetting": 0,
+                "date": "2026-08-19"
+              }
+            },
+            {
+              "code": "2880",
+              "name": "華南金",
+              "market": "TW",
+              "assetType": "stock",
+              "weight": 0.36,
+              "shares": 216180040,
+              "open": 39.55,
+              "high": 39.7,
+              "low": 38.65,
+              "close": 39.0,
+              "prevClose": 39.7,
+              "change": -0.7,
+              "changePct": -1.76,
+              "amplitude": 2.64,
+              "volume": 24299348.0,
+              "quoteDate": "2026-08-19",
+              "inst": {
+                "foreign": -5691385,
+                "trust": 3974000,
+                "dealer": -6841,
+                "total": -1724226,
+                "date": "2026-08-19"
+              },
+              "margin": {
+                "marginBuy": 760,
+                "marginSell": 144,
+                "marginCashRedemption": 0,
+                "marginPrevBalance": 1989,
+                "marginBalance": 2605,
+                "shortBuy": 26,
+                "shortSell": 0,
+                "shortStockRedemption": 0,
+                "shortPrevBalance": 36,
+                "shortBalance": 10,
+                "offsetting": 33,
+                "date": "2026-08-19"
+              }
+            },
+            {
+              "code": "2368",
+              "name": "金像電",
+              "market": "TW",
+              "assetType": "stock",
+              "weight": 0.36,
+              "shares": 7990482,
+              "open": 1035.0,
+              "high": 1095.0,
+              "low": 1020.0,
+              "close": 1040.0,
+              "prevClose": 1070.0,
+              "change": -30.0,
+              "changePct": -2.8,
+              "amplitude": 7.01,
+              "volume": 10290635.0,
+              "quoteDate": "2026-08-19",
+              "inst": {
+                "foreign": -1163883,
+                "trust": -305000,
+                "dealer": -138135,
+                "total": -1607018,
+                "date": "2026-08-19"
+              },
+              "margin": {
+                "marginBuy": 571,
+                "marginSell": 581,
+                "marginCashRedemption": 0,
+                "marginPrevBalance": 7179,
+                "marginBalance": 7169,
+                "shortBuy": 26,
+                "shortSell": 15,
+                "shortStockRedemption": 55,
+                "shortPrevBalance": 267,
+                "shortBalance": 201,
+                "offsetting": 6,
+                "date": "2026-08-19"
+              }
+            },
+            {
+              "code": "4958",
+              "name": "臻鼎-KY",
+              "market": "TW",
+              "assetType": "stock",
+              "weight": 0.35,
+              "shares": 17726102,
+              "open": 451.0,
+              "high": 476.5,
+              "low": 451.0,
+              "close": 457.0,
+              "prevClose": 474.0,
+              "change": -17.0,
+              "changePct": -3.59,
+              "amplitude": 5.38,
+              "volume": 30182657.0,
+              "quoteDate": "2026-08-19",
+              "inst": {
+                "foreign": -3215170,
+                "trust": -1481000,
+                "dealer": -241456,
+                "total": -4937626,
+                "date": "2026-08-19"
+              },
+              "margin": {
+                "marginBuy": 1262,
+                "marginSell": 1893,
+                "marginCashRedemption": 9,
+                "marginPrevBalance": 34869,
+                "marginBalance": 34229,
+                "shortBuy": 161,
+                "shortSell": 58,
+                "shortStockRedemption": 0,
+                "shortPrevBalance": 417,
+                "shortBalance": 314,
+                "offsetting": 43,
+                "date": "2026-08-19"
+              }
+            },
+            {
+              "code": "2395",
+              "name": "研華",
+              "market": "TW",
+              "assetType": "stock",
+              "weight": 0.32,
+              "shares": 10739924,
+              "open": 674.0,
+              "high": 704.0,
+              "low": 667.0,
+              "close": 694.0,
+              "prevClose": 679.0,
+              "change": 15.0,
+              "changePct": 2.21,
+              "amplitude": 5.45,
+              "volume": 4739840.0,
+              "quoteDate": "2026-08-19",
+              "inst": {
+                "foreign": -514649,
+                "trust": 572000,
+                "dealer": 54634,
+                "total": 111985,
+                "date": "2026-08-19"
+              },
+              "margin": {
+                "marginBuy": 219,
+                "marginSell": 124,
+                "marginCashRedemption": 1,
+                "marginPrevBalance": 1735,
+                "marginBalance": 1829,
+                "shortBuy": 5,
+                "shortSell": 12,
+                "shortStockRedemption": 0,
+                "shortPrevBalance": 52,
+                "shortBalance": 59,
+                "offsetting": 6,
+                "date": "2026-08-19"
+              }
+            },
+            {
+              "code": "3661",
+              "name": "世芯-KY",
+              "market": "TW",
+              "assetType": "stock",
+              "weight": 0.29,
+              "shares": 1838768,
+              "open": 3585.0,
+              "high": 3730.0,
+              "low": 3585.0,
+              "close": 3630.0,
+              "prevClose": 3715.0,
+              "change": -85.0,
+              "changePct": -2.29,
+              "amplitude": 3.9,
+              "volume": 1950747.0,
+              "quoteDate": "2026-08-19",
+              "inst": {
+                "foreign": -566539,
+                "trust": 14000,
+                "dealer": 14769,
+                "total": -537770,
+                "date": "2026-08-19"
+              },
+              "margin": {
+                "marginBuy": 179,
+                "marginSell": 30,
+                "marginCashRedemption": 1,
+                "marginPrevBalance": 6080,
+                "marginBalance": 6228,
+                "shortBuy": 15,
+                "shortSell": 1,
+                "shortStockRedemption": 3,
+                "shortPrevBalance": 48,
+                "shortBalance": 31,
+                "offsetting": 0,
+                "date": "2026-08-19"
+              }
+            },
+            {
+              "code": "5880",
+              "name": "合庫金",
+              "market": "TW",
+              "assetType": "stock",
+              "weight": 0.27,
+              "shares": 250486772,
+              "open": 24.95,
+              "high": 25.0,
+              "low": 24.6,
+              "close": 24.85,
+              "prevClose": 24.95,
+              "change": -0.1,
+              "changePct": -0.4,
+              "amplitude": 1.6,
+              "volume": 33352232.0,
+              "quoteDate": "2026-08-19",
+              "inst": {
+                "foreign": -9964193,
+                "trust": 11897000,
+                "dealer": -890663,
+                "total": 1042144,
+                "date": "2026-08-19"
+              },
+              "margin": {
+                "marginBuy": 27,
+                "marginSell": 25,
+                "marginCashRedemption": 11,
+                "marginPrevBalance": 2507,
+                "marginBalance": 2498,
+                "shortBuy": 1,
+                "shortSell": 4,
+                "shortStockRedemption": 0,
+                "shortPrevBalance": 11,
+                "shortBalance": 14,
+                "offsetting": 0,
+                "date": "2026-08-19"
+              }
+            },
+            {
+              "code": "2449",
+              "name": "京元電子",
+              "market": "TW",
+              "assetType": "stock",
+              "weight": 0.27,
+              "shares": 26565501,
+              "open": 226.5,
+              "high": 237.5,
+              "low": 225.0,
+              "close": 235.0,
+              "prevClose": 236.0,
+              "change": -1.0,
+              "changePct": -0.42,
+              "amplitude": 5.3,
+              "volume": 15479247.0,
+              "quoteDate": "2026-08-19",
+              "inst": {
+                "foreign": 1318020,
+                "trust": 39000,
+                "dealer": -67293,
+                "total": 1289727,
+                "date": "2026-08-19"
+              },
+              "margin": {
+                "marginBuy": 490,
+                "marginSell": 478,
+                "marginCashRedemption": 5,
+                "marginPrevBalance": 20801,
+                "marginBalance": 20808,
+                "shortBuy": 189,
+                "shortSell": 67,
+                "shortStockRedemption": 0,
+                "shortPrevBalance": 277,
+                "shortBalance": 155,
+                "offsetting": 1,
+                "date": "2026-08-19"
+              }
+            },
+            {
+              "code": "2603",
+              "name": "長榮",
+              "market": "TW",
+              "assetType": "stock",
+              "weight": 0.26,
+              "shares": 25435144,
+              "open": 236.0,
+              "high": 240.5,
+              "low": 232.0,
+              "close": 240.5,
+              "prevClose": 238.0,
+              "change": 2.5,
+              "changePct": 1.05,
+              "amplitude": 3.57,
+              "volume": 20579536.0,
+              "quoteDate": "2026-08-19",
+              "inst": {
+                "foreign": 8541302,
+                "trust": 6000,
+                "dealer": -843024,
+                "total": 7704278,
+                "date": "2026-08-19"
+              },
+              "margin": {
+                "marginBuy": 854,
+                "marginSell": 596,
+                "marginCashRedemption": 124,
+                "marginPrevBalance": 13545,
+                "marginBalance": 13679,
+                "shortBuy": 81,
+                "shortSell": 39,
+                "shortStockRedemption": 0,
+                "shortPrevBalance": 418,
+                "shortBalance": 376,
+                "offsetting": 5,
+                "date": "2026-08-19"
+              }
+            },
+            {
+              "code": "8046",
+              "name": "南電",
+              "market": "TW",
+              "assetType": "stock",
+              "weight": 0.25,
+              "shares": 4982682,
+              "open": 1175.0,
+              "high": 1280.0,
+              "low": 1150.0,
+              "close": 1180.0,
+              "prevClose": 1245.0,
+              "change": -65.0,
+              "changePct": -5.22,
+              "amplitude": 10.44,
+              "volume": 15143786.0,
+              "quoteDate": "2026-08-19",
+              "inst": {
+                "foreign": -180038,
+                "trust": -92000,
+                "dealer": -200940,
+                "total": -472978,
+                "date": "2026-08-19"
+              },
+              "margin": {
+                "marginBuy": 1526,
+                "marginSell": 2000,
+                "marginCashRedemption": 0,
+                "marginPrevBalance": 11229,
+                "marginBalance": 10755,
+                "shortBuy": 154,
+                "shortSell": 36,
+                "shortStockRedemption": 0,
+                "shortPrevBalance": 690,
+                "shortBalance": 572,
+                "offsetting": 18,
+                "date": "2026-08-19"
+              }
+            },
+            {
+              "code": "",
+              "name": "臺股期貨 202609",
+              "market": "",
+              "assetType": "future",
+              "weight": 0.23,
+              "quantity": 588.0,
+              "unit": "口",
+              "amount": null
+            },
+            {
+              "code": "4904",
+              "name": "遠傳",
+              "market": "TW",
+              "assetType": "stock",
+              "weight": 0.18,
+              "shares": 41309626,
+              "open": 101.0,
+              "high": 102.0,
+              "low": 100.5,
+              "close": 101.5,
+              "prevClose": 101.5,
+              "change": 0.0,
+              "changePct": 0.0,
+              "amplitude": 1.48,
+              "volume": 4101489.0,
+              "quoteDate": "2026-08-19",
+              "inst": {
+                "foreign": 1048338,
+                "trust": 88000,
+                "dealer": 152983,
+                "total": 1289321,
+                "date": "2026-08-19"
+              },
+              "margin": {
+                "marginBuy": 4,
+                "marginSell": 2,
+                "marginCashRedemption": 0,
+                "marginPrevBalance": 1077,
+                "marginBalance": 1079,
+                "shortBuy": 0,
+                "shortSell": 0,
+                "shortStockRedemption": 0,
+                "shortPrevBalance": 14,
+                "shortBalance": 14,
+                "offsetting": 0,
+                "date": "2026-08-19"
+              }
+            },
+            {
+              "code": "3045",
+              "name": "台灣大",
+              "market": "TW",
+              "assetType": "stock",
+              "weight": 0.16,
+              "shares": 32987139,
+              "open": 112.0,
+              "high": 113.5,
+              "low": 111.5,
+              "close": 113.5,
+              "prevClose": 111.0,
+              "change": 2.5,
+              "changePct": 2.25,
+              "amplitude": 1.8,
+              "volume": 26629390.0,
+              "quoteDate": "2026-08-19",
+              "inst": {
+                "foreign": 18646206,
+                "trust": 51000,
+                "dealer": -458967,
+                "total": 18238239,
+                "date": "2026-08-19"
+              },
+              "margin": {
+                "marginBuy": 37,
+                "marginSell": 885,
+                "marginCashRedemption": 0,
+                "marginPrevBalance": 1543,
+                "marginBalance": 695,
+                "shortBuy": 0,
+                "shortSell": 340,
+                "shortStockRedemption": 0,
+                "shortPrevBalance": 126,
+                "shortBalance": 466,
+                "offsetting": 0,
+                "date": "2026-08-19"
+              }
+            },
+            {
+              "code": "6505",
+              "name": "台塑化",
+              "market": "TW",
+              "assetType": "stock",
+              "weight": 0.08,
+              "shares": 26934735,
+              "open": 73.0,
+              "high": 73.0,
+              "low": 70.1,
+              "close": 70.2,
+              "prevClose": 72.0,
+              "change": -1.8,
+              "changePct": -2.5,
+              "amplitude": 4.03,
+              "volume": 20727704.0,
+              "quoteDate": "2026-08-19",
+              "inst": {
+                "foreign": -4262618,
+                "trust": -51000,
+                "dealer": -1649827,
+                "total": -5963445,
+                "date": "2026-08-19"
+              },
+              "margin": {
+                "marginBuy": 998,
+                "marginSell": 571,
+                "marginCashRedemption": 0,
+                "marginPrevBalance": 12118,
+                "marginBalance": 12545,
+                "shortBuy": 11,
+                "shortSell": 6,
+                "shortStockRedemption": 0,
+                "shortPrevBalance": 234,
+                "shortBalance": 229,
+                "offsetting": 15,
+                "date": "2026-08-19"
+              }
+            },
+            {
+              "code": "",
+              "name": "台灣50ETF股票期貨 202609",
+              "market": "",
+              "assetType": "future",
+              "weight": 0.03,
+              "quantity": 578.0,
               "unit": "口",
               "amount": null
             }
@@ -160595,6 +165330,2874 @@ window.DATA = {
               }
             }
           ]
+        },
+        {
+          "date": "2026-08-19",
+          "fetched_at": "2026-08-19T20:38:35+08:00",
+          "count": 74,
+          "self": {
+            "open": 59.65,
+            "high": 60.45,
+            "low": 59.65,
+            "close": 60.15,
+            "prevClose": 60.9,
+            "change": -0.75,
+            "changePct": -1.23,
+            "amplitude": 1.31,
+            "volume": 12817722.0,
+            "quoteDate": "2026-08-19"
+          },
+          "selfInstitutional": {
+            "foreign": -928410,
+            "trust": 0,
+            "dealer": -167305,
+            "total": -1095715,
+            "date": "2026-08-19"
+          },
+          "selfMargin": {
+            "marginBuy": 141,
+            "marginSell": 221,
+            "marginCashRedemption": 34,
+            "marginPrevBalance": 10764,
+            "marginBalance": 10650,
+            "shortBuy": 18,
+            "shortSell": 1,
+            "shortStockRedemption": 0,
+            "shortPrevBalance": 167,
+            "shortBalance": 150,
+            "offsetting": 2,
+            "date": "2026-08-19"
+          },
+          "holdings": [
+            {
+              "code": "2330",
+              "name": "台積電",
+              "market": "TW",
+              "assetType": "stock",
+              "weight": 64.56,
+              "shares": 43661027,
+              "open": 2340.0,
+              "high": 2355.0,
+              "low": 2335.0,
+              "close": 2350.0,
+              "prevClose": 2380.0,
+              "change": -30.0,
+              "changePct": -1.26,
+              "amplitude": 0.84,
+              "volume": 23618612.0,
+              "quoteDate": "2026-08-19",
+              "inst": {
+                "foreign": -7417943,
+                "trust": -668410,
+                "dealer": 719342,
+                "total": -7367011,
+                "date": "2026-08-19"
+              },
+              "margin": {
+                "marginBuy": 800,
+                "marginSell": 224,
+                "marginCashRedemption": 10,
+                "marginPrevBalance": 27856,
+                "marginBalance": 28422,
+                "shortBuy": 9,
+                "shortSell": 2,
+                "shortStockRedemption": 0,
+                "shortPrevBalance": 36,
+                "shortBalance": 29,
+                "offsetting": 0,
+                "date": "2026-08-19"
+              }
+            },
+            {
+              "code": "2454",
+              "name": "聯發科",
+              "market": "TW",
+              "assetType": "stock",
+              "weight": 6.38,
+              "shares": 2636703,
+              "open": 3750.0,
+              "high": 3910.0,
+              "low": 3750.0,
+              "close": 3845.0,
+              "prevClose": 3885.0,
+              "change": -40.0,
+              "changePct": -1.03,
+              "amplitude": 4.12,
+              "volume": 7036521.0,
+              "quoteDate": "2026-08-19",
+              "inst": {
+                "foreign": -216230,
+                "trust": -1046250,
+                "dealer": -265132,
+                "total": -1527612,
+                "date": "2026-08-19"
+              },
+              "margin": {
+                "marginBuy": 292,
+                "marginSell": 151,
+                "marginCashRedemption": 4,
+                "marginPrevBalance": 9393,
+                "marginBalance": 9530,
+                "shortBuy": 15,
+                "shortSell": 14,
+                "shortStockRedemption": 0,
+                "shortPrevBalance": 50,
+                "shortBalance": 49,
+                "offsetting": 1,
+                "date": "2026-08-19"
+              }
+            },
+            {
+              "code": "2317",
+              "name": "鴻海",
+              "market": "TW",
+              "assetType": "stock",
+              "weight": 3.37,
+              "shares": 21868000,
+              "open": 245.0,
+              "high": 247.0,
+              "low": 242.5,
+              "close": 245.0,
+              "prevClose": 249.0,
+              "change": -4.0,
+              "changePct": -1.61,
+              "amplitude": 1.81,
+              "volume": 36592747.0,
+              "quoteDate": "2026-08-19",
+              "inst": {
+                "foreign": -10064384,
+                "trust": -300000,
+                "dealer": -822130,
+                "total": -11186514,
+                "date": "2026-08-19"
+              },
+              "margin": {
+                "marginBuy": 874,
+                "marginSell": 701,
+                "marginCashRedemption": 5,
+                "marginPrevBalance": 51664,
+                "marginBalance": 51832,
+                "shortBuy": 64,
+                "shortSell": 20,
+                "shortStockRedemption": 0,
+                "shortPrevBalance": 567,
+                "shortBalance": 523,
+                "offsetting": 5,
+                "date": "2026-08-19"
+              }
+            },
+            {
+              "code": "3711",
+              "name": "日月光投控",
+              "market": "TW",
+              "assetType": "stock",
+              "weight": 2.2,
+              "shares": 5942267,
+              "open": 568.0,
+              "high": 596.0,
+              "low": 564.0,
+              "close": 588.0,
+              "prevClose": 599.0,
+              "change": -11.0,
+              "changePct": -1.84,
+              "amplitude": 5.34,
+              "volume": 22448357.0,
+              "quoteDate": "2026-08-19",
+              "inst": {
+                "foreign": 2323531,
+                "trust": -3324000,
+                "dealer": -127734,
+                "total": -1128203,
+                "date": "2026-08-19"
+              },
+              "margin": {
+                "marginBuy": 371,
+                "marginSell": 188,
+                "marginCashRedemption": 3,
+                "marginPrevBalance": 11681,
+                "marginBalance": 11861,
+                "shortBuy": 29,
+                "shortSell": 102,
+                "shortStockRedemption": 0,
+                "shortPrevBalance": 183,
+                "shortBalance": 256,
+                "offsetting": 6,
+                "date": "2026-08-19"
+              }
+            },
+            {
+              "code": "2383",
+              "name": "台光電",
+              "market": "TW",
+              "assetType": "stock",
+              "weight": 1.93,
+              "shares": 521000,
+              "open": 5855.0,
+              "high": 6130.0,
+              "low": 5810.0,
+              "close": 5880.0,
+              "prevClose": 6205.0,
+              "change": -325.0,
+              "changePct": -5.24,
+              "amplitude": 5.16,
+              "volume": 3119237.0,
+              "quoteDate": "2026-08-19",
+              "inst": {
+                "foreign": 76221,
+                "trust": -191001,
+                "dealer": -16593,
+                "total": -131373,
+                "date": "2026-08-19"
+              },
+              "margin": {
+                "marginBuy": 130,
+                "marginSell": 82,
+                "marginCashRedemption": 2,
+                "marginPrevBalance": 1838,
+                "marginBalance": 1884,
+                "shortBuy": 16,
+                "shortSell": 3,
+                "shortStockRedemption": 1,
+                "shortPrevBalance": 41,
+                "shortBalance": 27,
+                "offsetting": 2,
+                "date": "2026-08-19"
+              }
+            },
+            {
+              "code": "3037",
+              "name": "欣興",
+              "market": "TW",
+              "assetType": "stock",
+              "weight": 1.68,
+              "shares": 2362901,
+              "open": 1110.0,
+              "high": 1165.0,
+              "low": 1085.0,
+              "close": 1130.0,
+              "prevClose": 1145.0,
+              "change": -15.0,
+              "changePct": -1.31,
+              "amplitude": 6.99,
+              "volume": 24496587.0,
+              "quoteDate": "2026-08-19",
+              "inst": {
+                "foreign": 1638430,
+                "trust": -637001,
+                "dealer": -65704,
+                "total": 935725,
+                "date": "2026-08-19"
+              },
+              "margin": {
+                "marginBuy": 1398,
+                "marginSell": 917,
+                "marginCashRedemption": 3,
+                "marginPrevBalance": 36768,
+                "marginBalance": 37246,
+                "shortBuy": 142,
+                "shortSell": 56,
+                "shortStockRedemption": 47,
+                "shortPrevBalance": 930,
+                "shortBalance": 797,
+                "offsetting": 31,
+                "date": "2026-08-19"
+              }
+            },
+            {
+              "code": "2303",
+              "name": "聯電",
+              "market": "TW",
+              "assetType": "stock",
+              "weight": 1.52,
+              "shares": 20890286,
+              "open": 115.0,
+              "high": 117.0,
+              "low": 113.5,
+              "close": 115.5,
+              "prevClose": 119.0,
+              "change": -3.5,
+              "changePct": -2.94,
+              "amplitude": 2.94,
+              "volume": 110337394.0,
+              "quoteDate": "2026-08-19",
+              "inst": {
+                "foreign": 7800989,
+                "trust": -20973000,
+                "dealer": -5796260,
+                "total": -18968271,
+                "date": "2026-08-19"
+              },
+              "margin": {
+                "marginBuy": 3549,
+                "marginSell": 7905,
+                "marginCashRedemption": 47,
+                "marginPrevBalance": 159472,
+                "marginBalance": 155069,
+                "shortBuy": 235,
+                "shortSell": 463,
+                "shortStockRedemption": 0,
+                "shortPrevBalance": 2554,
+                "shortBalance": 2782,
+                "offsetting": 25,
+                "date": "2026-08-19"
+              }
+            },
+            {
+              "code": "3017",
+              "name": "奇鋐",
+              "market": "TW",
+              "assetType": "stock",
+              "weight": 1.12,
+              "shares": 573222,
+              "open": 2915.0,
+              "high": 3160.0,
+              "low": 2900.0,
+              "close": 3095.0,
+              "prevClose": 3095.0,
+              "change": 0.0,
+              "changePct": 0.0,
+              "amplitude": 8.4,
+              "volume": 3982151.0,
+              "quoteDate": "2026-08-19",
+              "inst": {
+                "foreign": 45475,
+                "trust": 534000,
+                "dealer": -228463,
+                "total": 351012,
+                "date": "2026-08-19"
+              },
+              "margin": {
+                "marginBuy": 315,
+                "marginSell": 351,
+                "marginCashRedemption": 0,
+                "marginPrevBalance": 4192,
+                "marginBalance": 4156,
+                "shortBuy": 0,
+                "shortSell": 9,
+                "shortStockRedemption": 0,
+                "shortPrevBalance": 0,
+                "shortBalance": 9,
+                "offsetting": 41,
+                "date": "2026-08-19"
+              }
+            },
+            {
+              "code": "2327",
+              "name": "國巨*",
+              "market": "TW",
+              "assetType": "stock",
+              "weight": 1.02,
+              "shares": 2820608,
+              "open": 547.0,
+              "high": 590.0,
+              "low": 547.0,
+              "close": 576.0,
+              "prevClose": 576.0,
+              "change": 0.0,
+              "changePct": 0.0,
+              "amplitude": 7.47,
+              "volume": 56295383.0,
+              "quoteDate": "2026-08-19",
+              "inst": {
+                "foreign": -3422361,
+                "trust": -2731000,
+                "dealer": -1341269,
+                "total": -7494630,
+                "date": "2026-08-19"
+              },
+              "margin": {
+                "marginBuy": 1957,
+                "marginSell": 1181,
+                "marginCashRedemption": 9,
+                "marginPrevBalance": 36802,
+                "marginBalance": 37569,
+                "shortBuy": 286,
+                "shortSell": 78,
+                "shortStockRedemption": 0,
+                "shortPrevBalance": 624,
+                "shortBalance": 416,
+                "offsetting": 91,
+                "date": "2026-08-19"
+              }
+            },
+            {
+              "code": "2382",
+              "name": "廣達",
+              "market": "TW",
+              "assetType": "stock",
+              "weight": 0.99,
+              "shares": 4733285,
+              "open": 321.5,
+              "high": 333.5,
+              "low": 317.5,
+              "close": 331.0,
+              "prevClose": 327.0,
+              "change": 4.0,
+              "changePct": 1.22,
+              "amplitude": 4.89,
+              "volume": 16525261.0,
+              "quoteDate": "2026-08-19",
+              "inst": {
+                "foreign": 3227189,
+                "trust": -291167,
+                "dealer": -177193,
+                "total": 2758829,
+                "date": "2026-08-19"
+              },
+              "margin": {
+                "marginBuy": 265,
+                "marginSell": 439,
+                "marginCashRedemption": 3,
+                "marginPrevBalance": 16276,
+                "marginBalance": 16099,
+                "shortBuy": 9,
+                "shortSell": 14,
+                "shortStockRedemption": 0,
+                "shortPrevBalance": 70,
+                "shortBalance": 75,
+                "offsetting": 4,
+                "date": "2026-08-19"
+              }
+            },
+            {
+              "code": "6669",
+              "name": "緯穎",
+              "market": "TW",
+              "assetType": "stock",
+              "weight": 0.75,
+              "shares": 186515,
+              "open": 6190.0,
+              "high": 6425.0,
+              "low": 6190.0,
+              "close": 6375.0,
+              "prevClose": 6400.0,
+              "change": -25.0,
+              "changePct": -0.39,
+              "amplitude": 3.67,
+              "volume": 1289214.0,
+              "quoteDate": "2026-08-19",
+              "inst": {
+                "foreign": 174888,
+                "trust": -360257,
+                "dealer": 19836,
+                "total": -165533,
+                "date": "2026-08-19"
+              },
+              "margin": {
+                "marginBuy": 59,
+                "marginSell": 42,
+                "marginCashRedemption": 2,
+                "marginPrevBalance": 1328,
+                "marginBalance": 1343,
+                "shortBuy": 5,
+                "shortSell": 0,
+                "shortStockRedemption": 6,
+                "shortPrevBalance": 25,
+                "shortBalance": 14,
+                "offsetting": 0,
+                "date": "2026-08-19"
+              }
+            },
+            {
+              "code": "2357",
+              "name": "華碩",
+              "market": "TW",
+              "assetType": "stock",
+              "weight": 0.7,
+              "shares": 1208617,
+              "open": 896.0,
+              "high": 925.0,
+              "low": 891.0,
+              "close": 925.0,
+              "prevClose": 910.0,
+              "change": 15.0,
+              "changePct": 1.65,
+              "amplitude": 3.74,
+              "volume": 2985654.0,
+              "quoteDate": "2026-08-19",
+              "inst": {
+                "foreign": -15576,
+                "trust": -41341,
+                "dealer": -74952,
+                "total": -131869,
+                "date": "2026-08-19"
+              },
+              "margin": {
+                "marginBuy": 127,
+                "marginSell": 36,
+                "marginCashRedemption": 1,
+                "marginPrevBalance": 1541,
+                "marginBalance": 1631,
+                "shortBuy": 2,
+                "shortSell": 5,
+                "shortStockRedemption": 0,
+                "shortPrevBalance": 40,
+                "shortBalance": 43,
+                "offsetting": 1,
+                "date": "2026-08-19"
+              }
+            },
+            {
+              "code": "3231",
+              "name": "緯創",
+              "market": "TW",
+              "assetType": "stock",
+              "weight": 0.62,
+              "shares": 5407520,
+              "open": 177.0,
+              "high": 182.0,
+              "low": 175.0,
+              "close": 182.0,
+              "prevClose": 181.0,
+              "change": 1.0,
+              "changePct": 0.55,
+              "amplitude": 3.87,
+              "volume": 28162708.0,
+              "quoteDate": "2026-08-19",
+              "inst": {
+                "foreign": -3046833,
+                "trust": 1039000,
+                "dealer": -893467,
+                "total": -2901300,
+                "date": "2026-08-19"
+              },
+              "margin": {
+                "marginBuy": 2116,
+                "marginSell": 1281,
+                "marginCashRedemption": 1,
+                "marginPrevBalance": 37557,
+                "marginBalance": 38391,
+                "shortBuy": 91,
+                "shortSell": 187,
+                "shortStockRedemption": 0,
+                "shortPrevBalance": 708,
+                "shortBalance": 804,
+                "offsetting": 22,
+                "date": "2026-08-19"
+              }
+            },
+            {
+              "code": "2408",
+              "name": "南亞科",
+              "market": "TW",
+              "assetType": "stock",
+              "weight": 0.62,
+              "shares": 2043288,
+              "open": 489.0,
+              "high": 494.5,
+              "low": 480.0,
+              "close": 481.0,
+              "prevClose": 515.0,
+              "change": -34.0,
+              "changePct": -6.6,
+              "amplitude": 2.82,
+              "volume": 69157927.0,
+              "quoteDate": "2026-08-19",
+              "inst": {
+                "foreign": -13747190,
+                "trust": 380000,
+                "dealer": -1059651,
+                "total": -14426841,
+                "date": "2026-08-19"
+              },
+              "margin": {
+                "marginBuy": 4209,
+                "marginSell": 4996,
+                "marginCashRedemption": 32,
+                "marginPrevBalance": 81712,
+                "marginBalance": 80893,
+                "shortBuy": 761,
+                "shortSell": 277,
+                "shortStockRedemption": 3,
+                "shortPrevBalance": 3119,
+                "shortBalance": 2632,
+                "offsetting": 53,
+                "date": "2026-08-19"
+              }
+            },
+            {
+              "code": "2301",
+              "name": "光寶科",
+              "market": "TW",
+              "assetType": "stock",
+              "weight": 0.6,
+              "shares": 3503000,
+              "open": 268.0,
+              "high": 282.0,
+              "low": 265.0,
+              "close": 273.5,
+              "prevClose": 273.5,
+              "change": 0.0,
+              "changePct": 0.0,
+              "amplitude": 6.22,
+              "volume": 35191145.0,
+              "quoteDate": "2026-08-19",
+              "inst": {
+                "foreign": -936729,
+                "trust": 640000,
+                "dealer": -238070,
+                "total": -534799,
+                "date": "2026-08-19"
+              },
+              "margin": {
+                "marginBuy": 3674,
+                "marginSell": 2071,
+                "marginCashRedemption": 0,
+                "marginPrevBalance": 13778,
+                "marginBalance": 15381,
+                "shortBuy": 0,
+                "shortSell": 126,
+                "shortStockRedemption": 0,
+                "shortPrevBalance": 0,
+                "shortBalance": 126,
+                "offsetting": 282,
+                "date": "2026-08-19"
+              }
+            },
+            {
+              "code": "3008",
+              "name": "大立光",
+              "market": "TW",
+              "assetType": "stock",
+              "weight": 0.59,
+              "shares": 168000,
+              "open": 5135.0,
+              "high": 5720.0,
+              "low": 5110.0,
+              "close": 5550.0,
+              "prevClose": 5290.0,
+              "change": 260.0,
+              "changePct": 4.91,
+              "amplitude": 11.53,
+              "volume": 3873944.0,
+              "quoteDate": "2026-08-19",
+              "inst": {
+                "foreign": -135887,
+                "trust": 84000,
+                "dealer": 132972,
+                "total": 81085,
+                "date": "2026-08-19"
+              },
+              "margin": {
+                "marginBuy": 285,
+                "marginSell": 172,
+                "marginCashRedemption": 0,
+                "marginPrevBalance": 2639,
+                "marginBalance": 2752,
+                "shortBuy": 1,
+                "shortSell": 13,
+                "shortStockRedemption": 0,
+                "shortPrevBalance": 32,
+                "shortBalance": 44,
+                "offsetting": 2,
+                "date": "2026-08-19"
+              }
+            },
+            {
+              "code": "2344",
+              "name": "華邦電",
+              "market": "TW",
+              "assetType": "stock",
+              "weight": 0.59,
+              "shares": 5540296,
+              "open": 167.0,
+              "high": 169.5,
+              "low": 165.0,
+              "close": 168.0,
+              "prevClose": 176.5,
+              "change": -8.5,
+              "changePct": -4.82,
+              "amplitude": 2.55,
+              "volume": 113062347.0,
+              "quoteDate": "2026-08-19",
+              "inst": {
+                "foreign": -4640893,
+                "trust": -17582000,
+                "dealer": 75860,
+                "total": -22147033,
+                "date": "2026-08-19"
+              },
+              "margin": {
+                "marginBuy": 5376,
+                "marginSell": 4316,
+                "marginCashRedemption": 145,
+                "marginPrevBalance": 125690,
+                "marginBalance": 126605,
+                "shortBuy": 845,
+                "shortSell": 288,
+                "shortStockRedemption": 0,
+                "shortPrevBalance": 4696,
+                "shortBalance": 4139,
+                "offsetting": 70,
+                "date": "2026-08-19"
+              }
+            },
+            {
+              "code": "3653",
+              "name": "健策",
+              "market": "TW",
+              "assetType": "stock",
+              "weight": 0.54,
+              "shares": 156499,
+              "open": 4895.0,
+              "high": 5540.0,
+              "low": 4890.0,
+              "close": 5460.0,
+              "prevClose": 5150.0,
+              "change": 310.0,
+              "changePct": 6.02,
+              "amplitude": 12.62,
+              "volume": 2804186.0,
+              "quoteDate": "2026-08-19",
+              "inst": {
+                "foreign": 24735,
+                "trust": 271000,
+                "dealer": -17965,
+                "total": 277770,
+                "date": "2026-08-19"
+              },
+              "margin": {
+                "marginBuy": 280,
+                "marginSell": 325,
+                "marginCashRedemption": 2,
+                "marginPrevBalance": 3093,
+                "marginBalance": 3046,
+                "shortBuy": 0,
+                "shortSell": 0,
+                "shortStockRedemption": 1,
+                "shortPrevBalance": 53,
+                "shortBalance": 52,
+                "offsetting": 3,
+                "date": "2026-08-19"
+              }
+            },
+            {
+              "code": "3443",
+              "name": "創意",
+              "market": "TW",
+              "assetType": "stock",
+              "weight": 0.48,
+              "shares": 143482,
+              "open": 5350.0,
+              "high": 5530.0,
+              "low": 5230.0,
+              "close": 5295.0,
+              "prevClose": 5535.0,
+              "change": -240.0,
+              "changePct": -4.34,
+              "amplitude": 5.42,
+              "volume": 2510975.0,
+              "quoteDate": "2026-08-19",
+              "inst": {
+                "foreign": 828793,
+                "trust": -126000,
+                "dealer": -71430,
+                "total": 631363,
+                "date": "2026-08-19"
+              },
+              "margin": {
+                "marginBuy": 183,
+                "marginSell": 374,
+                "marginCashRedemption": 3,
+                "marginPrevBalance": 4958,
+                "marginBalance": 4764,
+                "shortBuy": 17,
+                "shortSell": 16,
+                "shortStockRedemption": 0,
+                "shortPrevBalance": 97,
+                "shortBalance": 96,
+                "offsetting": 2,
+                "date": "2026-08-19"
+              }
+            },
+            {
+              "code": "3665",
+              "name": "貿聯-KY",
+              "market": "TW",
+              "assetType": "stock",
+              "weight": 0.44,
+              "shares": 320672,
+              "open": 2150.0,
+              "high": 2210.0,
+              "low": 2120.0,
+              "close": 2200.0,
+              "prevClose": 2240.0,
+              "change": -40.0,
+              "changePct": -1.79,
+              "amplitude": 4.02,
+              "volume": 2061571.0,
+              "quoteDate": "2026-08-19",
+              "inst": {
+                "foreign": -125140,
+                "trust": -305000,
+                "dealer": -1761,
+                "total": -431901,
+                "date": "2026-08-19"
+              },
+              "margin": {
+                "marginBuy": 97,
+                "marginSell": 61,
+                "marginCashRedemption": 0,
+                "marginPrevBalance": 2647,
+                "marginBalance": 2683,
+                "shortBuy": 5,
+                "shortSell": 1,
+                "shortStockRedemption": 0,
+                "shortPrevBalance": 19,
+                "shortBalance": 15,
+                "offsetting": 1,
+                "date": "2026-08-19"
+              }
+            },
+            {
+              "code": "7769",
+              "name": "鴻勁",
+              "market": "TW",
+              "assetType": "stock",
+              "weight": 0.41,
+              "shares": 102000,
+              "open": 6350.0,
+              "high": 6705.0,
+              "low": 6300.0,
+              "close": 6445.0,
+              "prevClose": 6525.0,
+              "change": -80.0,
+              "changePct": -1.23,
+              "amplitude": 6.21,
+              "volume": 450430.0,
+              "quoteDate": "2026-08-19",
+              "inst": {
+                "foreign": 78455,
+                "trust": -14000,
+                "dealer": -845,
+                "total": 63610,
+                "date": "2026-08-19"
+              },
+              "margin": {
+                "marginBuy": 9,
+                "marginSell": 28,
+                "marginCashRedemption": 0,
+                "marginPrevBalance": 346,
+                "marginBalance": 327,
+                "shortBuy": 2,
+                "shortSell": 0,
+                "shortStockRedemption": 0,
+                "shortPrevBalance": 2,
+                "shortBalance": 0,
+                "offsetting": 0,
+                "date": "2026-08-19"
+              }
+            },
+            {
+              "code": "2379",
+              "name": "瑞昱",
+              "market": "TW",
+              "assetType": "stock",
+              "weight": 0.41,
+              "shares": 875349,
+              "open": 696.0,
+              "high": 746.0,
+              "low": 692.0,
+              "close": 738.0,
+              "prevClose": 707.0,
+              "change": 31.0,
+              "changePct": 4.38,
+              "amplitude": 7.64,
+              "volume": 3984481.0,
+              "quoteDate": "2026-08-19",
+              "inst": {
+                "foreign": 638638,
+                "trust": 71000,
+                "dealer": 141475,
+                "total": 851113,
+                "date": "2026-08-19"
+              },
+              "margin": {
+                "marginBuy": 73,
+                "marginSell": 81,
+                "marginCashRedemption": 0,
+                "marginPrevBalance": 2547,
+                "marginBalance": 2539,
+                "shortBuy": 10,
+                "shortSell": 24,
+                "shortStockRedemption": 0,
+                "shortPrevBalance": 31,
+                "shortBalance": 45,
+                "offsetting": 1,
+                "date": "2026-08-19"
+              }
+            },
+            {
+              "code": "2368",
+              "name": "金像電",
+              "market": "TW",
+              "assetType": "stock",
+              "weight": 0.4,
+              "shares": 615600,
+              "open": 1035.0,
+              "high": 1095.0,
+              "low": 1020.0,
+              "close": 1040.0,
+              "prevClose": 1070.0,
+              "change": -30.0,
+              "changePct": -2.8,
+              "amplitude": 7.01,
+              "volume": 10290635.0,
+              "quoteDate": "2026-08-19",
+              "inst": {
+                "foreign": -1163883,
+                "trust": -305000,
+                "dealer": -138135,
+                "total": -1607018,
+                "date": "2026-08-19"
+              },
+              "margin": {
+                "marginBuy": 571,
+                "marginSell": 581,
+                "marginCashRedemption": 0,
+                "marginPrevBalance": 7179,
+                "marginBalance": 7169,
+                "shortBuy": 26,
+                "shortSell": 15,
+                "shortStockRedemption": 55,
+                "shortPrevBalance": 267,
+                "shortBalance": 201,
+                "offsetting": 6,
+                "date": "2026-08-19"
+              }
+            },
+            {
+              "code": "4958",
+              "name": "臻鼎-KY",
+              "market": "TW",
+              "assetType": "stock",
+              "weight": 0.39,
+              "shares": 1366000,
+              "open": 451.0,
+              "high": 476.5,
+              "low": 451.0,
+              "close": 457.0,
+              "prevClose": 474.0,
+              "change": -17.0,
+              "changePct": -3.59,
+              "amplitude": 5.38,
+              "volume": 30182657.0,
+              "quoteDate": "2026-08-19",
+              "inst": {
+                "foreign": -3215170,
+                "trust": -1481000,
+                "dealer": -241456,
+                "total": -4937626,
+                "date": "2026-08-19"
+              },
+              "margin": {
+                "marginBuy": 1262,
+                "marginSell": 1893,
+                "marginCashRedemption": 9,
+                "marginPrevBalance": 34869,
+                "marginBalance": 34229,
+                "shortBuy": 161,
+                "shortSell": 58,
+                "shortStockRedemption": 0,
+                "shortPrevBalance": 417,
+                "shortBalance": 314,
+                "offsetting": 43,
+                "date": "2026-08-19"
+              }
+            },
+            {
+              "code": "3481",
+              "name": "群創",
+              "market": "TW",
+              "assetType": "stock",
+              "weight": 0.39,
+              "shares": 13145134,
+              "open": 47.25,
+              "high": 48.05,
+              "low": 46.3,
+              "close": 46.75,
+              "prevClose": 49.5,
+              "change": -2.75,
+              "changePct": -5.56,
+              "amplitude": 3.54,
+              "volume": 225153342.0,
+              "quoteDate": "2026-08-19",
+              "inst": {
+                "foreign": -61131261,
+                "trust": -25000,
+                "dealer": -5707789,
+                "total": -66864050,
+                "date": "2026-08-19"
+              },
+              "margin": {
+                "marginBuy": 12521,
+                "marginSell": 10838,
+                "marginCashRedemption": 69,
+                "marginPrevBalance": 315481,
+                "marginBalance": 317095,
+                "shortBuy": 1214,
+                "shortSell": 971,
+                "shortStockRedemption": 0,
+                "shortPrevBalance": 5183,
+                "shortBalance": 4940,
+                "offsetting": 174,
+                "date": "2026-08-19"
+              }
+            },
+            {
+              "code": "2395",
+              "name": "研華",
+              "market": "TW",
+              "assetType": "stock",
+              "weight": 0.36,
+              "shares": 825897,
+              "open": 674.0,
+              "high": 704.0,
+              "low": 667.0,
+              "close": 694.0,
+              "prevClose": 679.0,
+              "change": 15.0,
+              "changePct": 2.21,
+              "amplitude": 5.45,
+              "volume": 4739840.0,
+              "quoteDate": "2026-08-19",
+              "inst": {
+                "foreign": -514649,
+                "trust": 572000,
+                "dealer": 54634,
+                "total": 111985,
+                "date": "2026-08-19"
+              },
+              "margin": {
+                "marginBuy": 219,
+                "marginSell": 124,
+                "marginCashRedemption": 1,
+                "marginPrevBalance": 1735,
+                "marginBalance": 1829,
+                "shortBuy": 5,
+                "shortSell": 12,
+                "shortStockRedemption": 0,
+                "shortPrevBalance": 52,
+                "shortBalance": 59,
+                "offsetting": 6,
+                "date": "2026-08-19"
+              }
+            },
+            {
+              "code": "3034",
+              "name": "聯詠",
+              "market": "TW",
+              "assetType": "stock",
+              "weight": 0.34,
+              "shares": 1022822,
+              "open": 504.0,
+              "high": 535.0,
+              "low": 501.0,
+              "close": 534.0,
+              "prevClose": 505.0,
+              "change": 29.0,
+              "changePct": 5.74,
+              "amplitude": 6.73,
+              "volume": 4731319.0,
+              "quoteDate": "2026-08-19",
+              "inst": {
+                "foreign": 1250910,
+                "trust": 66000,
+                "dealer": 82541,
+                "total": 1399451,
+                "date": "2026-08-19"
+              },
+              "margin": {
+                "marginBuy": 41,
+                "marginSell": 93,
+                "marginCashRedemption": 0,
+                "marginPrevBalance": 2711,
+                "marginBalance": 2659,
+                "shortBuy": 6,
+                "shortSell": 69,
+                "shortStockRedemption": 0,
+                "shortPrevBalance": 242,
+                "shortBalance": 305,
+                "offsetting": 0,
+                "date": "2026-08-19"
+              }
+            },
+            {
+              "code": "3661",
+              "name": "世芯-KY",
+              "market": "TW",
+              "assetType": "stock",
+              "weight": 0.32,
+              "shares": 140921,
+              "open": 3585.0,
+              "high": 3730.0,
+              "low": 3585.0,
+              "close": 3630.0,
+              "prevClose": 3715.0,
+              "change": -85.0,
+              "changePct": -2.29,
+              "amplitude": 3.9,
+              "volume": 1950747.0,
+              "quoteDate": "2026-08-19",
+              "inst": {
+                "foreign": -566539,
+                "trust": 14000,
+                "dealer": 14769,
+                "total": -537770,
+                "date": "2026-08-19"
+              },
+              "margin": {
+                "marginBuy": 179,
+                "marginSell": 30,
+                "marginCashRedemption": 1,
+                "marginPrevBalance": 6080,
+                "marginBalance": 6228,
+                "shortBuy": 15,
+                "shortSell": 1,
+                "shortStockRedemption": 3,
+                "shortPrevBalance": 48,
+                "shortBalance": 31,
+                "offsetting": 0,
+                "date": "2026-08-19"
+              }
+            },
+            {
+              "code": "3189",
+              "name": "景碩",
+              "market": "TW",
+              "assetType": "stock",
+              "weight": 0.32,
+              "shares": 590000,
+              "open": 834.0,
+              "high": 902.0,
+              "low": 832.0,
+              "close": 849.0,
+              "prevClose": 865.0,
+              "change": -16.0,
+              "changePct": -1.85,
+              "amplitude": 8.09,
+              "volume": 21079068.0,
+              "quoteDate": "2026-08-19",
+              "inst": {
+                "foreign": 660327,
+                "trust": 399000,
+                "dealer": -747218,
+                "total": 312109,
+                "date": "2026-08-19"
+              },
+              "margin": {
+                "marginBuy": 887,
+                "marginSell": 890,
+                "marginCashRedemption": 248,
+                "marginPrevBalance": 21676,
+                "marginBalance": 21425,
+                "shortBuy": 44,
+                "shortSell": 41,
+                "shortStockRedemption": 0,
+                "shortPrevBalance": 335,
+                "shortBalance": 332,
+                "offsetting": 53,
+                "date": "2026-08-19"
+              }
+            },
+            {
+              "code": "2449",
+              "name": "京元電子",
+              "market": "TW",
+              "assetType": "stock",
+              "weight": 0.3,
+              "shares": 2044587,
+              "open": 226.5,
+              "high": 237.5,
+              "low": 225.0,
+              "close": 235.0,
+              "prevClose": 236.0,
+              "change": -1.0,
+              "changePct": -0.42,
+              "amplitude": 5.3,
+              "volume": 15479247.0,
+              "quoteDate": "2026-08-19",
+              "inst": {
+                "foreign": 1318020,
+                "trust": 39000,
+                "dealer": -67293,
+                "total": 1289727,
+                "date": "2026-08-19"
+              },
+              "margin": {
+                "marginBuy": 490,
+                "marginSell": 478,
+                "marginCashRedemption": 5,
+                "marginPrevBalance": 20801,
+                "marginBalance": 20808,
+                "shortBuy": 189,
+                "shortSell": 67,
+                "shortStockRedemption": 0,
+                "shortPrevBalance": 277,
+                "shortBalance": 155,
+                "offsetting": 1,
+                "date": "2026-08-19"
+              }
+            },
+            {
+              "code": "",
+              "name": "2026/09電子指數期貨",
+              "market": "",
+              "assetType": "future",
+              "weight": 0.3,
+              "quantity": null,
+              "unit": "口",
+              "amount": null
+            },
+            {
+              "code": "8046",
+              "name": "南電",
+              "market": "TW",
+              "assetType": "stock",
+              "weight": 0.29,
+              "shares": 384000,
+              "open": 1175.0,
+              "high": 1280.0,
+              "low": 1150.0,
+              "close": 1180.0,
+              "prevClose": 1245.0,
+              "change": -65.0,
+              "changePct": -5.22,
+              "amplitude": 10.44,
+              "volume": 15143786.0,
+              "quoteDate": "2026-08-19",
+              "inst": {
+                "foreign": -180038,
+                "trust": -92000,
+                "dealer": -200940,
+                "total": -472978,
+                "date": "2026-08-19"
+              },
+              "margin": {
+                "marginBuy": 1526,
+                "marginSell": 2000,
+                "marginCashRedemption": 0,
+                "marginPrevBalance": 11229,
+                "marginBalance": 10755,
+                "shortBuy": 154,
+                "shortSell": 36,
+                "shortStockRedemption": 0,
+                "shortPrevBalance": 690,
+                "shortBalance": 572,
+                "offsetting": 18,
+                "date": "2026-08-19"
+              }
+            },
+            {
+              "code": "2337",
+              "name": "旺宏",
+              "market": "TW",
+              "assetType": "stock",
+              "weight": 0.25,
+              "shares": 3289000,
+              "open": 117.0,
+              "high": 120.5,
+              "low": 115.0,
+              "close": 119.0,
+              "prevClose": 122.0,
+              "change": -3.0,
+              "changePct": -2.46,
+              "amplitude": 4.51,
+              "volume": 50155092.0,
+              "quoteDate": "2026-08-19",
+              "inst": {
+                "foreign": -4119706,
+                "trust": 85000,
+                "dealer": -2184884,
+                "total": -6219590,
+                "date": "2026-08-19"
+              },
+              "margin": {
+                "marginBuy": 1523,
+                "marginSell": 2404,
+                "marginCashRedemption": 15,
+                "marginPrevBalance": 95121,
+                "marginBalance": 94225,
+                "shortBuy": 496,
+                "shortSell": 365,
+                "shortStockRedemption": 0,
+                "shortPrevBalance": 2580,
+                "shortBalance": 2449,
+                "offsetting": 35,
+                "date": "2026-08-19"
+              }
+            },
+            {
+              "code": "6770",
+              "name": "力積電",
+              "market": "TW",
+              "assetType": "stock",
+              "weight": 0.24,
+              "shares": 5840000,
+              "open": 67.3,
+              "high": 69.6,
+              "low": 66.5,
+              "close": 66.6,
+              "prevClose": 69.7,
+              "change": -3.1,
+              "changePct": -4.45,
+              "amplitude": 4.45,
+              "volume": 176388814.0,
+              "quoteDate": "2026-08-19",
+              "inst": {
+                "foreign": -48520819,
+                "trust": -23000,
+                "dealer": -1879449,
+                "total": -50423268,
+                "date": "2026-08-19"
+              },
+              "margin": {
+                "marginBuy": 7536,
+                "marginSell": 5045,
+                "marginCashRedemption": 112,
+                "marginPrevBalance": 138303,
+                "marginBalance": 140682,
+                "shortBuy": 1541,
+                "shortSell": 329,
+                "shortStockRedemption": 347,
+                "shortPrevBalance": 4760,
+                "shortBalance": 3201,
+                "offsetting": 218,
+                "date": "2026-08-19"
+              }
+            },
+            {
+              "code": "2313",
+              "name": "華通",
+              "market": "TW",
+              "assetType": "stock",
+              "weight": 0.24,
+              "shares": 1871000,
+              "open": 206.0,
+              "high": 210.0,
+              "low": 204.0,
+              "close": 207.5,
+              "prevClose": 211.0,
+              "change": -3.5,
+              "changePct": -1.66,
+              "amplitude": 2.84,
+              "volume": 13397617.0,
+              "quoteDate": "2026-08-19",
+              "inst": {
+                "foreign": -2061511,
+                "trust": -652734,
+                "dealer": 201854,
+                "total": -2512391,
+                "date": "2026-08-19"
+              },
+              "margin": {
+                "marginBuy": 824,
+                "marginSell": 348,
+                "marginCashRedemption": 3,
+                "marginPrevBalance": 30631,
+                "marginBalance": 31104,
+                "shortBuy": 210,
+                "shortSell": 110,
+                "shortStockRedemption": 0,
+                "shortPrevBalance": 1078,
+                "shortBalance": 978,
+                "offsetting": 10,
+                "date": "2026-08-19"
+              }
+            },
+            {
+              "code": "3044",
+              "name": "健鼎",
+              "market": "TW",
+              "assetType": "stock",
+              "weight": 0.24,
+              "shares": 785000,
+              "open": 474.5,
+              "high": 501.0,
+              "low": 468.0,
+              "close": 480.5,
+              "prevClose": 488.5,
+              "change": -8.0,
+              "changePct": -1.64,
+              "amplitude": 6.76,
+              "volume": 4782368.0,
+              "quoteDate": "2026-08-19",
+              "inst": {
+                "foreign": -1147842,
+                "trust": 26000,
+                "dealer": -307709,
+                "total": -1429551,
+                "date": "2026-08-19"
+              },
+              "margin": {
+                "marginBuy": 520,
+                "marginSell": 205,
+                "marginCashRedemption": 0,
+                "marginPrevBalance": 6265,
+                "marginBalance": 6580,
+                "shortBuy": 4,
+                "shortSell": 1,
+                "shortStockRedemption": 0,
+                "shortPrevBalance": 28,
+                "shortBalance": 25,
+                "offsetting": 7,
+                "date": "2026-08-19"
+              }
+            },
+            {
+              "code": "2376",
+              "name": "技嘉",
+              "market": "TW",
+              "assetType": "stock",
+              "weight": 0.21,
+              "shares": 956659,
+              "open": 343.0,
+              "high": 352.5,
+              "low": 339.0,
+              "close": 348.5,
+              "prevClose": 348.0,
+              "change": 0.5,
+              "changePct": 0.14,
+              "amplitude": 3.88,
+              "volume": 6754187.0,
+              "quoteDate": "2026-08-19",
+              "inst": {
+                "foreign": -1993240,
+                "trust": 497000,
+                "dealer": 236633,
+                "total": -1259607,
+                "date": "2026-08-19"
+              },
+              "margin": {
+                "marginBuy": 313,
+                "marginSell": 281,
+                "marginCashRedemption": 1,
+                "marginPrevBalance": 6839,
+                "marginBalance": 6870,
+                "shortBuy": 34,
+                "shortSell": 13,
+                "shortStockRedemption": 0,
+                "shortPrevBalance": 171,
+                "shortBalance": 150,
+                "offsetting": 2,
+                "date": "2026-08-19"
+              }
+            },
+            {
+              "code": "6239",
+              "name": "力成",
+              "market": "TW",
+              "assetType": "stock",
+              "weight": 0.2,
+              "shares": 1221441,
+              "open": 258.0,
+              "high": 267.5,
+              "low": 255.0,
+              "close": 262.5,
+              "prevClose": 265.5,
+              "change": -3.0,
+              "changePct": -1.13,
+              "amplitude": 4.71,
+              "volume": 9782257.0,
+              "quoteDate": "2026-08-19",
+              "inst": {
+                "foreign": 1907361,
+                "trust": -2339000,
+                "dealer": -253758,
+                "total": -685397,
+                "date": "2026-08-19"
+              },
+              "margin": {
+                "marginBuy": 404,
+                "marginSell": 465,
+                "marginCashRedemption": 14,
+                "marginPrevBalance": 22181,
+                "marginBalance": 22106,
+                "shortBuy": 41,
+                "shortSell": 28,
+                "shortStockRedemption": 0,
+                "shortPrevBalance": 131,
+                "shortBalance": 118,
+                "offsetting": 7,
+                "date": "2026-08-19"
+              }
+            },
+            {
+              "code": "4938",
+              "name": "和碩",
+              "market": "TW",
+              "assetType": "stock",
+              "weight": 0.2,
+              "shares": 3552981,
+              "open": 90.0,
+              "high": 90.0,
+              "low": 88.0,
+              "close": 89.4,
+              "prevClose": 91.0,
+              "change": -1.6,
+              "changePct": -1.76,
+              "amplitude": 2.2,
+              "volume": 10010075.0,
+              "quoteDate": "2026-08-19",
+              "inst": {
+                "foreign": -3756644,
+                "trust": 1092000,
+                "dealer": -117158,
+                "total": -2781802,
+                "date": "2026-08-19"
+              },
+              "margin": {
+                "marginBuy": 182,
+                "marginSell": 77,
+                "marginCashRedemption": 0,
+                "marginPrevBalance": 5608,
+                "marginBalance": 5713,
+                "shortBuy": 14,
+                "shortSell": 3,
+                "shortStockRedemption": 0,
+                "shortPrevBalance": 48,
+                "shortBalance": 37,
+                "offsetting": 2,
+                "date": "2026-08-19"
+              }
+            },
+            {
+              "code": "2356",
+              "name": "英業達",
+              "market": "TW",
+              "assetType": "stock",
+              "weight": 0.19,
+              "shares": 4546578,
+              "open": 63.6,
+              "high": 65.3,
+              "low": 63.3,
+              "close": 65.2,
+              "prevClose": 64.9,
+              "change": 0.3,
+              "changePct": 0.46,
+              "amplitude": 3.08,
+              "volume": 15165045.0,
+              "quoteDate": "2026-08-19",
+              "inst": {
+                "foreign": 821004,
+                "trust": -25000,
+                "dealer": -204583,
+                "total": 591421,
+                "date": "2026-08-19"
+              },
+              "margin": {
+                "marginBuy": 301,
+                "marginSell": 652,
+                "marginCashRedemption": 2,
+                "marginPrevBalance": 28372,
+                "marginBalance": 28019,
+                "shortBuy": 43,
+                "shortSell": 56,
+                "shortStockRedemption": 0,
+                "shortPrevBalance": 441,
+                "shortBalance": 454,
+                "offsetting": 3,
+                "date": "2026-08-19"
+              }
+            },
+            {
+              "code": "2324",
+              "name": "仁寶",
+              "market": "TW",
+              "assetType": "stock",
+              "weight": 0.18,
+              "shares": 7318249,
+              "open": 39.0,
+              "high": 39.5,
+              "low": 38.05,
+              "close": 39.3,
+              "prevClose": 40.6,
+              "change": -1.3,
+              "changePct": -3.2,
+              "amplitude": 3.57,
+              "volume": 92963808.0,
+              "quoteDate": "2026-08-19",
+              "inst": {
+                "foreign": -20436250,
+                "trust": -90000,
+                "dealer": 1352917,
+                "total": -19173333,
+                "date": "2026-08-19"
+              },
+              "margin": {
+                "marginBuy": 4431,
+                "marginSell": 3522,
+                "marginCashRedemption": 12,
+                "marginPrevBalance": 54301,
+                "marginBalance": 55198,
+                "shortBuy": 665,
+                "shortSell": 158,
+                "shortStockRedemption": 1,
+                "shortPrevBalance": 1704,
+                "shortBalance": 1196,
+                "offsetting": 169,
+                "date": "2026-08-19"
+              }
+            },
+            {
+              "code": "6515",
+              "name": "穎崴",
+              "market": "TW",
+              "assetType": "stock",
+              "weight": 0.18,
+              "shares": 45000,
+              "open": 5955.0,
+              "high": 6500.0,
+              "low": 5955.0,
+              "close": 6370.0,
+              "prevClose": 6315.0,
+              "change": 55.0,
+              "changePct": 0.87,
+              "amplitude": 8.63,
+              "volume": 344112.0,
+              "quoteDate": "2026-08-19",
+              "inst": {
+                "foreign": 128142,
+                "trust": -102000,
+                "dealer": -5263,
+                "total": 20879,
+                "date": "2026-08-19"
+              },
+              "margin": {
+                "marginBuy": 16,
+                "marginSell": 14,
+                "marginCashRedemption": 0,
+                "marginPrevBalance": 518,
+                "marginBalance": 520,
+                "shortBuy": 1,
+                "shortSell": 3,
+                "shortStockRedemption": 0,
+                "shortPrevBalance": 1,
+                "shortBalance": 3,
+                "offsetting": 0,
+                "date": "2026-08-19"
+              }
+            },
+            {
+              "code": "3036",
+              "name": "文曄",
+              "market": "TW",
+              "assetType": "stock",
+              "weight": 0.18,
+              "shares": 1407384,
+              "open": 198.5,
+              "high": 204.5,
+              "low": 196.5,
+              "close": 201.5,
+              "prevClose": 202.0,
+              "change": -0.5,
+              "changePct": -0.25,
+              "amplitude": 3.96,
+              "volume": 8946264.0,
+              "quoteDate": "2026-08-19",
+              "inst": {
+                "foreign": 2232318,
+                "trust": -2934000,
+                "dealer": -505191,
+                "total": -1206873,
+                "date": "2026-08-19"
+              },
+              "margin": {
+                "marginBuy": 331,
+                "marginSell": 141,
+                "marginCashRedemption": 1,
+                "marginPrevBalance": 11451,
+                "marginBalance": 11640,
+                "shortBuy": 11,
+                "shortSell": 2,
+                "shortStockRedemption": 0,
+                "shortPrevBalance": 78,
+                "shortBalance": 69,
+                "offsetting": 1,
+                "date": "2026-08-19"
+              }
+            },
+            {
+              "code": "2409",
+              "name": "友達",
+              "market": "TW",
+              "assetType": "stock",
+              "weight": 0.18,
+              "shares": 10821121,
+              "open": 25.7,
+              "high": 26.75,
+              "low": 25.25,
+              "close": 26.15,
+              "prevClose": 26.35,
+              "change": -0.2,
+              "changePct": -0.76,
+              "amplitude": 5.69,
+              "volume": 134445281.0,
+              "quoteDate": "2026-08-19",
+              "inst": {
+                "foreign": -3698673,
+                "trust": 5000,
+                "dealer": -3977630,
+                "total": -7671303,
+                "date": "2026-08-19"
+              },
+              "margin": {
+                "marginBuy": 5796,
+                "marginSell": 7184,
+                "marginCashRedemption": 10,
+                "marginPrevBalance": 227835,
+                "marginBalance": 226437,
+                "shortBuy": 5779,
+                "shortSell": 1437,
+                "shortStockRedemption": 1,
+                "shortPrevBalance": 10833,
+                "shortBalance": 6490,
+                "offsetting": 283,
+                "date": "2026-08-19"
+              }
+            },
+            {
+              "code": "3702",
+              "name": "大聯大",
+              "market": "TW",
+              "assetType": "stock",
+              "weight": 0.18,
+              "shares": 2651703,
+              "open": 106.0,
+              "high": 107.5,
+              "low": 103.0,
+              "close": 106.5,
+              "prevClose": 106.5,
+              "change": 0.0,
+              "changePct": 0.0,
+              "amplitude": 4.23,
+              "volume": 18979455.0,
+              "quoteDate": "2026-08-19",
+              "inst": {
+                "foreign": -3166125,
+                "trust": -1829000,
+                "dealer": 159607,
+                "total": -4835518,
+                "date": "2026-08-19"
+              },
+              "margin": {
+                "marginBuy": 912,
+                "marginSell": 332,
+                "marginCashRedemption": 2,
+                "marginPrevBalance": 8497,
+                "marginBalance": 9075,
+                "shortBuy": 20,
+                "shortSell": 2,
+                "shortStockRedemption": 33,
+                "shortPrevBalance": 137,
+                "shortBalance": 86,
+                "offsetting": 8,
+                "date": "2026-08-19"
+              }
+            },
+            {
+              "code": "6415",
+              "name": "矽力*-KY",
+              "market": "TW",
+              "assetType": "stock",
+              "weight": 0.16,
+              "shares": 594000,
+              "open": 425.0,
+              "high": 448.0,
+              "low": 425.0,
+              "close": 440.0,
+              "prevClose": 445.5,
+              "change": -5.5,
+              "changePct": -1.23,
+              "amplitude": 5.16,
+              "volume": 1881027.0,
+              "quoteDate": "2026-08-19",
+              "inst": {
+                "foreign": -27504,
+                "trust": -1000,
+                "dealer": -14016,
+                "total": -42520,
+                "date": "2026-08-19"
+              },
+              "margin": {
+                "marginBuy": 53,
+                "marginSell": 78,
+                "marginCashRedemption": 2,
+                "marginPrevBalance": 4505,
+                "marginBalance": 4478,
+                "shortBuy": 5,
+                "shortSell": 9,
+                "shortStockRedemption": 0,
+                "shortPrevBalance": 77,
+                "shortBalance": 81,
+                "offsetting": 4,
+                "date": "2026-08-19"
+              }
+            },
+            {
+              "code": "3533",
+              "name": "嘉澤",
+              "market": "TW",
+              "assetType": "stock",
+              "weight": 0.15,
+              "shares": 148386,
+              "open": 1580.0,
+              "high": 1625.0,
+              "low": 1565.0,
+              "close": 1620.0,
+              "prevClose": 1625.0,
+              "change": -5.0,
+              "changePct": -0.31,
+              "amplitude": 3.69,
+              "volume": 1585723.0,
+              "quoteDate": "2026-08-19",
+              "inst": {
+                "foreign": -69499,
+                "trust": -101159,
+                "dealer": -44156,
+                "total": -214814,
+                "date": "2026-08-19"
+              },
+              "margin": {
+                "marginBuy": 55,
+                "marginSell": 16,
+                "marginCashRedemption": 1,
+                "marginPrevBalance": 1457,
+                "marginBalance": 1495,
+                "shortBuy": 1,
+                "shortSell": 0,
+                "shortStockRedemption": 0,
+                "shortPrevBalance": 1,
+                "shortBalance": 0,
+                "offsetting": 0,
+                "date": "2026-08-19"
+              }
+            },
+            {
+              "code": "2347",
+              "name": "聯強",
+              "market": "TW",
+              "assetType": "stock",
+              "weight": 0.12,
+              "shares": 2236107,
+              "open": 86.1,
+              "high": 86.6,
+              "low": 85.1,
+              "close": 86.3,
+              "prevClose": 86.0,
+              "change": 0.3,
+              "changePct": 0.35,
+              "amplitude": 1.74,
+              "volume": 2827204.0,
+              "quoteDate": "2026-08-19",
+              "inst": {
+                "foreign": 79079,
+                "trust": 18000,
+                "dealer": -180022,
+                "total": -82943,
+                "date": "2026-08-19"
+              },
+              "margin": {
+                "marginBuy": 36,
+                "marginSell": 412,
+                "marginCashRedemption": 0,
+                "marginPrevBalance": 1201,
+                "marginBalance": 825,
+                "shortBuy": 0,
+                "shortSell": 1,
+                "shortStockRedemption": 0,
+                "shortPrevBalance": 9,
+                "shortBalance": 10,
+                "offsetting": 0,
+                "date": "2026-08-19"
+              }
+            },
+            {
+              "code": "6213",
+              "name": "聯茂",
+              "market": "TW",
+              "assetType": "stock",
+              "weight": 0.12,
+              "shares": 398000,
+              "open": 466.5,
+              "high": 500.0,
+              "low": 466.5,
+              "close": 484.0,
+              "prevClose": 488.0,
+              "change": -4.0,
+              "changePct": -0.82,
+              "amplitude": 6.86,
+              "volume": 3111366.0,
+              "quoteDate": "2026-08-19",
+              "inst": {
+                "foreign": 743110,
+                "trust": 120000,
+                "dealer": -3820,
+                "total": 859290,
+                "date": "2026-08-19"
+              },
+              "margin": {
+                "marginBuy": 110,
+                "marginSell": 347,
+                "marginCashRedemption": 1,
+                "marginPrevBalance": 17760,
+                "marginBalance": 17522,
+                "shortBuy": 70,
+                "shortSell": 20,
+                "shortStockRedemption": 0,
+                "shortPrevBalance": 1253,
+                "shortBalance": 1203,
+                "offsetting": 378,
+                "date": "2026-08-19"
+              }
+            },
+            {
+              "code": "",
+              "name": "2026/09富邦科技ETF期貨",
+              "market": "",
+              "assetType": "future",
+              "weight": 0.11,
+              "quantity": null,
+              "unit": "口",
+              "amount": null
+            },
+            {
+              "code": "2377",
+              "name": "微星",
+              "market": "TW",
+              "assetType": "stock",
+              "weight": 0.11,
+              "shares": 1210076,
+              "open": 145.0,
+              "high": 148.0,
+              "low": 144.5,
+              "close": 146.5,
+              "prevClose": 148.0,
+              "change": -1.5,
+              "changePct": -1.01,
+              "amplitude": 2.36,
+              "volume": 12788664.0,
+              "quoteDate": "2026-08-19",
+              "inst": {
+                "foreign": -5244462,
+                "trust": -8000,
+                "dealer": 451480,
+                "total": -4800982,
+                "date": "2026-08-19"
+              },
+              "margin": {
+                "marginBuy": 1066,
+                "marginSell": 579,
+                "marginCashRedemption": 14,
+                "marginPrevBalance": 14801,
+                "marginBalance": 15274,
+                "shortBuy": 0,
+                "shortSell": 0,
+                "shortStockRedemption": 0,
+                "shortPrevBalance": 0,
+                "shortBalance": 0,
+                "offsetting": 0,
+                "date": "2026-08-19"
+              }
+            },
+            {
+              "code": "6805",
+              "name": "富世達",
+              "market": "TW",
+              "assetType": "stock",
+              "weight": 0.11,
+              "shares": 95000,
+              "open": 1860.0,
+              "high": 1935.0,
+              "low": 1770.0,
+              "close": 1800.0,
+              "prevClose": 1960.0,
+              "change": -160.0,
+              "changePct": -8.16,
+              "amplitude": 8.42,
+              "volume": 1866928.0,
+              "quoteDate": "2026-08-19",
+              "inst": {
+                "foreign": -36696,
+                "trust": 8000,
+                "dealer": -44556,
+                "total": -73252,
+                "date": "2026-08-19"
+              },
+              "margin": {
+                "marginBuy": 298,
+                "marginSell": 314,
+                "marginCashRedemption": 0,
+                "marginPrevBalance": 3033,
+                "marginBalance": 3017,
+                "shortBuy": 0,
+                "shortSell": 0,
+                "shortStockRedemption": 0,
+                "shortPrevBalance": 0,
+                "shortBalance": 0,
+                "offsetting": 0,
+                "date": "2026-08-19"
+              }
+            },
+            {
+              "code": "2474",
+              "name": "可成",
+              "market": "TW",
+              "assetType": "stock",
+              "weight": 0.11,
+              "shares": 821000,
+              "open": 202.0,
+              "high": 204.5,
+              "low": 200.5,
+              "close": 204.0,
+              "prevClose": 204.0,
+              "change": 0.0,
+              "changePct": 0.0,
+              "amplitude": 1.96,
+              "volume": 2608302.0,
+              "quoteDate": "2026-08-19",
+              "inst": {
+                "foreign": -61319,
+                "trust": 9000,
+                "dealer": 23278,
+                "total": -29041,
+                "date": "2026-08-19"
+              },
+              "margin": {
+                "marginBuy": 34,
+                "marginSell": 106,
+                "marginCashRedemption": 1,
+                "marginPrevBalance": 8605,
+                "marginBalance": 8532,
+                "shortBuy": 2,
+                "shortSell": 1,
+                "shortStockRedemption": 0,
+                "shortPrevBalance": 10,
+                "shortBalance": 9,
+                "offsetting": 0,
+                "date": "2026-08-19"
+              }
+            },
+            {
+              "code": "3026",
+              "name": "禾伸堂",
+              "market": "TW",
+              "assetType": "stock",
+              "weight": 0.1,
+              "shares": 232000,
+              "open": 646.0,
+              "high": 692.0,
+              "low": 641.0,
+              "close": 690.0,
+              "prevClose": 668.0,
+              "change": 22.0,
+              "changePct": 3.29,
+              "amplitude": 7.63,
+              "volume": 1797462.0,
+              "quoteDate": "2026-08-19",
+              "inst": {
+                "foreign": 106957,
+                "trust": -80000,
+                "dealer": 24342,
+                "total": 51299,
+                "date": "2026-08-19"
+              },
+              "margin": {
+                "marginBuy": 48,
+                "marginSell": 152,
+                "marginCashRedemption": 0,
+                "marginPrevBalance": 10938,
+                "marginBalance": 10834,
+                "shortBuy": 9,
+                "shortSell": 7,
+                "shortStockRedemption": 0,
+                "shortPrevBalance": 276,
+                "shortBalance": 274,
+                "offsetting": 154,
+                "date": "2026-08-19"
+              }
+            },
+            {
+              "code": "6257",
+              "name": "矽格",
+              "market": "TW",
+              "assetType": "stock",
+              "weight": 0.1,
+              "shares": 792000,
+              "open": 194.0,
+              "high": 201.0,
+              "low": 192.5,
+              "close": 199.5,
+              "prevClose": 199.5,
+              "change": 0.0,
+              "changePct": 0.0,
+              "amplitude": 4.26,
+              "volume": 5509629.0,
+              "quoteDate": "2026-08-19",
+              "inst": {
+                "foreign": 288130,
+                "trust": -1585000,
+                "dealer": -206472,
+                "total": -1503342,
+                "date": "2026-08-19"
+              },
+              "margin": {
+                "marginBuy": 463,
+                "marginSell": 182,
+                "marginCashRedemption": 4,
+                "marginPrevBalance": 10994,
+                "marginBalance": 11271,
+                "shortBuy": 21,
+                "shortSell": 16,
+                "shortStockRedemption": 0,
+                "shortPrevBalance": 134,
+                "shortBalance": 129,
+                "offsetting": 3,
+                "date": "2026-08-19"
+              }
+            },
+            {
+              "code": "5434",
+              "name": "崇越",
+              "market": "TW",
+              "assetType": "stock",
+              "weight": 0.1,
+              "shares": 296000,
+              "open": 542.0,
+              "high": 565.0,
+              "low": 528.0,
+              "close": 530.0,
+              "prevClose": 553.0,
+              "change": -23.0,
+              "changePct": -4.16,
+              "amplitude": 6.69,
+              "volume": 1627243.0,
+              "quoteDate": "2026-08-19",
+              "inst": {
+                "foreign": -486154,
+                "trust": -4000,
+                "dealer": -33077,
+                "total": -523231,
+                "date": "2026-08-19"
+              },
+              "margin": {
+                "marginBuy": 56,
+                "marginSell": 64,
+                "marginCashRedemption": 0,
+                "marginPrevBalance": 863,
+                "marginBalance": 855,
+                "shortBuy": 1,
+                "shortSell": 3,
+                "shortStockRedemption": 0,
+                "shortPrevBalance": 2,
+                "shortBalance": 4,
+                "offsetting": 0,
+                "date": "2026-08-19"
+              }
+            },
+            {
+              "code": "2353",
+              "name": "宏碁",
+              "market": "TW",
+              "assetType": "stock",
+              "weight": 0.1,
+              "shares": 5063956,
+              "open": 30.1,
+              "high": 31.0,
+              "low": 30.05,
+              "close": 30.9,
+              "prevClose": 30.55,
+              "change": 0.35,
+              "changePct": 1.15,
+              "amplitude": 3.11,
+              "volume": 12354545.0,
+              "quoteDate": "2026-08-19",
+              "inst": {
+                "foreign": 2130167,
+                "trust": 24000,
+                "dealer": 264836,
+                "total": 2419003,
+                "date": "2026-08-19"
+              },
+              "margin": {
+                "marginBuy": 438,
+                "marginSell": 661,
+                "marginCashRedemption": 4,
+                "marginPrevBalance": 38908,
+                "marginBalance": 38681,
+                "shortBuy": 6,
+                "shortSell": 11,
+                "shortStockRedemption": 0,
+                "shortPrevBalance": 2428,
+                "shortBalance": 2433,
+                "offsetting": 6,
+                "date": "2026-08-19"
+              }
+            },
+            {
+              "code": "6531",
+              "name": "愛普*",
+              "market": "TW",
+              "assetType": "stock",
+              "weight": 0.1,
+              "shares": 185000,
+              "open": 833.0,
+              "high": 870.0,
+              "low": 829.0,
+              "close": 837.0,
+              "prevClose": 863.0,
+              "change": -26.0,
+              "changePct": -3.01,
+              "amplitude": 4.75,
+              "volume": 4111029.0,
+              "quoteDate": "2026-08-19",
+              "inst": {
+                "foreign": 1269841,
+                "trust": -1493000,
+                "dealer": -6013,
+                "total": -229172,
+                "date": "2026-08-19"
+              },
+              "margin": {
+                "marginBuy": 225,
+                "marginSell": 296,
+                "marginCashRedemption": 0,
+                "marginPrevBalance": 5603,
+                "marginBalance": 5532,
+                "shortBuy": 2,
+                "shortSell": 8,
+                "shortStockRedemption": 0,
+                "shortPrevBalance": 41,
+                "shortBalance": 47,
+                "offsetting": 1,
+                "date": "2026-08-19"
+              }
+            },
+            {
+              "code": "2492",
+              "name": "華新科",
+              "market": "TW",
+              "assetType": "stock",
+              "weight": 0.1,
+              "shares": 508000,
+              "open": 270.0,
+              "high": 308.5,
+              "low": 270.0,
+              "close": 298.0,
+              "prevClose": 282.0,
+              "change": 16.0,
+              "changePct": 5.67,
+              "amplitude": 13.65,
+              "volume": 46494666.0,
+              "quoteDate": "2026-08-19",
+              "inst": {
+                "foreign": 3180325,
+                "trust": -2000,
+                "dealer": 92651,
+                "total": 3270976,
+                "date": "2026-08-19"
+              },
+              "margin": {
+                "marginBuy": 1600,
+                "marginSell": 2504,
+                "marginCashRedemption": 2,
+                "marginPrevBalance": 14888,
+                "marginBalance": 13982,
+                "shortBuy": 58,
+                "shortSell": 152,
+                "shortStockRedemption": 0,
+                "shortPrevBalance": 569,
+                "shortBalance": 663,
+                "offsetting": 147,
+                "date": "2026-08-19"
+              }
+            },
+            {
+              "code": "3706",
+              "name": "神達",
+              "market": "TW",
+              "assetType": "stock",
+              "weight": 0.09,
+              "shares": 1592400,
+              "open": 89.9,
+              "high": 91.8,
+              "low": 89.3,
+              "close": 90.7,
+              "prevClose": 90.6,
+              "change": 0.1,
+              "changePct": 0.11,
+              "amplitude": 2.76,
+              "volume": 8294613.0,
+              "quoteDate": "2026-08-19",
+              "inst": {
+                "foreign": -2282520,
+                "trust": -11000,
+                "dealer": 2475682,
+                "total": 182162,
+                "date": "2026-08-19"
+              },
+              "margin": {
+                "marginBuy": 248,
+                "marginSell": 404,
+                "marginCashRedemption": 7,
+                "marginPrevBalance": 28029,
+                "marginBalance": 27866,
+                "shortBuy": 10,
+                "shortSell": 12,
+                "shortStockRedemption": 0,
+                "shortPrevBalance": 166,
+                "shortBalance": 168,
+                "offsetting": 0,
+                "date": "2026-08-19"
+              }
+            },
+            {
+              "code": "2455",
+              "name": "全新",
+              "market": "TW",
+              "assetType": "stock",
+              "weight": 0.08,
+              "shares": 326000,
+              "open": 385.5,
+              "high": 415.0,
+              "low": 385.0,
+              "close": 396.5,
+              "prevClose": 417.5,
+              "change": -21.0,
+              "changePct": -5.03,
+              "amplitude": 7.19,
+              "volume": 15313042.0,
+              "quoteDate": "2026-08-19",
+              "inst": {
+                "foreign": 420170,
+                "trust": 607000,
+                "dealer": -167498,
+                "total": 859672,
+                "date": "2026-08-19"
+              },
+              "margin": {
+                "marginBuy": 943,
+                "marginSell": 1658,
+                "marginCashRedemption": 0,
+                "marginPrevBalance": 12253,
+                "marginBalance": 11538,
+                "shortBuy": 99,
+                "shortSell": 78,
+                "shortStockRedemption": 1,
+                "shortPrevBalance": 494,
+                "shortBalance": 472,
+                "offsetting": 38,
+                "date": "2026-08-19"
+              }
+            },
+            {
+              "code": "8210",
+              "name": "勤誠",
+              "market": "TW",
+              "assetType": "stock",
+              "weight": 0.07,
+              "shares": 117000,
+              "open": 1005.0,
+              "high": 1035.0,
+              "low": 981.0,
+              "close": 985.0,
+              "prevClose": 1025.0,
+              "change": -40.0,
+              "changePct": -3.9,
+              "amplitude": 5.27,
+              "volume": 2094065.0,
+              "quoteDate": "2026-08-19",
+              "inst": {
+                "foreign": -264715,
+                "trust": -18000,
+                "dealer": -8500,
+                "total": -291215,
+                "date": "2026-08-19"
+              },
+              "margin": {
+                "marginBuy": 246,
+                "marginSell": 56,
+                "marginCashRedemption": 0,
+                "marginPrevBalance": 3150,
+                "marginBalance": 3340,
+                "shortBuy": 0,
+                "shortSell": 51,
+                "shortStockRedemption": 0,
+                "shortPrevBalance": 16,
+                "shortBalance": 67,
+                "offsetting": 0,
+                "date": "2026-08-19"
+              }
+            },
+            {
+              "code": "2354",
+              "name": "鴻準",
+              "market": "TW",
+              "assetType": "stock",
+              "weight": 0.07,
+              "shares": 1794000,
+              "open": 59.5,
+              "high": 61.5,
+              "low": 58.8,
+              "close": 60.8,
+              "prevClose": 59.9,
+              "change": 0.9,
+              "changePct": 1.5,
+              "amplitude": 4.51,
+              "volume": 7265810.0,
+              "quoteDate": "2026-08-19",
+              "inst": {
+                "foreign": -514560,
+                "trust": -10000,
+                "dealer": 124425,
+                "total": -400135,
+                "date": "2026-08-19"
+              },
+              "margin": {
+                "marginBuy": 304,
+                "marginSell": 324,
+                "marginCashRedemption": 3,
+                "marginPrevBalance": 27067,
+                "marginBalance": 27044,
+                "shortBuy": 12,
+                "shortSell": 9,
+                "shortStockRedemption": 0,
+                "shortPrevBalance": 125,
+                "shortBalance": 122,
+                "offsetting": 7,
+                "date": "2026-08-19"
+              }
+            },
+            {
+              "code": "2385",
+              "name": "群光",
+              "market": "TW",
+              "assetType": "stock",
+              "weight": 0.07,
+              "shares": 1024121,
+              "open": 104.0,
+              "high": 107.0,
+              "low": 103.5,
+              "close": 106.0,
+              "prevClose": 104.5,
+              "change": 1.5,
+              "changePct": 1.44,
+              "amplitude": 3.35,
+              "volume": 2195357.0,
+              "quoteDate": "2026-08-19",
+              "inst": {
+                "foreign": 1306501,
+                "trust": -131000,
+                "dealer": -200198,
+                "total": 975303,
+                "date": "2026-08-19"
+              },
+              "margin": {
+                "marginBuy": 62,
+                "marginSell": 29,
+                "marginCashRedemption": 0,
+                "marginPrevBalance": 2769,
+                "marginBalance": 2802,
+                "shortBuy": 0,
+                "shortSell": 0,
+                "shortStockRedemption": 0,
+                "shortPrevBalance": 4,
+                "shortBalance": 4,
+                "offsetting": 0,
+                "date": "2026-08-19"
+              }
+            },
+            {
+              "code": "5269",
+              "name": "祥碩",
+              "market": "TW",
+              "assetType": "stock",
+              "weight": 0.06,
+              "shares": 66538,
+              "open": 1340.0,
+              "high": 1480.0,
+              "low": 1340.0,
+              "close": 1460.0,
+              "prevClose": 1360.0,
+              "change": 100.0,
+              "changePct": 7.35,
+              "amplitude": 10.29,
+              "volume": 1187531.0,
+              "quoteDate": "2026-08-19",
+              "inst": {
+                "foreign": 260997,
+                "trust": -29000,
+                "dealer": 249504,
+                "total": 481501,
+                "date": "2026-08-19"
+              },
+              "margin": {
+                "marginBuy": 46,
+                "marginSell": 82,
+                "marginCashRedemption": 1,
+                "marginPrevBalance": 1908,
+                "marginBalance": 1871,
+                "shortBuy": 82,
+                "shortSell": 41,
+                "shortStockRedemption": 0,
+                "shortPrevBalance": 154,
+                "shortBalance": 113,
+                "offsetting": 0,
+                "date": "2026-08-19"
+              }
+            },
+            {
+              "code": "2451",
+              "name": "創見",
+              "market": "TW",
+              "assetType": "stock",
+              "weight": 0.06,
+              "shares": 338000,
+              "open": 275.5,
+              "high": 281.5,
+              "low": 273.0,
+              "close": 281.0,
+              "prevClose": 280.0,
+              "change": 1.0,
+              "changePct": 0.36,
+              "amplitude": 3.04,
+              "volume": 2771873.0,
+              "quoteDate": "2026-08-19",
+              "inst": {
+                "foreign": 248041,
+                "trust": -175000,
+                "dealer": 26542,
+                "total": 99583,
+                "date": "2026-08-19"
+              },
+              "margin": {
+                "marginBuy": 90,
+                "marginSell": 133,
+                "marginCashRedemption": 5,
+                "marginPrevBalance": 6301,
+                "marginBalance": 6253,
+                "shortBuy": 48,
+                "shortSell": 26,
+                "shortStockRedemption": 0,
+                "shortPrevBalance": 473,
+                "shortBalance": 451,
+                "offsetting": 1,
+                "date": "2026-08-19"
+              }
+            },
+            {
+              "code": "2467",
+              "name": "志聖",
+              "market": "TW",
+              "assetType": "stock",
+              "weight": 0.06,
+              "shares": 160000,
+              "open": 552.0,
+              "high": 566.0,
+              "low": 538.0,
+              "close": 547.0,
+              "prevClose": 564.0,
+              "change": -17.0,
+              "changePct": -3.01,
+              "amplitude": 4.96,
+              "volume": 1357774.0,
+              "quoteDate": "2026-08-19",
+              "inst": {
+                "foreign": 199668,
+                "trust": -481000,
+                "dealer": -4716,
+                "total": -286048,
+                "date": "2026-08-19"
+              },
+              "margin": {
+                "marginBuy": 55,
+                "marginSell": 86,
+                "marginCashRedemption": 0,
+                "marginPrevBalance": 1718,
+                "marginBalance": 1687,
+                "shortBuy": 4,
+                "shortSell": 2,
+                "shortStockRedemption": 0,
+                "shortPrevBalance": 59,
+                "shortBalance": 57,
+                "offsetting": 0,
+                "date": "2026-08-19"
+              }
+            },
+            {
+              "code": "6196",
+              "name": "帆宣",
+              "market": "TW",
+              "assetType": "stock",
+              "weight": 0.05,
+              "shares": 174000,
+              "open": 493.5,
+              "high": 512.0,
+              "low": 493.0,
+              "close": 500.0,
+              "prevClose": 503.0,
+              "change": -3.0,
+              "changePct": -0.6,
+              "amplitude": 3.78,
+              "volume": 838780.0,
+              "quoteDate": "2026-08-19",
+              "inst": {
+                "foreign": 39660,
+                "trust": 134000,
+                "dealer": -84553,
+                "total": 89107,
+                "date": "2026-08-19"
+              },
+              "margin": {
+                "marginBuy": 27,
+                "marginSell": 27,
+                "marginCashRedemption": 0,
+                "marginPrevBalance": 1481,
+                "marginBalance": 1481,
+                "shortBuy": 0,
+                "shortSell": 2,
+                "shortStockRedemption": 0,
+                "shortPrevBalance": 17,
+                "shortBalance": 19,
+                "offsetting": 0,
+                "date": "2026-08-19"
+              }
+            },
+            {
+              "code": "3005",
+              "name": "神基",
+              "market": "TW",
+              "assetType": "stock",
+              "weight": 0.05,
+              "shares": 694000,
+              "open": 116.5,
+              "high": 119.0,
+              "low": 115.0,
+              "close": 117.5,
+              "prevClose": 117.5,
+              "change": 0.0,
+              "changePct": 0.0,
+              "amplitude": 3.4,
+              "volume": 3204424.0,
+              "quoteDate": "2026-08-19",
+              "inst": {
+                "foreign": -320893,
+                "trust": -2000,
+                "dealer": -211386,
+                "total": -534279,
+                "date": "2026-08-19"
+              },
+              "margin": {
+                "marginBuy": 130,
+                "marginSell": 203,
+                "marginCashRedemption": 0,
+                "marginPrevBalance": 8920,
+                "marginBalance": 8847,
+                "shortBuy": 14,
+                "shortSell": 7,
+                "shortStockRedemption": 0,
+                "shortPrevBalance": 66,
+                "shortBalance": 59,
+                "offsetting": 3,
+                "date": "2026-08-19"
+              }
+            },
+            {
+              "code": "6789",
+              "name": "采鈺",
+              "market": "TW",
+              "assetType": "stock",
+              "weight": 0.05,
+              "shares": 182000,
+              "open": 418.0,
+              "high": 433.0,
+              "low": 418.0,
+              "close": 421.5,
+              "prevClose": 433.0,
+              "change": -11.5,
+              "changePct": -2.66,
+              "amplitude": 3.46,
+              "volume": 780625.0,
+              "quoteDate": "2026-08-19",
+              "inst": {
+                "foreign": -1689,
+                "trust": 2000,
+                "dealer": -48994,
+                "total": -48683,
+                "date": "2026-08-19"
+              },
+              "margin": {
+                "marginBuy": 34,
+                "marginSell": 24,
+                "marginCashRedemption": 2,
+                "marginPrevBalance": 4773,
+                "marginBalance": 4781,
+                "shortBuy": 4,
+                "shortSell": 7,
+                "shortStockRedemption": 0,
+                "shortPrevBalance": 22,
+                "shortBalance": 25,
+                "offsetting": 0,
+                "date": "2026-08-19"
+              }
+            },
+            {
+              "code": "3030",
+              "name": "德律",
+              "market": "TW",
+              "assetType": "stock",
+              "weight": 0.05,
+              "shares": 259000,
+              "open": 283.0,
+              "high": 290.5,
+              "low": 281.0,
+              "close": 285.0,
+              "prevClose": 289.5,
+              "change": -4.5,
+              "changePct": -1.55,
+              "amplitude": 3.28,
+              "volume": 791770.0,
+              "quoteDate": "2026-08-19",
+              "inst": {
+                "foreign": 3875,
+                "trust": -2000,
+                "dealer": -37564,
+                "total": -35689,
+                "date": "2026-08-19"
+              },
+              "margin": {
+                "marginBuy": 26,
+                "marginSell": 39,
+                "marginCashRedemption": 0,
+                "marginPrevBalance": 10188,
+                "marginBalance": 10175,
+                "shortBuy": 2,
+                "shortSell": 3,
+                "shortStockRedemption": 0,
+                "shortPrevBalance": 7,
+                "shortBalance": 8,
+                "offsetting": 1,
+                "date": "2026-08-19"
+              }
+            },
+            {
+              "code": "6526",
+              "name": "達發",
+              "market": "TW",
+              "assetType": "stock",
+              "weight": 0.03,
+              "shares": 73000,
+              "open": 573.0,
+              "high": 583.0,
+              "low": 561.0,
+              "close": 580.0,
+              "prevClose": 579.0,
+              "change": 1.0,
+              "changePct": 0.17,
+              "amplitude": 3.8,
+              "volume": 284469.0,
+              "quoteDate": "2026-08-19",
+              "inst": {
+                "foreign": 50257,
+                "trust": -1000,
+                "dealer": -14979,
+                "total": 34278,
+                "date": "2026-08-19"
+              },
+              "margin": {
+                "marginBuy": 14,
+                "marginSell": 12,
+                "marginCashRedemption": 0,
+                "marginPrevBalance": 1266,
+                "marginBalance": 1268,
+                "shortBuy": 1,
+                "shortSell": 0,
+                "shortStockRedemption": 0,
+                "shortPrevBalance": 2,
+                "shortBalance": 1,
+                "offsetting": 0,
+                "date": "2026-08-19"
+              }
+            },
+            {
+              "code": "3532",
+              "name": "台勝科",
+              "market": "TW",
+              "assetType": "stock",
+              "weight": 0.03,
+              "shares": 117000,
+              "open": 354.0,
+              "high": 369.5,
+              "low": 344.5,
+              "close": 356.5,
+              "prevClose": 369.0,
+              "change": -12.5,
+              "changePct": -3.39,
+              "amplitude": 6.78,
+              "volume": 7431947.0,
+              "quoteDate": "2026-08-19",
+              "inst": {
+                "foreign": -414533,
+                "trust": -174000,
+                "dealer": 273617,
+                "total": -314916,
+                "date": "2026-08-19"
+              },
+              "margin": {
+                "marginBuy": 276,
+                "marginSell": 462,
+                "marginCashRedemption": 0,
+                "marginPrevBalance": 8418,
+                "marginBalance": 8232,
+                "shortBuy": 73,
+                "shortSell": 57,
+                "shortStockRedemption": 0,
+                "shortPrevBalance": 279,
+                "shortBalance": 263,
+                "offsetting": 22,
+                "date": "2026-08-19"
+              }
+            },
+            {
+              "code": "4919",
+              "name": "新唐",
+              "market": "TW",
+              "assetType": "stock",
+              "weight": 0.03,
+              "shares": 343000,
+              "open": 115.5,
+              "high": 119.5,
+              "low": 114.5,
+              "close": 116.5,
+              "prevClose": 118.0,
+              "change": -1.5,
+              "changePct": -1.27,
+              "amplitude": 4.24,
+              "volume": 4261748.0,
+              "quoteDate": "2026-08-19",
+              "inst": {
+                "foreign": 110869,
+                "trust": -8000,
+                "dealer": 281764,
+                "total": 384633,
+                "date": "2026-08-19"
+              },
+              "margin": {
+                "marginBuy": 151,
+                "marginSell": 334,
+                "marginCashRedemption": 5,
+                "marginPrevBalance": 12616,
+                "marginBalance": 12428,
+                "shortBuy": 47,
+                "shortSell": 18,
+                "shortStockRedemption": 0,
+                "shortPrevBalance": 1089,
+                "shortBalance": 1060,
+                "offsetting": 2,
+                "date": "2026-08-19"
+              }
+            }
+          ]
         }
       ],
       "dividends": [
@@ -183384,7 +190987,7 @@ window.DATA = {
         },
         {
           "date": "2026-08-19",
-          "fetched_at": "2026-08-19T19:53:16+08:00",
+          "fetched_at": "2026-08-19T20:38:37+08:00",
           "count": 51,
           "self": {
             "open": 51.7,
@@ -183405,7 +191008,20 @@ window.DATA = {
             "total": -10080736,
             "date": "2026-08-19"
           },
-          "selfMargin": null,
+          "selfMargin": {
+            "marginBuy": 154,
+            "marginSell": 49,
+            "marginCashRedemption": 0,
+            "marginPrevBalance": 4519,
+            "marginBalance": 4624,
+            "shortBuy": 19,
+            "shortSell": 3,
+            "shortStockRedemption": 0,
+            "shortPrevBalance": 167,
+            "shortBalance": 151,
+            "offsetting": 0,
+            "date": "2026-08-19"
+          },
           "holdings": [
             {
               "code": "1303",
@@ -183432,18 +191048,18 @@ window.DATA = {
                 "date": "2026-08-19"
               },
               "margin": {
-                "marginBuy": 6778,
-                "marginSell": 8709,
-                "marginCashRedemption": 6,
-                "marginPrevBalance": 47900,
-                "marginBalance": 45963,
-                "shortBuy": 167,
-                "shortSell": 140,
-                "shortStockRedemption": 1,
-                "shortPrevBalance": 1941,
-                "shortBalance": 1913,
-                "offsetting": 98,
-                "date": "2026-08-18"
+                "marginBuy": 5049,
+                "marginSell": 7144,
+                "marginCashRedemption": 3,
+                "marginPrevBalance": 45963,
+                "marginBalance": 43865,
+                "shortBuy": 553,
+                "shortSell": 287,
+                "shortStockRedemption": 3,
+                "shortPrevBalance": 1913,
+                "shortBalance": 1644,
+                "offsetting": 69,
+                "date": "2026-08-19"
               }
             },
             {
@@ -183471,18 +191087,18 @@ window.DATA = {
                 "date": "2026-08-19"
               },
               "margin": {
-                "marginBuy": 100,
-                "marginSell": 97,
-                "marginCashRedemption": 14,
-                "marginPrevBalance": 1552,
-                "marginBalance": 1541,
-                "shortBuy": 24,
-                "shortSell": 3,
+                "marginBuy": 127,
+                "marginSell": 36,
+                "marginCashRedemption": 1,
+                "marginPrevBalance": 1541,
+                "marginBalance": 1631,
+                "shortBuy": 2,
+                "shortSell": 5,
                 "shortStockRedemption": 0,
-                "shortPrevBalance": 61,
-                "shortBalance": 40,
+                "shortPrevBalance": 40,
+                "shortBalance": 43,
                 "offsetting": 1,
-                "date": "2026-08-18"
+                "date": "2026-08-19"
               }
             },
             {
@@ -183510,18 +191126,18 @@ window.DATA = {
                 "date": "2026-08-19"
               },
               "margin": {
-                "marginBuy": 4990,
-                "marginSell": 6851,
-                "marginCashRedemption": 12,
-                "marginPrevBalance": 83585,
-                "marginBalance": 81712,
-                "shortBuy": 158,
-                "shortSell": 491,
-                "shortStockRedemption": 1,
-                "shortPrevBalance": 2787,
-                "shortBalance": 3119,
-                "offsetting": 139,
-                "date": "2026-08-18"
+                "marginBuy": 4209,
+                "marginSell": 4996,
+                "marginCashRedemption": 32,
+                "marginPrevBalance": 81712,
+                "marginBalance": 80893,
+                "shortBuy": 761,
+                "shortSell": 277,
+                "shortStockRedemption": 3,
+                "shortPrevBalance": 3119,
+                "shortBalance": 2632,
+                "offsetting": 53,
+                "date": "2026-08-19"
               }
             },
             {
@@ -183549,18 +191165,18 @@ window.DATA = {
                 "date": "2026-08-19"
               },
               "margin": {
-                "marginBuy": 73,
-                "marginSell": 39,
-                "marginCashRedemption": 0,
-                "marginPrevBalance": 2091,
-                "marginBalance": 2125,
-                "shortBuy": 360,
-                "shortSell": 13,
+                "marginBuy": 36,
+                "marginSell": 13,
+                "marginCashRedemption": 1,
+                "marginPrevBalance": 2125,
+                "marginBalance": 2147,
+                "shortBuy": 6,
+                "shortSell": 11,
                 "shortStockRedemption": 0,
-                "shortPrevBalance": 408,
-                "shortBalance": 61,
+                "shortPrevBalance": 61,
+                "shortBalance": 66,
                 "offsetting": 0,
-                "date": "2026-08-18"
+                "date": "2026-08-19"
               }
             },
             {
@@ -183582,24 +191198,24 @@ window.DATA = {
               "quoteDate": "2026-08-19",
               "inst": {
                 "foreign": -4640893,
-                "trust": -17535000,
+                "trust": -17582000,
                 "dealer": 75860,
-                "total": -22100033,
+                "total": -22147033,
                 "date": "2026-08-19"
               },
               "margin": {
-                "marginBuy": 6612,
-                "marginSell": 10085,
-                "marginCashRedemption": 4,
-                "marginPrevBalance": 129167,
-                "marginBalance": 125690,
-                "shortBuy": 538,
-                "shortSell": 469,
+                "marginBuy": 5376,
+                "marginSell": 4316,
+                "marginCashRedemption": 145,
+                "marginPrevBalance": 125690,
+                "marginBalance": 126605,
+                "shortBuy": 845,
+                "shortSell": 288,
                 "shortStockRedemption": 0,
-                "shortPrevBalance": 4765,
-                "shortBalance": 4696,
-                "offsetting": 633,
-                "date": "2026-08-18"
+                "shortPrevBalance": 4696,
+                "shortBalance": 4139,
+                "offsetting": 70,
+                "date": "2026-08-19"
               }
             },
             {
@@ -183627,18 +191243,18 @@ window.DATA = {
                 "date": "2026-08-19"
               },
               "margin": {
-                "marginBuy": 18,
-                "marginSell": 459,
+                "marginBuy": 400,
+                "marginSell": 6,
                 "marginCashRedemption": 1,
-                "marginPrevBalance": 3452,
-                "marginBalance": 3010,
-                "shortBuy": 0,
-                "shortSell": 1,
+                "marginPrevBalance": 3010,
+                "marginBalance": 3403,
+                "shortBuy": 7,
+                "shortSell": 4,
                 "shortStockRedemption": 0,
-                "shortPrevBalance": 48,
-                "shortBalance": 49,
-                "offsetting": 1,
-                "date": "2026-08-18"
+                "shortPrevBalance": 49,
+                "shortBalance": 46,
+                "offsetting": 0,
+                "date": "2026-08-19"
               }
             },
             {
@@ -183666,18 +191282,18 @@ window.DATA = {
                 "date": "2026-08-19"
               },
               "margin": {
-                "marginBuy": 1936,
-                "marginSell": 1602,
-                "marginCashRedemption": 5,
-                "marginPrevBalance": 37228,
-                "marginBalance": 37557,
-                "shortBuy": 162,
-                "shortSell": 55,
+                "marginBuy": 2116,
+                "marginSell": 1281,
+                "marginCashRedemption": 1,
+                "marginPrevBalance": 37557,
+                "marginBalance": 38391,
+                "shortBuy": 91,
+                "shortSell": 187,
                 "shortStockRedemption": 0,
-                "shortPrevBalance": 815,
-                "shortBalance": 708,
-                "offsetting": 7,
-                "date": "2026-08-18"
+                "shortPrevBalance": 708,
+                "shortBalance": 804,
+                "offsetting": 22,
+                "date": "2026-08-19"
               }
             },
             {
@@ -183705,18 +191321,18 @@ window.DATA = {
                 "date": "2026-08-19"
               },
               "margin": {
-                "marginBuy": 453,
-                "marginSell": 832,
-                "marginCashRedemption": 7,
-                "marginPrevBalance": 16662,
-                "marginBalance": 16276,
-                "shortBuy": 10,
+                "marginBuy": 265,
+                "marginSell": 439,
+                "marginCashRedemption": 3,
+                "marginPrevBalance": 16276,
+                "marginBalance": 16099,
+                "shortBuy": 9,
                 "shortSell": 14,
                 "shortStockRedemption": 0,
-                "shortPrevBalance": 66,
-                "shortBalance": 70,
-                "offsetting": 0,
-                "date": "2026-08-18"
+                "shortPrevBalance": 70,
+                "shortBalance": 75,
+                "offsetting": 4,
+                "date": "2026-08-19"
               }
             },
             {
@@ -183744,18 +191360,18 @@ window.DATA = {
                 "date": "2026-08-19"
               },
               "margin": {
-                "marginBuy": 272,
-                "marginSell": 661,
+                "marginBuy": 760,
+                "marginSell": 144,
                 "marginCashRedemption": 0,
-                "marginPrevBalance": 2378,
-                "marginBalance": 1989,
-                "shortBuy": 776,
-                "shortSell": 19,
+                "marginPrevBalance": 1989,
+                "marginBalance": 2605,
+                "shortBuy": 26,
+                "shortSell": 0,
                 "shortStockRedemption": 0,
-                "shortPrevBalance": 793,
-                "shortBalance": 36,
-                "offsetting": 2,
-                "date": "2026-08-18"
+                "shortPrevBalance": 36,
+                "shortBalance": 10,
+                "offsetting": 33,
+                "date": "2026-08-19"
               }
             },
             {
@@ -183783,18 +191399,18 @@ window.DATA = {
                 "date": "2026-08-19"
               },
               "margin": {
-                "marginBuy": 38,
-                "marginSell": 131,
+                "marginBuy": 47,
+                "marginSell": 27,
                 "marginCashRedemption": 0,
-                "marginPrevBalance": 2202,
-                "marginBalance": 2109,
-                "shortBuy": 245,
-                "shortSell": 5,
+                "marginPrevBalance": 2109,
+                "marginBalance": 2129,
+                "shortBuy": 2,
+                "shortSell": 4,
                 "shortStockRedemption": 0,
-                "shortPrevBalance": 256,
-                "shortBalance": 16,
+                "shortPrevBalance": 16,
+                "shortBalance": 18,
                 "offsetting": 0,
-                "date": "2026-08-18"
+                "date": "2026-08-19"
               }
             },
             {
@@ -183822,18 +191438,18 @@ window.DATA = {
                 "date": "2026-08-19"
               },
               "margin": {
-                "marginBuy": 1101,
-                "marginSell": 1148,
-                "marginCashRedemption": 24,
-                "marginPrevBalance": 13616,
-                "marginBalance": 13545,
-                "shortBuy": 3,
-                "shortSell": 103,
+                "marginBuy": 854,
+                "marginSell": 596,
+                "marginCashRedemption": 124,
+                "marginPrevBalance": 13545,
+                "marginBalance": 13679,
+                "shortBuy": 81,
+                "shortSell": 39,
                 "shortStockRedemption": 0,
-                "shortPrevBalance": 318,
-                "shortBalance": 418,
-                "offsetting": 11,
-                "date": "2026-08-18"
+                "shortPrevBalance": 418,
+                "shortBalance": 376,
+                "offsetting": 5,
+                "date": "2026-08-19"
               }
             },
             {
@@ -183861,18 +191477,18 @@ window.DATA = {
                 "date": "2026-08-19"
               },
               "margin": {
-                "marginBuy": 70,
-                "marginSell": 73,
+                "marginBuy": 26,
+                "marginSell": 114,
                 "marginCashRedemption": 0,
-                "marginPrevBalance": 1034,
-                "marginBalance": 1031,
+                "marginPrevBalance": 1031,
+                "marginBalance": 943,
                 "shortBuy": 0,
-                "shortSell": 0,
+                "shortSell": 1,
                 "shortStockRedemption": 0,
                 "shortPrevBalance": 1,
-                "shortBalance": 1,
-                "offsetting": 0,
-                "date": "2026-08-18"
+                "shortBalance": 2,
+                "offsetting": 1,
+                "date": "2026-08-19"
               }
             },
             {
@@ -183900,18 +191516,18 @@ window.DATA = {
                 "date": "2026-08-19"
               },
               "margin": {
-                "marginBuy": 2646,
-                "marginSell": 2257,
-                "marginCashRedemption": 10,
-                "marginPrevBalance": 13399,
-                "marginBalance": 13778,
+                "marginBuy": 3674,
+                "marginSell": 2071,
+                "marginCashRedemption": 0,
+                "marginPrevBalance": 13778,
+                "marginBalance": 15381,
                 "shortBuy": 0,
-                "shortSell": 0,
+                "shortSell": 126,
                 "shortStockRedemption": 0,
                 "shortPrevBalance": 0,
-                "shortBalance": 0,
-                "offsetting": 0,
-                "date": "2026-08-18"
+                "shortBalance": 126,
+                "offsetting": 282,
+                "date": "2026-08-19"
               }
             },
             {
@@ -183939,18 +191555,18 @@ window.DATA = {
                 "date": "2026-08-19"
               },
               "margin": {
-                "marginBuy": 262,
-                "marginSell": 70,
-                "marginCashRedemption": 0,
-                "marginPrevBalance": 9376,
-                "marginBalance": 9568,
-                "shortBuy": 957,
-                "shortSell": 2,
+                "marginBuy": 1093,
+                "marginSell": 115,
+                "marginCashRedemption": 34,
+                "marginPrevBalance": 9568,
+                "marginBalance": 10512,
+                "shortBuy": 17,
+                "shortSell": 3,
                 "shortStockRedemption": 0,
-                "shortPrevBalance": 1026,
-                "shortBalance": 71,
-                "offsetting": 1,
-                "date": "2026-08-18"
+                "shortPrevBalance": 71,
+                "shortBalance": 57,
+                "offsetting": 0,
+                "date": "2026-08-19"
               }
             },
             {
@@ -183978,18 +191594,18 @@ window.DATA = {
                 "date": "2026-08-19"
               },
               "margin": {
-                "marginBuy": 439,
-                "marginSell": 252,
-                "marginCashRedemption": 0,
-                "marginPrevBalance": 40275,
-                "marginBalance": 40462,
-                "shortBuy": 14,
-                "shortSell": 2,
+                "marginBuy": 501,
+                "marginSell": 181,
+                "marginCashRedemption": 15,
+                "marginPrevBalance": 40462,
+                "marginBalance": 40767,
+                "shortBuy": 649,
+                "shortSell": 24,
                 "shortStockRedemption": 0,
-                "shortPrevBalance": 763,
-                "shortBalance": 751,
-                "offsetting": 0,
-                "date": "2026-08-18"
+                "shortPrevBalance": 751,
+                "shortBalance": 126,
+                "offsetting": 42,
+                "date": "2026-08-19"
               }
             },
             {
@@ -184017,18 +191633,18 @@ window.DATA = {
                 "date": "2026-08-19"
               },
               "margin": {
-                "marginBuy": 522,
-                "marginSell": 117,
-                "marginCashRedemption": 0,
-                "marginPrevBalance": 1848,
-                "marginBalance": 2253,
+                "marginBuy": 432,
+                "marginSell": 23,
+                "marginCashRedemption": 2,
+                "marginPrevBalance": 2253,
+                "marginBalance": 2660,
                 "shortBuy": 0,
                 "shortSell": 0,
                 "shortStockRedemption": 0,
                 "shortPrevBalance": 0,
                 "shortBalance": 0,
-                "offsetting": 2,
-                "date": "2026-08-18"
+                "offsetting": 0,
+                "date": "2026-08-19"
               }
             },
             {
@@ -184056,18 +191672,18 @@ window.DATA = {
                 "date": "2026-08-19"
               },
               "margin": {
-                "marginBuy": 90,
-                "marginSell": 66,
+                "marginBuy": 73,
+                "marginSell": 81,
                 "marginCashRedemption": 0,
-                "marginPrevBalance": 2523,
-                "marginBalance": 2547,
-                "shortBuy": 24,
-                "shortSell": 4,
+                "marginPrevBalance": 2547,
+                "marginBalance": 2539,
+                "shortBuy": 10,
+                "shortSell": 24,
                 "shortStockRedemption": 0,
-                "shortPrevBalance": 51,
-                "shortBalance": 31,
-                "offsetting": 0,
-                "date": "2026-08-18"
+                "shortPrevBalance": 31,
+                "shortBalance": 45,
+                "offsetting": 1,
+                "date": "2026-08-19"
               }
             },
             {
@@ -184095,18 +191711,18 @@ window.DATA = {
                 "date": "2026-08-19"
               },
               "margin": {
-                "marginBuy": 287,
-                "marginSell": 140,
+                "marginBuy": 348,
+                "marginSell": 205,
                 "marginCashRedemption": 0,
-                "marginPrevBalance": 4879,
-                "marginBalance": 5026,
-                "shortBuy": 8,
-                "shortSell": 178,
+                "marginPrevBalance": 5026,
+                "marginBalance": 5169,
+                "shortBuy": 401,
+                "shortSell": 220,
                 "shortStockRedemption": 0,
-                "shortPrevBalance": 646,
-                "shortBalance": 816,
-                "offsetting": 0,
-                "date": "2026-08-18"
+                "shortPrevBalance": 816,
+                "shortBalance": 635,
+                "offsetting": 45,
+                "date": "2026-08-19"
               }
             },
             {
@@ -184134,18 +191750,18 @@ window.DATA = {
                 "date": "2026-08-19"
               },
               "margin": {
-                "marginBuy": 1650,
-                "marginSell": 1405,
-                "marginCashRedemption": 35,
-                "marginPrevBalance": 51454,
-                "marginBalance": 51664,
-                "shortBuy": 86,
-                "shortSell": 45,
+                "marginBuy": 874,
+                "marginSell": 701,
+                "marginCashRedemption": 5,
+                "marginPrevBalance": 51664,
+                "marginBalance": 51832,
+                "shortBuy": 64,
+                "shortSell": 20,
                 "shortStockRedemption": 0,
-                "shortPrevBalance": 608,
-                "shortBalance": 567,
-                "offsetting": 4,
-                "date": "2026-08-18"
+                "shortPrevBalance": 567,
+                "shortBalance": 523,
+                "offsetting": 5,
+                "date": "2026-08-19"
               }
             },
             {
@@ -184173,18 +191789,18 @@ window.DATA = {
                 "date": "2026-08-19"
               },
               "margin": {
-                "marginBuy": 42,
-                "marginSell": 138,
+                "marginBuy": 4,
+                "marginSell": 2,
                 "marginCashRedemption": 0,
-                "marginPrevBalance": 1173,
-                "marginBalance": 1077,
+                "marginPrevBalance": 1077,
+                "marginBalance": 1079,
                 "shortBuy": 0,
-                "shortSell": 10,
+                "shortSell": 0,
                 "shortStockRedemption": 0,
-                "shortPrevBalance": 4,
+                "shortPrevBalance": 14,
                 "shortBalance": 14,
                 "offsetting": 0,
-                "date": "2026-08-18"
+                "date": "2026-08-19"
               }
             },
             {
@@ -184212,18 +191828,18 @@ window.DATA = {
                 "date": "2026-08-19"
               },
               "margin": {
-                "marginBuy": 21,
-                "marginSell": 49,
+                "marginBuy": 37,
+                "marginSell": 885,
                 "marginCashRedemption": 0,
-                "marginPrevBalance": 1571,
-                "marginBalance": 1543,
-                "shortBuy": 10,
-                "shortSell": 0,
+                "marginPrevBalance": 1543,
+                "marginBalance": 695,
+                "shortBuy": 0,
+                "shortSell": 340,
                 "shortStockRedemption": 0,
-                "shortPrevBalance": 136,
-                "shortBalance": 126,
+                "shortPrevBalance": 126,
+                "shortBalance": 466,
                 "offsetting": 0,
-                "date": "2026-08-18"
+                "date": "2026-08-19"
               }
             },
             {
@@ -184251,18 +191867,18 @@ window.DATA = {
                 "date": "2026-08-19"
               },
               "margin": {
-                "marginBuy": 24,
-                "marginSell": 67,
-                "marginCashRedemption": 2,
-                "marginPrevBalance": 2756,
-                "marginBalance": 2711,
-                "shortBuy": 7,
-                "shortSell": 5,
+                "marginBuy": 41,
+                "marginSell": 93,
+                "marginCashRedemption": 0,
+                "marginPrevBalance": 2711,
+                "marginBalance": 2659,
+                "shortBuy": 6,
+                "shortSell": 69,
                 "shortStockRedemption": 0,
-                "shortPrevBalance": 244,
-                "shortBalance": 242,
+                "shortPrevBalance": 242,
+                "shortBalance": 305,
                 "offsetting": 0,
-                "date": "2026-08-18"
+                "date": "2026-08-19"
               }
             },
             {
@@ -184290,18 +191906,18 @@ window.DATA = {
                 "date": "2026-08-19"
               },
               "margin": {
-                "marginBuy": 3648,
-                "marginSell": 8113,
-                "marginCashRedemption": 153,
-                "marginPrevBalance": 164090,
-                "marginBalance": 159472,
-                "shortBuy": 200,
-                "shortSell": 283,
+                "marginBuy": 3549,
+                "marginSell": 7905,
+                "marginCashRedemption": 47,
+                "marginPrevBalance": 159472,
+                "marginBalance": 155069,
+                "shortBuy": 235,
+                "shortSell": 463,
                 "shortStockRedemption": 0,
-                "shortPrevBalance": 2471,
-                "shortBalance": 2554,
-                "offsetting": 30,
-                "date": "2026-08-18"
+                "shortPrevBalance": 2554,
+                "shortBalance": 2782,
+                "offsetting": 25,
+                "date": "2026-08-19"
               }
             },
             {
@@ -184329,18 +191945,18 @@ window.DATA = {
                 "date": "2026-08-19"
               },
               "margin": {
-                "marginBuy": 227,
-                "marginSell": 257,
+                "marginBuy": 520,
+                "marginSell": 205,
                 "marginCashRedemption": 0,
-                "marginPrevBalance": 6295,
-                "marginBalance": 6265,
-                "shortBuy": 2,
-                "shortSell": 3,
+                "marginPrevBalance": 6265,
+                "marginBalance": 6580,
+                "shortBuy": 4,
+                "shortSell": 1,
                 "shortStockRedemption": 0,
-                "shortPrevBalance": 27,
-                "shortBalance": 28,
-                "offsetting": 1,
-                "date": "2026-08-18"
+                "shortPrevBalance": 28,
+                "shortBalance": 25,
+                "offsetting": 7,
+                "date": "2026-08-19"
               }
             },
             {
@@ -184368,18 +191984,18 @@ window.DATA = {
                 "date": "2026-08-19"
               },
               "margin": {
-                "marginBuy": 138,
-                "marginSell": 257,
-                "marginCashRedemption": 0,
-                "marginPrevBalance": 11570,
-                "marginBalance": 11451,
-                "shortBuy": 20,
-                "shortSell": 11,
-                "shortStockRedemption": 1,
-                "shortPrevBalance": 88,
-                "shortBalance": 78,
-                "offsetting": 0,
-                "date": "2026-08-18"
+                "marginBuy": 331,
+                "marginSell": 141,
+                "marginCashRedemption": 1,
+                "marginPrevBalance": 11451,
+                "marginBalance": 11640,
+                "shortBuy": 11,
+                "shortSell": 2,
+                "shortStockRedemption": 0,
+                "shortPrevBalance": 78,
+                "shortBalance": 69,
+                "offsetting": 1,
+                "date": "2026-08-19"
               }
             },
             {
@@ -184407,18 +192023,18 @@ window.DATA = {
                 "date": "2026-08-19"
               },
               "margin": {
-                "marginBuy": 222,
-                "marginSell": 211,
-                "marginCashRedemption": 2,
-                "marginPrevBalance": 5599,
-                "marginBalance": 5608,
-                "shortBuy": 3,
-                "shortSell": 7,
+                "marginBuy": 182,
+                "marginSell": 77,
+                "marginCashRedemption": 0,
+                "marginPrevBalance": 5608,
+                "marginBalance": 5713,
+                "shortBuy": 14,
+                "shortSell": 3,
                 "shortStockRedemption": 0,
-                "shortPrevBalance": 44,
-                "shortBalance": 48,
-                "offsetting": 36,
-                "date": "2026-08-18"
+                "shortPrevBalance": 48,
+                "shortBalance": 37,
+                "offsetting": 2,
+                "date": "2026-08-19"
               }
             },
             {
@@ -184456,18 +192072,18 @@ window.DATA = {
                 "date": "2026-08-19"
               },
               "margin": {
-                "marginBuy": 663,
-                "marginSell": 1539,
+                "marginBuy": 313,
+                "marginSell": 281,
                 "marginCashRedemption": 1,
-                "marginPrevBalance": 7716,
-                "marginBalance": 6839,
-                "shortBuy": 354,
-                "shortSell": 0,
+                "marginPrevBalance": 6839,
+                "marginBalance": 6870,
+                "shortBuy": 34,
+                "shortSell": 13,
                 "shortStockRedemption": 0,
-                "shortPrevBalance": 525,
-                "shortBalance": 171,
-                "offsetting": 0,
-                "date": "2026-08-18"
+                "shortPrevBalance": 171,
+                "shortBalance": 150,
+                "offsetting": 2,
+                "date": "2026-08-19"
               }
             },
             {
@@ -184495,18 +192111,18 @@ window.DATA = {
                 "date": "2026-08-19"
               },
               "margin": {
-                "marginBuy": 655,
-                "marginSell": 1041,
-                "marginCashRedemption": 2,
-                "marginPrevBalance": 12069,
-                "marginBalance": 11681,
-                "shortBuy": 24,
-                "shortSell": 29,
+                "marginBuy": 371,
+                "marginSell": 188,
+                "marginCashRedemption": 3,
+                "marginPrevBalance": 11681,
+                "marginBalance": 11861,
+                "shortBuy": 29,
+                "shortSell": 102,
                 "shortStockRedemption": 0,
-                "shortPrevBalance": 178,
-                "shortBalance": 183,
-                "offsetting": 18,
-                "date": "2026-08-18"
+                "shortPrevBalance": 183,
+                "shortBalance": 256,
+                "offsetting": 6,
+                "date": "2026-08-19"
               }
             },
             {
@@ -184534,18 +192150,18 @@ window.DATA = {
                 "date": "2026-08-19"
               },
               "margin": {
-                "marginBuy": 1016,
-                "marginSell": 660,
-                "marginCashRedemption": 8,
-                "marginPrevBalance": 28024,
-                "marginBalance": 28372,
-                "shortBuy": 274,
-                "shortSell": 14,
+                "marginBuy": 301,
+                "marginSell": 652,
+                "marginCashRedemption": 2,
+                "marginPrevBalance": 28372,
+                "marginBalance": 28019,
+                "shortBuy": 43,
+                "shortSell": 56,
                 "shortStockRedemption": 0,
-                "shortPrevBalance": 701,
-                "shortBalance": 441,
-                "offsetting": 6,
-                "date": "2026-08-18"
+                "shortPrevBalance": 441,
+                "shortBalance": 454,
+                "offsetting": 3,
+                "date": "2026-08-19"
               }
             },
             {
@@ -184574,17 +192190,17 @@ window.DATA = {
               },
               "margin": {
                 "marginBuy": 284,
-                "marginSell": 1196,
-                "marginCashRedemption": 17,
-                "marginPrevBalance": 24460,
-                "marginBalance": 23531,
-                "shortBuy": 78,
-                "shortSell": 39,
+                "marginSell": 278,
+                "marginCashRedemption": 50,
+                "marginPrevBalance": 23531,
+                "marginBalance": 23487,
+                "shortBuy": 42,
+                "shortSell": 16,
                 "shortStockRedemption": 0,
-                "shortPrevBalance": 724,
-                "shortBalance": 685,
-                "offsetting": 1,
-                "date": "2026-08-18"
+                "shortPrevBalance": 685,
+                "shortBalance": 659,
+                "offsetting": 3,
+                "date": "2026-08-19"
               }
             },
             {
@@ -184606,24 +192222,24 @@ window.DATA = {
               "quoteDate": "2026-08-19",
               "inst": {
                 "foreign": -216230,
-                "trust": -372250,
+                "trust": -1046250,
                 "dealer": -265132,
-                "total": -853612,
+                "total": -1527612,
                 "date": "2026-08-19"
               },
               "margin": {
-                "marginBuy": 392,
-                "marginSell": 568,
+                "marginBuy": 292,
+                "marginSell": 151,
                 "marginCashRedemption": 4,
-                "marginPrevBalance": 9573,
-                "marginBalance": 9393,
-                "shortBuy": 14,
-                "shortSell": 4,
+                "marginPrevBalance": 9393,
+                "marginBalance": 9530,
+                "shortBuy": 15,
+                "shortSell": 14,
                 "shortStockRedemption": 0,
-                "shortPrevBalance": 60,
-                "shortBalance": 50,
+                "shortPrevBalance": 50,
+                "shortBalance": 49,
                 "offsetting": 1,
-                "date": "2026-08-18"
+                "date": "2026-08-19"
               }
             },
             {
@@ -184651,18 +192267,18 @@ window.DATA = {
                 "date": "2026-08-19"
               },
               "margin": {
-                "marginBuy": 8,
-                "marginSell": 47,
+                "marginBuy": 1,
+                "marginSell": 42,
                 "marginCashRedemption": 0,
-                "marginPrevBalance": 784,
-                "marginBalance": 745,
-                "shortBuy": 1,
-                "shortSell": 0,
+                "marginPrevBalance": 745,
+                "marginBalance": 704,
+                "shortBuy": 0,
+                "shortSell": 5,
                 "shortStockRedemption": 0,
-                "shortPrevBalance": 2,
-                "shortBalance": 1,
+                "shortPrevBalance": 1,
+                "shortBalance": 6,
                 "offsetting": 0,
-                "date": "2026-08-18"
+                "date": "2026-08-19"
               }
             },
             {
@@ -184690,18 +192306,18 @@ window.DATA = {
                 "date": "2026-08-19"
               },
               "margin": {
-                "marginBuy": 731,
-                "marginSell": 1366,
-                "marginCashRedemption": 9,
-                "marginPrevBalance": 22825,
-                "marginBalance": 22181,
-                "shortBuy": 10,
-                "shortSell": 51,
+                "marginBuy": 404,
+                "marginSell": 465,
+                "marginCashRedemption": 14,
+                "marginPrevBalance": 22181,
+                "marginBalance": 22106,
+                "shortBuy": 41,
+                "shortSell": 28,
                 "shortStockRedemption": 0,
-                "shortPrevBalance": 90,
-                "shortBalance": 131,
-                "offsetting": 3,
-                "date": "2026-08-18"
+                "shortPrevBalance": 131,
+                "shortBalance": 118,
+                "offsetting": 7,
+                "date": "2026-08-19"
               }
             },
             {
@@ -184729,18 +192345,18 @@ window.DATA = {
                 "date": "2026-08-19"
               },
               "margin": {
-                "marginBuy": 539,
-                "marginSell": 276,
-                "marginCashRedemption": 1,
-                "marginPrevBalance": 8235,
-                "marginBalance": 8497,
-                "shortBuy": 15,
-                "shortSell": 4,
-                "shortStockRedemption": 0,
-                "shortPrevBalance": 148,
-                "shortBalance": 137,
-                "offsetting": 0,
-                "date": "2026-08-18"
+                "marginBuy": 912,
+                "marginSell": 332,
+                "marginCashRedemption": 2,
+                "marginPrevBalance": 8497,
+                "marginBalance": 9075,
+                "shortBuy": 20,
+                "shortSell": 2,
+                "shortStockRedemption": 33,
+                "shortPrevBalance": 137,
+                "shortBalance": 86,
+                "offsetting": 8,
+                "date": "2026-08-19"
               }
             },
             {
@@ -184768,18 +192384,18 @@ window.DATA = {
                 "date": "2026-08-19"
               },
               "margin": {
-                "marginBuy": 6664,
-                "marginSell": 7573,
-                "marginCashRedemption": 9,
-                "marginPrevBalance": 55219,
-                "marginBalance": 54301,
-                "shortBuy": 316,
-                "shortSell": 171,
+                "marginBuy": 4431,
+                "marginSell": 3522,
+                "marginCashRedemption": 12,
+                "marginPrevBalance": 54301,
+                "marginBalance": 55198,
+                "shortBuy": 665,
+                "shortSell": 158,
                 "shortStockRedemption": 1,
-                "shortPrevBalance": 1850,
-                "shortBalance": 1704,
-                "offsetting": 78,
-                "date": "2026-08-18"
+                "shortPrevBalance": 1704,
+                "shortBalance": 1196,
+                "offsetting": 169,
+                "date": "2026-08-19"
               }
             },
             {
@@ -184807,18 +192423,18 @@ window.DATA = {
                 "date": "2026-08-19"
               },
               "margin": {
-                "marginBuy": 1247,
-                "marginSell": 807,
-                "marginCashRedemption": 13,
-                "marginPrevBalance": 20374,
-                "marginBalance": 20801,
-                "shortBuy": 182,
-                "shortSell": 193,
+                "marginBuy": 490,
+                "marginSell": 478,
+                "marginCashRedemption": 5,
+                "marginPrevBalance": 20801,
+                "marginBalance": 20808,
+                "shortBuy": 189,
+                "shortSell": 67,
                 "shortStockRedemption": 0,
-                "shortPrevBalance": 266,
-                "shortBalance": 277,
-                "offsetting": 9,
-                "date": "2026-08-18"
+                "shortPrevBalance": 277,
+                "shortBalance": 155,
+                "offsetting": 1,
+                "date": "2026-08-19"
               }
             },
             {
@@ -184846,18 +192462,18 @@ window.DATA = {
                 "date": "2026-08-19"
               },
               "margin": {
-                "marginBuy": 102,
-                "marginSell": 25,
+                "marginBuy": 36,
+                "marginSell": 412,
                 "marginCashRedemption": 0,
-                "marginPrevBalance": 1124,
-                "marginBalance": 1201,
+                "marginPrevBalance": 1201,
+                "marginBalance": 825,
                 "shortBuy": 0,
-                "shortSell": 0,
+                "shortSell": 1,
                 "shortStockRedemption": 0,
                 "shortPrevBalance": 9,
-                "shortBalance": 9,
+                "shortBalance": 10,
                 "offsetting": 0,
-                "date": "2026-08-18"
+                "date": "2026-08-19"
               }
             },
             {
@@ -184885,18 +192501,18 @@ window.DATA = {
                 "date": "2026-08-19"
               },
               "margin": {
-                "marginBuy": 908,
-                "marginSell": 820,
-                "marginCashRedemption": 22,
-                "marginPrevBalance": 14735,
-                "marginBalance": 14801,
+                "marginBuy": 1066,
+                "marginSell": 579,
+                "marginCashRedemption": 14,
+                "marginPrevBalance": 14801,
+                "marginBalance": 15274,
                 "shortBuy": 0,
                 "shortSell": 0,
                 "shortStockRedemption": 0,
                 "shortPrevBalance": 0,
                 "shortBalance": 0,
                 "offsetting": 0,
-                "date": "2026-08-18"
+                "date": "2026-08-19"
               }
             },
             {
@@ -184924,18 +192540,18 @@ window.DATA = {
                 "date": "2026-08-19"
               },
               "margin": {
-                "marginBuy": 1827,
-                "marginSell": 1349,
+                "marginBuy": 455,
+                "marginSell": 636,
                 "marginCashRedemption": 0,
-                "marginPrevBalance": 24434,
-                "marginBalance": 24912,
-                "shortBuy": 84,
-                "shortSell": 202,
+                "marginPrevBalance": 24912,
+                "marginBalance": 24731,
+                "shortBuy": 217,
+                "shortSell": 35,
                 "shortStockRedemption": 0,
-                "shortPrevBalance": 555,
-                "shortBalance": 673,
-                "offsetting": 20,
-                "date": "2026-08-18"
+                "shortPrevBalance": 673,
+                "shortBalance": 491,
+                "offsetting": 12,
+                "date": "2026-08-19"
               }
             },
             {
@@ -184963,18 +192579,18 @@ window.DATA = {
                 "date": "2026-08-19"
               },
               "margin": {
-                "marginBuy": 263,
-                "marginSell": 330,
-                "marginCashRedemption": 0,
-                "marginPrevBalance": 14136,
-                "marginBalance": 14069,
-                "shortBuy": 29,
-                "shortSell": 25,
+                "marginBuy": 217,
+                "marginSell": 97,
+                "marginCashRedemption": 7,
+                "marginPrevBalance": 14069,
+                "marginBalance": 14182,
+                "shortBuy": 38,
+                "shortSell": 18,
                 "shortStockRedemption": 1,
-                "shortPrevBalance": 112,
-                "shortBalance": 107,
+                "shortPrevBalance": 107,
+                "shortBalance": 86,
                 "offsetting": 2,
-                "date": "2026-08-18"
+                "date": "2026-08-19"
               }
             },
             {
@@ -185002,18 +192618,18 @@ window.DATA = {
                 "date": "2026-08-19"
               },
               "margin": {
-                "marginBuy": 64,
-                "marginSell": 162,
+                "marginBuy": 34,
+                "marginSell": 106,
                 "marginCashRedemption": 1,
-                "marginPrevBalance": 8704,
-                "marginBalance": 8605,
-                "shortBuy": 0,
-                "shortSell": 0,
+                "marginPrevBalance": 8605,
+                "marginBalance": 8532,
+                "shortBuy": 2,
+                "shortSell": 1,
                 "shortStockRedemption": 0,
                 "shortPrevBalance": 10,
-                "shortBalance": 10,
+                "shortBalance": 9,
                 "offsetting": 0,
-                "date": "2026-08-18"
+                "date": "2026-08-19"
               }
             },
             {
@@ -185041,18 +192657,18 @@ window.DATA = {
                 "date": "2026-08-19"
               },
               "margin": {
-                "marginBuy": 6,
-                "marginSell": 18,
+                "marginBuy": 31,
+                "marginSell": 35,
                 "marginCashRedemption": 0,
-                "marginPrevBalance": 1249,
-                "marginBalance": 1237,
+                "marginPrevBalance": 1237,
+                "marginBalance": 1233,
                 "shortBuy": 0,
                 "shortSell": 0,
                 "shortStockRedemption": 0,
                 "shortPrevBalance": 23,
                 "shortBalance": 23,
-                "offsetting": 0,
-                "date": "2026-08-18"
+                "offsetting": 1,
+                "date": "2026-08-19"
               }
             },
             {
@@ -185080,18 +192696,18 @@ window.DATA = {
                 "date": "2026-08-19"
               },
               "margin": {
-                "marginBuy": 223,
-                "marginSell": 300,
-                "marginCashRedemption": 1,
-                "marginPrevBalance": 9774,
-                "marginBalance": 9696,
-                "shortBuy": 0,
+                "marginBuy": 128,
+                "marginSell": 72,
+                "marginCashRedemption": 0,
+                "marginPrevBalance": 9696,
+                "marginBalance": 9752,
+                "shortBuy": 7,
                 "shortSell": 0,
                 "shortStockRedemption": 0,
                 "shortPrevBalance": 21,
-                "shortBalance": 21,
-                "offsetting": 0,
-                "date": "2026-08-18"
+                "shortBalance": 14,
+                "offsetting": 1,
+                "date": "2026-08-19"
               }
             },
             {
@@ -185119,18 +192735,18 @@ window.DATA = {
                 "date": "2026-08-19"
               },
               "margin": {
-                "marginBuy": 650,
-                "marginSell": 647,
-                "marginCashRedemption": 1,
-                "marginPrevBalance": 38906,
-                "marginBalance": 38908,
-                "shortBuy": 44,
-                "shortSell": 27,
+                "marginBuy": 438,
+                "marginSell": 661,
+                "marginCashRedemption": 4,
+                "marginPrevBalance": 38908,
+                "marginBalance": 38681,
+                "shortBuy": 6,
+                "shortSell": 11,
                 "shortStockRedemption": 0,
-                "shortPrevBalance": 2445,
-                "shortBalance": 2428,
-                "offsetting": 4,
-                "date": "2026-08-18"
+                "shortPrevBalance": 2428,
+                "shortBalance": 2433,
+                "offsetting": 6,
+                "date": "2026-08-19"
               }
             },
             {
@@ -185158,18 +192774,18 @@ window.DATA = {
                 "date": "2026-08-19"
               },
               "margin": {
-                "marginBuy": 120,
-                "marginSell": 76,
-                "marginCashRedemption": 0,
-                "marginPrevBalance": 6858,
-                "marginBalance": 6902,
+                "marginBuy": 92,
+                "marginSell": 63,
+                "marginCashRedemption": 3,
+                "marginPrevBalance": 6902,
+                "marginBalance": 6928,
                 "shortBuy": 6,
-                "shortSell": 5,
+                "shortSell": 3,
                 "shortStockRedemption": 0,
-                "shortPrevBalance": 45,
-                "shortBalance": 44,
-                "offsetting": 0,
-                "date": "2026-08-18"
+                "shortPrevBalance": 44,
+                "shortBalance": 41,
+                "offsetting": 3,
+                "date": "2026-08-19"
               }
             },
             {
@@ -185197,18 +192813,18 @@ window.DATA = {
                 "date": "2026-08-19"
               },
               "margin": {
-                "marginBuy": 57,
-                "marginSell": 8,
-                "marginCashRedemption": 0,
-                "marginPrevBalance": 1102,
-                "marginBalance": 1151,
+                "marginBuy": 112,
+                "marginSell": 96,
+                "marginCashRedemption": 1,
+                "marginPrevBalance": 1151,
+                "marginBalance": 1166,
                 "shortBuy": 0,
-                "shortSell": 0,
-                "shortStockRedemption": 0,
+                "shortSell": 2,
+                "shortStockRedemption": 1,
                 "shortPrevBalance": 5,
-                "shortBalance": 5,
+                "shortBalance": 6,
                 "offsetting": 0,
-                "date": "2026-08-18"
+                "date": "2026-08-19"
               }
             },
             {
@@ -185236,18 +192852,18 @@ window.DATA = {
                 "date": "2026-08-19"
               },
               "margin": {
-                "marginBuy": 53,
-                "marginSell": 90,
+                "marginBuy": 62,
+                "marginSell": 29,
                 "marginCashRedemption": 0,
-                "marginPrevBalance": 2806,
-                "marginBalance": 2769,
+                "marginPrevBalance": 2769,
+                "marginBalance": 2802,
                 "shortBuy": 0,
                 "shortSell": 0,
                 "shortStockRedemption": 0,
                 "shortPrevBalance": 4,
                 "shortBalance": 4,
                 "offsetting": 0,
-                "date": "2026-08-18"
+                "date": "2026-08-19"
               }
             },
             {
@@ -185275,18 +192891,18 @@ window.DATA = {
                 "date": "2026-08-19"
               },
               "margin": {
-                "marginBuy": 579,
-                "marginSell": 537,
+                "marginBuy": 130,
+                "marginSell": 203,
                 "marginCashRedemption": 0,
-                "marginPrevBalance": 8878,
-                "marginBalance": 8920,
-                "shortBuy": 11,
-                "shortSell": 18,
+                "marginPrevBalance": 8920,
+                "marginBalance": 8847,
+                "shortBuy": 14,
+                "shortSell": 7,
                 "shortStockRedemption": 0,
-                "shortPrevBalance": 59,
-                "shortBalance": 66,
-                "offsetting": 6,
-                "date": "2026-08-18"
+                "shortPrevBalance": 66,
+                "shortBalance": 59,
+                "offsetting": 3,
+                "date": "2026-08-19"
               }
             },
             {
@@ -185314,18 +192930,18 @@ window.DATA = {
                 "date": "2026-08-19"
               },
               "margin": {
-                "marginBuy": 672,
-                "marginSell": 351,
-                "marginCashRedemption": 1,
-                "marginPrevBalance": 28652,
-                "marginBalance": 28972,
-                "shortBuy": 2,
-                "shortSell": 0,
+                "marginBuy": 451,
+                "marginSell": 1454,
+                "marginCashRedemption": 0,
+                "marginPrevBalance": 28972,
+                "marginBalance": 27969,
+                "shortBuy": 0,
+                "shortSell": 1,
                 "shortStockRedemption": 0,
-                "shortPrevBalance": 7,
-                "shortBalance": 5,
-                "offsetting": 2,
-                "date": "2026-08-18"
+                "shortPrevBalance": 5,
+                "shortBalance": 6,
+                "offsetting": 0,
+                "date": "2026-08-19"
               }
             },
             {
@@ -185353,18 +192969,18 @@ window.DATA = {
                 "date": "2026-08-19"
               },
               "margin": {
-                "marginBuy": 465,
-                "marginSell": 224,
+                "marginBuy": 200,
+                "marginSell": 271,
                 "marginCashRedemption": 0,
-                "marginPrevBalance": 5049,
-                "marginBalance": 5290,
-                "shortBuy": 41,
-                "shortSell": 6,
+                "marginPrevBalance": 5290,
+                "marginBalance": 5219,
+                "shortBuy": 6,
+                "shortSell": 1,
                 "shortStockRedemption": 0,
-                "shortPrevBalance": 44,
-                "shortBalance": 9,
+                "shortPrevBalance": 9,
+                "shortBalance": 4,
                 "offsetting": 3,
-                "date": "2026-08-18"
+                "date": "2026-08-19"
               }
             }
           ]
@@ -199246,6 +206862,1212 @@ window.DATA = {
               }
             }
           ]
+        },
+        {
+          "date": "2026-08-19",
+          "fetched_at": "2026-08-19T20:38:38+08:00",
+          "count": 31,
+          "self": {
+            "open": 32.03,
+            "high": 32.38,
+            "low": 31.92,
+            "close": 32.3,
+            "prevClose": 32.38,
+            "change": -0.08,
+            "changePct": -0.25,
+            "amplitude": 1.42,
+            "volume": 39841825.0,
+            "quoteDate": "2026-08-19"
+          },
+          "selfInstitutional": {
+            "foreign": -3914599,
+            "trust": 0,
+            "dealer": -8319146,
+            "total": -12233745,
+            "date": "2026-08-19"
+          },
+          "selfMargin": {
+            "marginBuy": 169,
+            "marginSell": 196,
+            "marginCashRedemption": 0,
+            "marginPrevBalance": 8110,
+            "marginBalance": 8083,
+            "shortBuy": 0,
+            "shortSell": 10,
+            "shortStockRedemption": 0,
+            "shortPrevBalance": 280,
+            "shortBalance": 290,
+            "offsetting": 0,
+            "date": "2026-08-19"
+          },
+          "holdings": [
+            {
+              "code": "2891",
+              "name": "中信金",
+              "market": "TW",
+              "assetType": "stock",
+              "weight": 9.74,
+              "shares": 913037000,
+              "open": 66.4,
+              "high": 66.4,
+              "low": 64.7,
+              "close": 64.9,
+              "prevClose": 66.5,
+              "change": -1.6,
+              "changePct": -2.41,
+              "amplitude": 2.56,
+              "volume": 34561497.0,
+              "quoteDate": "2026-08-19",
+              "inst": {
+                "foreign": -16472475,
+                "trust": -104000,
+                "dealer": 522051,
+                "total": -16054424,
+                "date": "2026-08-19"
+              },
+              "margin": {
+                "marginBuy": 400,
+                "marginSell": 6,
+                "marginCashRedemption": 1,
+                "marginPrevBalance": 3010,
+                "marginBalance": 3403,
+                "shortBuy": 7,
+                "shortSell": 4,
+                "shortStockRedemption": 0,
+                "shortPrevBalance": 49,
+                "shortBalance": 46,
+                "offsetting": 0,
+                "date": "2026-08-19"
+              }
+            },
+            {
+              "code": "2382",
+              "name": "廣達",
+              "market": "TW",
+              "assetType": "stock",
+              "weight": 9.63,
+              "shares": 177011000,
+              "open": 321.5,
+              "high": 333.5,
+              "low": 317.5,
+              "close": 331.0,
+              "prevClose": 327.0,
+              "change": 4.0,
+              "changePct": 1.22,
+              "amplitude": 4.89,
+              "volume": 16525261.0,
+              "quoteDate": "2026-08-19",
+              "inst": {
+                "foreign": 3227189,
+                "trust": -291167,
+                "dealer": -177193,
+                "total": 2758829,
+                "date": "2026-08-19"
+              },
+              "margin": {
+                "marginBuy": 265,
+                "marginSell": 439,
+                "marginCashRedemption": 3,
+                "marginPrevBalance": 16276,
+                "marginBalance": 16099,
+                "shortBuy": 9,
+                "shortSell": 14,
+                "shortStockRedemption": 0,
+                "shortPrevBalance": 70,
+                "shortBalance": 75,
+                "offsetting": 4,
+                "date": "2026-08-19"
+              }
+            },
+            {
+              "code": "2882",
+              "name": "國泰金",
+              "market": "TW",
+              "assetType": "stock",
+              "weight": 5.98,
+              "shares": 370440486,
+              "open": 99.2,
+              "high": 99.2,
+              "low": 98.0,
+              "close": 98.3,
+              "prevClose": 99.2,
+              "change": -0.9,
+              "changePct": -0.91,
+              "amplitude": 1.21,
+              "volume": 11073498.0,
+              "quoteDate": "2026-08-19",
+              "inst": {
+                "foreign": -890660,
+                "trust": 0,
+                "dealer": -1038095,
+                "total": -1928755,
+                "date": "2026-08-19"
+              },
+              "margin": {
+                "marginBuy": 132,
+                "marginSell": 14,
+                "marginCashRedemption": 13,
+                "marginPrevBalance": 4086,
+                "marginBalance": 4191,
+                "shortBuy": 9,
+                "shortSell": 0,
+                "shortStockRedemption": 0,
+                "shortPrevBalance": 210,
+                "shortBalance": 201,
+                "offsetting": 0,
+                "date": "2026-08-19"
+              }
+            },
+            {
+              "code": "2357",
+              "name": "華碩",
+              "market": "TW",
+              "assetType": "stock",
+              "weight": 5.9,
+              "shares": 38830000,
+              "open": 896.0,
+              "high": 925.0,
+              "low": 891.0,
+              "close": 925.0,
+              "prevClose": 910.0,
+              "change": 15.0,
+              "changePct": 1.65,
+              "amplitude": 3.74,
+              "volume": 2985654.0,
+              "quoteDate": "2026-08-19",
+              "inst": {
+                "foreign": -15576,
+                "trust": -41341,
+                "dealer": -74952,
+                "total": -131869,
+                "date": "2026-08-19"
+              },
+              "margin": {
+                "marginBuy": 127,
+                "marginSell": 36,
+                "marginCashRedemption": 1,
+                "marginPrevBalance": 1541,
+                "marginBalance": 1631,
+                "shortBuy": 2,
+                "shortSell": 5,
+                "shortStockRedemption": 0,
+                "shortPrevBalance": 40,
+                "shortBalance": 43,
+                "offsetting": 1,
+                "date": "2026-08-19"
+              }
+            },
+            {
+              "code": "2603",
+              "name": "長榮",
+              "market": "TW",
+              "assetType": "stock",
+              "weight": 4.31,
+              "shares": 109122000,
+              "open": 236.0,
+              "high": 240.5,
+              "low": 232.0,
+              "close": 240.5,
+              "prevClose": 238.0,
+              "change": 2.5,
+              "changePct": 1.05,
+              "amplitude": 3.57,
+              "volume": 20579536.0,
+              "quoteDate": "2026-08-19",
+              "inst": {
+                "foreign": 8541302,
+                "trust": 6000,
+                "dealer": -843024,
+                "total": 7704278,
+                "date": "2026-08-19"
+              },
+              "margin": {
+                "marginBuy": 854,
+                "marginSell": 596,
+                "marginCashRedemption": 124,
+                "marginPrevBalance": 13545,
+                "marginBalance": 13679,
+                "shortBuy": 81,
+                "shortSell": 39,
+                "shortStockRedemption": 0,
+                "shortPrevBalance": 418,
+                "shortBalance": 376,
+                "offsetting": 5,
+                "date": "2026-08-19"
+              }
+            },
+            {
+              "code": "2887",
+              "name": "台新新光金",
+              "market": "TW",
+              "assetType": "stock",
+              "weight": 3.6,
+              "shares": 602716270,
+              "open": 36.85,
+              "high": 36.85,
+              "low": 36.0,
+              "close": 36.4,
+              "prevClose": 36.9,
+              "change": -0.5,
+              "changePct": -1.36,
+              "amplitude": 2.3,
+              "volume": 70118504.0,
+              "quoteDate": "2026-08-19",
+              "inst": {
+                "foreign": -29823211,
+                "trust": 21897000,
+                "dealer": -813762,
+                "total": -8739973,
+                "date": "2026-08-19"
+              },
+              "margin": {
+                "marginBuy": 501,
+                "marginSell": 181,
+                "marginCashRedemption": 15,
+                "marginPrevBalance": 40462,
+                "marginBalance": 40767,
+                "shortBuy": 649,
+                "shortSell": 24,
+                "shortStockRedemption": 0,
+                "shortPrevBalance": 751,
+                "shortBalance": 126,
+                "offsetting": 42,
+                "date": "2026-08-19"
+              }
+            },
+            {
+              "code": "2303",
+              "name": "聯電",
+              "market": "TW",
+              "assetType": "stock",
+              "weight": 3.55,
+              "shares": 187201000,
+              "open": 115.0,
+              "high": 117.0,
+              "low": 113.5,
+              "close": 115.5,
+              "prevClose": 119.0,
+              "change": -3.5,
+              "changePct": -2.94,
+              "amplitude": 2.94,
+              "volume": 110337394.0,
+              "quoteDate": "2026-08-19",
+              "inst": {
+                "foreign": 7800989,
+                "trust": -20973000,
+                "dealer": -5796260,
+                "total": -18968271,
+                "date": "2026-08-19"
+              },
+              "margin": {
+                "marginBuy": 3549,
+                "marginSell": 7905,
+                "marginCashRedemption": 47,
+                "marginPrevBalance": 159472,
+                "marginBalance": 155069,
+                "shortBuy": 235,
+                "shortSell": 463,
+                "shortStockRedemption": 0,
+                "shortPrevBalance": 2554,
+                "shortBalance": 2782,
+                "offsetting": 25,
+                "date": "2026-08-19"
+              }
+            },
+            {
+              "code": "2379",
+              "name": "瑞昱",
+              "market": "TW",
+              "assetType": "stock",
+              "weight": 3.3,
+              "shares": 27239000,
+              "open": 696.0,
+              "high": 746.0,
+              "low": 692.0,
+              "close": 738.0,
+              "prevClose": 707.0,
+              "change": 31.0,
+              "changePct": 4.38,
+              "amplitude": 7.64,
+              "volume": 3984481.0,
+              "quoteDate": "2026-08-19",
+              "inst": {
+                "foreign": 638638,
+                "trust": 71000,
+                "dealer": 141475,
+                "total": 851113,
+                "date": "2026-08-19"
+              },
+              "margin": {
+                "marginBuy": 73,
+                "marginSell": 81,
+                "marginCashRedemption": 0,
+                "marginPrevBalance": 2547,
+                "marginBalance": 2539,
+                "shortBuy": 10,
+                "shortSell": 24,
+                "shortStockRedemption": 0,
+                "shortPrevBalance": 31,
+                "shortBalance": 45,
+                "offsetting": 1,
+                "date": "2026-08-19"
+              }
+            },
+            {
+              "code": "2454",
+              "name": "聯發科",
+              "market": "TW",
+              "assetType": "stock",
+              "weight": 3.2,
+              "shares": 5062000,
+              "open": 3750.0,
+              "high": 3910.0,
+              "low": 3750.0,
+              "close": 3845.0,
+              "prevClose": 3885.0,
+              "change": -40.0,
+              "changePct": -1.03,
+              "amplitude": 4.12,
+              "volume": 7036521.0,
+              "quoteDate": "2026-08-19",
+              "inst": {
+                "foreign": -216230,
+                "trust": -1046250,
+                "dealer": -265132,
+                "total": -1527612,
+                "date": "2026-08-19"
+              },
+              "margin": {
+                "marginBuy": 292,
+                "marginSell": 151,
+                "marginCashRedemption": 4,
+                "marginPrevBalance": 9393,
+                "marginBalance": 9530,
+                "shortBuy": 15,
+                "shortSell": 14,
+                "shortStockRedemption": 0,
+                "shortPrevBalance": 50,
+                "shortBalance": 49,
+                "offsetting": 1,
+                "date": "2026-08-19"
+              }
+            },
+            {
+              "code": "2880",
+              "name": "華南金",
+              "market": "TW",
+              "assetType": "stock",
+              "weight": 2.92,
+              "shares": 456296250,
+              "open": 39.55,
+              "high": 39.7,
+              "low": 38.65,
+              "close": 39.0,
+              "prevClose": 39.7,
+              "change": -0.7,
+              "changePct": -1.76,
+              "amplitude": 2.64,
+              "volume": 24299348.0,
+              "quoteDate": "2026-08-19",
+              "inst": {
+                "foreign": -5691385,
+                "trust": 3974000,
+                "dealer": -6841,
+                "total": -1724226,
+                "date": "2026-08-19"
+              },
+              "margin": {
+                "marginBuy": 760,
+                "marginSell": 144,
+                "marginCashRedemption": 0,
+                "marginPrevBalance": 1989,
+                "marginBalance": 2605,
+                "shortBuy": 26,
+                "shortSell": 0,
+                "shortStockRedemption": 0,
+                "shortPrevBalance": 36,
+                "shortBalance": 10,
+                "offsetting": 33,
+                "date": "2026-08-19"
+              }
+            },
+            {
+              "code": "2301",
+              "name": "光寶科",
+              "market": "TW",
+              "assetType": "stock",
+              "weight": 2.88,
+              "shares": 64092000,
+              "open": 268.0,
+              "high": 282.0,
+              "low": 265.0,
+              "close": 273.5,
+              "prevClose": 273.5,
+              "change": 0.0,
+              "changePct": 0.0,
+              "amplitude": 6.22,
+              "volume": 35191145.0,
+              "quoteDate": "2026-08-19",
+              "inst": {
+                "foreign": -936729,
+                "trust": 640000,
+                "dealer": -238070,
+                "total": -534799,
+                "date": "2026-08-19"
+              },
+              "margin": {
+                "marginBuy": 3674,
+                "marginSell": 2071,
+                "marginCashRedemption": 0,
+                "marginPrevBalance": 13778,
+                "marginBalance": 15381,
+                "shortBuy": 0,
+                "shortSell": 126,
+                "shortStockRedemption": 0,
+                "shortPrevBalance": 0,
+                "shortBalance": 126,
+                "offsetting": 282,
+                "date": "2026-08-19"
+              }
+            },
+            {
+              "code": "2881",
+              "name": "富邦金",
+              "market": "TW",
+              "assetType": "stock",
+              "weight": 2.79,
+              "shares": 131951945,
+              "open": 129.0,
+              "high": 129.5,
+              "low": 127.5,
+              "close": 128.5,
+              "prevClose": 129.5,
+              "change": -1.0,
+              "changePct": -0.77,
+              "amplitude": 1.54,
+              "volume": 12785616.0,
+              "quoteDate": "2026-08-19",
+              "inst": {
+                "foreign": 836335,
+                "trust": -372000,
+                "dealer": -408244,
+                "total": 56091,
+                "date": "2026-08-19"
+              },
+              "margin": {
+                "marginBuy": 135,
+                "marginSell": 56,
+                "marginCashRedemption": 0,
+                "marginPrevBalance": 6157,
+                "marginBalance": 6236,
+                "shortBuy": 8,
+                "shortSell": 1,
+                "shortStockRedemption": 0,
+                "shortPrevBalance": 189,
+                "shortBalance": 182,
+                "offsetting": 0,
+                "date": "2026-08-19"
+              }
+            },
+            {
+              "code": "2886",
+              "name": "兆豐金",
+              "market": "TW",
+              "assetType": "stock",
+              "weight": 2.78,
+              "shares": 360120964,
+              "open": 46.9,
+              "high": 47.05,
+              "low": 46.3,
+              "close": 47.05,
+              "prevClose": 46.9,
+              "change": 0.15,
+              "changePct": 0.32,
+              "amplitude": 1.6,
+              "volume": 25322496.0,
+              "quoteDate": "2026-08-19",
+              "inst": {
+                "foreign": 12062381,
+                "trust": 3285000,
+                "dealer": -783139,
+                "total": 14564242,
+                "date": "2026-08-19"
+              },
+              "margin": {
+                "marginBuy": 47,
+                "marginSell": 27,
+                "marginCashRedemption": 0,
+                "marginPrevBalance": 2109,
+                "marginBalance": 2129,
+                "shortBuy": 2,
+                "shortSell": 4,
+                "shortStockRedemption": 0,
+                "shortPrevBalance": 16,
+                "shortBalance": 18,
+                "offsetting": 0,
+                "date": "2026-08-19"
+              }
+            },
+            {
+              "code": "3034",
+              "name": "聯詠",
+              "market": "TW",
+              "assetType": "stock",
+              "weight": 2.75,
+              "shares": 31356000,
+              "open": 504.0,
+              "high": 535.0,
+              "low": 501.0,
+              "close": 534.0,
+              "prevClose": 505.0,
+              "change": 29.0,
+              "changePct": 5.74,
+              "amplitude": 6.73,
+              "volume": 4731319.0,
+              "quoteDate": "2026-08-19",
+              "inst": {
+                "foreign": 1250910,
+                "trust": 66000,
+                "dealer": 82541,
+                "total": 1399451,
+                "date": "2026-08-19"
+              },
+              "margin": {
+                "marginBuy": 41,
+                "marginSell": 93,
+                "marginCashRedemption": 0,
+                "marginPrevBalance": 2711,
+                "marginBalance": 2659,
+                "shortBuy": 6,
+                "shortSell": 69,
+                "shortStockRedemption": 0,
+                "shortPrevBalance": 242,
+                "shortBalance": 305,
+                "offsetting": 0,
+                "date": "2026-08-19"
+              }
+            },
+            {
+              "code": "1216",
+              "name": "統一",
+              "market": "TW",
+              "assetType": "stock",
+              "weight": 2.54,
+              "shares": 199761000,
+              "open": 76.2,
+              "high": 77.5,
+              "low": 75.6,
+              "close": 77.5,
+              "prevClose": 76.2,
+              "change": 1.3,
+              "changePct": 1.71,
+              "amplitude": 2.49,
+              "volume": 16977370.0,
+              "quoteDate": "2026-08-19",
+              "inst": {
+                "foreign": 13274283,
+                "trust": -539000,
+                "dealer": -643234,
+                "total": 12092049,
+                "date": "2026-08-19"
+              },
+              "margin": {
+                "marginBuy": 26,
+                "marginSell": 114,
+                "marginCashRedemption": 0,
+                "marginPrevBalance": 1031,
+                "marginBalance": 943,
+                "shortBuy": 0,
+                "shortSell": 1,
+                "shortStockRedemption": 0,
+                "shortPrevBalance": 1,
+                "shortBalance": 2,
+                "offsetting": 1,
+                "date": "2026-08-19"
+              }
+            },
+            {
+              "code": "3711",
+              "name": "日月光投控",
+              "market": "TW",
+              "assetType": "stock",
+              "weight": 2.53,
+              "shares": 26219000,
+              "open": 568.0,
+              "high": 596.0,
+              "low": 564.0,
+              "close": 588.0,
+              "prevClose": 599.0,
+              "change": -11.0,
+              "changePct": -1.84,
+              "amplitude": 5.34,
+              "volume": 22448357.0,
+              "quoteDate": "2026-08-19",
+              "inst": {
+                "foreign": 2323531,
+                "trust": -3324000,
+                "dealer": -127734,
+                "total": -1128203,
+                "date": "2026-08-19"
+              },
+              "margin": {
+                "marginBuy": 371,
+                "marginSell": 188,
+                "marginCashRedemption": 3,
+                "marginPrevBalance": 11681,
+                "marginBalance": 11861,
+                "shortBuy": 29,
+                "shortSell": 102,
+                "shortStockRedemption": 0,
+                "shortPrevBalance": 183,
+                "shortBalance": 256,
+                "offsetting": 6,
+                "date": "2026-08-19"
+              }
+            },
+            {
+              "code": "3231",
+              "name": "緯創",
+              "market": "TW",
+              "assetType": "stock",
+              "weight": 2.48,
+              "shares": 83020000,
+              "open": 177.0,
+              "high": 182.0,
+              "low": 175.0,
+              "close": 182.0,
+              "prevClose": 181.0,
+              "change": 1.0,
+              "changePct": 0.55,
+              "amplitude": 3.87,
+              "volume": 28162708.0,
+              "quoteDate": "2026-08-19",
+              "inst": {
+                "foreign": -3046833,
+                "trust": 1039000,
+                "dealer": -893467,
+                "total": -2901300,
+                "date": "2026-08-19"
+              },
+              "margin": {
+                "marginBuy": 2116,
+                "marginSell": 1281,
+                "marginCashRedemption": 1,
+                "marginPrevBalance": 37557,
+                "marginBalance": 38391,
+                "shortBuy": 91,
+                "shortSell": 187,
+                "shortStockRedemption": 0,
+                "shortPrevBalance": 708,
+                "shortBalance": 804,
+                "offsetting": 22,
+                "date": "2026-08-19"
+              }
+            },
+            {
+              "code": "5347",
+              "name": "世界",
+              "market": "TW",
+              "assetType": "stock",
+              "weight": 2.45,
+              "shares": 98298442,
+              "open": 149.0,
+              "high": 152.5,
+              "low": 147.5,
+              "close": 151.5,
+              "prevClose": 155.0,
+              "change": -3.5,
+              "changePct": -2.26,
+              "amplitude": 3.23,
+              "volume": 20960649.0,
+              "quoteDate": "2026-08-19",
+              "margin": {
+                "marginBuy": 364,
+                "marginSell": 498,
+                "marginCashRedemption": 1,
+                "marginPrevBalance": 12403,
+                "marginBalance": 12268,
+                "shortBuy": 29,
+                "shortSell": 41,
+                "shortStockRedemption": 0,
+                "shortPrevBalance": 247,
+                "shortBalance": 235,
+                "offsetting": 4,
+                "date": "2026-08-19"
+              }
+            },
+            {
+              "code": "3045",
+              "name": "台灣大",
+              "market": "TW",
+              "assetType": "stock",
+              "weight": 2.44,
+              "shares": 131081000,
+              "open": 112.0,
+              "high": 113.5,
+              "low": 111.5,
+              "close": 113.5,
+              "prevClose": 111.0,
+              "change": 2.5,
+              "changePct": 2.25,
+              "amplitude": 1.8,
+              "volume": 26629390.0,
+              "quoteDate": "2026-08-19",
+              "inst": {
+                "foreign": 18646206,
+                "trust": 51000,
+                "dealer": -458967,
+                "total": 18238239,
+                "date": "2026-08-19"
+              },
+              "margin": {
+                "marginBuy": 37,
+                "marginSell": 885,
+                "marginCashRedemption": 0,
+                "marginPrevBalance": 1543,
+                "marginBalance": 695,
+                "shortBuy": 0,
+                "shortSell": 340,
+                "shortStockRedemption": 0,
+                "shortPrevBalance": 126,
+                "shortBalance": 466,
+                "offsetting": 0,
+                "date": "2026-08-19"
+              }
+            },
+            {
+              "code": "2885",
+              "name": "元大金",
+              "market": "TW",
+              "assetType": "stock",
+              "weight": 2.43,
+              "shares": 236458056,
+              "open": 63.9,
+              "high": 63.9,
+              "low": 62.1,
+              "close": 62.5,
+              "prevClose": 64.0,
+              "change": -1.5,
+              "changePct": -2.34,
+              "amplitude": 2.81,
+              "volume": 44748181.0,
+              "quoteDate": "2026-08-19",
+              "inst": {
+                "foreign": -19453031,
+                "trust": 436000,
+                "dealer": -154064,
+                "total": -19171095,
+                "date": "2026-08-19"
+              },
+              "margin": {
+                "marginBuy": 432,
+                "marginSell": 23,
+                "marginCashRedemption": 2,
+                "marginPrevBalance": 2253,
+                "marginBalance": 2660,
+                "shortBuy": 0,
+                "shortSell": 0,
+                "shortStockRedemption": 0,
+                "shortPrevBalance": 0,
+                "shortBalance": 0,
+                "offsetting": 0,
+                "date": "2026-08-19"
+              }
+            },
+            {
+              "code": "4904",
+              "name": "遠傳",
+              "market": "TW",
+              "assetType": "stock",
+              "weight": 2.42,
+              "shares": 145204000,
+              "open": 101.0,
+              "high": 102.0,
+              "low": 100.5,
+              "close": 101.5,
+              "prevClose": 101.5,
+              "change": 0.0,
+              "changePct": 0.0,
+              "amplitude": 1.48,
+              "volume": 4101489.0,
+              "quoteDate": "2026-08-19",
+              "inst": {
+                "foreign": 1048338,
+                "trust": 88000,
+                "dealer": 152983,
+                "total": 1289321,
+                "date": "2026-08-19"
+              },
+              "margin": {
+                "marginBuy": 4,
+                "marginSell": 2,
+                "marginCashRedemption": 0,
+                "marginPrevBalance": 1077,
+                "marginBalance": 1079,
+                "shortBuy": 0,
+                "shortSell": 0,
+                "shortStockRedemption": 0,
+                "shortPrevBalance": 14,
+                "shortBalance": 14,
+                "offsetting": 0,
+                "date": "2026-08-19"
+              }
+            },
+            {
+              "code": "2412",
+              "name": "中華電",
+              "market": "TW",
+              "assetType": "stock",
+              "weight": 2.21,
+              "shares": 99033000,
+              "open": 136.5,
+              "high": 137.0,
+              "low": 136.0,
+              "close": 136.0,
+              "prevClose": 137.0,
+              "change": -1.0,
+              "changePct": -0.73,
+              "amplitude": 0.73,
+              "volume": 7120614.0,
+              "quoteDate": "2026-08-19",
+              "inst": {
+                "foreign": -1119614,
+                "trust": -63000,
+                "dealer": -42133,
+                "total": -1224747,
+                "date": "2026-08-19"
+              },
+              "margin": {
+                "marginBuy": 35,
+                "marginSell": 58,
+                "marginCashRedemption": 0,
+                "marginPrevBalance": 1781,
+                "marginBalance": 1758,
+                "shortBuy": 0,
+                "shortSell": 0,
+                "shortStockRedemption": 0,
+                "shortPrevBalance": 27,
+                "shortBalance": 27,
+                "offsetting": 0,
+                "date": "2026-08-19"
+              }
+            },
+            {
+              "code": "4958",
+              "name": "臻鼎-KY",
+              "market": "TW",
+              "assetType": "stock",
+              "weight": 2.17,
+              "shares": 28901000,
+              "open": 451.0,
+              "high": 476.5,
+              "low": 451.0,
+              "close": 457.0,
+              "prevClose": 474.0,
+              "change": -17.0,
+              "changePct": -3.59,
+              "amplitude": 5.38,
+              "volume": 30182657.0,
+              "quoteDate": "2026-08-19",
+              "inst": {
+                "foreign": -3215170,
+                "trust": -1481000,
+                "dealer": -241456,
+                "total": -4937626,
+                "date": "2026-08-19"
+              },
+              "margin": {
+                "marginBuy": 1262,
+                "marginSell": 1893,
+                "marginCashRedemption": 9,
+                "marginPrevBalance": 34869,
+                "marginBalance": 34229,
+                "shortBuy": 161,
+                "shortSell": 58,
+                "shortStockRedemption": 0,
+                "shortPrevBalance": 417,
+                "shortBalance": 314,
+                "offsetting": 43,
+                "date": "2026-08-19"
+              }
+            },
+            {
+              "code": "2376",
+              "name": "技嘉",
+              "market": "TW",
+              "assetType": "stock",
+              "weight": 2.03,
+              "shares": 35510000,
+              "open": 343.0,
+              "high": 352.5,
+              "low": 339.0,
+              "close": 348.5,
+              "prevClose": 348.0,
+              "change": 0.5,
+              "changePct": 0.14,
+              "amplitude": 3.88,
+              "volume": 6754187.0,
+              "quoteDate": "2026-08-19",
+              "inst": {
+                "foreign": -1993240,
+                "trust": 497000,
+                "dealer": 236633,
+                "total": -1259607,
+                "date": "2026-08-19"
+              },
+              "margin": {
+                "marginBuy": 313,
+                "marginSell": 281,
+                "marginCashRedemption": 1,
+                "marginPrevBalance": 6839,
+                "marginBalance": 6870,
+                "shortBuy": 34,
+                "shortSell": 13,
+                "shortStockRedemption": 0,
+                "shortPrevBalance": 171,
+                "shortBalance": 150,
+                "offsetting": 2,
+                "date": "2026-08-19"
+              }
+            },
+            {
+              "code": "2356",
+              "name": "英業達",
+              "market": "TW",
+              "assetType": "stock",
+              "weight": 2.02,
+              "shares": 188603000,
+              "open": 63.6,
+              "high": 65.3,
+              "low": 63.3,
+              "close": 65.2,
+              "prevClose": 64.9,
+              "change": 0.3,
+              "changePct": 0.46,
+              "amplitude": 3.08,
+              "volume": 15165045.0,
+              "quoteDate": "2026-08-19",
+              "inst": {
+                "foreign": 821004,
+                "trust": -25000,
+                "dealer": -204583,
+                "total": 591421,
+                "date": "2026-08-19"
+              },
+              "margin": {
+                "marginBuy": 301,
+                "marginSell": 652,
+                "marginCashRedemption": 2,
+                "marginPrevBalance": 28372,
+                "marginBalance": 28019,
+                "shortBuy": 43,
+                "shortSell": 56,
+                "shortStockRedemption": 0,
+                "shortPrevBalance": 441,
+                "shortBalance": 454,
+                "offsetting": 3,
+                "date": "2026-08-19"
+              }
+            },
+            {
+              "code": "",
+              "name": "台股期貨",
+              "market": "",
+              "assetType": "future",
+              "weight": 1.99,
+              "quantity": null,
+              "unit": "口",
+              "amount": null
+            },
+            {
+              "code": "2912",
+              "name": "統一超",
+              "market": "TW",
+              "assetType": "stock",
+              "weight": 1.96,
+              "shares": 54488000,
+              "open": 215.0,
+              "high": 218.5,
+              "low": 213.5,
+              "close": 218.5,
+              "prevClose": 215.0,
+              "change": 3.5,
+              "changePct": 1.63,
+              "amplitude": 2.33,
+              "volume": 2623132.0,
+              "quoteDate": "2026-08-19",
+              "inst": {
+                "foreign": 1607825,
+                "trust": 1000,
+                "dealer": -19771,
+                "total": 1589054,
+                "date": "2026-08-19"
+              },
+              "margin": {
+                "marginBuy": 8,
+                "marginSell": 114,
+                "marginCashRedemption": 17,
+                "marginPrevBalance": 815,
+                "marginBalance": 692,
+                "shortBuy": 0,
+                "shortSell": 0,
+                "shortStockRedemption": 0,
+                "shortPrevBalance": 0,
+                "shortBalance": 0,
+                "offsetting": 0,
+                "date": "2026-08-19"
+              }
+            },
+            {
+              "code": "2618",
+              "name": "長榮航",
+              "market": "TW",
+              "assetType": "stock",
+              "weight": 1.86,
+              "shares": 272189000,
+              "open": 41.75,
+              "high": 41.85,
+              "low": 41.05,
+              "close": 41.6,
+              "prevClose": 41.9,
+              "change": -0.3,
+              "changePct": -0.72,
+              "amplitude": 1.91,
+              "volume": 17734556.0,
+              "quoteDate": "2026-08-19",
+              "inst": {
+                "foreign": 2892631,
+                "trust": 53000,
+                "dealer": -1473771,
+                "total": 1471860,
+                "date": "2026-08-19"
+              },
+              "margin": {
+                "marginBuy": 284,
+                "marginSell": 278,
+                "marginCashRedemption": 50,
+                "marginPrevBalance": 23531,
+                "marginBalance": 23487,
+                "shortBuy": 42,
+                "shortSell": 16,
+                "shortStockRedemption": 0,
+                "shortPrevBalance": 685,
+                "shortBalance": 659,
+                "offsetting": 3,
+                "date": "2026-08-19"
+              }
+            },
+            {
+              "code": "5876",
+              "name": "上海商銀",
+              "market": "TW",
+              "assetType": "stock",
+              "weight": 1.84,
+              "shares": 257999845,
+              "open": 42.85,
+              "high": 43.55,
+              "low": 42.35,
+              "close": 43.5,
+              "prevClose": 43.2,
+              "change": 0.3,
+              "changePct": 0.69,
+              "amplitude": 2.78,
+              "volume": 7353841.0,
+              "quoteDate": "2026-08-19",
+              "inst": {
+                "foreign": 2051391,
+                "trust": 185000,
+                "dealer": -227799,
+                "total": 2008592,
+                "date": "2026-08-19"
+              },
+              "margin": {
+                "marginBuy": 1,
+                "marginSell": 42,
+                "marginCashRedemption": 0,
+                "marginPrevBalance": 745,
+                "marginBalance": 704,
+                "shortBuy": 0,
+                "shortSell": 5,
+                "shortStockRedemption": 0,
+                "shortPrevBalance": 1,
+                "shortBalance": 6,
+                "offsetting": 0,
+                "date": "2026-08-19"
+              }
+            },
+            {
+              "code": "5871",
+              "name": "中租-KY",
+              "market": "TW",
+              "assetType": "stock",
+              "weight": 1.64,
+              "shares": 91230061,
+              "open": 108.5,
+              "high": 110.0,
+              "low": 108.5,
+              "close": 109.5,
+              "prevClose": 109.5,
+              "change": 0.0,
+              "changePct": 0.0,
+              "amplitude": 1.37,
+              "volume": 2897216.0,
+              "quoteDate": "2026-08-19",
+              "inst": {
+                "foreign": 547225,
+                "trust": -13000,
+                "dealer": -131316,
+                "total": 402909,
+                "date": "2026-08-19"
+              },
+              "margin": {
+                "marginBuy": 63,
+                "marginSell": 106,
+                "marginCashRedemption": 10,
+                "marginPrevBalance": 4375,
+                "marginBalance": 4322,
+                "shortBuy": 0,
+                "shortSell": 1,
+                "shortStockRedemption": 0,
+                "shortPrevBalance": 2,
+                "shortBalance": 3,
+                "offsetting": 0,
+                "date": "2026-08-19"
+              }
+            },
+            {
+              "code": "3293",
+              "name": "鈊象",
+              "market": "TW",
+              "assetType": "stock",
+              "weight": 1.63,
+              "shares": 13241000,
+              "open": 742.0,
+              "high": 763.0,
+              "low": 733.0,
+              "close": 749.0,
+              "prevClose": 742.0,
+              "change": 7.0,
+              "changePct": 0.94,
+              "amplitude": 4.04,
+              "volume": 2246442.0,
+              "quoteDate": "2026-08-19",
+              "margin": {
+                "marginBuy": 47,
+                "marginSell": 48,
+                "marginCashRedemption": 1,
+                "marginPrevBalance": 2208,
+                "marginBalance": 2206,
+                "shortBuy": 0,
+                "shortSell": 1,
+                "shortStockRedemption": 0,
+                "shortPrevBalance": 8,
+                "shortBalance": 7,
+                "offsetting": 0,
+                "date": "2026-08-19"
+              }
+            }
+          ]
         }
       ],
       "dividends": [
@@ -213058,7 +221880,7 @@ window.DATA = {
         },
         {
           "date": "2026-08-19",
-          "fetched_at": "2026-08-19T19:53:20+08:00",
+          "fetched_at": "2026-08-19T20:38:40+08:00",
           "count": 31,
           "self": {
             "open": 48.24,
@@ -213079,7 +221901,20 @@ window.DATA = {
             "total": -27729545,
             "date": "2026-08-19"
           },
-          "selfMargin": null,
+          "selfMargin": {
+            "marginBuy": 548,
+            "marginSell": 443,
+            "marginCashRedemption": 10,
+            "marginPrevBalance": 9736,
+            "marginBalance": 9831,
+            "shortBuy": 16,
+            "shortSell": 1,
+            "shortStockRedemption": 0,
+            "shortPrevBalance": 690,
+            "shortBalance": 675,
+            "offsetting": 15,
+            "date": "2026-08-19"
+          },
           "holdings": [
             {
               "code": "2330",
@@ -213106,18 +221941,18 @@ window.DATA = {
                 "date": "2026-08-19"
               },
               "margin": {
-                "marginBuy": 456,
-                "marginSell": 304,
-                "marginCashRedemption": 23,
-                "marginPrevBalance": 27727,
-                "marginBalance": 27856,
-                "shortBuy": 5,
-                "shortSell": 6,
-                "shortStockRedemption": 1,
+                "marginBuy": 800,
+                "marginSell": 224,
+                "marginCashRedemption": 10,
+                "marginPrevBalance": 27856,
+                "marginBalance": 28422,
+                "shortBuy": 9,
+                "shortSell": 2,
+                "shortStockRedemption": 0,
                 "shortPrevBalance": 36,
-                "shortBalance": 36,
+                "shortBalance": 29,
                 "offsetting": 0,
-                "date": "2026-08-18"
+                "date": "2026-08-19"
               }
             },
             {
@@ -213139,24 +221974,24 @@ window.DATA = {
               "quoteDate": "2026-08-19",
               "inst": {
                 "foreign": -216230,
-                "trust": -372250,
+                "trust": -1046250,
                 "dealer": -265132,
-                "total": -853612,
+                "total": -1527612,
                 "date": "2026-08-19"
               },
               "margin": {
-                "marginBuy": 392,
-                "marginSell": 568,
+                "marginBuy": 292,
+                "marginSell": 151,
                 "marginCashRedemption": 4,
-                "marginPrevBalance": 9573,
-                "marginBalance": 9393,
-                "shortBuy": 14,
-                "shortSell": 4,
+                "marginPrevBalance": 9393,
+                "marginBalance": 9530,
+                "shortBuy": 15,
+                "shortSell": 14,
                 "shortStockRedemption": 0,
-                "shortPrevBalance": 60,
-                "shortBalance": 50,
+                "shortPrevBalance": 50,
+                "shortBalance": 49,
                 "offsetting": 1,
-                "date": "2026-08-18"
+                "date": "2026-08-19"
               }
             },
             {
@@ -213184,18 +222019,18 @@ window.DATA = {
                 "date": "2026-08-19"
               },
               "margin": {
-                "marginBuy": 408,
-                "marginSell": 387,
-                "marginCashRedemption": 9,
-                "marginPrevBalance": 8000,
-                "marginBalance": 8012,
-                "shortBuy": 8,
-                "shortSell": 9,
+                "marginBuy": 433,
+                "marginSell": 424,
+                "marginCashRedemption": 1,
+                "marginPrevBalance": 8012,
+                "marginBalance": 8020,
+                "shortBuy": 22,
+                "shortSell": 5,
                 "shortStockRedemption": 0,
-                "shortPrevBalance": 56,
-                "shortBalance": 57,
-                "offsetting": 5,
-                "date": "2026-08-18"
+                "shortPrevBalance": 57,
+                "shortBalance": 40,
+                "offsetting": 0,
+                "date": "2026-08-19"
               }
             },
             {
@@ -213223,18 +222058,18 @@ window.DATA = {
                 "date": "2026-08-19"
               },
               "margin": {
-                "marginBuy": 1650,
-                "marginSell": 1405,
-                "marginCashRedemption": 35,
-                "marginPrevBalance": 51454,
-                "marginBalance": 51664,
-                "shortBuy": 86,
-                "shortSell": 45,
+                "marginBuy": 874,
+                "marginSell": 701,
+                "marginCashRedemption": 5,
+                "marginPrevBalance": 51664,
+                "marginBalance": 51832,
+                "shortBuy": 64,
+                "shortSell": 20,
                 "shortStockRedemption": 0,
-                "shortPrevBalance": 608,
-                "shortBalance": 567,
-                "offsetting": 4,
-                "date": "2026-08-18"
+                "shortPrevBalance": 567,
+                "shortBalance": 523,
+                "offsetting": 5,
+                "date": "2026-08-19"
               }
             },
             {
@@ -213262,18 +222097,18 @@ window.DATA = {
                 "date": "2026-08-19"
               },
               "margin": {
-                "marginBuy": 1693,
-                "marginSell": 2780,
-                "marginCashRedemption": 2,
-                "marginPrevBalance": 37857,
-                "marginBalance": 36768,
-                "shortBuy": 71,
-                "shortSell": 114,
-                "shortStockRedemption": 16,
-                "shortPrevBalance": 903,
-                "shortBalance": 930,
-                "offsetting": 34,
-                "date": "2026-08-18"
+                "marginBuy": 1398,
+                "marginSell": 917,
+                "marginCashRedemption": 3,
+                "marginPrevBalance": 36768,
+                "marginBalance": 37246,
+                "shortBuy": 142,
+                "shortSell": 56,
+                "shortStockRedemption": 47,
+                "shortPrevBalance": 930,
+                "shortBalance": 797,
+                "offsetting": 31,
+                "date": "2026-08-19"
               }
             },
             {
@@ -213295,24 +222130,24 @@ window.DATA = {
               "quoteDate": "2026-08-19",
               "inst": {
                 "foreign": -102444,
-                "trust": 19000,
+                "trust": 19412,
                 "dealer": 6370,
-                "total": -77074,
+                "total": -76662,
                 "date": "2026-08-19"
               },
               "margin": {
-                "marginBuy": 50,
-                "marginSell": 59,
-                "marginCashRedemption": 1,
-                "marginPrevBalance": 595,
-                "marginBalance": 585,
-                "shortBuy": 5,
-                "shortSell": 1,
+                "marginBuy": 44,
+                "marginSell": 10,
+                "marginCashRedemption": 0,
+                "marginPrevBalance": 585,
+                "marginBalance": 619,
+                "shortBuy": 0,
+                "shortSell": 0,
                 "shortStockRedemption": 0,
-                "shortPrevBalance": 10,
+                "shortPrevBalance": 6,
                 "shortBalance": 6,
                 "offsetting": 0,
-                "date": "2026-08-18"
+                "date": "2026-08-19"
               }
             },
             {
@@ -213340,18 +222175,18 @@ window.DATA = {
                 "date": "2026-08-19"
               },
               "margin": {
-                "marginBuy": 57,
-                "marginSell": 102,
-                "marginCashRedemption": 0,
-                "marginPrevBalance": 1883,
-                "marginBalance": 1838,
-                "shortBuy": 6,
-                "shortSell": 5,
-                "shortStockRedemption": 0,
-                "shortPrevBalance": 42,
-                "shortBalance": 41,
-                "offsetting": 0,
-                "date": "2026-08-18"
+                "marginBuy": 130,
+                "marginSell": 82,
+                "marginCashRedemption": 2,
+                "marginPrevBalance": 1838,
+                "marginBalance": 1884,
+                "shortBuy": 16,
+                "shortSell": 3,
+                "shortStockRedemption": 1,
+                "shortPrevBalance": 41,
+                "shortBalance": 27,
+                "offsetting": 2,
+                "date": "2026-08-19"
               }
             },
             {
@@ -213379,18 +222214,18 @@ window.DATA = {
                 "date": "2026-08-19"
               },
               "margin": {
-                "marginBuy": 3648,
-                "marginSell": 8113,
-                "marginCashRedemption": 153,
-                "marginPrevBalance": 164090,
-                "marginBalance": 159472,
-                "shortBuy": 200,
-                "shortSell": 283,
+                "marginBuy": 3549,
+                "marginSell": 7905,
+                "marginCashRedemption": 47,
+                "marginPrevBalance": 159472,
+                "marginBalance": 155069,
+                "shortBuy": 235,
+                "shortSell": 463,
                 "shortStockRedemption": 0,
-                "shortPrevBalance": 2471,
-                "shortBalance": 2554,
-                "offsetting": 30,
-                "date": "2026-08-18"
+                "shortPrevBalance": 2554,
+                "shortBalance": 2782,
+                "offsetting": 25,
+                "date": "2026-08-19"
               }
             },
             {
@@ -213412,24 +222247,24 @@ window.DATA = {
               "quoteDate": "2026-08-19",
               "inst": {
                 "foreign": 45475,
-                "trust": 601000,
+                "trust": 534000,
                 "dealer": -228463,
-                "total": 418012,
+                "total": 351012,
                 "date": "2026-08-19"
               },
               "margin": {
-                "marginBuy": 231,
-                "marginSell": 300,
-                "marginCashRedemption": 1,
-                "marginPrevBalance": 4262,
-                "marginBalance": 4192,
+                "marginBuy": 315,
+                "marginSell": 351,
+                "marginCashRedemption": 0,
+                "marginPrevBalance": 4192,
+                "marginBalance": 4156,
                 "shortBuy": 0,
-                "shortSell": 0,
+                "shortSell": 9,
                 "shortStockRedemption": 0,
                 "shortPrevBalance": 0,
-                "shortBalance": 0,
-                "offsetting": 0,
-                "date": "2026-08-18"
+                "shortBalance": 9,
+                "offsetting": 41,
+                "date": "2026-08-19"
               }
             },
             {
@@ -213457,18 +222292,18 @@ window.DATA = {
                 "date": "2026-08-19"
               },
               "margin": {
-                "marginBuy": 54,
-                "marginSell": 121,
+                "marginBuy": 144,
+                "marginSell": 192,
                 "marginCashRedemption": 0,
-                "marginPrevBalance": 1494,
-                "marginBalance": 1427,
-                "shortBuy": 0,
-                "shortSell": 8,
+                "marginPrevBalance": 1427,
+                "marginBalance": 1379,
+                "shortBuy": 10,
+                "shortSell": 1,
                 "shortStockRedemption": 0,
-                "shortPrevBalance": 35,
-                "shortBalance": 43,
-                "offsetting": 2,
-                "date": "2026-08-18"
+                "shortPrevBalance": 43,
+                "shortBalance": 34,
+                "offsetting": 3,
+                "date": "2026-08-19"
               }
             },
             {
@@ -213490,24 +222325,24 @@ window.DATA = {
               "quoteDate": "2026-08-19",
               "inst": {
                 "foreign": -135887,
-                "trust": 65000,
+                "trust": 84000,
                 "dealer": 132972,
-                "total": 62085,
+                "total": 81085,
                 "date": "2026-08-19"
               },
               "margin": {
-                "marginBuy": 289,
-                "marginSell": 258,
+                "marginBuy": 285,
+                "marginSell": 172,
                 "marginCashRedemption": 0,
-                "marginPrevBalance": 2608,
-                "marginBalance": 2639,
-                "shortBuy": 4,
-                "shortSell": 14,
+                "marginPrevBalance": 2639,
+                "marginBalance": 2752,
+                "shortBuy": 1,
+                "shortSell": 13,
                 "shortStockRedemption": 0,
-                "shortPrevBalance": 22,
-                "shortBalance": 32,
-                "offsetting": 3,
-                "date": "2026-08-18"
+                "shortPrevBalance": 32,
+                "shortBalance": 44,
+                "offsetting": 2,
+                "date": "2026-08-19"
               }
             },
             {
@@ -213535,18 +222370,18 @@ window.DATA = {
                 "date": "2026-08-19"
               },
               "margin": {
-                "marginBuy": 50,
-                "marginSell": 181,
+                "marginBuy": 73,
+                "marginSell": 41,
                 "marginCashRedemption": 1,
-                "marginPrevBalance": 1868,
-                "marginBalance": 1736,
-                "shortBuy": 1,
-                "shortSell": 2,
+                "marginPrevBalance": 1736,
+                "marginBalance": 1767,
+                "shortBuy": 10,
+                "shortSell": 0,
                 "shortStockRedemption": 0,
-                "shortPrevBalance": 17,
-                "shortBalance": 18,
+                "shortPrevBalance": 18,
+                "shortBalance": 8,
                 "offsetting": 0,
-                "date": "2026-08-18"
+                "date": "2026-08-19"
               }
             },
             {
@@ -213574,18 +222409,18 @@ window.DATA = {
                 "date": "2026-08-19"
               },
               "margin": {
-                "marginBuy": 1936,
-                "marginSell": 1602,
-                "marginCashRedemption": 5,
-                "marginPrevBalance": 37228,
-                "marginBalance": 37557,
-                "shortBuy": 162,
-                "shortSell": 55,
+                "marginBuy": 2116,
+                "marginSell": 1281,
+                "marginCashRedemption": 1,
+                "marginPrevBalance": 37557,
+                "marginBalance": 38391,
+                "shortBuy": 91,
+                "shortSell": 187,
                 "shortStockRedemption": 0,
-                "shortPrevBalance": 815,
-                "shortBalance": 708,
-                "offsetting": 7,
-                "date": "2026-08-18"
+                "shortPrevBalance": 708,
+                "shortBalance": 804,
+                "offsetting": 22,
+                "date": "2026-08-19"
               }
             },
             {
@@ -213613,18 +222448,18 @@ window.DATA = {
                 "date": "2026-08-19"
               },
               "margin": {
-                "marginBuy": 453,
-                "marginSell": 832,
-                "marginCashRedemption": 7,
-                "marginPrevBalance": 16662,
-                "marginBalance": 16276,
-                "shortBuy": 10,
+                "marginBuy": 265,
+                "marginSell": 439,
+                "marginCashRedemption": 3,
+                "marginPrevBalance": 16276,
+                "marginBalance": 16099,
+                "shortBuy": 9,
                 "shortSell": 14,
                 "shortStockRedemption": 0,
-                "shortPrevBalance": 66,
-                "shortBalance": 70,
-                "offsetting": 0,
-                "date": "2026-08-18"
+                "shortPrevBalance": 70,
+                "shortBalance": 75,
+                "offsetting": 4,
+                "date": "2026-08-19"
               }
             },
             {
@@ -213726,18 +222561,18 @@ window.DATA = {
                 "date": "2026-08-19"
               },
               "margin": {
-                "marginBuy": 219,
-                "marginSell": 199,
-                "marginCashRedemption": 4,
-                "marginPrevBalance": 2631,
-                "marginBalance": 2647,
-                "shortBuy": 2,
-                "shortSell": 5,
+                "marginBuy": 97,
+                "marginSell": 61,
+                "marginCashRedemption": 0,
+                "marginPrevBalance": 2647,
+                "marginBalance": 2683,
+                "shortBuy": 5,
+                "shortSell": 1,
                 "shortStockRedemption": 0,
-                "shortPrevBalance": 16,
-                "shortBalance": 19,
-                "offsetting": 0,
-                "date": "2026-08-18"
+                "shortPrevBalance": 19,
+                "shortBalance": 15,
+                "offsetting": 1,
+                "date": "2026-08-19"
               }
             },
             {
@@ -213765,18 +222600,18 @@ window.DATA = {
                 "date": "2026-08-19"
               },
               "margin": {
-                "marginBuy": 3165,
-                "marginSell": 2597,
-                "marginCashRedemption": 1,
-                "marginPrevBalance": 34302,
-                "marginBalance": 34869,
-                "shortBuy": 59,
-                "shortSell": 106,
+                "marginBuy": 1262,
+                "marginSell": 1893,
+                "marginCashRedemption": 9,
+                "marginPrevBalance": 34869,
+                "marginBalance": 34229,
+                "shortBuy": 161,
+                "shortSell": 58,
                 "shortStockRedemption": 0,
-                "shortPrevBalance": 370,
-                "shortBalance": 417,
-                "offsetting": 34,
-                "date": "2026-08-18"
+                "shortPrevBalance": 417,
+                "shortBalance": 314,
+                "offsetting": 43,
+                "date": "2026-08-19"
               }
             },
             {
@@ -213804,18 +222639,18 @@ window.DATA = {
                 "date": "2026-08-19"
               },
               "margin": {
-                "marginBuy": 90,
-                "marginSell": 66,
+                "marginBuy": 73,
+                "marginSell": 81,
                 "marginCashRedemption": 0,
-                "marginPrevBalance": 2523,
-                "marginBalance": 2547,
-                "shortBuy": 24,
-                "shortSell": 4,
+                "marginPrevBalance": 2547,
+                "marginBalance": 2539,
+                "shortBuy": 10,
+                "shortSell": 24,
                 "shortStockRedemption": 0,
-                "shortPrevBalance": 51,
-                "shortBalance": 31,
-                "offsetting": 0,
-                "date": "2026-08-18"
+                "shortPrevBalance": 31,
+                "shortBalance": 45,
+                "offsetting": 1,
+                "date": "2026-08-19"
               }
             },
             {
@@ -213843,18 +222678,18 @@ window.DATA = {
                 "date": "2026-08-19"
               },
               "margin": {
-                "marginBuy": 693,
-                "marginSell": 1209,
-                "marginCashRedemption": 11,
-                "marginPrevBalance": 7706,
-                "marginBalance": 7179,
-                "shortBuy": 9,
-                "shortSell": 36,
-                "shortStockRedemption": 159,
-                "shortPrevBalance": 399,
-                "shortBalance": 267,
-                "offsetting": 10,
-                "date": "2026-08-18"
+                "marginBuy": 571,
+                "marginSell": 581,
+                "marginCashRedemption": 0,
+                "marginPrevBalance": 7179,
+                "marginBalance": 7169,
+                "shortBuy": 26,
+                "shortSell": 15,
+                "shortStockRedemption": 55,
+                "shortPrevBalance": 267,
+                "shortBalance": 201,
+                "offsetting": 6,
+                "date": "2026-08-19"
               }
             },
             {
@@ -213882,18 +222717,18 @@ window.DATA = {
                 "date": "2026-08-19"
               },
               "margin": {
-                "marginBuy": 24,
-                "marginSell": 67,
-                "marginCashRedemption": 2,
-                "marginPrevBalance": 2756,
-                "marginBalance": 2711,
-                "shortBuy": 7,
-                "shortSell": 5,
+                "marginBuy": 41,
+                "marginSell": 93,
+                "marginCashRedemption": 0,
+                "marginPrevBalance": 2711,
+                "marginBalance": 2659,
+                "shortBuy": 6,
+                "shortSell": 69,
                 "shortStockRedemption": 0,
-                "shortPrevBalance": 244,
-                "shortBalance": 242,
+                "shortPrevBalance": 242,
+                "shortBalance": 305,
                 "offsetting": 0,
-                "date": "2026-08-18"
+                "date": "2026-08-19"
               }
             },
             {
@@ -213921,18 +222756,18 @@ window.DATA = {
                 "date": "2026-08-19"
               },
               "margin": {
-                "marginBuy": 1247,
-                "marginSell": 807,
-                "marginCashRedemption": 13,
-                "marginPrevBalance": 20374,
-                "marginBalance": 20801,
-                "shortBuy": 182,
-                "shortSell": 193,
+                "marginBuy": 490,
+                "marginSell": 478,
+                "marginCashRedemption": 5,
+                "marginPrevBalance": 20801,
+                "marginBalance": 20808,
+                "shortBuy": 189,
+                "shortSell": 67,
                 "shortStockRedemption": 0,
-                "shortPrevBalance": 266,
-                "shortBalance": 277,
-                "offsetting": 9,
-                "date": "2026-08-18"
+                "shortPrevBalance": 277,
+                "shortBalance": 155,
+                "offsetting": 1,
+                "date": "2026-08-19"
               }
             },
             {
@@ -213960,18 +222795,18 @@ window.DATA = {
                 "date": "2026-08-19"
               },
               "margin": {
-                "marginBuy": 227,
-                "marginSell": 257,
+                "marginBuy": 520,
+                "marginSell": 205,
                 "marginCashRedemption": 0,
-                "marginPrevBalance": 6295,
-                "marginBalance": 6265,
-                "shortBuy": 2,
-                "shortSell": 3,
+                "marginPrevBalance": 6265,
+                "marginBalance": 6580,
+                "shortBuy": 4,
+                "shortSell": 1,
                 "shortStockRedemption": 0,
-                "shortPrevBalance": 27,
-                "shortBalance": 28,
-                "offsetting": 1,
-                "date": "2026-08-18"
+                "shortPrevBalance": 28,
+                "shortBalance": 25,
+                "offsetting": 7,
+                "date": "2026-08-19"
               }
             },
             {
@@ -213999,18 +222834,18 @@ window.DATA = {
                 "date": "2026-08-19"
               },
               "margin": {
-                "marginBuy": 21,
-                "marginSell": 49,
+                "marginBuy": 37,
+                "marginSell": 885,
                 "marginCashRedemption": 0,
-                "marginPrevBalance": 1571,
-                "marginBalance": 1543,
-                "shortBuy": 10,
-                "shortSell": 0,
+                "marginPrevBalance": 1543,
+                "marginBalance": 695,
+                "shortBuy": 0,
+                "shortSell": 340,
                 "shortStockRedemption": 0,
-                "shortPrevBalance": 136,
-                "shortBalance": 126,
+                "shortPrevBalance": 126,
+                "shortBalance": 466,
                 "offsetting": 0,
-                "date": "2026-08-18"
+                "date": "2026-08-19"
               }
             },
             {
@@ -214038,18 +222873,18 @@ window.DATA = {
                 "date": "2026-08-19"
               },
               "margin": {
-                "marginBuy": 42,
-                "marginSell": 138,
+                "marginBuy": 4,
+                "marginSell": 2,
                 "marginCashRedemption": 0,
-                "marginPrevBalance": 1173,
-                "marginBalance": 1077,
+                "marginPrevBalance": 1077,
+                "marginBalance": 1079,
                 "shortBuy": 0,
-                "shortSell": 10,
+                "shortSell": 0,
                 "shortStockRedemption": 0,
-                "shortPrevBalance": 4,
+                "shortPrevBalance": 14,
                 "shortBalance": 14,
                 "offsetting": 0,
-                "date": "2026-08-18"
+                "date": "2026-08-19"
               }
             },
             {
@@ -214077,18 +222912,18 @@ window.DATA = {
                 "date": "2026-08-19"
               },
               "margin": {
-                "marginBuy": 729,
-                "marginSell": 560,
-                "marginCashRedemption": 75,
-                "marginPrevBalance": 30537,
-                "marginBalance": 30631,
-                "shortBuy": 74,
-                "shortSell": 96,
+                "marginBuy": 824,
+                "marginSell": 348,
+                "marginCashRedemption": 3,
+                "marginPrevBalance": 30631,
+                "marginBalance": 31104,
+                "shortBuy": 210,
+                "shortSell": 110,
                 "shortStockRedemption": 0,
-                "shortPrevBalance": 1056,
-                "shortBalance": 1078,
+                "shortPrevBalance": 1078,
+                "shortBalance": 978,
                 "offsetting": 10,
-                "date": "2026-08-18"
+                "date": "2026-08-19"
               }
             },
             {
@@ -214116,18 +222951,18 @@ window.DATA = {
                 "date": "2026-08-19"
               },
               "margin": {
-                "marginBuy": 222,
-                "marginSell": 211,
-                "marginCashRedemption": 2,
-                "marginPrevBalance": 5599,
-                "marginBalance": 5608,
-                "shortBuy": 3,
-                "shortSell": 7,
+                "marginBuy": 182,
+                "marginSell": 77,
+                "marginCashRedemption": 0,
+                "marginPrevBalance": 5608,
+                "marginBalance": 5713,
+                "shortBuy": 14,
+                "shortSell": 3,
                 "shortStockRedemption": 0,
-                "shortPrevBalance": 44,
-                "shortBalance": 48,
-                "offsetting": 36,
-                "date": "2026-08-18"
+                "shortPrevBalance": 48,
+                "shortBalance": 37,
+                "offsetting": 2,
+                "date": "2026-08-19"
               }
             },
             {
@@ -214155,18 +222990,18 @@ window.DATA = {
                 "date": "2026-08-19"
               },
               "margin": {
-                "marginBuy": 18,
-                "marginSell": 10,
-                "marginCashRedemption": 1,
-                "marginPrevBalance": 511,
-                "marginBalance": 518,
+                "marginBuy": 16,
+                "marginSell": 14,
+                "marginCashRedemption": 0,
+                "marginPrevBalance": 518,
+                "marginBalance": 520,
                 "shortBuy": 1,
-                "shortSell": 1,
+                "shortSell": 3,
                 "shortStockRedemption": 0,
                 "shortPrevBalance": 1,
-                "shortBalance": 1,
+                "shortBalance": 3,
                 "offsetting": 0,
-                "date": "2026-08-18"
+                "date": "2026-08-19"
               }
             },
             {
@@ -214194,18 +223029,18 @@ window.DATA = {
                 "date": "2026-08-19"
               },
               "margin": {
-                "marginBuy": 138,
-                "marginSell": 257,
-                "marginCashRedemption": 0,
-                "marginPrevBalance": 11570,
-                "marginBalance": 11451,
-                "shortBuy": 20,
-                "shortSell": 11,
-                "shortStockRedemption": 1,
-                "shortPrevBalance": 88,
-                "shortBalance": 78,
-                "offsetting": 0,
-                "date": "2026-08-18"
+                "marginBuy": 331,
+                "marginSell": 141,
+                "marginCashRedemption": 1,
+                "marginPrevBalance": 11451,
+                "marginBalance": 11640,
+                "shortBuy": 11,
+                "shortSell": 2,
+                "shortStockRedemption": 0,
+                "shortPrevBalance": 78,
+                "shortBalance": 69,
+                "offsetting": 1,
+                "date": "2026-08-19"
               }
             },
             {
@@ -232444,7 +241279,7 @@ window.DATA = {
         },
         {
           "date": "2026-08-19",
-          "fetched_at": "2026-08-19T19:53:22+08:00",
+          "fetched_at": "2026-08-19T20:38:41+08:00",
           "count": 40,
           "self": {
             "open": 30.15,
@@ -232465,7 +241300,20 @@ window.DATA = {
             "total": -450036,
             "date": "2026-08-19"
           },
-          "selfMargin": null,
+          "selfMargin": {
+            "marginBuy": 197,
+            "marginSell": 132,
+            "marginCashRedemption": 22,
+            "marginPrevBalance": 8473,
+            "marginBalance": 8516,
+            "shortBuy": 3,
+            "shortSell": 0,
+            "shortStockRedemption": 0,
+            "shortPrevBalance": 100,
+            "shortBalance": 97,
+            "offsetting": 9,
+            "date": "2026-08-19"
+          },
           "holdings": [
             {
               "code": "2881",
@@ -232492,18 +241340,18 @@ window.DATA = {
                 "date": "2026-08-19"
               },
               "margin": {
-                "marginBuy": 52,
-                "marginSell": 771,
+                "marginBuy": 135,
+                "marginSell": 56,
                 "marginCashRedemption": 0,
-                "marginPrevBalance": 6876,
-                "marginBalance": 6157,
-                "shortBuy": 1,
-                "shortSell": 42,
+                "marginPrevBalance": 6157,
+                "marginBalance": 6236,
+                "shortBuy": 8,
+                "shortSell": 1,
                 "shortStockRedemption": 0,
-                "shortPrevBalance": 148,
-                "shortBalance": 189,
-                "offsetting": 1,
-                "date": "2026-08-18"
+                "shortPrevBalance": 189,
+                "shortBalance": 182,
+                "offsetting": 0,
+                "date": "2026-08-19"
               }
             },
             {
@@ -232531,18 +241379,18 @@ window.DATA = {
                 "date": "2026-08-19"
               },
               "margin": {
-                "marginBuy": 34,
-                "marginSell": 320,
-                "marginCashRedemption": 0,
-                "marginPrevBalance": 4372,
-                "marginBalance": 4086,
-                "shortBuy": 3,
-                "shortSell": 4,
-                "shortStockRedemption": 1,
+                "marginBuy": 132,
+                "marginSell": 14,
+                "marginCashRedemption": 13,
+                "marginPrevBalance": 4086,
+                "marginBalance": 4191,
+                "shortBuy": 9,
+                "shortSell": 0,
+                "shortStockRedemption": 0,
                 "shortPrevBalance": 210,
-                "shortBalance": 210,
-                "offsetting": 1,
-                "date": "2026-08-18"
+                "shortBalance": 201,
+                "offsetting": 0,
+                "date": "2026-08-19"
               }
             },
             {
@@ -232570,18 +241418,18 @@ window.DATA = {
                 "date": "2026-08-19"
               },
               "margin": {
-                "marginBuy": 453,
-                "marginSell": 832,
-                "marginCashRedemption": 7,
-                "marginPrevBalance": 16662,
-                "marginBalance": 16276,
-                "shortBuy": 10,
+                "marginBuy": 265,
+                "marginSell": 439,
+                "marginCashRedemption": 3,
+                "marginPrevBalance": 16276,
+                "marginBalance": 16099,
+                "shortBuy": 9,
                 "shortSell": 14,
                 "shortStockRedemption": 0,
-                "shortPrevBalance": 66,
-                "shortBalance": 70,
-                "offsetting": 0,
-                "date": "2026-08-18"
+                "shortPrevBalance": 70,
+                "shortBalance": 75,
+                "offsetting": 4,
+                "date": "2026-08-19"
               }
             },
             {
@@ -232609,18 +241457,18 @@ window.DATA = {
                 "date": "2026-08-19"
               },
               "margin": {
-                "marginBuy": 18,
-                "marginSell": 459,
+                "marginBuy": 400,
+                "marginSell": 6,
                 "marginCashRedemption": 1,
-                "marginPrevBalance": 3452,
-                "marginBalance": 3010,
-                "shortBuy": 0,
-                "shortSell": 1,
+                "marginPrevBalance": 3010,
+                "marginBalance": 3403,
+                "shortBuy": 7,
+                "shortSell": 4,
                 "shortStockRedemption": 0,
-                "shortPrevBalance": 48,
-                "shortBalance": 49,
-                "offsetting": 1,
-                "date": "2026-08-18"
+                "shortPrevBalance": 49,
+                "shortBalance": 46,
+                "offsetting": 0,
+                "date": "2026-08-19"
               }
             },
             {
@@ -232648,18 +241496,18 @@ window.DATA = {
                 "date": "2026-08-19"
               },
               "margin": {
-                "marginBuy": 439,
-                "marginSell": 252,
-                "marginCashRedemption": 0,
-                "marginPrevBalance": 40275,
-                "marginBalance": 40462,
-                "shortBuy": 14,
-                "shortSell": 2,
+                "marginBuy": 501,
+                "marginSell": 181,
+                "marginCashRedemption": 15,
+                "marginPrevBalance": 40462,
+                "marginBalance": 40767,
+                "shortBuy": 649,
+                "shortSell": 24,
                 "shortStockRedemption": 0,
-                "shortPrevBalance": 763,
-                "shortBalance": 751,
-                "offsetting": 0,
-                "date": "2026-08-18"
+                "shortPrevBalance": 751,
+                "shortBalance": 126,
+                "offsetting": 42,
+                "date": "2026-08-19"
               }
             },
             {
@@ -232687,18 +241535,18 @@ window.DATA = {
                 "date": "2026-08-19"
               },
               "margin": {
-                "marginBuy": 100,
-                "marginSell": 97,
-                "marginCashRedemption": 14,
-                "marginPrevBalance": 1552,
-                "marginBalance": 1541,
-                "shortBuy": 24,
-                "shortSell": 3,
+                "marginBuy": 127,
+                "marginSell": 36,
+                "marginCashRedemption": 1,
+                "marginPrevBalance": 1541,
+                "marginBalance": 1631,
+                "shortBuy": 2,
+                "shortSell": 5,
                 "shortStockRedemption": 0,
-                "shortPrevBalance": 61,
-                "shortBalance": 40,
+                "shortPrevBalance": 40,
+                "shortBalance": 43,
                 "offsetting": 1,
-                "date": "2026-08-18"
+                "date": "2026-08-19"
               }
             },
             {
@@ -232726,18 +241574,18 @@ window.DATA = {
                 "date": "2026-08-19"
               },
               "margin": {
-                "marginBuy": 262,
-                "marginSell": 70,
-                "marginCashRedemption": 0,
-                "marginPrevBalance": 9376,
-                "marginBalance": 9568,
-                "shortBuy": 957,
-                "shortSell": 2,
+                "marginBuy": 1093,
+                "marginSell": 115,
+                "marginCashRedemption": 34,
+                "marginPrevBalance": 9568,
+                "marginBalance": 10512,
+                "shortBuy": 17,
+                "shortSell": 3,
                 "shortStockRedemption": 0,
-                "shortPrevBalance": 1026,
-                "shortBalance": 71,
-                "offsetting": 1,
-                "date": "2026-08-18"
+                "shortPrevBalance": 71,
+                "shortBalance": 57,
+                "offsetting": 0,
+                "date": "2026-08-19"
               }
             },
             {
@@ -232765,18 +241613,18 @@ window.DATA = {
                 "date": "2026-08-19"
               },
               "margin": {
-                "marginBuy": 1101,
-                "marginSell": 1148,
-                "marginCashRedemption": 24,
-                "marginPrevBalance": 13616,
-                "marginBalance": 13545,
-                "shortBuy": 3,
-                "shortSell": 103,
+                "marginBuy": 854,
+                "marginSell": 596,
+                "marginCashRedemption": 124,
+                "marginPrevBalance": 13545,
+                "marginBalance": 13679,
+                "shortBuy": 81,
+                "shortSell": 39,
                 "shortStockRedemption": 0,
-                "shortPrevBalance": 318,
-                "shortBalance": 418,
-                "offsetting": 11,
-                "date": "2026-08-18"
+                "shortPrevBalance": 418,
+                "shortBalance": 376,
+                "offsetting": 5,
+                "date": "2026-08-19"
               }
             },
             {
@@ -232804,18 +241652,18 @@ window.DATA = {
                 "date": "2026-08-19"
               },
               "margin": {
-                "marginBuy": 24,
-                "marginSell": 67,
-                "marginCashRedemption": 2,
-                "marginPrevBalance": 2756,
-                "marginBalance": 2711,
-                "shortBuy": 7,
-                "shortSell": 5,
+                "marginBuy": 41,
+                "marginSell": 93,
+                "marginCashRedemption": 0,
+                "marginPrevBalance": 2711,
+                "marginBalance": 2659,
+                "shortBuy": 6,
+                "shortSell": 69,
                 "shortStockRedemption": 0,
-                "shortPrevBalance": 244,
-                "shortBalance": 242,
+                "shortPrevBalance": 242,
+                "shortBalance": 305,
                 "offsetting": 0,
-                "date": "2026-08-18"
+                "date": "2026-08-19"
               }
             },
             {
@@ -232843,18 +241691,18 @@ window.DATA = {
                 "date": "2026-08-19"
               },
               "margin": {
-                "marginBuy": 90,
-                "marginSell": 66,
+                "marginBuy": 73,
+                "marginSell": 81,
                 "marginCashRedemption": 0,
-                "marginPrevBalance": 2523,
-                "marginBalance": 2547,
-                "shortBuy": 24,
-                "shortSell": 4,
+                "marginPrevBalance": 2547,
+                "marginBalance": 2539,
+                "shortBuy": 10,
+                "shortSell": 24,
                 "shortStockRedemption": 0,
-                "shortPrevBalance": 51,
-                "shortBalance": 31,
-                "offsetting": 0,
-                "date": "2026-08-18"
+                "shortPrevBalance": 31,
+                "shortBalance": 45,
+                "offsetting": 1,
+                "date": "2026-08-19"
               }
             },
             {
@@ -232882,18 +241730,18 @@ window.DATA = {
                 "date": "2026-08-19"
               },
               "margin": {
-                "marginBuy": 222,
-                "marginSell": 211,
-                "marginCashRedemption": 2,
-                "marginPrevBalance": 5599,
-                "marginBalance": 5608,
-                "shortBuy": 3,
-                "shortSell": 7,
+                "marginBuy": 182,
+                "marginSell": 77,
+                "marginCashRedemption": 0,
+                "marginPrevBalance": 5608,
+                "marginBalance": 5713,
+                "shortBuy": 14,
+                "shortSell": 3,
                 "shortStockRedemption": 0,
-                "shortPrevBalance": 44,
-                "shortBalance": 48,
-                "offsetting": 36,
-                "date": "2026-08-18"
+                "shortPrevBalance": 48,
+                "shortBalance": 37,
+                "offsetting": 2,
+                "date": "2026-08-19"
               }
             },
             {
@@ -232922,17 +241770,17 @@ window.DATA = {
               },
               "margin": {
                 "marginBuy": 284,
-                "marginSell": 1196,
-                "marginCashRedemption": 17,
-                "marginPrevBalance": 24460,
-                "marginBalance": 23531,
-                "shortBuy": 78,
-                "shortSell": 39,
+                "marginSell": 278,
+                "marginCashRedemption": 50,
+                "marginPrevBalance": 23531,
+                "marginBalance": 23487,
+                "shortBuy": 42,
+                "shortSell": 16,
                 "shortStockRedemption": 0,
-                "shortPrevBalance": 724,
-                "shortBalance": 685,
-                "offsetting": 1,
-                "date": "2026-08-18"
+                "shortPrevBalance": 685,
+                "shortBalance": 659,
+                "offsetting": 3,
+                "date": "2026-08-19"
               }
             },
             {
@@ -232992,18 +241840,18 @@ window.DATA = {
                 "date": "2026-08-19"
               },
               "margin": {
-                "marginBuy": 55,
-                "marginSell": 230,
-                "marginCashRedemption": 0,
-                "marginPrevBalance": 4550,
-                "marginBalance": 4375,
+                "marginBuy": 63,
+                "marginSell": 106,
+                "marginCashRedemption": 10,
+                "marginPrevBalance": 4375,
+                "marginBalance": 4322,
                 "shortBuy": 0,
-                "shortSell": 0,
+                "shortSell": 1,
                 "shortStockRedemption": 0,
                 "shortPrevBalance": 2,
-                "shortBalance": 2,
-                "offsetting": 2,
-                "date": "2026-08-18"
+                "shortBalance": 3,
+                "offsetting": 0,
+                "date": "2026-08-19"
               }
             },
             {
@@ -233031,18 +241879,18 @@ window.DATA = {
                 "date": "2026-08-19"
               },
               "margin": {
-                "marginBuy": 93,
-                "marginSell": 566,
+                "marginBuy": 191,
+                "marginSell": 155,
                 "marginCashRedemption": 0,
-                "marginPrevBalance": 7811,
-                "marginBalance": 7338,
-                "shortBuy": 0,
-                "shortSell": 0,
+                "marginPrevBalance": 7338,
+                "marginBalance": 7374,
+                "shortBuy": 4,
+                "shortSell": 3,
                 "shortStockRedemption": 0,
                 "shortPrevBalance": 62,
-                "shortBalance": 62,
-                "offsetting": 0,
-                "date": "2026-08-18"
+                "shortBalance": 61,
+                "offsetting": 7,
+                "date": "2026-08-19"
               }
             },
             {
@@ -233070,18 +241918,18 @@ window.DATA = {
                 "date": "2026-08-19"
               },
               "margin": {
-                "marginBuy": 102,
-                "marginSell": 25,
+                "marginBuy": 36,
+                "marginSell": 412,
                 "marginCashRedemption": 0,
-                "marginPrevBalance": 1124,
-                "marginBalance": 1201,
+                "marginPrevBalance": 1201,
+                "marginBalance": 825,
                 "shortBuy": 0,
-                "shortSell": 0,
+                "shortSell": 1,
                 "shortStockRedemption": 0,
                 "shortPrevBalance": 9,
-                "shortBalance": 9,
+                "shortBalance": 10,
                 "offsetting": 0,
-                "date": "2026-08-18"
+                "date": "2026-08-19"
               }
             },
             {
@@ -233109,18 +241957,18 @@ window.DATA = {
                 "date": "2026-08-19"
               },
               "margin": {
-                "marginBuy": 64,
-                "marginSell": 162,
+                "marginBuy": 34,
+                "marginSell": 106,
                 "marginCashRedemption": 1,
-                "marginPrevBalance": 8704,
-                "marginBalance": 8605,
-                "shortBuy": 0,
-                "shortSell": 0,
+                "marginPrevBalance": 8605,
+                "marginBalance": 8532,
+                "shortBuy": 2,
+                "shortSell": 1,
                 "shortStockRedemption": 0,
                 "shortPrevBalance": 10,
-                "shortBalance": 10,
+                "shortBalance": 9,
                 "offsetting": 0,
-                "date": "2026-08-18"
+                "date": "2026-08-19"
               }
             },
             {
@@ -233148,18 +241996,18 @@ window.DATA = {
                 "date": "2026-08-19"
               },
               "margin": {
-                "marginBuy": 0,
-                "marginSell": 9,
+                "marginBuy": 1,
+                "marginSell": 15,
                 "marginCashRedemption": 0,
-                "marginPrevBalance": 987,
-                "marginBalance": 978,
+                "marginPrevBalance": 978,
+                "marginBalance": 964,
                 "shortBuy": 0,
                 "shortSell": 0,
                 "shortStockRedemption": 0,
                 "shortPrevBalance": 4,
                 "shortBalance": 4,
                 "offsetting": 0,
-                "date": "2026-08-18"
+                "date": "2026-08-19"
               }
             },
             {
@@ -233187,18 +242035,18 @@ window.DATA = {
                 "date": "2026-08-19"
               },
               "margin": {
-                "marginBuy": 3,
-                "marginSell": 75,
+                "marginBuy": 18,
+                "marginSell": 65,
                 "marginCashRedemption": 0,
-                "marginPrevBalance": 4862,
-                "marginBalance": 4790,
-                "shortBuy": 1,
-                "shortSell": 2,
+                "marginPrevBalance": 4790,
+                "marginBalance": 4743,
+                "shortBuy": 2,
+                "shortSell": 29,
                 "shortStockRedemption": 0,
-                "shortPrevBalance": 128,
-                "shortBalance": 129,
+                "shortPrevBalance": 129,
+                "shortBalance": 156,
                 "offsetting": 0,
-                "date": "2026-08-18"
+                "date": "2026-08-19"
               }
             },
             {
@@ -233226,18 +242074,18 @@ window.DATA = {
                 "date": "2026-08-19"
               },
               "margin": {
-                "marginBuy": 53,
-                "marginSell": 90,
+                "marginBuy": 62,
+                "marginSell": 29,
                 "marginCashRedemption": 0,
-                "marginPrevBalance": 2806,
-                "marginBalance": 2769,
+                "marginPrevBalance": 2769,
+                "marginBalance": 2802,
                 "shortBuy": 0,
                 "shortSell": 0,
                 "shortStockRedemption": 0,
                 "shortPrevBalance": 4,
                 "shortBalance": 4,
                 "offsetting": 0,
-                "date": "2026-08-18"
+                "date": "2026-08-19"
               }
             },
             {
@@ -233265,18 +242113,18 @@ window.DATA = {
                 "date": "2026-08-19"
               },
               "margin": {
-                "marginBuy": 165,
-                "marginSell": 392,
-                "marginCashRedemption": 13,
-                "marginPrevBalance": 4376,
-                "marginBalance": 4136,
-                "shortBuy": 60,
-                "shortSell": 7,
-                "shortStockRedemption": 1,
-                "shortPrevBalance": 193,
-                "shortBalance": 139,
+                "marginBuy": 151,
+                "marginSell": 485,
+                "marginCashRedemption": 36,
+                "marginPrevBalance": 4136,
+                "marginBalance": 3766,
+                "shortBuy": 24,
+                "shortSell": 1,
+                "shortStockRedemption": 0,
+                "shortPrevBalance": 139,
+                "shortBalance": 116,
                 "offsetting": 0,
-                "date": "2026-08-18"
+                "date": "2026-08-19"
               }
             },
             {
@@ -233304,18 +242152,18 @@ window.DATA = {
                 "date": "2026-08-19"
               },
               "margin": {
-                "marginBuy": 223,
-                "marginSell": 300,
-                "marginCashRedemption": 1,
-                "marginPrevBalance": 9774,
-                "marginBalance": 9696,
-                "shortBuy": 0,
+                "marginBuy": 128,
+                "marginSell": 72,
+                "marginCashRedemption": 0,
+                "marginPrevBalance": 9696,
+                "marginBalance": 9752,
+                "shortBuy": 7,
                 "shortSell": 0,
                 "shortStockRedemption": 0,
                 "shortPrevBalance": 21,
-                "shortBalance": 21,
-                "offsetting": 0,
-                "date": "2026-08-18"
+                "shortBalance": 14,
+                "offsetting": 1,
+                "date": "2026-08-19"
               }
             },
             {
@@ -233343,18 +242191,18 @@ window.DATA = {
                 "date": "2026-08-19"
               },
               "margin": {
-                "marginBuy": 6,
-                "marginSell": 6,
+                "marginBuy": 9,
+                "marginSell": 34,
                 "marginCashRedemption": 0,
                 "marginPrevBalance": 4865,
-                "marginBalance": 4865,
+                "marginBalance": 4840,
                 "shortBuy": 0,
                 "shortSell": 0,
                 "shortStockRedemption": 0,
                 "shortPrevBalance": 5,
                 "shortBalance": 5,
                 "offsetting": 0,
-                "date": "2026-08-18"
+                "date": "2026-08-19"
               }
             },
             {
@@ -233414,18 +242262,18 @@ window.DATA = {
                 "date": "2026-08-19"
               },
               "margin": {
-                "marginBuy": 23,
-                "marginSell": 12,
+                "marginBuy": 22,
+                "marginSell": 15,
                 "marginCashRedemption": 0,
-                "marginPrevBalance": 1536,
-                "marginBalance": 1547,
-                "shortBuy": 4,
-                "shortSell": 0,
+                "marginPrevBalance": 1547,
+                "marginBalance": 1554,
+                "shortBuy": 2,
+                "shortSell": 1,
                 "shortStockRedemption": 0,
-                "shortPrevBalance": 50,
-                "shortBalance": 46,
+                "shortPrevBalance": 46,
+                "shortBalance": 45,
                 "offsetting": 0,
-                "date": "2026-08-18"
+                "date": "2026-08-19"
               }
             },
             {
@@ -233453,18 +242301,18 @@ window.DATA = {
                 "date": "2026-08-19"
               },
               "margin": {
-                "marginBuy": 376,
-                "marginSell": 148,
+                "marginBuy": 565,
+                "marginSell": 306,
                 "marginCashRedemption": 0,
-                "marginPrevBalance": 2225,
-                "marginBalance": 2453,
-                "shortBuy": 0,
-                "shortSell": 2,
+                "marginPrevBalance": 2453,
+                "marginBalance": 2712,
+                "shortBuy": 2,
+                "shortSell": 34,
                 "shortStockRedemption": 0,
-                "shortPrevBalance": 36,
-                "shortBalance": 38,
-                "offsetting": 0,
-                "date": "2026-08-18"
+                "shortPrevBalance": 38,
+                "shortBalance": 70,
+                "offsetting": 21,
+                "date": "2026-08-19"
               }
             },
             {
@@ -233492,18 +242340,18 @@ window.DATA = {
                 "date": "2026-08-19"
               },
               "margin": {
-                "marginBuy": 355,
-                "marginSell": 221,
+                "marginBuy": 281,
+                "marginSell": 110,
                 "marginCashRedemption": 0,
-                "marginPrevBalance": 2833,
-                "marginBalance": 2967,
-                "shortBuy": 0,
-                "shortSell": 6,
+                "marginPrevBalance": 2967,
+                "marginBalance": 3138,
+                "shortBuy": 3,
+                "shortSell": 10,
                 "shortStockRedemption": 0,
-                "shortPrevBalance": 31,
-                "shortBalance": 37,
+                "shortPrevBalance": 37,
+                "shortBalance": 44,
                 "offsetting": 0,
-                "date": "2026-08-18"
+                "date": "2026-08-19"
               }
             },
             {
@@ -233525,24 +242373,24 @@ window.DATA = {
               "quoteDate": "2026-08-19",
               "inst": {
                 "foreign": 538622,
-                "trust": 110000,
+                "trust": 140000,
                 "dealer": -9586,
-                "total": 639036,
+                "total": 669036,
                 "date": "2026-08-19"
               },
               "margin": {
-                "marginBuy": 177,
-                "marginSell": 49,
+                "marginBuy": 130,
+                "marginSell": 29,
                 "marginCashRedemption": 0,
-                "marginPrevBalance": 1563,
-                "marginBalance": 1691,
-                "shortBuy": 1,
-                "shortSell": 32,
+                "marginPrevBalance": 1691,
+                "marginBalance": 1792,
+                "shortBuy": 11,
+                "shortSell": 0,
                 "shortStockRedemption": 0,
-                "shortPrevBalance": 1,
-                "shortBalance": 32,
-                "offsetting": 9,
-                "date": "2026-08-18"
+                "shortPrevBalance": 32,
+                "shortBalance": 21,
+                "offsetting": 0,
+                "date": "2026-08-19"
               }
             },
             {
@@ -233570,18 +242418,18 @@ window.DATA = {
                 "date": "2026-08-19"
               },
               "margin": {
-                "marginBuy": 16,
-                "marginSell": 46,
+                "marginBuy": 3,
+                "marginSell": 14,
                 "marginCashRedemption": 0,
-                "marginPrevBalance": 2082,
-                "marginBalance": 2052,
+                "marginPrevBalance": 2052,
+                "marginBalance": 2041,
                 "shortBuy": 0,
                 "shortSell": 0,
                 "shortStockRedemption": 0,
                 "shortPrevBalance": 0,
                 "shortBalance": 0,
                 "offsetting": 0,
-                "date": "2026-08-18"
+                "date": "2026-08-19"
               }
             },
             {
@@ -233609,18 +242457,18 @@ window.DATA = {
                 "date": "2026-08-19"
               },
               "margin": {
-                "marginBuy": 26,
-                "marginSell": 182,
+                "marginBuy": 24,
+                "marginSell": 3,
                 "marginCashRedemption": 0,
-                "marginPrevBalance": 987,
-                "marginBalance": 831,
+                "marginPrevBalance": 831,
+                "marginBalance": 852,
                 "shortBuy": 0,
                 "shortSell": 0,
                 "shortStockRedemption": 0,
                 "shortPrevBalance": 3,
                 "shortBalance": 3,
                 "offsetting": 0,
-                "date": "2026-08-18"
+                "date": "2026-08-19"
               }
             },
             {
@@ -233648,18 +242496,18 @@ window.DATA = {
                 "date": "2026-08-19"
               },
               "margin": {
-                "marginBuy": 937,
-                "marginSell": 705,
-                "marginCashRedemption": 3,
-                "marginPrevBalance": 16891,
-                "marginBalance": 17120,
-                "shortBuy": 41,
-                "shortSell": 70,
-                "shortStockRedemption": 0,
-                "shortPrevBalance": 2477,
-                "shortBalance": 2506,
-                "offsetting": 6,
-                "date": "2026-08-18"
+                "marginBuy": 556,
+                "marginSell": 1011,
+                "marginCashRedemption": 1,
+                "marginPrevBalance": 17120,
+                "marginBalance": 16664,
+                "shortBuy": 95,
+                "shortSell": 35,
+                "shortStockRedemption": 1,
+                "shortPrevBalance": 2506,
+                "shortBalance": 2445,
+                "offsetting": 7,
+                "date": "2026-08-19"
               }
             },
             {
@@ -233687,10 +242535,10 @@ window.DATA = {
                 "date": "2026-08-19"
               },
               "margin": {
-                "marginBuy": 5,
-                "marginSell": 3,
+                "marginBuy": 1,
+                "marginSell": 1,
                 "marginCashRedemption": 0,
-                "marginPrevBalance": 156,
+                "marginPrevBalance": 158,
                 "marginBalance": 158,
                 "shortBuy": 0,
                 "shortSell": 0,
@@ -233698,7 +242546,7 @@ window.DATA = {
                 "shortPrevBalance": 0,
                 "shortBalance": 0,
                 "offsetting": 0,
-                "date": "2026-08-18"
+                "date": "2026-08-19"
               }
             },
             {
@@ -233726,18 +242574,18 @@ window.DATA = {
                 "date": "2026-08-19"
               },
               "margin": {
-                "marginBuy": 79,
-                "marginSell": 98,
-                "marginCashRedemption": 1,
-                "marginPrevBalance": 3639,
-                "marginBalance": 3619,
+                "marginBuy": 91,
+                "marginSell": 108,
+                "marginCashRedemption": 4,
+                "marginPrevBalance": 3619,
+                "marginBalance": 3598,
                 "shortBuy": 0,
                 "shortSell": 0,
                 "shortStockRedemption": 0,
                 "shortPrevBalance": 0,
                 "shortBalance": 0,
                 "offsetting": 0,
-                "date": "2026-08-18"
+                "date": "2026-08-19"
               }
             },
             {
@@ -233765,18 +242613,18 @@ window.DATA = {
                 "date": "2026-08-19"
               },
               "margin": {
-                "marginBuy": 134,
-                "marginSell": 111,
-                "marginCashRedemption": 14,
-                "marginPrevBalance": 6919,
-                "marginBalance": 6928,
-                "shortBuy": 3,
-                "shortSell": 4,
-                "shortStockRedemption": 2,
-                "shortPrevBalance": 8,
-                "shortBalance": 7,
-                "offsetting": 0,
-                "date": "2026-08-18"
+                "marginBuy": 66,
+                "marginSell": 70,
+                "marginCashRedemption": 0,
+                "marginPrevBalance": 6928,
+                "marginBalance": 6924,
+                "shortBuy": 0,
+                "shortSell": 1,
+                "shortStockRedemption": 0,
+                "shortPrevBalance": 7,
+                "shortBalance": 8,
+                "offsetting": 1,
+                "date": "2026-08-19"
               }
             },
             {
@@ -233804,18 +242652,18 @@ window.DATA = {
                 "date": "2026-08-19"
               },
               "margin": {
-                "marginBuy": 41,
-                "marginSell": 18,
-                "marginCashRedemption": 1,
-                "marginPrevBalance": 648,
-                "marginBalance": 670,
-                "shortBuy": 1,
-                "shortSell": 1,
+                "marginBuy": 6,
+                "marginSell": 9,
+                "marginCashRedemption": 0,
+                "marginPrevBalance": 670,
+                "marginBalance": 667,
+                "shortBuy": 0,
+                "shortSell": 0,
                 "shortStockRedemption": 0,
                 "shortPrevBalance": 2,
                 "shortBalance": 2,
                 "offsetting": 0,
-                "date": "2026-08-18"
+                "date": "2026-08-19"
               }
             },
             {
@@ -233843,18 +242691,18 @@ window.DATA = {
                 "date": "2026-08-19"
               },
               "margin": {
-                "marginBuy": 0,
-                "marginSell": 18,
+                "marginBuy": 11,
+                "marginSell": 17,
                 "marginCashRedemption": 0,
-                "marginPrevBalance": 402,
-                "marginBalance": 384,
+                "marginPrevBalance": 384,
+                "marginBalance": 378,
                 "shortBuy": 0,
                 "shortSell": 0,
                 "shortStockRedemption": 0,
                 "shortPrevBalance": 1,
                 "shortBalance": 1,
                 "offsetting": 0,
-                "date": "2026-08-18"
+                "date": "2026-08-19"
               }
             },
             {
@@ -233882,18 +242730,18 @@ window.DATA = {
                 "date": "2026-08-19"
               },
               "margin": {
-                "marginBuy": 14,
-                "marginSell": 8,
+                "marginBuy": 4,
+                "marginSell": 4,
                 "marginCashRedemption": 0,
-                "marginPrevBalance": 817,
+                "marginPrevBalance": 823,
                 "marginBalance": 823,
                 "shortBuy": 0,
-                "shortSell": 0,
+                "shortSell": 2,
                 "shortStockRedemption": 0,
                 "shortPrevBalance": 0,
-                "shortBalance": 0,
+                "shortBalance": 2,
                 "offsetting": 0,
-                "date": "2026-08-18"
+                "date": "2026-08-19"
               }
             },
             {
@@ -233921,18 +242769,18 @@ window.DATA = {
                 "date": "2026-08-19"
               },
               "margin": {
-                "marginBuy": 244,
-                "marginSell": 377,
-                "marginCashRedemption": 0,
-                "marginPrevBalance": 42022,
-                "marginBalance": 41889,
-                "shortBuy": 1,
+                "marginBuy": 352,
+                "marginSell": 178,
+                "marginCashRedemption": 13,
+                "marginPrevBalance": 41889,
+                "marginBalance": 42050,
+                "shortBuy": 0,
                 "shortSell": 0,
                 "shortStockRedemption": 0,
-                "shortPrevBalance": 24,
+                "shortPrevBalance": 23,
                 "shortBalance": 23,
-                "offsetting": 0,
-                "date": "2026-08-18"
+                "offsetting": 3,
+                "date": "2026-08-19"
               }
             },
             {
@@ -233960,18 +242808,18 @@ window.DATA = {
                 "date": "2026-08-19"
               },
               "margin": {
-                "marginBuy": 77,
+                "marginBuy": 27,
                 "marginSell": 31,
-                "marginCashRedemption": 9,
-                "marginPrevBalance": 4564,
-                "marginBalance": 4601,
+                "marginCashRedemption": 0,
+                "marginPrevBalance": 4601,
+                "marginBalance": 4597,
                 "shortBuy": 0,
-                "shortSell": 2,
+                "shortSell": 5,
                 "shortStockRedemption": 0,
-                "shortPrevBalance": 45,
-                "shortBalance": 47,
-                "offsetting": 0,
-                "date": "2026-08-18"
+                "shortPrevBalance": 47,
+                "shortBalance": 52,
+                "offsetting": 2,
+                "date": "2026-08-19"
               }
             },
             {
@@ -233999,18 +242847,18 @@ window.DATA = {
                 "date": "2026-08-19"
               },
               "margin": {
-                "marginBuy": 1,
-                "marginSell": 3,
+                "marginBuy": 57,
+                "marginSell": 1,
                 "marginCashRedemption": 0,
-                "marginPrevBalance": 667,
-                "marginBalance": 665,
+                "marginPrevBalance": 665,
+                "marginBalance": 721,
                 "shortBuy": 0,
                 "shortSell": 0,
                 "shortStockRedemption": 0,
                 "shortPrevBalance": 0,
                 "shortBalance": 0,
                 "offsetting": 0,
-                "date": "2026-08-18"
+                "date": "2026-08-19"
               }
             }
           ]
@@ -256600,7 +265448,7 @@ window.DATA = {
         },
         {
           "date": "2026-08-19",
-          "fetched_at": "2026-08-19T19:53:24+08:00",
+          "fetched_at": "2026-08-19T20:38:43+08:00",
           "count": 51,
           "self": {
             "open": 39.82,
@@ -256621,7 +265469,20 @@ window.DATA = {
             "total": -2378978,
             "date": "2026-08-19"
           },
-          "selfMargin": null,
+          "selfMargin": {
+            "marginBuy": 126,
+            "marginSell": 27,
+            "marginCashRedemption": 0,
+            "marginPrevBalance": 1183,
+            "marginBalance": 1282,
+            "shortBuy": 0,
+            "shortSell": 1,
+            "shortStockRedemption": 0,
+            "shortPrevBalance": 3,
+            "shortBalance": 4,
+            "offsetting": 1,
+            "date": "2026-08-19"
+          },
           "holdings": [
             {
               "code": "2330",
@@ -256648,18 +265509,18 @@ window.DATA = {
                 "date": "2026-08-19"
               },
               "margin": {
-                "marginBuy": 456,
-                "marginSell": 304,
-                "marginCashRedemption": 23,
-                "marginPrevBalance": 27727,
-                "marginBalance": 27856,
-                "shortBuy": 5,
-                "shortSell": 6,
-                "shortStockRedemption": 1,
+                "marginBuy": 800,
+                "marginSell": 224,
+                "marginCashRedemption": 10,
+                "marginPrevBalance": 27856,
+                "marginBalance": 28422,
+                "shortBuy": 9,
+                "shortSell": 2,
+                "shortStockRedemption": 0,
                 "shortPrevBalance": 36,
-                "shortBalance": 36,
+                "shortBalance": 29,
                 "offsetting": 0,
-                "date": "2026-08-18"
+                "date": "2026-08-19"
               }
             },
             {
@@ -256681,24 +265542,24 @@ window.DATA = {
               "quoteDate": "2026-08-19",
               "inst": {
                 "foreign": -216230,
-                "trust": -372250,
+                "trust": -1046250,
                 "dealer": -265132,
-                "total": -853612,
+                "total": -1527612,
                 "date": "2026-08-19"
               },
               "margin": {
-                "marginBuy": 392,
-                "marginSell": 568,
+                "marginBuy": 292,
+                "marginSell": 151,
                 "marginCashRedemption": 4,
-                "marginPrevBalance": 9573,
-                "marginBalance": 9393,
-                "shortBuy": 14,
-                "shortSell": 4,
+                "marginPrevBalance": 9393,
+                "marginBalance": 9530,
+                "shortBuy": 15,
+                "shortSell": 14,
                 "shortStockRedemption": 0,
-                "shortPrevBalance": 60,
-                "shortBalance": 50,
+                "shortPrevBalance": 50,
+                "shortBalance": 49,
                 "offsetting": 1,
-                "date": "2026-08-18"
+                "date": "2026-08-19"
               }
             },
             {
@@ -256726,18 +265587,18 @@ window.DATA = {
                 "date": "2026-08-19"
               },
               "margin": {
-                "marginBuy": 408,
-                "marginSell": 387,
-                "marginCashRedemption": 9,
-                "marginPrevBalance": 8000,
-                "marginBalance": 8012,
-                "shortBuy": 8,
-                "shortSell": 9,
+                "marginBuy": 433,
+                "marginSell": 424,
+                "marginCashRedemption": 1,
+                "marginPrevBalance": 8012,
+                "marginBalance": 8020,
+                "shortBuy": 22,
+                "shortSell": 5,
                 "shortStockRedemption": 0,
-                "shortPrevBalance": 56,
-                "shortBalance": 57,
-                "offsetting": 5,
-                "date": "2026-08-18"
+                "shortPrevBalance": 57,
+                "shortBalance": 40,
+                "offsetting": 0,
+                "date": "2026-08-19"
               }
             },
             {
@@ -256765,18 +265626,18 @@ window.DATA = {
                 "date": "2026-08-19"
               },
               "margin": {
-                "marginBuy": 1650,
-                "marginSell": 1405,
-                "marginCashRedemption": 35,
-                "marginPrevBalance": 51454,
-                "marginBalance": 51664,
-                "shortBuy": 86,
-                "shortSell": 45,
+                "marginBuy": 874,
+                "marginSell": 701,
+                "marginCashRedemption": 5,
+                "marginPrevBalance": 51664,
+                "marginBalance": 51832,
+                "shortBuy": 64,
+                "shortSell": 20,
                 "shortStockRedemption": 0,
-                "shortPrevBalance": 608,
-                "shortBalance": 567,
-                "offsetting": 4,
-                "date": "2026-08-18"
+                "shortPrevBalance": 567,
+                "shortBalance": 523,
+                "offsetting": 5,
+                "date": "2026-08-19"
               }
             },
             {
@@ -256804,18 +265665,18 @@ window.DATA = {
                 "date": "2026-08-19"
               },
               "margin": {
-                "marginBuy": 655,
-                "marginSell": 1041,
-                "marginCashRedemption": 2,
-                "marginPrevBalance": 12069,
-                "marginBalance": 11681,
-                "shortBuy": 24,
-                "shortSell": 29,
+                "marginBuy": 371,
+                "marginSell": 188,
+                "marginCashRedemption": 3,
+                "marginPrevBalance": 11681,
+                "marginBalance": 11861,
+                "shortBuy": 29,
+                "shortSell": 102,
                 "shortStockRedemption": 0,
-                "shortPrevBalance": 178,
-                "shortBalance": 183,
-                "offsetting": 18,
-                "date": "2026-08-18"
+                "shortPrevBalance": 183,
+                "shortBalance": 256,
+                "offsetting": 6,
+                "date": "2026-08-19"
               }
             },
             {
@@ -256843,18 +265704,18 @@ window.DATA = {
                 "date": "2026-08-19"
               },
               "margin": {
-                "marginBuy": 57,
-                "marginSell": 102,
-                "marginCashRedemption": 0,
-                "marginPrevBalance": 1883,
-                "marginBalance": 1838,
-                "shortBuy": 6,
-                "shortSell": 5,
-                "shortStockRedemption": 0,
-                "shortPrevBalance": 42,
-                "shortBalance": 41,
-                "offsetting": 0,
-                "date": "2026-08-18"
+                "marginBuy": 130,
+                "marginSell": 82,
+                "marginCashRedemption": 2,
+                "marginPrevBalance": 1838,
+                "marginBalance": 1884,
+                "shortBuy": 16,
+                "shortSell": 3,
+                "shortStockRedemption": 1,
+                "shortPrevBalance": 41,
+                "shortBalance": 27,
+                "offsetting": 2,
+                "date": "2026-08-19"
               }
             },
             {
@@ -256882,18 +265743,18 @@ window.DATA = {
                 "date": "2026-08-19"
               },
               "margin": {
-                "marginBuy": 3648,
-                "marginSell": 8113,
-                "marginCashRedemption": 153,
-                "marginPrevBalance": 164090,
-                "marginBalance": 159472,
-                "shortBuy": 200,
-                "shortSell": 283,
+                "marginBuy": 3549,
+                "marginSell": 7905,
+                "marginCashRedemption": 47,
+                "marginPrevBalance": 159472,
+                "marginBalance": 155069,
+                "shortBuy": 235,
+                "shortSell": 463,
                 "shortStockRedemption": 0,
-                "shortPrevBalance": 2471,
-                "shortBalance": 2554,
-                "offsetting": 30,
-                "date": "2026-08-18"
+                "shortPrevBalance": 2554,
+                "shortBalance": 2782,
+                "offsetting": 25,
+                "date": "2026-08-19"
               }
             },
             {
@@ -256915,24 +265776,24 @@ window.DATA = {
               "quoteDate": "2026-08-19",
               "inst": {
                 "foreign": -3422361,
-                "trust": -595000,
+                "trust": -2731000,
                 "dealer": -1341269,
-                "total": -5358630,
+                "total": -7494630,
                 "date": "2026-08-19"
               },
               "margin": {
-                "marginBuy": 1954,
-                "marginSell": 2816,
-                "marginCashRedemption": 19,
-                "marginPrevBalance": 37683,
-                "marginBalance": 36802,
-                "shortBuy": 100,
-                "shortSell": 286,
-                "shortStockRedemption": 5,
-                "shortPrevBalance": 443,
-                "shortBalance": 624,
-                "offsetting": 23,
-                "date": "2026-08-18"
+                "marginBuy": 1957,
+                "marginSell": 1181,
+                "marginCashRedemption": 9,
+                "marginPrevBalance": 36802,
+                "marginBalance": 37569,
+                "shortBuy": 286,
+                "shortSell": 78,
+                "shortStockRedemption": 0,
+                "shortPrevBalance": 624,
+                "shortBalance": 416,
+                "offsetting": 91,
+                "date": "2026-08-19"
               }
             },
             {
@@ -256954,24 +265815,24 @@ window.DATA = {
               "quoteDate": "2026-08-19",
               "inst": {
                 "foreign": 45475,
-                "trust": 601000,
+                "trust": 534000,
                 "dealer": -228463,
-                "total": 418012,
+                "total": 351012,
                 "date": "2026-08-19"
               },
               "margin": {
-                "marginBuy": 231,
-                "marginSell": 300,
-                "marginCashRedemption": 1,
-                "marginPrevBalance": 4262,
-                "marginBalance": 4192,
+                "marginBuy": 315,
+                "marginSell": 351,
+                "marginCashRedemption": 0,
+                "marginPrevBalance": 4192,
+                "marginBalance": 4156,
                 "shortBuy": 0,
-                "shortSell": 0,
+                "shortSell": 9,
                 "shortStockRedemption": 0,
                 "shortPrevBalance": 0,
-                "shortBalance": 0,
-                "offsetting": 0,
-                "date": "2026-08-18"
+                "shortBalance": 9,
+                "offsetting": 41,
+                "date": "2026-08-19"
               }
             },
             {
@@ -256993,24 +265854,24 @@ window.DATA = {
               "quoteDate": "2026-08-19",
               "inst": {
                 "foreign": 174888,
-                "trust": -360000,
+                "trust": -360257,
                 "dealer": 19836,
-                "total": -165276,
+                "total": -165533,
                 "date": "2026-08-19"
               },
               "margin": {
-                "marginBuy": 97,
-                "marginSell": 172,
-                "marginCashRedemption": 3,
-                "marginPrevBalance": 1406,
-                "marginBalance": 1328,
-                "shortBuy": 2,
+                "marginBuy": 59,
+                "marginSell": 42,
+                "marginCashRedemption": 2,
+                "marginPrevBalance": 1328,
+                "marginBalance": 1343,
+                "shortBuy": 5,
                 "shortSell": 0,
-                "shortStockRedemption": 0,
-                "shortPrevBalance": 27,
-                "shortBalance": 25,
+                "shortStockRedemption": 6,
+                "shortPrevBalance": 25,
+                "shortBalance": 14,
                 "offsetting": 0,
-                "date": "2026-08-18"
+                "date": "2026-08-19"
               }
             },
             {
@@ -257038,18 +265899,18 @@ window.DATA = {
                 "date": "2026-08-19"
               },
               "margin": {
-                "marginBuy": 1693,
-                "marginSell": 2780,
-                "marginCashRedemption": 2,
-                "marginPrevBalance": 37857,
-                "marginBalance": 36768,
-                "shortBuy": 71,
-                "shortSell": 114,
-                "shortStockRedemption": 16,
-                "shortPrevBalance": 903,
-                "shortBalance": 930,
-                "offsetting": 34,
-                "date": "2026-08-18"
+                "marginBuy": 1398,
+                "marginSell": 917,
+                "marginCashRedemption": 3,
+                "marginPrevBalance": 36768,
+                "marginBalance": 37246,
+                "shortBuy": 142,
+                "shortSell": 56,
+                "shortStockRedemption": 47,
+                "shortPrevBalance": 930,
+                "shortBalance": 797,
+                "offsetting": 31,
+                "date": "2026-08-19"
               }
             },
             {
@@ -257077,18 +265938,18 @@ window.DATA = {
                 "date": "2026-08-19"
               },
               "margin": {
-                "marginBuy": 50,
-                "marginSell": 181,
+                "marginBuy": 73,
+                "marginSell": 41,
                 "marginCashRedemption": 1,
-                "marginPrevBalance": 1868,
-                "marginBalance": 1736,
-                "shortBuy": 1,
-                "shortSell": 2,
+                "marginPrevBalance": 1736,
+                "marginBalance": 1767,
+                "shortBuy": 10,
+                "shortSell": 0,
                 "shortStockRedemption": 0,
-                "shortPrevBalance": 17,
-                "shortBalance": 18,
+                "shortPrevBalance": 18,
+                "shortBalance": 8,
                 "offsetting": 0,
-                "date": "2026-08-18"
+                "date": "2026-08-19"
               }
             },
             {
@@ -257126,18 +265987,18 @@ window.DATA = {
                 "date": "2026-08-19"
               },
               "margin": {
-                "marginBuy": 18,
-                "marginSell": 459,
+                "marginBuy": 400,
+                "marginSell": 6,
                 "marginCashRedemption": 1,
-                "marginPrevBalance": 3452,
-                "marginBalance": 3010,
-                "shortBuy": 0,
-                "shortSell": 1,
+                "marginPrevBalance": 3010,
+                "marginBalance": 3403,
+                "shortBuy": 7,
+                "shortSell": 4,
                 "shortStockRedemption": 0,
-                "shortPrevBalance": 48,
-                "shortBalance": 49,
-                "offsetting": 1,
-                "date": "2026-08-18"
+                "shortPrevBalance": 49,
+                "shortBalance": 46,
+                "offsetting": 0,
+                "date": "2026-08-19"
               }
             },
             {
@@ -257165,18 +266026,18 @@ window.DATA = {
                 "date": "2026-08-19"
               },
               "margin": {
-                "marginBuy": 52,
-                "marginSell": 771,
+                "marginBuy": 135,
+                "marginSell": 56,
                 "marginCashRedemption": 0,
-                "marginPrevBalance": 6876,
-                "marginBalance": 6157,
-                "shortBuy": 1,
-                "shortSell": 42,
+                "marginPrevBalance": 6157,
+                "marginBalance": 6236,
+                "shortBuy": 8,
+                "shortSell": 1,
                 "shortStockRedemption": 0,
-                "shortPrevBalance": 148,
-                "shortBalance": 189,
-                "offsetting": 1,
-                "date": "2026-08-18"
+                "shortPrevBalance": 189,
+                "shortBalance": 182,
+                "offsetting": 0,
+                "date": "2026-08-19"
               }
             },
             {
@@ -257204,18 +266065,18 @@ window.DATA = {
                 "date": "2026-08-19"
               },
               "margin": {
-                "marginBuy": 34,
-                "marginSell": 320,
-                "marginCashRedemption": 0,
-                "marginPrevBalance": 4372,
-                "marginBalance": 4086,
-                "shortBuy": 3,
-                "shortSell": 4,
-                "shortStockRedemption": 1,
+                "marginBuy": 132,
+                "marginSell": 14,
+                "marginCashRedemption": 13,
+                "marginPrevBalance": 4086,
+                "marginBalance": 4191,
+                "shortBuy": 9,
+                "shortSell": 0,
+                "shortStockRedemption": 0,
                 "shortPrevBalance": 210,
-                "shortBalance": 210,
-                "offsetting": 1,
-                "date": "2026-08-18"
+                "shortBalance": 201,
+                "offsetting": 0,
+                "date": "2026-08-19"
               }
             },
             {
@@ -257243,18 +266104,18 @@ window.DATA = {
                 "date": "2026-08-19"
               },
               "margin": {
-                "marginBuy": 439,
-                "marginSell": 252,
-                "marginCashRedemption": 0,
-                "marginPrevBalance": 40275,
-                "marginBalance": 40462,
-                "shortBuy": 14,
-                "shortSell": 2,
+                "marginBuy": 501,
+                "marginSell": 181,
+                "marginCashRedemption": 15,
+                "marginPrevBalance": 40462,
+                "marginBalance": 40767,
+                "shortBuy": 649,
+                "shortSell": 24,
                 "shortStockRedemption": 0,
-                "shortPrevBalance": 763,
-                "shortBalance": 751,
-                "offsetting": 0,
-                "date": "2026-08-18"
+                "shortPrevBalance": 751,
+                "shortBalance": 126,
+                "offsetting": 42,
+                "date": "2026-08-19"
               }
             },
             {
@@ -257282,18 +266143,18 @@ window.DATA = {
                 "date": "2026-08-19"
               },
               "margin": {
-                "marginBuy": 522,
-                "marginSell": 117,
-                "marginCashRedemption": 0,
-                "marginPrevBalance": 1848,
-                "marginBalance": 2253,
+                "marginBuy": 432,
+                "marginSell": 23,
+                "marginCashRedemption": 2,
+                "marginPrevBalance": 2253,
+                "marginBalance": 2660,
                 "shortBuy": 0,
                 "shortSell": 0,
                 "shortStockRedemption": 0,
                 "shortPrevBalance": 0,
                 "shortBalance": 0,
-                "offsetting": 2,
-                "date": "2026-08-18"
+                "offsetting": 0,
+                "date": "2026-08-19"
               }
             },
             {
@@ -257315,24 +266176,24 @@ window.DATA = {
               "quoteDate": "2026-08-19",
               "inst": {
                 "foreign": -102444,
-                "trust": 19000,
+                "trust": 19412,
                 "dealer": 6370,
-                "total": -77074,
+                "total": -76662,
                 "date": "2026-08-19"
               },
               "margin": {
-                "marginBuy": 50,
-                "marginSell": 59,
-                "marginCashRedemption": 1,
-                "marginPrevBalance": 595,
-                "marginBalance": 585,
-                "shortBuy": 5,
-                "shortSell": 1,
+                "marginBuy": 44,
+                "marginSell": 10,
+                "marginCashRedemption": 0,
+                "marginPrevBalance": 585,
+                "marginBalance": 619,
+                "shortBuy": 0,
+                "shortSell": 0,
                 "shortStockRedemption": 0,
-                "shortPrevBalance": 10,
+                "shortPrevBalance": 6,
                 "shortBalance": 6,
                 "offsetting": 0,
-                "date": "2026-08-18"
+                "date": "2026-08-19"
               }
             },
             {
@@ -257360,18 +266221,18 @@ window.DATA = {
                 "date": "2026-08-19"
               },
               "margin": {
-                "marginBuy": 453,
-                "marginSell": 832,
-                "marginCashRedemption": 7,
-                "marginPrevBalance": 16662,
-                "marginBalance": 16276,
-                "shortBuy": 10,
+                "marginBuy": 265,
+                "marginSell": 439,
+                "marginCashRedemption": 3,
+                "marginPrevBalance": 16276,
+                "marginBalance": 16099,
+                "shortBuy": 9,
                 "shortSell": 14,
                 "shortStockRedemption": 0,
-                "shortPrevBalance": 66,
-                "shortBalance": 70,
-                "offsetting": 0,
-                "date": "2026-08-18"
+                "shortPrevBalance": 70,
+                "shortBalance": 75,
+                "offsetting": 4,
+                "date": "2026-08-19"
               }
             },
             {
@@ -257399,18 +266260,18 @@ window.DATA = {
                 "date": "2026-08-19"
               },
               "margin": {
-                "marginBuy": 6778,
-                "marginSell": 8709,
-                "marginCashRedemption": 6,
-                "marginPrevBalance": 47900,
-                "marginBalance": 45963,
-                "shortBuy": 167,
-                "shortSell": 140,
-                "shortStockRedemption": 1,
-                "shortPrevBalance": 1941,
-                "shortBalance": 1913,
-                "offsetting": 98,
-                "date": "2026-08-18"
+                "marginBuy": 5049,
+                "marginSell": 7144,
+                "marginCashRedemption": 3,
+                "marginPrevBalance": 45963,
+                "marginBalance": 43865,
+                "shortBuy": 553,
+                "shortSell": 287,
+                "shortStockRedemption": 3,
+                "shortPrevBalance": 1913,
+                "shortBalance": 1644,
+                "offsetting": 69,
+                "date": "2026-08-19"
               }
             },
             {
@@ -257438,18 +266299,18 @@ window.DATA = {
                 "date": "2026-08-19"
               },
               "margin": {
-                "marginBuy": 2646,
-                "marginSell": 2257,
-                "marginCashRedemption": 10,
-                "marginPrevBalance": 13399,
-                "marginBalance": 13778,
+                "marginBuy": 3674,
+                "marginSell": 2071,
+                "marginCashRedemption": 0,
+                "marginPrevBalance": 13778,
+                "marginBalance": 15381,
                 "shortBuy": 0,
-                "shortSell": 0,
+                "shortSell": 126,
                 "shortStockRedemption": 0,
                 "shortPrevBalance": 0,
-                "shortBalance": 0,
-                "offsetting": 0,
-                "date": "2026-08-18"
+                "shortBalance": 126,
+                "offsetting": 282,
+                "date": "2026-08-19"
               }
             },
             {
@@ -257471,24 +266332,24 @@ window.DATA = {
               "quoteDate": "2026-08-19",
               "inst": {
                 "foreign": -135887,
-                "trust": 65000,
+                "trust": 84000,
                 "dealer": 132972,
-                "total": 62085,
+                "total": 81085,
                 "date": "2026-08-19"
               },
               "margin": {
-                "marginBuy": 289,
-                "marginSell": 258,
+                "marginBuy": 285,
+                "marginSell": 172,
                 "marginCashRedemption": 0,
-                "marginPrevBalance": 2608,
-                "marginBalance": 2639,
-                "shortBuy": 4,
-                "shortSell": 14,
+                "marginPrevBalance": 2639,
+                "marginBalance": 2752,
+                "shortBuy": 1,
+                "shortSell": 13,
                 "shortStockRedemption": 0,
-                "shortPrevBalance": 22,
-                "shortBalance": 32,
-                "offsetting": 3,
-                "date": "2026-08-18"
+                "shortPrevBalance": 32,
+                "shortBalance": 44,
+                "offsetting": 2,
+                "date": "2026-08-19"
               }
             },
             {
@@ -257516,18 +266377,18 @@ window.DATA = {
                 "date": "2026-08-19"
               },
               "margin": {
-                "marginBuy": 262,
-                "marginSell": 70,
-                "marginCashRedemption": 0,
-                "marginPrevBalance": 9376,
-                "marginBalance": 9568,
-                "shortBuy": 957,
-                "shortSell": 2,
+                "marginBuy": 1093,
+                "marginSell": 115,
+                "marginCashRedemption": 34,
+                "marginPrevBalance": 9568,
+                "marginBalance": 10512,
+                "shortBuy": 17,
+                "shortSell": 3,
                 "shortStockRedemption": 0,
-                "shortPrevBalance": 1026,
-                "shortBalance": 71,
-                "offsetting": 1,
-                "date": "2026-08-18"
+                "shortPrevBalance": 71,
+                "shortBalance": 57,
+                "offsetting": 0,
+                "date": "2026-08-19"
               }
             },
             {
@@ -257555,18 +266416,18 @@ window.DATA = {
                 "date": "2026-08-19"
               },
               "margin": {
-                "marginBuy": 100,
-                "marginSell": 97,
-                "marginCashRedemption": 14,
-                "marginPrevBalance": 1552,
-                "marginBalance": 1541,
-                "shortBuy": 24,
-                "shortSell": 3,
+                "marginBuy": 127,
+                "marginSell": 36,
+                "marginCashRedemption": 1,
+                "marginPrevBalance": 1541,
+                "marginBalance": 1631,
+                "shortBuy": 2,
+                "shortSell": 5,
                 "shortStockRedemption": 0,
-                "shortPrevBalance": 61,
-                "shortBalance": 40,
+                "shortPrevBalance": 40,
+                "shortBalance": 43,
                 "offsetting": 1,
-                "date": "2026-08-18"
+                "date": "2026-08-19"
               }
             },
             {
@@ -257594,18 +266455,18 @@ window.DATA = {
                 "date": "2026-08-19"
               },
               "margin": {
-                "marginBuy": 54,
-                "marginSell": 121,
+                "marginBuy": 144,
+                "marginSell": 192,
                 "marginCashRedemption": 0,
-                "marginPrevBalance": 1494,
-                "marginBalance": 1427,
-                "shortBuy": 0,
-                "shortSell": 8,
+                "marginPrevBalance": 1427,
+                "marginBalance": 1379,
+                "shortBuy": 10,
+                "shortSell": 1,
                 "shortStockRedemption": 0,
-                "shortPrevBalance": 35,
-                "shortBalance": 43,
-                "offsetting": 2,
-                "date": "2026-08-18"
+                "shortPrevBalance": 43,
+                "shortBalance": 34,
+                "offsetting": 3,
+                "date": "2026-08-19"
               }
             },
             {
@@ -257633,18 +266494,18 @@ window.DATA = {
                 "date": "2026-08-19"
               },
               "margin": {
-                "marginBuy": 287,
-                "marginSell": 140,
+                "marginBuy": 348,
+                "marginSell": 205,
                 "marginCashRedemption": 0,
-                "marginPrevBalance": 4879,
-                "marginBalance": 5026,
-                "shortBuy": 8,
-                "shortSell": 178,
+                "marginPrevBalance": 5026,
+                "marginBalance": 5169,
+                "shortBuy": 401,
+                "shortSell": 220,
                 "shortStockRedemption": 0,
-                "shortPrevBalance": 646,
-                "shortBalance": 816,
-                "offsetting": 0,
-                "date": "2026-08-18"
+                "shortPrevBalance": 816,
+                "shortBalance": 635,
+                "offsetting": 45,
+                "date": "2026-08-19"
               }
             },
             {
@@ -257672,18 +266533,18 @@ window.DATA = {
                 "date": "2026-08-19"
               },
               "margin": {
-                "marginBuy": 1936,
-                "marginSell": 1602,
-                "marginCashRedemption": 5,
-                "marginPrevBalance": 37228,
-                "marginBalance": 37557,
-                "shortBuy": 162,
-                "shortSell": 55,
+                "marginBuy": 2116,
+                "marginSell": 1281,
+                "marginCashRedemption": 1,
+                "marginPrevBalance": 37557,
+                "marginBalance": 38391,
+                "shortBuy": 91,
+                "shortSell": 187,
                 "shortStockRedemption": 0,
-                "shortPrevBalance": 815,
-                "shortBalance": 708,
-                "offsetting": 7,
-                "date": "2026-08-18"
+                "shortPrevBalance": 708,
+                "shortBalance": 804,
+                "offsetting": 22,
+                "date": "2026-08-19"
               }
             },
             {
@@ -257711,18 +266572,18 @@ window.DATA = {
                 "date": "2026-08-19"
               },
               "margin": {
-                "marginBuy": 14,
-                "marginSell": 179,
-                "marginCashRedemption": 1,
-                "marginPrevBalance": 1947,
-                "marginBalance": 1781,
+                "marginBuy": 35,
+                "marginSell": 58,
+                "marginCashRedemption": 0,
+                "marginPrevBalance": 1781,
+                "marginBalance": 1758,
                 "shortBuy": 0,
                 "shortSell": 0,
                 "shortStockRedemption": 0,
                 "shortPrevBalance": 27,
                 "shortBalance": 27,
                 "offsetting": 0,
-                "date": "2026-08-18"
+                "date": "2026-08-19"
               }
             },
             {
@@ -257750,18 +266611,18 @@ window.DATA = {
                 "date": "2026-08-19"
               },
               "margin": {
-                "marginBuy": 251,
-                "marginSell": 267,
+                "marginBuy": 280,
+                "marginSell": 325,
                 "marginCashRedemption": 2,
-                "marginPrevBalance": 3111,
-                "marginBalance": 3093,
-                "shortBuy": 8,
-                "shortSell": 9,
-                "shortStockRedemption": 11,
-                "shortPrevBalance": 63,
-                "shortBalance": 53,
-                "offsetting": 9,
-                "date": "2026-08-18"
+                "marginPrevBalance": 3093,
+                "marginBalance": 3046,
+                "shortBuy": 0,
+                "shortSell": 0,
+                "shortStockRedemption": 1,
+                "shortPrevBalance": 53,
+                "shortBalance": 52,
+                "offsetting": 3,
+                "date": "2026-08-19"
               }
             },
             {
@@ -257789,18 +266650,18 @@ window.DATA = {
                 "date": "2026-08-19"
               },
               "margin": {
-                "marginBuy": 303,
-                "marginSell": 207,
-                "marginCashRedemption": 6,
-                "marginPrevBalance": 8913,
-                "marginBalance": 9003,
-                "shortBuy": 7,
-                "shortSell": 6,
+                "marginBuy": 219,
+                "marginSell": 90,
+                "marginCashRedemption": 3,
+                "marginPrevBalance": 9003,
+                "marginBalance": 9129,
+                "shortBuy": 2,
+                "shortSell": 8,
                 "shortStockRedemption": 0,
-                "shortPrevBalance": 29,
-                "shortBalance": 28,
-                "offsetting": 5,
-                "date": "2026-08-18"
+                "shortPrevBalance": 28,
+                "shortBalance": 34,
+                "offsetting": 0,
+                "date": "2026-08-19"
               }
             },
             {
@@ -257828,18 +266689,18 @@ window.DATA = {
                 "date": "2026-08-19"
               },
               "margin": {
-                "marginBuy": 90,
-                "marginSell": 66,
+                "marginBuy": 73,
+                "marginSell": 81,
                 "marginCashRedemption": 0,
-                "marginPrevBalance": 2523,
-                "marginBalance": 2547,
-                "shortBuy": 24,
-                "shortSell": 4,
+                "marginPrevBalance": 2547,
+                "marginBalance": 2539,
+                "shortBuy": 10,
+                "shortSell": 24,
                 "shortStockRedemption": 0,
-                "shortPrevBalance": 51,
-                "shortBalance": 31,
-                "offsetting": 0,
-                "date": "2026-08-18"
+                "shortPrevBalance": 31,
+                "shortBalance": 45,
+                "offsetting": 1,
+                "date": "2026-08-19"
               }
             },
             {
@@ -257899,18 +266760,18 @@ window.DATA = {
                 "date": "2026-08-19"
               },
               "margin": {
-                "marginBuy": 73,
-                "marginSell": 39,
-                "marginCashRedemption": 0,
-                "marginPrevBalance": 2091,
-                "marginBalance": 2125,
-                "shortBuy": 360,
-                "shortSell": 13,
+                "marginBuy": 36,
+                "marginSell": 13,
+                "marginCashRedemption": 1,
+                "marginPrevBalance": 2125,
+                "marginBalance": 2147,
+                "shortBuy": 6,
+                "shortSell": 11,
                 "shortStockRedemption": 0,
-                "shortPrevBalance": 408,
-                "shortBalance": 61,
+                "shortPrevBalance": 61,
+                "shortBalance": 66,
                 "offsetting": 0,
-                "date": "2026-08-18"
+                "date": "2026-08-19"
               }
             },
             {
@@ -257932,24 +266793,24 @@ window.DATA = {
               "quoteDate": "2026-08-19",
               "inst": {
                 "foreign": 828793,
-                "trust": 9000,
+                "trust": -126000,
                 "dealer": -71430,
-                "total": 766363,
+                "total": 631363,
                 "date": "2026-08-19"
               },
               "margin": {
-                "marginBuy": 315,
-                "marginSell": 437,
-                "marginCashRedemption": 0,
-                "marginPrevBalance": 5080,
-                "marginBalance": 4958,
-                "shortBuy": 26,
-                "shortSell": 0,
+                "marginBuy": 183,
+                "marginSell": 374,
+                "marginCashRedemption": 3,
+                "marginPrevBalance": 4958,
+                "marginBalance": 4764,
+                "shortBuy": 17,
+                "shortSell": 16,
                 "shortStockRedemption": 0,
-                "shortPrevBalance": 123,
-                "shortBalance": 97,
+                "shortPrevBalance": 97,
+                "shortBalance": 96,
                 "offsetting": 2,
-                "date": "2026-08-18"
+                "date": "2026-08-19"
               }
             },
             {
@@ -257977,18 +266838,18 @@ window.DATA = {
                 "date": "2026-08-19"
               },
               "margin": {
-                "marginBuy": 70,
-                "marginSell": 73,
+                "marginBuy": 26,
+                "marginSell": 114,
                 "marginCashRedemption": 0,
-                "marginPrevBalance": 1034,
-                "marginBalance": 1031,
+                "marginPrevBalance": 1031,
+                "marginBalance": 943,
                 "shortBuy": 0,
-                "shortSell": 0,
+                "shortSell": 1,
                 "shortStockRedemption": 0,
                 "shortPrevBalance": 1,
-                "shortBalance": 1,
-                "offsetting": 0,
-                "date": "2026-08-18"
+                "shortBalance": 2,
+                "offsetting": 1,
+                "date": "2026-08-19"
               }
             },
             {
@@ -258016,18 +266877,18 @@ window.DATA = {
                 "date": "2026-08-19"
               },
               "margin": {
-                "marginBuy": 219,
-                "marginSell": 199,
-                "marginCashRedemption": 4,
-                "marginPrevBalance": 2631,
-                "marginBalance": 2647,
-                "shortBuy": 2,
-                "shortSell": 5,
+                "marginBuy": 97,
+                "marginSell": 61,
+                "marginCashRedemption": 0,
+                "marginPrevBalance": 2647,
+                "marginBalance": 2683,
+                "shortBuy": 5,
+                "shortSell": 1,
                 "shortStockRedemption": 0,
-                "shortPrevBalance": 16,
-                "shortBalance": 19,
-                "offsetting": 0,
-                "date": "2026-08-18"
+                "shortPrevBalance": 19,
+                "shortBalance": 15,
+                "offsetting": 1,
+                "date": "2026-08-19"
               }
             },
             {
@@ -258055,18 +266916,18 @@ window.DATA = {
                 "date": "2026-08-19"
               },
               "margin": {
-                "marginBuy": 24,
-                "marginSell": 67,
-                "marginCashRedemption": 2,
-                "marginPrevBalance": 2756,
-                "marginBalance": 2711,
-                "shortBuy": 7,
-                "shortSell": 5,
+                "marginBuy": 41,
+                "marginSell": 93,
+                "marginCashRedemption": 0,
+                "marginPrevBalance": 2711,
+                "marginBalance": 2659,
+                "shortBuy": 6,
+                "shortSell": 69,
                 "shortStockRedemption": 0,
-                "shortPrevBalance": 244,
-                "shortBalance": 242,
+                "shortPrevBalance": 242,
+                "shortBalance": 305,
                 "offsetting": 0,
-                "date": "2026-08-18"
+                "date": "2026-08-19"
               }
             },
             {
@@ -258094,18 +266955,18 @@ window.DATA = {
                 "date": "2026-08-19"
               },
               "margin": {
-                "marginBuy": 140,
-                "marginSell": 112,
-                "marginCashRedemption": 0,
-                "marginPrevBalance": 1707,
-                "marginBalance": 1735,
-                "shortBuy": 1,
-                "shortSell": 4,
+                "marginBuy": 219,
+                "marginSell": 124,
+                "marginCashRedemption": 1,
+                "marginPrevBalance": 1735,
+                "marginBalance": 1829,
+                "shortBuy": 5,
+                "shortSell": 12,
                 "shortStockRedemption": 0,
-                "shortPrevBalance": 49,
-                "shortBalance": 52,
-                "offsetting": 2,
-                "date": "2026-08-18"
+                "shortPrevBalance": 52,
+                "shortBalance": 59,
+                "offsetting": 6,
+                "date": "2026-08-19"
               }
             },
             {
@@ -258133,18 +266994,18 @@ window.DATA = {
                 "date": "2026-08-19"
               },
               "margin": {
-                "marginBuy": 281,
-                "marginSell": 338,
-                "marginCashRedemption": 0,
-                "marginPrevBalance": 2321,
-                "marginBalance": 2264,
-                "shortBuy": 807,
-                "shortSell": 16,
+                "marginBuy": 56,
+                "marginSell": 41,
+                "marginCashRedemption": 2,
+                "marginPrevBalance": 2264,
+                "marginBalance": 2277,
+                "shortBuy": 10,
+                "shortSell": 2,
                 "shortStockRedemption": 0,
-                "shortPrevBalance": 819,
-                "shortBalance": 28,
-                "offsetting": 4,
-                "date": "2026-08-18"
+                "shortPrevBalance": 28,
+                "shortBalance": 20,
+                "offsetting": 0,
+                "date": "2026-08-19"
               }
             },
             {
@@ -258172,18 +267033,18 @@ window.DATA = {
                 "date": "2026-08-19"
               },
               "margin": {
-                "marginBuy": 38,
-                "marginSell": 131,
+                "marginBuy": 47,
+                "marginSell": 27,
                 "marginCashRedemption": 0,
-                "marginPrevBalance": 2202,
-                "marginBalance": 2109,
-                "shortBuy": 245,
-                "shortSell": 5,
+                "marginPrevBalance": 2109,
+                "marginBalance": 2129,
+                "shortBuy": 2,
+                "shortSell": 4,
                 "shortStockRedemption": 0,
-                "shortPrevBalance": 256,
-                "shortBalance": 16,
+                "shortPrevBalance": 16,
+                "shortBalance": 18,
                 "offsetting": 0,
-                "date": "2026-08-18"
+                "date": "2026-08-19"
               }
             },
             {
@@ -258211,18 +267072,18 @@ window.DATA = {
                 "date": "2026-08-19"
               },
               "margin": {
-                "marginBuy": 55,
-                "marginSell": 230,
-                "marginCashRedemption": 0,
-                "marginPrevBalance": 4550,
-                "marginBalance": 4375,
+                "marginBuy": 63,
+                "marginSell": 106,
+                "marginCashRedemption": 10,
+                "marginPrevBalance": 4375,
+                "marginBalance": 4322,
                 "shortBuy": 0,
-                "shortSell": 0,
+                "shortSell": 1,
                 "shortStockRedemption": 0,
                 "shortPrevBalance": 2,
-                "shortBalance": 2,
-                "offsetting": 2,
-                "date": "2026-08-18"
+                "shortBalance": 3,
+                "offsetting": 0,
+                "date": "2026-08-19"
               }
             },
             {
@@ -258250,18 +267111,18 @@ window.DATA = {
                 "date": "2026-08-19"
               },
               "margin": {
-                "marginBuy": 272,
-                "marginSell": 661,
+                "marginBuy": 760,
+                "marginSell": 144,
                 "marginCashRedemption": 0,
-                "marginPrevBalance": 2378,
-                "marginBalance": 1989,
-                "shortBuy": 776,
-                "shortSell": 19,
+                "marginPrevBalance": 1989,
+                "marginBalance": 2605,
+                "shortBuy": 26,
+                "shortSell": 0,
                 "shortStockRedemption": 0,
-                "shortPrevBalance": 793,
-                "shortBalance": 36,
-                "offsetting": 2,
-                "date": "2026-08-18"
+                "shortPrevBalance": 36,
+                "shortBalance": 10,
+                "offsetting": 33,
+                "date": "2026-08-19"
               }
             },
             {
@@ -258289,18 +267150,18 @@ window.DATA = {
                 "date": "2026-08-19"
               },
               "margin": {
-                "marginBuy": 3165,
-                "marginSell": 2597,
-                "marginCashRedemption": 1,
-                "marginPrevBalance": 34302,
-                "marginBalance": 34869,
-                "shortBuy": 59,
-                "shortSell": 106,
+                "marginBuy": 1262,
+                "marginSell": 1893,
+                "marginCashRedemption": 9,
+                "marginPrevBalance": 34869,
+                "marginBalance": 34229,
+                "shortBuy": 161,
+                "shortSell": 58,
                 "shortStockRedemption": 0,
-                "shortPrevBalance": 370,
-                "shortBalance": 417,
-                "offsetting": 34,
-                "date": "2026-08-18"
+                "shortPrevBalance": 417,
+                "shortBalance": 314,
+                "offsetting": 43,
+                "date": "2026-08-19"
               }
             },
             {
@@ -258328,18 +267189,18 @@ window.DATA = {
                 "date": "2026-08-19"
               },
               "margin": {
-                "marginBuy": 417,
-                "marginSell": 510,
-                "marginCashRedemption": 3,
-                "marginPrevBalance": 6176,
-                "marginBalance": 6080,
-                "shortBuy": 8,
-                "shortSell": 4,
-                "shortStockRedemption": 0,
-                "shortPrevBalance": 52,
-                "shortBalance": 48,
+                "marginBuy": 179,
+                "marginSell": 30,
+                "marginCashRedemption": 1,
+                "marginPrevBalance": 6080,
+                "marginBalance": 6228,
+                "shortBuy": 15,
+                "shortSell": 1,
+                "shortStockRedemption": 3,
+                "shortPrevBalance": 48,
+                "shortBalance": 31,
                 "offsetting": 0,
-                "date": "2026-08-18"
+                "date": "2026-08-19"
               }
             },
             {
@@ -258367,18 +267228,18 @@ window.DATA = {
                 "date": "2026-08-19"
               },
               "margin": {
-                "marginBuy": 7,
-                "marginSell": 27,
+                "marginBuy": 3,
+                "marginSell": 1,
                 "marginCashRedemption": 0,
-                "marginPrevBalance": 209,
-                "marginBalance": 189,
+                "marginPrevBalance": 189,
+                "marginBalance": 191,
                 "shortBuy": 0,
                 "shortSell": 0,
                 "shortStockRedemption": 0,
                 "shortPrevBalance": 0,
                 "shortBalance": 0,
                 "offsetting": 0,
-                "date": "2026-08-18"
+                "date": "2026-08-19"
               }
             },
             {
@@ -258406,18 +267267,18 @@ window.DATA = {
                 "date": "2026-08-19"
               },
               "margin": {
-                "marginBuy": 693,
-                "marginSell": 1209,
-                "marginCashRedemption": 11,
-                "marginPrevBalance": 7706,
-                "marginBalance": 7179,
-                "shortBuy": 9,
-                "shortSell": 36,
-                "shortStockRedemption": 159,
-                "shortPrevBalance": 399,
-                "shortBalance": 267,
-                "offsetting": 10,
-                "date": "2026-08-18"
+                "marginBuy": 571,
+                "marginSell": 581,
+                "marginCashRedemption": 0,
+                "marginPrevBalance": 7179,
+                "marginBalance": 7169,
+                "shortBuy": 26,
+                "shortSell": 15,
+                "shortStockRedemption": 55,
+                "shortPrevBalance": 267,
+                "shortBalance": 201,
+                "offsetting": 6,
+                "date": "2026-08-19"
               }
             },
             {
@@ -258445,18 +267306,18 @@ window.DATA = {
                 "date": "2026-08-19"
               },
               "margin": {
-                "marginBuy": 42,
-                "marginSell": 226,
-                "marginCashRedemption": 2,
-                "marginPrevBalance": 2693,
-                "marginBalance": 2507,
-                "shortBuy": 9,
-                "shortSell": 1,
+                "marginBuy": 27,
+                "marginSell": 25,
+                "marginCashRedemption": 11,
+                "marginPrevBalance": 2507,
+                "marginBalance": 2498,
+                "shortBuy": 1,
+                "shortSell": 4,
                 "shortStockRedemption": 0,
-                "shortPrevBalance": 19,
-                "shortBalance": 11,
-                "offsetting": 1,
-                "date": "2026-08-18"
+                "shortPrevBalance": 11,
+                "shortBalance": 14,
+                "offsetting": 0,
+                "date": "2026-08-19"
               }
             },
             {
@@ -258516,18 +267377,18 @@ window.DATA = {
                 "date": "2026-08-19"
               },
               "margin": {
-                "marginBuy": 1247,
-                "marginSell": 807,
-                "marginCashRedemption": 13,
-                "marginPrevBalance": 20374,
-                "marginBalance": 20801,
-                "shortBuy": 182,
-                "shortSell": 193,
+                "marginBuy": 490,
+                "marginSell": 478,
+                "marginCashRedemption": 5,
+                "marginPrevBalance": 20801,
+                "marginBalance": 20808,
+                "shortBuy": 189,
+                "shortSell": 67,
                 "shortStockRedemption": 0,
-                "shortPrevBalance": 266,
-                "shortBalance": 277,
-                "offsetting": 9,
-                "date": "2026-08-18"
+                "shortPrevBalance": 277,
+                "shortBalance": 155,
+                "offsetting": 1,
+                "date": "2026-08-19"
               }
             },
             {
@@ -274859,7 +283720,7 @@ window.DATA = {
         },
         {
           "date": "2026-08-19",
-          "fetched_at": "2026-08-19T19:53:31+08:00",
+          "fetched_at": "2026-08-19T20:38:50+08:00",
           "count": 51,
           "self": {
             "open": 236.2,
@@ -274880,7 +283741,20 @@ window.DATA = {
             "total": -1197021,
             "date": "2026-08-19"
           },
-          "selfMargin": null,
+          "selfMargin": {
+            "marginBuy": 8,
+            "marginSell": 5,
+            "marginCashRedemption": 0,
+            "marginPrevBalance": 319,
+            "marginBalance": 322,
+            "shortBuy": 0,
+            "shortSell": 0,
+            "shortStockRedemption": 0,
+            "shortPrevBalance": 2,
+            "shortBalance": 2,
+            "offsetting": 0,
+            "date": "2026-08-19"
+          },
           "holdings": [
             {
               "code": "2330",
@@ -274907,18 +283781,18 @@ window.DATA = {
                 "date": "2026-08-19"
               },
               "margin": {
-                "marginBuy": 456,
-                "marginSell": 304,
-                "marginCashRedemption": 23,
-                "marginPrevBalance": 27727,
-                "marginBalance": 27856,
-                "shortBuy": 5,
-                "shortSell": 6,
-                "shortStockRedemption": 1,
+                "marginBuy": 800,
+                "marginSell": 224,
+                "marginCashRedemption": 10,
+                "marginPrevBalance": 27856,
+                "marginBalance": 28422,
+                "shortBuy": 9,
+                "shortSell": 2,
+                "shortStockRedemption": 0,
                 "shortPrevBalance": 36,
-                "shortBalance": 36,
+                "shortBalance": 29,
                 "offsetting": 0,
-                "date": "2026-08-18"
+                "date": "2026-08-19"
               }
             },
             {
@@ -274940,24 +283814,24 @@ window.DATA = {
               "quoteDate": "2026-08-19",
               "inst": {
                 "foreign": -216230,
-                "trust": -372250,
+                "trust": -1046250,
                 "dealer": -265132,
-                "total": -853612,
+                "total": -1527612,
                 "date": "2026-08-19"
               },
               "margin": {
-                "marginBuy": 392,
-                "marginSell": 568,
+                "marginBuy": 292,
+                "marginSell": 151,
                 "marginCashRedemption": 4,
-                "marginPrevBalance": 9573,
-                "marginBalance": 9393,
-                "shortBuy": 14,
-                "shortSell": 4,
+                "marginPrevBalance": 9393,
+                "marginBalance": 9530,
+                "shortBuy": 15,
+                "shortSell": 14,
                 "shortStockRedemption": 0,
-                "shortPrevBalance": 60,
-                "shortBalance": 50,
+                "shortPrevBalance": 50,
+                "shortBalance": 49,
                 "offsetting": 1,
-                "date": "2026-08-18"
+                "date": "2026-08-19"
               }
             },
             {
@@ -274985,18 +283859,18 @@ window.DATA = {
                 "date": "2026-08-19"
               },
               "margin": {
-                "marginBuy": 408,
-                "marginSell": 387,
-                "marginCashRedemption": 9,
-                "marginPrevBalance": 8000,
-                "marginBalance": 8012,
-                "shortBuy": 8,
-                "shortSell": 9,
+                "marginBuy": 433,
+                "marginSell": 424,
+                "marginCashRedemption": 1,
+                "marginPrevBalance": 8012,
+                "marginBalance": 8020,
+                "shortBuy": 22,
+                "shortSell": 5,
                 "shortStockRedemption": 0,
-                "shortPrevBalance": 56,
-                "shortBalance": 57,
-                "offsetting": 5,
-                "date": "2026-08-18"
+                "shortPrevBalance": 57,
+                "shortBalance": 40,
+                "offsetting": 0,
+                "date": "2026-08-19"
               }
             },
             {
@@ -275024,18 +283898,18 @@ window.DATA = {
                 "date": "2026-08-19"
               },
               "margin": {
-                "marginBuy": 1650,
-                "marginSell": 1405,
-                "marginCashRedemption": 35,
-                "marginPrevBalance": 51454,
-                "marginBalance": 51664,
-                "shortBuy": 86,
-                "shortSell": 45,
+                "marginBuy": 874,
+                "marginSell": 701,
+                "marginCashRedemption": 5,
+                "marginPrevBalance": 51664,
+                "marginBalance": 51832,
+                "shortBuy": 64,
+                "shortSell": 20,
                 "shortStockRedemption": 0,
-                "shortPrevBalance": 608,
-                "shortBalance": 567,
-                "offsetting": 4,
-                "date": "2026-08-18"
+                "shortPrevBalance": 567,
+                "shortBalance": 523,
+                "offsetting": 5,
+                "date": "2026-08-19"
               }
             },
             {
@@ -275063,18 +283937,18 @@ window.DATA = {
                 "date": "2026-08-19"
               },
               "margin": {
-                "marginBuy": 655,
-                "marginSell": 1041,
-                "marginCashRedemption": 2,
-                "marginPrevBalance": 12069,
-                "marginBalance": 11681,
-                "shortBuy": 24,
-                "shortSell": 29,
+                "marginBuy": 371,
+                "marginSell": 188,
+                "marginCashRedemption": 3,
+                "marginPrevBalance": 11681,
+                "marginBalance": 11861,
+                "shortBuy": 29,
+                "shortSell": 102,
                 "shortStockRedemption": 0,
-                "shortPrevBalance": 178,
-                "shortBalance": 183,
-                "offsetting": 18,
-                "date": "2026-08-18"
+                "shortPrevBalance": 183,
+                "shortBalance": 256,
+                "offsetting": 6,
+                "date": "2026-08-19"
               }
             },
             {
@@ -275102,18 +283976,18 @@ window.DATA = {
                 "date": "2026-08-19"
               },
               "margin": {
-                "marginBuy": 57,
-                "marginSell": 102,
-                "marginCashRedemption": 0,
-                "marginPrevBalance": 1883,
-                "marginBalance": 1838,
-                "shortBuy": 6,
-                "shortSell": 5,
-                "shortStockRedemption": 0,
-                "shortPrevBalance": 42,
-                "shortBalance": 41,
-                "offsetting": 0,
-                "date": "2026-08-18"
+                "marginBuy": 130,
+                "marginSell": 82,
+                "marginCashRedemption": 2,
+                "marginPrevBalance": 1838,
+                "marginBalance": 1884,
+                "shortBuy": 16,
+                "shortSell": 3,
+                "shortStockRedemption": 1,
+                "shortPrevBalance": 41,
+                "shortBalance": 27,
+                "offsetting": 2,
+                "date": "2026-08-19"
               }
             },
             {
@@ -275141,18 +284015,18 @@ window.DATA = {
                 "date": "2026-08-19"
               },
               "margin": {
-                "marginBuy": 1693,
-                "marginSell": 2780,
-                "marginCashRedemption": 2,
-                "marginPrevBalance": 37857,
-                "marginBalance": 36768,
-                "shortBuy": 71,
-                "shortSell": 114,
-                "shortStockRedemption": 16,
-                "shortPrevBalance": 903,
-                "shortBalance": 930,
-                "offsetting": 34,
-                "date": "2026-08-18"
+                "marginBuy": 1398,
+                "marginSell": 917,
+                "marginCashRedemption": 3,
+                "marginPrevBalance": 36768,
+                "marginBalance": 37246,
+                "shortBuy": 142,
+                "shortSell": 56,
+                "shortStockRedemption": 47,
+                "shortPrevBalance": 930,
+                "shortBalance": 797,
+                "offsetting": 31,
+                "date": "2026-08-19"
               }
             },
             {
@@ -275180,18 +284054,18 @@ window.DATA = {
                 "date": "2026-08-19"
               },
               "margin": {
-                "marginBuy": 3648,
-                "marginSell": 8113,
-                "marginCashRedemption": 153,
-                "marginPrevBalance": 164090,
-                "marginBalance": 159472,
-                "shortBuy": 200,
-                "shortSell": 283,
+                "marginBuy": 3549,
+                "marginSell": 7905,
+                "marginCashRedemption": 47,
+                "marginPrevBalance": 159472,
+                "marginBalance": 155069,
+                "shortBuy": 235,
+                "shortSell": 463,
                 "shortStockRedemption": 0,
-                "shortPrevBalance": 2471,
-                "shortBalance": 2554,
-                "offsetting": 30,
-                "date": "2026-08-18"
+                "shortPrevBalance": 2554,
+                "shortBalance": 2782,
+                "offsetting": 25,
+                "date": "2026-08-19"
               }
             },
             {
@@ -275219,18 +284093,18 @@ window.DATA = {
                 "date": "2026-08-19"
               },
               "margin": {
-                "marginBuy": 18,
-                "marginSell": 459,
+                "marginBuy": 400,
+                "marginSell": 6,
                 "marginCashRedemption": 1,
-                "marginPrevBalance": 3452,
-                "marginBalance": 3010,
-                "shortBuy": 0,
-                "shortSell": 1,
+                "marginPrevBalance": 3010,
+                "marginBalance": 3403,
+                "shortBuy": 7,
+                "shortSell": 4,
                 "shortStockRedemption": 0,
-                "shortPrevBalance": 48,
-                "shortBalance": 49,
-                "offsetting": 1,
-                "date": "2026-08-18"
+                "shortPrevBalance": 49,
+                "shortBalance": 46,
+                "offsetting": 0,
+                "date": "2026-08-19"
               }
             },
             {
@@ -275258,18 +284132,18 @@ window.DATA = {
                 "date": "2026-08-19"
               },
               "margin": {
-                "marginBuy": 52,
-                "marginSell": 771,
+                "marginBuy": 135,
+                "marginSell": 56,
                 "marginCashRedemption": 0,
-                "marginPrevBalance": 6876,
-                "marginBalance": 6157,
-                "shortBuy": 1,
-                "shortSell": 42,
+                "marginPrevBalance": 6157,
+                "marginBalance": 6236,
+                "shortBuy": 8,
+                "shortSell": 1,
                 "shortStockRedemption": 0,
-                "shortPrevBalance": 148,
-                "shortBalance": 189,
-                "offsetting": 1,
-                "date": "2026-08-18"
+                "shortPrevBalance": 189,
+                "shortBalance": 182,
+                "offsetting": 0,
+                "date": "2026-08-19"
               }
             },
             {
@@ -275297,18 +284171,18 @@ window.DATA = {
                 "date": "2026-08-19"
               },
               "margin": {
-                "marginBuy": 50,
-                "marginSell": 181,
+                "marginBuy": 73,
+                "marginSell": 41,
                 "marginCashRedemption": 1,
-                "marginPrevBalance": 1868,
-                "marginBalance": 1736,
-                "shortBuy": 1,
-                "shortSell": 2,
+                "marginPrevBalance": 1736,
+                "marginBalance": 1767,
+                "shortBuy": 10,
+                "shortSell": 0,
                 "shortStockRedemption": 0,
-                "shortPrevBalance": 17,
-                "shortBalance": 18,
+                "shortPrevBalance": 18,
+                "shortBalance": 8,
                 "offsetting": 0,
-                "date": "2026-08-18"
+                "date": "2026-08-19"
               }
             },
             {
@@ -275330,24 +284204,24 @@ window.DATA = {
               "quoteDate": "2026-08-19",
               "inst": {
                 "foreign": 45475,
-                "trust": 601000,
+                "trust": 534000,
                 "dealer": -228463,
-                "total": 418012,
+                "total": 351012,
                 "date": "2026-08-19"
               },
               "margin": {
-                "marginBuy": 231,
-                "marginSell": 300,
-                "marginCashRedemption": 1,
-                "marginPrevBalance": 4262,
-                "marginBalance": 4192,
+                "marginBuy": 315,
+                "marginSell": 351,
+                "marginCashRedemption": 0,
+                "marginPrevBalance": 4192,
+                "marginBalance": 4156,
                 "shortBuy": 0,
-                "shortSell": 0,
+                "shortSell": 9,
                 "shortStockRedemption": 0,
                 "shortPrevBalance": 0,
-                "shortBalance": 0,
-                "offsetting": 0,
-                "date": "2026-08-18"
+                "shortBalance": 9,
+                "offsetting": 41,
+                "date": "2026-08-19"
               }
             },
             {
@@ -275375,18 +284249,18 @@ window.DATA = {
                 "date": "2026-08-19"
               },
               "margin": {
-                "marginBuy": 34,
-                "marginSell": 320,
-                "marginCashRedemption": 0,
-                "marginPrevBalance": 4372,
-                "marginBalance": 4086,
-                "shortBuy": 3,
-                "shortSell": 4,
-                "shortStockRedemption": 1,
+                "marginBuy": 132,
+                "marginSell": 14,
+                "marginCashRedemption": 13,
+                "marginPrevBalance": 4086,
+                "marginBalance": 4191,
+                "shortBuy": 9,
+                "shortSell": 0,
+                "shortStockRedemption": 0,
                 "shortPrevBalance": 210,
-                "shortBalance": 210,
-                "offsetting": 1,
-                "date": "2026-08-18"
+                "shortBalance": 201,
+                "offsetting": 0,
+                "date": "2026-08-19"
               }
             },
             {
@@ -275414,18 +284288,18 @@ window.DATA = {
                 "date": "2026-08-19"
               },
               "margin": {
-                "marginBuy": 6778,
-                "marginSell": 8709,
-                "marginCashRedemption": 6,
-                "marginPrevBalance": 47900,
-                "marginBalance": 45963,
-                "shortBuy": 167,
-                "shortSell": 140,
-                "shortStockRedemption": 1,
-                "shortPrevBalance": 1941,
-                "shortBalance": 1913,
-                "offsetting": 98,
-                "date": "2026-08-18"
+                "marginBuy": 5049,
+                "marginSell": 7144,
+                "marginCashRedemption": 3,
+                "marginPrevBalance": 45963,
+                "marginBalance": 43865,
+                "shortBuy": 553,
+                "shortSell": 287,
+                "shortStockRedemption": 3,
+                "shortPrevBalance": 1913,
+                "shortBalance": 1644,
+                "offsetting": 69,
+                "date": "2026-08-19"
               }
             },
             {
@@ -275447,24 +284321,24 @@ window.DATA = {
               "quoteDate": "2026-08-19",
               "inst": {
                 "foreign": -3422361,
-                "trust": -595000,
+                "trust": -2731000,
                 "dealer": -1341269,
-                "total": -5358630,
+                "total": -7494630,
                 "date": "2026-08-19"
               },
               "margin": {
-                "marginBuy": 1954,
-                "marginSell": 2816,
-                "marginCashRedemption": 19,
-                "marginPrevBalance": 37683,
-                "marginBalance": 36802,
-                "shortBuy": 100,
-                "shortSell": 286,
-                "shortStockRedemption": 5,
-                "shortPrevBalance": 443,
-                "shortBalance": 624,
-                "offsetting": 23,
-                "date": "2026-08-18"
+                "marginBuy": 1957,
+                "marginSell": 1181,
+                "marginCashRedemption": 9,
+                "marginPrevBalance": 36802,
+                "marginBalance": 37569,
+                "shortBuy": 286,
+                "shortSell": 78,
+                "shortStockRedemption": 0,
+                "shortPrevBalance": 624,
+                "shortBalance": 416,
+                "offsetting": 91,
+                "date": "2026-08-19"
               }
             },
             {
@@ -275492,18 +284366,18 @@ window.DATA = {
                 "date": "2026-08-19"
               },
               "margin": {
-                "marginBuy": 453,
-                "marginSell": 832,
-                "marginCashRedemption": 7,
-                "marginPrevBalance": 16662,
-                "marginBalance": 16276,
-                "shortBuy": 10,
+                "marginBuy": 265,
+                "marginSell": 439,
+                "marginCashRedemption": 3,
+                "marginPrevBalance": 16276,
+                "marginBalance": 16099,
+                "shortBuy": 9,
                 "shortSell": 14,
                 "shortStockRedemption": 0,
-                "shortPrevBalance": 66,
-                "shortBalance": 70,
-                "offsetting": 0,
-                "date": "2026-08-18"
+                "shortPrevBalance": 70,
+                "shortBalance": 75,
+                "offsetting": 4,
+                "date": "2026-08-19"
               }
             },
             {
@@ -275531,18 +284405,18 @@ window.DATA = {
                 "date": "2026-08-19"
               },
               "margin": {
-                "marginBuy": 439,
-                "marginSell": 252,
-                "marginCashRedemption": 0,
-                "marginPrevBalance": 40275,
-                "marginBalance": 40462,
-                "shortBuy": 14,
-                "shortSell": 2,
+                "marginBuy": 501,
+                "marginSell": 181,
+                "marginCashRedemption": 15,
+                "marginPrevBalance": 40462,
+                "marginBalance": 40767,
+                "shortBuy": 649,
+                "shortSell": 24,
                 "shortStockRedemption": 0,
-                "shortPrevBalance": 763,
-                "shortBalance": 751,
-                "offsetting": 0,
-                "date": "2026-08-18"
+                "shortPrevBalance": 751,
+                "shortBalance": 126,
+                "offsetting": 42,
+                "date": "2026-08-19"
               }
             },
             {
@@ -275570,18 +284444,18 @@ window.DATA = {
                 "date": "2026-08-19"
               },
               "margin": {
-                "marginBuy": 54,
-                "marginSell": 121,
+                "marginBuy": 144,
+                "marginSell": 192,
                 "marginCashRedemption": 0,
-                "marginPrevBalance": 1494,
-                "marginBalance": 1427,
-                "shortBuy": 0,
-                "shortSell": 8,
+                "marginPrevBalance": 1427,
+                "marginBalance": 1379,
+                "shortBuy": 10,
+                "shortSell": 1,
                 "shortStockRedemption": 0,
-                "shortPrevBalance": 35,
-                "shortBalance": 43,
-                "offsetting": 2,
-                "date": "2026-08-18"
+                "shortPrevBalance": 43,
+                "shortBalance": 34,
+                "offsetting": 3,
+                "date": "2026-08-19"
               }
             },
             {
@@ -275603,24 +284477,24 @@ window.DATA = {
               "quoteDate": "2026-08-19",
               "inst": {
                 "foreign": -102444,
-                "trust": 19000,
+                "trust": 19412,
                 "dealer": 6370,
-                "total": -77074,
+                "total": -76662,
                 "date": "2026-08-19"
               },
               "margin": {
-                "marginBuy": 50,
-                "marginSell": 59,
-                "marginCashRedemption": 1,
-                "marginPrevBalance": 595,
-                "marginBalance": 585,
-                "shortBuy": 5,
-                "shortSell": 1,
+                "marginBuy": 44,
+                "marginSell": 10,
+                "marginCashRedemption": 0,
+                "marginPrevBalance": 585,
+                "marginBalance": 619,
+                "shortBuy": 0,
+                "shortSell": 0,
                 "shortStockRedemption": 0,
-                "shortPrevBalance": 10,
+                "shortPrevBalance": 6,
                 "shortBalance": 6,
                 "offsetting": 0,
-                "date": "2026-08-18"
+                "date": "2026-08-19"
               }
             },
             {
@@ -275648,18 +284522,18 @@ window.DATA = {
                 "date": "2026-08-19"
               },
               "margin": {
-                "marginBuy": 522,
-                "marginSell": 117,
-                "marginCashRedemption": 0,
-                "marginPrevBalance": 1848,
-                "marginBalance": 2253,
+                "marginBuy": 432,
+                "marginSell": 23,
+                "marginCashRedemption": 2,
+                "marginPrevBalance": 2253,
+                "marginBalance": 2660,
                 "shortBuy": 0,
                 "shortSell": 0,
                 "shortStockRedemption": 0,
                 "shortPrevBalance": 0,
                 "shortBalance": 0,
-                "offsetting": 2,
-                "date": "2026-08-18"
+                "offsetting": 0,
+                "date": "2026-08-19"
               }
             },
             {
@@ -275681,24 +284555,24 @@ window.DATA = {
               "quoteDate": "2026-08-19",
               "inst": {
                 "foreign": 174888,
-                "trust": -360000,
+                "trust": -360257,
                 "dealer": 19836,
-                "total": -165276,
+                "total": -165533,
                 "date": "2026-08-19"
               },
               "margin": {
-                "marginBuy": 97,
-                "marginSell": 172,
-                "marginCashRedemption": 3,
-                "marginPrevBalance": 1406,
-                "marginBalance": 1328,
-                "shortBuy": 2,
+                "marginBuy": 59,
+                "marginSell": 42,
+                "marginCashRedemption": 2,
+                "marginPrevBalance": 1328,
+                "marginBalance": 1343,
+                "shortBuy": 5,
                 "shortSell": 0,
-                "shortStockRedemption": 0,
-                "shortPrevBalance": 27,
-                "shortBalance": 25,
+                "shortStockRedemption": 6,
+                "shortPrevBalance": 25,
+                "shortBalance": 14,
                 "offsetting": 0,
-                "date": "2026-08-18"
+                "date": "2026-08-19"
               }
             },
             {
@@ -275726,18 +284600,18 @@ window.DATA = {
                 "date": "2026-08-19"
               },
               "margin": {
-                "marginBuy": 100,
-                "marginSell": 97,
-                "marginCashRedemption": 14,
-                "marginPrevBalance": 1552,
-                "marginBalance": 1541,
-                "shortBuy": 24,
-                "shortSell": 3,
+                "marginBuy": 127,
+                "marginSell": 36,
+                "marginCashRedemption": 1,
+                "marginPrevBalance": 1541,
+                "marginBalance": 1631,
+                "shortBuy": 2,
+                "shortSell": 5,
                 "shortStockRedemption": 0,
-                "shortPrevBalance": 61,
-                "shortBalance": 40,
+                "shortPrevBalance": 40,
+                "shortBalance": 43,
                 "offsetting": 1,
-                "date": "2026-08-18"
+                "date": "2026-08-19"
               }
             },
             {
@@ -275765,18 +284639,18 @@ window.DATA = {
                 "date": "2026-08-19"
               },
               "margin": {
-                "marginBuy": 287,
-                "marginSell": 140,
+                "marginBuy": 348,
+                "marginSell": 205,
                 "marginCashRedemption": 0,
-                "marginPrevBalance": 4879,
-                "marginBalance": 5026,
-                "shortBuy": 8,
-                "shortSell": 178,
+                "marginPrevBalance": 5026,
+                "marginBalance": 5169,
+                "shortBuy": 401,
+                "shortSell": 220,
                 "shortStockRedemption": 0,
-                "shortPrevBalance": 646,
-                "shortBalance": 816,
-                "offsetting": 0,
-                "date": "2026-08-18"
+                "shortPrevBalance": 816,
+                "shortBalance": 635,
+                "offsetting": 45,
+                "date": "2026-08-19"
               }
             },
             {
@@ -275804,18 +284678,18 @@ window.DATA = {
                 "date": "2026-08-19"
               },
               "margin": {
-                "marginBuy": 38,
-                "marginSell": 131,
+                "marginBuy": 47,
+                "marginSell": 27,
                 "marginCashRedemption": 0,
-                "marginPrevBalance": 2202,
-                "marginBalance": 2109,
-                "shortBuy": 245,
-                "shortSell": 5,
+                "marginPrevBalance": 2109,
+                "marginBalance": 2129,
+                "shortBuy": 2,
+                "shortSell": 4,
                 "shortStockRedemption": 0,
-                "shortPrevBalance": 256,
-                "shortBalance": 16,
+                "shortPrevBalance": 16,
+                "shortBalance": 18,
                 "offsetting": 0,
-                "date": "2026-08-18"
+                "date": "2026-08-19"
               }
             },
             {
@@ -275843,18 +284717,18 @@ window.DATA = {
                 "date": "2026-08-19"
               },
               "margin": {
-                "marginBuy": 1936,
-                "marginSell": 1602,
-                "marginCashRedemption": 5,
-                "marginPrevBalance": 37228,
-                "marginBalance": 37557,
-                "shortBuy": 162,
-                "shortSell": 55,
+                "marginBuy": 2116,
+                "marginSell": 1281,
+                "marginCashRedemption": 1,
+                "marginPrevBalance": 37557,
+                "marginBalance": 38391,
+                "shortBuy": 91,
+                "shortSell": 187,
                 "shortStockRedemption": 0,
-                "shortPrevBalance": 815,
-                "shortBalance": 708,
-                "offsetting": 7,
-                "date": "2026-08-18"
+                "shortPrevBalance": 708,
+                "shortBalance": 804,
+                "offsetting": 22,
+                "date": "2026-08-19"
               }
             },
             {
@@ -275882,18 +284756,18 @@ window.DATA = {
                 "date": "2026-08-19"
               },
               "margin": {
-                "marginBuy": 4990,
-                "marginSell": 6851,
-                "marginCashRedemption": 12,
-                "marginPrevBalance": 83585,
-                "marginBalance": 81712,
-                "shortBuy": 158,
-                "shortSell": 491,
-                "shortStockRedemption": 1,
-                "shortPrevBalance": 2787,
-                "shortBalance": 3119,
-                "offsetting": 139,
-                "date": "2026-08-18"
+                "marginBuy": 4209,
+                "marginSell": 4996,
+                "marginCashRedemption": 32,
+                "marginPrevBalance": 81712,
+                "marginBalance": 80893,
+                "shortBuy": 761,
+                "shortSell": 277,
+                "shortStockRedemption": 3,
+                "shortPrevBalance": 3119,
+                "shortBalance": 2632,
+                "offsetting": 53,
+                "date": "2026-08-19"
               }
             },
             {
@@ -275921,18 +284795,18 @@ window.DATA = {
                 "date": "2026-08-19"
               },
               "margin": {
-                "marginBuy": 2646,
-                "marginSell": 2257,
-                "marginCashRedemption": 10,
-                "marginPrevBalance": 13399,
-                "marginBalance": 13778,
+                "marginBuy": 3674,
+                "marginSell": 2071,
+                "marginCashRedemption": 0,
+                "marginPrevBalance": 13778,
+                "marginBalance": 15381,
                 "shortBuy": 0,
-                "shortSell": 0,
+                "shortSell": 126,
                 "shortStockRedemption": 0,
                 "shortPrevBalance": 0,
-                "shortBalance": 0,
-                "offsetting": 0,
-                "date": "2026-08-18"
+                "shortBalance": 126,
+                "offsetting": 282,
+                "date": "2026-08-19"
               }
             },
             {
@@ -275954,24 +284828,24 @@ window.DATA = {
               "quoteDate": "2026-08-19",
               "inst": {
                 "foreign": -135887,
-                "trust": 65000,
+                "trust": 84000,
                 "dealer": 132972,
-                "total": 62085,
+                "total": 81085,
                 "date": "2026-08-19"
               },
               "margin": {
-                "marginBuy": 289,
-                "marginSell": 258,
+                "marginBuy": 285,
+                "marginSell": 172,
                 "marginCashRedemption": 0,
-                "marginPrevBalance": 2608,
-                "marginBalance": 2639,
-                "shortBuy": 4,
-                "shortSell": 14,
+                "marginPrevBalance": 2639,
+                "marginBalance": 2752,
+                "shortBuy": 1,
+                "shortSell": 13,
                 "shortStockRedemption": 0,
-                "shortPrevBalance": 22,
-                "shortBalance": 32,
-                "offsetting": 3,
-                "date": "2026-08-18"
+                "shortPrevBalance": 32,
+                "shortBalance": 44,
+                "offsetting": 2,
+                "date": "2026-08-19"
               }
             },
             {
@@ -275993,24 +284867,24 @@ window.DATA = {
               "quoteDate": "2026-08-19",
               "inst": {
                 "foreign": -4640893,
-                "trust": -17535000,
+                "trust": -17582000,
                 "dealer": 75860,
-                "total": -22100033,
+                "total": -22147033,
                 "date": "2026-08-19"
               },
               "margin": {
-                "marginBuy": 6612,
-                "marginSell": 10085,
-                "marginCashRedemption": 4,
-                "marginPrevBalance": 129167,
-                "marginBalance": 125690,
-                "shortBuy": 538,
-                "shortSell": 469,
+                "marginBuy": 5376,
+                "marginSell": 4316,
+                "marginCashRedemption": 145,
+                "marginPrevBalance": 125690,
+                "marginBalance": 126605,
+                "shortBuy": 845,
+                "shortSell": 288,
                 "shortStockRedemption": 0,
-                "shortPrevBalance": 4765,
-                "shortBalance": 4696,
-                "offsetting": 633,
-                "date": "2026-08-18"
+                "shortPrevBalance": 4696,
+                "shortBalance": 4139,
+                "offsetting": 70,
+                "date": "2026-08-19"
               }
             },
             {
@@ -276038,18 +284912,18 @@ window.DATA = {
                 "date": "2026-08-19"
               },
               "margin": {
-                "marginBuy": 14,
-                "marginSell": 179,
-                "marginCashRedemption": 1,
-                "marginPrevBalance": 1947,
-                "marginBalance": 1781,
+                "marginBuy": 35,
+                "marginSell": 58,
+                "marginCashRedemption": 0,
+                "marginPrevBalance": 1781,
+                "marginBalance": 1758,
                 "shortBuy": 0,
                 "shortSell": 0,
                 "shortStockRedemption": 0,
                 "shortPrevBalance": 27,
                 "shortBalance": 27,
                 "offsetting": 0,
-                "date": "2026-08-18"
+                "date": "2026-08-19"
               }
             },
             {
@@ -276077,18 +284951,18 @@ window.DATA = {
                 "date": "2026-08-19"
               },
               "margin": {
-                "marginBuy": 73,
-                "marginSell": 39,
-                "marginCashRedemption": 0,
-                "marginPrevBalance": 2091,
-                "marginBalance": 2125,
-                "shortBuy": 360,
-                "shortSell": 13,
+                "marginBuy": 36,
+                "marginSell": 13,
+                "marginCashRedemption": 1,
+                "marginPrevBalance": 2125,
+                "marginBalance": 2147,
+                "shortBuy": 6,
+                "shortSell": 11,
                 "shortStockRedemption": 0,
-                "shortPrevBalance": 408,
-                "shortBalance": 61,
+                "shortPrevBalance": 61,
+                "shortBalance": 66,
                 "offsetting": 0,
-                "date": "2026-08-18"
+                "date": "2026-08-19"
               }
             },
             {
@@ -276116,18 +284990,18 @@ window.DATA = {
                 "date": "2026-08-19"
               },
               "margin": {
-                "marginBuy": 262,
-                "marginSell": 70,
-                "marginCashRedemption": 0,
-                "marginPrevBalance": 9376,
-                "marginBalance": 9568,
-                "shortBuy": 957,
-                "shortSell": 2,
+                "marginBuy": 1093,
+                "marginSell": 115,
+                "marginCashRedemption": 34,
+                "marginPrevBalance": 9568,
+                "marginBalance": 10512,
+                "shortBuy": 17,
+                "shortSell": 3,
                 "shortStockRedemption": 0,
-                "shortPrevBalance": 1026,
-                "shortBalance": 71,
-                "offsetting": 1,
-                "date": "2026-08-18"
+                "shortPrevBalance": 71,
+                "shortBalance": 57,
+                "offsetting": 0,
+                "date": "2026-08-19"
               }
             },
             {
@@ -276155,18 +285029,18 @@ window.DATA = {
                 "date": "2026-08-19"
               },
               "margin": {
-                "marginBuy": 251,
-                "marginSell": 267,
+                "marginBuy": 280,
+                "marginSell": 325,
                 "marginCashRedemption": 2,
-                "marginPrevBalance": 3111,
-                "marginBalance": 3093,
-                "shortBuy": 8,
-                "shortSell": 9,
-                "shortStockRedemption": 11,
-                "shortPrevBalance": 63,
-                "shortBalance": 53,
-                "offsetting": 9,
-                "date": "2026-08-18"
+                "marginPrevBalance": 3093,
+                "marginBalance": 3046,
+                "shortBuy": 0,
+                "shortSell": 0,
+                "shortStockRedemption": 1,
+                "shortPrevBalance": 53,
+                "shortBalance": 52,
+                "offsetting": 3,
+                "date": "2026-08-19"
               }
             },
             {
@@ -276188,24 +285062,24 @@ window.DATA = {
               "quoteDate": "2026-08-19",
               "inst": {
                 "foreign": 828793,
-                "trust": 9000,
+                "trust": -126000,
                 "dealer": -71430,
-                "total": 766363,
+                "total": 631363,
                 "date": "2026-08-19"
               },
               "margin": {
-                "marginBuy": 315,
-                "marginSell": 437,
-                "marginCashRedemption": 0,
-                "marginPrevBalance": 5080,
-                "marginBalance": 4958,
-                "shortBuy": 26,
-                "shortSell": 0,
+                "marginBuy": 183,
+                "marginSell": 374,
+                "marginCashRedemption": 3,
+                "marginPrevBalance": 4958,
+                "marginBalance": 4764,
+                "shortBuy": 17,
+                "shortSell": 16,
                 "shortStockRedemption": 0,
-                "shortPrevBalance": 123,
-                "shortBalance": 97,
+                "shortPrevBalance": 97,
+                "shortBalance": 96,
                 "offsetting": 2,
-                "date": "2026-08-18"
+                "date": "2026-08-19"
               }
             },
             {
@@ -276233,18 +285107,18 @@ window.DATA = {
                 "date": "2026-08-19"
               },
               "margin": {
-                "marginBuy": 219,
-                "marginSell": 199,
-                "marginCashRedemption": 4,
-                "marginPrevBalance": 2631,
-                "marginBalance": 2647,
-                "shortBuy": 2,
-                "shortSell": 5,
+                "marginBuy": 97,
+                "marginSell": 61,
+                "marginCashRedemption": 0,
+                "marginPrevBalance": 2647,
+                "marginBalance": 2683,
+                "shortBuy": 5,
+                "shortSell": 1,
                 "shortStockRedemption": 0,
-                "shortPrevBalance": 16,
-                "shortBalance": 19,
-                "offsetting": 0,
-                "date": "2026-08-18"
+                "shortPrevBalance": 19,
+                "shortBalance": 15,
+                "offsetting": 1,
+                "date": "2026-08-19"
               }
             },
             {
@@ -276282,18 +285156,18 @@ window.DATA = {
                 "date": "2026-08-19"
               },
               "margin": {
-                "marginBuy": 70,
-                "marginSell": 73,
+                "marginBuy": 26,
+                "marginSell": 114,
                 "marginCashRedemption": 0,
-                "marginPrevBalance": 1034,
-                "marginBalance": 1031,
+                "marginPrevBalance": 1031,
+                "marginBalance": 943,
                 "shortBuy": 0,
-                "shortSell": 0,
+                "shortSell": 1,
                 "shortStockRedemption": 0,
                 "shortPrevBalance": 1,
-                "shortBalance": 1,
-                "offsetting": 0,
-                "date": "2026-08-18"
+                "shortBalance": 2,
+                "offsetting": 1,
+                "date": "2026-08-19"
               }
             },
             {
@@ -276321,18 +285195,18 @@ window.DATA = {
                 "date": "2026-08-19"
               },
               "margin": {
-                "marginBuy": 281,
-                "marginSell": 338,
-                "marginCashRedemption": 0,
-                "marginPrevBalance": 2321,
-                "marginBalance": 2264,
-                "shortBuy": 807,
-                "shortSell": 16,
+                "marginBuy": 56,
+                "marginSell": 41,
+                "marginCashRedemption": 2,
+                "marginPrevBalance": 2264,
+                "marginBalance": 2277,
+                "shortBuy": 10,
+                "shortSell": 2,
                 "shortStockRedemption": 0,
-                "shortPrevBalance": 819,
-                "shortBalance": 28,
-                "offsetting": 4,
-                "date": "2026-08-18"
+                "shortPrevBalance": 28,
+                "shortBalance": 20,
+                "offsetting": 0,
+                "date": "2026-08-19"
               }
             },
             {
@@ -276360,18 +285234,18 @@ window.DATA = {
                 "date": "2026-08-19"
               },
               "margin": {
-                "marginBuy": 39,
-                "marginSell": 21,
+                "marginBuy": 9,
+                "marginSell": 28,
                 "marginCashRedemption": 0,
-                "marginPrevBalance": 328,
-                "marginBalance": 346,
-                "shortBuy": 0,
+                "marginPrevBalance": 346,
+                "marginBalance": 327,
+                "shortBuy": 2,
                 "shortSell": 0,
                 "shortStockRedemption": 0,
                 "shortPrevBalance": 2,
-                "shortBalance": 2,
+                "shortBalance": 0,
                 "offsetting": 0,
-                "date": "2026-08-18"
+                "date": "2026-08-19"
               }
             },
             {
@@ -276399,18 +285273,18 @@ window.DATA = {
                 "date": "2026-08-19"
               },
               "margin": {
-                "marginBuy": 272,
-                "marginSell": 661,
+                "marginBuy": 760,
+                "marginSell": 144,
                 "marginCashRedemption": 0,
-                "marginPrevBalance": 2378,
-                "marginBalance": 1989,
-                "shortBuy": 776,
-                "shortSell": 19,
+                "marginPrevBalance": 1989,
+                "marginBalance": 2605,
+                "shortBuy": 26,
+                "shortSell": 0,
                 "shortStockRedemption": 0,
-                "shortPrevBalance": 793,
-                "shortBalance": 36,
-                "offsetting": 2,
-                "date": "2026-08-18"
+                "shortPrevBalance": 36,
+                "shortBalance": 10,
+                "offsetting": 33,
+                "date": "2026-08-19"
               }
             },
             {
@@ -276438,18 +285312,18 @@ window.DATA = {
                 "date": "2026-08-19"
               },
               "margin": {
-                "marginBuy": 693,
-                "marginSell": 1209,
-                "marginCashRedemption": 11,
-                "marginPrevBalance": 7706,
-                "marginBalance": 7179,
-                "shortBuy": 9,
-                "shortSell": 36,
-                "shortStockRedemption": 159,
-                "shortPrevBalance": 399,
-                "shortBalance": 267,
-                "offsetting": 10,
-                "date": "2026-08-18"
+                "marginBuy": 571,
+                "marginSell": 581,
+                "marginCashRedemption": 0,
+                "marginPrevBalance": 7179,
+                "marginBalance": 7169,
+                "shortBuy": 26,
+                "shortSell": 15,
+                "shortStockRedemption": 55,
+                "shortPrevBalance": 267,
+                "shortBalance": 201,
+                "offsetting": 6,
+                "date": "2026-08-19"
               }
             },
             {
@@ -276477,18 +285351,18 @@ window.DATA = {
                 "date": "2026-08-19"
               },
               "margin": {
-                "marginBuy": 3165,
-                "marginSell": 2597,
-                "marginCashRedemption": 1,
-                "marginPrevBalance": 34302,
-                "marginBalance": 34869,
-                "shortBuy": 59,
-                "shortSell": 106,
+                "marginBuy": 1262,
+                "marginSell": 1893,
+                "marginCashRedemption": 9,
+                "marginPrevBalance": 34869,
+                "marginBalance": 34229,
+                "shortBuy": 161,
+                "shortSell": 58,
                 "shortStockRedemption": 0,
-                "shortPrevBalance": 370,
-                "shortBalance": 417,
-                "offsetting": 34,
-                "date": "2026-08-18"
+                "shortPrevBalance": 417,
+                "shortBalance": 314,
+                "offsetting": 43,
+                "date": "2026-08-19"
               }
             },
             {
@@ -276516,18 +285390,18 @@ window.DATA = {
                 "date": "2026-08-19"
               },
               "margin": {
-                "marginBuy": 140,
-                "marginSell": 112,
-                "marginCashRedemption": 0,
-                "marginPrevBalance": 1707,
-                "marginBalance": 1735,
-                "shortBuy": 1,
-                "shortSell": 4,
+                "marginBuy": 219,
+                "marginSell": 124,
+                "marginCashRedemption": 1,
+                "marginPrevBalance": 1735,
+                "marginBalance": 1829,
+                "shortBuy": 5,
+                "shortSell": 12,
                 "shortStockRedemption": 0,
-                "shortPrevBalance": 49,
-                "shortBalance": 52,
-                "offsetting": 2,
-                "date": "2026-08-18"
+                "shortPrevBalance": 52,
+                "shortBalance": 59,
+                "offsetting": 6,
+                "date": "2026-08-19"
               }
             },
             {
@@ -276555,18 +285429,18 @@ window.DATA = {
                 "date": "2026-08-19"
               },
               "margin": {
-                "marginBuy": 417,
-                "marginSell": 510,
-                "marginCashRedemption": 3,
-                "marginPrevBalance": 6176,
-                "marginBalance": 6080,
-                "shortBuy": 8,
-                "shortSell": 4,
-                "shortStockRedemption": 0,
-                "shortPrevBalance": 52,
-                "shortBalance": 48,
+                "marginBuy": 179,
+                "marginSell": 30,
+                "marginCashRedemption": 1,
+                "marginPrevBalance": 6080,
+                "marginBalance": 6228,
+                "shortBuy": 15,
+                "shortSell": 1,
+                "shortStockRedemption": 3,
+                "shortPrevBalance": 48,
+                "shortBalance": 31,
                 "offsetting": 0,
-                "date": "2026-08-18"
+                "date": "2026-08-19"
               }
             },
             {
@@ -276594,18 +285468,18 @@ window.DATA = {
                 "date": "2026-08-19"
               },
               "margin": {
-                "marginBuy": 1247,
-                "marginSell": 807,
-                "marginCashRedemption": 13,
-                "marginPrevBalance": 20374,
-                "marginBalance": 20801,
-                "shortBuy": 182,
-                "shortSell": 193,
+                "marginBuy": 490,
+                "marginSell": 478,
+                "marginCashRedemption": 5,
+                "marginPrevBalance": 20801,
+                "marginBalance": 20808,
+                "shortBuy": 189,
+                "shortSell": 67,
                 "shortStockRedemption": 0,
-                "shortPrevBalance": 266,
-                "shortBalance": 277,
-                "offsetting": 9,
-                "date": "2026-08-18"
+                "shortPrevBalance": 277,
+                "shortBalance": 155,
+                "offsetting": 1,
+                "date": "2026-08-19"
               }
             },
             {
@@ -276633,18 +285507,18 @@ window.DATA = {
                 "date": "2026-08-19"
               },
               "margin": {
-                "marginBuy": 42,
-                "marginSell": 226,
-                "marginCashRedemption": 2,
-                "marginPrevBalance": 2693,
-                "marginBalance": 2507,
-                "shortBuy": 9,
-                "shortSell": 1,
+                "marginBuy": 27,
+                "marginSell": 25,
+                "marginCashRedemption": 11,
+                "marginPrevBalance": 2507,
+                "marginBalance": 2498,
+                "shortBuy": 1,
+                "shortSell": 4,
                 "shortStockRedemption": 0,
-                "shortPrevBalance": 19,
-                "shortBalance": 11,
-                "offsetting": 1,
-                "date": "2026-08-18"
+                "shortPrevBalance": 11,
+                "shortBalance": 14,
+                "offsetting": 0,
+                "date": "2026-08-19"
               }
             },
             {
@@ -276672,18 +285546,18 @@ window.DATA = {
                 "date": "2026-08-19"
               },
               "margin": {
-                "marginBuy": 1101,
-                "marginSell": 1148,
-                "marginCashRedemption": 24,
-                "marginPrevBalance": 13616,
-                "marginBalance": 13545,
-                "shortBuy": 3,
-                "shortSell": 103,
+                "marginBuy": 854,
+                "marginSell": 596,
+                "marginCashRedemption": 124,
+                "marginPrevBalance": 13545,
+                "marginBalance": 13679,
+                "shortBuy": 81,
+                "shortSell": 39,
                 "shortStockRedemption": 0,
-                "shortPrevBalance": 318,
-                "shortBalance": 418,
-                "offsetting": 11,
-                "date": "2026-08-18"
+                "shortPrevBalance": 418,
+                "shortBalance": 376,
+                "offsetting": 5,
+                "date": "2026-08-19"
               }
             },
             {
@@ -276711,18 +285585,18 @@ window.DATA = {
                 "date": "2026-08-19"
               },
               "margin": {
-                "marginBuy": 641,
-                "marginSell": 1013,
+                "marginBuy": 1526,
+                "marginSell": 2000,
                 "marginCashRedemption": 0,
-                "marginPrevBalance": 11601,
-                "marginBalance": 11229,
-                "shortBuy": 48,
-                "shortSell": 15,
+                "marginPrevBalance": 11229,
+                "marginBalance": 10755,
+                "shortBuy": 154,
+                "shortSell": 36,
                 "shortStockRedemption": 0,
-                "shortPrevBalance": 723,
-                "shortBalance": 690,
-                "offsetting": 6,
-                "date": "2026-08-18"
+                "shortPrevBalance": 690,
+                "shortBalance": 572,
+                "offsetting": 18,
+                "date": "2026-08-19"
               }
             },
             {
@@ -276750,18 +285624,18 @@ window.DATA = {
                 "date": "2026-08-19"
               },
               "margin": {
-                "marginBuy": 42,
-                "marginSell": 138,
+                "marginBuy": 4,
+                "marginSell": 2,
                 "marginCashRedemption": 0,
-                "marginPrevBalance": 1173,
-                "marginBalance": 1077,
+                "marginPrevBalance": 1077,
+                "marginBalance": 1079,
                 "shortBuy": 0,
-                "shortSell": 10,
+                "shortSell": 0,
                 "shortStockRedemption": 0,
-                "shortPrevBalance": 4,
+                "shortPrevBalance": 14,
                 "shortBalance": 14,
                 "offsetting": 0,
-                "date": "2026-08-18"
+                "date": "2026-08-19"
               }
             },
             {
@@ -276789,18 +285663,18 @@ window.DATA = {
                 "date": "2026-08-19"
               },
               "margin": {
-                "marginBuy": 21,
-                "marginSell": 49,
+                "marginBuy": 37,
+                "marginSell": 885,
                 "marginCashRedemption": 0,
-                "marginPrevBalance": 1571,
-                "marginBalance": 1543,
-                "shortBuy": 10,
-                "shortSell": 0,
+                "marginPrevBalance": 1543,
+                "marginBalance": 695,
+                "shortBuy": 0,
+                "shortSell": 340,
                 "shortStockRedemption": 0,
-                "shortPrevBalance": 136,
-                "shortBalance": 126,
+                "shortPrevBalance": 126,
+                "shortBalance": 466,
                 "offsetting": 0,
-                "date": "2026-08-18"
+                "date": "2026-08-19"
               }
             },
             {
@@ -276828,18 +285702,18 @@ window.DATA = {
                 "date": "2026-08-19"
               },
               "margin": {
-                "marginBuy": 1297,
-                "marginSell": 1533,
+                "marginBuy": 998,
+                "marginSell": 571,
                 "marginCashRedemption": 0,
-                "marginPrevBalance": 12354,
-                "marginBalance": 12118,
-                "shortBuy": 13,
-                "shortSell": 8,
+                "marginPrevBalance": 12118,
+                "marginBalance": 12545,
+                "shortBuy": 11,
+                "shortSell": 6,
                 "shortStockRedemption": 0,
-                "shortPrevBalance": 239,
-                "shortBalance": 234,
-                "offsetting": 13,
-                "date": "2026-08-18"
+                "shortPrevBalance": 234,
+                "shortBalance": 229,
+                "offsetting": 15,
+                "date": "2026-08-19"
               }
             }
           ]
@@ -284886,7 +293760,7 @@ window.DATA = {
         },
         {
           "date": "2026-08-18",
-          "fetched_at": "2026-08-19T19:53:29+08:00",
+          "fetched_at": "2026-08-19T20:38:48+08:00",
           "count": 30,
           "self": {
             "open": 89.05,
