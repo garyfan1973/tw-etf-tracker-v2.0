@@ -25,6 +25,16 @@ YAHOO_METRICS = {
     "quarterlyOperatingIncome": ("quarterly", "operatingIncome"),
     "quarterlyNetIncome": ("quarterly", "netIncome"),
     "quarterlyBasicEPS": ("quarterly", "eps"),
+    "annualOperatingCashFlow": ("annual", "operatingCashFlow"),
+    "annualInvestingCashFlow": ("annual", "investingCashFlow"),
+    "annualFinancingCashFlow": ("annual", "financingCashFlow"),
+    "annualFreeCashFlow": ("annual", "freeCashFlow"),
+    "annualEndCashPosition": ("annual", "endingCash"),
+    "quarterlyOperatingCashFlow": ("quarterly", "operatingCashFlow"),
+    "quarterlyInvestingCashFlow": ("quarterly", "investingCashFlow"),
+    "quarterlyFinancingCashFlow": ("quarterly", "financingCashFlow"),
+    "quarterlyFreeCashFlow": ("quarterly", "freeCashFlow"),
+    "quarterlyEndCashPosition": ("quarterly", "endingCash"),
 }
 MOPS_LABELS = {
     "revenue": ("營業收入合計", "營業收入", "收益合計", "淨收益", "收益"),
@@ -32,6 +42,14 @@ MOPS_LABELS = {
     "netIncome": ("本期淨利（淨損）", "本期淨利(淨損)", "本期稅後淨利（淨損）"),
     "eps": ("基本每股盈餘（元）", "基本每股盈餘(元)", "基本每股盈餘"),
 }
+CASH_FLOW_LABELS = {
+    "operatingCashFlow": ("營業活動之淨現金流入（流出）", "營業活動之淨現金流入(流出)"),
+    "investingCashFlow": ("投資活動之淨現金流入（流出）", "投資活動之淨現金流入(流出)"),
+    "financingCashFlow": ("籌資活動之淨現金流入（流出）", "籌資活動之淨現金流入(流出)"),
+    "cashChange": ("本期現金及約當現金增加（減少）數", "本期現金及約當現金增加(減少)數"),
+    "endingCash": ("期末現金及約當現金餘額",),
+}
+ALL_LABELS = {**MOPS_LABELS, **CASH_FLOW_LABELS}
 
 
 def symbol_candidates(code, market):
@@ -73,8 +91,8 @@ def normalize_label(value):
     return re.sub(r"\s+", "", str(value or ""))
 
 
-def matching_report_row(report_list, key):
-    aliases = tuple(normalize_label(label) for label in MOPS_LABELS[key])
+def matching_report_row(report_list, key, labels=MOPS_LABELS):
+    aliases = tuple(normalize_label(label) for label in labels[key])
     matches = []
     for row in report_list or []:
         if not row:
@@ -117,6 +135,27 @@ def parse_mops_annual(result):
     return rows
 
 
+def parse_mops_cash_annual(result):
+    rows = {}
+    columns = mops_title_columns(result.get("titles"))
+    reports = result.get("reportList") or []
+    for title, index in columns:
+        match = re.search(r"(\d{3})年度", title)
+        if not match:
+            continue
+        year = int(match.group(1)) + 1911
+        row = {"year": str(year), "date": f"{year}-12-31", "currency": "TWD"}
+        for key in CASH_FLOW_LABELS:
+            report_row = matching_report_row(reports, key, CASH_FLOW_LABELS)
+            if report_row and index < len(report_row):
+                value = number(report_row[index], 1000)
+                if value is not None:
+                    row[key] = value
+        if sum(row.get(key) is not None for key in CASH_FLOW_LABELS) >= 2:
+            rows[row["year"]] = row
+    return rows
+
+
 def parse_mops_direct_quarter(result, requested_year, quarter):
     target_title = f"{requested_year - 1911}年第{quarter}季"
     column = next(
@@ -138,6 +177,25 @@ def parse_mops_direct_quarter(result, requested_year, quarter):
             if value is not None:
                 row[key] = value
     return row if sum(row.get(key) is not None for key in MOPS_LABELS) >= 2 else None
+
+
+def parse_mops_cash_direct_quarter(result, requested_year, quarter):
+    titles = result.get("titles") or []
+    columns = mops_title_columns(titles)
+    column = columns[0][1] if columns else None
+    if column is None:
+        return None
+    reports = result.get("reportList") or []
+    row = {"year": f"{requested_year}Q{quarter}", "date": f"{requested_year}-{quarter * 3:02d}-01", "currency": "TWD"}
+    for key in CASH_FLOW_LABELS:
+        report_row = matching_report_row(reports, key, CASH_FLOW_LABELS)
+        if report_row and column < len(report_row):
+            value = number(report_row[column], 1000)
+            if value is not None:
+                row[key] = value
+    if row.get("operatingCashFlow") is not None and row.get("investingCashFlow") is not None:
+        row["freeCashFlow"] = row["operatingCashFlow"] + row["investingCashFlow"]
+    return row if sum(row.get(key) is not None for key in CASH_FLOW_LABELS) >= 2 else None
 
 
 class TableParser(HTMLParser):
@@ -233,6 +291,34 @@ def mops_direct_quarter_request(code, year, quarter):
     ]
 
 
+def mops_cash_annual_request(code, year):
+    payload = {
+        "companyId": code,
+        "dataType": "2",
+        "year": str(year - 1911),
+        "season": "4",
+        "subsidiaryCompanyId": "",
+    }
+    response = fetch_json(MOPS_API + "t164sb05", payload)
+    if response.get("code") != 200 or not isinstance(response.get("result"), dict):
+        return {}
+    return parse_mops_cash_annual(response["result"])
+
+
+def mops_cash_direct_quarter_request(code, year, quarter):
+    payload = {
+        "companyId": code,
+        "dataType": "2",
+        "year": str(year - 1911),
+        "season": str(quarter),
+        "subsidiaryCompanyId": "",
+    }
+    response = fetch_json(MOPS_API + "t164sb05", payload)
+    if response.get("code") != 200 or not isinstance(response.get("result"), dict):
+        return None
+    return parse_mops_cash_direct_quarter(response["result"], year, quarter)
+
+
 def mops_quarter_request(code, year):
     parameters = {
         "co_id": code,
@@ -284,6 +370,8 @@ def fetch_mops_financials(code):
     ]
     years_by_label = {}
     quarters_by_label = {}
+    cash_years_by_label = {}
+    cash_quarters_cumulative = {}
 
     with ThreadPoolExecutor(max_workers=8) as executor:
         futures = {
@@ -291,12 +379,21 @@ def fetch_mops_financials(code):
             for year in annual_targets
         }
         futures.update({
+            executor.submit(mops_cash_annual_request, code, year): ("cash_annual", year)
+            for year in annual_targets
+        })
+        futures.update({
             executor.submit(mops_quarter_request, code, year): ("quarterly", year)
             for year in quarter_targets
         })
         futures.update({
             executor.submit(mops_direct_quarter_request, code, year, quarter): ("direct_quarterly", year)
             for year, quarter in direct_targets
+        })
+        cash_direct_targets = [(year, quarter) for year in quarter_targets for quarter in range(1, 4)]
+        futures.update({
+            executor.submit(mops_cash_direct_quarter_request, code, year, quarter): ("cash_direct_quarterly", year)
+            for year, quarter in cash_direct_targets
         })
         for future in as_completed(futures):
             period_type, _ = futures[future]
@@ -306,12 +403,59 @@ def fetch_mops_financials(code):
                 continue
             if period_type == "annual":
                 years_by_label.update(result)
+            elif period_type == "cash_annual":
+                cash_years_by_label.update(result)
+            elif period_type == "cash_direct_quarterly":
+                if result:
+                    cash_quarters_cumulative[result["year"]] = result
             elif period_type == "direct_quarterly":
                 quarters_by_label.update({row["year"]: row for row in result})
             else:
                 for row in result:
                     quarters_by_label.setdefault(row["year"], row)
 
+    for key, row in cash_years_by_label.items():
+        years_by_label.setdefault(key, {}).update(row)
+    cash_quarters_by_label = {}
+    for year in quarter_targets:
+        previous = None
+        for quarter in range(1, 4):
+            key = f"{year}Q{quarter}"
+            cumulative = cash_quarters_cumulative.get(key)
+            if not cumulative:
+                continue
+            row = {"year": key, "date": cumulative["date"], "currency": cumulative.get("currency", "TWD")}
+            for metric in CASH_FLOW_LABELS:
+                value = cumulative.get(metric)
+                prior_value = previous.get(metric) if previous else 0
+                if metric == "endingCash" and value is not None:
+                    row[metric] = value
+                elif value is not None and prior_value is not None:
+                    row[metric] = value - prior_value
+            if row.get("operatingCashFlow") is not None and row.get("investingCashFlow") is not None:
+                row["freeCashFlow"] = row["operatingCashFlow"] + row["investingCashFlow"]
+            cash_quarters_by_label[key] = row
+            previous = cumulative
+        annual = cash_years_by_label.get(str(year))
+        q3 = cash_quarters_cumulative.get(f"{year}Q3")
+        if annual and q3:
+            row = {"year": f"{year}Q4", "date": f"{year}-12-31", "currency": "TWD"}
+            for metric in CASH_FLOW_LABELS:
+                value = annual.get(metric)
+                prior_value = q3.get(metric)
+                if metric == "endingCash" and value is not None:
+                    row[metric] = value
+                elif value is not None and prior_value is not None:
+                    row[metric] = value - prior_value
+            if row.get("operatingCashFlow") is not None and row.get("investingCashFlow") is not None:
+                row["freeCashFlow"] = row["operatingCashFlow"] + row["investingCashFlow"]
+            cash_quarters_by_label[row["year"]] = row
+    for key, row in cash_quarters_by_label.items():
+        quarters_by_label.setdefault(key, {}).update(row)
+    for rows in (years_by_label, quarters_by_label):
+        for row in rows.values():
+            if row.get("operatingCashFlow") is not None and row.get("investingCashFlow") is not None:
+                row["freeCashFlow"] = row["operatingCashFlow"] + row["investingCashFlow"]
     years = [years_by_label[key] for key in sorted(years_by_label) if int(key) >= MOPS_FIRST_IFRS_YEAR]
     quarters = [quarters_by_label[key] for key in sorted(quarters_by_label)][-8:]
     if not years and not quarters:
@@ -346,7 +490,7 @@ def parse_timeseries(payload, symbol):
     output = {}
     for period_type, rows_by_label in periods.items():
         rows = sorted(rows_by_label.values(), key=lambda row: row["date"])
-        rows = [row for row in rows if sum(row.get(key) is not None for key in MOPS_LABELS) >= 2]
+        rows = [row for row in rows if sum(row.get(key) is not None for key in ALL_LABELS) >= 2]
         output["years" if period_type == "annual" else "quarters"] = rows[-5 if period_type == "annual" else -8:]
     return {
         "symbol": symbol,

@@ -100,6 +100,48 @@ class FinancialsApiTests(unittest.TestCase):
         self.assertEqual(rows[1]["revenue"], 130_000)
         self.assertAlmostEqual(rows[3]["eps"], 2.2)
 
+    def test_parses_mops_cash_flow_totals(self):
+        result = {
+            "titles": [
+                {"main": "會計項目", "sub": []},
+                {"main": "114年度", "sub": [{"main": "金額"}]},
+            ],
+            "reportList": [
+                ["營業活動之淨現金流入（流出）", "2,000"],
+                ["投資活動之淨現金流入（流出）", "-800"],
+                ["籌資活動之淨現金流入（流出）", "-300"],
+                ["本期現金及約當現金增加（減少）數", "900"],
+                ["期末現金及約當現金餘額", "5,000"],
+            ],
+        }
+
+        rows = financials_api.parse_mops_cash_annual(result)
+
+        self.assertEqual(rows["2025"]["operatingCashFlow"], 2_000_000)
+        self.assertEqual(rows["2025"]["investingCashFlow"], -800_000)
+        self.assertEqual(rows["2025"]["endingCash"], 5_000_000)
+
+    def test_converts_mops_cash_flow_cumulative_quarter(self):
+        result = {
+            "titles": [
+                {"main": "會計項目", "sub": []},
+                {"main": "115年01月01日至115年06月30日", "sub": [{"main": "金額"}]},
+            ],
+            "reportList": [
+                ["營業活動之淨現金流入（流出）", "2,300"],
+                ["投資活動之淨現金流入（流出）", "-900"],
+                ["籌資活動之淨現金流入（流出）", "-200"],
+                ["本期現金及約當現金增加（減少）數", "1,200"],
+                ["期末現金及約當現金餘額", "6,000"],
+            ],
+        }
+
+        row = financials_api.parse_mops_cash_direct_quarter(result, 2026, 2)
+
+        self.assertEqual(row["year"], "2026Q2")
+        self.assertEqual(row["operatingCashFlow"], 2_300_000)
+        self.assertEqual(row["freeCashFlow"], 1_400_000)
+
 
 if __name__ == "__main__":
     unittest.main()

@@ -351,8 +351,11 @@
   }
   const financialMetrics = {
     revenue:{ label:"營收" }, operatingIncome:{ label:"營業利益" },
-    netIncome:{ label:"淨利" }, eps:{ label:"EPS" }
+    netIncome:{ label:"淨利" }, eps:{ label:"EPS" },
+    operatingCashFlow:{ label:"營業現金流" }, investingCashFlow:{ label:"投資現金流" },
+    financingCashFlow:{ label:"融資現金流" }, freeCashFlow:{ label:"自由現金流" }
   };
+  const cashFlowMetrics = new Set(["operatingCashFlow", "investingCashFlow", "financingCashFlow", "freeCashFlow"]);
   function compactMoney(value, currency) {
     const absolute = Math.abs(Number(value));
     const matched = [[1e12,"兆"],[1e8,"億"],[1e6,"百萬"],[1e3,"千"]].find(([threshold]) => absolute >= threshold);
@@ -408,9 +411,14 @@
     const latestLowBase = previousIndex >= 0 && isLowGrowthBase(metric, Number(rows[previousIndex][metric]));
     const operatingMargin = Number.isFinite(Number(latest.revenue)) && Number.isFinite(Number(latest.operatingIncome)) && Number(latest.revenue) !== 0 ? Number(latest.operatingIncome) / Number(latest.revenue) * 100 : null;
     const netMargin = Number.isFinite(Number(latest.revenue)) && Number.isFinite(Number(latest.netIncome)) && Number(latest.revenue) !== 0 ? Number(latest.netIncome) / Number(latest.revenue) * 100 : null;
+    const isCashFlow = cashFlowMetrics.has(metric);
+    const secondaryOne = isCashFlow ? (latest.freeCashFlow == null ? "—" : compactMoney(latest.freeCashFlow, currency)) : (operatingMargin == null ? "—" : operatingMargin.toFixed(1) + "%");
+    const secondaryTwo = isCashFlow ? (latest.endingCash == null ? "—" : compactMoney(latest.endingCash, currency)) : (netMargin == null ? "—" : netMargin.toFixed(1) + "%");
+    const secondaryOneLabel = isCashFlow ? "自由現金流" : "營業利益率";
+    const secondaryTwoLabel = isCashFlow ? "期末現金" : "淨利率";
     const source = payload.source || { name:"Yahoo Finance", url:`https://finance.yahoo.com/quote/${encodeURIComponent(payload.symbol)}/financials/` };
     const quarterNote = financialPeriod === "quarterly" && payload.quarterlyMethod ? `；${esc(payload.quarterlyMethod)}` : "";
-    box.querySelector(".financial-content").innerHTML = `<div class="financial-summary"><div><span>${esc(latest.year)} ${esc(meta.label)}</span><strong>${esc(latestValue)}</strong></div><div><span>年增率${latestLowBase ? "（低基期）" : ""}</span><strong class="${yoy.startsWith("+") ? "up" : yoy.startsWith("-") ? "down" : ""}">${esc(yoy)}</strong></div><div><span>營業利益率</span><strong>${operatingMargin == null ? "—" : operatingMargin.toFixed(1) + "%"}</strong></div><div><span>淨利率</span><strong>${netMargin == null ? "—" : netMargin.toFixed(1) + "%"}</strong></div></div><div class="financial-chart"><svg viewBox="0 0 ${width} ${height}" role="img" aria-label="${esc(meta.label)}${financialPeriod === "quarterly" ? "季度" : "年度"}長條與 YoY 折線圖">${grid}<line x1="${padL}" x2="${width-padR}" y1="${baseline}" y2="${baseline}" class="grid financial-zero"/>${bars}${trend}${labels}</svg><div class="financial-tooltip" hidden></div></div><div class="financial-note">${financialPeriod === "quarterly" ? "季度財報" : "年度合併財報"}・幣別 ${esc(currency || "未標示")}；長條為 ${esc(meta.label)}，折線為 YoY 成長率${quarterNote}。不同幣別公司不宜直接比較金額。資料來源：<a href="${esc(source.url)}" target="_blank" rel="noopener noreferrer">${esc(source.name)}</a></div>`;
+    box.querySelector(".financial-content").innerHTML = `<div class="financial-summary"><div><span>${esc(latest.year)} ${esc(meta.label)}</span><strong>${esc(latestValue)}</strong></div><div><span>年增率${latestLowBase ? "（低基期）" : ""}</span><strong class="${yoy.startsWith("+") ? "up" : yoy.startsWith("-") ? "down" : ""}">${esc(yoy)}</strong></div><div><span>${secondaryOneLabel}</span><strong>${esc(secondaryOne)}</strong></div><div><span>${secondaryTwoLabel}</span><strong>${esc(secondaryTwo)}</strong></div></div><div class="financial-chart"><svg viewBox="0 0 ${width} ${height}" role="img" aria-label="${esc(meta.label)}${financialPeriod === "quarterly" ? "季度" : "年度"}長條與 YoY 折線圖">${grid}<line x1="${padL}" x2="${width-padR}" y1="${baseline}" y2="${baseline}" class="grid financial-zero"/>${bars}${trend}${labels}</svg><div class="financial-tooltip" hidden></div></div><div class="financial-note">${financialPeriod === "quarterly" ? "季度財報" : "年度合併財報"}・幣別 ${esc(currency || "未標示")}；長條為 ${esc(meta.label)}，折線為 YoY 成長率${quarterNote}。不同幣別公司不宜直接比較金額。資料來源：<a href="${esc(source.url)}" target="_blank" rel="noopener noreferrer">${esc(source.name)}</a></div>`;
     const chart = box.querySelector(".financial-chart"), tooltip = chart.querySelector(".financial-tooltip");
     const showFinancialTooltip = (event, point) => {
       const chartRect = chart.getBoundingClientRect();
@@ -437,7 +445,7 @@
     box.style.display = "block";
     box.innerHTML = `<div class="financial-heading"><div><h3>財報趨勢</h3><p>${esc(name)}・年度／季度財務表現</p></div><span>載入中…</span></div><div class="financial-empty">正在取得財務資料…</div>`;
     try {
-      const response = await fetch(`/api/financials?code=${encodeURIComponent(info.symbol)}&market=${encodeURIComponent(info.market)}&v=20260819-1`, { cache:"default" });
+      const response = await fetch(`/api/financials?code=${encodeURIComponent(info.symbol)}&market=${encodeURIComponent(info.market)}&v=20260819-2`, { cache:"default" });
       const payload = await response.json().catch(() => ({ ok:false, error:"財務資料暫時無法取得" }));
       if (financialRequestKey !== key) return;
       if (!response.ok || !payload.ok) throw new Error(payload.error || "財務資料暫時無法取得");

@@ -99,8 +99,8 @@
 - 台股上櫃行情：TPEx 公開資料。
 - 三大法人：TWSE T86 與 TPEx 公開資料。
 - 融資融券：TWSE MI_MARGN 與 TPEx 公開資料。
-- 台股財報：公開資訊觀測站，使用 2013 年至今的營收、營業利益、淨利與基本 EPS；畫面名稱簡化為「EPS」。
-- 海外個股財報：Yahoo Finance，EPS 使用基本 EPS。
+- 台股財報：公開資訊觀測站，使用 2013 年至今的營收、營業利益、淨利、基本 EPS 與現金流量表；畫面名稱簡化為「EPS」及各項現金流。
+- 海外個股財報：Yahoo Finance，EPS 使用基本 EPS，並補充營業／投資／融資現金流、自由現金流與期末現金（依資料來源可用性顯示）。
 - 海外行情：Yahoo Finance 日線資料。
 - K 線歷史行情：Yahoo Finance 兩年日線 OHLCV，依市場與代號保存於 `webapp/price-history/`。
 - ETF 清單：官方上市／上櫃 ETF 資料。
