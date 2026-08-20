@@ -1,6 +1,6 @@
 {
   "date": "2026-08-19",
-  "fetched_at": "2026-08-19T22:11:32+08:00",
+  "fetched_at": "2026-08-20T19:55:34+08:00",
   "count": 74,
   "self": {
     "open": 59.65,
@@ -14,7 +14,13 @@
     "volume": 12817722.0,
     "quoteDate": "2026-08-19"
   },
-  "selfInstitutional": null,
+  "selfInstitutional": {
+    "foreign": -928410,
+    "trust": 0,
+    "dealer": -167305,
+    "total": -1095715,
+    "date": "2026-08-19"
+  },
   "selfMargin": {
     "marginBuy": 141,
     "marginSell": 221,
@@ -48,11 +54,11 @@
       "volume": 23618612.0,
       "quoteDate": "2026-08-19",
       "inst": {
-        "foreign": -3245118,
-        "trust": 626690,
-        "dealer": -109919,
-        "total": -2728347,
-        "date": "2026-08-18"
+        "foreign": -7417943,
+        "trust": -668410,
+        "dealer": 719342,
+        "total": -7367011,
+        "date": "2026-08-19"
       },
       "margin": {
         "marginBuy": 800,
@@ -87,11 +93,11 @@
       "volume": 7036521.0,
       "quoteDate": "2026-08-19",
       "inst": {
-        "foreign": -198092,
-        "trust": -1153744,
-        "dealer": -223386,
-        "total": -1575222,
-        "date": "2026-08-18"
+        "foreign": -216230,
+        "trust": -1046250,
+        "dealer": -265132,
+        "total": -1527612,
+        "date": "2026-08-19"
       },
       "margin": {
         "marginBuy": 292,
@@ -126,11 +132,11 @@
       "volume": 36592747.0,
       "quoteDate": "2026-08-19",
       "inst": {
-        "foreign": -7859901,
-        "trust": -4370881,
-        "dealer": -709701,
-        "total": -12940483,
-        "date": "2026-08-18"
+        "foreign": -10064384,
+        "trust": -300000,
+        "dealer": -822130,
+        "total": -11186514,
+        "date": "2026-08-19"
       },
       "margin": {
         "marginBuy": 874,
@@ -165,11 +171,11 @@
       "volume": 22448357.0,
       "quoteDate": "2026-08-19",
       "inst": {
-        "foreign": 363414,
-        "trust": -3877203,
-        "dealer": -219991,
-        "total": -3733780,
-        "date": "2026-08-18"
+        "foreign": 2323531,
+        "trust": -3324000,
+        "dealer": -127734,
+        "total": -1128203,
+        "date": "2026-08-19"
       },
       "margin": {
         "marginBuy": 371,
@@ -204,11 +210,11 @@
       "volume": 3119237.0,
       "quoteDate": "2026-08-19",
       "inst": {
-        "foreign": 428269,
-        "trust": -167415,
-        "dealer": 13948,
-        "total": 274802,
-        "date": "2026-08-18"
+        "foreign": 76221,
+        "trust": -191001,
+        "dealer": -16593,
+        "total": -131373,
+        "date": "2026-08-19"
       },
       "margin": {
         "marginBuy": 130,
@@ -243,11 +249,11 @@
       "volume": 24496587.0,
       "quoteDate": "2026-08-19",
       "inst": {
-        "foreign": 10676502,
-        "trust": 150000,
-        "dealer": -394898,
-        "total": 10431604,
-        "date": "2026-08-18"
+        "foreign": 1638430,
+        "trust": -637001,
+        "dealer": -65704,
+        "total": 935725,
+        "date": "2026-08-19"
       },
       "margin": {
         "marginBuy": 1398,
@@ -282,11 +288,11 @@
       "volume": 110337394.0,
       "quoteDate": "2026-08-19",
       "inst": {
-        "foreign": -3246457,
-        "trust": 1153128,
-        "dealer": -819429,
-        "total": -2912758,
-        "date": "2026-08-18"
+        "foreign": 7800989,
+        "trust": -20973000,
+        "dealer": -5796260,
+        "total": -18968271,
+        "date": "2026-08-19"
       },
       "margin": {
         "marginBuy": 3549,
@@ -321,11 +327,11 @@
       "volume": 3982151.0,
       "quoteDate": "2026-08-19",
       "inst": {
-        "foreign": 828512,
-        "trust": -589100,
-        "dealer": -45819,
-        "total": 193593,
-        "date": "2026-08-18"
+        "foreign": 45475,
+        "trust": 534000,
+        "dealer": -228463,
+        "total": 351012,
+        "date": "2026-08-19"
       },
       "margin": {
         "marginBuy": 315,
@@ -360,11 +366,11 @@
       "volume": 56295383.0,
       "quoteDate": "2026-08-19",
       "inst": {
-        "foreign": -2365705,
-        "trust": -696195,
-        "dealer": -673341,
-        "total": -3735241,
-        "date": "2026-08-18"
+        "foreign": -3422361,
+        "trust": -2731000,
+        "dealer": -1341269,
+        "total": -7494630,
+        "date": "2026-08-19"
       },
       "margin": {
         "marginBuy": 1957,
@@ -399,11 +405,11 @@
       "volume": 16525261.0,
       "quoteDate": "2026-08-19",
       "inst": {
-        "foreign": 288816,
-        "trust": 320332,
-        "dealer": -233999,
-        "total": 375149,
-        "date": "2026-08-18"
+        "foreign": 3227189,
+        "trust": -291167,
+        "dealer": -177193,
+        "total": 2758829,
+        "date": "2026-08-19"
       },
       "margin": {
         "marginBuy": 265,
@@ -438,11 +444,11 @@
       "volume": 1289214.0,
       "quoteDate": "2026-08-19",
       "inst": {
-        "foreign": 175380,
-        "trust": -355116,
-        "dealer": -3372,
-        "total": -183108,
-        "date": "2026-08-18"
+        "foreign": 174888,
+        "trust": -360257,
+        "dealer": 19836,
+        "total": -165533,
+        "date": "2026-08-19"
       },
       "margin": {
         "marginBuy": 59,
@@ -477,11 +483,11 @@
       "volume": 2985654.0,
       "quoteDate": "2026-08-19",
       "inst": {
-        "foreign": -587204,
-        "trust": 488307,
-        "dealer": -35464,
-        "total": -134361,
-        "date": "2026-08-18"
+        "foreign": -15576,
+        "trust": -41341,
+        "dealer": -74952,
+        "total": -131869,
+        "date": "2026-08-19"
       },
       "margin": {
         "marginBuy": 127,
@@ -516,11 +522,11 @@
       "volume": 28162708.0,
       "quoteDate": "2026-08-19",
       "inst": {
-        "foreign": -7514726,
-        "trust": -864060,
-        "dealer": -583850,
-        "total": -8962636,
-        "date": "2026-08-18"
+        "foreign": -3046833,
+        "trust": 1039000,
+        "dealer": -893467,
+        "total": -2901300,
+        "date": "2026-08-19"
       },
       "margin": {
         "marginBuy": 2116,
@@ -555,11 +561,11 @@
       "volume": 69157927.0,
       "quoteDate": "2026-08-19",
       "inst": {
-        "foreign": 2348431,
-        "trust": 742875,
-        "dealer": -197838,
-        "total": 2893468,
-        "date": "2026-08-18"
+        "foreign": -13747190,
+        "trust": 380000,
+        "dealer": -1059651,
+        "total": -14426841,
+        "date": "2026-08-19"
       },
       "margin": {
         "marginBuy": 4209,
@@ -594,11 +600,11 @@
       "volume": 35191145.0,
       "quoteDate": "2026-08-19",
       "inst": {
-        "foreign": 9583775,
-        "trust": 3148510,
-        "dealer": -475235,
-        "total": 12257050,
-        "date": "2026-08-18"
+        "foreign": -936729,
+        "trust": 640000,
+        "dealer": -238070,
+        "total": -534799,
+        "date": "2026-08-19"
       },
       "margin": {
         "marginBuy": 3674,
@@ -633,11 +639,11 @@
       "volume": 3873944.0,
       "quoteDate": "2026-08-19",
       "inst": {
-        "foreign": -142772,
-        "trust": 137000,
-        "dealer": 158902,
-        "total": 153130,
-        "date": "2026-08-18"
+        "foreign": -135887,
+        "trust": 84000,
+        "dealer": 132972,
+        "total": 81085,
+        "date": "2026-08-19"
       },
       "margin": {
         "marginBuy": 285,
@@ -672,11 +678,11 @@
       "volume": 113062347.0,
       "quoteDate": "2026-08-19",
       "inst": {
-        "foreign": 897255,
-        "trust": -468880,
-        "dealer": -740105,
-        "total": -311730,
-        "date": "2026-08-18"
+        "foreign": -4640893,
+        "trust": -17582000,
+        "dealer": 75860,
+        "total": -22147033,
+        "date": "2026-08-19"
       },
       "margin": {
         "marginBuy": 5376,
@@ -711,11 +717,11 @@
       "volume": 2804186.0,
       "quoteDate": "2026-08-19",
       "inst": {
-        "foreign": 922550,
-        "trust": 306000,
-        "dealer": -121576,
-        "total": 1106974,
-        "date": "2026-08-18"
+        "foreign": 24735,
+        "trust": 271000,
+        "dealer": -17965,
+        "total": 277770,
+        "date": "2026-08-19"
       },
       "margin": {
         "marginBuy": 280,
@@ -750,11 +756,11 @@
       "volume": 2510975.0,
       "quoteDate": "2026-08-19",
       "inst": {
-        "foreign": 264114,
-        "trust": -45289,
-        "dealer": 37989,
-        "total": 256814,
-        "date": "2026-08-18"
+        "foreign": 828793,
+        "trust": -126000,
+        "dealer": -71430,
+        "total": 631363,
+        "date": "2026-08-19"
       },
       "margin": {
         "marginBuy": 183,
@@ -789,11 +795,11 @@
       "volume": 2061571.0,
       "quoteDate": "2026-08-19",
       "inst": {
-        "foreign": 246591,
-        "trust": -257008,
-        "dealer": 40468,
-        "total": 30051,
-        "date": "2026-08-18"
+        "foreign": -125140,
+        "trust": -305000,
+        "dealer": -1761,
+        "total": -431901,
+        "date": "2026-08-19"
       },
       "margin": {
         "marginBuy": 97,
@@ -828,11 +834,11 @@
       "volume": 450430.0,
       "quoteDate": "2026-08-19",
       "inst": {
-        "foreign": -67435,
-        "trust": 23000,
-        "dealer": -2846,
-        "total": -47281,
-        "date": "2026-08-18"
+        "foreign": 78455,
+        "trust": -14000,
+        "dealer": -845,
+        "total": 63610,
+        "date": "2026-08-19"
       },
       "margin": {
         "marginBuy": 9,
@@ -867,11 +873,11 @@
       "volume": 3984481.0,
       "quoteDate": "2026-08-19",
       "inst": {
-        "foreign": -483367,
-        "trust": 124167,
-        "dealer": -4985,
-        "total": -364185,
-        "date": "2026-08-18"
+        "foreign": 638638,
+        "trust": 71000,
+        "dealer": 141475,
+        "total": 851113,
+        "date": "2026-08-19"
       },
       "margin": {
         "marginBuy": 73,
@@ -906,11 +912,11 @@
       "volume": 10290635.0,
       "quoteDate": "2026-08-19",
       "inst": {
-        "foreign": -1536054,
-        "trust": 1102978,
-        "dealer": -128182,
-        "total": -561258,
-        "date": "2026-08-18"
+        "foreign": -1163883,
+        "trust": -305000,
+        "dealer": -138135,
+        "total": -1607018,
+        "date": "2026-08-19"
       },
       "margin": {
         "marginBuy": 571,
@@ -945,11 +951,11 @@
       "volume": 30182657.0,
       "quoteDate": "2026-08-19",
       "inst": {
-        "foreign": -8750877,
-        "trust": -433467,
-        "dealer": -684498,
-        "total": -9868842,
-        "date": "2026-08-18"
+        "foreign": -3215170,
+        "trust": -1481000,
+        "dealer": -241456,
+        "total": -4937626,
+        "date": "2026-08-19"
       },
       "margin": {
         "marginBuy": 1262,
@@ -984,11 +990,11 @@
       "volume": 225153342.0,
       "quoteDate": "2026-08-19",
       "inst": {
-        "foreign": -29691966,
-        "trust": 13592224,
-        "dealer": -1827639,
-        "total": -17927381,
-        "date": "2026-08-18"
+        "foreign": -61131261,
+        "trust": -25000,
+        "dealer": -5707789,
+        "total": -66864050,
+        "date": "2026-08-19"
       },
       "margin": {
         "marginBuy": 12521,
@@ -1023,11 +1029,11 @@
       "volume": 4739840.0,
       "quoteDate": "2026-08-19",
       "inst": {
-        "foreign": -1022327,
-        "trust": 1251550,
-        "dealer": 32108,
-        "total": 261331,
-        "date": "2026-08-18"
+        "foreign": -514649,
+        "trust": 572000,
+        "dealer": 54634,
+        "total": 111985,
+        "date": "2026-08-19"
       },
       "margin": {
         "marginBuy": 219,
@@ -1062,11 +1068,11 @@
       "volume": 4731319.0,
       "quoteDate": "2026-08-19",
       "inst": {
-        "foreign": -334922,
-        "trust": 452954,
-        "dealer": -20338,
-        "total": 97694,
-        "date": "2026-08-18"
+        "foreign": 1250910,
+        "trust": 66000,
+        "dealer": 82541,
+        "total": 1399451,
+        "date": "2026-08-19"
       },
       "margin": {
         "marginBuy": 41,
@@ -1101,11 +1107,11 @@
       "volume": 1950747.0,
       "quoteDate": "2026-08-19",
       "inst": {
-        "foreign": -325851,
-        "trust": -66000,
-        "dealer": -88295,
-        "total": -480146,
-        "date": "2026-08-18"
+        "foreign": -566539,
+        "trust": 14000,
+        "dealer": 14769,
+        "total": -537770,
+        "date": "2026-08-19"
       },
       "margin": {
         "marginBuy": 179,
@@ -1140,11 +1146,11 @@
       "volume": 21079068.0,
       "quoteDate": "2026-08-19",
       "inst": {
-        "foreign": 132846,
-        "trust": 50611,
-        "dealer": -686915,
-        "total": -503458,
-        "date": "2026-08-18"
+        "foreign": 660327,
+        "trust": 399000,
+        "dealer": -747218,
+        "total": 312109,
+        "date": "2026-08-19"
       },
       "margin": {
         "marginBuy": 887,
@@ -1179,11 +1185,11 @@
       "volume": 15479247.0,
       "quoteDate": "2026-08-19",
       "inst": {
-        "foreign": -3195214,
-        "trust": -1358588,
-        "dealer": 37537,
-        "total": -4516265,
-        "date": "2026-08-18"
+        "foreign": 1318020,
+        "trust": 39000,
+        "dealer": -67293,
+        "total": 1289727,
+        "date": "2026-08-19"
       },
       "margin": {
         "marginBuy": 490,
@@ -1206,7 +1212,7 @@
       "market": "",
       "assetType": "future",
       "weight": 0.3,
-      "quantity": null,
+      "quantity": 42.0,
       "unit": "口",
       "amount": null
     },
@@ -1228,11 +1234,11 @@
       "volume": 15143786.0,
       "quoteDate": "2026-08-19",
       "inst": {
-        "foreign": -222255,
-        "trust": 69000,
-        "dealer": 129137,
-        "total": -24118,
-        "date": "2026-08-18"
+        "foreign": -180038,
+        "trust": -92000,
+        "dealer": -200940,
+        "total": -472978,
+        "date": "2026-08-19"
       },
       "margin": {
         "marginBuy": 1526,
@@ -1267,11 +1273,11 @@
       "volume": 50155092.0,
       "quoteDate": "2026-08-19",
       "inst": {
-        "foreign": 8135195,
-        "trust": -17860000,
-        "dealer": -967558,
-        "total": -10692363,
-        "date": "2026-08-18"
+        "foreign": -4119706,
+        "trust": 85000,
+        "dealer": -2184884,
+        "total": -6219590,
+        "date": "2026-08-19"
       },
       "margin": {
         "marginBuy": 1523,
@@ -1306,11 +1312,11 @@
       "volume": 176388814.0,
       "quoteDate": "2026-08-19",
       "inst": {
-        "foreign": -35766505,
-        "trust": -361000,
-        "dealer": -2309621,
-        "total": -38437126,
-        "date": "2026-08-18"
+        "foreign": -48520819,
+        "trust": -23000,
+        "dealer": -1879449,
+        "total": -50423268,
+        "date": "2026-08-19"
       },
       "margin": {
         "marginBuy": 7536,
@@ -1345,11 +1351,11 @@
       "volume": 13397617.0,
       "quoteDate": "2026-08-19",
       "inst": {
-        "foreign": -1193499,
-        "trust": 772000,
-        "dealer": -39682,
-        "total": -461181,
-        "date": "2026-08-18"
+        "foreign": -2061511,
+        "trust": -652734,
+        "dealer": 201854,
+        "total": -2512391,
+        "date": "2026-08-19"
       },
       "margin": {
         "marginBuy": 824,
@@ -1384,11 +1390,11 @@
       "volume": 4782368.0,
       "quoteDate": "2026-08-19",
       "inst": {
-        "foreign": -99164,
-        "trust": 327971,
-        "dealer": -30871,
-        "total": 197936,
-        "date": "2026-08-18"
+        "foreign": -1147842,
+        "trust": 26000,
+        "dealer": -307709,
+        "total": -1429551,
+        "date": "2026-08-19"
       },
       "margin": {
         "marginBuy": 520,
@@ -1423,11 +1429,11 @@
       "volume": 6754187.0,
       "quoteDate": "2026-08-19",
       "inst": {
-        "foreign": -2233931,
-        "trust": 430701,
-        "dealer": -274651,
-        "total": -2077881,
-        "date": "2026-08-18"
+        "foreign": -1993240,
+        "trust": 497000,
+        "dealer": 236633,
+        "total": -1259607,
+        "date": "2026-08-19"
       },
       "margin": {
         "marginBuy": 313,
@@ -1462,11 +1468,11 @@
       "volume": 9782257.0,
       "quoteDate": "2026-08-19",
       "inst": {
-        "foreign": -1644682,
-        "trust": -35827,
-        "dealer": -747713,
-        "total": -2428222,
-        "date": "2026-08-18"
+        "foreign": 1907361,
+        "trust": -2339000,
+        "dealer": -253758,
+        "total": -685397,
+        "date": "2026-08-19"
       },
       "margin": {
         "marginBuy": 404,
@@ -1501,11 +1507,11 @@
       "volume": 10010075.0,
       "quoteDate": "2026-08-19",
       "inst": {
-        "foreign": -1787385,
-        "trust": 1950000,
-        "dealer": -39239,
-        "total": 123376,
-        "date": "2026-08-18"
+        "foreign": -3756644,
+        "trust": 1092000,
+        "dealer": -117158,
+        "total": -2781802,
+        "date": "2026-08-19"
       },
       "margin": {
         "marginBuy": 182,
@@ -1540,11 +1546,11 @@
       "volume": 15165045.0,
       "quoteDate": "2026-08-19",
       "inst": {
-        "foreign": -3470275,
-        "trust": -291227,
-        "dealer": -891047,
-        "total": -4652549,
-        "date": "2026-08-18"
+        "foreign": 821004,
+        "trust": -25000,
+        "dealer": -204583,
+        "total": 591421,
+        "date": "2026-08-19"
       },
       "margin": {
         "marginBuy": 301,
@@ -1579,11 +1585,11 @@
       "volume": 92963808.0,
       "quoteDate": "2026-08-19",
       "inst": {
-        "foreign": 5994170,
-        "trust": -78923,
-        "dealer": -1989895,
-        "total": 3925352,
-        "date": "2026-08-18"
+        "foreign": -20436250,
+        "trust": -90000,
+        "dealer": 1352917,
+        "total": -19173333,
+        "date": "2026-08-19"
       },
       "margin": {
         "marginBuy": 4431,
@@ -1618,11 +1624,11 @@
       "volume": 344112.0,
       "quoteDate": "2026-08-19",
       "inst": {
-        "foreign": 24494,
-        "trust": -101003,
-        "dealer": 1040,
-        "total": -75469,
-        "date": "2026-08-18"
+        "foreign": 128142,
+        "trust": -102000,
+        "dealer": -5263,
+        "total": 20879,
+        "date": "2026-08-19"
       },
       "margin": {
         "marginBuy": 16,
@@ -1657,11 +1663,11 @@
       "volume": 8946264.0,
       "quoteDate": "2026-08-19",
       "inst": {
-        "foreign": 822008,
-        "trust": -1638062,
-        "dealer": -156654,
-        "total": -972708,
-        "date": "2026-08-18"
+        "foreign": 2232318,
+        "trust": -2934000,
+        "dealer": -505191,
+        "total": -1206873,
+        "date": "2026-08-19"
       },
       "margin": {
         "marginBuy": 331,
@@ -1696,11 +1702,11 @@
       "volume": 134445281.0,
       "quoteDate": "2026-08-19",
       "inst": {
-        "foreign": -32023397,
-        "trust": -53890,
-        "dealer": -4451718,
-        "total": -36529005,
-        "date": "2026-08-18"
+        "foreign": -3698673,
+        "trust": 5000,
+        "dealer": -3977630,
+        "total": -7671303,
+        "date": "2026-08-19"
       },
       "margin": {
         "marginBuy": 5796,
@@ -1735,11 +1741,11 @@
       "volume": 18979455.0,
       "quoteDate": "2026-08-19",
       "inst": {
-        "foreign": -3045902,
-        "trust": -1593000,
-        "dealer": 71433,
-        "total": -4567469,
-        "date": "2026-08-18"
+        "foreign": -3166125,
+        "trust": -1829000,
+        "dealer": 159607,
+        "total": -4835518,
+        "date": "2026-08-19"
       },
       "margin": {
         "marginBuy": 912,
@@ -1774,11 +1780,11 @@
       "volume": 1881027.0,
       "quoteDate": "2026-08-19",
       "inst": {
-        "foreign": -9784,
-        "trust": -221000,
-        "dealer": -16281,
-        "total": -247065,
-        "date": "2026-08-18"
+        "foreign": -27504,
+        "trust": -1000,
+        "dealer": -14016,
+        "total": -42520,
+        "date": "2026-08-19"
       },
       "margin": {
         "marginBuy": 53,
@@ -1813,11 +1819,11 @@
       "volume": 1585723.0,
       "quoteDate": "2026-08-19",
       "inst": {
-        "foreign": -306104,
-        "trust": -114000,
-        "dealer": 4324,
-        "total": -415780,
-        "date": "2026-08-18"
+        "foreign": -69499,
+        "trust": -101159,
+        "dealer": -44156,
+        "total": -214814,
+        "date": "2026-08-19"
       },
       "margin": {
         "marginBuy": 55,
@@ -1852,11 +1858,11 @@
       "volume": 2827204.0,
       "quoteDate": "2026-08-19",
       "inst": {
-        "foreign": -2000168,
-        "trust": 654000,
-        "dealer": -15154,
-        "total": -1361322,
-        "date": "2026-08-18"
+        "foreign": 79079,
+        "trust": 18000,
+        "dealer": -180022,
+        "total": -82943,
+        "date": "2026-08-19"
       },
       "margin": {
         "marginBuy": 36,
@@ -1891,11 +1897,11 @@
       "volume": 3111366.0,
       "quoteDate": "2026-08-19",
       "inst": {
-        "foreign": 971561,
-        "trust": 486000,
-        "dealer": 177500,
-        "total": 1635061,
-        "date": "2026-08-18"
+        "foreign": 743110,
+        "trust": 120000,
+        "dealer": -3820,
+        "total": 859290,
+        "date": "2026-08-19"
       },
       "margin": {
         "marginBuy": 110,
@@ -1918,7 +1924,7 @@
       "market": "",
       "assetType": "future",
       "weight": 0.11,
-      "quantity": null,
+      "quantity": 300.0,
       "unit": "口",
       "amount": null
     },
@@ -1940,11 +1946,11 @@
       "volume": 12788664.0,
       "quoteDate": "2026-08-19",
       "inst": {
-        "foreign": -5228384,
-        "trust": 1984000,
-        "dealer": -324475,
-        "total": -3568859,
-        "date": "2026-08-18"
+        "foreign": -5244462,
+        "trust": -8000,
+        "dealer": 451480,
+        "total": -4800982,
+        "date": "2026-08-19"
       },
       "margin": {
         "marginBuy": 1066,
@@ -1979,11 +1985,11 @@
       "volume": 1866928.0,
       "quoteDate": "2026-08-19",
       "inst": {
-        "foreign": -476969,
-        "trust": 619000,
-        "dealer": 1462,
-        "total": 143493,
-        "date": "2026-08-18"
+        "foreign": -36696,
+        "trust": 8000,
+        "dealer": -44556,
+        "total": -73252,
+        "date": "2026-08-19"
       },
       "margin": {
         "marginBuy": 298,
@@ -2018,11 +2024,11 @@
       "volume": 2608302.0,
       "quoteDate": "2026-08-19",
       "inst": {
-        "foreign": -562840,
-        "trust": 377000,
-        "dealer": -63765,
-        "total": -249605,
-        "date": "2026-08-18"
+        "foreign": -61319,
+        "trust": 9000,
+        "dealer": 23278,
+        "total": -29041,
+        "date": "2026-08-19"
       },
       "margin": {
         "marginBuy": 34,
@@ -2057,11 +2063,11 @@
       "volume": 1797462.0,
       "quoteDate": "2026-08-19",
       "inst": {
-        "foreign": 47288,
-        "trust": 136000,
-        "dealer": 1453,
-        "total": 184741,
-        "date": "2026-08-18"
+        "foreign": 106957,
+        "trust": -80000,
+        "dealer": 24342,
+        "total": 51299,
+        "date": "2026-08-19"
       },
       "margin": {
         "marginBuy": 48,
@@ -2096,11 +2102,11 @@
       "volume": 5509629.0,
       "quoteDate": "2026-08-19",
       "inst": {
-        "foreign": -740783,
-        "trust": -1037544,
-        "dealer": -125480,
-        "total": -1903807,
-        "date": "2026-08-18"
+        "foreign": 288130,
+        "trust": -1585000,
+        "dealer": -206472,
+        "total": -1503342,
+        "date": "2026-08-19"
       },
       "margin": {
         "marginBuy": 463,
@@ -2135,11 +2141,11 @@
       "volume": 1627243.0,
       "quoteDate": "2026-08-19",
       "inst": {
-        "foreign": 196260,
-        "trust": 459527,
-        "dealer": -1380,
-        "total": 654407,
-        "date": "2026-08-18"
+        "foreign": -486154,
+        "trust": -4000,
+        "dealer": -33077,
+        "total": -523231,
+        "date": "2026-08-19"
       },
       "margin": {
         "marginBuy": 56,
@@ -2174,11 +2180,11 @@
       "volume": 12354545.0,
       "quoteDate": "2026-08-19",
       "inst": {
-        "foreign": -3571930,
-        "trust": 186191,
-        "dealer": 163684,
-        "total": -3222055,
-        "date": "2026-08-18"
+        "foreign": 2130167,
+        "trust": 24000,
+        "dealer": 264836,
+        "total": 2419003,
+        "date": "2026-08-19"
       },
       "margin": {
         "marginBuy": 438,
@@ -2213,11 +2219,11 @@
       "volume": 4111029.0,
       "quoteDate": "2026-08-19",
       "inst": {
-        "foreign": 1845460,
-        "trust": -1753287,
-        "dealer": -74209,
-        "total": 17964,
-        "date": "2026-08-18"
+        "foreign": 1269841,
+        "trust": -1493000,
+        "dealer": -6013,
+        "total": -229172,
+        "date": "2026-08-19"
       },
       "margin": {
         "marginBuy": 225,
@@ -2252,11 +2258,11 @@
       "volume": 46494666.0,
       "quoteDate": "2026-08-19",
       "inst": {
-        "foreign": -2399414,
-        "trust": -15000,
-        "dealer": -552199,
-        "total": -2966613,
-        "date": "2026-08-18"
+        "foreign": 3180325,
+        "trust": -2000,
+        "dealer": 92651,
+        "total": 3270976,
+        "date": "2026-08-19"
       },
       "margin": {
         "marginBuy": 1600,
@@ -2291,11 +2297,11 @@
       "volume": 8294613.0,
       "quoteDate": "2026-08-19",
       "inst": {
-        "foreign": -3305388,
-        "trust": 2178000,
-        "dealer": -142433,
-        "total": -1269821,
-        "date": "2026-08-18"
+        "foreign": -2282520,
+        "trust": -11000,
+        "dealer": 2475682,
+        "total": 182162,
+        "date": "2026-08-19"
       },
       "margin": {
         "marginBuy": 248,
@@ -2330,11 +2336,11 @@
       "volume": 15313042.0,
       "quoteDate": "2026-08-19",
       "inst": {
-        "foreign": -483946,
-        "trust": 495000,
-        "dealer": 24810,
-        "total": 35864,
-        "date": "2026-08-18"
+        "foreign": 420170,
+        "trust": 607000,
+        "dealer": -167498,
+        "total": 859672,
+        "date": "2026-08-19"
       },
       "margin": {
         "marginBuy": 943,
@@ -2369,11 +2375,11 @@
       "volume": 2094065.0,
       "quoteDate": "2026-08-19",
       "inst": {
-        "foreign": -89062,
-        "trust": 37000,
-        "dealer": 25951,
-        "total": -26111,
-        "date": "2026-08-18"
+        "foreign": -264715,
+        "trust": -18000,
+        "dealer": -8500,
+        "total": -291215,
+        "date": "2026-08-19"
       },
       "margin": {
         "marginBuy": 246,
@@ -2408,11 +2414,11 @@
       "volume": 7265810.0,
       "quoteDate": "2026-08-19",
       "inst": {
-        "foreign": 418394,
-        "trust": -7000,
-        "dealer": -84729,
-        "total": 326665,
-        "date": "2026-08-18"
+        "foreign": -514560,
+        "trust": -10000,
+        "dealer": 124425,
+        "total": -400135,
+        "date": "2026-08-19"
       },
       "margin": {
         "marginBuy": 304,
@@ -2447,11 +2453,11 @@
       "volume": 2195357.0,
       "quoteDate": "2026-08-19",
       "inst": {
-        "foreign": -538914,
-        "trust": 41844,
-        "dealer": -10334,
-        "total": -507404,
-        "date": "2026-08-18"
+        "foreign": 1306501,
+        "trust": -131000,
+        "dealer": -200198,
+        "total": 975303,
+        "date": "2026-08-19"
       },
       "margin": {
         "marginBuy": 62,
@@ -2486,11 +2492,11 @@
       "volume": 1187531.0,
       "quoteDate": "2026-08-19",
       "inst": {
-        "foreign": -69722,
-        "trust": -5000,
-        "dealer": -7058,
-        "total": -81780,
-        "date": "2026-08-18"
+        "foreign": 260997,
+        "trust": -29000,
+        "dealer": 249504,
+        "total": 481501,
+        "date": "2026-08-19"
       },
       "margin": {
         "marginBuy": 46,
@@ -2525,11 +2531,11 @@
       "volume": 2771873.0,
       "quoteDate": "2026-08-19",
       "inst": {
-        "foreign": -1031503,
-        "trust": -173000,
-        "dealer": -41786,
-        "total": -1246289,
-        "date": "2026-08-18"
+        "foreign": 248041,
+        "trust": -175000,
+        "dealer": 26542,
+        "total": 99583,
+        "date": "2026-08-19"
       },
       "margin": {
         "marginBuy": 90,
@@ -2564,11 +2570,11 @@
       "volume": 1357774.0,
       "quoteDate": "2026-08-19",
       "inst": {
-        "foreign": -5233,
-        "trust": 43702,
-        "dealer": -12981,
-        "total": 25488,
-        "date": "2026-08-18"
+        "foreign": 199668,
+        "trust": -481000,
+        "dealer": -4716,
+        "total": -286048,
+        "date": "2026-08-19"
       },
       "margin": {
         "marginBuy": 55,
@@ -2603,11 +2609,11 @@
       "volume": 838780.0,
       "quoteDate": "2026-08-19",
       "inst": {
-        "foreign": 67058,
-        "trust": 153000,
-        "dealer": 13554,
-        "total": 233612,
-        "date": "2026-08-18"
+        "foreign": 39660,
+        "trust": 134000,
+        "dealer": -84553,
+        "total": 89107,
+        "date": "2026-08-19"
       },
       "margin": {
         "marginBuy": 27,
@@ -2642,11 +2648,11 @@
       "volume": 3204424.0,
       "quoteDate": "2026-08-19",
       "inst": {
-        "foreign": -1306300,
-        "trust": -9000,
-        "dealer": -544685,
-        "total": -1859985,
-        "date": "2026-08-18"
+        "foreign": -320893,
+        "trust": -2000,
+        "dealer": -211386,
+        "total": -534279,
+        "date": "2026-08-19"
       },
       "margin": {
         "marginBuy": 130,
@@ -2681,11 +2687,11 @@
       "volume": 780625.0,
       "quoteDate": "2026-08-19",
       "inst": {
-        "foreign": -71422,
-        "trust": 3000,
-        "dealer": -8788,
-        "total": -77210,
-        "date": "2026-08-18"
+        "foreign": -1689,
+        "trust": 2000,
+        "dealer": -48994,
+        "total": -48683,
+        "date": "2026-08-19"
       },
       "margin": {
         "marginBuy": 34,
@@ -2720,11 +2726,11 @@
       "volume": 791770.0,
       "quoteDate": "2026-08-19",
       "inst": {
-        "foreign": -131853,
-        "trust": -1000,
-        "dealer": -44617,
-        "total": -177470,
-        "date": "2026-08-18"
+        "foreign": 3875,
+        "trust": -2000,
+        "dealer": -37564,
+        "total": -35689,
+        "date": "2026-08-19"
       },
       "margin": {
         "marginBuy": 26,
@@ -2759,11 +2765,11 @@
       "volume": 284469.0,
       "quoteDate": "2026-08-19",
       "inst": {
-        "foreign": -31513,
-        "trust": -124000,
-        "dealer": -5213,
-        "total": -160726,
-        "date": "2026-08-18"
+        "foreign": 50257,
+        "trust": -1000,
+        "dealer": -14979,
+        "total": 34278,
+        "date": "2026-08-19"
       },
       "margin": {
         "marginBuy": 14,
@@ -2798,11 +2804,11 @@
       "volume": 7431947.0,
       "quoteDate": "2026-08-19",
       "inst": {
-        "foreign": -2408879,
-        "trust": 2131000,
-        "dealer": -223442,
-        "total": -501321,
-        "date": "2026-08-18"
+        "foreign": -414533,
+        "trust": -174000,
+        "dealer": 273617,
+        "total": -314916,
+        "date": "2026-08-19"
       },
       "margin": {
         "marginBuy": 276,
@@ -2837,11 +2843,11 @@
       "volume": 4261748.0,
       "quoteDate": "2026-08-19",
       "inst": {
-        "foreign": -587062,
-        "trust": -1000,
-        "dealer": -115571,
-        "total": -703633,
-        "date": "2026-08-18"
+        "foreign": 110869,
+        "trust": -8000,
+        "dealer": 281764,
+        "total": 384633,
+        "date": "2026-08-19"
       },
       "margin": {
         "marginBuy": 151,
