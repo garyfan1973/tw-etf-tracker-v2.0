@@ -10,12 +10,19 @@
   let financialPeriod = localStorage.getItem("financial-period") === "quarterly" ? "quarterly" : "annual";
   const maPeriods = [5, 10, 20, 60, 120, 240];
   const defaultRangeDays = Number(localStorage.getItem("etf-chart-range")) || 60;
-  const indicatorNames = ["bollinger", "macd", "rsi"];
+  const indicatorNames = ["bollinger", "kd", "macd", "rsi"];
   let visibleIndicators;
   try {
-    const saved = JSON.parse(localStorage.getItem("etf-visible-indicators"));
-    visibleIndicators = new Set(Array.isArray(saved) ? saved.filter(name => indicatorNames.includes(name)) : []);
-  } catch (_) { visibleIndicators = new Set(); }
+    const savedKey = localStorage.getItem("etf-visible-indicators-v2"), saved = JSON.parse(savedKey || localStorage.getItem("etf-visible-indicators"));
+    visibleIndicators = new Set(Array.isArray(saved) ? saved.filter(name => indicatorNames.includes(name)) : ["kd"]);
+    if (!savedKey && !visibleIndicators.has("kd")) visibleIndicators.add("kd");
+  } catch (_) { visibleIndicators = new Set(["kd"]); }
+  const tradeOverlayNames = ["buy", "sell", "cost"];
+  let visibleTradeOverlays;
+  try {
+    const saved = JSON.parse(localStorage.getItem("etf-visible-trade-overlays"));
+    visibleTradeOverlays = new Set(Array.isArray(saved) ? saved.filter(name => tradeOverlayNames.includes(name)) : tradeOverlayNames);
+  } catch (_) { visibleTradeOverlays = new Set(tradeOverlayNames); }
   let visibleMas;
   try {
     const saved = JSON.parse(localStorage.getItem("etf-visible-mas"));
@@ -265,13 +272,20 @@
     if (tip) tip.textContent = chartType === "line" ? "將滑鼠移到線圖上查看每日收盤價。" : "將滑鼠移到圖表上半部的 K 線區域。";
   }
   function updateMaControls() {
-    document.querySelectorAll("[data-ma-period]").forEach(input => { input.checked = visibleMas.has(Number(input.dataset.maPeriod)); });
-    maPeriods.forEach(period => { const legend = $(`maLegend${period}`); if (legend) legend.style.display = visibleMas.has(period) ? "inline-flex" : "none"; });
+    document.querySelectorAll("[data-ma-period]").forEach(button => {
+      const active = visibleMas.has(Number(button.dataset.maPeriod));
+      button.setAttribute("aria-pressed", String(active));
+    });
   }
   function updateIndicatorControls() {
-    document.querySelectorAll("[data-indicator]").forEach(input => { input.checked = visibleIndicators.has(input.dataset.indicator); });
-    const legendIds = { bollinger:"bbLegend", macd:"macdLegend", rsi:"rsiLegend" };
-    Object.entries(legendIds).forEach(([name, id]) => { const legend = $(id); if (legend) legend.style.display = visibleIndicators.has(name) ? "inline-flex" : "none"; });
+    document.querySelectorAll("[data-indicator]").forEach(button => {
+      button.setAttribute("aria-pressed", String(visibleIndicators.has(button.dataset.indicator)));
+    });
+  }
+  function updateTradeOverlayControls() {
+    document.querySelectorAll("[data-trade-overlay]").forEach(button => {
+      button.setAttribute("aria-pressed", String(visibleTradeOverlays.has(button.dataset.tradeOverlay)));
+    });
   }
   function premiumTone(value) {
     if (value == null) return { label:"資料不足", key:"neutral", note:"尚無同日淨值資料" };
@@ -537,9 +551,9 @@
       cost: rootStyle.getPropertyValue("--trade-cost").trim() || "#8a63d2"
     };
     const rowDates = new Set(rows.map(row => row.date));
-    const visibleTrades = personalTrades.markers.filter(fill => rowDates.has(fill.fill_date) && Number.isFinite(Number(fill.price)));
+    const visibleTrades = personalTrades.markers.filter(fill => rowDates.has(fill.fill_date) && Number.isFinite(Number(fill.price)) && visibleTradeOverlays.has(fill.side === "buy" ? "buy" : "sell"));
     const referenceValues = visibleTrades.map(fill => Number(fill.price));
-    if (personalTrades.averageCost != null) referenceValues.push(Number(personalTrades.averageCost));
+    if (visibleTradeOverlays.has("cost") && personalTrades.averageCost != null) referenceValues.push(Number(personalTrades.averageCost));
     const bb = currentRows.map((_, i) => bollingerValues(currentRows, i)).slice(viewStart, viewEnd);
     const macd = macdValues(currentRows).slice(viewStart, viewEnd), rsi = rsiValues(currentRows).slice(viewStart, viewEnd), kd = kdValues(currentRows).slice(viewStart, viewEnd);
     const maSeries = Object.fromEntries(maPeriods.map(period => [period, currentRows.map((_, index) => movingAverage(currentRows, index, period)).slice(viewStart, viewEnd)]));
@@ -548,11 +562,12 @@
     const values = (chartType === "line" ? rows.map(r => Number(r.close)) : rows.flatMap(r => [Number(r.low), Number(r.high)])).concat(referenceValues, indicatorValues).filter(Number.isFinite);
     let min = Math.min(...values), max = Math.max(...values); if (min === max) { min -= 1; max += 1; }
     const maxVol = Math.max(...rows.map(r => Number(r.volume) || 0), 1), plotW = W - left - right, priceH = priceBottom - top;
-    const panels = [{ name:"KD", top:440, height:110 }];
-    if (visibleIndicators.has("macd")) panels.push({ name:"MACD", top:panels.at(-1).top + panels.at(-1).height + 28, height:100 });
-    if (visibleIndicators.has("rsi")) panels.push({ name:"RSI", top:panels.at(-1).top + panels.at(-1).height + 28, height:100 });
+    const panels = [];
+    if (visibleIndicators.has("kd")) panels.push({ name:"KD", top:440, height:110 });
+    if (visibleIndicators.has("macd")) { const previous = panels.at(-1); panels.push({ name:"MACD", top:previous ? previous.top + previous.height + 28 : 440, height:100 }); }
+    if (visibleIndicators.has("rsi")) { const previous = panels.at(-1); panels.push({ name:"RSI", top:previous ? previous.top + previous.height + 28 : 440, height:100 }); }
     const panel = name => panels.find(item => item.name === name), kdPanel = panel("KD"), macdPanel = panel("MACD"), rsiPanel = panel("RSI");
-    const chartBottom = panels.at(-1).top + panels.at(-1).height, chartHeight = chartBottom + 42;
+    const lastPanel = panels.at(-1), chartBottom = lastPanel ? lastPanel.top + lastPanel.height : volumeBottom + 32, chartHeight = chartBottom + 42;
     // X 軸使用交易日序號，不把週末／休市日當成空白時間。資料很少時，
     // 讓 K 棒集中在圖中央並保持固定間距；資料變多後才逐步填滿圖寬。
     const slot = Math.min(34, plotW / Math.max(rows.length - 1, 1));
@@ -561,7 +576,7 @@
     const x = i => startX + i * slot;
     const y = v => top + (max - v) * priceH / (max - min);
     const vy = v => volumeBottom - (Number(v || 0) / maxVol) * (volumeBottom - volumeTop);
-    const ky = v => kdPanel.top + kdPanel.height - Number(v) / 100 * kdPanel.height;
+    const ky = v => kdPanel ? kdPanel.top + kdPanel.height - Number(v) / 100 * kdPanel.height : 0;
     const extentY = (value, minValue, maxValue, panelInfo) => panelInfo.top + panelInfo.height - (value - minValue) / (maxValue - minValue || 1) * panelInfo.height;
     const macdFlat = macd.flatMap(v => [v.macd, v.signal]).filter(Number.isFinite), macdMin = Math.min(0, ...macdFlat), macdMax = Math.max(0, ...macdFlat);
     const macdY = value => macdPanel ? extentY(value, macdMin, macdMax, macdPanel) : 0;
@@ -569,8 +584,10 @@
     let svg = `<svg viewBox="0 0 ${W} ${H}" role="img" aria-label="${esc($("chartTitle").textContent)} ${chartType === "line" ? "收盤價線圖" : "K 線圖"}">`;
     [0, .25, .5, .75, 1].forEach(t => { const yy = top + t * priceH, val = max - t * (max - min); svg += `<line x1="${left}" x2="${W - right}" y1="${yy}" y2="${yy}" class="grid"/><text x="4" y="${yy + 4}" class="axis">${price(val)}</text>`; });
     svg += `<line x1="${left}" x2="${W - right}" y1="${volumeBottom}" y2="${volumeBottom}" class="grid"/>`;
-    [20,50,80].forEach(v => svg += `<line x1="${left}" x2="${W - right}" y1="${ky(v)}" y2="${ky(v)}" class="grid${v===50?'':' kd-threshold'}"/><text x="24" y="${ky(v)+4}" class="axis">${v}</text>`);
-    svg += `<text x="4" y="${kdPanel.top + 12}" class="axis">KD</text>`;
+    if (kdPanel) {
+      [20,50,80].forEach(v => svg += `<line x1="${left}" x2="${W - right}" y1="${ky(v)}" y2="${ky(v)}" class="grid${v===50?'':' kd-threshold'}"/><text x="24" y="${ky(v)+4}" class="axis">${v}</text>`);
+      svg += `<text x="4" y="${kdPanel.top + 12}" class="axis">KD</text>`;
+    }
     if (macdPanel) svg += `<line x1="${left}" x2="${W-right}" y1="${macdY(0)}" y2="${macdY(0)}" class="grid kd-threshold"/><text x="4" y="${macdPanel.top + 12}" class="axis">MACD</text>`;
     if (rsiPanel) {
       [30, 50, 70].forEach(value => svg += `<line x1="${left}" x2="${W-right}" y1="${rsiY(value)}" y2="${rsiY(value)}" class="grid${value === 50 ? "" : " kd-threshold"}"/><text x="30" y="${rsiY(value)+4}" class="axis">${value}</text>`);
@@ -606,13 +623,13 @@
       svg += screenLine(macdLine("signal").map(v => Number.isFinite(v) ? macdY(v) : null), chartColors.macdSignal, 1.5);
     }
     if (rsiPanel) svg += screenLine(rsi.map(v => Number.isFinite(v) ? rsiY(v) : null), chartColors.rsi, 1.8);
-    if (Number.isFinite(personalTrades.averageCost)) svg += `<line x1="${left}" x2="${W-right}" y1="${y(personalTrades.averageCost)}" y2="${y(personalTrades.averageCost)}" stroke="${chartColors.cost}" stroke-width="1.5" stroke-dasharray="7 5"/><text x="${W-right-4}" y="${y(personalTrades.averageCost)-6}" text-anchor="end" fill="${chartColors.cost}" font-size="11">持倉成本 ${price(personalTrades.averageCost)}</text>`;
+    if (visibleTradeOverlays.has("cost") && Number.isFinite(personalTrades.averageCost)) svg += `<line x1="${left}" x2="${W-right}" y1="${y(personalTrades.averageCost)}" y2="${y(personalTrades.averageCost)}" stroke="${chartColors.cost}" stroke-width="1.5" stroke-dasharray="7 5"/><text x="${W-right-4}" y="${y(personalTrades.averageCost)-6}" text-anchor="end" fill="${chartColors.cost}" font-size="11">持倉成本 ${price(personalTrades.averageCost)}</text>`;
     visibleTrades.forEach(fill => {
       const index = rows.findIndex(row => row.date === fill.fill_date), cx = x(index), cy = y(Number(fill.price)), buy = fill.side === "buy", color = buy ? chartColors.buy : chartColors.sell;
       const points = buy ? `${cx},${cy-9} ${cx-7},${cy+4} ${cx+7},${cy+4}` : `${cx},${cy+9} ${cx-7},${cy-4} ${cx+7},${cy-4}`;
       svg += `<polygon points="${points}" fill="${color}" stroke="var(--card)" stroke-width="1.5"/><text x="${cx}" y="${buy ? cy+17 : cy-10}" text-anchor="middle" fill="${color}" font-size="10" font-weight="700">${buy ? "買" : "賣"}</text>`;
     });
-    svg += `<polyline class="kd-line k-line" points="${kd.map((v,i)=>`${x(i)},${ky(v.k)}`).join(" ")}" fill="none" stroke="${chartColors.k}" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/><polyline class="kd-line d-line" points="${kd.map((v,i)=>`${x(i)},${ky(v.d)}`).join(" ")}" fill="none" stroke="${chartColors.d}" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>`;
+    if (kdPanel) svg += `<polyline class="kd-line k-line" points="${kd.map((v,i)=>`${x(i)},${ky(v.k)}`).join(" ")}" fill="none" stroke="${chartColors.k}" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/><polyline class="kd-line d-line" points="${kd.map((v,i)=>`${x(i)},${ky(v.d)}`).join(" ")}" fill="none" stroke="${chartColors.d}" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>`;
     svg += `<line id="hoverLine" class="crosshair" x1="${left}" x2="${left}" y1="${top}" y2="${chartBottom}" visibility="hidden"/>`;
     svg += `<rect id="chartHit" x="${left}" y="${top}" width="${plotW}" height="${chartBottom - top}" fill="transparent" pointer-events="all"/> </svg>`;
     svg = svg.replace(`viewBox="0 0 ${W} ${H}"`, `viewBox="0 0 ${W} ${chartHeight}"`);
@@ -627,12 +644,12 @@
       const pointerY = top + ((event.clientY - rect.top) / rect.height) * (chartBottom - top);
       const zone = rsiPanel && pointerY >= rsiPanel.top ? "rsi"
         : macdPanel && pointerY >= macdPanel.top ? "macd"
-        : pointerY >= kdPanel.top ? "kd"
+        : kdPanel && pointerY >= kdPanel.top ? "kd"
         : "price";
       const dateHtml = `<strong class="tip-date">${esc(r.date)}</strong>`;
       const priceHtml = `<div class="tip-grid"><span>開 ${price(r.open)}</span><span>高 ${price(r.high)}</span><span>低 ${price(r.low)}</span><span>收 ${price(r.close)}</span><span>量 ${Math.round(Number(r.volume || 0) / 1000).toLocaleString("en-US")} 張</span></div>`;
       const bbHtml = visibleIndicators.has("bollinger") && bb[index] ? `<div class="tip-extra">布林 ${price(bb[index].upper)}／${price(bb[index].mid)}／${price(bb[index].lower)}</div>` : "";
-      const kdHtml = `<div class="tip-extra">K ${price(indicator.k)}　D ${price(indicator.d)}</div>`;
+      const kdHtml = visibleIndicators.has("kd") && indicator ? `<div class="tip-extra">K ${price(indicator.k)}　D ${price(indicator.d)}</div>` : "";
       const macdHtml = macd[index]?.macd != null ? `<div class="tip-extra">MACD ${price(macd[index].macd)}　訊號 ${price(macd[index].signal)}<br>柱 ${price(macd[index].histogram)}</div>` : "";
       const rsiHtml = rsi[index] != null ? `<div class="tip-extra">RSI ${price(rsi[index])}</div>` : "";
       tip.innerHTML = zone === "kd" ? dateHtml + kdHtml
@@ -663,7 +680,7 @@
   }
   function zoomChart(factor, ratio) {
     if (currentRows.length < 6) return;
-    const span = viewport.end - viewport.start, nextSpan = Math.max(5, Math.min(currentRows.length, span * factor));
+    const span = viewport.end - viewport.start, nextSpan = Math.max(1, Math.min(currentRows.length, span * factor));
     const anchor = viewport.start + span * ratio;
     setViewport(anchor - nextSpan * ratio, anchor + nextSpan * (1 - ratio));
   }
@@ -731,15 +748,23 @@
     updateChartType();
     if (currentRows.length) drawChart();
   }));
-  document.querySelectorAll("[data-ma-period]").forEach(input => input.addEventListener("change", () => {
-    const period = Number(input.dataset.maPeriod); input.checked ? visibleMas.add(period) : visibleMas.delete(period);
+  document.querySelectorAll("[data-ma-period]").forEach(button => button.addEventListener("click", () => {
+    const period = Number(button.dataset.maPeriod);
+    visibleMas.has(period) ? visibleMas.delete(period) : visibleMas.add(period);
     localStorage.setItem("etf-visible-mas", JSON.stringify([...visibleMas])); updateMaControls(); if (currentRows.length) drawChart();
   }));
-  document.querySelectorAll("[data-indicator]").forEach(input => input.addEventListener("change", () => {
-    const name = input.dataset.indicator;
-    input.checked ? visibleIndicators.add(name) : visibleIndicators.delete(name);
-    localStorage.setItem("etf-visible-indicators", JSON.stringify([...visibleIndicators]));
+  document.querySelectorAll("[data-indicator]").forEach(button => button.addEventListener("click", () => {
+    const name = button.dataset.indicator;
+    visibleIndicators.has(name) ? visibleIndicators.delete(name) : visibleIndicators.add(name);
+    localStorage.setItem("etf-visible-indicators-v2", JSON.stringify([...visibleIndicators]));
     updateIndicatorControls();
+    if (currentRows.length) drawChart();
+  }));
+  document.querySelectorAll("[data-trade-overlay]").forEach(button => button.addEventListener("click", () => {
+    const name = button.dataset.tradeOverlay;
+    visibleTradeOverlays.has(name) ? visibleTradeOverlays.delete(name) : visibleTradeOverlays.add(name);
+    localStorage.setItem("etf-visible-trade-overlays", JSON.stringify([...visibleTradeOverlays]));
+    updateTradeOverlayControls();
     if (currentRows.length) drawChart();
   }));
   document.querySelectorAll("[data-range-days]").forEach(button => button.addEventListener("click", () => {
@@ -750,5 +775,5 @@
   $("rangeReset")?.addEventListener("click", () => { resetViewport(viewport.key, defaultRangeDays); drawChart(); });
   $("tooltipToggle")?.addEventListener("click", () => setTooltipEnabled(!tooltipEnabled));
   document.addEventListener("etfwatch:change", () => loadPersonalTrades($("etfSelect").value, $("securitySelect").value));
-  initChartInteractions(); updateChartType(); updateMaControls(); updateIndicatorControls(); fillEtfs(); fillSecurities();
+  initChartInteractions(); updateChartType(); updateMaControls(); updateIndicatorControls(); updateTradeOverlayControls(); fillEtfs(); fillSecurities();
 })();
