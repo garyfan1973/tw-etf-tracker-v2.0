@@ -663,7 +663,8 @@
         : kdPanel && pointerY >= kdPanel.top ? "kd"
         : "price";
       const dateHtml = `<strong class="tip-date">${esc(r.date)}</strong>`;
-      const priceHtml = `<div class="tip-grid"><span>開 ${price(r.open)}</span><span>高 ${price(r.high)}</span><span>低 ${price(r.low)}</span><span>收 ${price(r.close)}</span><span>量 ${Math.round(Number(r.volume || 0) / 1000).toLocaleString("en-US")} 張</span></div>`;
+      const volumeText = value => value == null ? "—" : `${Math.round(Number(value) / 1000).toLocaleString("en-US")} 張`;
+      const priceHtml = `<div class="tip-grid"><span>開 ${price(r.open)}</span><span>高 ${price(r.high)}</span><span>低 ${price(r.low)}</span><span>收 ${price(r.close)}</span><span>量 ${volumeText(r.volume)}　VOL5 ${volumeText(volumeMaSeries[5][index])}　VOL10 ${volumeText(volumeMaSeries[10][index])}</span></div>`;
       const bbHtml = visibleIndicators.has("bollinger") && bb[index] ? `<div class="tip-extra">布林 ${price(bb[index].upper)}／${price(bb[index].mid)}／${price(bb[index].lower)}</div>` : "";
       const kdHtml = visibleIndicators.has("kd") && indicator ? `<div class="tip-extra">K ${price(indicator.k)}　D ${price(indicator.d)}</div>` : "";
       const macdHtml = macd[index]?.macd != null ? `<div class="tip-extra">DIF: ${price(macd[index].macd)}　MACD: ${price(macd[index].signal)}　D-M: ${price(macd[index].histogram)}</div>` : "";
