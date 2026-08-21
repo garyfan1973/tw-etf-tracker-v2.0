@@ -670,7 +670,7 @@
       const priceHtml = `<div class="tip-grid"><span>開 ${price(r.open)}</span><span>高 ${price(r.high)}</span><span>低 ${price(r.low)}</span><span>收 ${price(r.close)}</span><span>量 ${Math.round(Number(r.volume || 0) / 1000).toLocaleString("en-US")} 張</span></div>`;
       const bbHtml = visibleIndicators.has("bollinger") && bb[index] ? `<div class="tip-extra">布林 ${price(bb[index].upper)}／${price(bb[index].mid)}／${price(bb[index].lower)}</div>` : "";
       const kdHtml = visibleIndicators.has("kd") && indicator ? `<div class="tip-extra">K ${price(indicator.k)}　D ${price(indicator.d)}</div>` : "";
-      const macdHtml = macd[index]?.macd != null ? `<div class="tip-extra">MACD ${price(macd[index].macd)}　訊號 ${price(macd[index].signal)}<br>柱 ${price(macd[index].histogram)}</div>` : "";
+      const macdHtml = macd[index]?.macd != null ? `<div class="tip-extra">DIF: ${price(macd[index].macd)}　MACD: ${price(macd[index].signal)}　D-M: ${price(macd[index].histogram)}</div>` : "";
       const rsiHtml = rsi[index] != null ? `<div class="tip-extra">RSI ${price(rsi[index])}</div>` : "";
       tip.innerHTML = zone === "kd" ? dateHtml + kdHtml
         : zone === "macd" ? dateHtml + macdHtml
