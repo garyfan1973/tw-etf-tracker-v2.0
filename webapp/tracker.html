@@ -181,6 +181,10 @@
     .selected-etf-summary .name { color:var(--muted); font-size:15px; }
     .selected-etf-summary .quote-label { color:var(--muted); font-size:12px; margin-left:auto; }
     .selected-etf-summary .quote { font-size:18px; font-weight:700; font-variant-numeric:tabular-nums; }
+    .change-summary-inline { display:none; align-items:center; gap:10px; margin-left:12px; padding-left:12px; border-left:1px solid var(--border); white-space:nowrap; }
+    .change-stat { display:inline-flex; align-items:baseline; gap:3px; font-size:12px; font-weight:600; }
+    .change-stat .value { font-size:16px; font-variant-numeric:tabular-nums; }
+    .change-stat.new { color:var(--new); } .change-stat.up { color:var(--up); } .change-stat.down { color:var(--down); } .change-stat.removed { color:var(--removed); }
     @media (max-width:640px) { .selected-etf-summary .quote-label { margin-left:0; } }
     .treemap-panel { background:var(--card); border:1px solid var(--border); border-radius:14px; padding:14px; }
     .treemap-head { display:flex; justify-content:space-between; gap:12px; align-items:baseline; }
@@ -431,12 +435,6 @@
     <div id="selectedEtfSummary" class="selected-etf-summary"></div>
     <section id="overviewPanel" class="overview-panel" style="display:none;"></section>
     <section id="changeChartPanel" class="treemap-panel">
-      <div class="cards">
-        <div class="card new"><div class="n" id="c-new">0</div><div class="l">新增</div></div>
-        <div class="card up"><div class="n" id="c-up">0</div><div class="l">加碼</div></div>
-        <div class="card down"><div class="n" id="c-down">0</div><div class="l">減碼</div></div>
-        <div class="card removed"><div class="n" id="c-rm">0</div><div class="l">剔除</div></div>
-      </div>
       <div class="treemap-head"><h2>加減碼圖</h2><span id="treemapMeta" class="treemap-meta"></span></div>
       <div id="treemapLegend" class="treemap-legend"></div>
       <div id="treemap" class="treemap"></div>
@@ -802,6 +800,8 @@
           ids.forEach(id => { document.getElementById(id).style.display = name === mode ? "block" : "none"; });
         });
         document.getElementById("holdingsDataPanel").style.display = mode === "change" ? "block" : "none";
+        const changeSummary = document.querySelector(".change-summary-inline");
+        if (changeSummary) changeSummary.style.display = mode === "change" ? "inline-flex" : "none";
         ["overview", "change", "kline", "institutional"].forEach(name => {
           const btn = document.getElementById(name + "ViewBtn");
           btn.classList.toggle("active", name === mode);
@@ -996,7 +996,12 @@
           '<span class="name">' + esc(etf ? etf.name : "—") + '</span>' +
           '<span class="quote">' + px(quote.close) + '</span>' +
           '<span class="quote ' + pctClass + '">' + (quote.change == null ? "—" : signW(quote.change)) + '</span>' +
-          '<span class="quote ' + pctClass + '">' + (pctValue == null ? "—" : arrow + signW(pctValue) + "%") + '</span>';
+          '<span class="quote ' + pctClass + '">' + (pctValue == null ? "—" : arrow + signW(pctValue) + "%") + '</span>' +
+          '<span class="change-summary-inline" aria-label="加減碼統計">' +
+          '<span class="change-stat new"><span class="value" id="c-new">0</span>新增</span>' +
+          '<span class="change-stat up"><span class="value" id="c-up">0</span>加碼</span>' +
+          '<span class="change-stat down"><span class="value" id="c-down">0</span>減碼</span>' +
+          '<span class="change-stat removed"><span class="value" id="c-rm">0</span>剔除</span></span>';
       }
 
       function render() {
