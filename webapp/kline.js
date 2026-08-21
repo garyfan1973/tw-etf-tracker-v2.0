@@ -613,8 +613,7 @@
     function screenLine(values, color, width = 1.5, dash = "") { const points = values.map((value, i) => Number.isFinite(value) ? `${x(i)},${value}` : null).filter(Boolean).join(" "); return points ? `<polyline points="${points}" fill="none" stroke="${color}" stroke-width="${width}"${dash ? ` stroke-dasharray="${dash}"` : ""} stroke-linecap="round" stroke-linejoin="round"/>` : ""; }
     if (visibleIndicators.has("bollinger")) {
       svg += indicatorLine(bb.map(v => v?.upper), "upper", chartColors.bb || "#d97706");
-      // 布林中線就是 MA20；只有在 MA20 開啟時才顯示，避免與 MA 開關狀態不一致。
-      if (visibleMas.has(20)) svg += indicatorLine(bb.map(v => v?.mid), "mid", chartColors.bbMid || "#b45309", 1, "4 3");
+      svg += indicatorLine(bb.map(v => v?.mid), "mid", chartColors.bbMid || "#b45309", 1, "4 3");
       svg += indicatorLine(bb.map(v => v?.lower), "lower", chartColors.bb || "#d97706");
     }
     if (macdPanel) {
