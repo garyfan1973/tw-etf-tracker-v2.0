@@ -118,6 +118,28 @@
     .kline-legend .swatch { width:18px; height:2px; display:inline-block; }
     .premium-box { display:none; grid-template-columns:1.25fr repeat(3,1fr); gap:8px; margin:8px 0 12px; } .premium-main,.premium-kpi { padding:10px 12px; border:1px solid var(--border); border-radius:9px; background:var(--bg); } .premium-main span,.premium-kpi span { display:block; color:var(--muted); font-size:11px; } .premium-main strong,.premium-kpi strong { display:block; margin-top:2px; font-size:16px; } .premium-main b { display:block; margin-top:2px; font-size:11px; color:var(--muted); } .premium-main.premium strong,.premium-main.premium-high strong { color:#e07825; } .premium-main.premium-high { border-color:#e07825; } .premium-main.discount strong,.premium-main.discount-high strong { color:#297bc4; } .premium-main.discount-high { border-color:#297bc4; } .premium-note { grid-column:1/-1; display:flex; justify-content:space-between; gap:10px; color:var(--muted); font-size:11px; } .premium-note small { font-size:11px; } .premium-note a { color:var(--accent); } .premium-empty { grid-column:1/-1; padding:10px 12px; border:1px dashed var(--border); border-radius:9px; color:var(--muted); font-size:12px; }
     .trade-box { display:none; grid-template-columns:repeat(3,1fr); gap:8px; margin:8px 0 12px; padding:10px 12px; border:1px solid var(--border); border-radius:10px; background:var(--bg); } .trade-box div span,.trade-box small { display:block; color:var(--muted); font-size:11px; } .trade-box div strong { display:block; margin-top:2px; font-size:14px; } .trade-box>small { grid-column:1/-1; } .trade-empty { color:var(--muted); font-size:12px; } .trade-buy-text { color:var(--trade-buy); } .trade-sell-text { color:var(--trade-sell); }
+    /* Keep the chart in the first viewport: the controls remain usable, but the surrounding summary is intentionally dense. */
+    .kline-panel { padding:8px 10px; }
+    .kline-panel > h2 { display:none; }
+    .kline-controls { gap:6px; padding:6px 8px; margin-bottom:6px; border-radius:8px; }
+    .kline-controls label { display:flex; align-items:center; gap:6px; white-space:nowrap; }
+    .kline-controls select { min-width:160px; padding:5px 8px; }
+    .chart-type button { padding:5px 9px; }
+    .kline-chart-head { margin:2px 0 4px; }
+    .kline-chart-title { font-size:16px; }
+    .kline-quote { font-size:12px; }
+    .premium-box { gap:6px; margin:4px 0 6px; }
+    .premium-main,.premium-kpi { padding:6px 8px; }
+    .premium-main strong,.premium-kpi strong { margin-top:1px; font-size:14px; }
+    .premium-main b { margin-top:1px; font-size:10px; }
+    .premium-note,.premium-note small { font-size:10px; }
+    .trade-box { gap:6px; margin:4px 0 6px; padding:6px 8px; }
+    .trade-box div strong { font-size:12px; }
+    .trade-empty { font-size:11px; }
+    .kline-legend { gap:3px; margin:3px 0; font-size:11px; }
+    .kline-legend-toggle { padding:4px 6px; }
+    .range-toolbar { gap:3px; margin:4px 0; }
+    .range-toolbar button { padding:4px 7px; }
     .kline-chart-wrap { position:relative; overflow:hidden; }
     #chartBox { touch-action:pan-y; cursor:crosshair; } #chartBox.dragging { cursor:grabbing; }
     #chartBox { width:100%; }
