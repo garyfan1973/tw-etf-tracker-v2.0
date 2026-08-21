@@ -9,6 +9,7 @@
   let financialChartMode = ["both", "bar", "line"].includes(localStorage.getItem("financial-chart-mode")) ? localStorage.getItem("financial-chart-mode") : "both";
   let financialPeriod = localStorage.getItem("financial-period") === "quarterly" ? "quarterly" : "annual";
   const maPeriods = [5, 10, 20, 60, 120, 240];
+  const volumeMaPeriods = [5, 10];
   const defaultRangeDays = Number(localStorage.getItem("etf-chart-range")) || 60;
   const indicatorNames = ["bollinger", "kd", "macd", "rsi"];
   let visibleIndicators;
@@ -28,6 +29,11 @@
     const saved = JSON.parse(localStorage.getItem("etf-visible-mas"));
     visibleMas = new Set(Array.isArray(saved) ? saved.filter(period => maPeriods.includes(Number(period))).map(Number) : maPeriods);
   } catch (_) { visibleMas = new Set(maPeriods); }
+  let visibleVolumeMas;
+  try {
+    const saved = JSON.parse(localStorage.getItem("etf-visible-volume-mas"));
+    visibleVolumeMas = new Set(Array.isArray(saved) ? saved.filter(period => volumeMaPeriods.includes(Number(period))).map(Number) : volumeMaPeriods);
+  } catch (_) { visibleVolumeMas = new Set(volumeMaPeriods); }
 
   const num = n => n == null ? "—" : Number(n).toLocaleString("en-US", { maximumFractionDigits: 2 });
   const price = n => n == null ? "—" : Number(n).toLocaleString("en-US", { minimumFractionDigits: 2, maximumFractionDigits: 2 });
@@ -114,6 +120,10 @@
   function movingAverage(rows, index, period) {
     const values = rows.slice(Math.max(0, index - period + 1), index + 1).map(r => Number(r.close));
     return values.length === period ? values.reduce((a, b) => a + b, 0) / period : null;
+  }
+  function volumeMovingAverage(rows, index, period) {
+    const values = rows.slice(Math.max(0, index - period + 1), index + 1).map(r => Number(r.volume));
+    return values.length === period && values.every(Number.isFinite) ? values.reduce((a, b) => a + b, 0) / period : null;
   }
   function bollingerValues(rows, index, period = 20, multiplier = 2) {
     const values = rows.slice(Math.max(0, index - period + 1), index + 1).map(r => Number(r.close));
@@ -275,6 +285,11 @@
     document.querySelectorAll("[data-ma-period]").forEach(button => {
       const active = visibleMas.has(Number(button.dataset.maPeriod));
       button.setAttribute("aria-pressed", String(active));
+    });
+  }
+  function updateVolumeMaControls() {
+    document.querySelectorAll("[data-volume-ma-period]").forEach(button => {
+      button.setAttribute("aria-pressed", String(visibleVolumeMas.has(Number(button.dataset.volumeMaPeriod))));
     });
   }
   function updateIndicatorControls() {
@@ -539,6 +554,8 @@
       ma60: rootStyle.getPropertyValue("--ma60").trim() || "#16a085",
       ma120: rootStyle.getPropertyValue("--ma120").trim() || "#e8590c",
       ma240: rootStyle.getPropertyValue("--ma240").trim() || "#868e96",
+      vol5: rootStyle.getPropertyValue("--vol5").trim() || "#4c9ffe",
+      vol10: rootStyle.getPropertyValue("--vol10").trim() || "#f06595",
       bb: rootStyle.getPropertyValue("--bb").trim() || "#d97706",
       bbMid: rootStyle.getPropertyValue("--bb-mid").trim() || "#b45309",
       macd: rootStyle.getPropertyValue("--macd").trim() || "#7c3aed",
@@ -557,6 +574,7 @@
     const bb = currentRows.map((_, i) => bollingerValues(currentRows, i)).slice(viewStart, viewEnd);
     const macd = macdValues(currentRows).slice(viewStart, viewEnd), rsi = rsiValues(currentRows).slice(viewStart, viewEnd), kd = kdValues(currentRows).slice(viewStart, viewEnd);
     const maSeries = Object.fromEntries(maPeriods.map(period => [period, currentRows.map((_, index) => movingAverage(currentRows, index, period)).slice(viewStart, viewEnd)]));
+    const volumeMaSeries = Object.fromEntries(volumeMaPeriods.map(period => [period, currentRows.map((_, index) => volumeMovingAverage(currentRows, index, period)).slice(viewStart, viewEnd)]));
     const indicatorValues = visibleIndicators.has("bollinger") ? bb.flatMap(v => v ? [v.upper, v.lower] : []) : [];
     maPeriods.forEach(period => { if (visibleMas.has(period)) indicatorValues.push(...maSeries[period].filter(Number.isFinite)); });
     const values = (chartType === "line" ? rows.map(r => Number(r.close)) : rows.flatMap(r => [Number(r.low), Number(r.high)])).concat(referenceValues, indicatorValues).filter(Number.isFinite);
@@ -606,6 +624,8 @@
       svg += `<rect x="${cx - candleW / 2}" y="${vy(r.volume)}" width="${candleW}" height="${volumeBottom - vy(r.volume)}" fill="${color}" opacity=".35"/>`;
       maPeriods.forEach(period => { const average = maSeries[period][i]; if (visibleMas.has(period) && average != null) svg += `<circle class="ma-point ma${period}-point" cx="${cx}" cy="${y(average)}" r="1.15" fill="${chartColors[`ma${period}`]}"/>`; });
     });
+    function volumeLine(period, color, name) { const pts = volumeMaSeries[period].map((value, i) => value == null ? null : `${x(i)},${vy(value)}`).filter(Boolean).join(" "); return pts ? `<polyline class="volume-ma-line ${name}" points="${pts}" fill="none" stroke="${color}" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/>` : ""; }
+    volumeMaPeriods.forEach(period => { if (visibleVolumeMas.has(period)) svg += volumeLine(period, chartColors[`vol${period}`], `vol${period}-line`); });
     function line(period, color, name) { const pts = maSeries[period].map((value, i) => value == null ? null : `${x(i)},${y(value)}`).filter(Boolean).join(" "); return pts ? `<polyline class="ma-line ${name}" points="${pts}" fill="none" stroke="${color}" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>` : ""; }
     if (chartType === "line") svg += `<polyline points="${rows.map((r, i) => `${x(i)},${y(Number(r.close))}`).join(" ")}" fill="none" stroke="${chartColors.accent}" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>`;
     maPeriods.forEach(period => { if (visibleMas.has(period)) svg += line(period, chartColors[`ma${period}`], `ma${period}-line`); });
@@ -753,6 +773,11 @@
     visibleMas.has(period) ? visibleMas.delete(period) : visibleMas.add(period);
     localStorage.setItem("etf-visible-mas", JSON.stringify([...visibleMas])); updateMaControls(); if (currentRows.length) drawChart();
   }));
+  document.querySelectorAll("[data-volume-ma-period]").forEach(button => button.addEventListener("click", () => {
+    const period = Number(button.dataset.volumeMaPeriod);
+    visibleVolumeMas.has(period) ? visibleVolumeMas.delete(period) : visibleVolumeMas.add(period);
+    localStorage.setItem("etf-visible-volume-mas", JSON.stringify([...visibleVolumeMas])); updateVolumeMaControls(); if (currentRows.length) drawChart();
+  }));
   document.querySelectorAll("[data-indicator]").forEach(button => button.addEventListener("click", () => {
     const name = button.dataset.indicator;
     visibleIndicators.has(name) ? visibleIndicators.delete(name) : visibleIndicators.add(name);
@@ -775,5 +800,5 @@
   $("rangeReset")?.addEventListener("click", () => { resetViewport(viewport.key, defaultRangeDays); drawChart(); });
   $("tooltipToggle")?.addEventListener("click", () => setTooltipEnabled(!tooltipEnabled));
   document.addEventListener("etfwatch:change", () => loadPersonalTrades($("etfSelect").value, $("securitySelect").value));
-  initChartInteractions(); updateChartType(); updateMaControls(); updateIndicatorControls(); updateTradeOverlayControls(); fillEtfs(); fillSecurities();
+  initChartInteractions(); updateChartType(); updateMaControls(); updateVolumeMaControls(); updateIndicatorControls(); updateTradeOverlayControls(); fillEtfs(); fillSecurities();
 })();
