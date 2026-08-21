@@ -346,6 +346,7 @@
   }
   function renderTradeBox(message) {
     const box = $("tradeBox"); if (!box) return;
+    if (message && message.startsWith("尚未記錄")) { box.style.display = "none"; box.innerHTML = ""; return; }
     if (message) { box.style.display = "block"; box.innerHTML = `<div class="trade-empty">${esc(message)}</div>`; return; }
     const visibleDates = new Set(currentRows.map(row => row.date));
     const visibleCount = personalTrades.markers.filter(fill => visibleDates.has(fill.fill_date)).length;
@@ -530,13 +531,8 @@
     } catch (_) { currentRows = snapshotRows; }
     if (renderRequestKey !== key) return;
     $("status").textContent = currentRows.length ? `行情 ${currentRows.length} 日（${currentRows[0].date} ～ ${currentRows.at(-1).date}）` : "尚無完整 OHLC 資料";
-    if (!currentRows.length) { $("chartBox").innerHTML = '<div class="empty">目前尚無可繪製的完整開高低收資料。</div>'; $("quote").textContent = "—"; renderSignal([]); return; }
+    if (!currentRows.length) { $("chartBox").innerHTML = '<div class="empty">目前尚無可繪製的完整開高低收資料。</div>'; renderSignal([]); return; }
     if (viewport.key !== key) resetViewport(key); else setViewport(viewport.start, viewport.end);
-    const last = currentRows[currentRows.length - 1];
-    const previousClose = Number(currentRows.at(-2)?.close), latestClose = Number(last.close);
-    const change = Number.isFinite(Number(last.change)) ? Number(last.change) : (Number.isFinite(previousClose) ? latestClose - previousClose : null);
-    const changePct = Number.isFinite(Number(last.changePct)) ? Number(last.changePct) : (change != null && previousClose ? change / previousClose * 100 : null);
-    $("quote").innerHTML = `收盤 <strong>${price(last.close)}</strong> <span class="${change >= 0 ? "up" : "down"}">${change >= 0 ? "+" : ""}${price(change)} (${changePct == null ? "—" : (changePct >= 0 ? "+" : "") + changePct.toFixed(2) + "%"})</span>`;
     drawChart(); renderSignal(currentRows); renderNews(code, security, name);
   }
   function drawChart() {
