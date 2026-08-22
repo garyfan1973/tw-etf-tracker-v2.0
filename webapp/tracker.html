@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>主動式 ETF 每日加減碼查詢</title>
+  <title>投資研究工作台｜台股、美股與 ETF</title>
   <style>
     /* 淺色（預設）；--detail 為展開明細的底色，刻意跟 --card 區隔 */
     :root, :root[data-theme="light"] {
@@ -97,6 +97,16 @@
     .kline-controls { display:flex; gap:10px; align-items:end; flex-wrap:wrap; padding:10px; margin-bottom:12px; background:var(--bg); border:1px solid var(--border); border-radius:10px; }
     .kline-controls label { color:var(--muted); font-size:12px; }
     .kline-controls select { min-width:190px; }
+    .asset-picker { position:relative; flex:1; min-width:300px; }
+    .asset-picker input { width:100%; min-width:280px; }
+    .asset-results { display:none; position:absolute; z-index:20; top:calc(100% + 5px); left:0; right:0; max-height:330px; overflow:auto; padding:5px; border:1px solid var(--border); border-radius:9px; background:var(--card); box-shadow:0 12px 30px rgba(0,0,0,.18); }
+    .asset-results.open { display:block; }
+    .asset-result { display:grid; grid-template-columns:75px minmax(0,1fr) auto; gap:8px; align-items:center; width:100%; padding:8px 9px; border:0; border-radius:7px; background:transparent; color:var(--text); text-align:left; cursor:pointer; }
+    .asset-result:hover,.asset-result.active { background:var(--detail); }
+    .asset-result strong { font-size:13px; }
+    .asset-result span { overflow:hidden; text-overflow:ellipsis; white-space:nowrap; font-size:12px; }
+    .asset-result small,.asset-selected-meta { color:var(--muted); font-size:11px; }
+    .asset-selected-meta { align-self:center; white-space:nowrap; }
     .chart-type { display:flex; padding:3px; border:1px solid var(--border); border-radius:9px; background:var(--card); }
     .chart-type button { border:0; border-radius:6px; padding:6px 12px; background:transparent; color:var(--muted); font:inherit; cursor:pointer; }
     .chart-type button.active { background:var(--accent); color:#fff; }
@@ -183,7 +193,7 @@
     .news-list { display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:10px; margin-top:12px; } .news-item { padding:12px 14px; border:1px solid var(--border); border-radius:10px; background:var(--bg); } .news-item.official { border-left:4px solid var(--accent); } .news-meta { display:flex; align-items:center; flex-wrap:wrap; gap:6px 10px; color:var(--muted); font-size:11px; } .news-type { padding:2px 6px; border-radius:5px; color:var(--accent); background:color-mix(in srgb,var(--accent) 12%,transparent); font-weight:700; } .news-item h4 { margin:8px 0 7px; font-size:14px; line-height:1.5; } .news-item a { color:var(--text); text-decoration:none; } .news-item a:hover { color:var(--accent); text-decoration:underline; } .news-source { color:var(--muted); font-size:11px; } .news-loading,.news-empty { margin-top:12px; padding:18px; text-align:center; color:var(--muted); border:1px dashed var(--border); border-radius:10px; } .news-footnote { margin-top:10px; line-height:1.6; }
     @media (max-width:850px) { .signal-main { grid-template-columns:1fr; } .signal-components { grid-template-columns:repeat(2,1fr); } .news-list { grid-template-columns:1fr; } .premium-box { grid-template-columns:repeat(2,1fr); } .financial-summary { grid-template-columns:repeat(2,1fr); } }
     @media (max-width:560px) { .signal-heading,.news-heading { display:block; } .signal-date,.news-status { display:block; margin-top:5px; } .signal-notes, .signal-components { grid-template-columns:1fr; } }
-    @media (max-width:700px) { .kline-status { width:100%; margin-left:0; } .kline-controls select { min-width:0; width:100%; } .kline-chart-wrap { overflow-x:auto; } #chartBox svg { min-width:720px; } }
+    @media (max-width:700px) { .kline-status { width:100%; margin-left:0; } .kline-controls select { min-width:0; width:100%; } .asset-picker { min-width:100%; } .asset-picker input { min-width:0; } .kline-chart-wrap { overflow-x:auto; } #chartBox svg { min-width:720px; } }
     .selected-etf-summary { display:flex; flex-wrap:wrap; align-items:baseline; gap:8px 18px; margin:0 0 10px; padding:11px 14px; background:var(--card); border:1px solid var(--border); border-radius:10px; }
     .selected-etf-summary .code { font-size:18px; font-weight:700; color:var(--text); }
     .selected-etf-summary .name { color:var(--muted); font-size:15px; }
@@ -386,9 +396,9 @@
 <body>
   <div class="wrap">
     <nav style="display:flex;gap:8px;margin-bottom:14px;align-items:center;">
-      <a class="tracker-brand" href="index.html" aria-label="回到 ETF 追追追首頁"><span class="tracker-mark" aria-hidden="true"></span><span>ETF 追追追</span></a>
-      <a href="tracker.html" style="text-decoration:none;font-size:14px;padding:6px 12px;border-radius:8px;color:#fff;background:var(--accent);">持股資訊</a>
-      <a href="research.html" style="text-decoration:none;font-size:14px;padding:6px 12px;border-radius:8px;color:var(--muted);border:1px solid var(--border);">市場研究</a>
+      <a class="tracker-brand" href="index.html" aria-label="回到投資研究工作台首頁"><span class="tracker-mark" aria-hidden="true"></span><span>投資研究工作台</span></a>
+      <a id="marketResearchNav" href="tracker.html?view=kline" style="text-decoration:none;font-size:14px;padding:6px 12px;border-radius:8px;color:var(--muted);border:1px solid var(--border);">市場研究</a>
+      <a id="etfResearchNav" href="tracker.html" style="text-decoration:none;font-size:14px;padding:6px 12px;border-radius:8px;color:#fff;background:var(--accent);border:1px solid var(--accent);">ETF 持股</a>
       <a href="dividends.html" style="text-decoration:none;font-size:14px;padding:6px 12px;border-radius:8px;color:var(--muted);border:1px solid var(--border);">配息日曆</a>
       <a href="portfolio.html" style="text-decoration:none;font-size:14px;padding:6px 12px;border-radius:8px;color:var(--muted);border:1px solid var(--border);">我的持股</a>
       <a href="transactions.html" style="text-decoration:none;font-size:14px;padding:6px 12px;border-radius:8px;color:var(--muted);border:1px solid var(--border);">交易紀錄</a>
@@ -398,10 +408,10 @@
       <button id="watchOpen" class="watch-open" style="display:none;">⭐ 我的關注</button>
       <button id="themeToggle" class="theme-toggle" style="margin-left:8px;" aria-label="切換主題">🌙</button>
     </nav>
-    <h1>主動式 ETF 每日加減碼查詢</h1>
+    <h1 id="workspaceTitle">ETF 持股研究</h1>
     <div class="sub" id="sub">載入中…</div>
 
-    <div class="controls">
+    <div id="etfControls" class="controls">
       <div>
         <label>ETF</label>
         <select id="etf"></select>
@@ -435,7 +445,7 @@
       </div>
     </div>
 
-    <div class="view-switch" role="tablist" aria-label="持股資訊檢視方式">
+    <div class="view-switch" role="tablist" aria-label="研究工作台檢視方式">
       <button id="overviewViewBtn" type="button" role="tab" aria-selected="false">總覽</button>
       <button id="changeViewBtn" class="active" type="button" role="tab" aria-selected="true">加減碼</button>
       <button id="klineViewBtn" type="button" role="tab" aria-selected="false">K線圖</button>
@@ -467,8 +477,8 @@
     <section id="klinePanel" class="kline-panel" style="display:none;">
       <h2 style="margin-top:0;">K線圖</h2>
       <div class="kline-controls">
-        <label>ETF<select id="etfSelect"></select></label>
-        <label>標的<select id="securitySelect"></select></label>
+        <label class="asset-picker">搜尋標的<input id="assetSearch" type="search" autocomplete="off" placeholder="輸入代號或名稱，例如 2330、AAPL、VOO"><div id="assetResults" class="asset-results" role="listbox"></div></label>
+        <span id="assetSelectedMeta" class="asset-selected-meta">台股・台灣 ETF・美股・美國 ETF</span>
         <label>圖表<div class="chart-type" role="group" aria-label="圖表類型"><button type="button" data-chart-type="candle">K 線</button><button type="button" data-chart-type="line">收盤價線圖</button></div></label>
         <div id="status" class="kline-status"></div>
       </div>
@@ -577,7 +587,7 @@
       }
 
       let sortState = { diff: { k: "sharesDelta", asc: false }, full: { k: "weight", asc: false } };
-      let viewMode = "change";
+      let viewMode = new URLSearchParams(location.search).get("view") === "kline" ? "kline" : "change";
       const expandedFull = new Set();  // 記住展開了哪些個股，重繪時保留
       let expandedInstitutional = "";
       let marginTrendAsset = "__etf__";
@@ -803,6 +813,10 @@
 
       function setViewMode(mode) {
         viewMode = mode;
+        const pageUrl = new URL(location.href);
+        if (mode === "kline") pageUrl.searchParams.set("view", "kline");
+        else { pageUrl.searchParams.delete("view"); pageUrl.searchParams.delete("market"); pageUrl.searchParams.delete("symbol"); }
+        history.replaceState(null, "", pageUrl);
         const panels = {
           overview: ["overviewPanel"], change: ["changeChartPanel", "changeTablePanel"], kline: ["klinePanel"],
           institutional: ["institutionalMarginPanel"]
@@ -811,6 +825,13 @@
           ids.forEach(id => { document.getElementById(id).style.display = name === mode ? "block" : "none"; });
         });
         document.getElementById("holdingsDataPanel").style.display = mode === "change" ? "block" : "none";
+        document.getElementById("etfControls").style.display = mode === "kline" ? "none" : "flex";
+        document.getElementById("workspaceTitle").textContent = mode === "kline" ? "市場研究" : "ETF 持股研究";
+        document.getElementById("sub").textContent = mode === "kline" ? "搜尋台股、台灣 ETF、美股或美國 ETF，使用同一套完整圖表與研究工具。" : "追蹤 ETF 持股、加減碼、法人與資券資訊。";
+        document.getElementById("selectedEtfSummary").style.display = mode === "kline" ? "none" : "flex";
+        const marketNav = document.getElementById("marketResearchNav"), etfNav = document.getElementById("etfResearchNav");
+        marketNav.style.color = mode === "kline" ? "#fff" : "var(--muted)"; marketNav.style.background = mode === "kline" ? "var(--accent)" : "transparent"; marketNav.style.borderColor = mode === "kline" ? "var(--accent)" : "var(--border)";
+        etfNav.style.color = mode === "kline" ? "var(--muted)" : "#fff"; etfNav.style.background = mode === "kline" ? "transparent" : "var(--accent)"; etfNav.style.borderColor = mode === "kline" ? "var(--border)" : "var(--accent)";
         const changeSummary = document.querySelector(".change-summary-inline");
         if (changeSummary) changeSummary.style.display = mode === "change" ? "inline-flex" : "none";
         ["overview", "change", "kline", "institutional"].forEach(name => {
@@ -818,13 +839,12 @@
           btn.classList.toggle("active", name === mode);
           btn.setAttribute("aria-selected", name === mode);
         });
-        if (mode === "kline") syncKlineEtf();
+        if (mode === "kline" && !pageUrl.searchParams.get("symbol")) syncKlineEtf();
       }
 
       function syncKlineEtf() {
-        const select = document.getElementById("etfSelect");
-        if (!select || !etfSel.value || ![...select.options].some(o => o.value === etfSel.value)) return;
-        if (select.value !== etfSel.value) { select.value = etfSel.value; select.dispatchEvent(new Event("change")); }
+        if (!etfSel.value || !window.MarketChart?.selectAsset) return;
+        window.MarketChart.selectAsset({ market:"TW", symbol:etfSel.value, assetType:"etf", name:D.etfs[etfSel.value]?.name || etfSel.value });
       }
 
       function etfCategory(code, name) {
@@ -1204,6 +1224,7 @@
       document.getElementById("changeViewBtn").addEventListener("click", () => setViewMode("change"));
       document.getElementById("klineViewBtn").addEventListener("click", () => setViewMode("kline"));
       document.getElementById("institutionalViewBtn").addEventListener("click", () => setViewMode("institutional"));
+      document.addEventListener("marketchart:ready", () => { if (viewMode === "kline" && !new URLSearchParams(location.search).get("symbol")) syncKlineEtf(); });
 
       etfSel.addEventListener("change", () => { expandedInstitutional = ""; marginTrendAsset = "__etf__"; fillDates(); render(); if (viewMode === "kline") syncKlineEtf(); });
       fromSel.addEventListener("change", render);

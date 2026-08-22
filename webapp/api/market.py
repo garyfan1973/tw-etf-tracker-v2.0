@@ -6,8 +6,8 @@ import json
 import re
 import urllib.request
 
-UA = "Mozilla/5.0 (compatible; ETFTracker/1.0)"
-YAHOO_CHART = "https://query1.finance.yahoo.com/v8/finance/chart/{}?interval=1d&range=1y"
+UA = "Mozilla/5.0 (compatible; InvestmentResearchWorkspace/1.0)"
+YAHOO_CHART = "https://query1.finance.yahoo.com/v8/finance/chart/{}?interval=1d&range=2y"
 
 
 def fetch_json(url):
@@ -42,7 +42,7 @@ def load_chart(code, market):
             rows.append({"date": date, **values})
         if rows:
             meta = result.get("meta") or {}
-            return {"symbol": symbol, "meta": meta, "rows": rows[-260:]}
+            return {"symbol": symbol, "meta": meta, "rows": rows[-520:]}
     raise ValueError("找不到行情資料")
 
 

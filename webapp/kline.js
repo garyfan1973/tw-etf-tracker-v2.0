@@ -2,6 +2,8 @@
   const $ = id => document.getElementById(id);
   const W = 1120, H = 900, left = 62, right = 18, top = 18, priceBottom = 300, volumeTop = 325, volumeBottom = 405, kdTop = 440, kdBottom = 590;
   const data = window.DATA || { etfs: {} };
+  const universalPicker = Boolean($("assetSearch"));
+  let catalogAssets = [], directAsset = null;
   let currentRows = [], candlePoints = [], chartType = localStorage.getItem("etf-chart-type") === "line" ? "line" : "candle";
   let renderRequestKey = "", viewport = { key:"", start:0, end:0 }, dragState = null, pinchState = null;
   let personalTrades = { key:"", markers:[], openShares:0, averageCost:null, currency:"" };
@@ -63,6 +65,7 @@
     return [...map.entries()].sort((a, b) => a[0].localeCompare(b[0], "zh-Hant"));
   }
   function securityInfo(code, security) {
+    if (directAsset) return directAsset;
     if (security === "__ETF__") return { symbol:code, name:data.etfs[code]?.name || code, market:"TW", assetType:"etf" };
     const rows = (data.etfs[code]?.snapshots || []).flatMap(snapshot => snapshot.holdings || []);
     const holding = [...rows].reverse().find(row => row.code === security) || {};
@@ -87,6 +90,20 @@
   }
   function historyPath(info) {
     return `price-history/${encodeURIComponent(info.market)}/${encodeURIComponent(info.symbol)}.json`;
+  }
+  async function loadHistory(info, snapshotRows) {
+    try {
+      const response = await fetch(historyPath(info), { cache:"default" });
+      if (response.ok) {
+        const payload = await response.json();
+        return mergePriceRows(payload.rows, snapshotRows);
+      }
+    } catch (_) {}
+    if (!universalPicker) return snapshotRows;
+    const response = await fetch(`/api/market?market=${encodeURIComponent(info.market)}&code=${encodeURIComponent(info.symbol)}`, { cache:"no-store" });
+    const payload = await response.json().catch(() => ({ ok:false }));
+    if (!response.ok || !payload.ok) throw new Error(payload.error || "行情資料暫時無法取得");
+    return mergePriceRows(payload.rows, snapshotRows);
   }
   function mergePriceRows(historyRows, snapshotRows) {
     const merged = new Map();
@@ -252,9 +269,7 @@
   }
   async function renderNews(code, security, name) {
     const box = $("newsPanel"); if (!box) return;
-    const holdingRows = (data.etfs[code]?.snapshots || []).flatMap(s => s.holdings || []);
-    const market = security === "__ETF__" ? "TW" : (holdingRows.find(h => h.code === security)?.market || "TW");
-    const symbol = security === "__ETF__" ? code : security;
+    const info = securityInfo(code, security), market = info.market, symbol = info.symbol;
     const requestKey = `${symbol}|${name}|${market}`; box.dataset.requestKey = requestKey;
     box.innerHTML = `<div class="news-heading"><div><h3>最新消息</h3><p>官方重大訊息優先，並彙整近 7 日媒體報導。</p></div><span class="news-status">載入中…</span></div><div class="news-loading">正在查詢 ${esc(name || symbol)} 的相關消息…</div>`;
     try {
@@ -312,7 +327,9 @@
   }
   function renderPremium(code, security) {
     const box = $("premiumBox"); if (!box) return;
-    if (security !== "__ETF__") { box.style.display = "none"; box.innerHTML = ""; return; }
+    const info = securityInfo(code, security);
+    if (info.assetType !== "etf" || info.market !== "TW" || !data.etfs[info.symbol]) { box.style.display = "none"; box.innerHTML = ""; return; }
+    code = info.symbol;
     const history = data.etfs[code]?.overview?.navHistory || [];
     if (!history.length) { box.style.display = "block"; box.innerHTML = '<div class="premium-empty">折溢價資料尚未取得，下一次每日更新後會自動補入。</div>'; return; }
     const snapshots = data.etfs[code]?.snapshots || [], snapshotDates = new Set(snapshots.map(row => row.date));
@@ -470,8 +487,8 @@
   }
   async function renderFinancials(code, security, name) {
     const box = $("financialPanel"); if (!box) return;
-    if (security === "__ETF__") { financialRequestKey = `${code}|ETF`; box.style.display = "none"; box.innerHTML = ""; return; }
     const info = securityInfo(code, security), key = `${info.symbol}|${info.market}`; financialRequestKey = key;
+    if (info.assetType === "etf") { box.style.display = "none"; box.innerHTML = ""; return; }
     box.style.display = "block";
     box.innerHTML = `<div class="financial-heading"><div><h3>財報趨勢</h3><p>${esc(name)}・年度／季度財務表現</p></div><span>載入中…</span></div><div class="financial-empty">正在取得財務資料…</div>`;
     try {
@@ -513,22 +530,16 @@
     }
   }
   async function render() {
-    const code = $("etfSelect").value, security = $("securitySelect").value, etf = data.etfs[code];
+    const code = directAsset?.symbol || $("etfSelect")?.value || "", security = directAsset ? "__DIRECT__" : $("securitySelect")?.value || "__ETF__";
     const snapshotRows = rowsFor(code, security), info = securityInfo(code, security), key = `${info.market}|${info.symbol}`;
     renderRequestKey = key; currentRows = snapshotRows; candlePoints = [];
     const name = info.name;
-    $("chartTitle").textContent = `${name} ${security === "__ETF__" ? code : security}`;
+    $("chartTitle").textContent = `${name} ${info.symbol}`;
     $("status").textContent = "載入兩年歷史行情…";
     renderPremium(code, security);
     loadPersonalTrades(code, security); renderFinancials(code, security, name);
-    try {
-      const response = await fetch(historyPath(info), { cache:"default" });
-      if (response.ok) {
-        const payload = await response.json();
-        if (renderRequestKey !== key) return;
-        currentRows = mergePriceRows(payload.rows, snapshotRows);
-      }
-    } catch (_) { currentRows = snapshotRows; }
+    try { currentRows = await loadHistory(info, snapshotRows); }
+    catch (error) { currentRows = snapshotRows; if (!currentRows.length) $("status").textContent = error.message || "行情資料暫時無法取得"; }
     if (renderRequestKey !== key) return;
     $("status").textContent = currentRows.length ? `行情 ${currentRows.length} 日（${currentRows[0].date} ～ ${currentRows.at(-1).date}）` : "尚無完整 OHLC 資料";
     if (!currentRows.length) { $("chartBox").innerHTML = '<div class="empty">目前尚無可繪製的完整開高低收資料。</div>'; renderSignal([]); return; }
@@ -757,8 +768,65 @@
     box.addEventListener("pointerup", finishPointer);
     box.addEventListener("pointercancel", finishPointer);
   }
-  $("etfSelect").addEventListener("change", fillSecurities);
-  $("securitySelect").addEventListener("change", render);
+  const assetTypeLabel = info => info.assetType === "etf" ? `${info.market === "TW" ? "台灣" : "美國"} ETF` : info.market === "TW" ? "台股" : "美股";
+  function catalogMatches(term) {
+    const query = term.trim().toLowerCase();
+    const scored = catalogAssets.map(asset => {
+      const symbol = asset.symbol.toLowerCase(), name = asset.name.toLowerCase();
+      let score = query ? (symbol === query ? 0 : symbol.startsWith(query) ? 1 : name.startsWith(query) ? 2 : `${symbol} ${name}`.includes(query) ? 3 : 99) : 4;
+      return { asset, score };
+    }).filter(item => item.score < 99).sort((a, b) => a.score - b.score || a.asset.symbol.localeCompare(b.asset.symbol)).slice(0, 30);
+    return scored.map(item => item.asset);
+  }
+  function renderAssetResults() {
+    const box = $("assetResults"), input = $("assetSearch"); if (!box || !input) return;
+    const rows = catalogMatches(input.value);
+    box.innerHTML = rows.length ? rows.map(asset => `<button type="button" class="asset-result" role="option" data-market="${esc(asset.market)}" data-symbol="${esc(asset.symbol)}" data-asset-type="${esc(asset.assetType)}"><strong>${esc(asset.symbol)}</strong><span>${esc(asset.name)}</span><small>${esc(assetTypeLabel(asset))}</small></button>`).join("") : '<div class="empty">找不到符合條件的標的。</div>';
+    box.classList.add("open");
+    box.querySelectorAll(".asset-result").forEach(button => button.addEventListener("click", () => {
+      const asset = catalogAssets.find(item => item.market === button.dataset.market && item.symbol === button.dataset.symbol && item.assetType === button.dataset.assetType);
+      if (asset) selectDirectAsset(asset);
+    }));
+  }
+  function selectDirectAsset(asset, updateUrl = true) {
+    if (!asset) return;
+    directAsset = { symbol:String(asset.symbol).toUpperCase(), name:asset.name || asset.symbol, market:String(asset.market).toUpperCase(), assetType:String(asset.assetType || "stock").toLowerCase(), exchange:asset.exchange || "" };
+    if ($("assetSearch")) $("assetSearch").value = `${directAsset.symbol} ${directAsset.name}`;
+    if ($("assetSelectedMeta")) $("assetSelectedMeta").textContent = `${assetTypeLabel(directAsset)}${directAsset.exchange ? `・${directAsset.exchange}` : ""}`;
+    $("assetResults")?.classList.remove("open");
+    if (updateUrl) {
+      const url = new URL(location.href); url.searchParams.set("view", "kline"); url.searchParams.set("market", directAsset.market); url.searchParams.set("symbol", directAsset.symbol); history.replaceState(null, "", url);
+    }
+    render();
+  }
+  async function initUniversalPicker() {
+    const input = $("assetSearch"); if (!input) return;
+    try {
+      const response = await fetch("trade_assets.json", { cache:"force-cache" }), payload = await response.json();
+      catalogAssets = (payload.assets || []).map(asset => ({ symbol:String(asset.symbol || "").toUpperCase(), name:asset.name || asset.symbol, market:String(asset.market || "TW").toUpperCase(), assetType:String(asset.asset_type || "stock").toLowerCase(), exchange:asset.exchange || "" })).filter(asset => asset.symbol);
+    } catch (_) { catalogAssets = []; }
+    Object.entries(data.etfs || {}).forEach(([symbol, etf]) => {
+      if (!catalogAssets.some(asset => asset.market === "TW" && asset.symbol === symbol)) catalogAssets.push({ symbol, name:etf.name || symbol, market:"TW", assetType:"etf", exchange:"TWSE" });
+    });
+    const params = new URLSearchParams(location.search), wantedMarket = (params.get("market") || "TW").toUpperCase(), wantedSymbol = (params.get("symbol") || "00981A").toUpperCase();
+    const initial = catalogAssets.find(asset => asset.market === wantedMarket && asset.symbol === wantedSymbol) || catalogAssets.find(asset => asset.market === "TW" && asset.symbol === "0050") || catalogAssets[0];
+    input.addEventListener("focus", renderAssetResults);
+    input.addEventListener("input", renderAssetResults);
+    input.addEventListener("keydown", event => {
+      if (event.key === "Escape") $("assetResults")?.classList.remove("open");
+      if (event.key === "Enter") { event.preventDefault(); const first = catalogMatches(input.value)[0]; if (first) selectDirectAsset(first); }
+    });
+    document.addEventListener("pointerdown", event => { if (!event.target.closest?.(".asset-picker")) $("assetResults")?.classList.remove("open"); });
+    window.MarketChart = { selectAsset: asset => {
+      const normalized = { symbol:String(asset.symbol || "").toUpperCase(), market:String(asset.market || "TW").toUpperCase(), assetType:String(asset.assetType || "stock").toLowerCase(), name:asset.name || asset.symbol };
+      const matched = catalogAssets.find(item => item.market === normalized.market && item.symbol === normalized.symbol && item.assetType === normalized.assetType) || normalized;
+      selectDirectAsset(matched);
+    } };
+    if (initial) selectDirectAsset(initial, false);
+    document.dispatchEvent(new CustomEvent("marketchart:ready"));
+  }
+  $("etfSelect")?.addEventListener("change", fillSecurities);
+  $("securitySelect")?.addEventListener("change", render);
   document.querySelectorAll("[data-chart-type]").forEach(button => button.addEventListener("click", () => {
     chartType = button.dataset.chartType;
     localStorage.setItem("etf-chart-type", chartType);
@@ -796,6 +864,10 @@
   }));
   $("rangeReset")?.addEventListener("click", () => { resetViewport(viewport.key, defaultRangeDays); drawChart(); });
   $("tooltipToggle")?.addEventListener("click", () => setTooltipEnabled(!tooltipEnabled));
-  document.addEventListener("etfwatch:change", () => loadPersonalTrades($("etfSelect").value, $("securitySelect").value));
-  initChartInteractions(); updateChartType(); updateMaControls(); updateVolumeMaControls(); updateIndicatorControls(); updateTradeOverlayControls(); fillEtfs(); fillSecurities();
+  document.addEventListener("etfwatch:change", () => {
+    const code = directAsset?.symbol || $("etfSelect")?.value || "", security = directAsset ? "__DIRECT__" : $("securitySelect")?.value || "__ETF__";
+    if (code) loadPersonalTrades(code, security);
+  });
+  initChartInteractions(); updateChartType(); updateMaControls(); updateVolumeMaControls(); updateIndicatorControls(); updateTradeOverlayControls();
+  if (universalPicker) initUniversalPicker(); else { fillEtfs(); fillSecurities(); }
 })();

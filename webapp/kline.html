@@ -3,107 +3,18 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>K 線圖</title>
-  <style>
-    :root, :root[data-theme="light"] { --bg:#f5f6f8; --card:#fff; --text:#1c2430; --muted:#6b7684; --border:#e3e7ec; --accent:#3b5bdb; --up:#e64949; --down:#2f9e44; --ma5:#e9a23b; --ma10:#258fca; --ma20:#a78bca; --ma60:#16a085; --ma120:#e8590c; --ma240:#495057; --kd-k:#19a7a0; --kd-d:#e06b8b; --bb:#d97706; --bb-mid:#b45309; --macd:#7c3aed; --macd-signal:#db2777; --rsi:#0891b2; --trade-buy:#3977f6; --trade-sell:#ef405f; --trade-cost:#8a63d2; }
-    @media (prefers-color-scheme: dark) { :root:not([data-theme="light"]) { --bg:#14181d; --card:#1c2229; --text:#e6e9ed; --muted:#98a2b0; --border:#2a323b; --accent:#6c8cff; --up:#ff8787; --down:#69db7c; --ma5:#e8b66d; --ma10:#69bde8; --ma20:#bca8dc; --kd-k:#5fd1ca; --kd-d:#f09ab1; --trade-buy:#6c9cff; --trade-sell:#ff6b8b; --trade-cost:#ba9cff; } }
-    :root[data-theme="dark"] { --bg:#14181d; --card:#1c2229; --text:#e6e9ed; --muted:#98a2b0; --border:#2a323b; --accent:#6c8cff; --up:#ff8787; --down:#69db7c; --ma5:#e8b66d; --ma10:#69bde8; --ma20:#bca8dc; --kd-k:#5fd1ca; --kd-d:#f09ab1; --trade-buy:#6c9cff; --trade-sell:#ff6b8b; --trade-cost:#ba9cff; }
-    * { box-sizing:border-box; }
-    body { margin:0; padding:20px; background:var(--bg); color:var(--text); font-family:-apple-system,"PingFang TC","Microsoft JhengHei",sans-serif; }
-    .wrap { max-width:1180px; margin:0 auto; }
-    nav { display:flex; gap:8px; align-items:center; margin-bottom:14px; flex-wrap:wrap; }
-    nav a { text-decoration:none; color:var(--muted); font-size:14px; padding:6px 12px; border:1px solid var(--border); border-radius:8px; }
-    nav a.active { color:#fff; background:var(--accent); border-color:var(--accent); }
-    .theme-toggle { margin-left:8px; width:36px; height:36px; border-radius:50%; border:1px solid var(--border); background:var(--card); color:var(--text); cursor:pointer; }
-    h1 { font-size:22px; margin:0 0 4px; } .sub { color:var(--muted); font-size:13px; margin-bottom:16px; }
-    .panel { background:var(--card); border:1px solid var(--border); border-radius:12px; padding:16px; margin-bottom:16px; }
-    .controls { display:flex; gap:12px; align-items:end; flex-wrap:wrap; }
-    label { display:flex; flex-direction:column; gap:5px; color:var(--muted); font-size:12px; }
-    select { min-width:190px; padding:9px 11px; border:1px solid var(--border); border-radius:8px; background:var(--bg); color:var(--text); font:inherit; }
-    .chart-type { display:flex; padding:3px; border:1px solid var(--border); border-radius:9px; background:var(--bg); }
-    .chart-type button { border:0; border-radius:6px; padding:6px 12px; background:transparent; color:var(--muted); font:inherit; cursor:pointer; }
-    .chart-type button.active { background:var(--accent); color:#fff; }
-    .ma-control>span { display:block; margin-bottom:5px; color:var(--muted); font-size:12px; } .ma-options { display:flex; gap:4px; padding:3px; border:1px solid var(--border); border-radius:9px; background:var(--bg); } .ma-options label { display:flex; flex-direction:row; align-items:center; gap:4px; padding:6px 8px; border-radius:6px; color:var(--text); cursor:pointer; } .ma-options label:has(input:checked) { background:color-mix(in srgb,var(--accent) 12%,var(--card)); color:var(--accent); } .ma-options input { accent-color:var(--accent); }
-    .indicator-control>span { display:block; margin-bottom:5px; color:var(--muted); font-size:12px; } .indicator-options { display:flex; gap:4px; padding:3px; border:1px solid var(--border); border-radius:9px; background:var(--bg); } .indicator-options label { display:flex; align-items:center; gap:4px; padding:6px 8px; border-radius:6px; color:var(--text); cursor:pointer; white-space:nowrap; } .indicator-options label:has(input:checked) { background:color-mix(in srgb,var(--accent) 12%,var(--card)); color:var(--accent); } .indicator-options input { accent-color:var(--accent); }
-    .ma-options { flex-wrap:wrap; }
-    .status { margin-left:auto; color:var(--muted); font-size:12px; }
-    .chart-head { display:flex; justify-content:space-between; align-items:baseline; gap:12px; margin-bottom:8px; }
-    .chart-title { font-size:18px; font-weight:700; } .quote { color:var(--muted); font-size:13px; }
-    .legend { display:flex; gap:14px; flex-wrap:wrap; color:var(--muted); font-size:12px; margin:4px 0 8px; }
-    .legend span { display:inline-flex; align-items:center; gap:5px; } .swatch { width:18px; height:2px; display:inline-block; }
-    .premium-box { display:none; grid-template-columns:1.25fr repeat(3,1fr); gap:8px; margin:8px 0 12px; } .premium-main,.premium-kpi { padding:10px 12px; border:1px solid var(--border); border-radius:9px; background:var(--bg); } .premium-main span,.premium-kpi span { display:block; color:var(--muted); font-size:11px; } .premium-main strong,.premium-kpi strong { display:block; margin-top:2px; font-size:16px; } .premium-main b { display:block; margin-top:2px; font-size:11px; color:var(--muted); } .premium-main.premium strong,.premium-main.premium-high strong { color:#e07825; } .premium-main.premium-high { border-color:#e07825; } .premium-main.discount strong,.premium-main.discount-high strong { color:#297bc4; } .premium-main.discount-high { border-color:#297bc4; } .premium-note { grid-column:1/-1; display:flex; justify-content:space-between; gap:10px; color:var(--muted); font-size:11px; } .premium-note small { font-size:11px; } .premium-note a { color:var(--accent); } .premium-empty { grid-column:1/-1; padding:10px 12px; border:1px dashed var(--border); border-radius:9px; color:var(--muted); font-size:12px; }
-    .trade-box { display:none; grid-template-columns:repeat(3,1fr); gap:8px; margin:8px 0 12px; padding:10px 12px; border:1px solid var(--border); border-radius:10px; background:var(--bg); } .trade-box div span,.trade-box small { display:block; color:var(--muted); font-size:11px; } .trade-box div strong { display:block; margin-top:2px; font-size:14px; } .trade-box>small { grid-column:1/-1; } .trade-empty { color:var(--muted); font-size:12px; } .trade-buy-text { color:var(--trade-buy); } .trade-sell-text { color:var(--trade-sell); }
-    .range-toolbar { display:flex; align-items:center; gap:5px; flex-wrap:wrap; margin:8px 0; } .range-toolbar>span { margin-right:3px; color:var(--muted); font-size:12px; } .range-toolbar button { padding:5px 9px; border:1px solid var(--border); border-radius:7px; background:var(--bg); color:var(--muted); cursor:pointer; } .range-toolbar button.active { color:#fff; border-color:var(--accent); background:var(--accent); } .range-help { margin-left:auto; color:var(--muted); font-size:11px; }
-    .chart-wrap { position:relative; } .chart-box { width:100%; overflow:hidden; touch-action:pan-y; cursor:crosshair; } .chart-box.dragging { cursor:grabbing; } .chart-box>svg { display:block; width:100%; height:auto; min-height:360px; }
-    .grid { stroke:var(--border); stroke-width:1; } .kd-threshold { stroke-dasharray:4 4; } .axis { fill:var(--muted); font-size:11px; }
-    .crosshair { stroke:var(--muted); stroke-width:1; stroke-dasharray:4 4; opacity:.7; }
-    .tip { position:absolute; z-index:2; top:8px; left:8px; width:176px; max-width:calc(100% - 16px); padding:5px 7px; border:1px solid var(--border); border-radius:6px; background:color-mix(in srgb, var(--card) 94%, var(--accent)); color:var(--text); font-size:10px; line-height:1.3; min-height:20px; pointer-events:none; box-shadow:0 2px 8px rgba(0,0,0,.08); }
-    .tip-date { display:block; margin-bottom:1px; font-size:10px; }
-    .tip-grid { display:grid; grid-template-columns:repeat(4,1fr); column-gap:5px; }
-    .tip-grid span { white-space:nowrap; }
-    .tip-grid span:last-child { grid-column:1/-1; }
-    .tip-extra { color:var(--muted); }
-    .tip-extra span, .tip-extra b { display:block; }
-    .tooltip-toggle { padding:4px 8px; border:1px solid var(--border); border-radius:7px; background:var(--bg); color:var(--muted); font-size:11px; cursor:pointer; }
-    .tooltip-toggle[aria-pressed="false"] { color:var(--accent); border-color:var(--accent); }
-    .signal-panel { margin-top:18px; padding-top:16px; border-top:1px solid var(--border); }
-    .financial-panel { display:none; margin-top:18px; padding-top:16px; border-top:1px solid var(--border); } .financial-heading { display:flex; justify-content:space-between; gap:14px; align-items:flex-start; } .financial-heading h3 { margin:0 0 4px; font-size:18px; } .financial-heading p,.financial-heading>span,.financial-note { margin:0; color:var(--muted); font-size:12px; } .financial-tabs { display:flex; gap:6px; flex-wrap:wrap; margin:12px 0; } .financial-tabs button { padding:7px 12px; border:1px solid var(--border); border-radius:8px; background:var(--bg); color:var(--muted); cursor:pointer; } .financial-tabs button.active { color:#fff; border-color:var(--accent); background:var(--accent); } .financial-summary { display:grid; grid-template-columns:repeat(4,1fr); gap:8px; } .financial-summary div { padding:10px 12px; border:1px solid var(--border); border-radius:9px; background:var(--bg); } .financial-summary span { display:block; color:var(--muted); font-size:11px; } .financial-summary strong { display:block; margin-top:2px; font-size:15px; } .financial-chart { margin-top:8px; overflow-x:auto; } .financial-chart svg { display:block; width:100%; min-width:620px; height:auto; } .financial-chart .axis { fill:var(--muted); font-size:11px; } .financial-value { fill:var(--text); font-size:12px; font-weight:700; } .financial-note { line-height:1.6; } .financial-note a { color:var(--accent); } .financial-empty { margin-top:12px; padding:18px; text-align:center; color:var(--muted); border:1px dashed var(--border); border-radius:10px; }
-    .financial-controls { display:flex; justify-content:space-between; align-items:center; gap:12px; flex-wrap:wrap; } .financial-period,.financial-view { display:flex; align-items:center; gap:4px; padding:3px; border:1px solid var(--border); border-radius:9px; background:var(--bg); } .financial-period>span,.financial-view>span { padding:0 5px; color:var(--muted); font-size:11px; } .financial-period button,.financial-view button { padding:6px 9px; border:0; border-radius:6px; background:transparent; color:var(--muted); cursor:pointer; } .financial-period button.active,.financial-view button.active { color:#fff; background:var(--accent); } .financial-period button:disabled { opacity:.4; cursor:not-allowed; } .financial-bar { fill:color-mix(in srgb,var(--accent) 24%,transparent); stroke:color-mix(in srgb,var(--accent) 48%,transparent); stroke-width:1; } .financial-line { fill:none; stroke:var(--up); stroke-width:2.5; stroke-linecap:round; stroke-linejoin:round; } .financial-dot { fill:var(--card); stroke:var(--up); stroke-width:2.5; } .financial-zero { stroke-width:1.25; }
-    .signal-heading { display:flex; justify-content:space-between; gap:16px; align-items:flex-start; } .signal-heading h3 { margin:0 0 4px; font-size:18px; } .signal-heading p, .signal-date, .signal-footnote { margin:0; color:var(--muted); font-size:12px; }
-    .signal-main { display:grid; grid-template-columns:minmax(300px,38%) 1fr; gap:24px; align-items:center; padding:12px 0 18px; } .signal-overall { text-align:center; } .signal-gauge-svg { display:block; width:100%; max-width:330px; height:auto; margin:auto; overflow:visible; } .signal-axis { fill:var(--muted); font-size:12px; } .signal-label { margin-top:-14px; font-size:25px; font-weight:800; } .signal-score { color:var(--muted); font-size:12px; margin-top:3px; }
-    .signal-confidence { display:grid; grid-template-columns:1fr auto; gap:5px 12px; font-size:13px; } .signal-confidence i { grid-column:1/-1; height:7px; background:var(--border); border-radius:10px; overflow:hidden; } .signal-confidence b { display:block; height:100%; background:var(--accent); border-radius:inherit; } .signal-confidence small { grid-column:1/-1; color:var(--muted); }
-    .signal-notes { display:grid; grid-template-columns:1fr 1fr; gap:12px; margin-top:14px; } .signal-notes section { padding:12px; border-radius:10px; background:color-mix(in srgb,var(--down) 8%,var(--card)); } .signal-notes section.risk { background:color-mix(in srgb,var(--up) 8%,var(--card)); } .signal-notes h4 { margin:0 0 7px; font-size:13px; } .signal-notes ul { margin:0; padding-left:18px; color:var(--muted); font-size:12px; line-height:1.65; } .signal-notes p { color:var(--muted); font-size:12px; margin:0; }
-    .signal-components { display:grid; grid-template-columns:repeat(4,1fr); gap:10px; } .signal-component { text-align:center; padding:12px 8px; border:1px solid var(--border); border-radius:11px; background:var(--bg); } .signal-component h4 { margin:0; font-size:13px; } .signal-component .signal-gauge-svg { max-width:230px; } .signal-component strong,.signal-component small { display:block; } .signal-component strong { margin-top:0; font-size:15px; } .signal-component small { margin-top:5px; color:var(--muted); font-size:11px; } .signal-footnote { margin-top:12px; line-height:1.6; }
-    .news-panel { margin-top:18px; padding-top:16px; border-top:1px solid var(--border); } .news-heading { display:flex; justify-content:space-between; gap:14px; align-items:flex-start; } .news-heading h3 { margin:0 0 4px; font-size:18px; } .news-heading p,.news-status,.news-footnote { margin:0; color:var(--muted); font-size:12px; } .news-list { display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:10px; margin-top:12px; } .news-item { padding:12px 14px; border:1px solid var(--border); border-radius:10px; background:var(--bg); } .news-item.official { border-left:4px solid var(--accent); } .news-meta { display:flex; align-items:center; flex-wrap:wrap; gap:6px 10px; color:var(--muted); font-size:11px; } .news-type { padding:2px 6px; border-radius:5px; color:var(--accent); background:color-mix(in srgb,var(--accent) 12%,transparent); font-weight:700; } .news-item h4 { margin:8px 0 7px; font-size:14px; line-height:1.5; } .news-item a { color:var(--text); text-decoration:none; } .news-item a:hover { color:var(--accent); text-decoration:underline; } .news-source { color:var(--muted); font-size:11px; } .news-loading,.news-empty { margin-top:12px; padding:18px; text-align:center; color:var(--muted); border:1px dashed var(--border); border-radius:10px; } .news-footnote { margin-top:10px; line-height:1.6; }
-    .empty { color:var(--muted); padding:28px 0; text-align:center; }
-    .up { color:var(--up); } .down { color:var(--down); }
-    @media (max-width:850px) { .signal-main { grid-template-columns:1fr; } .signal-components { grid-template-columns:repeat(2,1fr); } .news-list { grid-template-columns:1fr; } .premium-box { grid-template-columns:repeat(2,1fr); } .financial-summary { grid-template-columns:repeat(2,1fr); } }
-    @media (max-width:700px) { body { padding:12px; } .status { width:100%; margin-left:0; } select { min-width:0; width:100%; } .chart-box { overflow-x:auto; } .chart-box>svg { min-width:720px; } }
-    @media (max-width:560px) { .signal-heading,.news-heading { display:block; } .signal-date,.news-status { display:block; margin-top:5px; } .signal-notes,.signal-components { grid-template-columns:1fr; } }
-    .financial-chart { padding:0 4px; }
-    .financial-chart .axis { font-size:10px; }
-    .financial-value { font-size:10px; }
-    .financial-chart { position:relative; }
-    .financial-dot-hit { fill:transparent; stroke:none; cursor:help; pointer-events:all; }
-    .financial-tooltip { position:absolute; z-index:4; display:grid; gap:1px; min-width:92px; padding:6px 8px; border:1px solid var(--border); border-radius:7px; background:var(--card); color:var(--text); box-shadow:0 5px 16px rgba(0,0,0,.2); font-size:11px; line-height:1.35; pointer-events:none; }
-    .financial-tooltip[hidden] { display:none; }
-    .financial-tooltip span { color:var(--up); font-weight:700; white-space:nowrap; }
-  </style>
-  <script>(function(){var t=localStorage.getItem("etf-theme");if(t)document.documentElement.dataset.theme=t;})();</script>
+  <title>K 線圖｜投資研究工作台</title>
+  <meta http-equiv="refresh" content="0;url=tracker.html?view=kline">
 </head>
 <body>
-  <div class="wrap">
-    <nav>
-      <a href="tracker.html">持股資訊</a><a href="dividends.html">配息日曆</a><a href="portfolio.html">我的持股</a>
-      <a href="transactions.html">交易紀錄</a><a href="performance.html">績效走勢</a>
-      <span id="authBox" style="margin-left:auto;display:flex;align-items:center;gap:6px;"></span>
-      <button id="themeToggle" class="theme-toggle" aria-label="切換主題">🌙</button>
-    </nav>
-    <h1>K 線圖</h1>
-    <div class="sub">查看 ETF 或其持股的每日開高低收、成交量與移動平均線。</div>
-    <div class="panel">
-      <div class="controls">
-        <label>ETF<select id="etfSelect"></select></label>
-        <label>標的<select id="securitySelect"></select></label>
-        <label>圖表<div class="chart-type" role="group" aria-label="圖表類型"><button type="button" data-chart-type="candle">K 線</button><button type="button" data-chart-type="line">收盤價線圖</button></div></label>
-        <div class="ma-control"><span>均線</span><div class="ma-options" role="group" aria-label="選擇顯示的均線"><label><input type="checkbox" data-ma-period="5">MA5</label><label><input type="checkbox" data-ma-period="10">MA10</label><label><input type="checkbox" data-ma-period="20">MA20</label><label><input type="checkbox" data-ma-period="60">季線</label><label><input type="checkbox" data-ma-period="120">半年線</label><label><input type="checkbox" data-ma-period="240">年線</label></div></div>
-        <div class="indicator-control"><span>技術指標</span><div class="indicator-options" role="group" aria-label="選擇顯示的技術指標"><label><input type="checkbox" data-indicator="bollinger">布林</label><label><input type="checkbox" data-indicator="macd">MACD</label><label><input type="checkbox" data-indicator="rsi">RSI</label></div></div>
-        <div id="status" class="status"></div>
-      </div>
-    </div>
-    <div class="panel">
-      <div class="chart-head"><div id="chartTitle" class="chart-title">—</div><div id="quote" class="quote">—</div></div>
-      <div id="premiumBox" class="premium-box"></div>
-      <div id="tradeBox" class="trade-box"></div>
-      <div class="legend"><span id="closeLegend" style="display:none"><i class="swatch" style="background:var(--accent)"></i>收盤價</span><span id="maLegend5"><i class="swatch" style="background:var(--ma5)"></i>MA5</span><span id="maLegend10"><i class="swatch" style="background:var(--ma10)"></i>MA10</span><span id="maLegend20"><i class="swatch" style="background:var(--ma20)"></i>MA20</span><span id="bbLegend" style="display:none"><i class="swatch" style="background:var(--bb)"></i>布林通道(20,2)</span><span id="macdLegend" style="display:none"><i class="swatch" style="background:var(--macd)"></i>MACD</span><span id="rsiLegend" style="display:none"><i class="swatch" style="background:var(--rsi)"></i>RSI(14)</span><span><i class="swatch" style="background:var(--kd-k)"></i>K(9)</span><span><i class="swatch" style="background:var(--kd-d)"></i>D(9)</span><span><i class="swatch" style="background:var(--trade-buy);height:7px;width:7px;transform:rotate(45deg)"></i>個人買進</span><span><i class="swatch" style="background:var(--trade-sell);height:7px;width:7px;transform:rotate(45deg)"></i>個人賣出</span><span><i class="swatch" style="border-top:2px dashed var(--trade-cost);background:none"></i>持倉成本</span><span id="candleLegend">紅漲／綠跌</span></div>
-      <div class="legend"><span id="maLegend60"><i class="swatch" style="background:var(--ma60)"></i>MA60 季線</span><span id="maLegend120"><i class="swatch" style="background:var(--ma120)"></i>MA120 半年線</span><span id="maLegend240"><i class="swatch" style="background:var(--ma240)"></i>MA240 年線</span></div>
-      <div class="range-toolbar" role="group" aria-label="選擇圖表期間"><span>期間</span><button type="button" data-range-days="20">1月</button><button type="button" data-range-days="60">3月</button><button type="button" data-range-days="120">6月</button><button type="button" data-range-days="240">1年</button><button type="button" data-range-days="480">2年</button><button type="button" data-range-days="all">全部</button><button type="button" id="rangeReset">重設</button><button type="button" id="tooltipToggle" class="tooltip-toggle" aria-pressed="true">提示開</button><small id="visibleRange" class="range-help"></small></div>
-      <div class="chart-wrap"><div id="chartBox" class="chart-box"></div><div id="tip" class="tip" aria-live="polite">滾輪縮放、拖曳平移；移到 K 線可查看數值。</div></div>
-      <div id="signalPanel" class="signal-panel"></div>
-      <div id="financialPanel" class="financial-panel"></div>
-      <div id="newsPanel" class="news-panel"></div>
-    </div>
-  </div>
-  <script src="theme.js"></script><script src="config.js"></script><script src="data.js"></script><script src="kline.js?v=20260819-2"></script><script type="module" src="auth.js"></script>
+  <script>
+    const target = new URL("tracker.html", location.href);
+    const source = new URLSearchParams(location.search);
+    target.searchParams.set("view", "kline");
+    if (source.get("market")) target.searchParams.set("market", source.get("market"));
+    if (source.get("symbol")) target.searchParams.set("symbol", source.get("symbol"));
+    location.replace(target);
+  </script>
+  <p><a href="tracker.html?view=kline">前往 K 線研究</a></p>
 </body>
 </html>
