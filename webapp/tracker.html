@@ -512,6 +512,10 @@
 
     <section id="klinePanel" class="kline-panel" style="display:none;">
       <h2 style="margin-top:0;">K線圖</h2>
+      <div id="etfKlineAssetControls" class="kline-controls" style="display:none;">
+        <label>ETF<select id="etfSelect"></select></label>
+        <label>標的<select id="securitySelect"></select></label>
+      </div>
       <div class="kline-controls">
         <label>圖表<div class="chart-type" role="group" aria-label="圖表類型"><button type="button" data-chart-type="candle">K 線</button><button type="button" data-chart-type="line">收盤價線圖</button></div></label>
         <div id="status" class="kline-status"></div>
@@ -583,7 +587,7 @@
   <script src="theme.js"></script>
   <script src="config.js"></script>
   <script src="data.js"></script>
-  <script src="kline.js?v=20260822-2"></script>
+  <script src="kline.js?v=20260822-3"></script>
   <script type="module" src="auth.js"></script>
   <script>
     // 若 data.js 尚未產生，給出友善提示
@@ -878,6 +882,7 @@
         document.getElementById("etfViewSwitch").style.display = "flex";
         document.getElementById("marketViewSwitch").style.display = "none";
         document.getElementById("marketAssetControls").style.display = "none";
+        document.getElementById("etfKlineAssetControls").style.display = mode === "kline" ? "flex" : "none";
         document.getElementById("holdingsDataPanel").style.display = mode === "change" ? "block" : "none";
         document.getElementById("etfControls").style.display = "flex";
         document.getElementById("workspaceTitle").textContent = "ETF 持股研究";
@@ -910,6 +915,7 @@
         document.getElementById("etfViewSwitch").style.display = "none";
         document.getElementById("marketViewSwitch").style.display = "flex";
         document.getElementById("marketAssetControls").style.display = "flex";
+        document.getElementById("etfKlineAssetControls").style.display = "none";
         document.getElementById("workspaceTitle").textContent = "市場研究";
         document.getElementById("sub").textContent = "搜尋台股、台灣 ETF、美股或美國 ETF，使用同一套研究工具。";
         const marketNav = document.getElementById("marketResearchNav"), etfNav = document.getElementById("etfResearchNav");
@@ -927,6 +933,11 @@
       function syncKlineEtf(updateUrl = true) {
         if (!etfSel.value || !window.MarketChart?.selectAsset) return;
         window.MarketChart.selectAsset({ market:"TW", symbol:etfSel.value, assetType:"etf", name:D.etfs[etfSel.value]?.name || etfSel.value }, { updateUrl });
+      }
+
+      function syncEtfHoldingChart() {
+        if (!etfSel.value || !window.MarketChart?.selectEtfHolding) return;
+        window.MarketChart.selectEtfHolding(etfSel.value, "__ETF__");
       }
 
       function etfCategory(code, name) {
@@ -1389,7 +1400,7 @@
       bindSort("full", "full");
       document.getElementById("overviewViewBtn").addEventListener("click", () => setViewMode("overview"));
       document.getElementById("changeViewBtn").addEventListener("click", () => setViewMode("change"));
-      document.getElementById("klineViewBtn").addEventListener("click", () => { setViewMode("kline"); syncKlineEtf(false); });
+      document.getElementById("klineViewBtn").addEventListener("click", () => { setViewMode("kline"); syncEtfHoldingChart(); });
       document.getElementById("institutionalViewBtn").addEventListener("click", () => setViewMode("institutional"));
       document.getElementById("marketOverviewViewBtn").addEventListener("click", () => setMarketView("overview"));
       document.getElementById("marketKlineViewBtn").addEventListener("click", () => setMarketView("kline"));
@@ -1410,10 +1421,16 @@
       document.addEventListener("marketchart:ready", () => {
         marketAsset = window.MarketChart?.currentAsset || marketAsset;
         if (marketWorkspace && !new URLSearchParams(location.search).get("symbol")) syncKlineEtf();
+        if (!marketWorkspace && viewMode === "kline") syncEtfHoldingChart();
         if (marketWorkspace) setMarketView(marketViewMode);
       });
 
-      etfSel.addEventListener("change", () => { expandedInstitutional = ""; marginTrendAsset = "__etf__"; fillDates(); render(); if (!marketWorkspace && viewMode === "kline") syncKlineEtf(false); });
+      document.addEventListener("marketchart:etfchange", event => {
+        if (marketWorkspace || !D.etfs[event.detail.symbol] || etfSel.value === event.detail.symbol) return;
+        etfSel.value = event.detail.symbol; expandedInstitutional = ""; marginTrendAsset = "__etf__"; fillDates(); render();
+      });
+
+      etfSel.addEventListener("change", () => { expandedInstitutional = ""; marginTrendAsset = "__etf__"; fillDates(); render(); if (!marketWorkspace && viewMode === "kline") syncEtfHoldingChart(); });
       fromSel.addEventListener("change", render);
       toSel.addEventListener("change", render);
       q.addEventListener("input", render);

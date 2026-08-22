@@ -44,10 +44,11 @@
   let tooltipEnabled = true;
   function setTooltipEnabled(enabled) {
     tooltipEnabled = enabled;
-    const tip = $("tip"), line = $("hoverLine"), button = $("tooltipToggle");
+    const tip = $("tip"), line = $("hoverLine"), horizontalLine = $("hoverHorizontalLine"), button = $("tooltipToggle");
     if (!enabled) {
       if (tip) tip.style.visibility = "hidden";
       if (line) line.setAttribute("visibility", "hidden");
+      if (horizontalLine) horizontalLine.setAttribute("visibility", "hidden");
     }
     if (button) {
       button.setAttribute("aria-pressed", String(enabled));
@@ -678,6 +679,7 @@
     });
     if (kdPanel) svg += `<polyline class="kd-line k-line" points="${kd.map((v,i)=>`${x(i)},${ky(v.k)}`).join(" ")}" fill="none" stroke="${chartColors.k}" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/><polyline class="kd-line d-line" points="${kd.map((v,i)=>`${x(i)},${ky(v.d)}`).join(" ")}" fill="none" stroke="${chartColors.d}" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>`;
     svg += `<line id="hoverLine" class="crosshair" x1="${left}" x2="${left}" y1="${top}" y2="${chartBottom}" visibility="hidden"/>`;
+    svg += `<line id="hoverHorizontalLine" class="crosshair" x1="${left}" x2="${W-right}" y1="${top}" y2="${top}" visibility="hidden"/>`;
     svg += `<rect id="chartHit" x="${left}" y="${top}" width="${plotW}" height="${chartBottom - top}" fill="transparent" pointer-events="all"/> </svg>`;
     svg = svg.replace(`viewBox="0 0 ${W} ${H}"`, `viewBox="0 0 ${W} ${chartHeight}"`);
     $("chartBox").innerHTML = svg;
@@ -689,6 +691,8 @@
       const chartRect = $("chartBox").getBoundingClientRect(), wrapRect = document.querySelector(".kline-chart-wrap, .chart-wrap").getBoundingClientRect(), tip = $("tip");
       const index = candlePoints.indexOf(point), indicator = kd[index];
       const pointerY = top + ((event.clientY - rect.top) / rect.height) * (chartBottom - top);
+      const horizontalLine = $("hoverHorizontalLine");
+      horizontalLine.setAttribute("y1", pointerY); horizontalLine.setAttribute("y2", pointerY); horizontalLine.setAttribute("visibility", "visible");
       const zone = rsiPanel && pointerY >= rsiPanel.top ? "rsi"
         : macdPanel && pointerY >= macdPanel.top ? "macd"
         : kdPanel && pointerY >= kdPanel.top ? "kd"
@@ -723,6 +727,7 @@
     $("chartHit").addEventListener("contextmenu", event => { event.preventDefault(); setTooltipEnabled(false); });
     $("chartHit").addEventListener("pointerleave", () => {
       $("hoverLine").setAttribute("visibility", "hidden");
+      $("hoverHorizontalLine").setAttribute("visibility", "hidden");
       $("tip").style.visibility = "hidden";
     });
   }
@@ -845,11 +850,20 @@
       const normalized = { symbol:String(asset.symbol || "").toUpperCase(), market:String(asset.market || "TW").toUpperCase(), assetType:String(asset.assetType || "stock").toLowerCase(), name:asset.name || asset.symbol };
       const matched = catalogAssets.find(item => item.market === normalized.market && item.symbol === normalized.symbol && item.assetType === normalized.assetType) || normalized;
       selectDirectAsset(matched, options.updateUrl !== false);
+    }, selectEtfHolding: (etfCode, security = "__ETF__") => {
+      const etfSelect = $("etfSelect"), securitySelect = $("securitySelect");
+      if (!etfSelect || !securitySelect || !data.etfs[etfCode]) return;
+      directAsset = null; etfSelect.value = etfCode; fillSecurities();
+      securitySelect.value = [...securitySelect.options].some(option => option.value === security) ? security : "__ETF__";
+      render();
     } };
     if (initial) selectDirectAsset(initial, false);
     document.dispatchEvent(new CustomEvent("marketchart:ready"));
   }
-  $("etfSelect")?.addEventListener("change", fillSecurities);
+  $("etfSelect")?.addEventListener("change", () => {
+    directAsset = null; fillSecurities();
+    document.dispatchEvent(new CustomEvent("marketchart:etfchange", { detail:{ symbol:$("etfSelect").value } }));
+  });
   $("securitySelect")?.addEventListener("change", render);
   document.querySelectorAll("[data-chart-type]").forEach(button => button.addEventListener("click", () => {
     chartType = button.dataset.chartType;
@@ -893,5 +907,6 @@
     if (code) loadPersonalTrades(code, security);
   });
   initChartInteractions(); updateChartType(); updateMaControls(); updateVolumeMaControls(); updateIndicatorControls(); updateTradeOverlayControls();
-  if (universalPicker) initUniversalPicker(); else { fillEtfs(); fillSecurities(); }
+  if ($("etfSelect")) { fillEtfs(); fillSecurities(); }
+  if (universalPicker) initUniversalPicker();
 })();
