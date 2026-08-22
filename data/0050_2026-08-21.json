@@ -1,6 +1,6 @@
 {
   "date": "2026-08-21",
-  "fetched_at": "2026-08-22T19:48:19+08:00",
+  "fetched_at": "2026-08-22T21:11:11+08:00",
   "count": 52,
   "self": {
     "open": 103.8,
@@ -895,45 +895,6 @@
       }
     },
     {
-      "code": "2884",
-      "name": "玉山金",
-      "market": "TW",
-      "assetType": "stock",
-      "weight": 0.6,
-      "shares": 372000098,
-      "open": 37.35,
-      "high": 38.0,
-      "low": 37.15,
-      "close": 38.0,
-      "prevClose": 37.35,
-      "change": 0.65,
-      "changePct": 1.74,
-      "amplitude": 2.28,
-      "volume": 21544456.0,
-      "quoteDate": "2026-08-21",
-      "inst": {
-        "foreign": -76590,
-        "trust": 45133,
-        "dealer": -131916,
-        "total": -163373,
-        "date": "2026-08-21"
-      },
-      "margin": {
-        "marginBuy": 38,
-        "marginSell": 182,
-        "marginCashRedemption": 0,
-        "marginPrevBalance": 5399,
-        "marginBalance": 5255,
-        "shortBuy": 1,
-        "shortSell": 18,
-        "shortStockRedemption": 0,
-        "shortPrevBalance": 622,
-        "shortBalance": 639,
-        "offsetting": 0,
-        "date": "2026-08-21"
-      }
-    },
-    {
       "code": "2408",
       "name": "南亞科",
       "market": "TW",
@@ -969,6 +930,45 @@
         "shortPrevBalance": 2791,
         "shortBalance": 2891,
         "offsetting": 66,
+        "date": "2026-08-21"
+      }
+    },
+    {
+      "code": "2884",
+      "name": "玉山金",
+      "market": "TW",
+      "assetType": "stock",
+      "weight": 0.6,
+      "shares": 372000098,
+      "open": 37.35,
+      "high": 38.0,
+      "low": 37.15,
+      "close": 38.0,
+      "prevClose": 37.35,
+      "change": 0.65,
+      "changePct": 1.74,
+      "amplitude": 2.28,
+      "volume": 21544456.0,
+      "quoteDate": "2026-08-21",
+      "inst": {
+        "foreign": -76590,
+        "trust": 45133,
+        "dealer": -131916,
+        "total": -163373,
+        "date": "2026-08-21"
+      },
+      "margin": {
+        "marginBuy": 38,
+        "marginSell": 182,
+        "marginCashRedemption": 0,
+        "marginPrevBalance": 5399,
+        "marginBalance": 5255,
+        "shortBuy": 1,
+        "shortSell": 18,
+        "shortStockRedemption": 0,
+        "shortPrevBalance": 622,
+        "shortBalance": 639,
+        "offsetting": 0,
         "date": "2026-08-21"
       }
     },
@@ -1090,45 +1090,6 @@
       }
     },
     {
-      "code": "2890",
-      "name": "永豐金",
-      "market": "TW",
-      "assetType": "stock",
-      "weight": 0.52,
-      "shares": 304693100,
-      "open": 39.3,
-      "high": 39.8,
-      "low": 39.15,
-      "close": 39.6,
-      "prevClose": 39.35,
-      "change": 0.25,
-      "changePct": 0.64,
-      "amplitude": 1.65,
-      "volume": 12337566.0,
-      "quoteDate": "2026-08-21",
-      "inst": {
-        "foreign": 2281154,
-        "trust": -388808,
-        "dealer": -179405,
-        "total": 1712941,
-        "date": "2026-08-21"
-      },
-      "margin": {
-        "marginBuy": 63,
-        "marginSell": 16,
-        "marginCashRedemption": 0,
-        "marginPrevBalance": 2142,
-        "marginBalance": 2189,
-        "shortBuy": 0,
-        "shortSell": 2,
-        "shortStockRedemption": 0,
-        "shortPrevBalance": 99,
-        "shortBalance": 101,
-        "offsetting": 0,
-        "date": "2026-08-21"
-      }
-    },
-    {
       "code": "3008",
       "name": "大立光",
       "market": "TW",
@@ -1164,6 +1125,45 @@
         "shortPrevBalance": 41,
         "shortBalance": 49,
         "offsetting": 3,
+        "date": "2026-08-21"
+      }
+    },
+    {
+      "code": "2890",
+      "name": "永豐金",
+      "market": "TW",
+      "assetType": "stock",
+      "weight": 0.52,
+      "shares": 304693100,
+      "open": 39.3,
+      "high": 39.8,
+      "low": 39.15,
+      "close": 39.6,
+      "prevClose": 39.35,
+      "change": 0.25,
+      "changePct": 0.64,
+      "amplitude": 1.65,
+      "volume": 12337566.0,
+      "quoteDate": "2026-08-21",
+      "inst": {
+        "foreign": 2281154,
+        "trust": -388808,
+        "dealer": -179405,
+        "total": 1712941,
+        "date": "2026-08-21"
+      },
+      "margin": {
+        "marginBuy": 63,
+        "marginSell": 16,
+        "marginCashRedemption": 0,
+        "marginPrevBalance": 2142,
+        "marginBalance": 2189,
+        "shortBuy": 0,
+        "shortSell": 2,
+        "shortStockRedemption": 0,
+        "shortPrevBalance": 99,
+        "shortBalance": 101,
+        "offsetting": 0,
         "date": "2026-08-21"
       }
     },
