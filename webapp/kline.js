@@ -497,6 +497,8 @@
       if (financialRequestKey !== key) return;
       if (!response.ok || !payload.ok) throw new Error(payload.error || "財務資料暫時無法取得");
       if (!payload.years?.length && !payload.quarters?.length) throw new Error("目前查無可用財報資料");
+      if (window.MarketChart) window.MarketChart.currentFinancials = payload;
+      document.dispatchEvent(new CustomEvent("marketchart:financials", { detail:{ asset:{ ...info }, payload } }));
       if (financialPeriod === "quarterly" && !(payload.quarters || []).length) financialPeriod = "annual";
       if (!(payload.years || []).length && (payload.quarters || []).length) financialPeriod = "quarterly";
       box.innerHTML = `<div class="financial-heading"><div><h3>財報趨勢</h3><p>${esc(name)}・年度／季度財務表現</p></div><span>${esc(payload.symbol)}</span></div><div class="financial-controls"><div class="financial-tabs" role="group" aria-label="選擇財務指標">${Object.entries(financialMetrics).map(([metric, item], index) => `<button type="button" data-financial-metric="${metric}" class="${index === 0 ? "active" : ""}">${item.label}</button>`).join("")}</div><div class="financial-period" role="group" aria-label="選擇財報期間"><span>期間</span><button type="button" data-financial-period="annual">年度</button><button type="button" data-financial-period="quarterly">季度</button></div><div class="financial-view" role="group" aria-label="選擇財報圖表類型"><span>圖型</span><button type="button" data-financial-mode="both">長條＋折線</button><button type="button" data-financial-mode="bar">長條</button><button type="button" data-financial-mode="line">折線</button></div></div><div class="financial-content"></div>`;
@@ -541,7 +543,9 @@
     try { currentRows = await loadHistory(info, snapshotRows); }
     catch (error) { currentRows = snapshotRows; if (!currentRows.length) $("status").textContent = error.message || "行情資料暫時無法取得"; }
     if (renderRequestKey !== key) return;
+    if (window.MarketChart) window.MarketChart.currentRows = currentRows.slice();
     $("status").textContent = currentRows.length ? `行情 ${currentRows.length} 日（${currentRows[0].date} ～ ${currentRows.at(-1).date}）` : "尚無完整 OHLC 資料";
+    document.dispatchEvent(new CustomEvent("marketchart:datachange", { detail:{ asset:{ ...info }, rows:currentRows.slice() } }));
     if (!currentRows.length) { $("chartBox").innerHTML = '<div class="empty">目前尚無可繪製的完整開高低收資料。</div>'; renderSignal([]); return; }
     if (viewport.key !== key) resetViewport(key); else setViewport(viewport.start, viewport.end);
     drawChart(); renderSignal(currentRows); renderNews(code, security, name);
@@ -791,11 +795,15 @@
   function selectDirectAsset(asset, updateUrl = true) {
     if (!asset) return;
     directAsset = { symbol:String(asset.symbol).toUpperCase(), name:asset.name || asset.symbol, market:String(asset.market).toUpperCase(), assetType:String(asset.assetType || "stock").toLowerCase(), exchange:asset.exchange || "" };
+    if (window.MarketChart) { window.MarketChart.currentAsset = { ...directAsset }; window.MarketChart.currentRows = []; window.MarketChart.currentFinancials = null; }
     if ($("assetSearch")) $("assetSearch").value = `${directAsset.symbol} ${directAsset.name}`;
     if ($("assetSelectedMeta")) $("assetSelectedMeta").textContent = `${assetTypeLabel(directAsset)}${directAsset.exchange ? `・${directAsset.exchange}` : ""}`;
     $("assetResults")?.classList.remove("open");
+    document.dispatchEvent(new CustomEvent("marketchart:assetchange", { detail:{ asset:{ ...directAsset } } }));
     if (updateUrl) {
-      const url = new URL(location.href); url.searchParams.set("view", "kline"); url.searchParams.set("market", directAsset.market); url.searchParams.set("symbol", directAsset.symbol); history.replaceState(null, "", url);
+      const url = new URL(location.href), currentView = url.searchParams.get("view");
+      if (!["overview", "kline", "institutional"].includes(currentView)) url.searchParams.set("view", "kline");
+      url.searchParams.set("market", directAsset.market); url.searchParams.set("symbol", directAsset.symbol); history.replaceState(null, "", url);
     }
     render();
   }
@@ -817,7 +825,7 @@
       if (event.key === "Enter") { event.preventDefault(); const first = catalogMatches(input.value)[0]; if (first) selectDirectAsset(first); }
     });
     document.addEventListener("pointerdown", event => { if (!event.target.closest?.(".asset-picker")) $("assetResults")?.classList.remove("open"); });
-    window.MarketChart = { selectAsset: asset => {
+    window.MarketChart = { currentAsset:null, currentRows:[], currentFinancials:null, selectAsset: asset => {
       const normalized = { symbol:String(asset.symbol || "").toUpperCase(), market:String(asset.market || "TW").toUpperCase(), assetType:String(asset.assetType || "stock").toLowerCase(), name:asset.name || asset.symbol };
       const matched = catalogAssets.find(item => item.market === normalized.market && item.symbol === normalized.symbol && item.assetType === normalized.assetType) || normalized;
       selectDirectAsset(matched);

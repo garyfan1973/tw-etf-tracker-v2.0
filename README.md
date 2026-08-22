@@ -85,7 +85,7 @@
 
 | 頁面 | 檔案 |
 | --- | --- |
-| 市場研究／完整 K 線 | `tracker.html?view=kline` |
+| 市場研究／完整 K 線 | `tracker.html?view=overview` |
 | ETF 持股資訊／加減碼 | `tracker.html` |
 | 配息日曆 | `dividends.html` |
 | 交易紀錄 | `transactions.html` |

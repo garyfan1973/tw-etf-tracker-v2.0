@@ -4,17 +4,17 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>市場研究｜投資研究工作台</title>
-  <meta http-equiv="refresh" content="0;url=tracker.html?view=kline">
+  <meta http-equiv="refresh" content="0;url=tracker.html?view=overview">
 </head>
 <body>
   <script>
     const target = new URL("tracker.html", location.href);
     const source = new URLSearchParams(location.search);
-    target.searchParams.set("view", "kline");
+    target.searchParams.set("view", "overview");
     if (source.get("market")) target.searchParams.set("market", source.get("market"));
     if (source.get("symbol")) target.searchParams.set("symbol", source.get("symbol"));
     location.replace(target);
   </script>
-  <p><a href="tracker.html?view=kline">前往市場研究</a></p>
+  <p><a href="tracker.html?view=overview">前往市場研究</a></p>
 </body>
 </html>
