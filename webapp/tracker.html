@@ -583,7 +583,7 @@
   <script src="theme.js"></script>
   <script src="config.js"></script>
   <script src="data.js"></script>
-  <script src="kline.js?v=20260822-1"></script>
+  <script src="kline.js?v=20260822-2"></script>
   <script type="module" src="auth.js"></script>
   <script>
     // 若 data.js 尚未產生，給出友善提示
@@ -869,12 +869,12 @@
         history.replaceState(null, "", pageUrl);
         const panels = {
           overview: ["overviewPanel"], change: ["changeChartPanel", "changeTablePanel"],
-          institutional: ["institutionalMarginPanel"]
+          kline: ["klinePanel"], institutional: ["institutionalMarginPanel"]
         };
         Object.entries(panels).forEach(([name, ids]) => {
           ids.forEach(id => { document.getElementById(id).style.display = name === mode ? "block" : "none"; });
         });
-        ["marketOverviewPanel","klinePanel","marketInstitutionalMarginPanel"].forEach(id => document.getElementById(id).style.display = "none");
+        ["marketOverviewPanel","marketInstitutionalMarginPanel"].forEach(id => document.getElementById(id).style.display = "none");
         document.getElementById("etfViewSwitch").style.display = "flex";
         document.getElementById("marketViewSwitch").style.display = "none";
         document.getElementById("marketAssetControls").style.display = "none";
@@ -888,7 +888,7 @@
         etfNav.style.color = "#fff"; etfNav.style.background = "var(--accent)"; etfNav.style.borderColor = "var(--accent)";
         const changeSummary = document.querySelector(".change-summary-inline");
         if (changeSummary) changeSummary.style.display = mode === "change" ? "inline-flex" : "none";
-        ["overview", "change", "institutional"].forEach(name => {
+        ["overview", "change", "kline", "institutional"].forEach(name => {
           const btn = document.getElementById(name + "ViewBtn");
           btn.classList.toggle("active", name === mode);
           btn.setAttribute("aria-selected", name === mode);
@@ -924,9 +924,9 @@
         if (mode === "institutional") renderMarketInstitutional();
       }
 
-      function syncKlineEtf() {
+      function syncKlineEtf(updateUrl = true) {
         if (!etfSel.value || !window.MarketChart?.selectAsset) return;
-        window.MarketChart.selectAsset({ market:"TW", symbol:etfSel.value, assetType:"etf", name:D.etfs[etfSel.value]?.name || etfSel.value });
+        window.MarketChart.selectAsset({ market:"TW", symbol:etfSel.value, assetType:"etf", name:D.etfs[etfSel.value]?.name || etfSel.value }, { updateUrl });
       }
 
       function etfCategory(code, name) {
@@ -1389,7 +1389,7 @@
       bindSort("full", "full");
       document.getElementById("overviewViewBtn").addEventListener("click", () => setViewMode("overview"));
       document.getElementById("changeViewBtn").addEventListener("click", () => setViewMode("change"));
-      document.getElementById("klineViewBtn").addEventListener("click", () => setMarketView("kline", true));
+      document.getElementById("klineViewBtn").addEventListener("click", () => { setViewMode("kline"); syncKlineEtf(false); });
       document.getElementById("institutionalViewBtn").addEventListener("click", () => setViewMode("institutional"));
       document.getElementById("marketOverviewViewBtn").addEventListener("click", () => setMarketView("overview"));
       document.getElementById("marketKlineViewBtn").addEventListener("click", () => setMarketView("kline"));
@@ -1413,7 +1413,7 @@
         if (marketWorkspace) setMarketView(marketViewMode);
       });
 
-      etfSel.addEventListener("change", () => { expandedInstitutional = ""; marginTrendAsset = "__etf__"; fillDates(); render(); });
+      etfSel.addEventListener("change", () => { expandedInstitutional = ""; marginTrendAsset = "__etf__"; fillDates(); render(); if (!marketWorkspace && viewMode === "kline") syncKlineEtf(false); });
       fromSel.addEventListener("change", render);
       toSel.addEventListener("change", render);
       q.addEventListener("input", render);

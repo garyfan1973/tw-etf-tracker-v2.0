@@ -82,6 +82,22 @@
     render();
   }
   function rowsFor(code, security) {
+    if (directAsset?.market === "TW") {
+      if (directAsset.assetType === "etf" && data.etfs[directAsset.symbol]) {
+        return (data.etfs[directAsset.symbol].snapshots || []).map(s => {
+          const q = s.self;
+          return q && [q.open, q.high, q.low, q.close].every(v => v != null) ? { date:s.date, ...q } : null;
+        }).filter(Boolean).sort((a, b) => a.date.localeCompare(b.date));
+      }
+      if (directAsset.assetType === "stock") {
+        const rows = new Map();
+        Object.values(data.etfs).forEach(etf => (etf.snapshots || []).forEach(s => {
+          const q = (s.holdings || []).find(h => h.code === directAsset.symbol);
+          if (q && [q.open, q.high, q.low, q.close].every(v => v != null)) rows.set(s.date, { date:s.date, ...q });
+        }));
+        return [...rows.values()].sort((a, b) => a.date.localeCompare(b.date));
+      }
+    }
     const etf = data.etfs[code];
     return (etf?.snapshots || []).map(s => {
       const q = security === "__ETF__" ? s.self : (s.holdings || []).find(h => h.code === security);
@@ -825,10 +841,10 @@
       if (event.key === "Enter") { event.preventDefault(); const first = catalogMatches(input.value)[0]; if (first) selectDirectAsset(first); }
     });
     document.addEventListener("pointerdown", event => { if (!event.target.closest?.(".asset-picker")) $("assetResults")?.classList.remove("open"); });
-    window.MarketChart = { currentAsset:null, currentRows:[], currentFinancials:null, selectAsset: asset => {
+    window.MarketChart = { currentAsset:null, currentRows:[], currentFinancials:null, selectAsset: (asset, options = {}) => {
       const normalized = { symbol:String(asset.symbol || "").toUpperCase(), market:String(asset.market || "TW").toUpperCase(), assetType:String(asset.assetType || "stock").toLowerCase(), name:asset.name || asset.symbol };
       const matched = catalogAssets.find(item => item.market === normalized.market && item.symbol === normalized.symbol && item.assetType === normalized.assetType) || normalized;
-      selectDirectAsset(matched);
+      selectDirectAsset(matched, options.updateUrl !== false);
     } };
     if (initial) selectDirectAsset(initial, false);
     document.dispatchEvent(new CustomEvent("marketchart:ready"));
