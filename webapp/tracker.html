@@ -115,9 +115,14 @@
     .indicator-control>span { display:block; margin-bottom:5px; color:var(--muted); font-size:12px; } .indicator-options { display:flex; gap:4px; padding:3px; border:1px solid var(--border); border-radius:9px; background:var(--card); } .indicator-options label { display:flex; align-items:center; gap:4px; padding:6px 8px; border-radius:6px; color:var(--text); cursor:pointer; white-space:nowrap; } .indicator-options label:has(input:checked) { background:var(--detail); color:var(--accent); } .indicator-options input { accent-color:var(--accent); }
     .ma-options { flex-wrap:wrap; }
     .kline-status { margin-left:auto; color:var(--muted); font-size:12px; }
-    .kline-chart-head { display:flex; align-items:baseline; margin:2px 0 2px; }
+    .kline-chart-head { display:flex; justify-content:space-between; align-items:baseline; gap:16px; margin:2px 0 2px; }
     .kline-chart-title { font-size:18px; font-weight:700; }
-    .kline-quote { color:var(--muted); font-size:13px; }
+    .kline-quote { margin-left:auto; font-size:18px; font-weight:700; font-variant-numeric:tabular-nums; white-space:nowrap; }
+    .kline-quote .price { color:var(--text); }
+    .kline-quote .price.price-up { color:var(--up); }
+    .kline-quote .price.price-down { color:var(--down); }
+    .kline-quote .change { margin-left:12px; }
+    .chart-display-controls { align-items:center; margin-top:5px; }
     .kline-legend { display:flex; gap:14px; flex-wrap:wrap; color:var(--muted); font-size:12px; margin:4px 0 8px; }
     .kline-legend span, .kline-legend button { display:inline-flex; align-items:center; gap:5px; }
     .kline-legend-toggle { padding:6px 9px; border:1px solid transparent; border-radius:7px; background:transparent; color:var(--muted); font:inherit; cursor:pointer; transition:background .15s, border-color .15s, color .15s, opacity .15s; }
@@ -138,7 +143,7 @@
     .chart-type button { padding:5px 9px; }
     .kline-chart-head { margin:2px 0 4px; }
     .kline-chart-title { font-size:16px; }
-    .kline-quote { font-size:12px; }
+    .kline-quote { font-size:16px; }
     .premium-box { gap:6px; margin:4px 0 6px; }
     .premium-main,.premium-kpi { padding:6px 8px; }
     .premium-main strong,.premium-kpi strong { margin-top:1px; font-size:14px; }
@@ -182,8 +187,8 @@
     .signal-main { display:grid; grid-template-columns:minmax(300px, 38%) 1fr; gap:24px; align-items:center; padding:12px 0 18px; }
     .signal-overall { text-align:center; } .signal-gauge-svg { display:block; width:100%; max-width:330px; height:auto; margin:auto; overflow:visible; }
     .signal-axis { fill:var(--muted); font-size:12px; } .signal-label { margin-top:-14px; font-size:25px; font-weight:800; } .signal-score { color:var(--muted); font-size:12px; margin-top:3px; }
-    .financial-panel { display:none; margin-top:18px; padding-top:16px; border-top:1px solid var(--border); } .financial-heading { display:flex; justify-content:space-between; gap:14px; align-items:flex-start; } .financial-heading h3 { margin:0 0 4px; font-size:18px; } .financial-heading p,.financial-heading>span,.financial-note { margin:0; color:var(--muted); font-size:12px; } .financial-tabs { display:flex; gap:6px; flex-wrap:wrap; margin:12px 0; } .financial-tabs button { padding:7px 12px; border:1px solid var(--border); border-radius:8px; background:var(--bg); color:var(--muted); cursor:pointer; } .financial-tabs button.active { color:#fff; border-color:var(--accent); background:var(--accent); } .financial-summary { display:grid; grid-template-columns:repeat(4,1fr); gap:8px; } .financial-summary div { padding:10px 12px; border:1px solid var(--border); border-radius:9px; background:var(--bg); } .financial-summary span { display:block; color:var(--muted); font-size:11px; } .financial-summary strong { display:block; margin-top:2px; font-size:15px; } .financial-chart { margin-top:8px; overflow-x:auto; } .financial-chart svg { display:block; width:100%; min-width:620px; height:auto; } .financial-chart .axis { fill:var(--muted); font-size:11px; } .financial-value { fill:var(--text); font-size:12px; font-weight:700; } .financial-note { line-height:1.6; } .financial-note a { color:var(--accent); } .financial-empty { margin-top:12px; padding:18px; text-align:center; color:var(--muted); border:1px dashed var(--border); border-radius:10px; }
-    .financial-controls { display:flex; justify-content:space-between; align-items:center; gap:12px; flex-wrap:wrap; } .financial-period,.financial-view { display:flex; align-items:center; gap:4px; padding:3px; border:1px solid var(--border); border-radius:9px; background:var(--bg); } .financial-period>span,.financial-view>span { padding:0 5px; color:var(--muted); font-size:11px; } .financial-period button,.financial-view button { padding:6px 9px; border:0; border-radius:6px; background:transparent; color:var(--muted); cursor:pointer; } .financial-period button.active,.financial-view button.active { color:#fff; background:var(--accent); } .financial-period button:disabled { opacity:.4; cursor:not-allowed; } .financial-bar { fill:color-mix(in srgb,var(--accent) 24%,transparent); stroke:color-mix(in srgb,var(--accent) 48%,transparent); stroke-width:1; } .financial-line { fill:none; stroke:var(--up); stroke-width:2.5; stroke-linecap:round; stroke-linejoin:round; } .financial-dot { fill:var(--card); stroke:var(--up); stroke-width:2.5; } .financial-zero { stroke-width:1.25; }
+    .financial-panel { display:none; margin-top:18px; padding:16px; border:1px solid var(--border); border-radius:13px; background:linear-gradient(145deg,var(--card),color-mix(in srgb,var(--accent) 3%,var(--card))); } .financial-heading { display:flex; justify-content:space-between; gap:14px; align-items:flex-start; } .financial-heading h3 { margin:0 0 4px; font-size:18px; color:var(--text); } .financial-heading p,.financial-heading>span,.financial-note { margin:0; color:var(--muted); font-size:12px; } .financial-heading>span { padding:3px 8px; border-radius:999px; color:var(--accent); background:color-mix(in srgb,var(--accent) 10%,transparent); font-weight:700; } .financial-tabs { display:flex; gap:6px; flex-wrap:wrap; margin:12px 0; } .financial-tabs button { padding:7px 12px; border:1px solid var(--border); border-radius:8px; background:var(--bg); color:var(--muted); cursor:pointer; } .financial-tabs button.active { color:#fff; border-color:var(--accent); background:var(--accent); box-shadow:0 4px 12px color-mix(in srgb,var(--accent) 22%,transparent); } .financial-summary { display:grid; grid-template-columns:repeat(4,1fr); gap:8px; } .financial-summary div { padding:10px 12px; border:1px solid color-mix(in srgb,var(--accent) 12%,var(--border)); border-radius:9px; background:color-mix(in srgb,var(--accent) 4%,var(--bg)); } .financial-summary span { display:block; color:var(--muted); font-size:11px; } .financial-summary strong { display:block; margin-top:2px; color:var(--accent); font-size:15px; } .financial-summary strong.up { color:var(--up); } .financial-summary strong.down { color:var(--down); } .financial-chart { margin-top:10px; overflow-x:auto; padding:8px 6px 0; border-radius:10px; background:color-mix(in srgb,var(--bg) 72%,transparent); } .financial-chart svg { display:block; width:100%; min-width:620px; height:auto; } .financial-chart .grid { stroke:color-mix(in srgb,var(--border) 72%,transparent); } .financial-chart .axis { fill:var(--muted); font-size:11px; } .financial-value { fill:var(--accent); font-size:12px; font-weight:700; } .financial-value.negative { fill:var(--down); } .financial-note { line-height:1.6; margin-top:7px; } .financial-note a { color:var(--accent); } .financial-empty { margin-top:12px; padding:18px; text-align:center; color:var(--muted); border:1px dashed var(--border); border-radius:10px; }
+    .financial-controls { display:flex; justify-content:space-between; align-items:center; gap:12px; flex-wrap:wrap; } .financial-period,.financial-view { display:flex; align-items:center; gap:4px; padding:3px; border:1px solid var(--border); border-radius:9px; background:var(--bg); } .financial-period>span,.financial-view>span { padding:0 5px; color:var(--muted); font-size:11px; } .financial-period button,.financial-view button { padding:6px 9px; border:0; border-radius:6px; background:transparent; color:var(--muted); cursor:pointer; } .financial-period button.active,.financial-view button.active { color:#fff; background:var(--accent); } .financial-period button:disabled { opacity:.4; cursor:not-allowed; } .financial-bar { fill:color-mix(in srgb,var(--accent) 68%,transparent); stroke:color-mix(in srgb,var(--accent) 88%,transparent); stroke-width:1; } .financial-bar.negative { fill:color-mix(in srgb,var(--down) 58%,transparent); stroke:var(--down); } .financial-line { fill:none; stroke:#e08a24; stroke-width:2.5; stroke-linecap:round; stroke-linejoin:round; } .financial-dot { fill:var(--card); stroke:#e08a24; stroke-width:2.5; } .financial-zero { stroke-width:1.25; }
     .signal-confidence { display:grid; grid-template-columns:1fr auto; gap:5px 12px; font-size:13px; } .signal-confidence i { grid-column:1 / -1; height:7px; background:var(--border); border-radius:10px; overflow:hidden; } .signal-confidence b { display:block; height:100%; background:var(--accent); border-radius:inherit; } .signal-confidence small { grid-column:1 / -1; color:var(--muted); }
     .signal-notes { display:grid; grid-template-columns:1fr 1fr; gap:12px; margin-top:14px; } .signal-notes section { padding:12px; border-radius:10px; background:color-mix(in srgb, var(--down) 8%, var(--card)); } .signal-notes section.risk { background:color-mix(in srgb, var(--up) 8%, var(--card)); } .signal-notes h4 { margin:0 0 7px; font-size:13px; } .signal-notes ul { margin:0; padding-left:18px; color:var(--muted); font-size:12px; line-height:1.65; } .signal-notes p { color:var(--muted); font-size:12px; margin:0; }
     .signal-components { display:grid; grid-template-columns:repeat(4,1fr); gap:10px; } .signal-component { text-align:center; padding:12px 8px; border:1px solid var(--border); border-radius:11px; background:var(--bg); } .signal-component h4 { margin:0; font-size:13px; } .signal-component .signal-gauge-svg { max-width:230px; } .signal-component strong, .signal-component small { display:block; } .signal-component strong { margin-top:0; font-size:15px; } .signal-component small { margin-top:5px; color:var(--muted); font-size:11px; }
@@ -292,6 +297,8 @@
       align-items: center; justify-content: center;
     }
     .theme-toggle:hover { border-color: var(--accent); }
+    .top-nav { overflow-x:auto; scrollbar-width:thin; }
+    .top-nav > a,.top-nav > button,.top-nav > span { flex:0 0 auto; white-space:nowrap; }
     @media (max-width: 640px) {
       .cards { grid-template-columns: repeat(2, 1fr); }
       .detail { display: grid; grid-template-columns: repeat(2, 1fr); overflow-x: visible; }
@@ -421,7 +428,7 @@
 </head>
 <body>
   <div class="wrap">
-    <nav style="display:flex;gap:8px;margin-bottom:14px;align-items:center;">
+    <nav class="top-nav" style="display:flex;gap:8px;margin-bottom:14px;align-items:center;">
       <a class="tracker-brand" href="index.html" aria-label="回到投資研究工作台首頁"><span class="tracker-mark" aria-hidden="true"></span><span>投資研究工作台</span></a>
       <a id="marketResearchNav" href="tracker.html?view=overview" style="text-decoration:none;font-size:14px;padding:6px 12px;border-radius:8px;color:var(--muted);border:1px solid var(--border);">市場研究</a>
       <a id="etfResearchNav" href="tracker.html" style="text-decoration:none;font-size:14px;padding:6px 12px;border-radius:8px;color:#fff;background:var(--accent);border:1px solid var(--accent);">ETF 持股</a>
@@ -472,14 +479,14 @@
     </div>
 
     <div id="etfViewSwitch" class="view-switch" role="tablist" aria-label="ETF 持股檢視方式">
-      <button id="overviewViewBtn" type="button" role="tab" aria-selected="false">總覽</button>
+      <button id="overviewViewBtn" type="button" role="tab" aria-selected="false">基本資料</button>
       <button id="changeViewBtn" class="active" type="button" role="tab" aria-selected="true">加減碼</button>
-      <button id="klineViewBtn" type="button" role="tab" aria-selected="false">K線圖</button>
+      <button id="klineViewBtn" type="button" role="tab" aria-selected="false">技術分析</button>
       <button id="institutionalViewBtn" type="button" role="tab" aria-selected="false">法人/資券</button>
     </div>
     <div id="marketViewSwitch" class="view-switch" role="tablist" aria-label="市場研究檢視方式" style="display:none;">
-      <button id="marketOverviewViewBtn" type="button" role="tab" aria-selected="false">總覽</button>
-      <button id="marketKlineViewBtn" type="button" role="tab" aria-selected="false">K線圖</button>
+      <button id="marketOverviewViewBtn" type="button" role="tab" aria-selected="false">基本資料</button>
+      <button id="marketKlineViewBtn" type="button" role="tab" aria-selected="false">技術分析</button>
       <button id="marketInstitutionalViewBtn" type="button" role="tab" aria-selected="false">法人/資券</button>
     </div>
     <div id="marketAssetControls" class="kline-controls" style="display:none;">
@@ -516,13 +523,12 @@
         <label>ETF<select id="etfSelect"></select></label>
         <label>標的<select id="securitySelect"></select></label>
       </div>
-      <div class="kline-controls">
-        <label>圖表<div class="chart-type" role="group" aria-label="圖表類型"><button type="button" data-chart-type="candle">K 線</button><button type="button" data-chart-type="line">收盤價線圖</button></div></label>
+      <div class="kline-chart-head"><div id="chartTitle" class="kline-chart-title">—</div><div id="chartQuote" class="kline-quote"></div></div>
+      <div id="premiumBox" class="premium-box"></div>
+      <div class="kline-controls chart-display-controls">
+        <div class="chart-type" role="group" aria-label="圖表類型"><button type="button" data-chart-type="candle">K 線</button><button type="button" data-chart-type="line">收盤價線圖</button></div>
         <div id="status" class="kline-status"></div>
       </div>
-      <div class="kline-chart-head"><div id="chartTitle" class="kline-chart-title">—</div></div>
-      <div id="premiumBox" class="premium-box"></div>
-      <div id="tradeBox" class="trade-box"></div>
       <div class="kline-legend" role="group" aria-label="均線圖例與開關"><span id="closeLegend" style="display:none"><i class="swatch" style="background:var(--accent)"></i>收盤價</span><button type="button" class="kline-legend-toggle" data-ma-period="5" aria-pressed="true"><i class="swatch" style="background:var(--ma5)"></i>MA5</button><button type="button" class="kline-legend-toggle" data-ma-period="10" aria-pressed="true"><i class="swatch" style="background:var(--ma10)"></i>MA10</button><button type="button" class="kline-legend-toggle" data-ma-period="20" aria-pressed="true"><i class="swatch" style="background:var(--ma20)"></i>MA20</button><button type="button" class="kline-legend-toggle" data-ma-period="60" aria-pressed="true"><i class="swatch" style="background:var(--ma60)"></i>MA60</button><button type="button" class="kline-legend-toggle" data-ma-period="120" aria-pressed="true"><i class="swatch" style="background:var(--ma120)"></i>MA120</button><button type="button" class="kline-legend-toggle" data-ma-period="240" aria-pressed="true"><i class="swatch" style="background:var(--ma240)"></i>MA240</button><button type="button" class="kline-legend-toggle volume-ma-start" data-volume-ma-period="5" aria-pressed="true"><i class="swatch" style="background:var(--vol5)"></i>VOL5</button><button type="button" class="kline-legend-toggle" data-volume-ma-period="10" aria-pressed="true"><i class="swatch" style="background:var(--vol10)"></i>VOL10</button></div>
       <div class="kline-legend" role="group" aria-label="技術指標與交易標記圖例與開關"><button type="button" class="kline-legend-toggle" data-indicator="bollinger" aria-pressed="false"><i class="swatch" style="background:var(--bb)"></i>布林通道(20,2)</button><button type="button" class="kline-legend-toggle" data-indicator="kd" aria-pressed="true"><i class="swatch" style="background:var(--kd-k)"></i>K(9)</button><button type="button" class="kline-legend-toggle" data-indicator="kd" aria-pressed="true"><i class="swatch" style="background:var(--kd-d)"></i>D(9)</button><button type="button" class="kline-legend-toggle" data-indicator="macd" aria-pressed="false"><i class="swatch" style="background:var(--macd)"></i>MACD</button><button type="button" class="kline-legend-toggle" data-indicator="rsi" aria-pressed="false"><i class="swatch" style="background:var(--rsi)"></i>RSI(14)</button><button type="button" class="kline-legend-toggle" data-trade-overlay="buy" aria-pressed="true"><i class="swatch" style="background:var(--trade-buy);height:7px;width:7px;transform:rotate(45deg)"></i>個人買進</button><button type="button" class="kline-legend-toggle" data-trade-overlay="sell" aria-pressed="true"><i class="swatch" style="background:var(--trade-sell);height:7px;width:7px;transform:rotate(45deg)"></i>個人賣出</button><button type="button" class="kline-legend-toggle" data-trade-overlay="cost" aria-pressed="true"><i class="swatch" style="border-top:2px dashed var(--trade-cost);background:none"></i>持倉成本</button></div>
       <div class="range-toolbar" role="group" aria-label="選擇圖表期間"><span>期間</span><button type="button" data-range-days="1">1天</button><button type="button" data-range-days="5">5天</button><button type="button" data-range-days="10">10天</button><button type="button" data-range-days="20">1月</button><button type="button" data-range-days="60">3月</button><button type="button" data-range-days="120">6月</button><button type="button" data-range-days="240">1年</button><button type="button" data-range-days="480">2年</button><button type="button" data-range-days="all">全部</button><button type="button" id="rangeReset">重設</button><button type="button" id="tooltipToggle" class="tooltip-toggle" aria-pressed="true">提示開</button><small id="visibleRange" class="range-help"></small></div>
@@ -587,7 +593,7 @@
   <script src="theme.js"></script>
   <script src="config.js"></script>
   <script src="data.js"></script>
-  <script src="kline.js?v=20260822-3"></script>
+  <script src="kline.js?v=20260823-1"></script>
   <script type="module" src="auth.js"></script>
   <script>
     // 若 data.js 尚未產生，給出友善提示

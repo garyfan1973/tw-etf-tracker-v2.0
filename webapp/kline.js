@@ -288,7 +288,7 @@
     const box = $("newsPanel"); if (!box) return;
     const info = securityInfo(code, security), market = info.market, symbol = info.symbol;
     const requestKey = `${symbol}|${name}|${market}`; box.dataset.requestKey = requestKey;
-    box.innerHTML = `<div class="news-heading"><div><h3>最新消息</h3><p>官方重大訊息優先，並彙整近 7 日媒體報導。</p></div><span class="news-status">載入中…</span></div><div class="news-loading">正在查詢 ${esc(name || symbol)} 的相關消息…</div>`;
+    box.innerHTML = `<div class="news-heading"><div><h3>最新消息</h3></div><span class="news-status">載入中…</span></div><div class="news-loading">正在查詢 ${esc(name || symbol)} 的相關消息…</div>`;
     try {
       const response = await fetch(`/api/news?code=${encodeURIComponent(symbol)}&name=${encodeURIComponent(name || symbol)}&market=${encodeURIComponent(market)}`, { cache:"no-store" });
       const payload = await response.json();
@@ -296,10 +296,10 @@
       if (!response.ok || !payload.ok) throw new Error(payload.error || "消息來源暫時無法連線");
       const items = Array.isArray(payload.items) ? payload.items : [];
       const cards = items.map(item => `<article class="news-item ${item.type === "official" ? "official" : ""}"><div class="news-meta"><span class="news-type">${item.type === "official" ? "官方公告" : "媒體報導"}</span><span>${esc(item.category || "最新消息")}</span><time>${esc(newsDate(item.publishedAt))}</time></div><h4><a href="${esc(item.url)}" target="_blank" rel="noopener noreferrer">${esc(item.title)}</a></h4><div class="news-source">來源：${esc(item.source || "未標示")}${item.factDate ? `　事件日：${esc(item.factDate)}` : ""}</div></article>`).join("");
-      box.innerHTML = `<div class="news-heading"><div><h3>最新消息</h3><p>官方重大訊息優先，並彙整近 7 日媒體報導。</p></div><span class="news-status">官方 ${payload.officialCount || 0} 則・新聞 ${payload.newsCount || 0} 則</span></div>${cards ? `<div class="news-list">${cards}</div>` : `<div class="news-empty">近 7 日未找到 ${esc(name || symbol)} 的相關消息。</div>`}<div class="news-footnote">媒體標題由 Google News RSS 彙整，著作權屬原媒體；點擊後前往原始來源。消息不直接計入技術面操作訊號，請自行判讀事件影響。</div>`;
+      box.innerHTML = `<div class="news-heading"><div><h3>最新消息</h3></div><span class="news-status">官方 ${payload.officialCount || 0} 則・新聞 ${payload.newsCount || 0} 則</span></div>${cards ? `<div class="news-list">${cards}</div>` : `<div class="news-empty">近 7 日未找到 ${esc(name || symbol)} 的相關消息。</div>`}<div class="news-footnote">媒體標題由 Google News RSS 彙整，著作權屬原媒體；點擊後前往原始來源。消息不直接計入技術面操作訊號，請自行判讀事件影響。</div>`;
     } catch (error) {
       if (box.dataset.requestKey !== requestKey) return;
-      box.innerHTML = `<div class="news-heading"><div><h3>最新消息</h3><p>官方重大訊息與近 7 日媒體報導。</p></div></div><div class="news-empty">${esc(error.message || "消息來源暫時無法連線，請稍後重試。")}</div>`;
+      box.innerHTML = `<div class="news-heading"><div><h3>最新消息</h3></div></div><div class="news-empty">${esc(error.message || "消息來源暫時無法連線，請稍後重試。")}</div>`;
     }
   }
   function updateChartType() {
@@ -332,6 +332,10 @@
   function updateTradeOverlayControls() {
     document.querySelectorAll("[data-trade-overlay]").forEach(button => {
       button.setAttribute("aria-pressed", String(visibleTradeOverlays.has(button.dataset.tradeOverlay)));
+      if (button.dataset.tradeOverlay === "cost") {
+        const available = Number.isFinite(personalTrades.averageCost);
+        button.title = available ? `目前持倉平均成本 ${price(personalTrades.averageCost)} ${personalTrades.currency || ""}`.trim() : "目前標的沒有未平倉持倉成本；需先建立個人交易紀錄";
+      }
     });
   }
   function premiumTone(value) {
@@ -391,7 +395,6 @@
     const info = securityInfo(code, security), key = `${info.symbol}|${info.market}`;
     personalTrades = { key, markers:[], openShares:0, averageCost:null, currency:"" };
     if (currentRows.length) drawChart();
-    if (!$("tradeBox")) return;
     if (!["TW", "US"].includes(info.market)) { renderTradeBox("目前個人交易日誌只支援台灣與美國市場。"); return; }
     const auth = window.ETFAuth;
     if (!auth?.isConfigured?.()) { renderTradeBox("個人交易圖層尚未設定。"); return; }
@@ -408,6 +411,7 @@
       if (fillsResult.error) throw fillsResult.error;
       personalTrades = { key, ...tradeSummary(fillsResult.data || []) };
       renderTradeBox();
+      updateTradeOverlayControls();
       if (currentRows.length) drawChart();
     } catch (_) {
       if (personalTrades.key === key) renderTradeBox("個人進出明細暫時無法讀取，請稍後重試。");
@@ -450,8 +454,10 @@
     const floor = Math.min(0, ...finiteValues), ceiling = Math.max(0, ...finiteValues), span = ceiling - floor || 1;
     const yoyFloor = Math.min(0, ...finiteYoy), yoyCeiling = Math.max(0, ...finiteYoy), yoySpan = yoyCeiling - yoyFloor || 1;
     const plotWidth = width - padL - padR, plotHeight = height - padT - padB;
-    const barWidth = Math.min(54, plotWidth / Math.max(plotRows.length, 1) * .58);
-    const plotLeft = padL + barWidth / 2, plotRight = width - padR - barWidth / 2;
+    const bandWidth = Math.min(financialPeriod === "annual" ? 118 : 82, plotWidth / Math.max(plotRows.length, 1));
+    const contentWidth = bandWidth * plotRows.length;
+    const barWidth = Math.min(78, bandWidth * .68);
+    const plotLeft = (width - contentWidth) / 2 + bandWidth / 2, plotRight = plotLeft + bandWidth * Math.max(plotRows.length - 1, 0);
     const x = index => plotLeft + index * (plotRight - plotLeft) / Math.max(plotRows.length - 1, 1);
     const y = value => padT + (ceiling - value) * plotHeight / span;
     const yoyY = value => padT + (yoyCeiling - value) * plotHeight / yoySpan;
@@ -461,14 +467,14 @@
     const bars = showBar ? values.map((value, index) => {
       if (!Number.isFinite(value)) return "";
       const valueY = y(value), rectY = Math.min(valueY, baseline), rectHeight = Math.max(1, Math.abs(baseline - valueY));
-      return `<rect x="${x(index) - barWidth / 2}" y="${rectY}" width="${barWidth}" height="${rectHeight}" rx="5" class="financial-bar"/>`;
+      return `<rect x="${x(index) - barWidth / 2}" y="${rectY}" width="${barWidth}" height="${rectHeight}" rx="6" class="financial-bar${value < 0 ? " negative" : ""}"/>`;
     }).join("") : "";
     const trend = showLine ? `<polyline points="${points}" class="financial-line"/>${yoyValues.map((value, index) => Number.isFinite(value) ? `<g data-financial-yoy="${value.toFixed(2)}" data-low-base="${yoyLowBases[index]}" data-period="${esc(plotRows[index].year)}"><circle cx="${x(index)}" cy="${yoyY(value)}" r="4" class="financial-dot"/><circle cx="${x(index)}" cy="${yoyY(value)}" r="13" class="financial-dot-hit"/></g>` : "").join("")}` : "";
     const grid = [0, .25, .5, .75, 1].map(ratio => {
       const leftValue = ceiling - ratio * span, rightValue = yoyCeiling - ratio * yoySpan, yy = padT + ratio * plotHeight;
       return `<line x1="${padL}" x2="${width-padR}" y1="${yy}" y2="${yy}" class="grid"/><text x="${padL-12}" y="${yy+4}" text-anchor="end" class="axis">${esc(metric === "eps" ? price(leftValue) : compactMoney(leftValue, ""))}</text><text x="${width-padR+12}" y="${yy+4}" class="axis">${rightValue.toFixed(0)}%</text>`;
     }).join("");
-    const labels = plotRows.map((row, index) => `<g><text x="${x(index)}" y="${Math.max(16, y(values[index]) - 9)}" text-anchor="middle" class="financial-value">${esc(metric === "eps" ? price(values[index]) : compactMoney(values[index], ""))}</text><text x="${x(index)}" y="${height - 14}" text-anchor="middle" class="axis">${esc(row.year)}</text></g>`).join("");
+    const labels = plotRows.map((row, index) => `<g><text x="${x(index)}" y="${Math.max(16, y(values[index]) - 9)}" text-anchor="middle" class="financial-value${values[index] < 0 ? " negative" : ""}">${esc(metric === "eps" ? price(values[index]) : compactMoney(values[index], ""))}</text><text x="${x(index)}" y="${height - 14}" text-anchor="middle" class="axis">${esc(row.year)}</text></g>`).join("");
     const latest = plotRows.at(-1), latestIndex = rows.indexOf(latest), previousIndex = latestIndex - yoyOffset, currency = latest.currency || "";
     const latestValue = metric === "eps" ? `${price(latest[metric])} ${currency}` : compactMoney(latest[metric], currency);
     const yoy = previousIndex >= 0 ? growthText(Number(latest[metric]), Number(rows[previousIndex][metric])) : "—";
@@ -554,6 +560,7 @@
     renderRequestKey = key; currentRows = snapshotRows; candlePoints = [];
     const name = info.name;
     $("chartTitle").textContent = `${name} ${info.symbol}`;
+    if ($("chartQuote")) $("chartQuote").innerHTML = "";
     $("status").textContent = "載入兩年歷史行情…";
     renderPremium(code, security);
     loadPersonalTrades(code, security); renderFinancials(code, security, name);
@@ -561,6 +568,14 @@
     catch (error) { currentRows = snapshotRows; if (!currentRows.length) $("status").textContent = error.message || "行情資料暫時無法取得"; }
     if (renderRequestKey !== key) return;
     if (window.MarketChart) window.MarketChart.currentRows = currentRows.slice();
+    if ($("chartQuote") && currentRows.length) {
+      const latest = currentRows.at(-1), previous = currentRows.at(-2), reference = Number.isFinite(Number(latest.prevClose)) ? Number(latest.prevClose) : Number(previous?.close);
+      const change = Number.isFinite(Number(latest.change)) ? Number(latest.change) : Number.isFinite(reference) ? Number(latest.close) - reference : null;
+      const changePct = Number.isFinite(Number(latest.changePct)) ? Number(latest.changePct) : reference && change != null ? change / reference * 100 : null;
+      const tone = change > 0 ? "price-up" : change < 0 ? "price-down" : "";
+      const arrow = change > 0 ? "▲" : change < 0 ? "▼" : "";
+      $("chartQuote").innerHTML = `<span class="price ${tone}">${price(latest.close)}</span><span class="change ${tone}">${arrow} ${change == null ? "—" : `${change >= 0 ? "+" : ""}${price(change)}`}　${changePct == null ? "—" : `${changePct >= 0 ? "+" : ""}${changePct.toFixed(2)}%`}</span>`;
+    }
     $("status").textContent = currentRows.length ? `行情 ${currentRows.length} 日（${currentRows[0].date} ～ ${currentRows.at(-1).date}）` : "尚無完整 OHLC 資料";
     document.dispatchEvent(new CustomEvent("marketchart:datachange", { detail:{ asset:{ ...info }, rows:currentRows.slice() } }));
     if (!currentRows.length) { $("chartBox").innerHTML = '<div class="empty">目前尚無可繪製的完整開高低收資料。</div>'; renderSignal([]); return; }
@@ -839,7 +854,8 @@
     });
     const params = new URLSearchParams(location.search), wantedMarket = (params.get("market") || "TW").toUpperCase(), wantedSymbol = (params.get("symbol") || "00981A").toUpperCase();
     const initial = catalogAssets.find(asset => asset.market === wantedMarket && asset.symbol === wantedSymbol) || catalogAssets.find(asset => asset.market === "TW" && asset.symbol === "0050") || catalogAssets[0];
-    input.addEventListener("focus", renderAssetResults);
+    input.addEventListener("focus", () => { input.select(); renderAssetResults(); });
+    input.addEventListener("click", () => input.select());
     input.addEventListener("input", renderAssetResults);
     input.addEventListener("keydown", event => {
       if (event.key === "Escape") $("assetResults")?.classList.remove("open");
