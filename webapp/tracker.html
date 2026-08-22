@@ -420,6 +420,68 @@
     .financial-tooltip { position:absolute; z-index:4; display:grid; gap:1px; min-width:92px; padding:6px 8px; border:1px solid var(--border); border-radius:7px; background:var(--card); color:var(--text); box-shadow:0 5px 16px rgba(0,0,0,.2); font-size:11px; line-height:1.35; pointer-events:none; }
     .financial-tooltip[hidden] { display:none; }
     .financial-tooltip span { color:var(--up); font-weight:700; white-space:nowrap; }
+    /* Market overview: compact, information-rich, and visually layered. */
+    .market-overview-panel { padding:14px; background:linear-gradient(145deg,var(--card),color-mix(in srgb,var(--accent) 2.5%,var(--card))); }
+    .market-overview-head { padding:2px 2px 12px; border-bottom:1px solid var(--border); }
+    .market-overview-title { line-height:1.25; }
+    .market-overview-quote strong { font-size:26px; font-variant-numeric:tabular-nums; }
+    .market-overview-quote span { font-weight:700; font-variant-numeric:tabular-nums; }
+    .market-performance-grid { display:grid; grid-template-columns:1.35fr repeat(3,1fr); gap:8px; margin-top:12px; }
+    .market-performance-card { min-height:88px; padding:11px 13px; border:1px solid var(--border); border-radius:11px; background:var(--bg); }
+    .market-performance-card .label,.market-metric-card .label { color:var(--muted); font-size:11px; }
+    .market-performance-card strong { display:block; margin-top:3px; font-size:19px; font-variant-numeric:tabular-nums; }
+    .market-performance-card small { display:block; margin-top:4px; color:var(--muted); font-size:10px; }
+    .market-range-values { display:flex; justify-content:space-between; gap:8px; margin-top:4px; font-size:12px; font-weight:700; }
+    .market-range-track { position:relative; height:7px; margin-top:10px; border-radius:999px; background:linear-gradient(90deg,color-mix(in srgb,var(--down) 55%,var(--border)),color-mix(in srgb,var(--accent) 42%,var(--border)),color-mix(in srgb,var(--up) 55%,var(--border))); }
+    .market-range-marker { position:absolute; top:50%; width:12px; height:12px; border:2px solid var(--card); border-radius:50%; background:var(--accent); box-shadow:0 1px 5px rgba(0,0,0,.24); transform:translate(-50%,-50%); }
+    .market-section { margin-top:10px; padding:13px; border:1px solid var(--border); border-radius:11px; background:var(--bg); }
+    .market-section-head { display:flex; justify-content:space-between; align-items:baseline; gap:12px; margin-bottom:9px; }
+    .market-section-head h2 { margin:0; font-size:15px; }
+    .market-section-head span { color:var(--muted); font-size:10px; }
+    .market-metric-grid { display:grid; grid-template-columns:repeat(6,minmax(0,1fr)); gap:7px; }
+    .market-metric-card { min-width:0; padding:9px 10px; border:1px solid color-mix(in srgb,var(--accent) 10%,var(--border)); border-radius:9px; background:color-mix(in srgb,var(--accent) 3%,var(--card)); }
+    .market-metric-card strong { display:block; margin-top:3px; overflow:hidden; color:var(--text); font-size:14px; text-overflow:ellipsis; white-space:nowrap; font-variant-numeric:tabular-nums; }
+    .market-overview-layout { display:grid; grid-template-columns:minmax(0,1.45fr) minmax(260px,.75fr); gap:10px; }
+    .market-profile-text { margin:0; color:var(--muted); font-size:12px; line-height:1.75; }
+    .market-profile-card details { margin-top:7px; color:var(--muted); font-size:11px; }
+    .market-profile-card summary { color:var(--accent); cursor:pointer; }
+    .market-profile-facts { display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:7px; margin-top:10px; }
+    .market-profile-fact { padding:8px 9px; border-radius:8px; background:var(--card); }
+    .market-profile-fact span { display:block; color:var(--muted); font-size:10px; }
+    .market-profile-fact strong { display:block; margin-top:2px; font-size:12px; line-height:1.45; }
+    .market-risk-list { display:grid; gap:8px; }
+    .market-risk-item { display:grid; grid-template-columns:1fr auto; gap:3px 10px; padding-bottom:7px; border-bottom:1px dashed var(--border); }
+    .market-risk-item:last-child { padding-bottom:0; border-bottom:0; }
+    .market-risk-item span,.market-risk-item small { color:var(--muted); font-size:10px; }
+    .market-risk-item strong { font-size:13px; }
+    .market-risk-item small { grid-column:1/-1; }
+    .market-allocation-grid { display:grid; grid-template-columns:1fr 1fr; gap:14px; }
+    .market-allocation-title { margin-bottom:7px; font-size:12px; font-weight:700; }
+    .market-bar-list { display:grid; gap:7px; }
+    .market-bar-row { display:grid; grid-template-columns:minmax(90px,1fr) minmax(110px,1.6fr) 48px; gap:8px; align-items:center; font-size:11px; }
+    .market-bar-name { overflow:hidden; text-overflow:ellipsis; white-space:nowrap; }
+    .market-bar-track { height:7px; overflow:hidden; border-radius:999px; background:var(--border); }
+    .market-bar-fill { display:block; height:100%; border-radius:inherit; background:linear-gradient(90deg,var(--accent),#7a91f3); }
+    .market-bar-list.sectors .market-bar-fill { background:linear-gradient(90deg,#16a085,#56c5b1); }
+    .market-bar-value { text-align:right; color:var(--muted); font-variant-numeric:tabular-nums; }
+    .market-financial-summary { grid-template-columns:repeat(6,minmax(0,1fr)); }
+    .market-financial-summary>div { background:var(--card); }
+    .market-financial-summary strong.up { color:var(--up); }
+    .market-financial-summary strong.down { color:var(--down); }
+    .market-mini-trends { display:grid; grid-template-columns:repeat(3,minmax(0,1fr)); gap:8px; margin-top:8px; }
+    .market-mini-trend { padding:9px 10px; border:1px solid var(--border); border-radius:9px; background:var(--card); }
+    .market-mini-trend-head { display:flex; justify-content:space-between; gap:8px; color:var(--muted); font-size:10px; }
+    .market-mini-trend-head strong { color:var(--text); font-size:12px; }
+    .market-mini-trend svg { display:block; width:100%; height:44px; margin-top:4px; overflow:visible; }
+    .market-mini-line { fill:none; stroke:var(--accent); stroke-width:2.5; stroke-linecap:round; stroke-linejoin:round; }
+    .market-mini-area { fill:color-mix(in srgb,var(--accent) 10%,transparent); }
+    .market-event-list { display:grid; grid-template-columns:repeat(3,minmax(0,1fr)); gap:7px; }
+    .market-event { padding:9px 10px; border-left:3px solid var(--accent); border-radius:8px; background:var(--card); }
+    .market-event span { display:block; color:var(--muted); font-size:10px; }
+    .market-event strong { display:block; margin-top:2px; font-size:12px; }
+    .market-event small { display:block; margin-top:2px; color:var(--muted); font-size:10px; }
+    @media(max-width:900px){.market-metric-grid,.market-financial-summary{grid-template-columns:repeat(3,minmax(0,1fr))}.market-performance-grid{grid-template-columns:repeat(2,minmax(0,1fr))}.market-performance-card:first-child{grid-column:1/-1}}
+    @media(max-width:700px){.market-overview-layout,.market-allocation-grid{grid-template-columns:1fr}.market-mini-trends,.market-event-list{grid-template-columns:1fr}.market-profile-facts{grid-template-columns:1fr}.market-bar-row{grid-template-columns:minmax(90px,1fr) minmax(90px,1.2fr) 44px}}
   </style>
   <script>
     // 進頁前先套用已存的主題，避免閃爍
@@ -1010,38 +1072,104 @@
         }
         return { text:profile.business || (asset.name + " 是在" + (asset.market === "TW" ? "台灣" : "美國") + "市場掛牌交易的股票，目前尚無更完整的公司業務摘要。"), source:profile.source || "標的清單", industry:profile.industry || profile.sector || "尚無分類" };
       }
+      function marketReturn(rows, days) {
+        if (!Array.isArray(rows) || rows.length <= days) return null;
+        const current = Number(rows.at(-1)?.close), previous = Number(rows.at(-(days + 1))?.close);
+        return Number.isFinite(current) && Number.isFinite(previous) && previous ? (current / previous - 1) * 100 : null;
+      }
+      function marketStats(rows) {
+        const recent = (rows || []).slice(-252), latest = recent.at(-1) || {};
+        const highs = recent.map(row => Number(row.high)).filter(Number.isFinite), lows = recent.map(row => Number(row.low)).filter(Number.isFinite);
+        const high = highs.length ? Math.max(...highs) : null, low = lows.length ? Math.min(...lows) : null, close = Number(latest.close);
+        const returns = recent.slice(1).map((row,index) => { const before=Number(recent[index].close), now=Number(row.close); return before && Number.isFinite(now) ? now / before - 1 : null; }).filter(Number.isFinite);
+        const mean = returns.length ? returns.reduce((sum,value)=>sum+value,0)/returns.length : null;
+        const variance = returns.length > 1 ? returns.reduce((sum,value)=>sum+(value-mean)**2,0)/(returns.length-1) : null;
+        const volumes = (rows || []).slice(-20).map(row=>Number(row.volume)).filter(Number.isFinite), avgVolume = volumes.length ? volumes.reduce((sum,value)=>sum+value,0)/volumes.length : null;
+        return { high, low, close, rangePosition:Number.isFinite(close)&&high!=null&&low!=null&&high!==low?(close-low)/(high-low)*100:null, distanceHigh:Number.isFinite(close)&&high? (close/high-1)*100:null, volatility:variance==null?null:Math.sqrt(variance)*Math.sqrt(252)*100, avgVolume, month:marketReturn(rows,20), quarter:marketReturn(rows,60), year:marketReturn(rows,240) };
+      }
+      const marketPct = value => value == null || !Number.isFinite(Number(value)) ? "—" : (Number(value) > 0 ? "+" : "") + Number(value).toFixed(2) + "%";
+      const marketTone = value => Number(value) > 0 ? "price-up" : Number(value) < 0 ? "price-down" : "";
+      const marketMetricCard = (label,value,tone="") => '<div class="market-metric-card"><span class="label">'+esc(label)+'</span><strong class="'+tone+'">'+esc(value == null ? "—" : value)+'</strong></div>';
+      function marketSparkline(values) {
+        const nums=(values||[]).map(Number).filter(Number.isFinite); if(nums.length<2)return '<div class="data-gap">資料不足</div>';
+        const width=180,height=44,pad=3,min=Math.min(...nums),max=Math.max(...nums),span=max-min||1;
+        const points=nums.map((value,index)=>`${pad+index*(width-pad*2)/Math.max(1,nums.length-1)},${pad+(max-value)*(height-pad*2)/span}`).join(" ");
+        const first=points.split(" ")[0],last=points.split(" ").at(-1);
+        return `<svg viewBox="0 0 ${width} ${height}" aria-hidden="true"><polygon class="market-mini-area" points="${first.split(",")[0]},${height} ${points} ${last.split(",")[0]},${height}"/><polyline class="market-mini-line" points="${points}"/></svg>`;
+      }
+      function marketFinancialTrend(label, rows, key, currency) {
+        const usable=(rows||[]).filter(row=>Number.isFinite(Number(row[key]))).slice(-5), latest=usable.at(-1), previous=usable.at(-2), value=latest?Number(latest[key]):null;
+        const growth=latest&&previous&&Number(previous[key]) ? (value/Number(previous[key])-1)*100 : null;
+        const display=key==="eps"?(value==null?"—":value.toLocaleString("en-US",{maximumFractionDigits:2})):marketCompactMoney(value,currency);
+        return '<article class="market-mini-trend"><div class="market-mini-trend-head"><strong>'+esc(label)+'</strong><span class="'+marketTone(growth)+'">'+esc(marketPct(growth))+'</span></div>'+marketSparkline(usable.map(row=>row[key]))+'<div class="market-mini-trend-head"><span>'+esc(usable[0]?.year||"—")+' → '+esc(latest?.year||"—")+'</span><strong>'+esc(display)+'</strong></div></article>';
+      }
       function renderMarketFinancialSummary() {
-        const box = document.getElementById("marketFinancialSummary");
-        if (!box || !marketAsset || marketAsset.assetType === "etf") return;
-        const payload = marketFinancialPayload;
-        if (!payload || !Array.isArray(payload.years) || !payload.years.length) { box.innerHTML = '<div class="empty" style="grid-column:1/-1;">財務摘要載入中或目前尚無資料。</div>'; return; }
-        const latest = payload.years[payload.years.length - 1], currency = latest.currency || "";
-        box.innerHTML = '<div><span>' + esc(latest.year || "最新年度") + ' 營收</span><strong>' + esc(marketCompactMoney(latest.revenue, currency)) + '</strong></div>' +
-          '<div><span>EPS</span><strong>' + (latest.eps == null ? "—" : Number(latest.eps).toLocaleString("en-US", { maximumFractionDigits:2 })) + '</strong></div>' +
-          '<div><span>淨利</span><strong>' + esc(marketCompactMoney(latest.netIncome, currency)) + '</strong></div>' +
-          '<div><span>自由現金流</span><strong>' + esc(marketCompactMoney(latest.freeCashFlow, currency)) + '</strong></div>';
+        const box=document.getElementById("marketFinancialSummary"); if(!box||!marketAsset||marketAsset.assetType==="etf")return;
+        const payload=marketFinancialPayload, years=payload?.years||[];
+        if(!years.length){box.innerHTML='<div class="empty" style="grid-column:1/-1;">財務摘要載入中或目前尚無資料。</div>';return;}
+        const latest=years.at(-1),previous=years.at(-2)||{},currency=latest.currency||"";
+        const revenueGrowth=Number(previous.revenue)?(Number(latest.revenue)/Number(previous.revenue)-1)*100:null;
+        const operatingMargin=Number(latest.revenue)?Number(latest.operatingIncome)/Number(latest.revenue)*100:null;
+        const netMargin=Number(latest.revenue)?Number(latest.netIncome)/Number(latest.revenue)*100:null;
+        const metrics=[
+          [latest.year+" 營收",marketCompactMoney(latest.revenue,currency),""],["營收年增",marketPct(revenueGrowth),marketTone(revenueGrowth)],
+          ["EPS",latest.eps==null?"—":Number(latest.eps).toLocaleString("en-US",{maximumFractionDigits:2}),Number(latest.eps)<0?"price-down":""],
+          ["營業利益率",operatingMargin==null?"—":operatingMargin.toFixed(1)+"%",operatingMargin<0?"price-down":""],
+          ["淨利率",netMargin==null?"—":netMargin.toFixed(1)+"%",netMargin<0?"price-down":""],
+          ["自由現金流",marketCompactMoney(latest.freeCashFlow,currency),Number(latest.freeCashFlow)<0?"price-down":""]
+        ];
+        box.innerHTML=metrics.map(([label,value,tone])=>'<div><span>'+esc(label)+'</span><strong class="'+tone+'">'+esc(value)+'</strong></div>').join("")+
+          '<div class="market-mini-trends" style="grid-column:1/-1;">'+marketFinancialTrend("營收",years,"revenue",currency)+marketFinancialTrend("EPS",years,"eps",currency)+marketFinancialTrend("自由現金流",years,"freeCashFlow",currency)+'</div>'+
+          '<div class="market-source" style="grid-column:1/-1;">財務資料：'+esc(payload.source?.name||"公開財報")+'・最新年度 '+esc(latest.year||"—")+'</div>';
+      }
+      function marketBarList(rows, sectors=false) {
+        const max=Math.max(...rows.map(row=>Number(row.value)||0),1);
+        return '<div class="market-bar-list'+(sectors?' sectors':'')+'">'+rows.map(row=>'<div class="market-bar-row"><span class="market-bar-name" title="'+esc(row.name)+'">'+esc(row.name)+'</span><span class="market-bar-track"><i class="market-bar-fill" style="width:'+Math.max(2,Number(row.value)/max*100)+'%"></i></span><span class="market-bar-value">'+Number(row.value).toFixed(2)+'%</span></div>').join("")+'</div>';
       }
       function renderMarketOverview() {
-        const box = document.getElementById("marketOverviewPanel");
-        if (!marketAsset) { box.innerHTML = '<div class="empty">請先搜尋並選擇標的。</div>'; return; }
-        const asset = marketAsset, latest = marketRows[marketRows.length - 1] || {}, previous = marketRows[marketRows.length - 2] || {}, description = marketDescription(asset);
-        const change = latest.close != null && previous.close != null ? Number(latest.close) - Number(previous.close) : null;
-        const pct = change != null && Number(previous.close) ? change / Number(previous.close) * 100 : null, cls = change > 0 ? "price-up" : change < 0 ? "price-down" : "";
-        const etf = D.etfs[asset.symbol] || {}, info = etf.overview || {}, latestSnapshot = (etf.snapshots || []).at(-1) || {};
-        const tags = [marketTypeText(asset), asset.exchange].concat(asset.assetType === "etf" ? (info.tags || []) : [description.industry]).filter(Boolean);
-        let kpis;
-        if (asset.assetType === "etf") {
-          const size = info.fundSizeHundredMillion == null ? "—" : Number(info.fundSizeHundredMillion).toLocaleString("en-US", { maximumFractionDigits:2 }) + " 億元";
-          const holders = info.beneficiaryTenThousands == null ? "—" : Number(info.beneficiaryTenThousands).toLocaleString("en-US", { maximumFractionDigits:2 }) + " 萬人";
-          kpis = [["基金規模",size],["受益人數",holders],["持股檔數",(latestSnapshot.holdings || []).filter(isStockAsset).length || "—"],["行情資料日",latest.date || "—"]];
-        } else kpis = [["所屬市場",marketTypeText(asset)],["產業分類",description.industry],["行情資料日",latest.date || "—"],["成交量",latest.volume == null ? "—" : Number(latest.volume).toLocaleString("en-US")]];
-        const shortText = description.text.length > 300 ? description.text.slice(0, 300).replace(/[，,;； ]+$/,"...") + "…" : description.text;
-        const fullDescription = description.text.length > 300 ? '<details><summary>查看完整簡介</summary><p style="margin-top:7px;">' + esc(description.text) + '</p></details>' : "";
-        box.innerHTML = '<div class="market-overview-head"><div><div class="market-overview-title">' + esc(asset.name) + '<small>' + esc(asset.symbol) + '</small></div><div class="overview-tags">' + tags.map(tag => '<span class="overview-tag">' + esc(tag) + '</span>').join("") + '</div></div>' +
-          '<div class="market-overview-quote"><strong>' + (latest.close == null ? "—" : Number(latest.close).toLocaleString("en-US", { minimumFractionDigits:2, maximumFractionDigits:2 })) + '</strong><span class="' + cls + '">' + (change == null ? "—" : (change > 0 ? "+" : "") + change.toFixed(2) + "　" + (pct > 0 ? "+" : "") + pct.toFixed(2) + "%") + '</span></div></div>' +
-          '<div class="market-overview-grid">' + kpis.map(([key,value]) => '<div class="market-overview-kpi"><div class="k">' + esc(key) + '</div><div class="v">' + esc(value) + '</div></div>').join("") + '</div>' +
-          '<div class="market-description"><h2>' + (asset.assetType === "etf" ? "ETF 簡介" : "公司簡介") + '</h2><p>' + esc(shortText) + '</p>' + fullDescription + '<div class="market-source">資料來源：' + esc(description.source) + '</div></div>' +
-          (asset.assetType === "stock" ? '<div class="market-financial"><h2>最新年度財務摘要</h2><div id="marketFinancialSummary" class="market-financial-summary"></div></div>' : "");
+        const box=document.getElementById("marketOverviewPanel"); if(!marketAsset){box.innerHTML='<div class="empty">請先搜尋並選擇標的。</div>';return;}
+        const asset=marketAsset,latest=marketRows.at(-1)||{},previous=marketRows.at(-2)||{},description=marketDescription(asset),stats=marketStats(marketRows);
+        const change=latest.close!=null&&previous.close!=null?Number(latest.close)-Number(previous.close):null,pct=change!=null&&Number(previous.close)?change/Number(previous.close)*100:null,cls=marketTone(change);
+        const etf=D.etfs[asset.symbol]||{},info=etf.overview||{},latestSnapshot=(etf.snapshots||[]).at(-1)||{},holdings=(latestSnapshot.holdings||[]).filter(isStockAsset).sort((a,b)=>(Number(b.weight)||0)-(Number(a.weight)||0));
+        const tags=[marketTypeText(asset),asset.exchange].concat(asset.assetType==="etf"?(info.tags||[]):[description.industry]).filter(Boolean);
+        const performance=[['近 1 月',stats.month],['近 3 月',stats.quarter],['近 1 年',stats.year]];
+        const rangeCard='<article class="market-performance-card"><span class="label">52 週價格區間</span><div class="market-range-values"><span>'+px(stats.low)+'</span><strong>'+px(stats.close)+'</strong><span>'+px(stats.high)+'</span></div><div class="market-range-track"><i class="market-range-marker" style="left:'+Math.max(0,Math.min(100,stats.rangePosition??0))+'%"></i></div><small>目前位於區間 '+(stats.rangePosition==null?'—':stats.rangePosition.toFixed(0)+'%')+'</small></article>';
+        const performanceCards=performance.map(([label,value])=>'<article class="market-performance-card"><span class="label">'+label+'報酬</span><strong class="'+marketTone(value)+'">'+marketPct(value)+'</strong><small>依收盤價、約 '+({"近 1 月":20,"近 3 月":60,"近 1 年":240}[label])+' 個交易日計算</small></article>').join("");
+        const latestNav=(info.navHistory||[]).at(-1),dividends=(etf.dividends||[]).slice().sort((a,b)=>String(b.ex||"").localeCompare(String(a.ex||""))),latestDividend=dividends[0];
+        const trailingCutoff=latest.date?new Date(latest.date+'T00:00:00'):null,trailingAmount=dividends.filter(dividend=>{if(!trailingCutoff||!dividend.ex)return false;const d=new Date(dividend.ex+'T00:00:00');return trailingCutoff-d<=365*86400000&&d<=trailingCutoff;}).reduce((sum,row)=>sum+(Number(row.amount)||0),0);
+        const trailingYield=trailingAmount&&Number(latest.close)?trailingAmount/Number(latest.close)*100:null,top10=holdings.slice(0,10).reduce((sum,row)=>sum+(Number(row.weight)||0),0);
+        const metrics=asset.assetType==="etf"?[
+          ["基金規模",info.fundSizeHundredMillion==null?"—":Number(info.fundSizeHundredMillion).toLocaleString("en-US",{maximumFractionDigits:2})+" 億"],
+          ["受益人數",info.beneficiaryTenThousands==null?"—":Number(info.beneficiaryTenThousands).toLocaleString("en-US",{maximumFractionDigits:2})+" 萬"],
+          ["最新淨值",latestNav?px(latestNav.nav):"—"],["折溢價",latestNav?marketPct(latestNav.premiumPct):"—"],["持股檔數",holdings.length||"—"],["近年配息率",trailingYield==null?"—":trailingYield.toFixed(2)+"%"]
+        ]:[
+          ["20 日均量",stats.avgVolume==null?"—":Math.round(stats.avgVolume/1000).toLocaleString("en-US")+" 張"],["52 週高點",px(stats.high)],["52 週低點",px(stats.low)],
+          ["年化波動度",stats.volatility==null?"—":stats.volatility.toFixed(1)+"%"],["行情資料日",latest.date||"—"],["掛牌市場",asset.exchange||marketTypeText(asset)]
+        ];
+        const shortText=description.text.length>360?description.text.slice(0,360).replace(/[，,;； ]+$/,"...")+"…":description.text;
+        const fullDescription=description.text.length>360?'<details><summary>查看完整簡介</summary><p class="market-profile-text" style="margin-top:7px;">'+esc(description.text)+'</p></details>':"";
+        const facts=asset.assetType==="etf"?[["發行公司",info.issuer||"尚無資料"],["追蹤／參考指數",info.index||"尚無資料"],["產品類型",info.securityType||marketTypeText(asset)],["交易市場",asset.exchange||marketTypeText(asset)]]:[["產業分類",description.industry||"尚無分類"],["市場",marketTypeText(asset)],["交易所",asset.exchange||"—"],["資料來源",description.source||"標的清單"]];
+        const riskItems=[
+          ["距 52 週高點",marketPct(stats.distanceHigh),stats.distanceHigh!=null&&stats.distanceHigh<-20?"價格距高點較遠，留意趨勢與基本面變化":"搭配區間位置觀察目前價格"],
+          ["年化波動度",stats.volatility==null?"—":stats.volatility.toFixed(1)+"%",stats.volatility!=null&&stats.volatility>40?"波動偏高，部位宜保留風險空間":"以近 252 個交易日估算"],
+          ["量能狀態",stats.avgVolume==null||latest.volume==null?"—":(Number(latest.volume)/stats.avgVolume).toFixed(2)+" 倍","當日成交量／20 日均量"]
+        ];
+        if(asset.assetType==="etf"&&holdings.length)riskItems.push(["前十大集中度",top10.toFixed(2)+"%",top10>60?"集中度較高，主要成分股影響較大":"持股相對分散"]);
+        let allocation="",events="";
+        if(asset.assetType==="etf"&&holdings.length){
+          const topRows=holdings.slice(0,7).map(row=>({name:(row.code?row.code+' ':'')+row.name,value:Number(row.weight)||0})),sectorMap=new Map();
+          holdings.forEach(row=>{const profile=COMPANY_PROFILES[row.code]||{},sector=profile.industry||profile.sector||(row.market&&row.market!=="TW"?"海外市場":"其他");sectorMap.set(sector,(sectorMap.get(sector)||0)+(Number(row.weight)||0));});
+          const sectorRows=[...sectorMap].map(([name,value])=>({name,value})).sort((a,b)=>b.value-a.value).slice(0,7);
+          allocation='<section class="market-section"><div class="market-section-head"><h2>持股與配置</h2><span>資料日 '+esc(latestSnapshot.date||"—")+'</span></div><div class="market-allocation-grid"><div><div class="market-allocation-title">主要持股</div>'+marketBarList(topRows)+'</div><div><div class="market-allocation-title">產業／市場配置</div>'+marketBarList(sectorRows,true)+'</div></div></section>';
+          const eventRows=[["行情資料",latest.date||"—","收盤 "+px(latest.close)],latestNav?["淨值資料",latestNav.date,"淨值 "+px(latestNav.nav)+"・折溢價 "+marketPct(latestNav.premiumPct)]:null,latestDividend?["最近配息",latestDividend.ex||"—",(latestDividend.amount??"—")+" 元・發放 "+(latestDividend.pay||"—")]:null].filter(Boolean);
+          events='<section class="market-section"><div class="market-section-head"><h2>股利與重要日期</h2><span>確認資料新鮮度</span></div><div class="market-event-list">'+eventRows.map(row=>'<article class="market-event"><span>'+esc(row[0])+'</span><strong>'+esc(row[1])+'</strong><small>'+esc(row[2])+'</small></article>').join("")+'</div></section>';
+        }
+        box.innerHTML='<div class="market-overview-head"><div><div class="market-overview-title">'+esc(asset.name)+'<small>'+esc(asset.symbol)+'</small></div><div class="overview-tags">'+[...new Set(tags)].map(tag=>'<span class="overview-tag">'+esc(tag)+'</span>').join("")+'</div></div><div class="market-overview-quote"><strong>'+px(latest.close)+'</strong><span class="'+cls+'">'+(change==null?'—':(change>0?'+':'')+change.toFixed(2)+'　'+(pct>0?'+':'')+pct.toFixed(2)+'%')+'</span></div></div>'+
+          '<div class="market-performance-grid">'+rangeCard+performanceCards+'</div>'+
+          '<section class="market-section"><div class="market-section-head"><h2>關鍵指標</h2><span>行情與公開資料摘要</span></div><div class="market-metric-grid">'+metrics.map(([label,value])=>marketMetricCard(label,value,label==="折溢價"?marketTone(latestNav?.premiumPct):"" )).join("")+'</div></section>'+
+          '<div class="market-overview-layout"><section class="market-section market-profile-card"><div class="market-section-head"><h2>'+(asset.assetType==="etf"?"ETF 簡介":"公司簡介")+'</h2><span>認識標的</span></div><p class="market-profile-text">'+esc(shortText)+'</p>'+fullDescription+'<div class="market-profile-facts">'+facts.map(([label,value])=>'<div class="market-profile-fact"><span>'+esc(label)+'</span><strong>'+esc(value)+'</strong></div>').join("")+'</div><div class="market-source">資料來源：'+esc(description.source)+'</div></section>'+
+          '<aside class="market-section"><div class="market-section-head"><h2>風險觀察</h2><span>客觀數據</span></div><div class="market-risk-list">'+riskItems.map(([label,value,note])=>'<div class="market-risk-item"><span>'+esc(label)+'</span><strong>'+esc(value)+'</strong><small>'+esc(note)+'</small></div>').join("")+'</div></aside></div>'+
+          allocation+(asset.assetType==="stock"?'<section class="market-section"><div class="market-section-head"><h2>財務體質摘要</h2><span>年度財報與趨勢</span></div><div id="marketFinancialSummary" class="market-financial-summary"></div></section>':"")+events;
         renderMarketFinancialSummary();
       }
 
