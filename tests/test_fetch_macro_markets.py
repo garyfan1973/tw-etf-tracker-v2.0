@@ -1,7 +1,7 @@
 import datetime as dt
 import unittest
 
-from fetch_macro_markets import INDICES, build_currency, build_index, normalize_currency_rows, parse_treasury_csv, parse_yahoo_rows
+from fetch_macro_markets import INDICES, apply_twse_market_volume, build_currency, build_index, normalize_currency_rows, parse_treasury_csv, parse_twse_market_volume, parse_yahoo_rows
 
 
 class MacroMarketDataTests(unittest.TestCase):
@@ -39,6 +39,28 @@ class MacroMarketDataTests(unittest.TestCase):
         self.assertEqual(item["volume"], 250.0)
         self.assertEqual(item["week52Low"], 8.0)
         self.assertEqual(item["week52High"], 13.0)
+
+    def test_zero_index_volume_is_treated_as_unavailable(self):
+        result = {
+            "meta": {"gmtoffset": 0}, "timestamp": [0],
+            "indicators": {"quote": [{"open": [10], "high": [11], "low": [9], "close": [10], "volume": [0]}]},
+        }
+        item = build_index({"id":"sox","name":"SOX","region":"US","symbol":"^SOX","currency":"USD"}, result)
+        self.assertIsNone(item["volume"])
+        self.assertIsNone(item["rows"][-1]["volume"])
+
+    def test_twse_market_volume_replaces_yahoo_index_volume(self):
+        payload = {"tables": [{
+            "fields": ["成交統計", "成交金額(元)", "成交股數(股)", "成交筆數"],
+            "data": [["1.一般股票", "709,603,487,723", "3,843,109,003", "3,079,115"]],
+        }]}
+        item = {"source":"Yahoo Finance", "rows":[{"date":"2026-08-20","volume":4170000},{"date":"2026-08-21","volume":3779900}], "volume":3779900}
+        self.assertEqual(parse_twse_market_volume(payload), 3843109003)
+        result = apply_twse_market_volume(item, payload)
+        self.assertIsNone(result["rows"][0]["volume"])
+        self.assertEqual(result["rows"][1]["volume"], 3843109003)
+        self.assertTrue(result["rows"][1]["volumeOfficial"])
+        self.assertEqual(result["source"], "Yahoo Finance／臺灣證券交易所")
 
     def test_parse_treasury_csv_maps_tenors_and_sorts(self):
         content = "Date,1 Mo,3 Mo,2 Yr,10 Yr,30 Yr\n08/21/2026,4.1,4.2,3.9,4.3,4.8\n08/20/2026,4.0,4.1,3.8,4.2,4.7\n"

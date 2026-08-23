@@ -23,11 +23,11 @@
       <div class="index-stat"><span>52 週區間</span><strong id="indexWeekRange">—</strong></div>
     </div>
     <div class="index-chart-toolbar">
-      <div class="range-switch" aria-label="圖表期間"><button data-period="5D">5日</button><button data-period="1M">1月</button><button data-period="3M">3月</button><button data-period="6M">6月</button><button data-period="YTD">今年</button><button class="active" data-period="1Y">1年</button></div>
+      <div class="index-chart-left"><div class="index-chart-type" role="group" aria-label="圖表類型"><button data-index-chart-type="candle">K 線</button><button class="active" data-index-chart-type="line">收盤價線</button></div><div class="range-switch" aria-label="圖表期間"><button data-period="5D">5日</button><button data-period="1M">1月</button><button data-period="3M">3月</button><button data-period="6M">6月</button><button data-period="YTD">今年</button><button class="active" data-period="1Y">1年</button></div></div>
       <div class="chart-actions"><span>滾輪縮放・拖曳平移</span><button id="zoomOut" title="縮小">−</button><button id="zoomIn" title="放大">＋</button><button id="resetZoom" title="重設圖表">重設</button><button id="fullscreenChart" title="全螢幕" aria-label="全螢幕顯示圖表">⛶</button></div>
     </div>
     <div id="indexChart" class="chart interactive-chart"></div>
-    <div class="notice">移動游標可查看日期、開高低收與成交量。指數及商品為延遲參考行情；跨市場交易時段不同，最新資料日可能不一致。</div>
+    <div class="notice">移動游標可查看日期、開高低收與成交量。台灣加權指數的最新成交股數採證交所官方資料；指數本身若無可用的實際成交量則顯示「—」。跨市場交易時段不同，最新資料日可能不一致。</div>
   </section>
 </div><script src="theme.js"></script><script src="macro-pages.js"></script></body>
 </html>

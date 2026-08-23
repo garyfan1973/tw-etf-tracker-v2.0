@@ -15,6 +15,7 @@ BASE_DIR = os.path.dirname(os.path.abspath(__file__))
 OUT_FILE = os.path.join(BASE_DIR, "webapp", "market_data.json")
 YAHOO_CHART = "https://query1.finance.yahoo.com/v8/finance/chart/{}?interval=1d&range=1y"
 TREASURY_CSV = "https://home.treasury.gov/resource-center/data-chart-center/interest-rates/daily-treasury-rates.csv/{year}/all?type=daily_treasury_yield_curve&field_tdr_date_value={year}&page&_format=csv"
+TWSE_MI_INDEX = "https://www.twse.com.tw/rwd/zh/afterTrading/MI_INDEX?date={date}&type=ALLBUT0999&response=json"
 USER_AGENT = "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36"
 
 INDICES = [
@@ -109,16 +110,56 @@ def build_index(config, result):
     rows = parse_yahoo_rows(result)
     if not rows:
         raise RuntimeError("No index rows for {}".format(config["symbol"]))
+    for row in rows:
+        if row.get("volume") is not None and row["volume"] <= 0:
+            row["volume"] = None
     latest, previous = rows[-1], rows[-2] if len(rows) > 1 else rows[-1]
     change = latest["close"] - previous["close"]
+    volume = latest.get("volume")
+    if volume is not None and volume <= 0:
+        volume = None
     return {
         **config, "source": "Yahoo Finance", "asOf": latest["date"], "latest": latest["close"],
         "change": round(change, 4), "changePct": round(change / previous["close"] * 100, 4) if previous["close"] else None,
-        "volume": latest.get("volume"),
+        "volume": volume,
         "week52Low": min((row.get("low") if row.get("low") is not None else row["close"]) for row in rows[-260:]),
         "week52High": max((row.get("high") if row.get("high") is not None else row["close"]) for row in rows[-260:]),
         "decimals": 2, "rows": rows[-260:],
     }
+
+
+def parse_twse_market_volume(payload):
+    for table in payload.get("tables") or []:
+        fields = table.get("fields") or []
+        if "成交統計" not in fields or "成交股數(股)" not in fields:
+            continue
+        label_index, volume_index = fields.index("成交統計"), fields.index("成交股數(股)")
+        for row in table.get("data") or []:
+            if label_index < len(row) and str(row[label_index]).startswith("1.一般股票"):
+                value = str(row[volume_index]).replace(",", "")
+                return int(value) if value.isdigit() else None
+    return None
+
+
+def apply_twse_market_volume(item, payload, previous=None):
+    official_volume = parse_twse_market_volume(payload)
+    if official_volume is None:
+        return item
+    previous_official = {
+        row.get("date"): row.get("volume")
+        for row in (previous or {}).get("rows", [])
+        if row.get("volumeOfficial") and row.get("date")
+    }
+    for row in item.get("rows", []):
+        row["volume"] = previous_official.get(row.get("date"))
+        row.pop("volumeOfficial", None)
+    latest = item.get("rows", [])[-1]
+    latest["volume"] = official_volume
+    latest["volumeOfficial"] = True
+    item["volume"] = official_volume
+    item["volumeLabel"] = "成交股數"
+    item["source"] = "Yahoo Finance／臺灣證券交易所"
+    return item
 
 
 def normalize_currency_rows(rows, mode):
@@ -188,7 +229,12 @@ def main():
     indices, currencies, failures = [], [], []
     for config in INDICES:
         try:
-            indices.append(build_index(config, fetch_yahoo(config["symbol"])))
+            item = build_index(config, fetch_yahoo(config["symbol"]))
+            if config["id"] == "twii":
+                date_key = item["asOf"].replace("-", "")
+                official = json.loads(read_url(TWSE_MI_INDEX.format(date=date_key)))
+                item = apply_twse_market_volume(item, official, old_indices.get(config["id"]))
+            indices.append(item)
             print("updated index {}".format(config["symbol"]))
         except Exception as error:
             if config["id"] in old_indices:
