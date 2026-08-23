@@ -1,0 +1,21 @@
+<!doctype html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>指數資訊｜投資研究工作台</title>
+  <link rel="stylesheet" href="market-pages.css">
+  <script>(function(){var t=localStorage.getItem("etf-theme");if(t)document.documentElement.dataset.theme=t})();</script>
+  <script src="market-nav.js" defer></script>
+</head>
+<body data-market-page="indices"><div class="wrap">
+  <nav class="top-nav">
+    <a class="tracker-brand" href="index.html"><span class="tracker-mark" aria-hidden="true"></span><span>投資研究工作台</span></a>
+    <a href="tracker.html?view=overview">市場研究</a><a href="tracker.html">ETF 持股</a><a href="dividends.html">配息日曆</a><a href="portfolio.html">我的持股</a><a href="transactions.html">交易紀錄</a><a href="journal.html">短線日誌</a><a href="performance.html">績效走勢</a>
+    <span id="authBox" style="margin-left:auto;display:flex;align-items:center;gap:6px"></span><button id="themeToggle" class="theme-toggle" aria-label="切換主題">🌙</button>
+  </nav>
+  <header class="page-head"><div><div class="eyebrow">Global Markets</div><h1>指數資訊</h1><p>快速掌握台灣、亞洲、美國股市與原油的最新方向。</p></div><div class="updated" data-updated>資料載入中…</div></header>
+  <div id="pageError" class="error" hidden></div>
+  <section id="indexCards" class="market-grid" aria-label="重要市場指數"></section>
+  <section class="panel"><div class="chart-head"><div><h2 id="chartTitle">市場走勢</h2><p id="chartMeta"></p></div><div class="range-switch"><button data-range="30">1 月</button><button class="active" data-range="90">3 月</button><button data-range="260">1 年</button></div></div><div id="indexChart" class="chart"></div><div id="indexFacts" class="facts"></div><div class="notice">指數與商品行情為延遲參考資料；跨市場交易時段不同，卡片所顯示的最新資料日可能不一致。</div></section>
+</div><script src="theme.js"></script><script src="macro-pages.js"></script></body>
+</html>

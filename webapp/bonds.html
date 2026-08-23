@@ -1,0 +1,22 @@
+<!doctype html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>債市資訊｜投資研究工作台</title>
+  <link rel="stylesheet" href="market-pages.css">
+  <script>(function(){var t=localStorage.getItem("etf-theme");if(t)document.documentElement.dataset.theme=t})();</script>
+  <script src="market-nav.js" defer></script>
+</head>
+<body data-market-page="bonds"><div class="wrap">
+  <nav class="top-nav">
+    <a class="tracker-brand" href="index.html"><span class="tracker-mark" aria-hidden="true"></span><span>投資研究工作台</span></a>
+    <a href="tracker.html?view=overview">市場研究</a><a href="tracker.html">ETF 持股</a><a href="dividends.html">配息日曆</a><a href="portfolio.html">我的持股</a><a href="transactions.html">交易紀錄</a><a href="journal.html">短線日誌</a><a href="performance.html">績效走勢</a>
+    <span id="authBox" style="margin-left:auto;display:flex;align-items:center;gap:6px"></span><button id="themeToggle" class="theme-toggle" aria-label="切換主題">🌙</button>
+  </nav>
+  <header class="page-head"><div><div class="eyebrow">U.S. Treasuries</div><h1>債市資訊</h1><p>查看美國公債各天期殖利率、日變化與殖利率曲線。</p></div><div class="updated"><span data-updated>資料載入中…</span><br><span id="bondAsOf"></span></div></header>
+  <div id="pageError" class="error" hidden></div>
+  <section class="panel"><div id="yieldCards" class="yield-grid"></div><div class="notice">殖利率變化以基點（bp）呈現，1 bp = 0.01 個百分點。資料來源：<a class="source-link" href="https://home.treasury.gov/resource-center/data-chart-center/interest-rates" target="_blank" rel="noopener">美國財政部</a>。</div></section>
+  <section class="panel"><div class="chart-head"><div><h2>最新殖利率曲線</h2><p>由短天期至長天期的美國公債殖利率</p></div></div><div id="yieldCurve" class="chart"></div><div id="bondFacts" class="facts"></div></section>
+  <section class="panel"><div class="chart-head"><div><h2>最近公布紀錄</h2><p>殖利率單位：%</p></div></div><div class="table-wrap"><table><thead><tr><th>日期</th><th>3 個月</th><th>2 年</th><th>5 年</th><th>10 年</th><th>30 年</th></tr></thead><tbody id="bondTableBody"></tbody></table></div></section>
+</div><script src="theme.js"></script><script src="macro-pages.js"></script></body>
+</html>

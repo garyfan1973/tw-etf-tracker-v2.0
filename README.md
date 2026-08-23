@@ -85,7 +85,11 @@
 
 | 頁面 | 檔案 |
 | --- | --- |
-| 市場研究／完整 K 線 | `tracker.html?view=overview` |
+| 指數資訊 | `market-index.html` |
+| 個股資訊／完整 K 線 | `tracker.html?view=overview` |
+| 匯市資訊／匯率試算 | `forex.html` |
+| 美國公債資訊／殖利率曲線 | `bonds.html` |
+| 財經影音（預留頁） | `videos.html` |
 | ETF 持股資訊／加減碼 | `tracker.html` |
 | 配息日曆 | `dividends.html` |
 | 交易紀錄 | `transactions.html` |
@@ -104,6 +108,8 @@
 - 台股財報：公開資訊觀測站，使用 2013 年至今的營收、營業利益、淨利、基本 EPS 與現金流量表；畫面名稱簡化為「EPS」及各項現金流。
 - 海外個股財報：Yahoo Finance，EPS 使用基本 EPS，並補充營業／投資／融資現金流、自由現金流與期末現金（依資料來源可用性顯示）。
 - 海外行情：Yahoo Finance 日線資料。
+- 全球指數、原油與主要貨幣參考匯率：Yahoo Finance 日線資料，由 `fetch_macro_markets.py` 每日整理至 `webapp/market_data.json`。
+- 美國公債殖利率曲線：美國財政部 Daily Treasury Par Yield Curve Rates，由 `fetch_macro_markets.py` 每日更新。
 - K 線歷史行情：Yahoo Finance 兩年日線 OHLCV，依市場與代號保存於 `webapp/price-history/`。
 - ETF 清單：官方上市／上櫃 ETF 資料。
 - 短線日誌標的清單：台灣使用 TWSE／TPEx，美國使用 Nasdaq Trader 公開掛牌清單；清單是一次性手動更新，日誌仍允許自行輸入清單外代號。

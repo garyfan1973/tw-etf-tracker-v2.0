@@ -487,6 +487,7 @@
     // 進頁前先套用已存的主題，避免閃爍
     (function () { var t = localStorage.getItem("etf-theme"); if (t) document.documentElement.dataset.theme = t; })();
   </script>
+  <script src="market-nav.js" defer></script>
 </head>
 <body>
   <div class="wrap">
@@ -984,8 +985,8 @@
         document.getElementById("marketViewSwitch").style.display = "flex";
         document.getElementById("marketAssetControls").style.display = "flex";
         document.getElementById("etfKlineAssetControls").style.display = "none";
-        document.getElementById("workspaceTitle").textContent = "市場研究";
-        document.getElementById("sub").textContent = "搜尋台股、台灣 ETF、美股或美國 ETF，使用同一套研究工具。";
+        document.getElementById("workspaceTitle").textContent = "個股資訊";
+        document.getElementById("sub").textContent = "搜尋台股、台灣 ETF、美股或美國 ETF，查看基本資料、技術分析與法人資券。";
         const marketNav = document.getElementById("marketResearchNav"), etfNav = document.getElementById("etfResearchNav");
         marketNav.style.color="#fff"; marketNav.style.background="var(--accent)"; marketNav.style.borderColor="var(--accent)";
         etfNav.style.color="var(--muted)"; etfNav.style.background="transparent"; etfNav.style.borderColor="var(--border)";
