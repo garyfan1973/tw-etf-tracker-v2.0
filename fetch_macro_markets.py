@@ -23,9 +23,11 @@ INDICES = [
     {"id": "kospi", "name": "韓國綜合指數", "region": "韓國", "symbol": "^KS11", "currency": "KRW"},
     {"id": "dow", "name": "道瓊工業指數", "region": "美國", "symbol": "^DJI", "currency": "USD"},
     {"id": "nasdaq", "name": "Nasdaq 綜合指數", "region": "美國", "symbol": "^IXIC", "currency": "USD"},
+    {"id": "nasdaq100", "name": "Nasdaq 100", "region": "美國", "symbol": "^NDX", "currency": "USD"},
     {"id": "sp500", "name": "S&P 500", "region": "美國", "symbol": "^GSPC", "currency": "USD"},
     {"id": "sox", "name": "費城半導體指數", "region": "美國", "symbol": "^SOX", "currency": "USD"},
     {"id": "oil", "name": "WTI 原油", "region": "商品", "symbol": "CL=F", "currency": "USD"},
+    {"id": "brent", "name": "布蘭特原油", "region": "商品", "symbol": "BZ=F", "currency": "USD"},
 ]
 
 CURRENCIES = [
@@ -87,12 +89,19 @@ def parse_yahoo_rows(result):
     quote = ((result.get("indicators") or {}).get("quote") or [{}])[0]
     offset = result.get("meta", {}).get("gmtoffset", 0) or 0
     timezone = dt.timezone(dt.timedelta(seconds=offset))
-    closes = quote.get("close") or []
     rows = []
     for index, timestamp in enumerate(timestamps):
-        close = number(closes[index]) if index < len(closes) else None
+        def at(field, digits=6):
+            values = quote.get(field) or []
+            return number(values[index], digits) if index < len(values) else None
+
+        close = at("close")
         if close is not None:
-            rows.append({"date": dt.datetime.fromtimestamp(timestamp, timezone).strftime("%Y-%m-%d"), "close": close})
+            rows.append({
+                "date": dt.datetime.fromtimestamp(timestamp, timezone).strftime("%Y-%m-%d"),
+                "open": at("open"), "high": at("high"), "low": at("low"), "close": close,
+                "volume": at("volume", 0),
+            })
     return rows
 
 
@@ -105,6 +114,9 @@ def build_index(config, result):
     return {
         **config, "source": "Yahoo Finance", "asOf": latest["date"], "latest": latest["close"],
         "change": round(change, 4), "changePct": round(change / previous["close"] * 100, 4) if previous["close"] else None,
+        "volume": latest.get("volume"),
+        "week52Low": min((row.get("low") if row.get("low") is not None else row["close"]) for row in rows[-260:]),
+        "week52High": max((row.get("high") if row.get("high") is not None else row["close"]) for row in rows[-260:]),
         "decimals": 2, "rows": rows[-260:],
     }
 

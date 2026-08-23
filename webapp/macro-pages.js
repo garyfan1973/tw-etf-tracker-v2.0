@@ -32,19 +32,71 @@
     target.innerHTML=`<svg viewBox="0 0 ${W} ${H}" role="img" aria-label="${esc(label)}走勢圖"><defs><linearGradient id="marketArea" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="var(--accent)" stop-opacity=".22"/><stop offset="1" stop-color="var(--accent)" stop-opacity="0"/></linearGradient></defs>${grid}<path class="chart-area" d="${area}"/><path class="chart-line" d="${path}"/>${dates}</svg>`;
   }
 
+  function periodWindow(rows, period) {
+    const counts={"5D":5,"1M":22,"3M":66,"6M":132,"1Y":260};
+    let start=Math.max(0,rows.length-(counts[period]||rows.length));
+    if(period==="YTD"&&rows.length){const year=rows.at(-1).date.slice(0,4);start=Math.max(0,rows.findIndex(row=>row.date>=`${year}-01-01`));}
+    return {start,end:rows.length};
+  }
+
+  function clampWindow(total,start,end) {
+    const minimum=Math.min(5,total),span=Math.max(minimum,Math.min(total,Math.round(end-start)));
+    let nextStart=Math.round(start),nextEnd=nextStart+span;
+    if(nextStart<0){nextEnd-=nextStart;nextStart=0;}
+    if(nextEnd>total){nextStart-=nextEnd-total;nextEnd=total;}
+    return {start:Math.max(0,nextStart),end:Math.max(minimum,nextEnd)};
+  }
+
+  function interactiveIndexChart(target, allRows, view, label, onViewChange) {
+    const rows=allRows.slice(view.start,view.end);
+    if(!rows.length){target.innerHTML='<div class="chart-empty">目前沒有可顯示的歷史資料</div>';return;}
+    const narrow=target.clientWidth<600,W=narrow?Math.max(340,Math.round(target.clientWidth||360)):1000,H=narrow?300:390,L=narrow?10:18,R=narrow?58:76,T=20,B=narrow?34:38;
+    const lows=rows.map(row=>Number(row.low??row.close)).filter(Number.isFinite),highs=rows.map(row=>Number(row.high??row.close)).filter(Number.isFinite);
+    let min=Math.min(...lows),max=Math.max(...highs);const pad=(max-min||Math.abs(max)||1)*.07;min-=pad;max+=pad;
+    const x=i=>L+i*(W-L-R)/Math.max(1,rows.length-1),y=value=>T+(max-value)*(H-T-B)/(max-min);
+    const path=rows.map((row,index)=>`${index?"L":"M"}${x(index).toFixed(1)},${y(Number(row.close)).toFixed(1)}`).join(" ");
+    const area=`${path} L${x(rows.length-1)},${H-B} L${x(0)},${H-B} Z`;
+    const horizontal=[0,.2,.4,.6,.8,1].map(p=>{const yy=T+p*(H-T-B),value=max-p*(max-min);return `<line class="chart-grid" x1="${L}" x2="${W-R}" y1="${yy}" y2="${yy}"/><text class="chart-label" x="${W-R+7}" y="${yy+4}">${number(value,Math.abs(value)<10?3:2)}</text>`}).join("");
+    const vertical=(narrow?[0,.5,1]:[0,.2,.4,.6,.8,1]).map(p=>{const index=Math.min(rows.length-1,Math.round(p*(rows.length-1))),xx=x(index);return `<line class="chart-grid" x1="${xx}" x2="${xx}" y1="${T}" y2="${H-B}"/><text class="chart-label" x="${xx}" y="${H-9}" text-anchor="${p===0?"start":p===1?"end":"middle"}">${esc(rows[index].date.slice(0,7))}</text>`}).join("");
+    const last=allRows.at(-1),lastY=Number(last?.close)>=min&&Number(last?.close)<=max?y(Number(last.close)):null;
+    const lastLine=lastY==null?"":`<line class="chart-last-line" x1="${L}" x2="${W-R}" y1="${lastY}" y2="${lastY}"/><text class="chart-last-label" x="${W-R+7}" y="${lastY+4}">${number(last.close,2)}</text>`;
+    target.innerHTML=`<svg viewBox="0 0 ${W} ${H}" role="img" aria-label="${esc(label)}互動走勢圖"><defs><linearGradient id="indexArea" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="var(--accent)" stop-opacity=".34"/><stop offset="1" stop-color="var(--accent)" stop-opacity=".02"/></linearGradient></defs>${horizontal}${vertical}<path fill="url(#indexArea)" d="${area}"/><path class="chart-line" d="${path}"/>${lastLine}<g id="indexHover" visibility="hidden"><line id="indexCrossV" class="chart-crosshair" y1="${T}" y2="${H-B}"/><line id="indexCrossH" class="chart-crosshair" x1="${L}" x2="${W-R}"/><circle id="indexPoint" class="chart-point" r="4"/></g><rect id="indexHitArea" x="${L}" y="${T}" width="${W-L-R}" height="${H-T-B}" fill="transparent"/></svg><div class="chart-tooltip" hidden></div>`;
+    const svg=target.querySelector("svg"),hit=target.querySelector("#indexHitArea"),hover=target.querySelector("#indexHover"),vLine=target.querySelector("#indexCrossV"),hLine=target.querySelector("#indexCrossH"),point=target.querySelector("#indexPoint"),tip=target.querySelector(".chart-tooltip");
+    const coords=event=>{const rect=svg.getBoundingClientRect();return {x:(event.clientX-rect.left)*W/rect.width,y:(event.clientY-rect.top)*H/rect.height,rect};};
+    let drag=null;
+    hit.addEventListener("pointermove",event=>{
+      const pos=coords(event),ratio=Math.max(0,Math.min(1,(pos.x-L)/(W-L-R))),index=Math.min(rows.length-1,Math.round(ratio*(rows.length-1))),row=rows[index],cx=x(index),cy=y(Number(row.close)),hy=Math.max(T,Math.min(H-B,pos.y));
+      hover.setAttribute("visibility","visible");vLine.setAttribute("x1",cx);vLine.setAttribute("x2",cx);hLine.setAttribute("y1",hy);hLine.setAttribute("y2",hy);point.setAttribute("cx",cx);point.setAttribute("cy",cy);
+      const volume=row.volume==null?"—":Number(row.volume).toLocaleString("en-US");
+      tip.hidden=false;tip.classList.toggle("left",ratio>.68);tip.style.left=`${cx/W*pos.rect.width}px`;tip.style.top=`${cy/H*pos.rect.height}px`;tip.innerHTML=`<strong>${esc(row.date)}</strong>${[["收盤",row.close],["開盤",row.open??row.close],["最高",row.high??row.close],["最低",row.low??row.close]].map(([key,value])=>`<div class="chart-tooltip-row"><span>${key}</span><span>${number(value,2)}</span></div>`).join("")}<div class="chart-tooltip-row"><span>成交量</span><span>${volume}</span></div>`;
+    });
+    hit.addEventListener("pointerleave",()=>{if(!drag){hover.setAttribute("visibility","hidden");tip.hidden=true;}});
+    hit.addEventListener("pointerdown",event=>{drag={clientX:event.clientX,start:view.start,end:view.end};hit.setPointerCapture?.(event.pointerId);});
+    hit.addEventListener("pointerup",event=>{if(!drag)return;const rect=svg.getBoundingClientRect(),span=drag.end-drag.start,shift=Math.round(-(event.clientX-drag.clientX)/Math.max(1,rect.width)*span);if(Math.abs(event.clientX-drag.clientX)>4)onViewChange(clampWindow(allRows.length,drag.start+shift,drag.end+shift));drag=null;});
+    hit.addEventListener("pointercancel",()=>{drag=null;});
+    hit.addEventListener("wheel",event=>{event.preventDefault();const pos=coords(event),anchor=Math.max(0,Math.min(1,(pos.x-L)/(W-L-R))),span=view.end-view.start,nextSpan=Math.max(5,Math.min(allRows.length,Math.round(span*(event.deltaY>0?1.22:.82)))),anchorIndex=view.start+span*anchor;onViewChange(clampWindow(allRows.length,anchorIndex-nextSpan*anchor,anchorIndex+nextSpan*(1-anchor)));},{passive:false});
+  }
+
   function initIndices(data) {
-    const cards=$("indexCards"), chart=$("indexChart"), title=$("chartTitle"), meta=$("chartMeta"), facts=$("indexFacts");
-    let selected=data.indices[0],range=90;
+    const cards=$("indexCards"),chart=$("indexChart"),title=$("chartTitle"),meta=$("chartMeta"),latest=$("indexLatest"),move=$("indexMove"),volume=$("indexVolume"),weekRange=$("indexWeekRange"),asOf=$("quoteAsOf"),panel=$("indexChartPanel");
+    let selected=data.indices[0],period="1Y",view=periodWindow(selected.rows,period);
     cards.innerHTML=data.indices.map((item,index)=>`<button class="market-card${index===0?" active":""}" data-index-id="${esc(item.id)}"><span class="region">${esc(item.region)}</span><h2>${esc(item.name)}</h2><div class="quote">${number(item.latest,item.decimals ?? 2)}</div><div class="change ${tone(item.change)}">${Number(item.change)>0?"+":""}${number(item.change,item.decimals ?? 2)} ・ ${Number(item.changePct)>0?"+":""}${number(item.changePct,2)}%</div></button>`).join("");
+    function renderChart(){interactiveIndexChart(chart,selected.rows,view,selected.name,next=>{view=next;renderChart();});}
     function render() {
       cards.querySelectorAll("button").forEach(btn=>btn.classList.toggle("active",btn.dataset.indexId===selected.id));
-      document.querySelectorAll("[data-range]").forEach(btn=>btn.classList.toggle("active",Number(btn.dataset.range)===range));
-      const rows=selected.rows.slice(-range); title.textContent=selected.name; meta.textContent=`${selected.symbol}・${selected.currency || ""}・${selected.source}`;
-      lineChart(chart,rows,"close",selected.name);
-      facts.innerHTML=[["最新值",number(selected.latest,selected.decimals??2)],["今日漲跌",`${selected.change>0?"+":""}${number(selected.change,selected.decimals??2)}`],["今日漲幅",`${selected.changePct>0?"+":""}${number(selected.changePct,2)}%`],["最新資料日",selected.asOf]].map(([k,v])=>`<div class="fact"><span>${k}</span><strong>${esc(v)}</strong></div>`).join("");
+      document.querySelectorAll("[data-period]").forEach(btn=>btn.classList.toggle("active",btn.dataset.period===period));
+      title.textContent=selected.name;meta.textContent=`${selected.symbol}・${selected.currency||""}・${selected.source}`;asOf.textContent=`Last｜${selected.asOf}`;latest.textContent=number(selected.latest,selected.decimals??2);
+      move.className=tone(selected.change);move.textContent=`${selected.change>0?"▲ +":selected.change<0?"▼ ":""}${number(selected.change,selected.decimals??2)} (${selected.changePct>0?"+":""}${number(selected.changePct,2)}%)`;
+      const lastRow=selected.rows.at(-1),lows=selected.rows.slice(-260).map(row=>Number(row.low??row.close)).filter(Number.isFinite),highs=selected.rows.slice(-260).map(row=>Number(row.high??row.close)).filter(Number.isFinite);
+      volume.textContent=lastRow?.volume==null?"—":Number(lastRow.volume).toLocaleString("en-US");weekRange.textContent=`${number(selected.week52Low??Math.min(...lows),2)} – ${number(selected.week52High??Math.max(...highs),2)}`;
+      renderChart();
     }
-    cards.addEventListener("click",event=>{const button=event.target.closest("[data-index-id]");if(!button)return;selected=data.indices.find(item=>item.id===button.dataset.indexId);render();});
-    document.querySelector(".range-switch")?.addEventListener("click",event=>{const button=event.target.closest("[data-range]");if(!button)return;range=Number(button.dataset.range);render();});
+    function zoom(factor){const span=view.end-view.start,nextSpan=Math.max(5,Math.min(selected.rows.length,Math.round(span*factor))),center=(view.start+view.end)/2;view=clampWindow(selected.rows.length,center-nextSpan/2,center+nextSpan/2);renderChart();}
+    cards.addEventListener("click",event=>{const button=event.target.closest("[data-index-id]");if(!button)return;selected=data.indices.find(item=>item.id===button.dataset.indexId);period="1Y";view=periodWindow(selected.rows,period);render();});
+    document.querySelector(".range-switch")?.addEventListener("click",event=>{const button=event.target.closest("[data-period]");if(!button)return;period=button.dataset.period;view=periodWindow(selected.rows,period);render();});
+    $("zoomIn").addEventListener("click",()=>zoom(.75));$("zoomOut").addEventListener("click",()=>zoom(1.3));$("resetZoom").addEventListener("click",()=>{view=periodWindow(selected.rows,period);renderChart();});
+    $("fullscreenChart").addEventListener("click",()=>{const expanded=panel.classList.toggle("chart-expanded");document.body.style.overflow=expanded?"hidden":"";$("fullscreenChart").setAttribute("aria-pressed",String(expanded));});
+    document.addEventListener("keydown",event=>{if(event.key==="Escape"){panel.classList.remove("chart-expanded");document.body.style.overflow="";$("fullscreenChart").setAttribute("aria-pressed","false");}});
     render();
   }
 

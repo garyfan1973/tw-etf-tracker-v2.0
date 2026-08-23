@@ -16,6 +16,18 @@
   <header class="page-head"><div><div class="eyebrow">Global Markets</div><h1>指數資訊</h1><p>快速掌握台灣、亞洲、美國股市與原油的最新方向。</p></div><div class="updated" data-updated>資料載入中…</div></header>
   <div id="pageError" class="error" hidden></div>
   <section id="indexCards" class="market-grid" aria-label="重要市場指數"></section>
-  <section class="panel"><div class="chart-head"><div><h2 id="chartTitle">市場走勢</h2><p id="chartMeta"></p></div><div class="range-switch"><button data-range="30">1 月</button><button class="active" data-range="90">3 月</button><button data-range="260">1 年</button></div></div><div id="indexChart" class="chart"></div><div id="indexFacts" class="facts"></div><div class="notice">指數與商品行情為延遲參考資料；跨市場交易時段不同，卡片所顯示的最新資料日可能不一致。</div></section>
+  <section id="indexChartPanel" class="panel index-chart-panel">
+    <div class="index-quote-strip">
+      <div class="index-primary-quote"><span id="quoteAsOf">最新行情</span><h2 id="chartTitle">市場走勢</h2><div><strong id="indexLatest">—</strong><b id="indexMove" class="flat">—</b></div><small id="chartMeta"></small></div>
+      <div class="index-stat"><span>成交量</span><strong id="indexVolume">—</strong></div>
+      <div class="index-stat"><span>52 週區間</span><strong id="indexWeekRange">—</strong></div>
+    </div>
+    <div class="index-chart-toolbar">
+      <div class="range-switch" aria-label="圖表期間"><button data-period="5D">5日</button><button data-period="1M">1月</button><button data-period="3M">3月</button><button data-period="6M">6月</button><button data-period="YTD">今年</button><button class="active" data-period="1Y">1年</button></div>
+      <div class="chart-actions"><span>滾輪縮放・拖曳平移</span><button id="zoomOut" title="縮小">−</button><button id="zoomIn" title="放大">＋</button><button id="resetZoom" title="重設圖表">重設</button><button id="fullscreenChart" title="全螢幕" aria-label="全螢幕顯示圖表">⛶</button></div>
+    </div>
+    <div id="indexChart" class="chart interactive-chart"></div>
+    <div class="notice">移動游標可查看日期、開高低收與成交量。指數及商品為延遲參考行情；跨市場交易時段不同，最新資料日可能不一致。</div>
+  </section>
 </div><script src="theme.js"></script><script src="macro-pages.js"></script></body>
 </html>
