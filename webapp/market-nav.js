@@ -1,7 +1,7 @@
 (function () {
   const items = [
-    ["market-index.html", "指數資訊", "indices"],
     ["tracker.html?view=overview", "個股資訊", "stocks"],
+    ["market-index.html", "指數資訊", "indices"],
     ["forex.html", "匯市資訊", "forex"],
     ["bonds.html", "債市資訊", "bonds"],
     ["videos.html", "財經影音", "videos"],
