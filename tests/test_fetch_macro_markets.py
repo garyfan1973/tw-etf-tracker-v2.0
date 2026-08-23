@@ -1,7 +1,7 @@
 import datetime as dt
 import unittest
 
-from fetch_macro_markets import INDICES, apply_twse_market_volume, build_currency, build_index, normalize_currency_rows, parse_treasury_csv, parse_twse_market_volume, parse_yahoo_rows
+from fetch_macro_markets import INDICES, apply_twse_market_turnover, build_currency, build_index, normalize_currency_rows, parse_treasury_csv, parse_twse_market_turnovers, parse_yahoo_rows
 
 
 class MacroMarketDataTests(unittest.TestCase):
@@ -49,18 +49,31 @@ class MacroMarketDataTests(unittest.TestCase):
         self.assertIsNone(item["volume"])
         self.assertIsNone(item["rows"][-1]["volume"])
 
-    def test_twse_market_volume_replaces_yahoo_index_volume(self):
-        payload = {"tables": [{
-            "fields": ["成交統計", "成交金額(元)", "成交股數(股)", "成交筆數"],
-            "data": [["1.一般股票", "709,603,487,723", "3,843,109,003", "3,079,115"]],
-        }]}
+    def test_twse_market_turnover_replaces_yahoo_index_volume(self):
+        payload = {
+            "fields": ["日期", "成交股數", "成交金額", "成交筆數", "發行量加權股價指數"],
+            "data": [["115/08/21", "8,208,832,354", "754,905,335,886", "3,751,488", "45,224.29"]],
+        }
         item = {"source":"Yahoo Finance", "rows":[{"date":"2026-08-20","volume":4170000},{"date":"2026-08-21","volume":3779900}], "volume":3779900}
-        self.assertEqual(parse_twse_market_volume(payload), 3843109003)
-        result = apply_twse_market_volume(item, payload)
-        self.assertIsNone(result["rows"][0]["volume"])
-        self.assertEqual(result["rows"][1]["volume"], 3843109003)
-        self.assertTrue(result["rows"][1]["volumeOfficial"])
+        self.assertEqual(parse_twse_market_turnovers(payload), {"2026-08-21": 754905335886})
+        result = apply_twse_market_turnover(item, payload)
+        self.assertIsNone(result["rows"][0]["turnover"])
+        self.assertEqual(result["rows"][1]["turnover"], 754905335886)
+        self.assertTrue(result["rows"][1]["turnoverOfficial"])
+        self.assertNotIn("volume", result["rows"][1])
+        self.assertEqual(result["turnoverLabel"], "成交金額")
         self.assertEqual(result["source"], "Yahoo Finance／臺灣證券交易所")
+
+    def test_twse_market_turnover_preserves_official_history(self):
+        payload = {
+            "fields": ["日期", "成交股數", "成交金額"],
+            "data": [["115/08/21", "8,208,832,354", "754,905,335,886"]],
+        }
+        previous = {"rows": [{"date":"2026-08-20","turnover":784512346516,"turnoverOfficial":True}]}
+        item = {"rows":[{"date":"2026-08-20","volume":1},{"date":"2026-08-21","volume":2}],"volume":2}
+        result = apply_twse_market_turnover(item, payload, previous)
+        self.assertEqual(result["rows"][0]["turnover"], 784512346516)
+        self.assertTrue(result["rows"][0]["turnoverOfficial"])
 
     def test_parse_treasury_csv_maps_tenors_and_sorts(self):
         content = "Date,1 Mo,3 Mo,2 Yr,10 Yr,30 Yr\n08/21/2026,4.1,4.2,3.9,4.3,4.8\n08/20/2026,4.0,4.1,3.8,4.2,4.7\n"

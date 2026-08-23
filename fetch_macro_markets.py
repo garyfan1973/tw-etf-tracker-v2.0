@@ -15,7 +15,7 @@ BASE_DIR = os.path.dirname(os.path.abspath(__file__))
 OUT_FILE = os.path.join(BASE_DIR, "webapp", "market_data.json")
 YAHOO_CHART = "https://query1.finance.yahoo.com/v8/finance/chart/{}?interval=1d&range=1y"
 TREASURY_CSV = "https://home.treasury.gov/resource-center/data-chart-center/interest-rates/daily-treasury-rates.csv/{year}/all?type=daily_treasury_yield_curve&field_tdr_date_value={year}&page&_format=csv"
-TWSE_MI_INDEX = "https://www.twse.com.tw/rwd/zh/afterTrading/MI_INDEX?date={date}&type=ALLBUT0999&response=json"
+TWSE_MARKET_STATISTICS = "https://www.twse.com.tw/rwd/zh/afterTrading/FMTQIK?date={date}&response=json"
 USER_AGENT = "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36"
 
 INDICES = [
@@ -128,36 +128,77 @@ def build_index(config, result):
     }
 
 
-def parse_twse_market_volume(payload):
-    for table in payload.get("tables") or []:
-        fields = table.get("fields") or []
-        if "成交統計" not in fields or "成交股數(股)" not in fields:
+def parse_twse_market_turnovers(payload):
+    fields = payload.get("fields") or []
+    if "日期" not in fields or "成交金額" not in fields:
+        return {}
+    date_index, turnover_index = fields.index("日期"), fields.index("成交金額")
+    result = {}
+    for row in payload.get("data") or []:
+        if max(date_index, turnover_index) >= len(row):
             continue
-        label_index, volume_index = fields.index("成交統計"), fields.index("成交股數(股)")
-        for row in table.get("data") or []:
-            if label_index < len(row) and str(row[label_index]).startswith("1.一般股票"):
-                value = str(row[volume_index]).replace(",", "")
-                return int(value) if value.isdigit() else None
-    return None
+        parts = str(row[date_index]).split("/")
+        if len(parts) != 3 or not all(part.isdigit() for part in parts):
+            continue
+        date = "{:04d}-{:02d}-{:02d}".format(int(parts[0]) + 1911, int(parts[1]), int(parts[2]))
+        value = str(row[turnover_index]).replace(",", "")
+        if value.isdigit():
+            result[date] = int(value)
+    return result
 
 
-def apply_twse_market_volume(item, payload, previous=None):
-    official_volume = parse_twse_market_volume(payload)
-    if official_volume is None:
-        return item
+def apply_twse_market_turnover(item, payload, previous=None):
     previous_official = {
-        row.get("date"): row.get("volume")
+        row.get("date"): row.get("turnover")
         for row in (previous or {}).get("rows", [])
-        if row.get("volumeOfficial") and row.get("date")
+        if row.get("turnoverOfficial") and row.get("date")
     }
+    previous_official.update(parse_twse_market_turnovers(payload))
     for row in item.get("rows", []):
-        row["volume"] = previous_official.get(row.get("date"))
+        prior_turnover = previous_official.get(row.get("date"))
+        row["turnover"] = prior_turnover
+        row.pop("volume", None)
         row.pop("volumeOfficial", None)
+        row.pop("turnoverOfficial", None)
+        if prior_turnover is not None:
+            row["turnoverOfficial"] = True
     latest = item.get("rows", [])[-1]
-    latest["volume"] = official_volume
-    latest["volumeOfficial"] = True
-    item["volume"] = official_volume
-    item["volumeLabel"] = "成交股數"
+    item.pop("volume", None)
+    item.pop("volumeLabel", None)
+    item["turnover"] = latest.get("turnover")
+    item["turnoverLabel"] = "成交金額"
+    item["source"] = "Yahoo Finance／臺灣證券交易所"
+    return item
+
+
+def backfill_twse_market_turnover(item, previous=None):
+    previous_official = {
+        row.get("date"): row.get("turnover")
+        for row in (previous or {}).get("rows", [])
+        if row.get("turnoverOfficial") and row.get("date") and row.get("turnover") is not None
+    }
+    months = sorted({row.get("date", "")[:7] for row in item.get("rows", []) if row.get("date")})
+    for month in months:
+        try:
+            payload = json.loads(read_url(TWSE_MARKET_STATISTICS.format(date=month.replace("-", "") + "01")))
+            previous_official.update(parse_twse_market_turnovers(payload))
+        except Exception:
+            continue
+
+    for row in item.get("rows", []):
+        row.pop("volume", None)
+        row.pop("volumeOfficial", None)
+        value = previous_official.get(row.get("date"))
+        row["turnover"] = value
+        if value is not None:
+            row["turnoverOfficial"] = True
+        else:
+            row.pop("turnoverOfficial", None)
+    latest = item.get("rows", [])[-1]
+    item.pop("volume", None)
+    item.pop("volumeLabel", None)
+    item["turnover"] = latest.get("turnover")
+    item["turnoverLabel"] = "成交金額"
     item["source"] = "Yahoo Finance／臺灣證券交易所"
     return item
 
@@ -222,7 +263,7 @@ def by_key(rows, key):
     return {row.get(key): row for row in rows or []}
 
 
-def main():
+def main(backfill_twse_turnover=False):
     existing = load_existing()
     old_indices = by_key(existing.get("indices"), "id")
     old_currencies = by_key(existing.get("currencies"), "code")
@@ -231,9 +272,13 @@ def main():
         try:
             item = build_index(config, fetch_yahoo(config["symbol"]))
             if config["id"] == "twii":
-                date_key = item["asOf"].replace("-", "")
-                official = json.loads(read_url(TWSE_MI_INDEX.format(date=date_key)))
-                item = apply_twse_market_volume(item, official, old_indices.get(config["id"]))
+                previous = old_indices.get(config["id"])
+                if backfill_twse_turnover:
+                    item = backfill_twse_market_turnover(item, previous)
+                else:
+                    date_key = item["asOf"][:7].replace("-", "") + "01"
+                    official = json.loads(read_url(TWSE_MARKET_STATISTICS.format(date=date_key)))
+                    item = apply_twse_market_turnover(item, official, previous)
             indices.append(item)
             print("updated index {}".format(config["symbol"]))
         except Exception as error:
@@ -282,4 +327,4 @@ def main():
 
 
 if __name__ == "__main__":
-    main()
+    main("--backfill-twse-turnover" in os.sys.argv[1:])
