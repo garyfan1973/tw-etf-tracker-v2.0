@@ -1,6 +1,6 @@
 {
   "date": "2026-08-21",
-  "fetched_at": "2026-08-23T20:32:22+08:00",
+  "fetched_at": "2026-08-23T21:12:25+08:00",
   "count": 51,
   "self": {
     "open": 40.07,
@@ -476,45 +476,6 @@
       }
     },
     {
-      "code": "3037",
-      "name": "欣興",
-      "market": "TW",
-      "assetType": "stock",
-      "weight": 1.52,
-      "shares": 1211385,
-      "open": 1120.0,
-      "high": 1120.0,
-      "low": 1030.0,
-      "close": 1085.0,
-      "prevClose": 1140.0,
-      "change": -55.0,
-      "changePct": -4.82,
-      "amplitude": 7.89,
-      "volume": 23202820.0,
-      "quoteDate": "2026-08-21",
-      "inst": {
-        "foreign": 2398670,
-        "trust": -231934,
-        "dealer": 202646,
-        "total": 2369382,
-        "date": "2026-08-21"
-      },
-      "margin": {
-        "marginBuy": 937,
-        "marginSell": 1836,
-        "marginCashRedemption": 2,
-        "marginPrevBalance": 37012,
-        "marginBalance": 36111,
-        "shortBuy": 145,
-        "shortSell": 157,
-        "shortStockRedemption": 16,
-        "shortPrevBalance": 819,
-        "shortBalance": 815,
-        "offsetting": 41,
-        "date": "2026-08-21"
-      }
-    },
-    {
       "code": "3017",
       "name": "奇鋐",
       "market": "TW",
@@ -550,6 +511,45 @@
         "shortPrevBalance": 8,
         "shortBalance": 9,
         "offsetting": 0,
+        "date": "2026-08-21"
+      }
+    },
+    {
+      "code": "3037",
+      "name": "欣興",
+      "market": "TW",
+      "assetType": "stock",
+      "weight": 1.52,
+      "shares": 1211385,
+      "open": 1120.0,
+      "high": 1120.0,
+      "low": 1030.0,
+      "close": 1085.0,
+      "prevClose": 1140.0,
+      "change": -55.0,
+      "changePct": -4.82,
+      "amplitude": 7.89,
+      "volume": 23202820.0,
+      "quoteDate": "2026-08-21",
+      "inst": {
+        "foreign": 2398670,
+        "trust": -231934,
+        "dealer": 202646,
+        "total": 2369382,
+        "date": "2026-08-21"
+      },
+      "margin": {
+        "marginBuy": 937,
+        "marginSell": 1836,
+        "marginCashRedemption": 2,
+        "marginPrevBalance": 37012,
+        "marginBalance": 36111,
+        "shortBuy": 145,
+        "shortSell": 157,
+        "shortStockRedemption": 16,
+        "shortPrevBalance": 819,
+        "shortBalance": 815,
+        "offsetting": 41,
         "date": "2026-08-21"
       }
     },
@@ -866,45 +866,6 @@
       }
     },
     {
-      "code": "2883",
-      "name": "凱基金",
-      "market": "TW",
-      "assetType": "stock",
-      "weight": 1.0,
-      "shares": 27570509,
-      "open": 30.4,
-      "high": 31.55,
-      "low": 30.3,
-      "close": 31.55,
-      "prevClose": 30.4,
-      "change": 1.15,
-      "changePct": 3.78,
-      "amplitude": 4.11,
-      "volume": 49167372.0,
-      "quoteDate": "2026-08-21",
-      "inst": {
-        "foreign": 36636236,
-        "trust": -259781,
-        "dealer": 37632,
-        "total": 36414087,
-        "date": "2026-08-21"
-      },
-      "margin": {
-        "marginBuy": 775,
-        "marginSell": 1430,
-        "marginCashRedemption": 5,
-        "marginPrevBalance": 10300,
-        "marginBalance": 9640,
-        "shortBuy": 11,
-        "shortSell": 14,
-        "shortStockRedemption": 0,
-        "shortPrevBalance": 60,
-        "shortBalance": 63,
-        "offsetting": 1,
-        "date": "2026-08-21"
-      }
-    },
-    {
       "code": "2301",
       "name": "光寶科",
       "market": "TW",
@@ -940,6 +901,45 @@
         "shortPrevBalance": 90,
         "shortBalance": 68,
         "offsetting": 26,
+        "date": "2026-08-21"
+      }
+    },
+    {
+      "code": "2883",
+      "name": "凱基金",
+      "market": "TW",
+      "assetType": "stock",
+      "weight": 1.0,
+      "shares": 27570509,
+      "open": 30.4,
+      "high": 31.55,
+      "low": 30.3,
+      "close": 31.55,
+      "prevClose": 30.4,
+      "change": 1.15,
+      "changePct": 3.78,
+      "amplitude": 4.11,
+      "volume": 49167372.0,
+      "quoteDate": "2026-08-21",
+      "inst": {
+        "foreign": 36636236,
+        "trust": -259781,
+        "dealer": 37632,
+        "total": 36414087,
+        "date": "2026-08-21"
+      },
+      "margin": {
+        "marginBuy": 775,
+        "marginSell": 1430,
+        "marginCashRedemption": 5,
+        "marginPrevBalance": 10300,
+        "marginBalance": 9640,
+        "shortBuy": 11,
+        "shortSell": 14,
+        "shortStockRedemption": 0,
+        "shortPrevBalance": 60,
+        "shortBalance": 63,
+        "offsetting": 1,
         "date": "2026-08-21"
       }
     },
@@ -1522,45 +1522,6 @@
       }
     },
     {
-      "code": "2886",
-      "name": "兆豐金",
-      "market": "TW",
-      "assetType": "stock",
-      "weight": 0.51,
-      "shares": 9331111,
-      "open": 46.35,
-      "high": 47.05,
-      "low": 46.2,
-      "close": 46.95,
-      "prevClose": 46.4,
-      "change": 0.55,
-      "changePct": 1.19,
-      "amplitude": 1.83,
-      "volume": 27479375.0,
-      "quoteDate": "2026-08-21",
-      "inst": {
-        "foreign": 19236875,
-        "trust": -14339,
-        "dealer": 57001,
-        "total": 19279537,
-        "date": "2026-08-21"
-      },
-      "margin": {
-        "marginBuy": 64,
-        "marginSell": 212,
-        "marginCashRedemption": 0,
-        "marginPrevBalance": 2300,
-        "marginBalance": 2152,
-        "shortBuy": 0,
-        "shortSell": 0,
-        "shortStockRedemption": 0,
-        "shortPrevBalance": 13,
-        "shortBalance": 13,
-        "offsetting": 0,
-        "date": "2026-08-21"
-      }
-    },
-    {
       "code": "2892",
       "name": "第一金",
       "market": "TW",
@@ -1595,6 +1556,45 @@
         "shortStockRedemption": 0,
         "shortPrevBalance": 14,
         "shortBalance": 15,
+        "offsetting": 0,
+        "date": "2026-08-21"
+      }
+    },
+    {
+      "code": "2886",
+      "name": "兆豐金",
+      "market": "TW",
+      "assetType": "stock",
+      "weight": 0.51,
+      "shares": 9331111,
+      "open": 46.35,
+      "high": 47.05,
+      "low": 46.2,
+      "close": 46.95,
+      "prevClose": 46.4,
+      "change": 0.55,
+      "changePct": 1.19,
+      "amplitude": 1.83,
+      "volume": 27479375.0,
+      "quoteDate": "2026-08-21",
+      "inst": {
+        "foreign": 19236875,
+        "trust": -14339,
+        "dealer": 57001,
+        "total": 19279537,
+        "date": "2026-08-21"
+      },
+      "margin": {
+        "marginBuy": 64,
+        "marginSell": 212,
+        "marginCashRedemption": 0,
+        "marginPrevBalance": 2300,
+        "marginBalance": 2152,
+        "shortBuy": 0,
+        "shortSell": 0,
+        "shortStockRedemption": 0,
+        "shortPrevBalance": 13,
+        "shortBalance": 13,
         "offsetting": 0,
         "date": "2026-08-21"
       }

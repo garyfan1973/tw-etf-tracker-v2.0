@@ -1,6 +1,6 @@
 {
   "date": "2026-08-20",
-  "fetched_at": "2026-08-23T20:32:04+08:00",
+  "fetched_at": "2026-08-23T21:12:10+08:00",
   "count": 46,
   "self": {
     "open": 15.71,
@@ -894,45 +894,6 @@
       }
     },
     {
-      "code": "8046",
-      "name": "南電",
-      "market": "TW",
-      "assetType": "stock",
-      "weight": 0.95,
-      "shares": 302000,
-      "open": 1225.0,
-      "high": 1235.0,
-      "low": 1155.0,
-      "close": 1195.0,
-      "prevClose": 1180.0,
-      "change": 15.0,
-      "changePct": 1.27,
-      "amplitude": 6.78,
-      "volume": 9650795.0,
-      "quoteDate": "2026-08-20",
-      "inst": {
-        "foreign": 142998,
-        "trust": 312000,
-        "dealer": 66453,
-        "total": 521451,
-        "date": "2026-08-20"
-      },
-      "margin": {
-        "marginBuy": 676,
-        "marginSell": 831,
-        "marginCashRedemption": 1,
-        "marginPrevBalance": 10755,
-        "marginBalance": 10599,
-        "shortBuy": 9,
-        "shortSell": 48,
-        "shortStockRedemption": 0,
-        "shortPrevBalance": 572,
-        "shortBalance": 611,
-        "offsetting": 11,
-        "date": "2026-08-20"
-      }
-    },
-    {
       "code": "2345",
       "name": "智邦",
       "market": "TW",
@@ -968,6 +929,45 @@
         "shortPrevBalance": 8,
         "shortBalance": 9,
         "offsetting": 0,
+        "date": "2026-08-20"
+      }
+    },
+    {
+      "code": "8046",
+      "name": "南電",
+      "market": "TW",
+      "assetType": "stock",
+      "weight": 0.95,
+      "shares": 302000,
+      "open": 1225.0,
+      "high": 1235.0,
+      "low": 1155.0,
+      "close": 1195.0,
+      "prevClose": 1180.0,
+      "change": 15.0,
+      "changePct": 1.27,
+      "amplitude": 6.78,
+      "volume": 9650795.0,
+      "quoteDate": "2026-08-20",
+      "inst": {
+        "foreign": 142998,
+        "trust": 312000,
+        "dealer": 66453,
+        "total": 521451,
+        "date": "2026-08-20"
+      },
+      "margin": {
+        "marginBuy": 676,
+        "marginSell": 831,
+        "marginCashRedemption": 1,
+        "marginPrevBalance": 10755,
+        "marginBalance": 10599,
+        "shortBuy": 9,
+        "shortSell": 48,
+        "shortStockRedemption": 0,
+        "shortPrevBalance": 572,
+        "shortBalance": 611,
+        "offsetting": 11,
         "date": "2026-08-20"
       }
     },
