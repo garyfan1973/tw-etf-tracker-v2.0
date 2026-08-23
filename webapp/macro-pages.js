@@ -74,8 +74,8 @@
     hit.addEventListener("pointermove",event=>{
       const pos=coords(event),ratio=Math.max(0,Math.min(1,(pos.x-L)/(W-L-R))),index=Math.min(rows.length-1,Math.round(ratio*(rows.length-1))),row=rows[index],cx=x(index),cy=y(Number(row.close)),hy=Math.max(T,Math.min(H-B,pos.y));
       hover.setAttribute("visibility","visible");vLine.setAttribute("x1",cx);vLine.setAttribute("x2",cx);hLine.setAttribute("y1",hy);hLine.setAttribute("y2",hy);point.setAttribute("cx",cx);point.setAttribute("cy",cy);
-      const hasTurnover=Boolean(volumeLabel),metricLabel=volumeLabel||"成交量",metricValue=hasTurnover?turnover(row.turnover):(row.volume==null?"—":Number(row.volume).toLocaleString("en-US"));
-      tip.hidden=false;tip.classList.toggle("left",ratio>.68);tip.style.left=`${cx/W*pos.rect.width}px`;tip.style.top=`${cy/H*pos.rect.height}px`;tip.innerHTML=`<strong>${esc(row.date)}</strong>${[["收盤",row.close],["開盤",row.open??row.close],["最高",row.high??row.close],["最低",row.low??row.close]].map(([key,value])=>`<div class="chart-tooltip-row"><span>${key}</span><span>${number(value,2)}</span></div>`).join("")}<div class="chart-tooltip-row"><span>${esc(metricLabel)}</span><span>${metricValue}</span></div>`;
+      const hasTurnover=Boolean(volumeLabel),metricLabel=volumeLabel||"成交量",metricValue=hasTurnover?turnover(row.turnover):(row.volume==null?"—":Number(row.volume).toLocaleString("en-US")),metricRow=volumeLabel===null?"":`<div class="chart-tooltip-row"><span>${esc(metricLabel)}</span><span>${metricValue}</span></div>`;
+      tip.hidden=false;tip.classList.toggle("left",ratio>.68);tip.style.left=`${cx/W*pos.rect.width}px`;tip.style.top=`${cy/H*pos.rect.height}px`;tip.innerHTML=`<strong>${esc(row.date)}</strong>${[["收盤",row.close],["開盤",row.open??row.close],["最高",row.high??row.close],["最低",row.low??row.close]].map(([key,value])=>`<div class="chart-tooltip-row"><span>${key}</span><span>${number(value,2)}</span></div>`).join("")}${metricRow}`;
     });
     hit.addEventListener("pointerleave",()=>{if(!drag){hover.setAttribute("visibility","hidden");tip.hidden=true;}});
     hit.addEventListener("pointerdown",event=>{drag={clientX:event.clientX,start:view.start,end:view.end};hit.setPointerCapture?.(event.pointerId);});
@@ -114,7 +114,8 @@
   function initIndices(data) {
     const cards=$("indexCards"),chart=$("indexChart"),title=$("chartTitle"),meta=$("chartMeta"),latest=$("indexLatest"),move=$("indexMove"),volume=$("indexVolume"),weekRange=$("indexWeekRange"),asOf=$("quoteAsOf"),panel=$("indexChartPanel");
     let selected=data.indices[0],period="1Y",chartType="line",view=periodWindow(selected.rows,period);
-    cards.innerHTML=data.indices.map((item,index)=>`<button class="market-card${index===0?" active":""}" data-index-id="${esc(item.id)}"><span class="region">${esc(item.region)}</span><h2>${esc(item.name)}</h2><div class="quote">${number(item.latest,item.decimals ?? 2)}</div><div class="change ${tone(item.change)}">${Number(item.change)>0?"+":""}${number(item.change,item.decimals ?? 2)} ・ ${Number(item.changePct)>0?"+":""}${number(item.changePct,2)}%</div></button>`).join("");
+    const groupFor=item=>item.region==="商品"?"commodities":item.region.startsWith("美國")?"us":"asia",groups=[{id:"asia",title:"亞洲市場",description:"台灣、日本與韓國主要股價指數"},{id:"us",title:"美股指數",description:"大型股、科技、半導體、小型股與市場波動"},{id:"commodities",title:"商品市場",description:"國際原油價格參考"}];
+    cards.innerHTML=groups.map(group=>{const rows=data.indices.filter(item=>groupFor(item)===group.id);return `<div class="index-group"><div class="index-group-head"><div><span>${esc(group.title)}</span><small>${esc(group.description)}</small></div><b>${rows.length} 項</b></div><div class="index-group-grid">${rows.map((item,index)=>`<button class="market-card${item.id===selected.id?" active":""}" data-index-id="${esc(item.id)}"><span class="region">${esc(item.region)}</span><h2>${esc(item.name)}</h2><div class="quote">${number(item.latest,item.decimals ?? 2)}</div><div class="change ${tone(item.change)}">${Number(item.change)>0?"+":""}${number(item.change,item.decimals ?? 2)} ・ ${Number(item.changePct)>0?"+":""}${number(item.changePct,2)}%</div></button>`).join("")}</div></div>`;}).join("");
     function renderChart(){interactiveIndexChart(chart,selected.rows,view,selected.name,chartType,selected.turnoverLabel||selected.volumeLabel||"",next=>{view=next;renderChart();});}
     function render() {
       cards.querySelectorAll("button").forEach(btn=>btn.classList.toggle("active",btn.dataset.indexId===selected.id));
@@ -144,7 +145,20 @@
     const a=new Map((from.rows||[]).map(row=>[row.date,row.usdPerUnit])),b=new Map((to.rows||[]).map(row=>[row.date,row.usdPerUnit]));
     return [...a.keys()].filter(date=>b.has(date)).sort().map(date=>({date,close:a.get(date)/b.get(date)})).filter(row=>Number.isFinite(row.close));
   }
+  function initDollarIndex(data) {
+    const item=data.dollarIndex,panel=$("dxyChartPanel"),chart=$("dxyChart");
+    if(!item||!item.rows?.length){if(panel)panel.hidden=true;return;}
+    let period="1M",view=periodWindow(item.rows,period);
+    const latest=item.rows.at(-1),previous=item.rows.at(-2),change=latest.close-(previous?.close??latest.close),changePct=previous?.close?change/previous.close*100:0,lows=item.rows.slice(-260).map(row=>Number(row.low??row.close)).filter(Number.isFinite),highs=item.rows.slice(-260).map(row=>Number(row.high??row.close)).filter(Number.isFinite);
+    $("dxyAsOf").textContent=`美元指數每日參考行情｜${item.asOf}`;$("dxyLatest").textContent=number(item.latest,2);$("dxyMove").className=tone(change);$("dxyMove").textContent=`${change>0?"▲ +":change<0?"▼ ":""}${number(change,2)} (${changePct>0?"+":""}${number(changePct,2)}%)`;$("dxyMeta").textContent=`${item.symbol}・${item.source}`;
+    $("dxyFacts").innerHTML=[["開盤",latest.open],["最高",latest.high],["昨收",previous?.close],["最低",latest.low],["52 週區間",`${number(item.week52Low??Math.min(...lows),2)} – ${number(item.week52High??Math.max(...highs),2)}`]].map(([label,value],index)=>`<div class="dxy-fact${index===4?" wide":""}"><span>${label}</span><strong>${typeof value==="number"?number(value,2):esc(value)}</strong></div>`).join("");
+    function renderChart(){interactiveIndexChart(chart,item.rows,view,item.name,"line",null,next=>{view=next;renderChart();});}
+    function render(reset=false){if(reset)view=periodWindow(item.rows,period);document.querySelectorAll("#dxyPeriods [data-dxy-period]").forEach(btn=>btn.classList.toggle("active",btn.dataset.dxyPeriod===period));renderChart();}
+    function zoom(factor){const span=view.end-view.start,nextSpan=Math.max(5,Math.min(item.rows.length,Math.round(span*factor))),center=(view.start+view.end)/2;view=clampWindow(item.rows.length,center-nextSpan/2,center+nextSpan/2);renderChart();}
+    $("dxyPeriods").addEventListener("click",event=>{const button=event.target.closest("[data-dxy-period]");if(!button)return;period=button.dataset.dxyPeriod;render(true);});$("dxyZoomIn").addEventListener("click",()=>zoom(.75));$("dxyZoomOut").addEventListener("click",()=>zoom(1.3));$("dxyResetZoom").addEventListener("click",()=>render(true));bindExpandedPanel(panel,$("dxyFullscreen"),renderChart);render();
+  }
   function initForex(data) {
+    initDollarIndex(data);
     const from=$("fromCurrency"),to=$("toCurrency"),amount=$("fxAmount"),result=$("conversionResult"),formula=$("conversionFormula"),chartTitle=$("fxChartTitle"),chart=$("fxChart"),panel=$("fxChartPanel");
     const options=data.currencies.map(item=>`<option value="${item.code}">${item.code}・${esc(item.name)}</option>`).join("");from.innerHTML=options;to.innerHTML=options;from.value="TWD";to.value="USD";
     let period="1Y",series=[],view={start:0,end:0};

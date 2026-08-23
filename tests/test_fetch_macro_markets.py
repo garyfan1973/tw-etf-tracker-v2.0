@@ -1,7 +1,7 @@
 import datetime as dt
 import unittest
 
-from fetch_macro_markets import INDICES, apply_twse_market_turnover, build_currency, build_index, normalize_currency_rows, parse_treasury_csv, parse_twse_market_turnovers, parse_yahoo_rows
+from fetch_macro_markets import DOLLAR_INDEX, INDICES, apply_twse_market_turnover, build_currency, build_index, normalize_currency_rows, parse_treasury_csv, parse_twse_market_turnovers, parse_yahoo_rows
 
 
 class MacroMarketDataTests(unittest.TestCase):
@@ -29,6 +29,11 @@ class MacroMarketDataTests(unittest.TestCase):
         symbols = {item["symbol"] for item in INDICES}
         self.assertIn("^NDX", symbols)
         self.assertIn("BZ=F", symbols)
+        self.assertIn("^RUT", symbols)
+        self.assertIn("^VIX", symbols)
+
+    def test_dollar_index_uses_cash_index_symbol(self):
+        self.assertEqual(DOLLAR_INDEX["symbol"], "DX-Y.NYB")
 
     def test_index_summary_includes_volume_and_52_week_range(self):
         result = {

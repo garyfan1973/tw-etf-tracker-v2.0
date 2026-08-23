@@ -109,7 +109,7 @@
 - 台股財報：公開資訊觀測站，使用 2013 年至今的營收、營業利益、淨利、基本 EPS 與現金流量表；畫面名稱簡化為「EPS」及各項現金流。
 - 海外個股財報：Yahoo Finance，EPS 使用基本 EPS，並補充營業／投資／融資現金流、自由現金流與期末現金（依資料來源可用性顯示）。
 - 海外行情：Yahoo Finance 日線資料。
-- 全球指數、原油與主要貨幣參考匯率：Yahoo Finance 日線資料，由 `fetch_macro_markets.py` 每日整理至 `webapp/market_data.json`；台灣加權指數成交金額以證交所大盤統計資訊覆蓋，並保留近一年官方歷史資料。
+- 全球指數、Russell 2000、VIX、美元指數、原油與主要貨幣參考匯率：Yahoo Finance 日線資料，由 `fetch_macro_markets.py` 每日整理至 `webapp/market_data.json`；台灣加權指數成交金額以證交所大盤統計資訊覆蓋，並保留近一年官方歷史資料。
 - 美國公債殖利率曲線：美國財政部 Daily Treasury Par Yield Curve Rates，由 `fetch_macro_markets.py` 每日更新。
 - 聯準會政策：FRED 的政策利率、總資產、公債、MBS、準備金與 ON RRP 序列，搭配聯準會官方貨幣政策 RSS 與 FOMC 日程，由 `fetch_fed_policy.py` 更新。
 - 財經影音：五個指定 YouTube 官方頻道的 RSS，只保留最近七天公開影片，由 `fetch_financial_videos.py` 每兩小時更新。

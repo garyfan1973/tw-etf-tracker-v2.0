@@ -15,6 +15,15 @@
   </nav>
   <header class="page-head"><div><div class="eyebrow">Foreign Exchange</div><h1>匯市資訊</h1><p>切換幣別、查看歷史走勢，並用目前參考匯率快速試算。</p></div><div class="updated" data-updated>資料載入中…</div></header>
   <div id="pageError" class="error" hidden></div>
+  <section id="dxyChartPanel" class="panel index-chart-panel dxy-panel">
+    <div class="dxy-quote-strip">
+      <div class="index-primary-quote"><span id="dxyAsOf">美元指數每日參考行情</span><h2>美元指數（DXY）</h2><div><strong id="dxyLatest">—</strong><b id="dxyMove" class="flat">—</b></div><small id="dxyMeta"></small></div>
+      <div id="dxyFacts" class="dxy-facts" aria-label="美元指數行情摘要"></div>
+    </div>
+    <div class="index-chart-toolbar"><div id="dxyPeriods" class="range-switch" aria-label="美元指數圖表期間"><button data-dxy-period="5D">5日</button><button class="active" data-dxy-period="1M">1月</button><button data-dxy-period="3M">3月</button><button data-dxy-period="6M">6月</button><button data-dxy-period="YTD">今年</button><button data-dxy-period="1Y">1年</button></div><div class="chart-actions"><span>滾輪縮放・拖曳平移</span><button id="dxyZoomOut" title="縮小">−</button><button id="dxyZoomIn" title="放大">＋</button><button id="dxyResetZoom" title="重設圖表">重設</button><button id="dxyFullscreen" title="全螢幕" aria-label="全螢幕顯示美元指數圖表">⛶</button></div></div>
+    <div id="dxyChart" class="chart interactive-chart"></div>
+    <div class="notice">美元指數衡量美元相對一籃子主要貨幣的強弱。本頁為每日參考行情，並非盤中即時報價。資料來源：Yahoo Finance。</div>
+  </section>
   <section class="panel"><div class="controls"><label>來源幣別<select id="fromCurrency"></select></label><label>目標幣別<select id="toCurrency"></select></label><button id="swapCurrency" class="swap" aria-label="交換來源與目標幣別">⇄</button><label class="amount-control">試算金額<input id="fxAmount" type="number" min="0" step="any" value="10000"></label></div><div class="conversion"><strong id="conversionResult">—</strong><span id="conversionFormula"></span></div><div class="notice">此處使用市場中間參考匯率，不包含銀行即期／現鈔買賣價差、手續費或匯款費用。</div></section>
   <section id="fxChartPanel" class="panel index-chart-panel secondary-chart-panel">
     <div class="chart-head"><div><h2 id="fxChartTitle">匯率走勢</h2><p>每一單位來源貨幣可兌換的目標貨幣</p></div></div>
@@ -22,5 +31,5 @@
     <div id="fxChart" class="chart interactive-chart"></div>
   </section>
   <section class="panel"><div class="chart-head"><div><h2>主要貨幣兌新台幣</h2><p>一單位外幣可兌換的新台幣參考值</p></div></div><div class="table-wrap"><table><thead><tr><th>貨幣</th><th>兌 TWD</th><th>資料日</th></tr></thead><tbody id="fxTableBody"></tbody></table></div></section>
-</div><script src="theme.js"></script><script src="macro-pages.js?v=20260823"></script></body>
+</div><script src="theme.js"></script><script src="macro-pages.js?v=20260824"></script></body>
 </html>

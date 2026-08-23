@@ -27,9 +27,13 @@ INDICES = [
     {"id": "nasdaq100", "name": "Nasdaq 100", "region": "美國", "symbol": "^NDX", "currency": "USD"},
     {"id": "sp500", "name": "S&P 500", "region": "美國", "symbol": "^GSPC", "currency": "USD"},
     {"id": "sox", "name": "費城半導體指數", "region": "美國", "symbol": "^SOX", "currency": "USD"},
+    {"id": "russell2000", "name": "Russell 2000", "region": "美國", "symbol": "^RUT", "currency": "USD"},
+    {"id": "vix", "name": "VIX 恐慌指數", "region": "美國・波動率", "symbol": "^VIX", "currency": "POINTS"},
     {"id": "oil", "name": "WTI 原油", "region": "商品", "symbol": "CL=F", "currency": "USD"},
     {"id": "brent", "name": "布蘭特原油", "region": "商品", "symbol": "BZ=F", "currency": "USD"},
 ]
+
+DOLLAR_INDEX = {"id": "dxy", "name": "美元指數", "region": "匯市", "symbol": "DX-Y.NYB", "currency": "POINTS"}
 
 CURRENCIES = [
     {"code": "USD", "name": "美元", "symbol": None, "mode": "identity"},
@@ -294,6 +298,12 @@ def main(backfill_twse_turnover=False):
             if config["code"] in old_currencies:
                 currencies.append(old_currencies[config["code"]])
             failures.append("{}: {}".format(config["code"], error))
+    try:
+        dollar_index = build_index(DOLLAR_INDEX, fetch_yahoo(DOLLAR_INDEX["symbol"]))
+        print("updated dollar index {}".format(DOLLAR_INDEX["symbol"]))
+    except Exception as error:
+        dollar_index = existing.get("dollarIndex")
+        failures.append("{}: {}".format(DOLLAR_INDEX["symbol"], error))
     # 美元本身永遠是 1 USD；補齊其他匯率共同涵蓋的交易日，讓 USD 交叉匯率也有完整走勢。
     currency_dates = sorted({row["date"] for item in currencies if item["code"] != "USD" for row in item.get("rows", [])})[-260:]
     usd = next((item for item in currencies if item["code"] == "USD"), None)
@@ -309,14 +319,15 @@ def main(backfill_twse_turnover=False):
     except Exception as error:
         treasuries = existing.get("treasuries") or []
         failures.append("Treasury: {}".format(error))
-    if not indices or len(currencies) < 2 or not treasuries:
+    if not indices or len(currencies) < 2 or not treasuries or not dollar_index:
         raise SystemExit("macro market data is incomplete: {}".format("; ".join(failures)))
     payload = {
         "updatedAt": dt.datetime.now(dt.timezone.utc).replace(microsecond=0).isoformat().replace("+00:00", "Z"),
         "indices": indices, "currencies": currencies,
+        "dollarIndex": dollar_index,
         "treasuryTenors": [{"key": key, "label": label} for key, label, _ in TENORS if any(key in row["rates"] for row in treasuries)],
         "treasuries": treasuries,
-        "sources": {"indices": "Yahoo Finance", "currencies": "Yahoo Finance", "treasuries": "U.S. Department of the Treasury"},
+        "sources": {"indices": "Yahoo Finance", "currencies": "Yahoo Finance", "dollarIndex": "Yahoo Finance", "treasuries": "U.S. Department of the Treasury"},
     }
     encoded = json.dumps(payload, ensure_ascii=False, separators=(",", ":")) + "\n"
     with open(OUT_FILE, "w", encoding="utf-8") as handle:
