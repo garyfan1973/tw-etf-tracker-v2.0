@@ -1,4 +1,29 @@
 <!doctype html>
 <html lang="zh-Hant">
-<head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>財經影音｜投資研究工作台</title><link rel="stylesheet" href="market-pages.css"><script>(function(){var t=localStorage.getItem("etf-theme");if(t)document.documentElement.dataset.theme=t})();</script><script src="market-nav.js" defer></script></head>
-<body><div class="wrap"><nav class="top-nav"><a class="tracker-brand" href="index.html"><span class="tracker-mark" aria-hidden="true"></span><span>投資研究工作台</span></a><a href="tracker.html?view=overview">市場研究</a><a href="tracker.html">ETF 持股</a><a href="dividends.html">配息日曆</a><a href="portfolio.html">我的持股</a><a href="transactions.html">交易紀錄</a><a href="journal.html">短線日誌</a><a href="performance.html">績效走勢</a><span id="authBox" style="margin-left:auto;display:flex;align-items:center;gap:6px"></span><button id="themeToggle" class="theme-toggle" aria-label="切換主題">🌙</button></nav><header class="page-head"><div><div class="eyebrow">Financial Media</div><h1>財經影音</h1><p>為值得追蹤的財經節目與市場影音保留的研究入口。</p></div></header><section class="panel video-empty"><div><div class="icon">▶</div><h2>財經影音即將推出</h2><p class="muted">待確認影音來源與分類後，會在這裡提供可篩選的內容。</p></div></section></div><script src="theme.js"></script></body></html>
+<head>
+  <meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>財經影音｜投資研究工作台</title>
+  <link rel="stylesheet" href="market-pages.css">
+  <script>(function(){var t=localStorage.getItem("etf-theme");if(t)document.documentElement.dataset.theme=t})();</script>
+  <script src="market-nav.js" defer></script>
+</head>
+<body data-market-page="videos"><div class="wrap">
+  <nav class="top-nav">
+    <a class="tracker-brand" href="index.html"><span class="tracker-mark" aria-hidden="true"></span><span>投資研究工作台</span></a>
+    <a href="tracker.html?view=overview">市場研究</a><a href="tracker.html">ETF 持股</a><a href="dividends.html">配息日曆</a><a href="portfolio.html">我的持股</a><a href="transactions.html">交易紀錄</a><a href="journal.html">短線日誌</a><a href="performance.html">績效走勢</a>
+    <span id="authBox" style="margin-left:auto;display:flex;align-items:center;gap:6px"></span><button id="themeToggle" class="theme-toggle" aria-label="切換主題">🌙</button>
+  </nav>
+  <header class="page-head"><div><div class="eyebrow">Financial Media</div><h1>本週財經影音</h1><p>彙整最近七天值得追蹤的財經節目，依發布時間由新到舊排列。</p></div><div id="videosUpdated" class="updated">資料載入中…</div></header>
+  <div id="pageError" class="error" hidden></div>
+  <section class="panel video-featured"><div class="video-section-head"><div><span class="video-kicker">Latest this week</span><h2>最新全部</h2></div><span id="latestCount" class="video-count"></span></div><div id="latestVideos" class="video-grid"></div></section>
+  <div id="channelSections"></div>
+  <div class="notice video-source-note">影片由 YouTube 官方頻道提供，本站僅顯示最近七天的公開內容並使用 YouTube 官方播放器，不下載或重新託管影片。</div>
+</div>
+
+<dialog id="videoDialog" class="video-dialog" aria-labelledby="videoDialogTitle">
+  <div class="video-dialog-head"><div><span id="videoDialogChannel"></span><h2 id="videoDialogTitle"></h2></div><button id="videoDialogClose" aria-label="關閉播放器">×</button></div>
+  <div id="videoPlayer" class="video-player"></div>
+  <div class="video-dialog-actions"><span id="videoDialogDate"></span><a id="videoYoutubeLink" href="#" target="_blank" rel="noopener">在 YouTube 開啟 ↗</a></div>
+</dialog>
+<script src="theme.js"></script><script src="videos.js?v=20260823"></script></body>
+</html>

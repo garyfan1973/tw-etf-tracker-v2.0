@@ -1,0 +1,42 @@
+name: 更新聯準會與財經影音
+
+on:
+  schedule:
+    - cron: "17 */2 * * *"
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+concurrency:
+  group: repository-data-writes
+  cancel-in-progress: false
+
+jobs:
+  update:
+    runs-on: ubuntu-latest
+    steps:
+      - name: 取出 repo
+        uses: actions/checkout@v4
+
+      - name: 安裝 Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: 更新聯準會與影音資料
+        run: |
+          python3 fetch_fed_policy.py
+          python3 fetch_financial_videos.py
+
+      - name: 有變更才 commit 回 repo
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git add webapp/fed_policy_data.json webapp/financial_videos.json
+          if git diff --cached --quiet; then
+            echo "資料無變更，略過 commit"
+          else
+            git commit -m "chore(data): update Fed policy and financial videos"
+            git push
+          fi

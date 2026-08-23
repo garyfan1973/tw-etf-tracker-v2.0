@@ -4,6 +4,7 @@
     ["market-index.html", "指數資訊", "indices"],
     ["forex.html", "匯市資訊", "forex"],
     ["bonds.html", "債市資訊", "bonds"],
+    ["fed-policy.html", "聯準會政策", "fed"],
     ["videos.html", "財經影音", "videos"],
   ];
 
@@ -12,6 +13,7 @@
     if (page === "market-index.html") return "indices";
     if (page === "forex.html") return "forex";
     if (page === "bonds.html") return "bonds";
+    if (page === "fed-policy.html") return "fed";
     if (page === "videos.html") return "videos";
     if (page === "tracker.html" && new URLSearchParams(location.search).has("view")) return "stocks";
     return "";

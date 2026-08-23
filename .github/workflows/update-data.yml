@@ -17,7 +17,7 @@ permissions:
 
 # 避免多次執行同時 push 造成衝突
 concurrency:
-  group: update-data
+  group: repository-data-writes
   cancel-in-progress: false
 
 jobs:

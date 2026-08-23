@@ -1,0 +1,41 @@
+<!doctype html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>聯準會政策｜投資研究工作台</title>
+  <link rel="stylesheet" href="market-pages.css">
+  <script>(function(){var t=localStorage.getItem("etf-theme");if(t)document.documentElement.dataset.theme=t})();</script>
+  <script src="market-nav.js" defer></script>
+</head>
+<body data-market-page="fed"><div class="wrap">
+  <nav class="top-nav">
+    <a class="tracker-brand" href="index.html"><span class="tracker-mark" aria-hidden="true"></span><span>投資研究工作台</span></a>
+    <a href="tracker.html?view=overview">市場研究</a><a href="tracker.html">ETF 持股</a><a href="dividends.html">配息日曆</a><a href="portfolio.html">我的持股</a><a href="transactions.html">交易紀錄</a><a href="journal.html">短線日誌</a><a href="performance.html">績效走勢</a>
+    <span id="authBox" style="margin-left:auto;display:flex;align-items:center;gap:6px"></span><button id="themeToggle" class="theme-toggle" aria-label="切換主題">🌙</button>
+  </nav>
+
+  <header class="page-head"><div><div class="eyebrow">Federal Reserve Policy</div><h1>聯準會政策</h1><p>追蹤政策利率、資產負債表、流動性與最近 FOMC 動態。</p></div><div class="updated" id="fedUpdated">資料載入中…</div></header>
+  <div id="pageError" class="error" hidden></div>
+
+  <section id="fedSummary" class="fed-summary" aria-label="聯準會政策摘要"></section>
+
+  <section class="panel fed-chart-panel">
+    <div class="chart-head"><div><h2>政策利率路徑</h2><p>聯邦基金利率目標區間與有效聯邦基金利率（%）</p></div><div id="rateRanges" class="range-switch" aria-label="利率圖期間"><button data-range="1Y" class="active">1 年</button><button data-range="3Y">3 年</button><button data-range="5Y">5 年</button></div></div>
+    <div class="chart-legend"><span><i style="--legend:#3b5bdb"></i>目標上限</span><span><i style="--legend:#8aa1ff"></i>目標下限</span><span><i style="--legend:#e4a400"></i>有效利率</span></div>
+    <div id="rateChart" class="chart fed-interactive-chart"></div>
+    <div class="notice">目標區間與有效利率是不同指標；圖表以各序列最新可得日期為準。資料來源：<a class="source-link" href="https://fred.stlouisfed.org/" target="_blank" rel="noopener">FRED</a>。</div>
+  </section>
+
+  <section class="panel fed-chart-panel">
+    <div class="chart-head"><div><h2>資產負債表與流動性</h2><p id="balanceChartSubtitle">單位：十億美元</p></div><div id="balanceRanges" class="range-switch" aria-label="資產負債表圖期間"><button data-range="1Y" class="active">1 年</button><button data-range="3Y">3 年</button><button data-range="5Y">5 年</button></div></div>
+    <div id="balanceSeries" class="fed-series-switch" aria-label="資產負債表指標"></div>
+    <div id="balanceChart" class="chart fed-interactive-chart"></div>
+    <div class="notice">資產增加不一定等同 QE；準備金管理購債、到期再投資與危機工具的政策目的可能不同，應搭配 FOMC 聲明解讀。</div>
+  </section>
+
+  <div class="fed-lower-grid">
+    <section class="panel"><div class="chart-head"><div><h2>FOMC 時間軸</h2><p>星號代表同次會議發布經濟預測摘要（SEP）</p></div><a class="source-link" href="https://www.federalreserve.gov/monetarypolicy/fomccalendars.htm" target="_blank" rel="noopener">官方日程 ↗</a></div><div id="fomcTimeline" class="fomc-timeline"></div></section>
+    <section class="panel"><div class="chart-head"><div><h2>近三個月政策動態</h2><p>聯準會官方貨幣政策新聞稿</p></div><a class="source-link" href="https://www.federalreserve.gov/monetarypolicy.htm" target="_blank" rel="noopener">政策首頁 ↗</a></div><div id="policyEvents" class="policy-events"></div></section>
+  </div>
+</div><script src="theme.js"></script><script src="fed-policy.js?v=20260823"></script></body>
+</html>
