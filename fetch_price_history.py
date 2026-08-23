@@ -127,10 +127,6 @@ def parse_rows(result):
 def update_symbol(item, exchanges, full=False):
     existing = load_existing(item)
     existing_rows = existing.get("rows", []) if existing else []
-    latest = existing_rows[-1]["date"] if existing_rows else ""
-    expected = str(item.get("expected") or "")
-    if not full and existing_rows and expected and latest >= expected:
-        return "skip", item, len(existing_rows)
     symbol = yahoo_symbol(item, exchanges)
     if not symbol:
         return "unsupported", item, 0

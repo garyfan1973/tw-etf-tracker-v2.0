@@ -8,6 +8,7 @@ import urllib.request
 
 UA = "Mozilla/5.0 (compatible; InvestmentResearchWorkspace/1.0)"
 YAHOO_CHART = "https://query1.finance.yahoo.com/v8/finance/chart/{}?interval=1d&range=2y"
+TWSE_MONTH = "https://www.twse.com.tw/rwd/zh/afterTrading/STOCK_DAY?date={}&stockNo={}&response=json"
 
 
 def fetch_json(url):
@@ -20,6 +21,43 @@ def yahoo_symbol(code, market):
     if market == "TW":
         return code + ".TW"
     return code
+
+
+def parse_twse_number(value):
+    text = str(value or "").replace(",", "").strip()
+    if not text or text in {"--", "---"}:
+        return None
+    try:
+        return float(text)
+    except ValueError:
+        return None
+
+
+def load_twse_month(code, latest_date):
+    date_key = str(latest_date or "").replace("-", "")
+    payload = fetch_json(TWSE_MONTH.format(date_key, quote(code, safe="")))
+    fields = payload.get("fields") or []
+    required = ("日期", "成交股數", "開盤價", "最高價", "最低價", "收盤價")
+    indexes = {name: fields.index(name) for name in required if name in fields}
+    if len(indexes) < len(required):
+        return []
+    rows = []
+    for values in payload.get("data") or []:
+        try:
+            roc_year, month, day = str(values[indexes["日期"]]).split("/")
+            row = {
+                "date": f"{int(roc_year) + 1911:04d}-{int(month):02d}-{int(day):02d}",
+                "open": parse_twse_number(values[indexes["開盤價"]]),
+                "high": parse_twse_number(values[indexes["最高價"]]),
+                "low": parse_twse_number(values[indexes["最低價"]]),
+                "close": parse_twse_number(values[indexes["收盤價"]]),
+                "volume": parse_twse_number(values[indexes["成交股數"]]),
+            }
+            if row["close"] is not None:
+                rows.append(row)
+        except (ValueError, IndexError):
+            continue
+    return rows
 
 
 def load_chart(code, market):
@@ -41,8 +79,19 @@ def load_chart(code, market):
             date = datetime.datetime.fromtimestamp(timestamp, datetime.timezone.utc).strftime("%Y-%m-%d")
             rows.append({"date": date, **values})
         if rows:
+            source = "Yahoo Finance"
+            if market == "TW" and symbol.endswith(".TW"):
+                try:
+                    official_rows = load_twse_month(code, rows[-1]["date"])
+                    if official_rows:
+                        merged = {row["date"]: row for row in rows}
+                        merged.update({row["date"]: row for row in official_rows})
+                        rows = [merged[key] for key in sorted(merged)][-520:]
+                        source = "Yahoo Finance／臺灣證券交易所"
+                except Exception:
+                    pass
             meta = result.get("meta") or {}
-            return {"symbol": symbol, "meta": meta, "rows": rows[-520:]}
+            return {"symbol": symbol, "meta": meta, "source": source, "rows": rows[-520:]}
     raise ValueError("找不到行情資料")
 
 

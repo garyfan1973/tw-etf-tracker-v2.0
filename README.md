@@ -110,7 +110,7 @@
 - 海外行情：Yahoo Finance 日線資料。
 - 全球指數、原油與主要貨幣參考匯率：Yahoo Finance 日線資料，由 `fetch_macro_markets.py` 每日整理至 `webapp/market_data.json`。
 - 美國公債殖利率曲線：美國財政部 Daily Treasury Par Yield Curve Rates，由 `fetch_macro_markets.py` 每日更新。
-- K 線歷史行情：Yahoo Finance 兩年日線 OHLCV，依市場與代號保存於 `webapp/price-history/`。
+- K 線歷史行情：Yahoo Finance 兩年日線 OHLCV，依市場與代號保存於 `webapp/price-history/`；市場研究開啟標的時會再合併最新行情，上市台股最新月份以臺灣證券交易所官方 OHLCV 覆蓋。
 - ETF 清單：官方上市／上櫃 ETF 資料。
 - 短線日誌標的清單：台灣使用 TWSE／TPEx，美國使用 Nasdaq Trader 公開掛牌清單；清單是一次性手動更新，日誌仍允許自行輸入清單外代號。
 - 公司產業與業務摘要：公開公司資料，保存於 `webapp/company_profiles.json`。

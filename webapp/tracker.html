@@ -589,7 +589,7 @@
       <div class="kline-chart-head"><div id="chartTitle" class="kline-chart-title">—</div><div id="chartQuote" class="kline-quote"></div></div>
       <div id="premiumBox" class="premium-box"></div>
       <div class="kline-controls chart-display-controls">
-        <div class="chart-type" role="group" aria-label="圖表類型"><button type="button" data-chart-type="candle">K 線</button><button type="button" data-chart-type="line">收盤價線圖</button></div>
+        <div class="chart-type" role="group" aria-label="圖表類型"><button type="button" data-chart-type="candle">K 線</button><button type="button" data-chart-type="line">收盤價線</button></div>
         <div id="status" class="kline-status"></div>
       </div>
       <div class="kline-legend" role="group" aria-label="均線圖例與開關"><span id="closeLegend" style="display:none"><i class="swatch" style="background:var(--accent)"></i>收盤價</span><button type="button" class="kline-legend-toggle" data-ma-period="5" aria-pressed="true"><i class="swatch" style="background:var(--ma5)"></i>MA5</button><button type="button" class="kline-legend-toggle" data-ma-period="10" aria-pressed="true"><i class="swatch" style="background:var(--ma10)"></i>MA10</button><button type="button" class="kline-legend-toggle" data-ma-period="20" aria-pressed="true"><i class="swatch" style="background:var(--ma20)"></i>MA20</button><button type="button" class="kline-legend-toggle" data-ma-period="60" aria-pressed="true"><i class="swatch" style="background:var(--ma60)"></i>MA60</button><button type="button" class="kline-legend-toggle" data-ma-period="120" aria-pressed="true"><i class="swatch" style="background:var(--ma120)"></i>MA120</button><button type="button" class="kline-legend-toggle" data-ma-period="240" aria-pressed="true"><i class="swatch" style="background:var(--ma240)"></i>MA240</button><button type="button" class="kline-legend-toggle volume-ma-start" data-volume-ma-period="5" aria-pressed="true"><i class="swatch" style="background:var(--vol5)"></i>VOL5</button><button type="button" class="kline-legend-toggle" data-volume-ma-period="10" aria-pressed="true"><i class="swatch" style="background:var(--vol10)"></i>VOL10</button></div>
@@ -656,7 +656,7 @@
   <script src="theme.js"></script>
   <script src="config.js"></script>
   <script src="data.js"></script>
-  <script src="kline.js?v=20260823-1"></script>
+  <script src="kline.js?v=20260823-2"></script>
   <script type="module" src="auth.js"></script>
   <script>
     // 若 data.js 尚未產生，給出友善提示
@@ -1144,7 +1144,7 @@
           ["受益人數",info.beneficiaryTenThousands==null?"—":Number(info.beneficiaryTenThousands).toLocaleString("en-US",{maximumFractionDigits:2})+" 萬"],
           ["最新淨值",latestNav?px(latestNav.nav):"—"],["折溢價",latestNav?marketPct(latestNav.premiumPct):"—"],["持股檔數",holdings.length||"—"],["近年配息率",trailingYield==null?"—":trailingYield.toFixed(2)+"%"]
         ]:[
-          ["20 日均量",stats.avgVolume==null?"—":Math.round(stats.avgVolume/1000).toLocaleString("en-US")+" 張"],["52 週高點",px(stats.high)],["52 週低點",px(stats.low)],
+          ["20 日均量",stats.avgVolume==null?"—":Math.round(stats.avgVolume).toLocaleString("en-US")+" 股"],["52 週高點",px(stats.high)],["52 週低點",px(stats.low)],
           ["年化波動度",stats.volatility==null?"—":stats.volatility.toFixed(1)+"%"],["行情資料日",latest.date||"—"],["掛牌市場",asset.exchange||marketTypeText(asset)]
         ];
         const shortText=description.text.length>360?description.text.slice(0,360).replace(/[，,;； ]+$/,"...")+"…":description.text;

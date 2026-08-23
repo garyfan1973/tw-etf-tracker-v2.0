@@ -31,6 +31,19 @@ class MarketApiTests(unittest.TestCase):
         self.assertEqual(result["rows"][0]["close"], 10.5)
         self.assertEqual(fetch.call_count, 2)
 
+    def test_twse_month_rows_use_official_share_volume(self):
+        payload = {
+            "fields": ["日期", "成交股數", "成交金額", "開盤價", "最高價", "最低價", "收盤價"],
+            "data": [["115/08/21", "134,555,990", "3,880,623,529", "29.11", "29.12", "28.62", "28.72"]],
+        }
+        with mock.patch.object(market_api, "fetch_json", return_value=payload):
+            rows = market_api.load_twse_month("00981A", "2026-08-21")
+
+        self.assertEqual(rows, [{
+            "date": "2026-08-21", "open": 29.11, "high": 29.12,
+            "low": 28.62, "close": 28.72, "volume": 134555990.0,
+        }])
+
 
 if __name__ == "__main__":
     unittest.main()

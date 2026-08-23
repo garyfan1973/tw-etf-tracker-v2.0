@@ -109,18 +109,24 @@
     return `price-history/${encodeURIComponent(info.market)}/${encodeURIComponent(info.symbol)}.json`;
   }
   async function loadHistory(info, snapshotRows) {
+    let cachedRows = [];
     try {
       const response = await fetch(historyPath(info), { cache:"default" });
       if (response.ok) {
         const payload = await response.json();
-        return mergePriceRows(payload.rows, snapshotRows);
+        cachedRows = mergePriceRows(payload.rows, snapshotRows);
       }
     } catch (_) {}
-    if (!universalPicker) return snapshotRows;
-    const response = await fetch(`/api/market?market=${encodeURIComponent(info.market)}&code=${encodeURIComponent(info.symbol)}`, { cache:"no-store" });
-    const payload = await response.json().catch(() => ({ ok:false }));
-    if (!response.ok || !payload.ok) throw new Error(payload.error || "行情資料暫時無法取得");
-    return mergePriceRows(payload.rows, snapshotRows);
+    if (!universalPicker) return cachedRows.length ? cachedRows : snapshotRows;
+    try {
+      const response = await fetch(`/api/market?market=${encodeURIComponent(info.market)}&code=${encodeURIComponent(info.symbol)}`, { cache:"no-store" });
+      const payload = await response.json().catch(() => ({ ok:false }));
+      if (!response.ok || !payload.ok) throw new Error(payload.error || "行情資料暫時無法取得");
+      return mergePriceRows(cachedRows, payload.rows);
+    } catch (error) {
+      if (cachedRows.length) return cachedRows;
+      throw error;
+    }
   }
   function mergePriceRows(historyRows, snapshotRows) {
     const merged = new Map();
@@ -670,7 +676,10 @@
     function volumeLine(period, color, name) { const pts = volumeMaSeries[period].map((value, i) => value == null ? null : `${x(i)},${vy(value)}`).filter(Boolean).join(" "); return pts ? `<polyline class="volume-ma-line ${name}" points="${pts}" fill="none" stroke="${color}" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/>` : ""; }
     volumeMaPeriods.forEach(period => { if (visibleVolumeMas.has(period)) svg += volumeLine(period, chartColors[`vol${period}`], `vol${period}-line`); });
     function line(period, color, name) { const pts = maSeries[period].map((value, i) => value == null ? null : `${x(i)},${y(value)}`).filter(Boolean).join(" "); return pts ? `<polyline class="ma-line ${name}" points="${pts}" fill="none" stroke="${color}" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>` : ""; }
-    if (chartType === "line") svg += `<polyline points="${rows.map((r, i) => `${x(i)},${y(Number(r.close))}`).join(" ")}" fill="none" stroke="${chartColors.accent}" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>`;
+    if (chartType === "line") {
+      const closePoints = rows.map((r, i) => `${x(i)},${y(Number(r.close))}`).join(" ");
+      svg += `<polygon points="${x(0)},${priceBottom} ${closePoints} ${x(rows.length-1)},${priceBottom}" fill="${chartColors.accent}" opacity=".09"/><polyline points="${closePoints}" fill="none" stroke="${chartColors.accent}" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>`;
+    }
     maPeriods.forEach(period => { if (visibleMas.has(period)) svg += line(period, chartColors[`ma${period}`], `ma${period}-line`); });
     function indicatorLine(values, key, color, width = 1.5, dash = "") { const points = values.map((value, i) => Number.isFinite(value) ? `${x(i)},${y(value)}` : null).filter(Boolean).join(" "); return points ? `<polyline points="${points}" fill="none" stroke="${color}" stroke-width="${width}"${dash ? ` stroke-dasharray="${dash}"` : ""} stroke-linecap="round" stroke-linejoin="round"/>` : ""; }
     function screenLine(values, color, width = 1.5, dash = "") { const points = values.map((value, i) => Number.isFinite(value) ? `${x(i)},${value}` : null).filter(Boolean).join(" "); return points ? `<polyline points="${points}" fill="none" stroke="${color}" stroke-width="${width}"${dash ? ` stroke-dasharray="${dash}"` : ""} stroke-linecap="round" stroke-linejoin="round"/>` : ""; }
@@ -713,7 +722,7 @@
         : kdPanel && pointerY >= kdPanel.top ? "kd"
         : "price";
       const dateHtml = `<strong class="tip-date">${esc(r.date)}</strong>`;
-      const volumeText = value => value == null ? "—" : `${Math.round(Number(value) / 1000).toLocaleString("en-US")} 張`;
+      const volumeText = value => value == null || !Number.isFinite(Number(value)) ? "—" : `${Math.round(Number(value)).toLocaleString("en-US")} 股`;
       const priceHtml = `<div class="tip-grid"><span>開 ${price(r.open)}</span><span>高 ${price(r.high)}</span><span>低 ${price(r.low)}</span><span>收 ${price(r.close)}</span><span>量 ${volumeText(r.volume)}　VOL5 ${volumeText(volumeMaSeries[5][index])}　VOL10 ${volumeText(volumeMaSeries[10][index])}</span></div>`;
       const bbHtml = visibleIndicators.has("bollinger") && bb[index] ? `<div class="tip-extra">布林 ${price(bb[index].upper)}／${price(bb[index].mid)}／${price(bb[index].lower)}</div>` : "";
       const kdHtml = visibleIndicators.has("kd") && indicator ? `<div class="tip-extra">K ${price(indicator.k)}　D ${price(indicator.d)}</div>` : "";
