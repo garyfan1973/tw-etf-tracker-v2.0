@@ -52,9 +52,13 @@
     .side-radio label { display: inline-flex; align-items: center; gap: 5px; margin: 0; padding: 8px 11px; border: 1px solid var(--border); border-radius: 8px; background: var(--bg); color: var(--muted); cursor: pointer; font-size: 14px; }
     .side-radio input:checked + label { color: var(--text); border-color: var(--accent); background: rgba(59, 91, 219, .10); box-shadow: 0 0 0 1px var(--accent) inset; }
     .side-radio input:focus-visible + label { outline: 2px solid var(--accent); outline-offset: 2px; }
-    input, button.act { font-size: 14px; padding: 8px 8px; border-radius: 8px; border: 1px solid var(--border); background: var(--bg); color: var(--text); }
+    input, select, button.act { font-size: 14px; padding: 8px 8px; border-radius: 8px; border: 1px solid var(--border); background: var(--bg); color: var(--text); }
     button.act { background: var(--accent); color: #fff; border: none; cursor: pointer; }
     button.ghost { background: none; border: 1px solid var(--border); color: var(--muted); cursor: pointer; border-radius: 8px; padding: 8px 10px; font-size: 14px; }
+    button.act, button.ghost { white-space: nowrap; min-height: 38px; }
+    .trade-cost-row { margin-top: 10px; padding-top: 10px; border-top: 1px solid var(--border); }
+    .trade-cost-row .note-field { flex: 1; min-width: 170px; }
+    .trade-cost-row .actions { display: flex; gap: 6px; align-items: flex-end; margin-left: auto; }
     .msg { font-size: 12px; color: var(--up); min-height: 16px; }
     /* 持股卡 */
     .hcard { background: var(--card); border: 1px solid var(--border); border-radius: 12px; padding: 14px; margin-bottom: 12px; }
@@ -64,6 +68,9 @@
     .hcard .nm { font-size: 16px; font-weight: 700; }
     .hcard .cd { color: var(--muted); font-size: 13px; }
     .hcard .top .sp { margin-left: auto; display: flex; gap: 6px; }
+    .asset-badge { font-size:11px; border-radius:999px; padding:2px 7px; background:var(--chip); color:var(--muted); border:1px solid var(--border); }
+    .currency-group { margin-bottom:12px; }
+    .currency-title { grid-column:1/-1; color:var(--muted); font-size:12px; font-weight:700; }
     .grid { display: grid; grid-template-columns: repeat(6, minmax(0, 1fr)); gap: 10px 14px; margin-top: 10px; }
     .grid .k { font-size: 11px; color: var(--muted); }
     .grid .v { font-size: 15px; font-variant-numeric: tabular-nums; margin-top: 1px; }
@@ -131,6 +138,7 @@
     a.small { color: var(--accent); cursor: pointer; text-decoration: none; }
     @media (max-width: 720px) {
       .form-row { flex-wrap: wrap; } .cards { grid-template-columns: repeat(2, 1fr); } .grid { grid-template-columns: repeat(2, 1fr); }
+      .trade-cost-row .actions { margin-left: 0; }
       .dividend-line { flex-wrap: wrap; white-space: normal; overflow: visible; font-size: 13px; }
       .dividend-group { flex-wrap: wrap; }
       .dividend-separator { display: none; }
@@ -165,13 +173,19 @@
             <div class="side-radio"><input id="fSideBuy" type="radio" name="fSide" value="buy" checked><label for="fSideBuy">🛒 買入</label></div>
             <div class="side-radio"><input id="fSideSell" type="radio" name="fSide" value="sell"><label for="fSideSell">💰 賣出</label></div>
           </div></div>
-          <div class="fld"><label>ETF 代號</label><input id="fCode" list="etfOptions" autocomplete="off" required placeholder="代號或名稱" style="width:135px;"><datalist id="etfOptions"></datalist></div>
-          <div class="fld"><label id="fSharesLabel">股數</label><input id="fShares" type="number" min="0" required placeholder="例如 5000" style="width:98px;"></div>
+          <div class="fld"><label>市場</label><select id="fMarket"><option value="tw">台灣</option><option value="us">美國</option></select></div>
+          <div class="fld"><label>類型</label><select id="fAssetType"><option value="etf">ETF</option><option value="stock">股票</option></select></div>
+          <div class="fld"><label>標的代號／名稱</label><input id="fCode" list="assetOptions" autocomplete="off" required placeholder="例如 2330、AAPL" style="width:180px;"><datalist id="assetOptions"></datalist></div>
+          <div class="fld"><label id="fSharesLabel">股數</label><input id="fShares" type="number" min="0" step="any" required placeholder="例如 5000" style="width:98px;"></div>
           <div class="fld"><label id="fDateLabel">交易日期</label><input id="fDate" type="date" style="width:132px;"></div>
           <div class="fld"><label id="fPriceLabel">成交均價</label><input id="fPrice" type="number" step="0.01" min="0" required placeholder="例如 35.2" style="width:112px;"></div>
-          <div class="fld" style="flex:1;min-width:100px;"><label>備註</label><input id="fNote" placeholder="例如 定期定額" style="width:100%;"></div>
-          <button class="act" id="fSubmit">新增</button>
-          <button class="ghost" id="fCancel" style="display:none;">取消</button>
+        </div>
+        <div class="form-row trade-cost-row">
+          <div class="fld"><label id="fFeeLabel">手續費（TWD，可調整）</label><input id="fFee" type="number" min="0" step="0.01" placeholder="自動計算" style="width:130px;"></div>
+          <div class="fld" id="fTaxField"><label id="fTaxLabel">交易稅（賣出時自動計算）</label><input id="fTax" type="number" min="0" step="0.01" placeholder="自動計算" style="width:150px;"></div>
+          <div class="fld note-field"><label>備註</label><input id="fNote" placeholder="例如 定期定額" style="width:100%;"></div>
+          <div class="sub" id="marketHint" style="margin:0;align-self:center;"></div>
+          <div class="actions"><button class="ghost" id="fCancel" style="display:none;">取消</button><button class="act" id="fSubmit">新增買入</button></div>
         </div>
         <div class="msg" id="fMsg"></div>
       </div>
@@ -183,6 +197,6 @@
   <script src="config.js"></script>
   <script src="data.js"></script>
   <script type="module" src="auth.js"></script>
-  <script src="portfolio.js"></script>
+  <script src="portfolio-multi-market.js"></script>
 </body>
 </html>

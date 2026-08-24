@@ -181,8 +181,9 @@
         const blob = await captureElement(captureTarget);
         if (window.ETFAuth?.user()?.id !== user.id) throw new Error("會員狀態已變更，請重新操作");
         const symbol = activeAsset?.symbol || window.MarketChart?.currentAsset?.symbol || "";
+        const assetName = activeAsset?.name || window.MarketChart?.currentAsset?.name || symbol;
         const name = `${safeFilePart(symbol)}-${new Date().toISOString().slice(0, 10)}-technical-chart.jpg`;
-        await saveTransfer({ blob, name, symbol, userId: user.id });
+        await saveTransfer({ blob, name, symbol, assetName, userId: user.id });
         location.href = "chart-analysis.html?source=kline";
       } catch (error) {
         window.alert(error.message || "線圖擷取失敗，請稍後再試");

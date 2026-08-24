@@ -14,38 +14,45 @@
   const auth = () => window.ETFAuth;
   const sb = () => auth() && auth().client();
   const user = () => auth() && auth().user();
-  const money = (n) => Number(n || 0).toLocaleString("en-US", { maximumFractionDigits: 0 });
+  const amount = (n, currency) => Number(n || 0).toLocaleString("en-US", currency === "USD"
+    ? { minimumFractionDigits: 2, maximumFractionDigits: 2 }
+    : { maximumFractionDigits: 0 });
   const price = (n) => n == null ? "—" : Number(n).toLocaleString("en-US", { minimumFractionDigits: 2, maximumFractionDigits: 2 });
   const num = (n) => Number(n || 0).toLocaleString("en-US");
   const esc = (s) => String(s == null ? "" : s).replace(/[&<>"']/g, (c) => ({"&":"&amp;","<":"&lt;",">":"&gt;","\"":"&quot;","'":"&#39;"}[c]));
 
   async function loadEtfDirectory() {
     try {
-      const r = await fetch("etf_directory.json", { cache: "no-store" });
+      const r = await fetch("trade_assets.json", { cache: "force-cache" });
       if (r.ok) {
         const d = await r.json();
-        etfDirectory = Array.isArray(d.etfs) ? d.etfs : [];
+        etfDirectory = Array.isArray(d.assets) ? d.assets : [];
       }
     } catch (e) { /* 使用 data.js 退回清單 */ }
     if (!etfDirectory.length && window.DATA && window.DATA.etfs) {
-      etfDirectory = Object.entries(window.DATA.etfs).map(([code, etf]) => ({ code, name: etf.name || code }));
+      etfDirectory = Object.entries(window.DATA.etfs).map(([code, etf]) => ({ symbol: code, name: etf.name || code, market:"tw", asset_type:"etf" }));
     }
     $("txEtfOptions").innerHTML = etfDirectory.flatMap((x) => [
-      '<option value="' + x.code + '" label="' + x.name + '"></option>',
-      '<option value="' + x.name + '" label="' + x.code + '"></option>'
+      '<option value="' + x.symbol + '" label="' + x.name + ' · ' + (x.market === "us" ? "美國" : "台灣") + '"></option>',
+      '<option value="' + x.name + '" label="' + x.symbol + '"></option>'
     ]).join("");
   }
 
-  function etfName(code) {
-    const item = etfDirectory.find((x) => x.code === code);
+  function symbolOf(t) { return String(t.symbol || t.etf_code || "").toUpperCase(); }
+  function keyOf(t) { return (t.market || "tw") + ":" + symbolOf(t); }
+  function etfName(t) {
+    if (t.asset_name) return t.asset_name;
+    const code = symbolOf(t);
+    const item = etfDirectory.find((x) => x.symbol === code && x.market === (t.market || "tw") && x.asset_type === (t.asset_type || "etf"));
     return item ? item.name : (window.DATA && window.DATA.etfs && window.DATA.etfs[code] ? window.DATA.etfs[code].name : code);
   }
 
   function sortValue(t, key) {
-    if (key === "etf_name") return etfName(t.etf_code);
+    if (key === "asset_name") return etfName(t);
     if (key === "amount") return Number(t.shares || 0) * Number(t.price || 0);
     if (key === "side") return t.side === "sell" ? "賣出" : "買入";
-    if (key === "trade_date" || key === "etf_code") return String(t[key] || "");
+    if (key === "trade_date") return String(t[key] || "");
+    if (key === "symbol") return symbolOf(t);
     return Number(t[key] || 0);
   }
 
@@ -70,14 +77,20 @@
     const c = sb();
     if (!c || !user()) return;
     const r = await c.from("portfolio_transactions").select("*").order("trade_date", { ascending: false }).order("created_at", { ascending: false });
-    transactions = r.error ? [] : (r.data || []);
-    if (window.ETFData) await Promise.all([...new Set(transactions.map((t) => t.etf_code))].map((code) => window.ETFData.ensure(code)));
+    if (r.error) {
+      transactions = [];
+      $("rows").innerHTML = "";
+      $("empty").style.display = "block";
+      $("empty").textContent = "交易紀錄載入失敗：" + (r.error.message || "請稍後再試");
+      return;
+    }
+    transactions = (r.data || []).map((t) => ({...t, symbol:symbolOf(t), market:t.market||"tw", asset_type:t.asset_type||"etf", currency:t.currency||((t.market||"tw")==="us"?"USD":"TWD")}));
     render();
   }
 
   function currentLots() {
     const byCode = {};
-    transactions.forEach((t) => (byCode[t.etf_code] = byCode[t.etf_code] || []).push(t));
+    transactions.forEach((t) => (byCode[keyOf(t)] = byCode[keyOf(t)] || []).push(t));
     const result = {};
     Object.keys(byCode).forEach((code) => {
       const lots = [];
@@ -105,9 +118,9 @@
     if (!a.user()) { $("gate").style.display = "block"; $("app").style.display = "none"; $("gate").innerHTML = '<div class="empty">請先用右上角「登入 / 註冊」登入，即可查看交易紀錄。</div>'; return; }
     $("gate").style.display = "none"; $("app").style.display = "block";
     const body = $("rows");
-    const matchedEtf = etfDirectory.find((x) => x.code === etfFilter.toUpperCase() || x.name === etfFilter);
-    const codeFilter = matchedEtf ? matchedEtf.code : etfFilter.toUpperCase();
-    const visible = transactions.filter((t) => (!fromDate || String(t.trade_date || "") >= fromDate) && (!toDate || String(t.trade_date || "") <= toDate) && (!codeFilter || t.etf_code === codeFilter));
+    const matchedEtf = etfDirectory.find((x) => x.symbol === etfFilter.toUpperCase() || x.name === etfFilter);
+    const codeFilter = matchedEtf ? matchedEtf.symbol : etfFilter.toUpperCase();
+    const visible = transactions.filter((t) => (!fromDate || String(t.trade_date || "") >= fromDate) && (!toDate || String(t.trade_date || "") <= toDate) && (!codeFilter || symbolOf(t) === codeFilter || etfName(t) === etfFilter));
     visible.sort((a, b) => {
       const av = sortValue(a, sortKey), bv = sortValue(b, sortKey);
       if (av < bv) return -1 * sortDir;
@@ -120,9 +133,10 @@
     body.innerHTML = visible.map((t) => {
       const gross = Number(t.shares || 0) * Number(t.price || 0);
       const net = t.side === "sell" ? gross - Number(t.fee || 0) - Number(t.tax || 0) : gross + Number(t.fee || 0);
+      const mark = t.currency === "USD" ? "US$" : "NT$";
       return '<tr><td>' + esc(t.trade_date || "—") + '</td><td class="' + (t.side === "sell" ? "sell" : "buy") + '">' + (t.side === "sell" ? "賣出" : "買入") +
-        '</td><td>' + esc(t.etf_code) + '</td><td>' + esc(etfName(t.etf_code)) + '</td><td class="num">' + num(t.shares) + '</td><td class="num">' + price(t.price) +
-        '</td><td class="num">' + money(t.fee) + ' 元</td><td class="num">' + money(t.tax) + ' 元</td><td class="num">' + money(net) + ' 元</td><td class="note" title="' + esc(t.note || "") + '">' + esc(t.note || "—") +
+        '</td><td>' + esc(symbolOf(t)) + '</td><td>' + esc(etfName(t)) + '</td><td>' + ((t.market||"tw") === "us" ? "美國" : "台灣") + '／' + ((t.asset_type||"etf") === "stock" ? "股票" : "ETF") + '</td><td class="num">' + num(t.shares) + '</td><td class="num">' + mark + ' ' + price(t.price) +
+        '</td><td class="num">' + mark + ' ' + amount(t.fee, t.currency) + '</td><td class="num">' + mark + ' ' + amount(t.tax, t.currency) + '</td><td class="num">' + mark + ' ' + amount(net, t.currency) + '</td><td class="note" title="' + esc(t.note || "") + '">' + esc(t.note || "—") +
         '</td><td><a class="delete" data-delete="' + esc(t.id) + '">刪除</a></td></tr>';
     }).join("");
     body.querySelectorAll("[data-delete]").forEach((el) => el.onclick = () => remove(el.dataset.delete));
@@ -132,7 +146,7 @@
     const t = transactions.find((x) => String(x.id) === String(id));
     if (!t) return;
     if (t.side === "buy") {
-      const lot = (currentLots()[t.etf_code] || []).find((x) => String(x.id) === String(id));
+      const lot = (currentLots()[keyOf(t)] || []).find((x) => String(x.id) === String(id));
       if (!lot || lot.remaining < lot.original) { alert("這筆買入已有部分或全部賣出，為保留 FIFO 歷史，目前不能刪除。"); return; }
       if (!confirm("確定刪除這筆買入紀錄？")) return;
     } else if (!confirm("確定刪除這筆賣出紀錄？刪除後 FIFO 持股會重新計算。")) return;

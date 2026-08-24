@@ -10,6 +10,11 @@ let transferAttemptUserId = null;
 let analysisProgressTimer = null;
 let analysisProgressStartedAt = 0;
 let resultImageData = "";
+let currentAnalysisResult = null;
+let currentAnalysisMeta = null;
+let transferredAssetName = "";
+let assetNames = new Map();
+let exportBusy = false;
 let viewerZoom = 1;
 let viewerFitScale = 1;
 let viewerDrag = null;
@@ -30,6 +35,43 @@ function node(tag, className, text) {
 
 function formatDate(value) {
   return new Intl.DateTimeFormat("zh-TW", { month: "numeric", day: "numeric", hour: "2-digit", minute: "2-digit" }).format(new Date(value));
+}
+
+function localIsoDate() {
+  const date = new Date();
+  const pad = (value) => String(value).padStart(2, "0");
+  return `${date.getFullYear()}-${pad(date.getMonth() + 1)}-${pad(date.getDate())}`;
+}
+
+function timingCategory(value) {
+  const text = String(value || "");
+  if (text.includes("盤後")) return "盤後";
+  if (text.includes("盤前")) return "盤前";
+  return "盤中";
+}
+
+function safeFilePart(value) {
+  return String(value || "chart").replace(/[^0-9A-Za-z_-]+/g, "-").replace(/^-+|-+$/g, "") || "chart";
+}
+
+async function loadAssetNames() {
+  try {
+    const response = await fetch("trade_assets.json", { cache: "force-cache" });
+    const payload = await response.json();
+    (payload.assets || []).forEach((asset) => {
+      const symbol = String(asset.symbol || "").toUpperCase();
+      if (symbol && !assetNames.has(symbol)) assetNames.set(symbol, asset.name || symbol);
+    });
+  } catch (_) { /* 找不到名稱時以代號顯示 */ }
+}
+
+function resultSubject(meta = currentAnalysisMeta) {
+  if (!meta) return "";
+  return `${meta.symbol || "未填標的"} ${meta.assetName || meta.symbol || "未填名稱"} ${meta.date} ${meta.timing} 技術分析指引`;
+}
+
+function setExportTools(visible) {
+  $("#resultExportTools").hidden = !visible;
 }
 
 function quotaText(access) {
@@ -317,6 +359,12 @@ function resetSensitiveState() {
   $("#resultMeta").textContent = "";
   $("#analysisHistory").replaceChildren();
   $("#analysisStatus").textContent = "";
+  currentAnalysisResult = null;
+  currentAnalysisMeta = null;
+  transferredAssetName = "";
+  setExportTools(false);
+  $("#emailAnalysisModal").hidden = true;
+  document.body.classList.remove("ai-email-open");
   setResultThumbnail();
   closeImageViewer();
   setInputPanelCollapsed(false);
@@ -334,6 +382,7 @@ async function loadTransferredChart(user) {
     await selectImage(file);
     if (generation !== transferGeneration || activeUserId !== user.id) return;
     if (transfer.symbol) $("#analysisSymbol").value = transfer.symbol;
+    transferredAssetName = transfer.assetName || "";
     $("#analysisStatus").className = "ai-status success";
     $("#analysisStatus").textContent = "已自動帶入技術分析頁的線圖，請選擇分析模式。";
   } catch (error) {
@@ -399,6 +448,165 @@ function renderAnalysis(target, result, compact = false) {
   }
 }
 
+function escapeHtml(value) {
+  return String(value == null ? "" : value).replace(/[&<>"']/g, (character) => ({
+    "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;"
+  })[character]);
+}
+
+function listHtml(items) {
+  return `<ul>${(items?.length ? items : ["資訊不足，無法判斷"]).map((item) => `<li>${escapeHtml(item)}</li>`).join("")}</ul>`;
+}
+
+function buildPdfExportFrame() {
+  if (!currentAnalysisResult || !currentAnalysisMeta) throw new Error("目前沒有可匯出的分析結果");
+  const result = currentAnalysisResult, plan = result.tradePlan || {};
+  const technical = (result.technicalPoints || []).map((point) => `<article><b>${escapeHtml(point.label)}</b><p>${escapeHtml(point.analysis)}</p></article>`).join("");
+  const planRows = [["進場條件", plan.entry], ["防守／停損", plan.defense], ["第一目標", plan.firstTarget], ["第二目標", plan.secondTarget], ["強壓位置", plan.strongResistance], ["部位建議", plan.positionSizing]]
+    .map(([label, value]) => `<div><span>${label}</span><strong>${escapeHtml(value || "—")}</strong></div>`).join("");
+  const iframe = document.createElement("iframe");
+  iframe.title = "PDF 匯出版面";
+  iframe.style.cssText = "position:absolute;left:-12000px;top:0;width:1060px;height:100px;border:0;background:#fff";
+  iframe.srcdoc = `<!doctype html><html lang="zh-Hant"><head><meta charset="utf-8"><style>
+    *{box-sizing:border-box}html,body{margin:0;background:#fff;color:#1c2430;font-family:-apple-system,'PingFang TC','Microsoft JhengHei',sans-serif}body{width:1060px;padding:38px;font-size:15px;line-height:1.6}
+    header{display:flex;justify-content:space-between;align-items:flex-start;gap:24px;padding-bottom:18px;border-bottom:3px solid #3b5bdb}header em{display:block;color:#3b5bdb;font-size:12px;font-style:normal;font-weight:800;letter-spacing:.12em}h1{margin:5px 0 0;font-size:29px}header small{color:#6b7684;font-size:13px}.chart{display:block;width:100%;max-height:640px;margin:22px 0;border-radius:14px;background:#111827;object-fit:contain}
+    .hero{display:grid;grid-template-columns:1fr auto;gap:10px 18px;padding:20px;border:1px solid #c7d2fe;border-radius:14px;background:#eef2ff}.hero label{color:#3b5bdb;font-size:12px;font-weight:800}.hero h2{margin:5px 0 0;font-size:24px}.hero strong{color:#d99a00;font-size:19px}.hero p{grid-column:1/-1;margin:3px 0 0;color:#596579}.quality{margin:12px 0;padding:11px 13px;border-radius:9px;background:#f1f5f9;color:#596579}.card{margin-top:14px;padding:17px;border:1px solid #e3e7ec;border-radius:13px;background:#f8fafc}.card h3{margin:0 0 12px;font-size:17px}.points,.zones,.plan{display:grid;grid-template-columns:1fr 1fr;gap:11px}.points article,.plan div{padding:12px;border-radius:9px;background:#fff}.points article{border-left:4px solid #3b5bdb}.points p{margin:4px 0 0;color:#596579}.zones section{margin-top:14px;border-top:4px solid #1f9d55}.zones section:last-child{border-color:#d64545}.plan span,.plan strong{display:block}.plan span{color:#6b7684;font-size:12px}.plan strong{margin-top:4px}ul{margin:0;padding-left:22px;color:#596579}.invalid{margin-top:14px;padding:13px;border-radius:10px;background:#fff0f0}.invalid b{color:#d64545;margin-right:12px}footer{margin-top:20px;padding-top:14px;border-top:1px solid #e3e7ec;color:#6b7684;font-size:12px}
+  </style></head><body><header><div><em>AI TECHNICAL ANALYSIS</em><h1>${escapeHtml(currentAnalysisMeta.symbol)} ${escapeHtml(currentAnalysisMeta.assetName)}</h1></div><small>${escapeHtml(currentAnalysisMeta.date)} · ${escapeHtml(currentAnalysisMeta.timing)} · ${escapeHtml(currentAnalysisMeta.modeLabel)}</small></header>
+  ${resultImageData ? `<img class="chart" src="${resultImageData}" alt="技術線圖">` : ""}<section class="hero"><div><label>${escapeHtml(result.marketState || "資訊不足")}</label><h2>${escapeHtml(result.conclusion || "尚無結論")}</h2></div><strong>${escapeHtml(result.rating || "—")}</strong><p>${escapeHtml(result.thesis || "")}</p></section>
+  ${result.imageQualityNote ? `<div class="quality">${escapeHtml(result.imageQualityNote)}</div>` : ""}<section class="card"><h3>技術判讀</h3><div class="points">${technical}</div></section>
+  <div class="zones"><section class="card"><h3>支撐區</h3>${listHtml(result.supportZones)}</section><section class="card"><h3>壓力區</h3>${listHtml(result.resistanceZones)}</section></div>
+  <section class="card"><h3>交易計畫</h3><div class="plan">${planRows}</div></section><section class="card"><h3>風險提醒</h3>${listHtml(result.riskNotes)}</section>
+  ${result.invalidation ? `<div class="invalid"><b>判斷失效條件</b>${escapeHtml(result.invalidation)}</div>` : ""}<footer>產生時間：${escapeHtml(new Date().toLocaleString("zh-TW"))}。AI 分析僅供技術研究與交易計畫整理，不構成投資建議或獲利保證。</footer></body></html>`;
+  return new Promise((resolve) => {
+    iframe.onload = () => {
+      const body = iframe.contentDocument.body;
+      iframe.style.height = `${Math.ceil(body.scrollHeight)}px`;
+      resolve({ node: body, frame: iframe });
+    };
+    document.body.append(iframe);
+  });
+}
+
+async function waitForImages(element) {
+  await Promise.all([...element.querySelectorAll("img")].map((image) => image.complete ? Promise.resolve() : new Promise((resolve) => {
+    image.onload = resolve; image.onerror = resolve;
+  })));
+}
+
+async function createAnalysisPdf({ download = false } = {}) {
+  if (exportBusy) throw new Error("PDF 正在產生中，請稍候");
+  if (typeof window.html2canvas !== "function" || !window.jspdf?.jsPDF) throw new Error("PDF 元件尚未載入，請重新整理後再試");
+  exportBusy = true;
+  const buttons = [$("#exportAnalysisPdf"), $("#emailAnalysisPdf")];
+  buttons.forEach((button) => { button.disabled = true; });
+  let exportNode;
+  try {
+    if (document.fonts?.ready) await document.fonts.ready;
+    const exportFrame = await buildPdfExportFrame();
+    exportNode = exportFrame.frame;
+    await waitForImages(exportFrame.node);
+    const canvas = await window.html2canvas(exportFrame.node, { backgroundColor: "#ffffff", scale: 1.25, logging: false, useCORS: true });
+    const { jsPDF } = window.jspdf;
+    const pdf = new jsPDF({ orientation: "portrait", unit: "pt", format: "a4", compress: true });
+    const pageWidth = pdf.internal.pageSize.getWidth(), pageHeight = pdf.internal.pageSize.getHeight();
+    const margin = 24, drawWidth = pageWidth - margin * 2, drawHeight = pageHeight - margin * 2;
+    const pixelsPerPage = Math.max(1, Math.floor(canvas.width * drawHeight / drawWidth));
+    let offset = 0, page = 0;
+    while (offset < canvas.height) {
+      const sliceHeight = Math.min(pixelsPerPage, canvas.height - offset);
+      const slice = document.createElement("canvas");
+      slice.width = canvas.width; slice.height = sliceHeight;
+      slice.getContext("2d", { alpha: false }).drawImage(canvas, 0, offset, canvas.width, sliceHeight, 0, 0, canvas.width, sliceHeight);
+      if (page > 0) pdf.addPage();
+      pdf.addImage(slice.toDataURL("image/jpeg", .78), "JPEG", margin, margin, drawWidth, drawWidth * sliceHeight / canvas.width, undefined, "FAST");
+      offset += sliceHeight; page += 1;
+    }
+    const blob = pdf.output("blob");
+    if (download) {
+      const url = URL.createObjectURL(blob), link = document.createElement("a");
+      link.href = url;
+      link.download = `${safeFilePart(currentAnalysisMeta.symbol)}_${currentAnalysisMeta.date}_${currentAnalysisMeta.timing}_技術分析.pdf`;
+      document.body.append(link); link.click(); link.remove();
+      window.setTimeout(() => URL.revokeObjectURL(url), 1500);
+    }
+    return blob;
+  } finally {
+    exportNode?.remove();
+    exportBusy = false;
+    buttons.forEach((button) => { button.disabled = false; });
+  }
+}
+
+function blobToBase64(blob) {
+  return new Promise((resolve, reject) => {
+    const reader = new FileReader();
+    reader.onload = () => resolve(String(reader.result || "").split(",")[1] || "");
+    reader.onerror = () => reject(new Error("PDF 附件讀取失敗"));
+    reader.readAsDataURL(blob);
+  });
+}
+
+function openEmailModal() {
+  if (!currentAnalysisMeta?.symbol) {
+    $("#analysisStatus").className = "ai-status error";
+    $("#analysisStatus").textContent = "寄送 Email 前請先填入標的代號。";
+    return;
+  }
+  $("#analysisEmailSubject").textContent = resultSubject();
+  $("#analysisEmailStatus").textContent = "";
+  $("#emailAnalysisModal").hidden = false;
+  document.body.classList.add("ai-email-open");
+  $("#analysisEmailAddress").focus({ preventScroll: true });
+}
+
+function closeEmailModal() {
+  if ($("#emailAnalysisSend").disabled) return;
+  $("#emailAnalysisModal").hidden = true;
+  document.body.classList.remove("ai-email-open");
+}
+
+async function sendAnalysisEmail() {
+  const emailInput = $("#analysisEmailAddress"), status = $("#analysisEmailStatus"), sendButton = $("#emailAnalysisSend");
+  const email = emailInput.value.trim();
+  status.className = "ai-email-status";
+  if (!emailInput.checkValidity() || !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
+    status.className = "ai-email-status error";
+    status.textContent = "請輸入有效的 Email address。";
+    emailInput.focus();
+    return;
+  }
+  const client = window.ETFAuth?.client();
+  const { data: { session } } = await client.auth.getSession();
+  if (!session || !window.ETFAuth?.canUseChartAnalysis()) {
+    closeEmailModal();
+    return syncAccess();
+  }
+  sendButton.disabled = true;
+  $("#emailAnalysisCancel").disabled = true;
+  status.textContent = "正在產生 PDF 附件…";
+  try {
+    const pdf = await createAnalysisPdf();
+    if (pdf.size > 3_500_000) throw new Error("PDF 超過寄送大小限制，請改用匯出 PDF 下載");
+    status.textContent = "正在透過 Gmail 寄送…";
+    const response = await fetch("/api/chart-analysis-email", {
+      method: "POST",
+      headers: { "Content-Type": "application/json", Authorization: `Bearer ${session.access_token}` },
+      body: JSON.stringify({ email, symbol: currentAnalysisMeta.symbol, assetName: currentAnalysisMeta.assetName,
+        date: currentAnalysisMeta.date, timing: currentAnalysisMeta.timing, pdfBase64: await blobToBase64(pdf) })
+    });
+    const data = await response.json().catch(() => ({}));
+    if (!response.ok || !data.ok) throw new Error(data.error || "Email 暫時無法寄出");
+    status.className = "ai-email-status success";
+    status.textContent = `已寄送至 ${email}`;
+    window.setTimeout(() => { sendButton.disabled = false; $("#emailAnalysisCancel").disabled = false; closeEmailModal(); }, 1100);
+  } catch (error) {
+    status.className = "ai-email-status error";
+    status.textContent = error.message;
+    sendButton.disabled = false;
+    $("#emailAnalysisCancel").disabled = false;
+  }
+}
+
 async function analyze() {
   if (busy) return;
   if (!preparedImage) {
@@ -436,6 +644,16 @@ async function analyze() {
     $("#resultMeta").textContent = resultLabel;
     renderAnalysis($("#resultContent"), data.analysis);
     setResultThumbnail(payload.imageData);
+    const symbol = payload.symbol.trim().toUpperCase();
+    currentAnalysisResult = data.analysis;
+    currentAnalysisMeta = {
+      symbol,
+      assetName: transferredAssetName || assetNames.get(symbol) || symbol || "未填名稱",
+      date: localIsoDate(),
+      timing: timingCategory(payload.screenshotTiming),
+      modeLabel: MODE_LABELS[mode] || mode,
+    };
+    setExportTools(true);
     $("#analysisStatus").className = "ai-status success";
     $("#analysisStatus").textContent = "分析完成。";
     $("#quotaBadge strong").textContent = `${data.quota.remaining} / ${data.quota.dailyLimit}`;
@@ -485,6 +703,7 @@ async function loadHistory() {
 }
 
 function bind() {
+  loadAssetNames();
   $("#chartImage").addEventListener("change", (event) => selectImage(event.target.files?.[0]));
   $("#removeImage").addEventListener("click", clearImage);
   const preview = $("#chartPreview");
@@ -498,6 +717,25 @@ function bind() {
     if (event.key === "Enter" || event.key === " ") openPreview(event);
   });
   $("#resultChartThumb").addEventListener("click", () => openImageViewer(resultImageData, "本次分析線圖"));
+  $("#exportAnalysisPdf").addEventListener("click", async () => {
+    const status = $("#analysisStatus");
+    status.className = "ai-status";
+    status.textContent = "正在產生 PDF…";
+    try {
+      await createAnalysisPdf({ download: true });
+      status.className = "ai-status success";
+      status.textContent = "PDF 已匯出。";
+    } catch (error) {
+      status.className = "ai-status error";
+      status.textContent = error.message;
+    }
+  });
+  $("#emailAnalysisPdf").addEventListener("click", openEmailModal);
+  $("#emailAnalysisClose").addEventListener("click", closeEmailModal);
+  $("#emailAnalysisCancel").addEventListener("click", closeEmailModal);
+  $("#emailAnalysisSend").addEventListener("click", sendAnalysisEmail);
+  $("#analysisEmailAddress").addEventListener("keydown", (event) => { if (event.key === "Enter") sendAnalysisEmail(); });
+  $("#emailAnalysisModal").addEventListener("click", (event) => { if (event.target === event.currentTarget) closeEmailModal(); });
   $("#toggleInputPanel").addEventListener("click", () => setInputPanelCollapsed(!$("#aiWorkspace").classList.contains("input-collapsed")));
   $("#imageLightboxClose").addEventListener("click", closeImageViewer);
   $("#imageZoomIn").addEventListener("click", () => changeViewerZoom(1.25));
@@ -526,6 +764,7 @@ function bind() {
   viewer.addEventListener("pointercancel", stopViewerDrag);
   document.addEventListener("keydown", (event) => {
     if (event.key === "Escape" && !$("#imageLightbox").hidden) closeImageViewer();
+    else if (event.key === "Escape" && !$("#emailAnalysisModal").hidden) closeEmailModal();
   });
   window.addEventListener("resize", () => {
     if (!$("#imageLightbox").hidden) fitViewerImage();

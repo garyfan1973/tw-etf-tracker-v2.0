@@ -40,7 +40,7 @@
       </div></fieldset>
       <div class="ai-form-grid">
         <label>標的代號（選填）<input id="analysisSymbol" maxlength="20" placeholder="例如 2330、SOXX"></label>
-        <label>截圖時點<select id="screenshotTiming"><option value="">不確定／未註明</option><option>開盤後 30 分鐘內</option><option>盤中</option><option>接近收盤</option><option>盤後</option></select></label>
+        <label>截圖時點<select id="screenshotTiming"><option value="">不確定／未註明</option><option>盤前</option><option>開盤後 30 分鐘內</option><option>盤中</option><option>接近收盤</option><option>盤後</option></select></label>
         <label id="priceField" hidden>預計買進價（選填）<input id="proposedPrice" type="number" min="0" step="0.01" inputmode="decimal" placeholder="例如 128.5"></label>
       </div>
       <button id="analyzeChart" class="ai-analyze-button" type="button"><span>✦</span>開始分析</button>
@@ -48,7 +48,7 @@
     </section>
 
     <section class="panel ai-result-panel">
-      <div class="ai-section-title ai-result-heading"><div><span>03</span><h2>分析結果</h2></div><div class="ai-result-head-tools"><small id="resultMeta"></small><button id="resultChartThumb" class="ai-result-thumb" type="button" aria-label="放大查看本次分析線圖" title="點擊放大線圖" hidden><img id="resultChartThumbImage" alt="本次分析線圖縮圖"><span>查看線圖</span></button><button id="toggleInputPanel" class="ai-panel-toggle" type="button" aria-expanded="true"><span aria-hidden="true">‹</span><b>收合設定</b></button></div></div>
+      <div class="ai-section-title ai-result-heading"><div><span>03</span><h2>分析結果</h2></div><div class="ai-result-head-tools"><small id="resultMeta"></small><div id="resultExportTools" class="ai-export-tools" hidden><button id="exportAnalysisPdf" type="button" title="匯出 PDF" aria-label="匯出 PDF"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 2h8l4 4v16H6zM14 2v5h5M8.5 12h7M8.5 15h7M8.5 18h4"/></svg></button><button id="emailAnalysisPdf" type="button" title="寄送 Email" aria-label="寄送 Email"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3 5h18v14H3zM3 6l9 7 9-7"/></svg></button></div><button id="resultChartThumb" class="ai-result-thumb" type="button" aria-label="放大查看本次分析線圖" title="點擊放大線圖" hidden><img id="resultChartThumbImage" alt="本次分析線圖縮圖"><span>查看線圖</span></button><button id="toggleInputPanel" class="ai-panel-toggle" type="button" aria-expanded="true"><span aria-hidden="true">‹</span><b>收合設定</b></button></div></div>
       <div id="resultEmpty" class="ai-result-empty"><div>⌁</div><strong>結果會顯示在這裡</strong><p>AI 只讀取截圖中看得到的資訊；模糊或缺少的數據會明確標示。</p></div>
       <div id="resultLoading" class="ai-analysis-progress" aria-live="polite" hidden>
         <div class="ai-progress-orbit" aria-hidden="true"><span>✦</span></div>
@@ -72,6 +72,19 @@
     <footer>使用滑鼠滾輪或 ＋／－ 縮放；放大後可拖曳圖片移動。按 Esc 或右上角 × 關閉。</footer>
   </section>
 </div>
+<div id="emailAnalysisModal" class="ai-email-modal" role="dialog" aria-modal="true" aria-labelledby="emailAnalysisTitle" hidden>
+  <section class="ai-email-window">
+    <header><div><span>Email PDF</span><h2 id="emailAnalysisTitle">寄送技術分析</h2></div><button id="emailAnalysisClose" type="button" aria-label="關閉">×</button></header>
+    <p>系統會將目前分析結果製作成 PDF，並以站長 Gmail 帳號寄出。</p>
+    <label for="analysisEmailAddress">收件人 Email address</label>
+    <input id="analysisEmailAddress" type="email" autocomplete="email" inputmode="email" placeholder="name@example.com" required>
+    <div class="ai-email-subject"><span>主旨</span><strong id="analysisEmailSubject"></strong></div>
+    <p id="analysisEmailStatus" class="ai-email-status" role="status"></p>
+    <footer><button id="emailAnalysisCancel" class="secondary" type="button">取消</button><button id="emailAnalysisSend" class="primary" type="button"><span aria-hidden="true">✉</span> 寄送 Email</button></footer>
+  </section>
+</div>
 <script src="theme.js"></script><script src="chart-analysis-transfer.js?v=20260824"></script><script type="module" src="auth.js"></script><script type="module" src="chart-analysis.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/html2canvas@1.4.1/dist/html2canvas.min.js" integrity="sha512-BNaRQnYJYiPSqHHDb58B0yaPfCu+Wgds8Gp/gU33kqBtgNS4tSPHuGibyoeqMV/TJlSKda6FXzoEyYGjTe+vXA==" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/jspdf@2.5.2/dist/jspdf.umd.min.js"></script>
 </body>
 </html>

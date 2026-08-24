@@ -65,7 +65,10 @@ def load_chart(code, market):
     if market == "TW":
         symbols.append(code + ".TWO")
     for symbol in symbols:
-        payload = fetch_json(YAHOO_CHART.format(quote(symbol, safe=".-=")))
+        try:
+            payload = fetch_json(YAHOO_CHART.format(quote(symbol, safe=".-=")))
+        except Exception:
+            continue
         result = (payload.get("chart", {}).get("result") or [None])[0]
         if not result:
             continue

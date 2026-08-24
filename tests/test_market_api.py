@@ -31,6 +31,17 @@ class MarketApiTests(unittest.TestCase):
         self.assertEqual(result["rows"][0]["close"], 10.5)
         self.assertEqual(fetch.call_count, 2)
 
+    def test_tw_market_falls_back_when_listed_request_errors(self):
+        otc = {"chart": {"result": [{
+            "timestamp": [1_700_000_000],
+            "indicators": {"quote": [{"open": [10], "high": [11], "low": [9], "close": [10.5], "volume": [1000]}]},
+            "meta": {"currency": "TWD"},
+        }]}}
+        with mock.patch.object(market_api, "fetch_json", side_effect=[OSError("listed missing"), otc]) as fetch:
+            result = market_api.load_chart("6488", "TW")
+        self.assertEqual(result["symbol"], "6488.TWO")
+        self.assertEqual(fetch.call_count, 2)
+
     def test_twse_month_rows_use_official_share_volume(self):
         payload = {
             "fields": ["日期", "成交股數", "成交金額", "開盤價", "最高價", "最低價", "收盤價"],

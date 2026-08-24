@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>ETF 配息日曆</title>
+  <title>配息日曆</title>
   <style>
     :root, :root[data-theme="light"] {
       --bg: #f5f6f8; --card: #ffffff; --text: #1c2430; --muted: #6b7684;
@@ -134,7 +134,7 @@
       <span id="authBox" style="margin-left:auto;display:flex;align-items:center;gap:6px;"></span>
       <button id="themeToggle" class="theme-toggle" style="margin-left:8px;" aria-label="切換主題">🌙</button>
     </nav>
-    <h1>ETF 配息日曆</h1>
+    <h1>配息日曆</h1>
     <div class="sub" id="sub">載入中…</div>
 
     <div class="panel">
@@ -143,9 +143,9 @@
     </div>
 
     <div class="panel">
-      <h2 style="display:flex;align-items:center;gap:14px;flex-wrap:wrap;">顯示哪些 ETF
+      <h2 style="display:flex;align-items:center;gap:14px;flex-wrap:wrap;">顯示哪些標的
         <label id="mineWrap" style="display:none;font-size:13px;font-weight:400;color:var(--text);align-items:center;gap:6px;cursor:pointer;">
-          <input type="checkbox" id="onlyMineDiv"> ⭐ 只看我的關注
+          <input type="checkbox" id="onlyMineDiv"> 💼 只看我的持股
         </label>
       </h2>
       <div class="chips" id="chips"></div>
@@ -177,7 +177,7 @@
   <script src="config.js"></script>
   <script src="data.js"></script>
   <script type="module" src="auth.js"></script>
-  <script>
+  <script type="text/plain" id="legacyDividendCalendar">
     if (typeof window.DATA === "undefined") {
       document.getElementById("sub").textContent =
         "尚無資料。請先執行 python3 fetch.py 產生 data.js。";
@@ -412,5 +412,6 @@
       renderAll();
     }
   </script>
+  <script src="dividends-multi-market.js"></script>
 </body>
 </html>

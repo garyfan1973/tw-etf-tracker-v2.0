@@ -69,7 +69,7 @@
         <div class="filters">
           <div class="field"><label for="fromDate">開始日期</label><input id="fromDate" type="date"></div>
           <div class="field"><label for="toDate">結束日期</label><input id="toDate" type="date"></div>
-          <div class="field"><label for="etfFilter">ETF 代號</label><input id="etfFilter" list="txEtfOptions" autocomplete="off" placeholder="例如 00981A"><datalist id="txEtfOptions"></datalist></div>
+          <div class="field"><label for="etfFilter">標的代號／名稱</label><input id="etfFilter" list="txEtfOptions" autocomplete="off" placeholder="例如 2330、AAPL"><datalist id="txEtfOptions"></datalist></div>
           <button id="filterBtn" class="primary" type="button">查詢</button>
           <button id="clearFilterBtn" type="button">清除</button>
           <span id="filterSummary" class="sub" style="margin:0;"></span>
@@ -78,12 +78,13 @@
           <thead><tr>
             <th><button class="sort" type="button" data-sort="trade_date">日期</button></th>
             <th><button class="sort" type="button" data-sort="side">類型</button></th>
-            <th><button class="sort" type="button" data-sort="etf_code">ETF 代號</button></th>
-            <th><button class="sort" type="button" data-sort="etf_name">ETF 名稱</button></th>
+            <th><button class="sort" type="button" data-sort="symbol">標的</button></th>
+            <th><button class="sort" type="button" data-sort="asset_name">名稱</button></th>
+            <th>市場／類型</th>
             <th class="num"><button class="sort" type="button" data-sort="shares">股數</button></th>
             <th class="num"><button class="sort" type="button" data-sort="price">成交均價</button></th>
             <th class="num"><button class="sort" type="button" data-sort="fee">手續費</button></th>
-            <th class="num"><button class="sort" type="button" data-sort="tax">交易稅</button></th>
+            <th class="num"><button class="sort" type="button" data-sort="tax">稅費</button></th>
             <th class="num"><button class="sort" type="button" data-sort="amount">成交金額</button></th>
             <th>備註</th><th></th>
           </tr></thead>
