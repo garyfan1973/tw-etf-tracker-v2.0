@@ -343,7 +343,17 @@
       "name": "世界",
       "market": "TW",
       "weight": 2.45,
-      "shares": 97142442
+      "shares": 97142442,
+      "open": 150.5,
+      "high": 157.0,
+      "low": 150.5,
+      "close": 151.0,
+      "prevClose": 151.5,
+      "change": -0.5,
+      "changePct": -0.33,
+      "amplitude": 4.29,
+      "volume": 12073216.0,
+      "quoteDate": "2026-08-03"
     },
     {
       "code": "2301",
@@ -486,7 +496,17 @@
       "name": "鈊象",
       "market": "TW",
       "weight": 1.83,
-      "shares": 14253000
+      "shares": 14253000,
+      "open": 728.0,
+      "high": 728.0,
+      "low": 715.0,
+      "close": 721.0,
+      "prevClose": 732.0,
+      "change": -11.0,
+      "changePct": -1.5,
+      "amplitude": 1.78,
+      "volume": 2854769.0,
+      "quoteDate": "2026-08-03"
     },
     {
       "code": "5871",

@@ -670,7 +670,17 @@
         "shortBalance": 11,
         "offsetting": 0,
         "date": "2026-08-04"
-      }
+      },
+      "open": 5580.0,
+      "high": 5675.0,
+      "low": 5485.0,
+      "close": 5565.0,
+      "prevClose": 5465.0,
+      "change": 100.0,
+      "changePct": 1.83,
+      "amplitude": 3.48,
+      "volume": 517509.0,
+      "quoteDate": "2026-08-04"
     },
     {
       "code": "SMTC",
@@ -752,7 +762,17 @@
         "shortBalance": 224,
         "offsetting": 5,
         "date": "2026-08-04"
-      }
+      },
+      "open": 150.5,
+      "high": 157.0,
+      "low": 150.5,
+      "close": 151.0,
+      "prevClose": 151.5,
+      "change": -0.5,
+      "changePct": -0.33,
+      "amplitude": 4.29,
+      "volume": 12073216.0,
+      "quoteDate": "2026-08-04"
     },
     {
       "code": "LRCX",
