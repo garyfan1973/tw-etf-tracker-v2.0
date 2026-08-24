@@ -1,6 +1,7 @@
 const $ = (selector) => document.querySelector(selector);
 const MODE_LABELS = { general: "一般分析", fast: "快閃交易", overnight: "隔日沖", "low-entry": "低接掛價" };
 const CHART_IMAGE_BUCKET = "chart-analysis-images";
+const SHOW_IMAGE_QUALITY_NOTE = false;
 let preparedImage = "";
 let selectedFileName = "";
 let busy = false;
@@ -568,7 +569,7 @@ function renderAnalysis(target, result, compact = false) {
   target.append(hero);
   if (compact) return;
 
-  if (result.imageQualityNote) {
+  if (SHOW_IMAGE_QUALITY_NOTE && result.imageQualityNote) {
     const quality = node("div", `ai-quality-note${result.readable ? "" : " warning"}`, result.imageQualityNote);
     target.append(quality);
   }
@@ -636,7 +637,7 @@ function buildPdfExportFrame() {
     .hero{padding:20px;border:1px solid #c7d2fe;border-radius:14px;background:#eef2ff}.hero label{color:#3b5bdb;font-size:12px;font-weight:800}.hero h2{margin:5px 0 0;font-size:24px}.hero p{margin:3px 0 0;color:#596579}.quality{margin:12px 0;padding:11px 13px;border-radius:9px;background:#f1f5f9;color:#596579}.card{margin-top:14px;padding:17px;border:1px solid #e3e7ec;border-radius:13px;background:#f8fafc}.card h3{margin:0;font-size:17px}.title-row{display:flex;align-items:center;justify-content:space-between;gap:18px;margin-bottom:12px}.tone-legend{display:flex;align-items:center;gap:14px;font-size:12px;color:#596579}.tone-legend span{display:flex;align-items:center;gap:5px}.tone-legend i{width:20px;height:3px;border-radius:2px;background:#7b8491}.tone-legend .bullish i{background:#d64545}.tone-legend .bearish i{background:#16884c}.tone-legend .warning i{background:#d69e2e}.points,.zones,.plan{display:grid;grid-template-columns:1fr 1fr;gap:11px}.points article,.plan div{padding:12px;border-radius:9px;background:#fff}.points article{border-left:4px solid #7b8491}.points article.bullish{border-color:#d64545}.points article.bearish{border-color:#16884c}.points article.warning{border-color:#d69e2e}.points p{margin:4px 0 0;color:#596579}.zones section{margin-top:14px;border-top:4px solid #1f9d55}.zones section:last-child{border-color:#d64545}.plan span,.plan strong{display:block}.plan span{color:#6b7684;font-size:12px}.plan strong{margin-top:4px}ul{margin:0;padding-left:22px;color:#596579}.invalid{margin-top:14px;padding:13px;border-radius:10px;background:#fff0f0}.invalid b{color:#d64545;margin-right:12px}footer{margin-top:20px;padding-top:14px;border-top:1px solid #e3e7ec;color:#6b7684;font-size:12px}
   </style></head><body><header><div><em>AI TECHNICAL ANALYSIS</em><h1>${escapeHtml(currentAnalysisMeta.symbol)} ${escapeHtml(currentAnalysisMeta.assetName)}</h1></div><small>${escapeHtml(currentAnalysisMeta.date)} · ${escapeHtml(currentAnalysisMeta.timing)} · ${escapeHtml(currentAnalysisMeta.modeLabel)}</small></header>
   ${resultImageData ? `<img class="chart" src="${resultImageData}" alt="技術線圖">` : ""}<section class="hero"><div><label>${escapeHtml(result.marketState || "資訊不足")}</label><h2>${escapeHtml(result.conclusion || "尚無結論")}</h2></div><p>${escapeHtml(result.thesis || "")}</p></section>
-  ${result.imageQualityNote ? `<div class="quality">${escapeHtml(result.imageQualityNote)}</div>` : ""}<section class="card"><div class="title-row"><h3>技術判讀</h3><div class="tone-legend">${toneLegend}</div></div><div class="points">${technical}</div></section>
+  ${SHOW_IMAGE_QUALITY_NOTE && result.imageQualityNote ? `<div class="quality">${escapeHtml(result.imageQualityNote)}</div>` : ""}<section class="card"><div class="title-row"><h3>技術判讀</h3><div class="tone-legend">${toneLegend}</div></div><div class="points">${technical}</div></section>
   <div class="zones"><section class="card"><h3>支撐區</h3>${listHtml(result.supportZones)}</section><section class="card"><h3>壓力區</h3>${listHtml(result.resistanceZones)}</section></div>
   <section class="card"><h3>交易計畫</h3><div class="plan">${planRows}</div></section><section class="card"><h3>風險提醒</h3>${listHtml(result.riskNotes)}</section>
   ${result.invalidation ? `<div class="invalid"><b>判斷失效條件</b>${escapeHtml(result.invalidation)}</div>` : ""}<footer>產生時間：${escapeHtml(new Date().toLocaleString("zh-TW"))}。AI 分析僅供技術研究與交易計畫整理，不構成投資建議或獲利保證。</footer></body></html>`;
