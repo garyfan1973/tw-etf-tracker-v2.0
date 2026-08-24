@@ -1,5 +1,6 @@
 const $ = (selector) => document.querySelector(selector);
 const MODE_LABELS = { general: "一般分析", fast: "快閃交易", overnight: "隔日沖", "low-entry": "低接掛價" };
+const CHART_IMAGE_BUCKET = "chart-analysis-images";
 let preparedImage = "";
 let selectedFileName = "";
 let busy = false;
@@ -18,6 +19,7 @@ let exportBusy = false;
 let viewerZoom = 1;
 let viewerFitScale = 1;
 let viewerDrag = null;
+const historyImageCache = new Map();
 
 const PROGRESS_STAGES = [
   { after: 0, label: "上傳與讀圖", message: "正在安全傳送圖片並確認線圖可讀性…" },
@@ -41,6 +43,12 @@ function localIsoDate() {
   const date = new Date();
   const pad = (value) => String(value).padStart(2, "0");
   return `${date.getFullYear()}-${pad(date.getMonth() + 1)}-${pad(date.getDate())}`;
+}
+
+function taipeiIsoDate(value) {
+  return new Intl.DateTimeFormat("en-CA", {
+    timeZone: "Asia/Taipei", year: "numeric", month: "2-digit", day: "2-digit"
+  }).format(new Date(value));
 }
 
 function timingCategory(value) {
@@ -97,6 +105,112 @@ function setResultThumbnail(src = "") {
   }
   $("#resultChartThumbImage").src = src;
   button.hidden = false;
+}
+
+function dataUrlToBlob(dataUrl) {
+  const match = String(dataUrl || "").match(/^data:(image\/(?:jpeg|png|webp));base64,(.+)$/);
+  if (!match) throw new Error("線圖格式無法保存");
+  const binary = atob(match[2]);
+  const bytes = new Uint8Array(binary.length);
+  for (let index = 0; index < binary.length; index += 1) bytes[index] = binary.charCodeAt(index);
+  return new Blob([bytes], { type: match[1] });
+}
+
+async function saveAnalysisImage(sb, userId, requestId, imageData, assetName) {
+  if (!requestId) throw new Error("分析紀錄缺少識別碼");
+  const blob = dataUrlToBlob(imageData);
+  const extension = blob.type === "image/png" ? "png" : blob.type === "image/webp" ? "webp" : "jpg";
+  const path = `${userId}/${requestId}.${extension}`;
+  const { error: uploadError } = await sb.storage.from(CHART_IMAGE_BUCKET).upload(path, blob, {
+    contentType: blob.type, cacheControl: "300", upsert: false
+  });
+  if (uploadError) throw new Error(uploadError.message || "線圖保存失敗");
+  const { error: attachError } = await sb.rpc("attach_chart_analysis_image", {
+    p_request_id: requestId, p_chart_path: path, p_asset_name: assetName || null
+  });
+  if (attachError) {
+    await sb.storage.from(CHART_IMAGE_BUCKET).remove([path]);
+    throw new Error(attachError.message || "線圖紀錄保存失敗");
+  }
+  historyImageCache.set(path, imageData);
+}
+
+function historyMeta(row) {
+  const symbol = String(row.symbol || "").trim().toUpperCase();
+  return {
+    symbol,
+    assetName: row.asset_name || assetNames.get(symbol) || symbol || "未填名稱",
+    date: taipeiIsoDate(row.created_at),
+    timing: timingCategory(row.screenshot_timing),
+    modeLabel: MODE_LABELS[row.mode] || row.mode,
+  };
+}
+
+function historyImageState(row) {
+  if (!row.chart_path || !row.chart_expires_at) return "legacy";
+  return new Date(row.chart_expires_at).getTime() <= Date.now() ? "expired" : "available";
+}
+
+async function loadHistoryImage(sb, row) {
+  if (historyImageCache.has(row.chart_path)) return historyImageCache.get(row.chart_path);
+  const { data, error } = await sb.storage.from(CHART_IMAGE_BUCKET).download(row.chart_path);
+  if (error || !data) throw new Error("線圖已無法讀取，可能已超過 5 天保存期限");
+  const dataUrl = await fileToDataUrl(data);
+  historyImageCache.set(row.chart_path, dataUrl);
+  return dataUrl;
+}
+
+async function cleanupExpiredHistoryImages(sb) {
+  const { data } = await sb.from("chart_analysis_requests")
+    .select("chart_path")
+    .not("chart_path", "is", null)
+    .lte("chart_expires_at", new Date().toISOString())
+    .limit(100);
+  const paths = [...new Set((data || []).map((row) => row.chart_path).filter(Boolean))];
+  if (paths.length) await sb.storage.from(CHART_IMAGE_BUCKET).remove(paths);
+}
+
+async function activateHistoryResult(sb, row, notice) {
+  const meta = historyMeta(row);
+  currentAnalysisResult = null;
+  currentAnalysisMeta = null;
+  setExportTools(false);
+  setResultThumbnail();
+  $("#resultEmpty").hidden = true;
+  $("#resultContent").hidden = false;
+  renderAnalysis($("#resultContent"), row.result);
+  const state = historyImageState(row);
+  if (state !== "available") {
+    const message = state === "expired"
+      ? "此線圖已超過 5 天保存期限；文字分析仍可查看，但無法匯出 PDF 或寄送 Email。"
+      : "此紀錄建立於線圖保存功能啟用前；僅保留文字分析，無法匯出 PDF 或寄送 Email。";
+    notice.textContent = message;
+    notice.hidden = false;
+    $("#resultMeta").textContent = `${row.symbol || "未填標的"} · ${meta.modeLabel} · 線圖不可用`;
+    $("#analysisStatus").className = "ai-status warning";
+    $("#analysisStatus").textContent = message;
+    $("#resultContent").scrollIntoView({ behavior: "smooth", block: "start" });
+    return;
+  }
+  notice.hidden = false;
+  notice.textContent = "正在載入 5 天保存期內的原始線圖…";
+  try {
+    const imageData = await loadHistoryImage(sb, row);
+    currentAnalysisResult = row.result;
+    currentAnalysisMeta = meta;
+    setResultThumbnail(imageData);
+    setExportTools(true);
+    notice.textContent = `線圖可使用至 ${new Date(row.chart_expires_at).toLocaleString("zh-TW")}，可匯出 PDF 或寄送 Email。`;
+    $("#resultMeta").textContent = `${row.symbol || "未填標的"} · ${meta.modeLabel} · 歷史分析`;
+    $("#analysisStatus").className = "ai-status success";
+    $("#analysisStatus").textContent = "歷史分析與線圖已載入。";
+  } catch (error) {
+    notice.textContent = error.message;
+    $("#resultMeta").textContent = `${row.symbol || "未填標的"} · 線圖不可用`;
+    $("#analysisStatus").className = "ai-status warning";
+    $("#analysisStatus").textContent = error.message;
+  }
+  $("#resultContent").scrollIntoView({ behavior: "smooth", block: "start" });
 }
 
 function renderViewerZoom(center = false) {
@@ -645,17 +759,25 @@ async function analyze() {
     renderAnalysis($("#resultContent"), data.analysis);
     setResultThumbnail(payload.imageData);
     const symbol = payload.symbol.trim().toUpperCase();
+    const assetName = transferredAssetName || assetNames.get(symbol) || symbol || "未填名稱";
     currentAnalysisResult = data.analysis;
     currentAnalysisMeta = {
       symbol,
-      assetName: transferredAssetName || assetNames.get(symbol) || symbol || "未填名稱",
+      assetName,
       date: localIsoDate(),
       timing: timingCategory(payload.screenshotTiming),
       modeLabel: MODE_LABELS[mode] || mode,
     };
     setExportTools(true);
     $("#analysisStatus").className = "ai-status success";
-    $("#analysisStatus").textContent = "分析完成。";
+    $("#analysisStatus").textContent = "分析完成，正在保存線圖（保存 5 天）…";
+    try {
+      await saveAnalysisImage(sb, requestUserId, data.requestId, payload.imageData, assetName);
+      $("#analysisStatus").textContent = "分析完成；線圖已保存 5 天，可由歷史紀錄重新匯出或寄送。";
+    } catch (storageError) {
+      $("#analysisStatus").className = "ai-status warning";
+      $("#analysisStatus").textContent = `分析完成，但${storageError.message}；本頁仍可匯出，歷史紀錄將只保留文字。`;
+    }
     $("#quotaBadge strong").textContent = `${data.quota.remaining} / ${data.quota.dailyLimit}`;
     await window.ETFAuth.refreshChartAnalysisAccess();
     await loadHistory();
@@ -677,7 +799,10 @@ async function loadHistory() {
   if (!sb || !window.ETFAuth.user()) return;
   const requestUserId = window.ETFAuth.user().id;
   const generation = ++historyGeneration;
-  const { data, error } = await sb.from("chart_analysis_requests").select("id,created_at,mode,symbol,status,result").order("created_at", { ascending: false }).limit(6);
+  cleanupExpiredHistoryImages(sb).catch(() => {});
+  const { data, error } = await sb.from("chart_analysis_requests")
+    .select("id,created_at,mode,symbol,screenshot_timing,status,result,asset_name,chart_path,chart_expires_at")
+    .order("created_at", { ascending: false }).limit(6);
   if (error || generation !== historyGeneration || window.ETFAuth.user()?.id !== requestUserId) return;
   const target = $("#analysisHistory");
   target.replaceChildren();
@@ -694,9 +819,25 @@ async function loadHistory() {
     head.append(copy, node("i", "", row.status === "completed" ? "查看" : "未完成"));
     const detail = node("div", "ai-history-detail");
     detail.hidden = true;
-    if (row.result) renderAnalysis(detail, row.result);
-    else detail.append(node("p", "ai-history-empty", "這次分析未完成。"));
-    head.addEventListener("click", () => { detail.hidden = !detail.hidden; head.classList.toggle("open", !detail.hidden); });
+    const notice = node("p", "ai-history-retention");
+    notice.hidden = true;
+    if (row.result) {
+      renderAnalysis(detail, row.result);
+      detail.prepend(notice);
+      const state = historyImageState(row);
+      if (state === "expired") {
+        notice.hidden = false;
+        notice.textContent = "線圖已超過 5 天保存期限；仍可查看文字分析，但無法匯出或寄送。";
+      } else if (state === "legacy") {
+        notice.hidden = false;
+        notice.textContent = "此舊紀錄未保存線圖；仍可查看文字分析，但無法匯出或寄送。";
+      }
+    } else detail.append(node("p", "ai-history-empty", "這次分析未完成。"));
+    head.addEventListener("click", async () => {
+      detail.hidden = !detail.hidden;
+      head.classList.toggle("open", !detail.hidden);
+      if (!detail.hidden && row.result) await activateHistoryResult(sb, row, notice);
+    });
     card.append(head, detail);
     target.append(card);
   });

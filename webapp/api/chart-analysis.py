@@ -263,7 +263,7 @@ class handler(BaseHTTPRequestHandler):
                 "p_request_id": request_id, "p_status": "completed", "p_model": model,
                 "p_result": result, "p_error_message": None
             })
-            self.send_json({"ok": True, "analysis": result, "quota": {
+            self.send_json({"ok": True, "requestId": request_id, "analysis": result, "quota": {
                 "dailyLimit": quota["dailyLimit"], "used": quota["used"],
                 "remaining": quota["remaining"]
             }, "usage": {"inputTokens": usage.get("input_tokens"),
