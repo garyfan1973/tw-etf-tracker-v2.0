@@ -15,6 +15,7 @@ USER_AGENT = "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36
 YOUTUBE_FEED = "https://www.youtube.com/feeds/videos.xml?channel_id={}"
 
 CHANNELS = [
+    {"id": "capitalmorning", "name": "群益早安", "channelId": "UCZsKjvJdVl1o8dhOPIdthpw", "url": "https://www.youtube.com/@capitalcare6005", "keywords": ["群益早安"], "pinned": True},
     {"id": "yutinghao", "name": "游庭皓的財經皓角", "channelId": "UC0lbAQVpenvfA2QqzsRtL_g", "url": "https://www.youtube.com/@yutinghaofinance"},
     {"id": "jenny", "name": "財女珍妮", "channelId": "UCdwPn2TO60Ec8QDIFRx50lQ", "url": "https://www.youtube.com/channel/UCdwPn2TO60Ec8QDIFRx50lQ"},
     {"id": "moneyline", "name": "錢線百分百", "channelId": "UC_ObC9O0ZQ2FhW6u9_iFlZA", "url": "https://www.youtube.com/@ustvmoney100"},
@@ -93,6 +94,11 @@ def still_current(rows, now=None, days=7):
     return sorted(result, key=lambda row: row["publishedAt"], reverse=True)
 
 
+def featured_video_sort_key(row):
+    """Keep the pinned morning program first, then order each group newest-first."""
+    return (row.get("channelId") != "capitalmorning", -dt.datetime.fromisoformat(row["publishedAt"].replace("Z", "+00:00")).timestamp())
+
+
 def main():
     now = dt.datetime.now(dt.timezone.utc)
     existing = {channel.get("id"): channel for channel in load_existing().get("channels", [])}
@@ -109,7 +115,7 @@ def main():
             failures.append("{}: {}".format(channel["name"], error))
     all_videos = sorted(
         (video for channel in channel_rows for video in channel["videos"]),
-        key=lambda row: row["publishedAt"], reverse=True,
+        key=featured_video_sort_key,
     )
     payload = {
         "updatedAt": now.replace(microsecond=0).isoformat().replace("+00:00", "Z"),

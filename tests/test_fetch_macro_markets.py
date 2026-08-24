@@ -34,6 +34,7 @@ class MacroMarketDataTests(unittest.TestCase):
 
     def test_dollar_index_uses_cash_index_symbol(self):
         self.assertEqual(DOLLAR_INDEX["symbol"], "DX-Y.NYB")
+        self.assertEqual(DOLLAR_INDEX["historyDays"], 520)
 
     def test_index_summary_includes_volume_and_52_week_range(self):
         result = {
@@ -44,6 +45,14 @@ class MacroMarketDataTests(unittest.TestCase):
         self.assertEqual(item["volume"], 250.0)
         self.assertEqual(item["week52Low"], 8.0)
         self.assertEqual(item["week52High"], 13.0)
+
+    def test_index_can_retain_a_custom_history_window(self):
+        result = {
+            "meta": {"gmtoffset": 0}, "timestamp": [0, 86400, 172800, 259200],
+            "indicators": {"quote": [{"open": [1, 2, 3, 4], "high": [1, 2, 3, 4], "low": [1, 2, 3, 4], "close": [1, 2, 3, 4], "volume": [0, 0, 0, 0]}]},
+        }
+        item = build_index({"id":"demo","name":"Demo","region":"Test","symbol":"X","currency":"POINTS","historyDays":3}, result)
+        self.assertEqual([row["close"] for row in item["rows"]], [2.0, 3.0, 4.0])
 
     def test_zero_index_volume_is_treated_as_unavailable(self):
         result = {

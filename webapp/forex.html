@@ -20,7 +20,12 @@
       <div class="index-primary-quote"><span id="dxyAsOf">美元指數每日參考行情</span><h2>美元指數（DXY）</h2><div><strong id="dxyLatest">—</strong><b id="dxyMove" class="flat">—</b></div><small id="dxyMeta"></small></div>
       <div id="dxyFacts" class="dxy-facts" aria-label="美元指數行情摘要"></div>
     </div>
-    <div class="index-chart-toolbar"><div id="dxyPeriods" class="range-switch" aria-label="美元指數圖表期間"><button data-dxy-period="5D">5日</button><button class="active" data-dxy-period="1M">1月</button><button data-dxy-period="3M">3月</button><button data-dxy-period="6M">6月</button><button data-dxy-period="YTD">今年</button><button data-dxy-period="1Y">1年</button></div><div class="chart-actions"><span>滾輪縮放・拖曳平移</span><button id="dxyZoomOut" title="縮小">−</button><button id="dxyZoomIn" title="放大">＋</button><button id="dxyResetZoom" title="重設圖表">重設</button><button id="dxyFullscreen" title="全螢幕" aria-label="全螢幕顯示美元指數圖表">⛶</button></div></div>
+    <div class="dxy-tech-tools">
+      <div class="index-chart-toolbar"><div id="dxyChartTypes" class="index-chart-type"><button class="active" data-dxy-chart-type="candle">K 線</button><button data-dxy-chart-type="line">收盤價線</button></div><div class="chart-actions"><span>滾輪縮放・拖曳平移</span><button id="dxyZoomOut" title="縮小">−</button><button id="dxyZoomIn" title="放大">＋</button><button id="dxyResetZoom" title="重設圖表">重設</button><button id="dxyFullscreen" title="全螢幕" aria-label="全螢幕顯示美元指數圖表">⛶</button></div></div>
+      <div id="dxyMaLegend" class="dxy-toggle-row" aria-label="美元指數均線"><span>均線</span><button data-dxy-ma="5"><i style="--line:#f0ad4e"></i>MA5</button><button data-dxy-ma="10"><i style="--line:#4aa8d8"></i>MA10</button><button data-dxy-ma="20"><i style="--line:#9a83c7"></i>MA20</button><button data-dxy-ma="60"><i style="--line:#18a286"></i>MA60</button><button data-dxy-ma="120"><i style="--line:#ef5b0c"></i>MA120</button><button data-dxy-ma="240"><i style="--line:#8b929a"></i>MA240</button></div>
+      <div id="dxyIndicators" class="dxy-toggle-row" aria-label="美元指數技術指標"><span>技術指標</span><button data-dxy-indicator="bollinger"><i style="--line:#e3a03b"></i>布林通道</button><button data-dxy-indicator="kd"><i style="--line:#18a7a1"></i>KD</button><button data-dxy-indicator="macd"><i style="--line:#845ef7"></i>MACD</button><button data-dxy-indicator="rsi"><i style="--line:#43b9c5"></i>RSI</button></div>
+      <div class="index-chart-toolbar dxy-range-toolbar"><div id="dxyPeriods" class="range-switch" aria-label="美元指數圖表期間"><button data-dxy-days="1">1日</button><button data-dxy-days="5">5日</button><button data-dxy-days="10">10日</button><button data-dxy-days="20">1月</button><button class="active" data-dxy-days="60">3月</button><button data-dxy-days="120">6月</button><button data-dxy-days="240">1年</button><button data-dxy-days="480">2年</button><button data-dxy-days="all">全部</button></div><span id="dxyVisibleRange" class="dxy-visible-range"></span></div>
+    </div>
     <div id="dxyChart" class="chart interactive-chart"></div>
     <div class="notice">美元指數衡量美元相對一籃子主要貨幣的強弱。本頁為每日參考行情，並非盤中即時報價。資料來源：Yahoo Finance。</div>
   </section>
@@ -31,5 +36,5 @@
     <div id="fxChart" class="chart interactive-chart"></div>
   </section>
   <section class="panel"><div class="chart-head"><div><h2>主要貨幣兌新台幣</h2><p>一單位外幣可兌換的新台幣參考值</p></div></div><div class="table-wrap"><table><thead><tr><th>貨幣</th><th>兌 TWD</th><th>資料日</th></tr></thead><tbody id="fxTableBody"></tbody></table></div></section>
-</div><script src="theme.js"></script><script src="macro-pages.js?v=20260824"></script></body>
+</div><script src="theme.js"></script><script src="technical-chart-core.js?v=20260824"></script><script src="macro-pages.js?v=20260824-2"></script></body>
 </html>

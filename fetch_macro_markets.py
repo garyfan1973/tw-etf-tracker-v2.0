@@ -13,7 +13,7 @@ import urllib.request
 
 BASE_DIR = os.path.dirname(os.path.abspath(__file__))
 OUT_FILE = os.path.join(BASE_DIR, "webapp", "market_data.json")
-YAHOO_CHART = "https://query1.finance.yahoo.com/v8/finance/chart/{}?interval=1d&range=1y"
+YAHOO_CHART = "https://query1.finance.yahoo.com/v8/finance/chart/{}?interval=1d&range={}"
 TREASURY_CSV = "https://home.treasury.gov/resource-center/data-chart-center/interest-rates/daily-treasury-rates.csv/{year}/all?type=daily_treasury_yield_curve&field_tdr_date_value={year}&page&_format=csv"
 TWSE_MARKET_STATISTICS = "https://www.twse.com.tw/rwd/zh/afterTrading/FMTQIK?date={date}&response=json"
 USER_AGENT = "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36"
@@ -33,7 +33,7 @@ INDICES = [
     {"id": "brent", "name": "布蘭特原油", "region": "商品", "symbol": "BZ=F", "currency": "USD"},
 ]
 
-DOLLAR_INDEX = {"id": "dxy", "name": "美元指數", "region": "匯市", "symbol": "DX-Y.NYB", "currency": "POINTS"}
+DOLLAR_INDEX = {"id": "dxy", "name": "美元指數", "region": "匯市", "symbol": "DX-Y.NYB", "currency": "POINTS", "historyDays": 520}
 
 CURRENCIES = [
     {"code": "USD", "name": "美元", "symbol": None, "mode": "identity"},
@@ -80,8 +80,8 @@ def read_url(url, retries=3):
             time.sleep(1.5 * (attempt + 1))
 
 
-def fetch_yahoo(symbol):
-    url = YAHOO_CHART.format(urllib.parse.quote(symbol, safe=".-^="))
+def fetch_yahoo(symbol, range_period="1y"):
+    url = YAHOO_CHART.format(urllib.parse.quote(symbol, safe=".-^="), range_period)
     payload = json.loads(read_url(url))
     result = (payload.get("chart", {}).get("result") or [None])[0]
     if not result:
@@ -128,7 +128,7 @@ def build_index(config, result):
         "volume": volume,
         "week52Low": min((row.get("low") if row.get("low") is not None else row["close"]) for row in rows[-260:]),
         "week52High": max((row.get("high") if row.get("high") is not None else row["close"]) for row in rows[-260:]),
-        "decimals": 2, "rows": rows[-260:],
+        "decimals": 2, "rows": rows[-int(config.get("historyDays") or 260):],
     }
 
 
@@ -299,7 +299,7 @@ def main(backfill_twse_turnover=False):
                 currencies.append(old_currencies[config["code"]])
             failures.append("{}: {}".format(config["code"], error))
     try:
-        dollar_index = build_index(DOLLAR_INDEX, fetch_yahoo(DOLLAR_INDEX["symbol"]))
+        dollar_index = build_index(DOLLAR_INDEX, fetch_yahoo(DOLLAR_INDEX["symbol"], "2y"))
         print("updated dollar index {}".format(DOLLAR_INDEX["symbol"]))
     except Exception as error:
         dollar_index = existing.get("dollarIndex")

@@ -158,6 +158,7 @@
     if (label) label.textContent = first && last ? `${first.date} ～ ${last.date}・${span} 日` : "";
   }
   function movingAverage(rows, index, period) {
+    if (window.TechnicalChartCore) return window.TechnicalChartCore.movingAverage(rows, index, period);
     const values = rows.slice(Math.max(0, index - period + 1), index + 1).map(r => Number(r.close));
     return values.length === period ? values.reduce((a, b) => a + b, 0) / period : null;
   }
@@ -166,6 +167,7 @@
     return values.length === period && values.every(Number.isFinite) ? values.reduce((a, b) => a + b, 0) / period : null;
   }
   function bollingerValues(rows, index, period = 20, multiplier = 2) {
+    if (window.TechnicalChartCore) return window.TechnicalChartCore.bollingerValues(rows, index, period, multiplier);
     const values = rows.slice(Math.max(0, index - period + 1), index + 1).map(r => Number(r.close));
     if (values.length < 2) return null;
     const sampleSize = values.length;
@@ -174,6 +176,7 @@
     return { mid:mean, upper:mean + multiplier * deviation, lower:mean - multiplier * deviation, sampleSize, warming:sampleSize < period };
   }
   function emaValues(rows, period) {
+    if (window.TechnicalChartCore) return window.TechnicalChartCore.emaValues(rows, period);
     const alpha = 2 / (period + 1), result = [];
     rows.forEach((row, index) => {
       const close = Number(row.close), previous = result[index - 1];
@@ -182,12 +185,14 @@
     return result;
   }
   function macdValues(rows) {
+    if (window.TechnicalChartCore) return window.TechnicalChartCore.macdValues(rows);
     const fast = emaValues(rows, 12), slow = emaValues(rows, 26), macd = rows.map((_, i) => fast[i] == null || slow[i] == null ? null : fast[i] - slow[i]);
     const alpha = 2 / 10, signal = [];
     macd.forEach((value, index) => signal.push(value == null ? null : (signal[index - 1] == null ? value : value * alpha + signal[index - 1] * (1 - alpha))));
     return rows.map((_, i) => ({ macd:macd[i], signal:signal[i], histogram:macd[i] == null || signal[i] == null ? null : macd[i] - signal[i] }));
   }
   function rsiValues(rows, period = 14) {
+    if (window.TechnicalChartCore) return window.TechnicalChartCore.rsiValues(rows, period);
     return rows.map((_, index) => {
       if (index < 1) return null;
       let gains = 0, losses = 0;
@@ -203,6 +208,7 @@
     });
   }
   function kdValues(rows) {
+    if (window.TechnicalChartCore) return window.TechnicalChartCore.kdValues(rows);
     let k = 50, d = 50;
     return rows.map((row, index) => {
       const period = rows.slice(Math.max(0, index - 8), index + 1);
