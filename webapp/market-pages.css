@@ -64,8 +64,18 @@
 .ai-history-toggle i{font-size:13px}
 .ai-history-retention{font-size:13px;line-height:1.6}
 .ai-status{font-size:13px;line-height:1.55}
+.ai-card-title-row{display:flex;align-items:center;justify-content:space-between;gap:16px;margin-bottom:9px}
+.ai-card-title-row h3{margin:0}
+.ai-tone-legend{display:flex;align-items:center;gap:13px;color:var(--muted);font-size:13px;line-height:1;white-space:nowrap}
+.ai-tone-legend span{display:inline-flex;align-items:center;gap:5px}
+.ai-tone-legend i{display:inline-block;width:18px;height:3px;border-radius:2px;background:var(--muted)}
+.ai-tone-legend .bullish i{background:var(--up)}
+.ai-tone-legend .bearish i{background:var(--down)}
+.ai-tone-legend .warning i{background:#d69e2e}
 
 @media(max-width:680px){
   .ai-result-hero h3{font-size:20px}
   .ai-result-hero p,.ai-result-card ul,.ai-point p,.ai-plan-grid strong,.ai-invalidation{font-size:15px}
+  .ai-card-title-row{align-items:flex-start;flex-direction:column;gap:8px}
+  .ai-tone-legend{flex-wrap:wrap;gap:9px 13px}
 }
