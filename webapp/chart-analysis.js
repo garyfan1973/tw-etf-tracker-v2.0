@@ -7,6 +7,15 @@ let activeUserId = null;
 let historyGeneration = 0;
 let transferGeneration = 0;
 let transferAttemptUserId = null;
+let analysisProgressTimer = null;
+let analysisProgressStartedAt = 0;
+
+const PROGRESS_STAGES = [
+  { after: 0, label: "上傳與讀圖", message: "正在安全傳送圖片並確認線圖可讀性…" },
+  { after: 4, label: "辨識價格趨勢", message: "正在辨識 K 線結構、均線排列與量價關係…" },
+  { after: 12, label: "判讀技術指標", message: "正在交叉檢查 KD、MACD、RSI 與支撐壓力…" },
+  { after: 24, label: "整理分析結論", message: "正在彙整風險、關鍵價位與交易計畫…" },
+];
 
 function node(tag, className, text) {
   const element = document.createElement(tag);
@@ -21,6 +30,64 @@ function formatDate(value) {
 
 function quotaText(access) {
   return access ? `${access.remaining ?? 0} / ${access.dailyLimit ?? 0}` : "—";
+}
+
+function clearAnalysisProgressTimer() {
+  if (analysisProgressTimer) window.clearInterval(analysisProgressTimer);
+  analysisProgressTimer = null;
+}
+
+function setAnalysisProgress(value, stage, message) {
+  const progress = Math.max(0, Math.min(100, Math.round(value)));
+  $("#analysisProgress").setAttribute("aria-valuenow", String(progress));
+  $("#analysisProgressBar").style.width = `${progress}%`;
+  $("#progressPercent").textContent = `${progress}%`;
+  if (stage) $("#progressStage").textContent = stage;
+  if (message) $("#progressMessage").textContent = message;
+}
+
+function updateAnalysisProgress() {
+  const elapsed = (Date.now() - analysisProgressStartedAt) / 1000;
+  const stage = [...PROGRESS_STAGES].reverse().find((item) => elapsed >= item.after) || PROGRESS_STAGES[0];
+  const progress = Math.min(92, 6 + 86 * (1 - Math.exp(-elapsed / 18)));
+  setAnalysisProgress(progress, stage.label, stage.message);
+}
+
+function startAnalysisProgress(meta) {
+  clearAnalysisProgressTimer();
+  analysisProgressStartedAt = Date.now();
+  const panel = $("#resultLoading");
+  panel.classList.remove("complete", "error");
+  panel.querySelector(".ai-progress-orbit span").textContent = "✦";
+  $("#progressTitle").textContent = "AI 正在分析線圖";
+  $("#resultEmpty").hidden = true;
+  $("#resultContent").hidden = true;
+  panel.hidden = false;
+  $("#resultMeta").textContent = `${meta} · 分析中`;
+  setAnalysisProgress(6, PROGRESS_STAGES[0].label, PROGRESS_STAGES[0].message);
+  analysisProgressTimer = window.setInterval(updateAnalysisProgress, 500);
+  panel.scrollIntoView({ behavior: "smooth", block: "center" });
+}
+
+async function completeAnalysisProgress() {
+  clearAnalysisProgressTimer();
+  $("#resultLoading").classList.add("complete");
+  $("#resultLoading .ai-progress-orbit span").textContent = "✓";
+  $("#progressTitle").textContent = "分析完成";
+  setAnalysisProgress(100, "完成", "結果已產生，正在整理版面…");
+  await new Promise((resolve) => window.setTimeout(resolve, 280));
+  $("#resultLoading").hidden = true;
+}
+
+function failAnalysisProgress(message) {
+  clearAnalysisProgressTimer();
+  const panel = $("#resultLoading");
+  panel.classList.add("error");
+  panel.querySelector(".ai-progress-orbit span").textContent = "!";
+  $("#progressTitle").textContent = "分析未完成";
+  const progress = Number($("#analysisProgress").getAttribute("aria-valuenow")) || 0;
+  setAnalysisProgress(progress, "處理中斷", message || "分析服務暫時無法完成，請稍後再試。");
+  $("#resultMeta").textContent = "本次分析未完成";
 }
 
 function setGate(title, description, actionLabel = "", action = null) {
@@ -163,6 +230,9 @@ function resetSensitiveState() {
   $("#resultContent").replaceChildren();
   $("#resultContent").hidden = true;
   $("#resultEmpty").hidden = false;
+  clearAnalysisProgressTimer();
+  $("#resultLoading").hidden = true;
+  $("#resultLoading").classList.remove("complete", "error");
   $("#resultMeta").textContent = "";
   $("#analysisHistory").replaceChildren();
   $("#analysisStatus").textContent = "";
@@ -269,14 +339,17 @@ async function analyze() {
   $("#analyzeChart").classList.add("loading");
   $("#analysisStatus").className = "ai-status";
   $("#analysisStatus").textContent = "正在讀取 K 線、均線與技術指標，通常需要 20–60 秒…";
+  const resultLabel = `${payload.symbol || selectedFileName || "線圖"} · ${MODE_LABELS[mode]}`;
+  startAnalysisProgress(resultLabel);
   try {
     const response = await fetch("/api/chart-analysis", { method: "POST", headers: { "Content-Type": "application/json", Authorization: `Bearer ${session.access_token}` }, body: JSON.stringify(payload) });
     const data = await response.json().catch(() => ({}));
     if (!response.ok || !data.ok) throw new Error(data.error || "分析服務暫時無法完成");
     if (window.ETFAuth.user()?.id !== requestUserId) return;
+    await completeAnalysisProgress();
     $("#resultEmpty").hidden = true;
     $("#resultContent").hidden = false;
-    $("#resultMeta").textContent = `${payload.symbol || selectedFileName || "線圖"} · ${MODE_LABELS[mode]}`;
+    $("#resultMeta").textContent = resultLabel;
     renderAnalysis($("#resultContent"), data.analysis);
     $("#analysisStatus").className = "ai-status success";
     $("#analysisStatus").textContent = "分析完成。";
@@ -285,6 +358,7 @@ async function analyze() {
     await loadHistory();
     $("#resultContent").scrollIntoView({ behavior: "smooth", block: "start" });
   } catch (error) {
+    if (window.ETFAuth.user()?.id === requestUserId) failAnalysisProgress(error.message);
     $("#analysisStatus").className = "ai-status error";
     $("#analysisStatus").textContent = error.message;
   } finally {

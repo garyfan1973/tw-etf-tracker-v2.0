@@ -50,6 +50,14 @@
     <section class="panel ai-result-panel">
       <div class="ai-section-title"><div><span>03</span><h2>分析結果</h2></div><small id="resultMeta"></small></div>
       <div id="resultEmpty" class="ai-result-empty"><div>⌁</div><strong>結果會顯示在這裡</strong><p>AI 只讀取截圖中看得到的資訊；模糊或缺少的數據會明確標示。</p></div>
+      <div id="resultLoading" class="ai-analysis-progress" aria-live="polite" hidden>
+        <div class="ai-progress-orbit" aria-hidden="true"><span>✦</span></div>
+        <strong id="progressTitle">AI 正在分析線圖</strong>
+        <p id="progressMessage">正在安全傳送圖片並確認可讀性…</p>
+        <div id="analysisProgress" class="ai-progress-track" role="progressbar" aria-label="線圖分析進度" aria-valuemin="0" aria-valuemax="100" aria-valuenow="0"><span id="analysisProgressBar"></span></div>
+        <div class="ai-progress-foot"><span id="progressStage">準備分析</span><b id="progressPercent">0%</b></div>
+        <small>分析通常需要 20–60 秒，請保持此頁開啟。</small>
+      </div>
       <div id="resultContent" hidden></div>
     </section>
   </main>
