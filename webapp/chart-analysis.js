@@ -42,6 +42,18 @@ const TECHNICAL_TONE_LEGEND = [
   ["warning", "注意"],
 ];
 
+const MARKET_STATE_EXPLANATIONS = {
+  "強勢多頭": "高點與低點持續墊高，價格站在主要均線之上，且量價與動能大致配合。",
+  "多頭拉回": "原有上升結構尚未破壞，目前屬短線回檔，重要均線或支撐仍有守。",
+  "高檔震盪": "價格位於相對高檔，但短線方向不明，量價或技術指標開始出現分歧。",
+  "區間整理": "價格在明確範圍內來回，尚未有效突破壓力或跌破支撐。",
+  "弱勢反彈": "價格雖有反彈，但量能、均線或動能確認不足，反彈延續性仍待觀察。",
+  "空頭反彈": "整體下降趨勢仍成立，目前上漲較像空頭結構中的反彈，尚未確認反轉。",
+  "弱勢下跌": "高低點逐漸下移，價格位於主要均線下方，反彈力道偏弱但尚未加速急跌。",
+  "加速下殺": "價格跌破重要支撐且跌勢擴大，可能伴隨放量、長綠 K 或連續下跌。",
+  "資訊不足": "截圖內容不完整、數據模糊或可用訊號不足，因此無法可靠判定市場狀態。",
+};
+
 function buildToneLegend() {
   const legend = node("div", "ai-tone-legend");
   legend.setAttribute("aria-label", "技術判讀顏色圖例");
@@ -51,6 +63,19 @@ function buildToneLegend() {
     legend.append(item);
   });
   return legend;
+}
+
+function buildMarketStateLabel(stateValue) {
+  const state = stateValue || "資訊不足";
+  const explanation = MARKET_STATE_EXPLANATIONS[state] || MARKET_STATE_EXPLANATIONS["資訊不足"];
+  const row = node("div", "ai-market-state-row");
+  row.append(node("span", "ai-market-state", state));
+  const info = node("button", "ai-market-info", "i");
+  info.type = "button";
+  info.setAttribute("aria-label", `${state}：${explanation}`);
+  info.append(node("span", "ai-market-tooltip", explanation));
+  row.append(info);
+  return row;
 }
 
 function formatDate(value) {
@@ -537,8 +562,8 @@ function renderAnalysis(target, result, compact = false) {
   target.replaceChildren();
   const hero = node("section", "ai-result-hero");
   const heading = node("div");
-  heading.append(node("span", "ai-market-state", result.marketState || "資訊不足"), node("h3", "", result.conclusion || "尚無結論"));
-  hero.append(heading, node("strong", "ai-rating", result.rating || "—"));
+  heading.append(buildMarketStateLabel(result.marketState), node("h3", "", result.conclusion || "尚無結論"));
+  hero.append(heading);
   if (result.thesis) hero.append(node("p", "", result.thesis));
   target.append(hero);
   if (compact) return;
@@ -608,9 +633,9 @@ function buildPdfExportFrame() {
   iframe.srcdoc = `<!doctype html><html lang="zh-Hant"><head><meta charset="utf-8"><style>
     *{box-sizing:border-box}html,body{margin:0;background:#fff;color:#1c2430;font-family:-apple-system,'PingFang TC','Microsoft JhengHei',sans-serif}body{width:1060px;padding:38px;font-size:15px;line-height:1.6}
     header{display:flex;justify-content:space-between;align-items:flex-start;gap:24px;padding-bottom:18px;border-bottom:3px solid #3b5bdb}header em{display:block;color:#3b5bdb;font-size:12px;font-style:normal;font-weight:800;letter-spacing:.12em}h1{margin:5px 0 0;font-size:29px}header small{color:#6b7684;font-size:13px}.chart{display:block;width:100%;max-height:640px;margin:22px 0;border-radius:14px;background:#111827;object-fit:contain}
-    .hero{display:grid;grid-template-columns:1fr auto;gap:10px 18px;padding:20px;border:1px solid #c7d2fe;border-radius:14px;background:#eef2ff}.hero label{color:#3b5bdb;font-size:12px;font-weight:800}.hero h2{margin:5px 0 0;font-size:24px}.hero strong{color:#d99a00;font-size:19px}.hero p{grid-column:1/-1;margin:3px 0 0;color:#596579}.quality{margin:12px 0;padding:11px 13px;border-radius:9px;background:#f1f5f9;color:#596579}.card{margin-top:14px;padding:17px;border:1px solid #e3e7ec;border-radius:13px;background:#f8fafc}.card h3{margin:0;font-size:17px}.title-row{display:flex;align-items:center;justify-content:space-between;gap:18px;margin-bottom:12px}.tone-legend{display:flex;align-items:center;gap:14px;font-size:12px;color:#596579}.tone-legend span{display:flex;align-items:center;gap:5px}.tone-legend i{width:20px;height:3px;border-radius:2px;background:#7b8491}.tone-legend .bullish i{background:#d64545}.tone-legend .bearish i{background:#16884c}.tone-legend .warning i{background:#d69e2e}.points,.zones,.plan{display:grid;grid-template-columns:1fr 1fr;gap:11px}.points article,.plan div{padding:12px;border-radius:9px;background:#fff}.points article{border-left:4px solid #7b8491}.points article.bullish{border-color:#d64545}.points article.bearish{border-color:#16884c}.points article.warning{border-color:#d69e2e}.points p{margin:4px 0 0;color:#596579}.zones section{margin-top:14px;border-top:4px solid #1f9d55}.zones section:last-child{border-color:#d64545}.plan span,.plan strong{display:block}.plan span{color:#6b7684;font-size:12px}.plan strong{margin-top:4px}ul{margin:0;padding-left:22px;color:#596579}.invalid{margin-top:14px;padding:13px;border-radius:10px;background:#fff0f0}.invalid b{color:#d64545;margin-right:12px}footer{margin-top:20px;padding-top:14px;border-top:1px solid #e3e7ec;color:#6b7684;font-size:12px}
+    .hero{padding:20px;border:1px solid #c7d2fe;border-radius:14px;background:#eef2ff}.hero label{color:#3b5bdb;font-size:12px;font-weight:800}.hero h2{margin:5px 0 0;font-size:24px}.hero p{margin:3px 0 0;color:#596579}.quality{margin:12px 0;padding:11px 13px;border-radius:9px;background:#f1f5f9;color:#596579}.card{margin-top:14px;padding:17px;border:1px solid #e3e7ec;border-radius:13px;background:#f8fafc}.card h3{margin:0;font-size:17px}.title-row{display:flex;align-items:center;justify-content:space-between;gap:18px;margin-bottom:12px}.tone-legend{display:flex;align-items:center;gap:14px;font-size:12px;color:#596579}.tone-legend span{display:flex;align-items:center;gap:5px}.tone-legend i{width:20px;height:3px;border-radius:2px;background:#7b8491}.tone-legend .bullish i{background:#d64545}.tone-legend .bearish i{background:#16884c}.tone-legend .warning i{background:#d69e2e}.points,.zones,.plan{display:grid;grid-template-columns:1fr 1fr;gap:11px}.points article,.plan div{padding:12px;border-radius:9px;background:#fff}.points article{border-left:4px solid #7b8491}.points article.bullish{border-color:#d64545}.points article.bearish{border-color:#16884c}.points article.warning{border-color:#d69e2e}.points p{margin:4px 0 0;color:#596579}.zones section{margin-top:14px;border-top:4px solid #1f9d55}.zones section:last-child{border-color:#d64545}.plan span,.plan strong{display:block}.plan span{color:#6b7684;font-size:12px}.plan strong{margin-top:4px}ul{margin:0;padding-left:22px;color:#596579}.invalid{margin-top:14px;padding:13px;border-radius:10px;background:#fff0f0}.invalid b{color:#d64545;margin-right:12px}footer{margin-top:20px;padding-top:14px;border-top:1px solid #e3e7ec;color:#6b7684;font-size:12px}
   </style></head><body><header><div><em>AI TECHNICAL ANALYSIS</em><h1>${escapeHtml(currentAnalysisMeta.symbol)} ${escapeHtml(currentAnalysisMeta.assetName)}</h1></div><small>${escapeHtml(currentAnalysisMeta.date)} · ${escapeHtml(currentAnalysisMeta.timing)} · ${escapeHtml(currentAnalysisMeta.modeLabel)}</small></header>
-  ${resultImageData ? `<img class="chart" src="${resultImageData}" alt="技術線圖">` : ""}<section class="hero"><div><label>${escapeHtml(result.marketState || "資訊不足")}</label><h2>${escapeHtml(result.conclusion || "尚無結論")}</h2></div><strong>${escapeHtml(result.rating || "—")}</strong><p>${escapeHtml(result.thesis || "")}</p></section>
+  ${resultImageData ? `<img class="chart" src="${resultImageData}" alt="技術線圖">` : ""}<section class="hero"><div><label>${escapeHtml(result.marketState || "資訊不足")}</label><h2>${escapeHtml(result.conclusion || "尚無結論")}</h2></div><p>${escapeHtml(result.thesis || "")}</p></section>
   ${result.imageQualityNote ? `<div class="quality">${escapeHtml(result.imageQualityNote)}</div>` : ""}<section class="card"><div class="title-row"><h3>技術判讀</h3><div class="tone-legend">${toneLegend}</div></div><div class="points">${technical}</div></section>
   <div class="zones"><section class="card"><h3>支撐區</h3>${listHtml(result.supportZones)}</section><section class="card"><h3>壓力區</h3>${listHtml(result.resistanceZones)}</section></div>
   <section class="card"><h3>交易計畫</h3><div class="plan">${planRows}</div></section><section class="card"><h3>風險提醒</h3>${listHtml(result.riskNotes)}</section>
