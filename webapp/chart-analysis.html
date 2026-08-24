@@ -27,7 +27,7 @@
       <label id="chartDropzone" class="ai-dropzone" for="chartImage">
         <input id="chartImage" type="file" accept="image/jpeg,image/png,image/webp" hidden>
         <span class="ai-upload-icon">↥</span><strong>拖放線圖，或點此選擇圖片</strong><small>建議包含 K 線、均線、成交量與技術指標</small>
-        <img id="chartPreview" alt="待分析線圖預覽" hidden>
+        <img id="chartPreview" alt="待分析線圖預覽；點擊可放大" role="button" tabindex="0" title="點擊放大線圖" hidden>
       </label>
       <div id="imageActions" class="ai-image-actions" hidden><span id="imageMeta"></span><button id="removeImage" type="button">移除圖片</button></div>
 
@@ -48,7 +48,7 @@
     </section>
 
     <section class="panel ai-result-panel">
-      <div class="ai-section-title"><div><span>03</span><h2>分析結果</h2></div><small id="resultMeta"></small></div>
+      <div class="ai-section-title ai-result-heading"><div><span>03</span><h2>分析結果</h2></div><div class="ai-result-head-tools"><small id="resultMeta"></small><button id="resultChartThumb" class="ai-result-thumb" type="button" aria-label="放大查看本次分析線圖" title="點擊放大線圖" hidden><img id="resultChartThumbImage" alt="本次分析線圖縮圖"><span>查看線圖</span></button><button id="toggleInputPanel" class="ai-panel-toggle" type="button" aria-expanded="true"><span aria-hidden="true">‹</span><b>收合設定</b></button></div></div>
       <div id="resultEmpty" class="ai-result-empty"><div>⌁</div><strong>結果會顯示在這裡</strong><p>AI 只讀取截圖中看得到的資訊；模糊或缺少的數據會明確標示。</p></div>
       <div id="resultLoading" class="ai-analysis-progress" aria-live="polite" hidden>
         <div class="ai-progress-orbit" aria-hidden="true"><span>✦</span></div>
@@ -64,6 +64,13 @@
 
   <section id="analysisHistoryPanel" class="panel ai-history" hidden><div class="ai-section-title"><div><span>04</span><h2>最近分析</h2></div><small>僅保存文字結果，不保存圖片</small></div><div id="analysisHistory"></div></section>
   <div class="notice ai-disclaimer">AI 分析僅供技術研究與交易計畫整理，不構成投資建議或獲利保證；請自行評估部位與風險。</div>
+</div>
+<div id="imageLightbox" class="ai-image-lightbox" role="dialog" aria-modal="true" aria-labelledby="imageLightboxTitle" hidden>
+  <section class="ai-lightbox-window">
+    <header><div><span>Chart Preview</span><strong id="imageLightboxTitle">線圖放大檢視</strong></div><div class="ai-lightbox-actions"><button id="imageZoomOut" type="button" aria-label="縮小線圖">−</button><button id="imageZoomReset" type="button" aria-label="重設縮放"><span id="imageZoomValue">100%</span></button><button id="imageZoomIn" type="button" aria-label="放大線圖">＋</button><button id="imageLightboxClose" class="close" type="button" aria-label="關閉放大圖">×</button></div></header>
+    <div id="imageLightboxViewport" class="ai-lightbox-viewport" tabindex="0"><img id="imageLightboxImage" alt="放大線圖"></div>
+    <footer>使用滑鼠滾輪或 ＋／－ 縮放；放大後可拖曳圖片移動。按 Esc 或右上角 × 關閉。</footer>
+  </section>
 </div>
 <script src="theme.js"></script><script src="chart-analysis-transfer.js?v=20260824"></script><script type="module" src="auth.js"></script><script type="module" src="chart-analysis.js"></script>
 </body>

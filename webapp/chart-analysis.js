@@ -9,6 +9,10 @@ let transferGeneration = 0;
 let transferAttemptUserId = null;
 let analysisProgressTimer = null;
 let analysisProgressStartedAt = 0;
+let resultImageData = "";
+let viewerZoom = 1;
+let viewerFitScale = 1;
+let viewerDrag = null;
 
 const PROGRESS_STAGES = [
   { after: 0, label: "上傳與讀圖", message: "正在安全傳送圖片並確認線圖可讀性…" },
@@ -30,6 +34,82 @@ function formatDate(value) {
 
 function quotaText(access) {
   return access ? `${access.remaining ?? 0} / ${access.dailyLimit ?? 0}` : "—";
+}
+
+function setInputPanelCollapsed(collapsed) {
+  const workspace = $("#aiWorkspace");
+  const button = $("#toggleInputPanel");
+  workspace.classList.toggle("input-collapsed", collapsed);
+  button.setAttribute("aria-expanded", String(!collapsed));
+  button.querySelector("span").textContent = collapsed ? "›" : "‹";
+  button.querySelector("b").textContent = collapsed ? "展開設定" : "收合設定";
+}
+
+function setResultThumbnail(src = "") {
+  resultImageData = src;
+  const button = $("#resultChartThumb");
+  if (!src) {
+    button.hidden = true;
+    $("#resultChartThumbImage").removeAttribute("src");
+    return;
+  }
+  $("#resultChartThumbImage").src = src;
+  button.hidden = false;
+}
+
+function renderViewerZoom(center = false) {
+  const image = $("#imageLightboxImage");
+  const viewport = $("#imageLightboxViewport");
+  if (!image.naturalWidth || !image.naturalHeight) return;
+  const oldWidth = image.offsetWidth || 1;
+  const oldHeight = image.offsetHeight || 1;
+  const centerX = (viewport.scrollLeft + viewport.clientWidth / 2) / oldWidth;
+  const centerY = (viewport.scrollTop + viewport.clientHeight / 2) / oldHeight;
+  image.style.width = `${Math.round(image.naturalWidth * viewerFitScale * viewerZoom)}px`;
+  image.style.height = "auto";
+  $("#imageZoomValue").textContent = `${Math.round(viewerZoom * 100)}%`;
+  window.requestAnimationFrame(() => {
+    if (center) {
+      viewport.scrollLeft = Math.max(0, (image.offsetWidth - viewport.clientWidth) / 2);
+      viewport.scrollTop = Math.max(0, (image.offsetHeight - viewport.clientHeight) / 2);
+    } else {
+      viewport.scrollLeft = Math.max(0, centerX * image.offsetWidth - viewport.clientWidth / 2);
+      viewport.scrollTop = Math.max(0, centerY * image.offsetHeight - viewport.clientHeight / 2);
+    }
+  });
+}
+
+function fitViewerImage() {
+  const image = $("#imageLightboxImage");
+  const viewport = $("#imageLightboxViewport");
+  if (!image.naturalWidth || !image.naturalHeight) return;
+  viewerFitScale = Math.min((viewport.clientWidth - 24) / image.naturalWidth, (viewport.clientHeight - 24) / image.naturalHeight, 1);
+  viewerZoom = 1;
+  renderViewerZoom(true);
+}
+
+function changeViewerZoom(multiplier) {
+  viewerZoom = Math.max(.5, Math.min(4, viewerZoom * multiplier));
+  renderViewerZoom();
+}
+
+function openImageViewer(src, title = "線圖放大檢視") {
+  if (!src) return;
+  const modal = $("#imageLightbox");
+  const image = $("#imageLightboxImage");
+  $("#imageLightboxTitle").textContent = title;
+  modal.hidden = false;
+  document.body.classList.add("ai-lightbox-open");
+  image.onload = fitViewerImage;
+  image.src = src;
+  if (image.complete) fitViewerImage();
+  $("#imageLightboxViewport").focus({ preventScroll: true });
+}
+
+function closeImageViewer() {
+  $("#imageLightbox").hidden = true;
+  document.body.classList.remove("ai-lightbox-open");
+  viewerDrag = null;
 }
 
 function clearAnalysisProgressTimer() {
@@ -62,6 +142,7 @@ function startAnalysisProgress(meta) {
   $("#progressTitle").textContent = "AI 正在分析線圖";
   $("#resultEmpty").hidden = true;
   $("#resultContent").hidden = true;
+  setResultThumbnail();
   panel.hidden = false;
   $("#resultMeta").textContent = `${meta} · 分析中`;
   setAnalysisProgress(6, PROGRESS_STAGES[0].label, PROGRESS_STAGES[0].message);
@@ -236,6 +317,9 @@ function resetSensitiveState() {
   $("#resultMeta").textContent = "";
   $("#analysisHistory").replaceChildren();
   $("#analysisStatus").textContent = "";
+  setResultThumbnail();
+  closeImageViewer();
+  setInputPanelCollapsed(false);
 }
 
 async function loadTransferredChart(user) {
@@ -351,6 +435,7 @@ async function analyze() {
     $("#resultContent").hidden = false;
     $("#resultMeta").textContent = resultLabel;
     renderAnalysis($("#resultContent"), data.analysis);
+    setResultThumbnail(payload.imageData);
     $("#analysisStatus").className = "ai-status success";
     $("#analysisStatus").textContent = "分析完成。";
     $("#quotaBadge strong").textContent = `${data.quota.remaining} / ${data.quota.dailyLimit}`;
@@ -402,6 +487,49 @@ async function loadHistory() {
 function bind() {
   $("#chartImage").addEventListener("change", (event) => selectImage(event.target.files?.[0]));
   $("#removeImage").addEventListener("click", clearImage);
+  const preview = $("#chartPreview");
+  const openPreview = (event) => {
+    event.preventDefault();
+    event.stopPropagation();
+    openImageViewer(preparedImage, selectedFileName || "待分析線圖");
+  };
+  preview.addEventListener("click", openPreview);
+  preview.addEventListener("keydown", (event) => {
+    if (event.key === "Enter" || event.key === " ") openPreview(event);
+  });
+  $("#resultChartThumb").addEventListener("click", () => openImageViewer(resultImageData, "本次分析線圖"));
+  $("#toggleInputPanel").addEventListener("click", () => setInputPanelCollapsed(!$("#aiWorkspace").classList.contains("input-collapsed")));
+  $("#imageLightboxClose").addEventListener("click", closeImageViewer);
+  $("#imageZoomIn").addEventListener("click", () => changeViewerZoom(1.25));
+  $("#imageZoomOut").addEventListener("click", () => changeViewerZoom(.8));
+  $("#imageZoomReset").addEventListener("click", fitViewerImage);
+  $("#imageLightbox").addEventListener("click", (event) => {
+    if (event.target === event.currentTarget) closeImageViewer();
+  });
+  const viewer = $("#imageLightboxViewport");
+  viewer.addEventListener("wheel", (event) => {
+    event.preventDefault();
+    changeViewerZoom(event.deltaY < 0 ? 1.12 : .89);
+  }, { passive: false });
+  viewer.addEventListener("pointerdown", (event) => {
+    viewerDrag = { x: event.clientX, y: event.clientY, left: viewer.scrollLeft, top: viewer.scrollTop };
+    viewer.classList.add("dragging");
+    viewer.setPointerCapture(event.pointerId);
+  });
+  viewer.addEventListener("pointermove", (event) => {
+    if (!viewerDrag) return;
+    viewer.scrollLeft = viewerDrag.left - (event.clientX - viewerDrag.x);
+    viewer.scrollTop = viewerDrag.top - (event.clientY - viewerDrag.y);
+  });
+  const stopViewerDrag = () => { viewerDrag = null; viewer.classList.remove("dragging"); };
+  viewer.addEventListener("pointerup", stopViewerDrag);
+  viewer.addEventListener("pointercancel", stopViewerDrag);
+  document.addEventListener("keydown", (event) => {
+    if (event.key === "Escape" && !$("#imageLightbox").hidden) closeImageViewer();
+  });
+  window.addEventListener("resize", () => {
+    if (!$("#imageLightbox").hidden) fitViewerImage();
+  });
   const dropzone = $("#chartDropzone");
   ["dragenter", "dragover"].forEach((type) => dropzone.addEventListener(type, (event) => { event.preventDefault(); dropzone.classList.add("dragging"); }));
   ["dragleave", "drop"].forEach((type) => dropzone.addEventListener(type, (event) => { event.preventDefault(); dropzone.classList.remove("dragging"); }));
