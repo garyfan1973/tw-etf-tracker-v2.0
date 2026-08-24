@@ -78,6 +78,7 @@
 - 短線操作日誌：獨立記錄台灣／美國 ETF 與股票的操作計畫、買進日／賣出日、進出場價格、停損／目標、狀態與事後檢討，不與個人交易紀錄或公開 ETF 清單連動。
 - FIFO 持股計算。
 - 每日績效快照，可查詢日期區間、切換含息／不含息報酬率，並查看報酬率曲線與明細。
+- 限定會員 AI 線圖分析：上傳 JPG／PNG／WebP 技術線圖，選擇一般、快閃、隔日沖或低接模式，取得結構化技術判讀、支撐壓力、交易計畫與風險提醒。原始圖片不保存，分析結果與每日使用次數保存在 Supabase。
 
 ## 頁面
 
@@ -91,6 +92,7 @@
 | 美國公債資訊／殖利率曲線 | `bonds.html` |
 | 聯準會政策／利率與資產負債表 | `fed-policy.html` |
 | 本週財經影音 | `videos.html` |
+| 限定會員 AI 線圖分析 | `chart-analysis.html` |
 | ETF 持股資訊／加減碼 | `tracker.html` |
 | 配息日曆 | `dividends.html` |
 | 交易紀錄 | `transactions.html` |
@@ -123,6 +125,24 @@
 行情批次有嚴格日期校驗：每個行情欄位的 `quoteDate` 必須等於該份 ETF 快照的日期，避免把前一天或前幾天的行情誤標成最新資料。
 
 ## 本機測試
+
+AI 線圖分析需要在 `webapp/.env.local` 或專案根目錄的 `.env.local` 設定 `OPENAI_API_KEY`；正式環境則在 Vercel 專案環境變數設定同名金鑰。請勿將金鑰提交到 Git。
+
+首次啟用時，請將 `supabase_chart_analysis.sql` 套用至 Supabase。以 Email 開通會員與設定每日額度的範例：
+
+```sql
+insert into public.ai_feature_access (user_id, enabled, daily_limit, note)
+select id, true, 5, 'AI 線圖分析會員'
+from auth.users
+where lower(email) = lower('member@example.com')
+on conflict (user_id) do update
+set enabled = excluded.enabled,
+    daily_limit = excluded.daily_limit,
+    note = excluded.note,
+    updated_at = now();
+```
+
+停用時將該會員的 `enabled` 改為 `false`；也可設定 `expires_at` 控制到期日。
 
 請使用真正的 repo 路徑：
 

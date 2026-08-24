@@ -12,4 +12,8 @@ __pycache__/
 # Vercel
 .vercel
 
+# Local secrets
+.env*
+!.env.example
+
 # 注意：data/ 與 webapp/data.js 要進版控（那是資料本體），不要忽略

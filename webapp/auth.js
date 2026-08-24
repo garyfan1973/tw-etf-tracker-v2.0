@@ -8,7 +8,8 @@ import { createClient } from "https://cdn.jsdelivr.net/npm/@supabase/supabase-js
   const configured = !!(URL_ && KEY_ && !/YOUR_/.test(URL_) && !/YOUR_/.test(KEY_));
   const sb = configured ? createClient(URL_, KEY_) : null;
 
-  const state = { user: null, watch: new Set() };
+  const state = { user: null, watch: new Set(), chartAnalysisAccess: null };
+  let chartAccessGeneration = 0;
 
   // 對外 API：給各頁面（index / dividends）讀取個人關注清單用
   window.ETFWatch = {
@@ -23,10 +24,41 @@ import { createClient } from "https://cdn.jsdelivr.net/npm/@supabase/supabase-js
     isConfigured: () => configured,
     client: () => sb,
     user: () => state.user,
+    chartAnalysisAccess: () => state.chartAnalysisAccess,
+    canUseChartAnalysis: () => !!state.chartAnalysisAccess?.enabled,
+    refreshChartAnalysisAccess: loadChartAnalysisAccess,
+    openLogin: openModal,
   };
 
   function emit() {
     document.dispatchEvent(new CustomEvent("etfwatch:change"));
+  }
+
+  function emitAuth() {
+    document.dispatchEvent(new CustomEvent("etfauth:change", {
+      detail: { user: state.user, chartAnalysisAccess: state.chartAnalysisAccess },
+    }));
+  }
+
+  async function loadChartAnalysisAccess() {
+    const generation = ++chartAccessGeneration;
+    const requestUserId = state.user?.id || null;
+    state.chartAnalysisAccess = null;
+    if (sb && state.user) {
+      const { data, error } = await sb.rpc("get_chart_analysis_quota");
+      if (generation !== chartAccessGeneration || state.user?.id !== requestUserId) return state.chartAnalysisAccess;
+      if (!error && data) state.chartAnalysisAccess = data;
+      else if (error) console.warn("讀取 AI 線圖分析權限失敗：", error.message);
+    }
+    renderChartAnalysisNav();
+    emitAuth();
+    return state.chartAnalysisAccess;
+  }
+
+  function renderChartAnalysisNav() {
+    document.querySelectorAll("[data-chart-analysis-nav]").forEach((link) => {
+      link.hidden = !state.chartAnalysisAccess?.enabled;
+    });
   }
 
   async function loadWatch() {
@@ -304,7 +336,7 @@ import { createClient } from "https://cdn.jsdelivr.net/npm/@supabase/supabase-js
     inp.onkeydown = (e) => { if (e.key === "Enter") { e.preventDefault(); submit(); } };
   }
 
-  function renderAll() { renderAuthBox(); renderMemberPanel(); }
+  function renderAll() { renderAuthBox(); renderMemberPanel(); renderChartAnalysisNav(); }
   const watchModal = document.getElementById("watchModal");
   const watchClose = document.getElementById("watchClose");
   if (watchClose) watchClose.onclick = () => { watchModal.style.display = "none"; };
@@ -323,11 +355,13 @@ import { createClient } from "https://cdn.jsdelivr.net/npm/@supabase/supabase-js
       state.user = data.session ? data.session.user : null;
       renderAll();
       loadWatch();
+      loadChartAnalysisAccess();
     });
     sb.auth.onAuthStateChange((_event, session) => {
       state.user = session ? session.user : null;
       renderAll();
       loadWatch();
+      loadChartAnalysisAccess();
     });
   }
 

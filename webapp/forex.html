@@ -5,6 +5,7 @@
   <title>匯市資訊｜投資研究工作台</title>
   <link rel="stylesheet" href="market-pages.css">
   <script>(function(){var t=localStorage.getItem("etf-theme");if(t)document.documentElement.dataset.theme=t})();</script>
+  <script src="config.js"></script>
   <script src="market-nav.js" defer></script>
 </head>
 <body data-market-page="forex"><div class="wrap">
@@ -36,5 +37,5 @@
     <div id="fxChart" class="chart interactive-chart"></div>
   </section>
   <section class="panel"><div class="chart-head"><div><h2>主要貨幣兌新台幣</h2><p>一單位外幣可兌換的新台幣參考值</p></div></div><div class="table-wrap"><table><thead><tr><th>貨幣</th><th>兌 TWD</th><th>資料日</th></tr></thead><tbody id="fxTableBody"></tbody></table></div></section>
-</div><script src="theme.js"></script><script src="technical-chart-core.js?v=20260824"></script><script src="macro-pages.js?v=20260824-2"></script></body>
+</div><script src="theme.js"></script><script type="module" src="auth.js"></script><script src="technical-chart-core.js?v=20260824"></script><script src="macro-pages.js?v=20260824-2"></script></body>
 </html>

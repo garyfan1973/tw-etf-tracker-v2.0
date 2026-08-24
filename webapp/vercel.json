@@ -1,0 +1,7 @@
+{
+  "functions": {
+    "api/chart-analysis.py": {
+      "maxDuration": 120
+    }
+  }
+}

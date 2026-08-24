@@ -6,6 +6,7 @@
     ["bonds.html", "債市資訊", "bonds"],
     ["fed-policy.html", "聯準會政策", "fed"],
     ["videos.html", "財經影音", "videos"],
+    ["chart-analysis.html", "AI 線圖分析", "ai"],
   ];
 
   function currentSection() {
@@ -15,6 +16,7 @@
     if (page === "bonds.html") return "bonds";
     if (page === "fed-policy.html") return "fed";
     if (page === "videos.html") return "videos";
+    if (page === "chart-analysis.html") return "ai";
     if (page === "tracker.html" && new URLSearchParams(location.search).has("view")) return "stocks";
     return "";
   }
@@ -50,7 +52,7 @@
     panel.className = "market-menu-panel";
     panel.id = "marketMenuPanel";
     panel.setAttribute("role", "menu");
-    panel.innerHTML = items.map(([href, label, key]) => `<a href="${href}" role="menuitem"${key === section ? ' class="active" aria-current="page"' : ""}>${label}</a>`).join("");
+    panel.innerHTML = items.map(([href, label, key]) => `<a href="${href}" role="menuitem"${key === "ai" ? ' data-chart-analysis-nav hidden' : ""}${key === section ? ' class="active" aria-current="page"' : ""}>${label}</a>`).join("");
     anchor.parentNode.insertBefore(wrapper, anchor);
     wrapper.append(anchor, panel);
     anchor.classList.add("market-menu-trigger");

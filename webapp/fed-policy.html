@@ -5,6 +5,7 @@
   <title>聯準會政策｜投資研究工作台</title>
   <link rel="stylesheet" href="market-pages.css">
   <script>(function(){var t=localStorage.getItem("etf-theme");if(t)document.documentElement.dataset.theme=t})();</script>
+  <script src="config.js"></script>
   <script src="market-nav.js" defer></script>
 </head>
 <body data-market-page="fed"><div class="wrap">
@@ -37,5 +38,5 @@
     <section class="panel"><div class="chart-head"><div><h2>FOMC 時間軸</h2><p>星號代表同次會議發布經濟預測摘要（SEP）</p></div><a class="source-link" href="https://www.federalreserve.gov/monetarypolicy/fomccalendars.htm" target="_blank" rel="noopener">官方日程 ↗</a></div><div id="fomcTimeline" class="fomc-timeline"></div></section>
     <section class="panel"><div class="chart-head"><div><h2>近三個月政策動態</h2><p>聯準會官方貨幣政策新聞稿</p></div><a class="source-link" href="https://www.federalreserve.gov/monetarypolicy.htm" target="_blank" rel="noopener">政策首頁 ↗</a></div><div id="policyEvents" class="policy-events"></div></section>
   </div>
-</div><script src="theme.js"></script><script src="fed-policy.js?v=20260823"></script></body>
+</div><script src="theme.js"></script><script type="module" src="auth.js"></script><script src="fed-policy.js?v=20260823"></script></body>
 </html>

@@ -1,0 +1,62 @@
+<!doctype html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>AI 線圖分析｜投資研究工作台</title>
+  <link rel="stylesheet" href="market-pages.css">
+  <script>(function(){var t=localStorage.getItem("etf-theme");if(t)document.documentElement.dataset.theme=t})();</script>
+  <script src="config.js"></script>
+  <script src="market-nav.js" defer></script>
+</head>
+<body data-market-page="ai"><div class="wrap">
+  <nav class="top-nav">
+    <a class="tracker-brand" href="index.html"><span class="tracker-mark" aria-hidden="true"></span><span>投資研究工作台</span></a>
+    <a href="tracker.html?view=overview">市場研究</a><a href="tracker.html">ETF 持股</a><a href="dividends.html">配息日曆</a><a href="portfolio.html">我的持股</a><a href="transactions.html">交易紀錄</a><a href="journal.html">短線日誌</a><a href="performance.html">績效走勢</a>
+    <span id="authBox" style="margin-left:auto;display:flex;align-items:center;gap:6px"></span><button id="themeToggle" class="theme-toggle" aria-label="切換主題">🌙</button>
+  </nav>
+
+  <header class="page-head ai-page-head"><div><div class="eyebrow">Member Research Tool</div><h1>AI 線圖分析</h1><p>上傳技術線圖，取得以可見證據為基礎的短線判讀與交易計畫。</p></div><div id="quotaBadge" class="ai-quota" hidden>今日可用 <strong>—</strong></div></header>
+
+  <section id="aiGate" class="panel ai-gate" aria-live="polite">
+    <div class="ai-gate-icon">✦</div><div><h2>正在確認會員權限</h2><p>請稍候，系統正在讀取你的使用資格。</p></div>
+  </section>
+
+  <main id="aiWorkspace" class="ai-workspace" hidden>
+    <section class="panel ai-input-panel">
+      <div class="ai-section-title"><div><span>01</span><h2>上傳線圖</h2></div><small>JPG、PNG、WebP；圖片不會永久保存</small></div>
+      <label id="chartDropzone" class="ai-dropzone" for="chartImage">
+        <input id="chartImage" type="file" accept="image/jpeg,image/png,image/webp" hidden>
+        <span class="ai-upload-icon">↥</span><strong>拖放線圖，或點此選擇圖片</strong><small>建議包含 K 線、均線、成交量與技術指標</small>
+        <img id="chartPreview" alt="待分析線圖預覽" hidden>
+      </label>
+      <div id="imageActions" class="ai-image-actions" hidden><span id="imageMeta"></span><button id="removeImage" type="button">移除圖片</button></div>
+
+      <div class="ai-section-title compact"><div><span>02</span><h2>分析設定</h2></div></div>
+      <fieldset class="ai-mode-field"><legend>分析模式</legend><div class="ai-mode-grid">
+        <label><input type="radio" name="analysisMode" value="general" checked><span><b>一般分析</b><small>趨勢、支撐壓力與風險</small></span></label>
+        <label><input type="radio" name="analysisMode" value="fast"><span><b>快閃交易</b><small>短線搶反彈與進出節奏</small></span></label>
+        <label><input type="radio" name="analysisMode" value="overnight"><span><b>隔日沖</b><small>進場、防守與隔日賣點</small></span></label>
+        <label><input type="radio" name="analysisMode" value="low-entry"><span><b>低接掛價</b><small>評估預計買價與失效條件</small></span></label>
+      </div></fieldset>
+      <div class="ai-form-grid">
+        <label>標的代號（選填）<input id="analysisSymbol" maxlength="20" placeholder="例如 2330、SOXX"></label>
+        <label>截圖時點<select id="screenshotTiming"><option value="">不確定／未註明</option><option>開盤後 30 分鐘內</option><option>盤中</option><option>接近收盤</option><option>盤後</option></select></label>
+        <label id="priceField" hidden>預計買進價（選填）<input id="proposedPrice" type="number" min="0" step="0.01" inputmode="decimal" placeholder="例如 128.5"></label>
+      </div>
+      <button id="analyzeChart" class="ai-analyze-button" type="button"><span>✦</span>開始分析</button>
+      <p id="analysisStatus" class="ai-status" role="status"></p>
+    </section>
+
+    <section class="panel ai-result-panel">
+      <div class="ai-section-title"><div><span>03</span><h2>分析結果</h2></div><small id="resultMeta"></small></div>
+      <div id="resultEmpty" class="ai-result-empty"><div>⌁</div><strong>結果會顯示在這裡</strong><p>AI 只讀取截圖中看得到的資訊；模糊或缺少的數據會明確標示。</p></div>
+      <div id="resultContent" hidden></div>
+    </section>
+  </main>
+
+  <section id="analysisHistoryPanel" class="panel ai-history" hidden><div class="ai-section-title"><div><span>04</span><h2>最近分析</h2></div><small>僅保存文字結果，不保存圖片</small></div><div id="analysisHistory"></div></section>
+  <div class="notice ai-disclaimer">AI 分析僅供技術研究與交易計畫整理，不構成投資建議或獲利保證；請自行評估部位與風險。</div>
+</div>
+<script src="theme.js"></script><script type="module" src="auth.js"></script><script type="module" src="chart-analysis.js"></script>
+</body>
+</html>
