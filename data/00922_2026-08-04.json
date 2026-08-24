@@ -513,17 +513,7 @@
       "name": "信驊",
       "market": "TW",
       "weight": 0.66,
-      "shares": 35626,
-      "open": 15585.0,
-      "high": 16120.0,
-      "low": 15205.0,
-      "close": 15350.0,
-      "prevClose": 15750.0,
-      "change": -400.0,
-      "changePct": -2.54,
-      "amplitude": 5.81,
-      "volume": 171660.0,
-      "quoteDate": "2026-08-04"
+      "shares": 35626
     },
     {
       "code": "2890",
@@ -802,17 +792,7 @@
       "name": "旺矽",
       "market": "TW",
       "weight": 0.38,
-      "shares": 54400,
-      "open": 5530.0,
-      "high": 5680.0,
-      "low": 5400.0,
-      "close": 5465.0,
-      "prevClose": 5650.0,
-      "change": -185.0,
-      "changePct": -3.27,
-      "amplitude": 4.96,
-      "volume": 835394.0,
-      "quoteDate": "2026-08-04"
+      "shares": 54400
     },
     {
       "code": "2368",
@@ -853,17 +833,7 @@
       "name": "力旺",
       "market": "TW",
       "weight": 0.27,
-      "shares": 89077,
-      "open": 2220.0,
-      "high": 2245.0,
-      "low": 2150.0,
-      "close": 2155.0,
-      "prevClose": 2210.0,
-      "change": -55.0,
-      "changePct": -2.49,
-      "amplitude": 4.3,
-      "volume": 843189.0,
-      "quoteDate": "2026-08-04"
+      "shares": 89077
     }
   ]
 }
