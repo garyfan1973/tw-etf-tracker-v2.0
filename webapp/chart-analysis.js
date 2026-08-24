@@ -5,6 +5,8 @@ let selectedFileName = "";
 let busy = false;
 let activeUserId = null;
 let historyGeneration = 0;
+let transferGeneration = 0;
+let transferAttemptUserId = null;
 
 function node(tag, className, text) {
   const element = document.createElement(tag);
@@ -69,6 +71,7 @@ async function syncAccess() {
   const exhausted = Number(access.remaining) <= 0;
   $("#analyzeChart").disabled = exhausted;
   if (exhausted) $("#analysisStatus").textContent = "今日分析額度已用完，將於台北時間午夜重置。";
+  await loadTransferredChart(user);
   await loadHistory();
 }
 
@@ -116,11 +119,13 @@ async function prepareImage(file) {
 }
 
 async function selectImage(file) {
+  const requestUserId = activeUserId;
   const status = $("#analysisStatus");
   status.className = "ai-status";
   status.textContent = "正在整理圖片…";
   try {
     preparedImage = await prepareImage(file);
+    if (activeUserId !== requestUserId) return;
     selectedFileName = file.name;
     $("#chartPreview").src = preparedImage;
     $("#chartPreview").hidden = false;
@@ -129,6 +134,7 @@ async function selectImage(file) {
     $("#imageMeta").textContent = `${file.name} · ${(approximateBytes(preparedImage) / 1024 / 1024).toFixed(2)} MB`;
     status.textContent = "圖片已就緒。";
   } catch (error) {
+    if (activeUserId !== requestUserId) return;
     clearImage();
     status.className = "ai-status error";
     status.textContent = error.message;
@@ -148,6 +154,8 @@ function clearImage() {
 
 function resetSensitiveState() {
   historyGeneration += 1;
+  transferGeneration += 1;
+  transferAttemptUserId = null;
   clearImage();
   $("#analysisSymbol").value = "";
   $("#proposedPrice").value = "";
@@ -158,6 +166,27 @@ function resetSensitiveState() {
   $("#resultMeta").textContent = "";
   $("#analysisHistory").replaceChildren();
   $("#analysisStatus").textContent = "";
+}
+
+async function loadTransferredChart(user) {
+  if (!window.ChartAnalysisTransfer?.take || !user?.id) return;
+  if (transferAttemptUserId === user.id) return;
+  transferAttemptUserId = user.id;
+  const generation = ++transferGeneration;
+  try {
+    const transfer = await window.ChartAnalysisTransfer.take(user.id);
+    if (!transfer || generation !== transferGeneration || activeUserId !== user.id) return;
+    const file = new File([transfer.blob], transfer.name || "technical-chart.jpg", { type: transfer.blob.type || "image/jpeg" });
+    await selectImage(file);
+    if (generation !== transferGeneration || activeUserId !== user.id) return;
+    if (transfer.symbol) $("#analysisSymbol").value = transfer.symbol;
+    $("#analysisStatus").className = "ai-status success";
+    $("#analysisStatus").textContent = "已自動帶入技術分析頁的線圖，請選擇分析模式。";
+  } catch (error) {
+    if (generation !== transferGeneration || activeUserId !== user.id) return;
+    $("#analysisStatus").className = "ai-status error";
+    $("#analysisStatus").textContent = error.message || "無法載入剛才擷取的線圖";
+  }
 }
 
 function addListCard(parent, title, items, className = "") {

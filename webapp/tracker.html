@@ -110,6 +110,10 @@
     .chart-type { display:flex; padding:3px; border:1px solid var(--border); border-radius:9px; background:var(--card); }
     .chart-type button { border:0; border-radius:6px; padding:6px 12px; background:transparent; color:var(--muted); font:inherit; cursor:pointer; }
     .chart-type button.active { background:var(--accent); color:#fff; }
+    .ai-chart-capture { display:inline-flex; align-items:center; gap:6px; padding:7px 11px; border:1px solid color-mix(in srgb,var(--accent) 45%,var(--border)); border-radius:8px; background:color-mix(in srgb,var(--accent) 9%,var(--card)); color:var(--accent); font:inherit; font-weight:700; cursor:pointer; }
+    .ai-chart-capture[hidden] { display:none; }
+    .ai-chart-capture:hover { background:color-mix(in srgb,var(--accent) 15%,var(--card)); }
+    .ai-chart-capture:disabled { cursor:wait; opacity:.7; }
     .ma-control>span { display:block; margin-bottom:5px; color:var(--muted); font-size:12px; } .ma-options { display:flex; gap:4px; padding:3px; border:1px solid var(--border); border-radius:9px; background:var(--card); } .ma-options label { display:flex; flex-direction:row; align-items:center; gap:4px; padding:6px 8px; border-radius:6px; color:var(--text); cursor:pointer; } .ma-options label:has(input:checked) { background:var(--detail); color:var(--accent); } .ma-options input { accent-color:var(--accent); }
     .range-toolbar { display:flex; align-items:center; gap:5px; flex-wrap:wrap; margin:8px 0; } .range-toolbar>span { margin-right:3px; color:var(--muted); font-size:12px; } .range-toolbar button { padding:5px 9px; border:1px solid var(--border); border-radius:7px; background:var(--card); color:var(--muted); cursor:pointer; } .range-toolbar button.active { color:#fff; border-color:var(--accent); background:var(--accent); } .range-help { margin-left:auto; color:var(--muted); font-size:11px; }
     .indicator-control>span { display:block; margin-bottom:5px; color:var(--muted); font-size:12px; } .indicator-options { display:flex; gap:4px; padding:3px; border:1px solid var(--border); border-radius:9px; background:var(--card); } .indicator-options label { display:flex; align-items:center; gap:4px; padding:6px 8px; border-radius:6px; color:var(--text); cursor:pointer; white-space:nowrap; } .indicator-options label:has(input:checked) { background:var(--detail); color:var(--accent); } .indicator-options input { accent-color:var(--accent); }
@@ -586,16 +590,19 @@
         <label>ETF<select id="etfSelect"></select></label>
         <label>標的<select id="securitySelect"></select></label>
       </div>
+      <div id="aiChartCapture">
       <div class="kline-chart-head"><div id="chartTitle" class="kline-chart-title">—</div><div id="chartQuote" class="kline-quote"></div></div>
       <div id="premiumBox" class="premium-box"></div>
       <div class="kline-controls chart-display-controls">
         <div class="chart-type" role="group" aria-label="圖表類型"><button type="button" data-chart-type="candle">K 線</button><button type="button" data-chart-type="line">收盤價線</button></div>
+        <button type="button" class="ai-chart-capture" data-ai-chart-capture hidden><span aria-hidden="true">✦</span>AI 線圖分析</button>
         <div id="status" class="kline-status"></div>
       </div>
       <div class="kline-legend" role="group" aria-label="均線圖例與開關"><span id="closeLegend" style="display:none"><i class="swatch" style="background:var(--accent)"></i>收盤價</span><button type="button" class="kline-legend-toggle" data-ma-period="5" aria-pressed="true"><i class="swatch" style="background:var(--ma5)"></i>MA5</button><button type="button" class="kline-legend-toggle" data-ma-period="10" aria-pressed="true"><i class="swatch" style="background:var(--ma10)"></i>MA10</button><button type="button" class="kline-legend-toggle" data-ma-period="20" aria-pressed="true"><i class="swatch" style="background:var(--ma20)"></i>MA20</button><button type="button" class="kline-legend-toggle" data-ma-period="60" aria-pressed="true"><i class="swatch" style="background:var(--ma60)"></i>MA60</button><button type="button" class="kline-legend-toggle" data-ma-period="120" aria-pressed="true"><i class="swatch" style="background:var(--ma120)"></i>MA120</button><button type="button" class="kline-legend-toggle" data-ma-period="240" aria-pressed="true"><i class="swatch" style="background:var(--ma240)"></i>MA240</button><button type="button" class="kline-legend-toggle volume-ma-start" data-volume-ma-period="5" aria-pressed="true"><i class="swatch" style="background:var(--vol5)"></i>VOL5</button><button type="button" class="kline-legend-toggle" data-volume-ma-period="10" aria-pressed="true"><i class="swatch" style="background:var(--vol10)"></i>VOL10</button></div>
       <div class="kline-legend" role="group" aria-label="技術指標與交易標記圖例與開關"><button type="button" class="kline-legend-toggle" data-indicator="bollinger" aria-pressed="false"><i class="swatch" style="background:var(--bb)"></i>布林通道(20,2)</button><button type="button" class="kline-legend-toggle" data-indicator="kd" aria-pressed="true"><i class="swatch" style="background:var(--kd-k)"></i>K(9)</button><button type="button" class="kline-legend-toggle" data-indicator="kd" aria-pressed="true"><i class="swatch" style="background:var(--kd-d)"></i>D(9)</button><button type="button" class="kline-legend-toggle" data-indicator="macd" aria-pressed="false"><i class="swatch" style="background:var(--macd)"></i>MACD</button><button type="button" class="kline-legend-toggle" data-indicator="rsi" aria-pressed="false"><i class="swatch" style="background:var(--rsi)"></i>RSI(14)</button><button type="button" class="kline-legend-toggle" data-trade-overlay="buy" aria-pressed="true"><i class="swatch" style="background:var(--trade-buy);height:7px;width:7px;transform:rotate(45deg)"></i>個人買進</button><button type="button" class="kline-legend-toggle" data-trade-overlay="sell" aria-pressed="true"><i class="swatch" style="background:var(--trade-sell);height:7px;width:7px;transform:rotate(45deg)"></i>個人賣出</button><button type="button" class="kline-legend-toggle" data-trade-overlay="cost" aria-pressed="true"><i class="swatch" style="border-top:2px dashed var(--trade-cost);background:none"></i>持倉成本</button></div>
       <div class="range-toolbar" role="group" aria-label="選擇圖表期間"><span>期間</span><button type="button" data-range-days="1">1天</button><button type="button" data-range-days="5">5天</button><button type="button" data-range-days="10">10天</button><button type="button" data-range-days="20">1月</button><button type="button" data-range-days="60">3月</button><button type="button" data-range-days="120">6月</button><button type="button" data-range-days="240">1年</button><button type="button" data-range-days="480">2年</button><button type="button" data-range-days="all">全部</button><button type="button" id="rangeReset">重設</button><button type="button" id="tooltipToggle" class="tooltip-toggle" aria-pressed="true">提示開</button><small id="visibleRange" class="range-help"></small></div>
       <div class="kline-chart-wrap"><div id="chartBox"></div><div id="tip" aria-live="polite">滾輪縮放、拖曳平移；移到 K 線可查看數值。</div></div>
+      </div>
       <div id="signalPanel" class="signal-panel"></div>
       <div id="financialPanel" class="financial-panel"></div>
       <div id="newsPanel" class="news-panel"></div>
@@ -658,6 +665,8 @@
   <script src="data.js"></script>
   <script src="technical-chart-core.js?v=20260824"></script>
   <script src="kline.js?v=20260824"></script>
+  <script src="https://cdn.jsdelivr.net/npm/html2canvas@1.4.1/dist/html2canvas.min.js" integrity="sha512-BNaRQnYJYiPSqHHDb58B0yaPfCu+Wgds8Gp/gU33kqBtgNS4tSPHuGibyoeqMV/TJlSKda6FXzoEyYGjTe+vXA==" crossorigin="anonymous"></script>
+  <script src="chart-analysis-transfer.js?v=20260824"></script>
   <script type="module" src="auth.js"></script>
   <script>
     // 若 data.js 尚未產生，給出友善提示
