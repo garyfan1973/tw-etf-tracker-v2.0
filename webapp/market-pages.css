@@ -40,3 +40,32 @@
 .ai-pdf-export{position:absolute;z-index:0}
 @media(max-width:680px){.ai-page-head{align-items:flex-start}.ai-quota{margin-top:7px}.ai-input-panel,.ai-result-panel,.ai-history{padding:13px}.ai-section-title{align-items:flex-start}.ai-section-title small{max-width:150px;text-align:right}.ai-result-heading{flex-direction:column}.ai-result-head-tools{width:100%;justify-content:flex-start;flex-wrap:wrap}.ai-result-head-tools>small{order:3;width:100%;max-width:none;text-align:left}.ai-dropzone{min-height:210px}.ai-mode-grid,.ai-form-grid,.ai-point-grid,.ai-zone-grid,.ai-plan-grid{grid-template-columns:1fr}.ai-gate{align-items:flex-start;min-height:200px;padding:24px 18px}.ai-gate-icon{width:46px;height:46px}.ai-invalidation{flex-direction:column;gap:3px}.ai-lightbox-window{width:94vw;height:82vh}.ai-lightbox-window>header{align-items:flex-start}.ai-lightbox-window>header>div:first-child strong{max-width:35vw}.ai-lightbox-window>footer{display:none}}
 .ai-status.warning{color:#b7791f}.ai-history-retention{margin:0 0 9px;padding:9px 11px;border:1px solid color-mix(in srgb,#d69e2e 35%,var(--border));border-radius:9px;background:color-mix(in srgb,#d69e2e 8%,var(--card));color:#9a6700;font-size:10px;line-height:1.5}
+
+/* AI 分析結果以中老年使用者可舒適閱讀為基準。 */
+.ai-section-title h2{font-size:19px}
+.ai-result-head-tools>small{font-size:13px;line-height:1.55}
+.ai-result-hero h3{font-size:22px;line-height:1.35}
+.ai-result-hero p{font-size:16px;line-height:1.75}
+.ai-market-state{font-size:13px;line-height:1.5}
+.ai-rating{font-size:17px}
+.ai-quality-note{font-size:14px;line-height:1.65}
+.ai-result-card h3{font-size:16px;line-height:1.45}
+.ai-result-card ul{font-size:15px;line-height:1.75}
+.ai-point b{font-size:14px;line-height:1.5}
+.ai-point p{font-size:15px;line-height:1.7}
+.ai-point.bearish{border-color:var(--down)}
+.ai-point.warning{border-color:#d69e2e}
+.ai-plan-grid span{font-size:13px;line-height:1.45}
+.ai-plan-grid strong{font-size:15px;line-height:1.65}
+.ai-invalidation{font-size:15px;line-height:1.7}
+.ai-result-thumb span{font-size:12px}
+.ai-history-toggle b{font-size:15px;line-height:1.45}
+.ai-history-toggle small{font-size:12px;line-height:1.55}
+.ai-history-toggle i{font-size:13px}
+.ai-history-retention{font-size:13px;line-height:1.6}
+.ai-status{font-size:13px;line-height:1.55}
+
+@media(max-width:680px){
+  .ai-result-hero h3{font-size:20px}
+  .ai-result-hero p,.ai-result-card ul,.ai-point p,.ai-plan-grid strong,.ai-invalidation{font-size:15px}
+}
