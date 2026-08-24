@@ -15,6 +15,7 @@ let resultImageData = "";
 let currentAnalysisResult = null;
 let currentAnalysisMeta = null;
 let transferredAssetName = "";
+let transferredChartData = null;
 let assetNames = new Map();
 let exportBusy = false;
 let viewerZoom = 1;
@@ -472,6 +473,7 @@ async function selectImage(file) {
   status.className = "ai-status";
   status.textContent = "正在整理圖片…";
   try {
+    transferredChartData = null;
     preparedImage = await prepareImage(file);
     if (activeUserId !== requestUserId) return;
     selectedFileName = file.name;
@@ -492,6 +494,7 @@ async function selectImage(file) {
 function clearImage() {
   preparedImage = "";
   selectedFileName = "";
+  transferredChartData = null;
   $("#chartImage").value = "";
   $("#chartPreview").removeAttribute("src");
   $("#chartPreview").hidden = true;
@@ -541,8 +544,9 @@ async function loadTransferredChart(user) {
     if (generation !== transferGeneration || activeUserId !== user.id) return;
     if (transfer.symbol) $("#analysisSymbol").value = transfer.symbol;
     transferredAssetName = transfer.assetName || "";
+    transferredChartData = transfer.chartData || null;
     $("#analysisStatus").className = "ai-status success";
-    $("#analysisStatus").textContent = "已自動帶入技術分析頁的線圖，請選擇分析模式。";
+    $("#analysisStatus").textContent = transferredChartData ? "已自動帶入線圖與精確行情資料，請選擇分析模式。" : "已自動帶入技術分析頁的線圖，請選擇分析模式。";
   } catch (error) {
     if (generation !== transferGeneration || activeUserId !== user.id) return;
     $("#analysisStatus").className = "ai-status error";
@@ -789,6 +793,7 @@ async function analyze() {
     symbol: $("#analysisSymbol").value.trim(),
     screenshotTiming: $("#screenshotTiming").value,
     proposedPrice: $("#proposedPrice").value || null,
+    chartData: transferredChartData,
   };
   busy = true;
   $("#analyzeChart").disabled = true;

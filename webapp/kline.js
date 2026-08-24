@@ -219,6 +219,57 @@
       return { k, d };
     });
   }
+  function snapshotNumber(value) {
+    const numeric = Number(value);
+    return Number.isFinite(numeric) ? Math.round(numeric * 1e6) / 1e6 : null;
+  }
+  function buildAnalysisSnapshot() {
+    const asset = window.MarketChart?.currentAsset;
+    const start = Math.max(0, Math.min(viewport.start, currentRows.length));
+    const end = Math.max(start, Math.min(viewport.end || currentRows.length, currentRows.length));
+    const visibleRows = currentRows.slice(start, end);
+    if (!asset?.symbol || !visibleRows.length) return null;
+    const priceRows = visibleRows.slice(-120).map(row => ({
+      date:String(row.date || "").slice(0, 10), open:snapshotNumber(row.open), high:snapshotNumber(row.high),
+      low:snapshotNumber(row.low), close:snapshotNumber(row.close), volume:snapshotNumber(row.volume)
+    }));
+    const kd = kdValues(currentRows), macd = macdValues(currentRows), rsi = rsiValues(currentRows);
+    const indicatorStart = Math.max(start, end - 20), indicatorRows = [];
+    for (let index = indicatorStart; index < end; index += 1) {
+      const bollinger = visibleIndicators.has("bollinger") ? bollingerValues(currentRows, index) : null;
+      const kdRow = visibleIndicators.has("kd") ? kd[index] : null;
+      const macdRow = visibleIndicators.has("macd") ? macd[index] : null;
+      indicatorRows.push({
+        date:String(currentRows[index].date || "").slice(0, 10),
+        ma5:visibleMas.has(5) ? snapshotNumber(movingAverage(currentRows, index, 5)) : null,
+        ma10:visibleMas.has(10) ? snapshotNumber(movingAverage(currentRows, index, 10)) : null,
+        ma20:visibleMas.has(20) ? snapshotNumber(movingAverage(currentRows, index, 20)) : null,
+        ma60:visibleMas.has(60) ? snapshotNumber(movingAverage(currentRows, index, 60)) : null,
+        ma120:visibleMas.has(120) ? snapshotNumber(movingAverage(currentRows, index, 120)) : null,
+        ma240:visibleMas.has(240) ? snapshotNumber(movingAverage(currentRows, index, 240)) : null,
+        vol5:visibleVolumeMas.has(5) ? snapshotNumber(volumeMovingAverage(currentRows, index, 5)) : null,
+        vol10:visibleVolumeMas.has(10) ? snapshotNumber(volumeMovingAverage(currentRows, index, 10)) : null,
+        bbUpper:snapshotNumber(bollinger?.upper), bbMid:snapshotNumber(bollinger?.mid), bbLower:snapshotNumber(bollinger?.lower),
+        k:snapshotNumber(kdRow?.k), d:snapshotNumber(kdRow?.d), dif:snapshotNumber(macdRow?.macd),
+        macd:snapshotNumber(macdRow?.signal), dm:snapshotNumber(macdRow?.histogram),
+        rsi:visibleIndicators.has("rsi") ? snapshotNumber(rsi[index]) : null
+      });
+    }
+    const validHighs = visibleRows.filter(row => Number.isFinite(Number(row.high)));
+    const validLows = visibleRows.filter(row => Number.isFinite(Number(row.low)));
+    const highRow = validHighs.reduce((best, row) => !best || Number(row.high) > Number(best.high) ? row : best, null);
+    const lowRow = validLows.reduce((best, row) => !best || Number(row.low) < Number(best.low) ? row : best, null);
+    return {
+      version:1,
+      asset:{ symbol:String(asset.symbol).toUpperCase(), market:String(asset.market || "").toUpperCase(), assetType:String(asset.assetType || "").toLowerCase() },
+      chart:{ type:chartType, capturedAt:new Date().toISOString(), visibleMas:[...visibleMas].sort((a,b)=>a-b), visibleVolumeMas:[...visibleVolumeMas].sort((a,b)=>a-b), visibleIndicators:[...visibleIndicators].sort() },
+      visibleRange:{ startDate:visibleRows[0].date, endDate:visibleRows.at(-1).date, totalRows:visibleRows.length, suppliedRows:priceRows.length, truncated:visibleRows.length > priceRows.length,
+        high:highRow ? { date:highRow.date, value:snapshotNumber(highRow.high) } : null,
+        low:lowRow ? { date:lowRow.date, value:snapshotNumber(lowRow.low) } : null },
+      priceRows,
+      indicatorRows
+    };
+  }
   function signalMeta(score) {
     if (score >= 1.25) return { key:"strong-buy", label:"強力買進", color:"#3977f6" };
     if (score >= .4) return { key:"buy", label:"偏多／買進", color:"#548dff" };
@@ -579,7 +630,7 @@
     try { currentRows = await loadHistory(info, snapshotRows); }
     catch (error) { currentRows = snapshotRows; if (!currentRows.length) $("status").textContent = error.message || "行情資料暫時無法取得"; }
     if (renderRequestKey !== key) return;
-    if (window.MarketChart) window.MarketChart.currentRows = currentRows.slice();
+    if (window.MarketChart) { window.MarketChart.currentAsset = { ...info }; window.MarketChart.currentRows = currentRows.slice(); }
     if ($("chartQuote") && currentRows.length) {
       const latest = currentRows.at(-1), previous = currentRows.at(-2), reference = Number.isFinite(Number(latest.prevClose)) ? Number(latest.prevClose) : Number(previous?.close);
       const change = Number.isFinite(Number(latest.change)) ? Number(latest.change) : Number.isFinite(reference) ? Number(latest.close) - reference : null;
@@ -877,7 +928,7 @@
       if (event.key === "Enter") { event.preventDefault(); const first = catalogMatches(input.value)[0]; if (first) selectDirectAsset(first); }
     });
     document.addEventListener("pointerdown", event => { if (!event.target.closest?.(".asset-picker")) $("assetResults")?.classList.remove("open"); });
-    window.MarketChart = { currentAsset:null, currentRows:[], currentFinancials:null, selectAsset: (asset, options = {}) => {
+    window.MarketChart = { currentAsset:null, currentRows:[], currentFinancials:null, getAnalysisSnapshot:buildAnalysisSnapshot, selectAsset: (asset, options = {}) => {
       const normalized = { symbol:String(asset.symbol || "").toUpperCase(), market:String(asset.market || "TW").toUpperCase(), assetType:String(asset.assetType || "stock").toLowerCase(), name:asset.name || asset.symbol };
       const matched = catalogAssets.find(item => item.market === normalized.market && item.symbol === normalized.symbol && item.assetType === normalized.assetType) || normalized;
       selectDirectAsset(matched, options.updateUrl !== false);

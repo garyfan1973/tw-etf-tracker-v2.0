@@ -178,12 +178,20 @@
       const original = button.innerHTML;
       button.textContent = "正在擷取線圖…";
       try {
+        const chartData = window.MarketChart?.getAnalysisSnapshot?.() || null;
         const blob = await captureElement(captureTarget);
         if (window.ETFAuth?.user()?.id !== user.id) throw new Error("會員狀態已變更，請重新操作");
         const symbol = activeAsset?.symbol || window.MarketChart?.currentAsset?.symbol || "";
         const assetName = activeAsset?.name || window.MarketChart?.currentAsset?.name || symbol;
+        const latestSnapshot = window.MarketChart?.getAnalysisSnapshot?.() || null;
+        const snapshotKey = snapshot => snapshot ? JSON.stringify([
+          snapshot.asset?.market, snapshot.asset?.symbol, snapshot.visibleRange?.startDate, snapshot.visibleRange?.endDate,
+          snapshot.chart?.type, snapshot.chart?.visibleMas, snapshot.chart?.visibleVolumeMas, snapshot.chart?.visibleIndicators,
+          snapshot.priceRows?.at(-1)?.date, snapshot.priceRows?.at(-1)?.close, snapshot.priceRows?.at(-1)?.volume
+        ]) : "";
+        if (chartData && snapshotKey(chartData) !== snapshotKey(latestSnapshot)) throw new Error("擷取期間線圖內容已變更，請重新按一次 AI 線圖分析");
         const name = `${safeFilePart(symbol)}-${new Date().toISOString().slice(0, 10)}-technical-chart.jpg`;
-        await saveTransfer({ blob, name, symbol, assetName, userId: user.id });
+        await saveTransfer({ blob, name, symbol, assetName, chartData, userId: user.id });
         location.href = "chart-analysis.html?source=kline";
       } catch (error) {
         window.alert(error.message || "線圖擷取失敗，請稍後再試");
