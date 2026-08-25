@@ -195,19 +195,23 @@
   }
   function rsiValues(rows, period = 14) {
     if (window.TechnicalChartCore) return window.TechnicalChartCore.rsiValues(rows, period);
-    return rows.map((_, index) => {
-      if (index < 1) return null;
-      let gains = 0, losses = 0;
-      const start = Math.max(1, index - period + 1);
-      for (let i = start; i <= index; i++) {
-        const change = Number(rows[i].close) - Number(rows[i - 1].close);
-        if (change >= 0) gains += change; else losses -= change;
-      }
-      if (gains === 0 && losses === 0) return 50;
-      if (losses === 0) return 100;
-      const rs = gains / losses;
-      return 100 - 100 / (1 + rs);
-    });
+    const result = Array(rows.length).fill(null);
+    if (rows.length <= period) return result;
+    let gains = 0, losses = 0;
+    for (let index = 1; index <= period; index += 1) {
+      const change = Number(rows[index].close) - Number(rows[index - 1].close);
+      if (change >= 0) gains += change; else losses -= change;
+    }
+    let averageGain = gains / period, averageLoss = losses / period;
+    const value = () => !averageGain && !averageLoss ? 50 : !averageLoss ? 100 : 100 - 100 / (1 + averageGain / averageLoss);
+    result[period] = value();
+    for (let index = period + 1; index < rows.length; index += 1) {
+      const change = Number(rows[index].close) - Number(rows[index - 1].close);
+      averageGain = (averageGain * (period - 1) + Math.max(change, 0)) / period;
+      averageLoss = (averageLoss * (period - 1) + Math.max(-change, 0)) / period;
+      result[index] = value();
+    }
+    return result;
   }
   function kdValues(rows) {
     if (window.TechnicalChartCore) return window.TechnicalChartCore.kdValues(rows);
@@ -235,7 +239,7 @@
       date:String(row.date || "").slice(0, 10), open:snapshotNumber(row.open), high:snapshotNumber(row.high),
       low:snapshotNumber(row.low), close:snapshotNumber(row.close), volume:snapshotNumber(row.volume)
     }));
-    const kd = kdValues(currentRows), macd = macdValues(currentRows), rsi = rsiValues(currentRows);
+    const kd = kdValues(currentRows), macd = macdValues(currentRows), rsi5 = rsiValues(currentRows, 5), rsi10 = rsiValues(currentRows, 10);
     const indicatorStart = Math.max(start, end - 20), indicatorRows = [];
     for (let index = indicatorStart; index < end; index += 1) {
       const bollinger = visibleIndicators.has("bollinger") ? bollingerValues(currentRows, index) : null;
@@ -254,7 +258,8 @@
         bbUpper:snapshotNumber(bollinger?.upper), bbMid:snapshotNumber(bollinger?.mid), bbLower:snapshotNumber(bollinger?.lower),
         k:snapshotNumber(kdRow?.k), d:snapshotNumber(kdRow?.d), dif:snapshotNumber(macdRow?.macd),
         macd:snapshotNumber(macdRow?.signal), dm:snapshotNumber(macdRow?.histogram),
-        rsi:visibleIndicators.has("rsi") ? snapshotNumber(rsi[index]) : null
+        rsi5:visibleIndicators.has("rsi") ? snapshotNumber(rsi5[index]) : null,
+        rsi10:visibleIndicators.has("rsi") ? snapshotNumber(rsi10[index]) : null
       });
     }
     const validHighs = visibleRows.filter(row => Number.isFinite(Number(row.high)));
@@ -668,7 +673,8 @@
       bbMid: rootStyle.getPropertyValue("--bb-mid").trim() || "#b45309",
       macd: rootStyle.getPropertyValue("--macd").trim() || "#7c3aed",
       macdSignal: rootStyle.getPropertyValue("--macd-signal").trim() || "#db2777",
-      rsi: rootStyle.getPropertyValue("--rsi").trim() || "#0891b2",
+      rsi5: rootStyle.getPropertyValue("--rsi5").trim() || "#64b5f6",
+      rsi10: rootStyle.getPropertyValue("--rsi10").trim() || "#6c5ce7",
       k: rootStyle.getPropertyValue("--kd-k").trim() || "#19a7a0",
       d: rootStyle.getPropertyValue("--kd-d").trim() || "#e06b8b",
       buy: rootStyle.getPropertyValue("--trade-buy").trim() || "#3977f6",
@@ -680,7 +686,7 @@
     const referenceValues = visibleTrades.map(fill => Number(fill.price));
     if (visibleTradeOverlays.has("cost") && personalTrades.averageCost != null) referenceValues.push(Number(personalTrades.averageCost));
     const bb = currentRows.map((_, i) => bollingerValues(currentRows, i)).slice(viewStart, viewEnd);
-    const macd = macdValues(currentRows).slice(viewStart, viewEnd), rsi = rsiValues(currentRows).slice(viewStart, viewEnd), kd = kdValues(currentRows).slice(viewStart, viewEnd);
+    const macd = macdValues(currentRows).slice(viewStart, viewEnd), rsi5 = rsiValues(currentRows, 5).slice(viewStart, viewEnd), rsi10 = rsiValues(currentRows, 10).slice(viewStart, viewEnd), kd = kdValues(currentRows).slice(viewStart, viewEnd);
     const maSeries = Object.fromEntries(maPeriods.map(period => [period, currentRows.map((_, index) => movingAverage(currentRows, index, period)).slice(viewStart, viewEnd)]));
     const volumeMaSeries = Object.fromEntries(volumeMaPeriods.map(period => [period, currentRows.map((_, index) => volumeMovingAverage(currentRows, index, period)).slice(viewStart, viewEnd)]));
     const indicatorValues = visibleIndicators.has("bollinger") ? bb.flatMap(v => v ? [v.upper, v.lower] : []) : [];
@@ -716,8 +722,8 @@
     }
     if (macdPanel) svg += `<line x1="${left}" x2="${W-right}" y1="${macdY(0)}" y2="${macdY(0)}" class="grid kd-threshold"/><text x="4" y="${macdPanel.top + 12}" class="axis">MACD</text>`;
     if (rsiPanel) {
-      [30, 50, 70].forEach(value => svg += `<line x1="${left}" x2="${W-right}" y1="${rsiY(value)}" y2="${rsiY(value)}" class="grid${value === 50 ? "" : " kd-threshold"}"/><text x="30" y="${rsiY(value)+4}" class="axis">${value}</text>`);
-      svg += `<text x="4" y="${rsiPanel.top + 12}" class="axis">RSI</text>`;
+      [20, 50, 80].forEach(value => svg += `<line x1="${left}" x2="${W-right}" y1="${rsiY(value)}" y2="${rsiY(value)}" class="grid${value === 50 ? "" : " kd-threshold"}"/><text x="30" y="${rsiY(value)+4}" class="axis">${value}</text>`);
+      svg += `<text x="4" y="${rsiPanel.top + 12}" class="axis">RSI</text><text x="42" y="${rsiPanel.top + 12}" fill="${chartColors.rsi5}" font-size="11" font-weight="700">RSI5</text><text x="84" y="${rsiPanel.top + 12}" fill="${chartColors.rsi10}" font-size="11" font-weight="700">RSI10</text>`;
     }
     const tickCount = Math.min(7, rows.length);
     const tickIndexes = [...new Set(Array.from({ length: tickCount }, (_, i) => Math.round(i * (rows.length - 1) / Math.max(1, tickCount - 1))))];
@@ -753,7 +759,10 @@
       svg += screenLine(macdLine("macd").map(v => Number.isFinite(v) ? macdY(v) : null), chartColors.macd, 1.8);
       svg += screenLine(macdLine("signal").map(v => Number.isFinite(v) ? macdY(v) : null), chartColors.macdSignal, 1.5);
     }
-    if (rsiPanel) svg += screenLine(rsi.map(v => Number.isFinite(v) ? rsiY(v) : null), chartColors.rsi, 1.8);
+    if (rsiPanel) {
+      svg += screenLine(rsi5.map(v => Number.isFinite(v) ? rsiY(v) : null), chartColors.rsi5, 1.8);
+      svg += screenLine(rsi10.map(v => Number.isFinite(v) ? rsiY(v) : null), chartColors.rsi10, 1.8);
+    }
     if (visibleTradeOverlays.has("cost") && Number.isFinite(personalTrades.averageCost)) svg += `<line x1="${left}" x2="${W-right}" y1="${y(personalTrades.averageCost)}" y2="${y(personalTrades.averageCost)}" stroke="${chartColors.cost}" stroke-width="1.5" stroke-dasharray="7 5"/><text x="${W-right-4}" y="${y(personalTrades.averageCost)-6}" text-anchor="end" fill="${chartColors.cost}" font-size="11">持倉成本 ${price(personalTrades.averageCost)}</text>`;
     visibleTrades.forEach(fill => {
       const index = rows.findIndex(row => row.date === fill.fill_date), cx = x(index), cy = y(Number(fill.price)), buy = fill.side === "buy", color = buy ? chartColors.buy : chartColors.sell;
@@ -810,7 +819,7 @@
       const bbHtml = visibleIndicators.has("bollinger") && bb[index] ? `<div class="tip-extra">布林 ${price(bb[index].upper)}／${price(bb[index].mid)}／${price(bb[index].lower)}</div>` : "";
       const kdHtml = visibleIndicators.has("kd") && indicator ? `<div class="tip-extra">K ${price(indicator.k)}　D ${price(indicator.d)}</div>` : "";
       const macdHtml = macd[index]?.macd != null ? `<div class="tip-extra">DIF: ${price(macd[index].macd)}　MACD: ${price(macd[index].signal)}　D-M: ${price(macd[index].histogram)}</div>` : "";
-      const rsiHtml = rsi[index] != null ? `<div class="tip-extra">RSI ${price(rsi[index])}</div>` : "";
+      const rsiHtml = `<div class="tip-extra">RSI5 ${price(rsi5[index])}　RSI10 ${price(rsi10[index])}</div>`;
       tip.innerHTML = zone === "kd" ? dateHtml + kdHtml
         : zone === "macd" ? dateHtml + macdHtml
         : zone === "rsi" ? dateHtml + rsiHtml

@@ -27,7 +27,7 @@ CHART_MA_PERIODS = {5, 10, 20, 60, 120, 240}
 CHART_VOLUME_MA_PERIODS = {5, 10}
 INDICATOR_FIELDS = {
     "ma5", "ma10", "ma20", "ma60", "ma120", "ma240", "vol5", "vol10",
-    "bbUpper", "bbMid", "bbLower", "k", "d", "dif", "macd", "dm", "rsi"
+    "bbUpper", "bbMid", "bbLower", "k", "d", "dif", "macd", "dm", "rsi5", "rsi10"
 }
 
 
@@ -42,7 +42,7 @@ SYSTEM_PROMPT = """你是台股、美股與 ETF 短線技術線圖分析師。�
 6. K 棒需判讀長紅／長綠、十字、上下影線、吞噬、跳空、連續 K、突破前高、跌破前低、假突破與停損 K；單一長下影線不等於落底。
 7. 可見時判讀 MA5、MA10、MA20、MA60。MA5 是極短節奏，MA10 是短趨勢，MA20 是波段重要邊界，MA60 是中期趨勢。站回 MA5 但仍低於 MA10／20，可能只是假性弱反彈。
 8. 量價關係：突破帶量、拉回量縮較健康；爆量破支撐、爆量綠 K、無量反彈偏弱。若放量跌穿預定低接價，必須說明這是支撐失守，不是便宜價。
-9. KD/KDJ 必須讀數值與方向。K<20 是超賣、K>80 是過熱，不是自動買賣訊號；低檔 K 上彎、黃金交叉且價格守住支撐才較有意義。
+9. KD/KDJ 必須讀數值與方向。K<20 是超賣、K>80 是過熱，不是自動買賣訊號；低檔 K 上彎、黃金交叉且價格守住支撐才較有意義。RSI5 與 RSI10 必須一起判讀：RSI5 反應較快、RSI10 較平滑；20 以下偏超賣、80 以上偏過熱，短線交叉仍須搭配價格與量能確認。
 10. MACD：動能改善包括綠柱縮短、DIF 上升、DIF 上穿 Signal；動能惡化包括綠柱擴大、DIF 下跌、DIF 低於 Signal。反彈而 MACD 惡化仍屬逆勢反彈。
 11. 布林中軌通常等同 MA20；下軌不是自動買點，上軌不是自動賣點。沿下軌走且中軌下彎仍是弱勢。
 12. 支撐與壓力用合理區間，不做假精準。來源優先是近期高低、爆量區、MA5/10/20、布林帶、整數與缺口。
@@ -233,7 +233,7 @@ def validate_chart_data(value):
         normalized = {"date": date}
         for field in INDICATOR_FIELDS:
             normalized[field] = chart_number(row.get(field), field, nonnegative=field in {"vol5", "vol10"})
-        for field in ("k", "d", "rsi"):
+        for field in ("k", "d", "rsi5", "rsi10"):
             if normalized[field] is not None and not 0 <= normalized[field] <= 100:
                 raise ValueError("線圖指標超出合理範圍：{}".format(field))
         normalized_indicators.append(normalized)

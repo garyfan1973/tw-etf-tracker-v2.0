@@ -37,7 +37,7 @@ class ChartAnalysisApiTests(unittest.TestCase):
                 {"date": "2026-08-25", "ma5": 100.5, "ma10": 99.5, "ma20": 98.5,
                  "ma60": 97.5, "ma120": None, "ma240": None, "vol5": 1200, "vol10": 1100,
                  "bbUpper": 104, "bbMid": 99, "bbLower": 94, "k": 65, "d": 58,
-                 "dif": 1.2, "macd": 0.9, "dm": 0.3, "rsi": 61}
+                 "dif": 1.2, "macd": 0.9, "dm": 0.3, "rsi5": 61, "rsi10": 57}
             ]
         }
 
@@ -80,6 +80,8 @@ class ChartAnalysisApiTests(unittest.TestCase):
         self.assertEqual(result["symbol"], "2330")
         self.assertEqual(result["chartData"]["priceRows"][-1]["close"], 102)
         self.assertEqual(result["chartData"]["indicatorRows"][-1]["dm"], .3)
+        self.assertEqual(result["chartData"]["indicatorRows"][-1]["rsi5"], 61)
+        self.assertEqual(result["chartData"]["indicatorRows"][-1]["rsi10"], 57)
 
     def test_rejects_mismatched_or_invalid_chart_snapshot(self):
         with self.assertRaisesRegex(ValueError, "代號不一致"):
