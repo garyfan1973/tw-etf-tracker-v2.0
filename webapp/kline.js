@@ -49,6 +49,8 @@
       if (tip) tip.style.visibility = "hidden";
       if (line) line.setAttribute("visibility", "hidden");
       if (horizontalLine) horizontalLine.setAttribute("visibility", "hidden");
+      $("crosshairPriceLabel")?.setAttribute("visibility", "hidden");
+      $("crosshairDateLabel")?.setAttribute("visibility", "hidden");
     }
     if (button) {
       button.setAttribute("aria-pressed", String(enabled));
@@ -761,11 +763,34 @@
     if (kdPanel) svg += `<polyline class="kd-line k-line" points="${kd.map((v,i)=>`${x(i)},${ky(v.k)}`).join(" ")}" fill="none" stroke="${chartColors.k}" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/><polyline class="kd-line d-line" points="${kd.map((v,i)=>`${x(i)},${ky(v.d)}`).join(" ")}" fill="none" stroke="${chartColors.d}" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>`;
     svg += `<line id="hoverLine" class="crosshair" x1="${left}" x2="${left}" y1="${top}" y2="${chartBottom}" visibility="hidden"/>`;
     svg += `<line id="hoverHorizontalLine" class="crosshair" x1="${left}" x2="${W-right}" y1="${top}" y2="${top}" visibility="hidden"/>`;
+    svg += `<g id="crosshairPriceLabel" class="crosshair-axis-label" visibility="hidden"><rect x="1" y="0" width="59" height="22" rx="5"/><text x="30.5" y="15" text-anchor="middle"></text></g>`;
+    svg += `<g id="crosshairDateLabel" class="crosshair-axis-label" visibility="hidden"><rect x="0" y="0" width="84" height="22" rx="5"/><text x="42" y="15" text-anchor="middle"></text></g>`;
     svg += `<rect id="chartHit" x="${left}" y="${top}" width="${plotW}" height="${chartBottom - top}" fill="transparent" pointer-events="all"/> </svg>`;
     svg = svg.replace(`viewBox="0 0 ${W} ${H}"`, `viewBox="0 0 ${W} ${chartHeight}"`);
     $("chartBox").innerHTML = svg;
+    let lastHover = null, lockedHover = null;
+    const hideAxisLabels = () => {
+      $("crosshairPriceLabel")?.setAttribute("visibility", "hidden");
+      $("crosshairDateLabel")?.setAttribute("visibility", "hidden");
+    };
+    const showAxisLabels = hover => {
+      if (!hover || hover.zone !== "price") return hideAxisLabels();
+      const priceLabel = $("crosshairPriceLabel"), dateLabel = $("crosshairDateLabel");
+      priceLabel.querySelector("text").textContent = price(hover.cursorPrice);
+      priceLabel.setAttribute("transform", `translate(0 ${Math.max(top, Math.min(priceBottom - 22, hover.pointerY - 11))})`);
+      priceLabel.setAttribute("visibility", "visible");
+      dateLabel.querySelector("text").textContent = hover.point.row.date;
+      dateLabel.setAttribute("transform", `translate(${Math.max(0, Math.min(W - 84, hover.point.x - 42))} ${chartHeight - 25})`);
+      dateLabel.setAttribute("visibility", "visible");
+    };
     const updateTip = event => {
       if (!tooltipEnabled) return;
+      if (lockedHover) {
+        const distance = Math.hypot(event.clientX - lockedHover.clientX, event.clientY - lockedHover.clientY);
+        if (distance <= 4) return;
+        lockedHover = null;
+        hideAxisLabels();
+      }
       const rect = event.currentTarget.getBoundingClientRect(), position = (event.clientX - rect.left) / rect.width * plotW + left;
       const point = candlePoints.reduce((best, p) => Math.abs(p.x - position) < Math.abs(best.x - position) ? p : best, candlePoints[0]);
       const r = point.row; $("hoverLine").setAttribute("x1", point.x); $("hoverLine").setAttribute("x2", point.x); $("hoverLine").setAttribute("visibility", "visible");
@@ -778,6 +803,7 @@
         : macdPanel && pointerY >= macdPanel.top ? "macd"
         : kdPanel && pointerY >= kdPanel.top ? "kd"
         : "price";
+      lastHover = { clientX:event.clientX, clientY:event.clientY, point, pointerY, zone, cursorPrice:max - (pointerY - top) / priceH * (max - min) };
       const dateHtml = `<strong class="tip-date">${esc(r.date)}</strong>`;
       const volumeText = value => value == null || !Number.isFinite(Number(value)) ? "—" : `${Math.round(Number(value)).toLocaleString("en-US")} 股`;
       const priceHtml = `<div class="tip-grid"><span>開 ${price(r.open)}</span><span>高 ${price(r.high)}</span><span>低 ${price(r.low)}</span><span>收 ${price(r.close)}</span><span>量 ${volumeText(r.volume)}　VOL5 ${volumeText(volumeMaSeries[5][index])}　VOL10 ${volumeText(volumeMaSeries[10][index])}</span></div>`;
@@ -805,8 +831,19 @@
       tip.style.visibility = "visible";
     };
     $("chartHit").addEventListener("pointermove", updateTip);
+    $("chartHit").addEventListener("pointerdown", event => {
+      if (event.button !== 0 || !tooltipEnabled) return;
+      updateTip(event);
+      if (lastHover?.zone === "price") {
+        lockedHover = { ...lastHover, clientX:event.clientX, clientY:event.clientY };
+        showAxisLabels(lockedHover);
+      }
+    });
     $("chartHit").addEventListener("contextmenu", event => { event.preventDefault(); setTooltipEnabled(false); });
-    $("chartHit").addEventListener("pointerleave", () => {
+    $("chartHit").addEventListener("pointerleave", event => {
+      if (lockedHover && event.buttons) return;
+      lockedHover = null;
+      hideAxisLabels();
       $("hoverLine").setAttribute("visibility", "hidden");
       $("hoverHorizontalLine").setAttribute("visibility", "hidden");
       $("tip").style.visibility = "hidden";
