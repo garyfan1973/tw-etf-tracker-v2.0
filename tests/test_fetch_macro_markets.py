@@ -63,6 +63,29 @@ class MacroMarketDataTests(unittest.TestCase):
         self.assertIsNone(item["volume"])
         self.assertIsNone(item["rows"][-1]["volume"])
 
+    def test_us_index_ignores_an_incomplete_regular_session_candle(self):
+        result = {
+            "meta": {"gmtoffset": -14400},
+            "timestamp": [1787319000, 1787578200],
+            "indicators": {"quote": [{"open": [100, 110], "high": [105, 115], "low": [98, 108], "close": [103, 112], "volume": [1000, 300]}]},
+        }
+        now = dt.datetime(2026, 8, 24, 14, 17, tzinfo=dt.timezone.utc)
+        item = build_index({"id":"dow","name":"Dow","region":"美國","symbol":"^DJI","currency":"USD"}, result, now=now)
+        self.assertEqual(item["asOf"], "2026-08-21")
+        self.assertEqual(item["latest"], 103.0)
+        self.assertEqual(item["quoteLabel"], "正常盤收盤")
+
+    def test_us_index_keeps_the_candle_after_regular_session_settlement(self):
+        result = {
+            "meta": {"gmtoffset": -14400},
+            "timestamp": [1787319000, 1787578200],
+            "indicators": {"quote": [{"open": [100, 110], "high": [105, 115], "low": [98, 108], "close": [103, 112], "volume": [1000, 1300]}]},
+        }
+        now = dt.datetime(2026, 8, 24, 21, 0, tzinfo=dt.timezone.utc)
+        item = build_index({"id":"dow","name":"Dow","region":"美國","symbol":"^DJI","currency":"USD"}, result, now=now)
+        self.assertEqual(item["asOf"], "2026-08-24")
+        self.assertEqual(item["latest"], 112.0)
+
     def test_twse_market_turnover_replaces_yahoo_index_volume(self):
         payload = {
             "fields": ["日期", "成交股數", "成交金額", "成交筆數", "發行量加權股價指數"],

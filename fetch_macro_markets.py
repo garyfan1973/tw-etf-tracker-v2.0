@@ -9,6 +9,7 @@ import os
 import time
 import urllib.parse
 import urllib.request
+from zoneinfo import ZoneInfo
 
 
 BASE_DIR = os.path.dirname(os.path.abspath(__file__))
@@ -17,6 +18,8 @@ YAHOO_CHART = "https://query1.finance.yahoo.com/v8/finance/chart/{}?interval=1d&
 TREASURY_CSV = "https://home.treasury.gov/resource-center/data-chart-center/interest-rates/daily-treasury-rates.csv/{year}/all?type=daily_treasury_yield_curve&field_tdr_date_value={year}&page&_format=csv"
 TWSE_MARKET_STATISTICS = "https://www.twse.com.tw/rwd/zh/afterTrading/FMTQIK?date={date}&response=json"
 USER_AGENT = "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36"
+US_MARKET_TIMEZONE = ZoneInfo("America/New_York")
+US_CLOSE_SETTLE_TIME = dt.time(16, 15)
 
 INDICES = [
     {"id": "twii", "name": "台灣加權指數", "region": "台灣", "symbol": "^TWII", "currency": "TWD"},
@@ -110,8 +113,22 @@ def parse_yahoo_rows(result):
     return rows
 
 
-def build_index(config, result):
+def completed_index_rows(config, rows, now=None):
+    """Exclude a still-forming U.S. cash-index daily candle before 16:15 ET."""
+    if not str(config.get("region", "")).startswith("美國") or not rows:
+        return rows
+    current = now or dt.datetime.now(dt.timezone.utc)
+    if current.tzinfo is None:
+        current = current.replace(tzinfo=dt.timezone.utc)
+    market_now = current.astimezone(US_MARKET_TIMEZONE)
+    if rows[-1]["date"] == market_now.date().isoformat() and market_now.time().replace(tzinfo=None) < US_CLOSE_SETTLE_TIME:
+        return rows[:-1]
+    return rows
+
+
+def build_index(config, result, now=None):
     rows = parse_yahoo_rows(result)
+    rows = completed_index_rows(config, rows, now)
     if not rows:
         raise RuntimeError("No index rows for {}".format(config["symbol"]))
     for row in rows:
@@ -122,7 +139,7 @@ def build_index(config, result):
     volume = latest.get("volume")
     if volume is not None and volume <= 0:
         volume = None
-    return {
+    item = {
         **config, "source": "Yahoo Finance", "asOf": latest["date"], "latest": latest["close"],
         "change": round(change, 4), "changePct": round(change / previous["close"] * 100, 4) if previous["close"] else None,
         "volume": volume,
@@ -130,6 +147,10 @@ def build_index(config, result):
         "week52High": max((row.get("high") if row.get("high") is not None else row["close"]) for row in rows[-260:]),
         "decimals": 2, "rows": rows[-int(config.get("historyDays") or 260):],
     }
+    if str(config.get("region", "")).startswith("美國"):
+        item["quoteBasis"] = "regular_close"
+        item["quoteLabel"] = "正常盤收盤"
+    return item
 
 
 def parse_twse_market_turnovers(payload):
