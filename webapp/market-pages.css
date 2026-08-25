@@ -93,3 +93,5 @@
 
 @media(max-width:900px){.currency-index-cards{grid-template-columns:repeat(4,minmax(0,1fr))}.currency-converter-grid{grid-template-columns:1fr}}
 @media(max-width:680px){.currency-index-cards{grid-template-columns:repeat(2,minmax(0,1fr))}.currency-converter-panel .controls{grid-template-columns:1fr 1fr}.currency-converter-panel .amount-control{grid-column:1/-1;grid-row:auto}.currency-converter-panel .swap{grid-column:1/-1}}
+
+.bond-legend-toggle{display:inline-flex;align-items:center;gap:5px;padding:5px 8px;border:1px solid transparent;border-radius:7px;background:transparent;color:var(--muted);font:inherit;cursor:pointer;opacity:.5}.bond-legend-toggle:hover{border-color:var(--border);background:var(--bg)}.bond-legend-toggle.active{border-color:var(--border);color:var(--text);opacity:1}
