@@ -249,6 +249,35 @@ def build_currency(config, result=None, today=None):
     return {"code": config["code"], "name": config["name"], "symbol": config["symbol"], "source": "Yahoo Finance" if config["symbol"] else "基準貨幣", "asOf": rows[-1]["date"], "usdPerUnit": rows[-1]["usdPerUnit"], "rows": rows[-260:]}
 
 
+def build_currency_indices(currencies):
+    """Create transparent base-100 currency-strength series from USD rates.
+
+    These are comparable reference indexes, not exchange-traded ICE indexes.
+    A higher value means the currency buys more USD than at the start of the
+    retained window.
+    """
+    labels = {
+        "EUR": "歐元相對美元指數", "JPY": "日圓相對美元指數", "GBP": "英鎊相對美元指數",
+        "CHF": "瑞郎相對美元指數", "AUD": "澳幣相對美元指數", "CAD": "加幣相對美元指數",
+        "KRW": "韓元相對美元指數",
+    }
+    result = []
+    for item in currencies:
+        if item.get("code") not in labels:
+            continue
+        rows = [row for row in item.get("rows", []) if row.get("usdPerUnit")]
+        if not rows:
+            continue
+        base = float(rows[0]["usdPerUnit"])
+        index_rows = [{"date": row["date"], "close": round(float(row["usdPerUnit"]) / base * 100, 4)} for row in rows]
+        result.append({
+            "id": item["code"].lower(), "code": item["code"], "name": labels[item["code"]],
+            "currency": item["name"], "source": "Yahoo Finance 匯率換算（基準 100）",
+            "asOf": index_rows[-1]["date"], "latest": index_rows[-1]["close"], "rows": index_rows,
+        })
+    return result
+
+
 def parse_treasury_csv(content):
     reader = csv.DictReader(io.StringIO(content.decode("utf-8-sig") if isinstance(content, bytes) else content))
     results = []
@@ -346,6 +375,7 @@ def main(backfill_twse_turnover=False):
         "updatedAt": dt.datetime.now(dt.timezone.utc).replace(microsecond=0).isoformat().replace("+00:00", "Z"),
         "indices": indices, "currencies": currencies,
         "dollarIndex": dollar_index,
+        "currencyIndices": build_currency_indices(currencies),
         "treasuryTenors": [{"key": key, "label": label} for key, label, _ in TENORS if any(key in row["rates"] for row in treasuries)],
         "treasuries": treasuries,
         "sources": {"indices": "Yahoo Finance", "currencies": "Yahoo Finance", "dollarIndex": "Yahoo Finance", "treasuries": "U.S. Department of the Treasury"},

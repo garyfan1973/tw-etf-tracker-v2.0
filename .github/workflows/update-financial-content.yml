@@ -28,12 +28,13 @@ jobs:
         run: |
           python3 fetch_fed_policy.py
           python3 fetch_financial_videos.py
+          python3 fetch_macro_news.py
 
       - name: 有變更才 commit 回 repo
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "github-actions[bot]@users.noreply.github.com"
-          git add webapp/fed_policy_data.json webapp/financial_videos.json
+          git add webapp/fed_policy_data.json webapp/financial_videos.json webapp/macro_news.json
           if git diff --cached --quiet; then
             echo "資料無變更，略過 commit"
           else

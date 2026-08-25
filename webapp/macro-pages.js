@@ -157,8 +157,9 @@
   }
   function initForex(data) {
     initDollarIndex(data);
+    initCurrencyIndices(data);
     const from=$("fromCurrency"),to=$("toCurrency"),amount=$("fxAmount"),result=$("conversionResult"),formula=$("conversionFormula"),chartTitle=$("fxChartTitle"),chart=$("fxChart"),panel=$("fxChartPanel");
-    const options=data.currencies.map(item=>`<option value="${item.code}">${item.code}・${esc(item.name)}</option>`).join("");from.innerHTML=options;to.innerHTML=options;from.value="TWD";to.value="USD";
+    const options=data.currencies.map(item=>`<option value="${item.code}">${item.code}・${esc(item.name)}</option>`).join("");from.innerHTML=options;to.innerHTML=options;from.value="USD";to.value="TWD";
     let period="1Y",series=[],view={start:0,end:0};
     function renderChart(){const source=currencyByCode(data,from.value),target=currencyByCode(data,to.value);interactiveLineChart(chart,series,view,`${source.code}兌${target.code}匯率走勢`,{digits:Math.max(source.code==="JPY"||target.code==="JPY"?2:4,2),valueLabel:`1 ${source.code} 可兌 ${target.code}`},next=>{view=next;renderChart();});}
     function render(resetView=false){const source=currencyByCode(data,from.value),target=currencyByCode(data,to.value),value=Math.max(0,Number(amount.value)||0),rate=source.usdPerUnit/target.usdPerUnit,converted=value*rate;result.textContent=`${number(converted,4)} ${target.code}`;formula.textContent=`${number(value,2)} ${source.code} × ${number(rate,6)} = ${number(converted,4)} ${target.code}`;series=crossRows(source,target).slice(-260);if(resetView||view.end>series.length||!view.end)view=periodWindow(series,period);chartTitle.textContent=`${source.code} / ${target.code} 匯率走勢`;document.querySelectorAll("#fxPeriods [data-period]").forEach(btn=>btn.classList.toggle("active",btn.dataset.period===period));renderChart();}
@@ -170,16 +171,42 @@
     $("fxTableBody").innerHTML=data.currencies.filter(item=>item.code!=="TWD").map(item=>{const twd=currencyByCode(data,"TWD"),rate=item.usdPerUnit/twd.usdPerUnit;return `<tr><td>${item.code}・${esc(item.name)}</td><td>${number(rate,4)}</td><td>${esc(item.asOf)}</td></tr>`}).join("");render(true);
   }
 
+  function initCurrencyIndices(data) {
+    const cards=$("currencyIndexCards"),chart=$("currencyIndexChart"),items=data.currencyIndices||[];
+    if(!cards||!chart||!items.length){if(cards)cards.innerHTML='<div class="chart-empty">目前沒有可顯示的貨幣指數</div>';return;}
+    let selected=items[0],period="1Y",series=selected.rows.slice(),view=periodWindow(series,period);
+    cards.innerHTML=items.map(item=>`<button class="currency-index-card${item.id===selected.id?" active":""}" data-currency-index="${esc(item.id)}"><span>${esc(item.code)}</span><strong>${number(item.latest,2)}</strong><small>${esc(item.currency)}・${esc(item.asOf)}</small></button>`).join("");
+    function render(){cards.querySelectorAll("[data-currency-index]").forEach(btn=>btn.classList.toggle("active",btn.dataset.currencyIndex===selected.id));interactiveLineChart(chart,series,view,selected.name,{digits:2,valueLabel:"指數",minimum:5},next=>{view=next;render();});}
+    cards.addEventListener("click",event=>{const btn=event.target.closest("[data-currency-index]");if(!btn)return;selected=items.find(item=>item.id===btn.dataset.currencyIndex)||selected;series=selected.rows.slice();view=periodWindow(series,period);render();});
+    render();
+  }
+
   function initBonds(data) {
     const rows=data.treasuries,latest=rows.at(-1),previous=rows.at(-2),tenors=data.treasuryTenors,panel=$("bondChartPanel"),chart=$("yieldCurve");
-    $("bondAsOf").textContent=`最新資料日：${latest.date}`;
+    $("bondHeaderAsOf").textContent=`最新資料日：${latest.date}`;$("bondAsOf").textContent=latest.date;
     $("yieldCards").innerHTML=tenors.map(item=>{const value=latest.rates[item.key],prior=previous?.rates[item.key],bp=value!=null&&prior!=null?(value-prior)*100:null;return `<div class="yield-card"><span>${esc(item.label)}</span><strong>${number(value,2)}%</strong><small class="${tone(bp)}">${bp==null?"—":`${bp>0?"+":""}${number(bp,1)} bp`}</small></div>`}).join("");
-    const curve=tenors.map((item,index)=>({date:item.label,close:latest.rates[item.key],index})).filter(row=>Number.isFinite(row.close));let range="ALL",view={start:0,end:curve.length};
-    const ranges={ALL:[0,curve.length],SHORT:[0,Math.min(7,curve.length)],MID:[Math.min(7,curve.length),Math.min(11,curve.length)],LONG:[Math.min(11,Math.max(0,curve.length-3)),curve.length]};
-    function renderChart(){interactiveLineChart(chart,curve,view,"美國公債殖利率曲線",{digits:3,ySuffix:"%",valueLabel:"殖利率",minimum:3,xLabel:row=>row.date,tooltipLabel:row=>row.date},next=>{view=next;range="CUSTOM";document.querySelectorAll("#bondRanges [data-bond-range]").forEach(btn=>btn.classList.remove("active"));renderChart();});}
-    function setRange(next){range=next;const [start,end]=ranges[next];view=clampWindow(curve.length,start,end,3);document.querySelectorAll("#bondRanges [data-bond-range]").forEach(btn=>btn.classList.toggle("active",btn.dataset.bondRange===range));renderChart();}
-    function zoom(factor){const span=view.end-view.start,nextSpan=Math.max(3,Math.min(curve.length,Math.round(span*factor))),center=(view.start+view.end)/2;view=clampWindow(curve.length,center-nextSpan/2,center+nextSpan/2,3);range="CUSTOM";document.querySelectorAll("#bondRanges [data-bond-range]").forEach(btn=>btn.classList.remove("active"));renderChart();}
-    $("bondRanges").addEventListener("click",event=>{const button=event.target.closest("[data-bond-range]");if(button)setRange(button.dataset.bondRange);});$("bondZoomIn").addEventListener("click",()=>zoom(.75));$("bondZoomOut").addEventListener("click",()=>zoom(1.3));$("bondResetZoom").addEventListener("click",()=>setRange("ALL"));bindExpandedPanel(panel,$("bondFullscreen"),renderChart);renderChart();
+    const groups={SHORT:["1M","1.5M","2M","3M","4M","6M","1Y"],MID:["2Y","3Y","5Y","7Y"],LONG:["10Y","20Y","30Y"]};
+    const defaultKeys=["3M","5Y","10Y"],colors=["#3b5bdb","#e08b2e","#18a286","#c94d74","#845ef7","#7a8698","#d9480f","#2f9e44","#ae3ec9","#0c8599","#f08c00","#6741d9","#c92a2a","#087f5b"];
+    let activeKeys=defaultKeys.slice(),range="DEFAULT",view={start:Math.max(0,rows.length-260),end:rows.length};
+    function rowsFor(key){return rows.map(row=>({date:row.date,close:row.rates[key]}));}
+    function renderMultiSeries(){
+      const selected=activeKeys.map(key=>({key,label:(tenors.find(item=>item.key===key)||{}).label||key,rows:rowsFor(key)})).filter(series=>series.rows.some(row=>Number.isFinite(row.close)));
+      const visibleRows=rows.slice(view.start,view.end),values=selected.flatMap(series=>visibleRows.map(row=>Number(row.rates[series.key])).filter(Number.isFinite));
+      if(!values.length){chart.innerHTML='<div class="chart-empty">目前沒有可顯示的殖利率資料</div>';return;}
+      const W=920,H=360,L=62,R=74,T=20,B=40,min=Math.min(...values),max=Math.max(...values),pad=(max-min||.5)*.08;let lo=min-pad,hi=max+pad;
+      const x=i=>L+i*(W-L-R)/Math.max(1,visibleRows.length-1),y=value=>T+(hi-value)*(H-T-B)/(hi-lo);
+      const grid=[0,.2,.4,.6,.8,1].map(p=>{const yy=T+p*(H-T-B),v=hi-p*(hi-lo);return `<line class="chart-grid" x1="${L}" x2="${W-R}" y1="${yy}" y2="${yy}"/><text class="chart-label" x="${L-8}" y="${yy+4}" text-anchor="end">${number(v,2)}%</text>`;}).join("");
+      const ticks=[0,.25,.5,.75,1].map(p=>{const i=Math.min(visibleRows.length-1,Math.round(p*(visibleRows.length-1))),xx=x(i);return `<line class="chart-grid" x1="${xx}" x2="${xx}" y1="${T}" y2="${H-B}"/><text class="chart-label" x="${xx}" y="${H-10}" text-anchor="${p===0?"start":p===1?"end":"middle"}">${visibleRows[i]?.date||""}</text>`;}).join("");
+      const paths=selected.map((series,index)=>{const path=visibleRows.map((row,i)=>Number.isFinite(row.rates[series.key])?`${i?"L":"M"}${x(i).toFixed(1)},${y(Number(row.rates[series.key])).toFixed(1)}`:"").filter(Boolean).join(" ");return `<path d="${path}" fill="none" stroke="${colors[index%colors.length]}" stroke-width="2.4" vector-effect="non-scaling-stroke"/>`;}).join("");
+      chart.innerHTML=`<svg viewBox="0 0 ${W} ${H}" role="img" aria-label="美國公債各天期殖利率歷史走勢">${grid}${ticks}${paths}<g id="bondHover" visibility="hidden"><line id="bondCrossV" class="chart-crosshair" y1="${T}" y2="${H-B}"/></g><rect id="bondHit" x="${L}" y="${T}" width="${W-L-R}" height="${H-T-B}" fill="transparent"/></svg><div class="chart-tooltip" hidden></div>`;
+      $("bondLegend").innerHTML=selected.map((series,index)=>`<span><i style="--legend:${colors[index%colors.length]}"></i>${esc(series.label)}</span>`).join("");
+      const svg=chart.querySelector("svg"),hit=chart.querySelector("#bondHit"),hover=chart.querySelector("#bondHover"),cross=chart.querySelector("#bondCrossV"),tip=chart.querySelector(".chart-tooltip");
+      hit.addEventListener("pointermove",event=>{const rect=svg.getBoundingClientRect(),px=(event.clientX-rect.left)*W/rect.width,ratio=Math.max(0,Math.min(1,(px-L)/(W-L-R))),index=Math.min(visibleRows.length-1,Math.round(ratio*(visibleRows.length-1))),row=visibleRows[index],cx=x(index);cross.setAttribute("x1",cx);cross.setAttribute("x2",cx);hover.setAttribute("visibility","visible");tip.hidden=false;tip.classList.toggle("left",ratio>.68);tip.style.left=`${cx/W*rect.width}px`;tip.style.top=`${(T+35)/H*rect.height}px`;tip.innerHTML=`<strong>${esc(row.date)}</strong>${selected.map(series=>`<div class="chart-tooltip-row"><span>${esc(series.label)}</span><span>${number(row.rates[series.key],2)}%</span></div>`).join("")}`;});
+      hit.addEventListener("pointerleave",()=>{hover.setAttribute("visibility","hidden");tip.hidden=true;});
+    }
+    function setRange(next){range=next;activeKeys=next==="DEFAULT"?defaultKeys.slice():next==="ALL"?tenors.map(item=>item.key):groups[next].slice();document.querySelectorAll("#bondRanges [data-bond-range]").forEach(btn=>btn.classList.toggle("active",btn.dataset.bondRange===range));renderMultiSeries();}
+    function zoom(factor){const span=view.end-view.start,nextSpan=Math.max(20,Math.min(rows.length,Math.round(span*factor))),center=(view.start+view.end)/2;view=clampWindow(rows.length,center-nextSpan/2,center+nextSpan/2,20);renderMultiSeries();}
+    $("bondRanges").addEventListener("click",event=>{const button=event.target.closest("[data-bond-range]");if(button)setRange(button.dataset.bondRange);});$("bondZoomIn").addEventListener("click",()=>zoom(.75));$("bondZoomOut").addEventListener("click",()=>zoom(1.3));$("bondResetZoom").addEventListener("click",()=>{view={start:Math.max(0,rows.length-260),end:rows.length};renderMultiSeries();});bindExpandedPanel(panel,$("bondFullscreen"),renderMultiSeries);renderMultiSeries();
     const spread=(a,b)=>latest.rates[a]!=null&&latest.rates[b]!=null?(latest.rates[a]-latest.rates[b])*100:null,s210=spread("10Y","2Y"),s310=spread("10Y","3M");
     $("bondFacts").innerHTML=[["10 年期",`${number(latest.rates["10Y"],2)}%`],["2Y–10Y 利差",`${s210>0?"+":""}${number(s210,1)} bp`],["3M–10Y 利差",`${s310>0?"+":""}${number(s310,1)} bp`],["曲線狀態",s210==null?"—":s210<0?"2Y–10Y 倒掛":Math.abs(s210)<25?"曲線趨平":"正斜率"]].map(([k,v])=>`<div class="fact"><span>${k}</span><strong>${esc(v)}</strong></div>`).join("");
     $("bondTableBody").innerHTML=rows.slice().reverse().slice(0,10).map(row=>`<tr><td>${row.date}</td>${["3M","2Y","5Y","10Y","30Y"].map(key=>`<td>${number(row.rates[key],2)}%</td>`).join("")}</tr>`).join("");

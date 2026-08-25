@@ -14,14 +14,14 @@
     <a href="tracker.html?view=overview">市場研究</a><a href="tracker.html">ETF 持股</a><a href="dividends.html">配息日曆</a><a href="portfolio.html">我的持股</a><a href="transactions.html">交易紀錄</a><a href="journal.html">短線日誌</a><a href="performance.html">績效走勢</a>
     <span id="authBox" style="margin-left:auto;display:flex;align-items:center;gap:6px"></span><button id="themeToggle" class="theme-toggle" aria-label="切換主題">🌙</button>
   </nav>
-  <header class="page-head"><div><div class="eyebrow">U.S. Treasuries</div><h1>債市資訊</h1><p>查看美國公債各天期殖利率、日變化與殖利率曲線。</p></div><div class="updated"><span data-updated>資料載入中…</span><br><span id="bondAsOf"></span></div></header>
+  <header class="page-head"><div><div class="eyebrow">U.S. Treasuries</div><h1>債市資訊</h1><p>查看美國公債各天期殖利率、日變化與殖利率曲線。</p></div><div class="updated"><span data-updated>資料載入中…</span><br><span id="bondHeaderAsOf"></span></div></header>
   <div id="pageError" class="error" hidden></div>
-  <section class="panel"><div id="yieldCards" class="yield-grid"></div><div class="notice">殖利率變化以基點（bp）呈現，1 bp = 0.01 個百分點。資料來源：<a class="source-link" href="https://home.treasury.gov/resource-center/data-chart-center/interest-rates" target="_blank" rel="noopener">美國財政部</a>。</div></section>
   <section id="bondChartPanel" class="panel index-chart-panel secondary-chart-panel">
-    <div class="chart-head"><div><h2>最新殖利率曲線</h2><p>由短天期至長天期的美國公債殖利率</p></div></div>
-    <div class="index-chart-toolbar"><div id="bondRanges" class="range-switch" aria-label="殖利率曲線期限"><button class="active" data-bond-range="ALL">全部</button><button data-bond-range="SHORT">短天期</button><button data-bond-range="MID">中天期</button><button data-bond-range="LONG">長天期</button></div><div class="chart-actions"><span>滾輪縮放・拖曳平移</span><button id="bondZoomOut" title="縮小">−</button><button id="bondZoomIn" title="放大">＋</button><button id="bondResetZoom" title="重設圖表">重設</button><button id="bondFullscreen" title="全螢幕" aria-label="全螢幕顯示殖利率曲線">⛶</button></div></div>
-    <div id="yieldCurve" class="chart interactive-chart"></div><div id="bondFacts" class="facts secondary-chart-facts"></div>
+    <div class="chart-head"><div><h2>各天期殖利率走勢</h2><p>橫軸為日期、縱軸為殖利率；可選擇多個天期同時比較。</p></div></div>
+    <div class="index-chart-toolbar"><div id="bondRanges" class="range-switch" aria-label="殖利率天期選擇"><button class="active" data-bond-range="DEFAULT">預設代表</button><button data-bond-range="ALL">全部天期</button><button data-bond-range="SHORT">短天期</button><button data-bond-range="MID">中天期</button><button data-bond-range="LONG">長天期</button></div><div class="chart-actions"><span>滾輪縮放・拖曳平移</span><button id="bondZoomOut" title="縮小">−</button><button id="bondZoomIn" title="放大">＋</button><button id="bondResetZoom" title="重設圖表">重設</button><button id="bondFullscreen" title="全螢幕" aria-label="全螢幕顯示殖利率走勢">⛶</button></div></div>
+    <div id="bondLegend" class="bond-legend" aria-label="殖利率圖例"></div><div id="yieldCurve" class="chart interactive-chart"></div><div id="bondFacts" class="facts secondary-chart-facts"></div>
   </section>
+  <section class="panel"><div class="chart-head"><div><h2>殖利率卡片</h2><p>最新資料日：<span id="bondAsOf"></span>；變化以基點呈現。</p></div></div><div id="yieldCards" class="yield-grid"></div><div class="notice">1 bp = 0.01 個百分點。資料來源：<a class="source-link" href="https://home.treasury.gov/resource-center/data-chart-center/interest-rates" target="_blank" rel="noopener">美國財政部</a>。</div></section>
   <section class="panel"><div class="chart-head"><div><h2>最近公布紀錄</h2><p>殖利率單位：%</p></div></div><div class="table-wrap"><table><thead><tr><th>日期</th><th>3 個月</th><th>2 年</th><th>5 年</th><th>10 年</th><th>30 年</th></tr></thead><tbody id="bondTableBody"></tbody></table></div></section>
 </div><script src="theme.js"></script><script type="module" src="auth.js"></script><script src="macro-pages.js?v=20260824"></script></body>
 </html>
