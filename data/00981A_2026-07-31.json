@@ -139,17 +139,7 @@
       "name": "旺矽",
       "market": "TW",
       "weight": 4.48,
-      "shares": 2443000,
-      "open": 5485.0,
-      "high": 5645.0,
-      "low": 5370.0,
-      "close": 5600.0,
-      "prevClose": 5565.0,
-      "change": 35.0,
-      "changePct": 0.63,
-      "amplitude": 4.94,
-      "volume": 433895.0,
-      "quoteDate": "2026-07-31"
+      "shares": 2443000
     },
     {
       "code": "2327",
@@ -275,17 +265,7 @@
       "name": "信驊",
       "market": "TW",
       "weight": 2.29,
-      "shares": 454900,
-      "open": 15115.0,
-      "high": 15400.0,
-      "low": 14805.0,
-      "close": 15400.0,
-      "prevClose": 15115.0,
-      "change": 285.0,
-      "changePct": 1.89,
-      "amplitude": 3.94,
-      "volume": 198954.0,
-      "quoteDate": "2026-07-31"
+      "shares": 454900
     },
     {
       "code": "2368",
@@ -309,17 +289,7 @@
       "name": "台燿",
       "market": "TW",
       "weight": 2.02,
-      "shares": 5229000,
-      "open": 1430.0,
-      "high": 1485.0,
-      "low": 1395.0,
-      "close": 1485.0,
-      "prevClose": 1455.0,
-      "change": 30.0,
-      "changePct": 2.06,
-      "amplitude": 6.19,
-      "volume": 5453462.0,
-      "quoteDate": "2026-07-31"
+      "shares": 5229000
     },
     {
       "code": "6805",
@@ -377,17 +347,7 @@
       "name": "萬潤",
       "market": "TW",
       "weight": 0.43,
-      "shares": 1334000,
-      "open": 1190.0,
-      "high": 1270.0,
-      "low": 1165.0,
-      "close": 1270.0,
-      "prevClose": 1205.0,
-      "change": 65.0,
-      "changePct": 5.39,
-      "amplitude": 8.71,
-      "volume": 2263240.0,
-      "quoteDate": "2026-07-31"
+      "shares": 1334000
     },
     {
       "code": "2360",
@@ -428,17 +388,7 @@
       "name": "華星光",
       "market": "TW",
       "weight": 0.24,
-      "shares": 1874000,
-      "open": 536.0,
-      "high": 601.0,
-      "low": 520.0,
-      "close": 601.0,
-      "prevClose": 547.0,
-      "change": 54.0,
-      "changePct": 9.87,
-      "amplitude": 14.81,
-      "volume": 16036882.0,
-      "quoteDate": "2026-07-31"
+      "shares": 1874000
     },
     {
       "code": "4958",
@@ -462,17 +412,7 @@
       "name": "精測",
       "market": "TW",
       "weight": 0.23,
-      "shares": 261000,
-      "open": 2600.0,
-      "high": 2695.0,
-      "low": 2570.0,
-      "close": 2680.0,
-      "prevClose": 2650.0,
-      "change": 30.0,
-      "changePct": 1.13,
-      "amplitude": 4.72,
-      "volume": 147130.0,
-      "quoteDate": "2026-07-31"
+      "shares": 261000
     },
     {
       "code": "6515",
@@ -581,51 +521,21 @@
       "name": "欣銓",
       "market": "TW",
       "weight": 0.09,
-      "shares": 1508000,
-      "open": 205.5,
-      "high": 213.0,
-      "low": 202.5,
-      "close": 213.0,
-      "prevClose": 205.5,
-      "change": 7.5,
-      "changePct": 3.65,
-      "amplitude": 5.11,
-      "volume": 3997339.0,
-      "quoteDate": "2026-07-31"
+      "shares": 1508000
     },
     {
       "code": "6147",
       "name": "頎邦",
       "market": "TW",
       "weight": 0.08,
-      "shares": 1880000,
-      "open": 157.0,
-      "high": 171.0,
-      "low": 152.0,
-      "close": 169.0,
-      "prevClose": 157.0,
-      "change": 12.0,
-      "changePct": 7.64,
-      "amplitude": 12.1,
-      "volume": 22978434.0,
-      "quoteDate": "2026-07-31"
+      "shares": 1880000
     },
     {
       "code": "4966",
       "name": "譜瑞-KY",
       "market": "TW",
       "weight": 0.03,
-      "shares": 140000,
-      "open": 557.0,
-      "high": 560.0,
-      "low": 545.0,
-      "close": 556.0,
-      "prevClose": 557.0,
-      "change": -1.0,
-      "changePct": -0.18,
-      "amplitude": 2.69,
-      "volume": 841593.0,
-      "quoteDate": "2026-07-31"
+      "shares": 140000
     },
     {
       "code": "2002",
