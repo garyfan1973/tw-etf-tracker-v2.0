@@ -24,6 +24,32 @@ class FakeDb:
         return {"member-1": "member@example.com"}
 
 
+class FakeLocator:
+    async def scroll_into_view_if_needed(self):
+        pass
+
+    async def screenshot(self, **kwargs):
+        return b"jpeg"
+
+
+class FakePage:
+    def __init__(self):
+        self.wait_kwargs = None
+
+    async def goto(self, *args, **kwargs):
+        pass
+
+    async def wait_for_function(self, expression, *, arg=None, **kwargs):
+        self.wait_kwargs = {"arg": arg, **kwargs}
+
+    async def evaluate(self, expression):
+        if expression == "window.MarketChart.getAnalysisSnapshot()":
+            return {"symbol": "2330"}
+
+    def locator(self, selector):
+        return FakeLocator()
+
+
 class MorningReportTests(unittest.TestCase):
     def test_groups_eligible_subscriptions_by_asset(self):
         by_asset, by_user = MODULE.eligible_subscriptions(FakeDb())
@@ -39,6 +65,19 @@ class MorningReportTests(unittest.TestCase):
         self.assertNotIn("<script>alert(1)</script>", markup)
         self.assertIn("&lt;script&gt;alert(1)&lt;/script&gt;", markup)
         self.assertIn("&lt;b&gt;test&lt;/b&gt;", markup)
+
+
+class MorningReportAsyncTests(unittest.IsolatedAsyncioTestCase):
+    async def test_capture_passes_symbol_as_keyword_argument(self):
+        page = FakePage()
+        image, chart_data = await MODULE.capture_chart(
+            page, "https://example.com",
+            {"market":"TW", "symbol":"2330"},
+        )
+        self.assertEqual(page.wait_kwargs["arg"], "2330")
+        self.assertEqual(page.wait_kwargs["timeout"], 90_000)
+        self.assertEqual(image, b"jpeg")
+        self.assertEqual(chart_data, {"symbol": "2330"})
 
 
 if __name__ == "__main__":

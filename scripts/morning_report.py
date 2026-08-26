@@ -162,7 +162,7 @@ async def capture_chart(page, base_url: str, asset: dict):
         """expected => window.MarketChart?.currentAsset?.symbol === expected
         && window.MarketChart?.currentRows?.length > 0
         && document.querySelector('#chartBox svg')""",
-        asset["symbol"], timeout=90_000)
+        arg=asset["symbol"], timeout=90_000)
     await page.evaluate("document.querySelector('#tip').style.visibility='hidden'")
     await page.locator("#aiChartCapture").scroll_into_view_if_needed()
     image = await page.locator("#aiChartCapture").screenshot(type="jpeg", quality=82)
