@@ -11,6 +11,11 @@ on:
         required: false
         type: boolean
         default: false
+      force:
+        description: "忽略當日已完成紀錄，重新分析並寄送"
+        required: false
+        type: boolean
+        default: false
 
 permissions:
   contents: read
@@ -33,7 +38,7 @@ jobs:
           python -m pip install --disable-pip-version-check playwright==1.55.0
           python -m playwright install --with-deps chromium
       - name: 逐檔產生並寄送晨報
-        run: python scripts/morning_report.py ${{ inputs.dry_run && '--dry-run' || '' }}
+        run: python scripts/morning_report.py ${{ inputs.dry_run && '--dry-run' || '' }} ${{ inputs.force && '--force' || '' }}
         env:
           MORNING_REPORT_BASE_URL: https://tw-etf-tracker-v2-0.vercel.app
           SUPABASE_URL: ${{ secrets.SUPABASE_URL }}

@@ -215,7 +215,7 @@ async def make_pdf(page, markup: str) -> bytes:
     return await page.pdf(format="A4", print_background=True, margin={"top":"0", "right":"0", "bottom":"0", "left":"0"})
 
 
-async def process_asset(db, browser, service_key, run, report_date, base_url, item, dry_run=False):
+async def process_asset(db, browser, service_key, run, report_date, base_url, item, dry_run=False, force=False):
     asset, subscribers = item["asset"], item["users"]
     result_row = existing_result(db, report_date, asset["market"], asset["symbol"])
     image_bytes = None
@@ -223,7 +223,7 @@ async def process_asset(db, browser, service_key, run, report_date, base_url, it
         page = await browser.new_page(viewport={"width": 1440, "height": 1280}, device_scale_factor=1)
         try:
             image_bytes, chart_data = await capture_chart(page, base_url, asset)
-            if result_row and result_row.get("status") == "completed" and result_row.get("analysis"):
+            if not force and result_row and result_row.get("status") == "completed" and result_row.get("analysis"):
                 analysis, model = result_row["analysis"], result_row.get("model")
             else:
                 response = service_post(base_url, "/api/chart-analysis", service_key, {"imageData":"data:image/jpeg;base64," + base64.b64encode(image_bytes).decode(), "mode":"general", "symbol":asset["symbol"], "screenshotTiming":REPORT_TIMING, "chartData":chart_data})
@@ -241,10 +241,12 @@ async def process_asset(db, browser, service_key, run, report_date, base_url, it
         sent = 0
         for subscriber in subscribers:
             delivery = existing_delivery(db, report_date, subscriber["userId"], asset["market"], asset["symbol"])
-            if delivery and delivery.get("status") == "sent":
+            if not force and delivery and delivery.get("status") == "sent":
                 continue
             if not delivery:
                 delivery = db.insert("morning_report_deliveries", {"run_id":run["id"], "report_date":report_date, "user_id":subscriber["userId"], "market":asset["market"], "symbol":asset["symbol"], "status":"pending"})
+            elif force and not dry_run:
+                db.update("morning_report_deliveries", f"id=eq.{delivery['id']}", {"run_id":run["id"], "status":"pending", "error_message":None, "completed_at":None})
             try:
                 mail = {"email":subscriber["email"], "symbol":asset["symbol"], "assetName":asset["assetName"], "date":report_date, "timing":REPORT_TIMING, "pdfBase64":base64.b64encode(pdf).decode()}
                 subject = f"{asset['symbol']} {asset['assetName']} {report_date} {REPORT_TIMING} 技術分析指引"
@@ -286,7 +288,7 @@ async def run(args):
         browser = await playwright.chromium.launch()
         try:
             for key in sorted(subscriptions):
-                added, failed = await process_asset(db, browser, service_key, run_row, report_date, args.base_url, subscriptions[key], args.dry_run)
+                added, failed = await process_asset(db, browser, service_key, run_row, report_date, args.base_url, subscriptions[key], args.dry_run, args.force)
                 sent += added; errors += failed
         finally:
             await browser.close()
@@ -301,6 +303,7 @@ def parse_args():
     parser.add_argument("--base-url", default=os.getenv("MORNING_REPORT_BASE_URL", DEFAULT_BASE_URL))
     parser.add_argument("--date", help="報告日期 YYYY-MM-DD；預設台北當日")
     parser.add_argument("--dry-run", action="store_true", help="完成分析與 PDF，但不連線 Gmail")
+    parser.add_argument("--force", action="store_true", help="忽略當日已完成紀錄，重新分析並寄送")
     return parser.parse_args()
 
 

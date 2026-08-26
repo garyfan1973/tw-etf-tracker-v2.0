@@ -1,7 +1,9 @@
 import datetime as dt
 import importlib.util
 from pathlib import Path
+import sys
 import unittest
+from unittest import mock
 
 
 MODULE_PATH = Path(__file__).parents[1] / "scripts" / "morning_report.py"
@@ -70,6 +72,12 @@ class MorningReportTests(unittest.TestCase):
         self.assertIn("&lt;script&gt;alert(1)&lt;/script&gt;", markup)
         self.assertIn("&lt;b&gt;test&lt;/b&gt;", markup)
         self.assertIn("盤前", markup)
+
+    def test_force_rerun_flag_is_opt_in(self):
+        with mock.patch.object(sys, "argv", ["morning_report.py"]):
+            self.assertFalse(MODULE.parse_args().force)
+        with mock.patch.object(sys, "argv", ["morning_report.py", "--force"]):
+            self.assertTrue(MODULE.parse_args().force)
 
 
 class MorningReportAsyncTests(unittest.IsolatedAsyncioTestCase):
