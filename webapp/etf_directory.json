@@ -1,5 +1,5 @@
 {
-  "updated_at": "2026-08-25T21:48:31+00:00",
+  "updated_at": "2026-08-26T11:57:10+00:00",
   "sources": [
     "https://openapi.twse.com.tw/v1/opendata/t187ap47_L",
     "https://www.tpex.org.tw/openapi/v1/tpex_mainboard_quotes"
@@ -54,6 +54,11 @@
       "code": "00410A",
       "name": "主動永豐科技趨勢",
       "market": "上市"
+    },
+    {
+      "code": "00411A",
+      "name": "主動統一前沿科技",
+      "market": "上櫃"
     },
     {
       "code": "0050",
@@ -1843,6 +1848,11 @@
     {
       "code": "00987B",
       "name": "野村10+澳洲公債",
+      "market": "上櫃"
+    },
+    {
+      "code": "00987D",
+      "name": "主動統一美債量化",
       "market": "上櫃"
     },
     {
