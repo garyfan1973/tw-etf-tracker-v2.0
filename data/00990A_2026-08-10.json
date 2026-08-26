@@ -723,17 +723,7 @@
         "shortBalance": 17,
         "offsetting": 0,
         "date": "2026-08-10"
-      },
-      "open": 5480.0,
-      "high": 5590.0,
-      "low": 5040.0,
-      "close": 5040.0,
-      "prevClose": 5600.0,
-      "change": -560.0,
-      "changePct": -10.0,
-      "amplitude": 9.82,
-      "volume": 1980642.0,
-      "quoteDate": "2026-08-10"
+      }
     },
     {
       "code": "",
@@ -894,17 +884,7 @@
         "shortBalance": 118,
         "offsetting": 306,
         "date": "2026-08-10"
-      },
-      "open": 1475.0,
-      "high": 1560.0,
-      "low": 1465.0,
-      "close": 1530.0,
-      "prevClose": 1485.0,
-      "change": 45.0,
-      "changePct": 3.03,
-      "amplitude": 6.4,
-      "volume": 5832336.0,
-      "quoteDate": "2026-08-10"
+      }
     },
     {
       "code": "LRCX",
