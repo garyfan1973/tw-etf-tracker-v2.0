@@ -34,7 +34,11 @@ class FakeLocator:
 
 class FakePage:
     def __init__(self):
+        self.init_scripts = []
         self.wait_kwargs = None
+
+    async def add_init_script(self, script):
+        self.init_scripts.append(script)
 
     async def goto(self, *args, **kwargs):
         pass
@@ -65,17 +69,29 @@ class MorningReportTests(unittest.TestCase):
         self.assertNotIn("<script>alert(1)</script>", markup)
         self.assertIn("&lt;script&gt;alert(1)&lt;/script&gt;", markup)
         self.assertIn("&lt;b&gt;test&lt;/b&gt;", markup)
+        self.assertIn("盤前", markup)
 
 
 class MorningReportAsyncTests(unittest.IsolatedAsyncioTestCase):
-    async def test_capture_passes_symbol_as_keyword_argument(self):
+    async def test_capture_applies_complete_six_month_chart_settings(self):
         page = FakePage()
         image, chart_data = await MODULE.capture_chart(
             page, "https://example.com",
             {"market":"TW", "symbol":"2330"},
         )
-        self.assertEqual(page.wait_kwargs["arg"], "2330")
+        self.assertEqual(page.wait_kwargs["arg"], {
+            "symbol":"2330", "settings":MODULE.CHART_SETTINGS,
+        })
         self.assertEqual(page.wait_kwargs["timeout"], 90_000)
+        self.assertEqual(MODULE.CHART_SETTINGS, {
+            "rangeDays":120,
+            "mas":[5, 10, 20, 60, 120, 240],
+            "volumeMas":[5, 10],
+            "indicators":["bollinger", "kd", "macd", "rsi"],
+        })
+        init_script = page.init_scripts[0]
+        self.assertIn('localStorage.setItem("etf-chart-range"', init_script)
+        self.assertIn('localStorage.setItem("etf-visible-indicators-v2"', init_script)
         self.assertEqual(image, b"jpeg")
         self.assertEqual(chart_data, {"symbol": "2330"})
 

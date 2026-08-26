@@ -22,6 +22,13 @@ ROOT = Path(__file__).resolve().parents[1]
 TAIPEI = ZoneInfo("Asia/Taipei")
 DEFAULT_BASE_URL = "https://tw-etf-tracker-v2-0.vercel.app"
 MAX_PDF_BYTES = 3_500_000
+REPORT_TIMING = "盤前"
+CHART_SETTINGS = {
+    "rangeDays": 120,
+    "mas": [5, 10, 20, 60, 120, 240],
+    "volumeMas": [5, 10],
+    "indicators": ["bollinger", "kd", "macd", "rsi"],
+}
 
 
 class MorningReportError(RuntimeError):
@@ -156,13 +163,31 @@ def existing_delivery(db: SupabaseAdmin, report_date: str, user_id: str, market:
 
 
 async def capture_chart(page, base_url: str, asset: dict):
+    settings_json = json.dumps(CHART_SETTINGS, separators=(",", ":"))
+    await page.add_init_script(f"""() => {{
+      const settings = {settings_json};
+      localStorage.setItem("etf-chart-type", "candle");
+      localStorage.setItem("etf-chart-range", String(settings.rangeDays));
+      localStorage.setItem("etf-visible-mas", JSON.stringify(settings.mas));
+      localStorage.setItem("etf-visible-volume-mas", JSON.stringify(settings.volumeMas));
+      localStorage.setItem("etf-visible-indicators-v2", JSON.stringify(settings.indicators));
+    }}""")
     query = urllib.parse.urlencode({"view": "kline", "market": asset["market"], "symbol": asset["symbol"]})
     await page.goto(f"{base_url.rstrip('/')}/tracker.html?{query}", wait_until="domcontentloaded", timeout=90_000)
     await page.wait_for_function(
-        """expected => window.MarketChart?.currentAsset?.symbol === expected
-        && window.MarketChart?.currentRows?.length > 0
-        && document.querySelector('#chartBox svg')""",
-        arg=asset["symbol"], timeout=90_000)
+        """expected => {
+          const chart = window.MarketChart;
+          const snapshot = chart?.getAnalysisSnapshot?.();
+          const same = (actual, wanted) => actual?.length === wanted.length && wanted.every(value => actual.includes(value));
+          return chart?.currentAsset?.symbol === expected.symbol
+            && chart?.currentRows?.length > 0
+            && document.querySelector('#chartBox svg')
+            && snapshot?.visibleRange?.totalRows === Math.min(expected.settings.rangeDays, chart.currentRows.length)
+            && same(snapshot?.chart?.visibleMas, expected.settings.mas)
+            && same(snapshot?.chart?.visibleVolumeMas, expected.settings.volumeMas)
+            && same(snapshot?.chart?.visibleIndicators, expected.settings.indicators);
+        }""",
+        arg={"symbol": asset["symbol"], "settings": CHART_SETTINGS}, timeout=90_000)
     await page.evaluate("document.querySelector('#tip').style.visibility='hidden'")
     await page.locator("#aiChartCapture").scroll_into_view_if_needed()
     image = await page.locator("#aiChartCapture").screenshot(type="jpeg", quality=82)
@@ -181,7 +206,7 @@ def analysis_html(asset: dict, report_date: str, analysis: dict, image_bytes: by
     image = base64.b64encode(image_bytes).decode()
     return f"""<!doctype html><html lang="zh-Hant"><head><meta charset="utf-8"><style>
     @page{{size:A4;margin:24px}}*{{box-sizing:border-box}}body{{margin:0;color:#1c2430;font-family:-apple-system,'PingFang TC','Microsoft JhengHei',sans-serif;font-size:14px;line-height:1.6}}header{{display:flex;justify-content:space-between;gap:20px;padding-bottom:14px;border-bottom:3px solid #3b5bdb}}h1{{margin:3px 0 0;font-size:27px}}header em{{color:#3b5bdb;font-size:11px;font-style:normal;font-weight:800;letter-spacing:.12em}}header small{{color:#6b7684}}.chart{{display:block;width:100%;max-height:520px;margin:18px 0;object-fit:contain;border-radius:12px}}.hero,.card{{padding:15px;border:1px solid #e3e7ec;border-radius:11px;background:#f8fafc}}.hero{{border-color:#c7d2fe;background:#eef2ff}}.hero label{{color:#3b5bdb;font-weight:800}}.hero h2{{margin:3px 0;font-size:21px}}.hero p,.points p{{margin:3px 0;color:#596579}}.card{{margin-top:11px}}.card h3{{margin:0 0 8px}}.points,.zones,.plan{{display:grid;grid-template-columns:1fr 1fr;gap:9px}}.points article,.plan div{{padding:10px;border-radius:8px;background:#fff}}.points article{{border-left:4px solid #3b5bdb}}.plan span,.plan strong{{display:block}}.plan span{{color:#6b7684;font-size:11px}}ul{{margin:0;padding-left:20px;color:#596579}}.invalid{{margin-top:11px;padding:11px;background:#fff0f0;border-radius:8px}}.invalid b{{color:#d64545;margin-right:10px}}footer{{margin-top:16px;padding-top:11px;border-top:1px solid #e3e7ec;color:#6b7684;font-size:11px}}
-    </style></head><body><header><div><em>AI MORNING TECHNICAL ANALYSIS</em><h1>{esc(asset['symbol'])} {esc(asset['assetName'])}</h1></div><small>{esc(report_date)} · 盤後 · 一般分析</small></header><img class="chart" src="data:image/jpeg;base64,{image}" alt="技術線圖"><section class="hero"><label>{esc(analysis.get('marketState'))}</label><h2>{esc(analysis.get('conclusion'))}</h2><p>{esc(analysis.get('thesis'))}</p></section><section class="card"><h3>技術判讀</h3><div class="points">{points}</div></section><div class="zones"><section class="card"><h3>支撐區</h3>{listing(analysis.get('supportZones'))}</section><section class="card"><h3>壓力區</h3>{listing(analysis.get('resistanceZones'))}</section></div><section class="card"><h3>交易計畫</h3><div class="plan">{plan_rows}</div></section><section class="card"><h3>風險提醒</h3>{listing(analysis.get('riskNotes'))}</section><div class="invalid"><b>判斷失效條件</b>{esc(analysis.get('invalidation'))}</div><footer>AI 分析僅供技術研究與交易計畫整理，不構成投資建議或獲利保證。</footer></body></html>"""
+    </style></head><body><header><div><em>AI MORNING TECHNICAL ANALYSIS</em><h1>{esc(asset['symbol'])} {esc(asset['assetName'])}</h1></div><small>{esc(report_date)} · {REPORT_TIMING} · 一般分析</small></header><img class="chart" src="data:image/jpeg;base64,{image}" alt="技術線圖"><section class="hero"><label>{esc(analysis.get('marketState'))}</label><h2>{esc(analysis.get('conclusion'))}</h2><p>{esc(analysis.get('thesis'))}</p></section><section class="card"><h3>技術判讀</h3><div class="points">{points}</div></section><div class="zones"><section class="card"><h3>支撐區</h3>{listing(analysis.get('supportZones'))}</section><section class="card"><h3>壓力區</h3>{listing(analysis.get('resistanceZones'))}</section></div><section class="card"><h3>交易計畫</h3><div class="plan">{plan_rows}</div></section><section class="card"><h3>風險提醒</h3>{listing(analysis.get('riskNotes'))}</section><div class="invalid"><b>判斷失效條件</b>{esc(analysis.get('invalidation'))}</div><footer>AI 分析僅供技術研究與交易計畫整理，不構成投資建議或獲利保證。</footer></body></html>"""
 
 
 async def make_pdf(page, markup: str) -> bytes:
@@ -201,7 +226,7 @@ async def process_asset(db, browser, service_key, run, report_date, base_url, it
             if result_row and result_row.get("status") == "completed" and result_row.get("analysis"):
                 analysis, model = result_row["analysis"], result_row.get("model")
             else:
-                response = service_post(base_url, "/api/chart-analysis", service_key, {"imageData":"data:image/jpeg;base64," + base64.b64encode(image_bytes).decode(), "mode":"general", "symbol":asset["symbol"], "screenshotTiming":"盤後", "chartData":chart_data})
+                response = service_post(base_url, "/api/chart-analysis", service_key, {"imageData":"data:image/jpeg;base64," + base64.b64encode(image_bytes).decode(), "mode":"general", "symbol":asset["symbol"], "screenshotTiming":REPORT_TIMING, "chartData":chart_data})
                 analysis, model = response["analysis"], response.get("model")
                 values = {"run_id":run["id"], "report_date":report_date, "market":asset["market"], "symbol":asset["symbol"], "asset_name":asset["assetName"], "status":"completed", "model":model, "analysis":analysis, "error_message":None, "completed_at":dt.datetime.now(dt.timezone.utc).isoformat()}
                 if result_row:
@@ -221,8 +246,8 @@ async def process_asset(db, browser, service_key, run, report_date, base_url, it
             if not delivery:
                 delivery = db.insert("morning_report_deliveries", {"run_id":run["id"], "report_date":report_date, "user_id":subscriber["userId"], "market":asset["market"], "symbol":asset["symbol"], "status":"pending"})
             try:
-                mail = {"email":subscriber["email"], "symbol":asset["symbol"], "assetName":asset["assetName"], "date":report_date, "timing":"盤後", "pdfBase64":base64.b64encode(pdf).decode()}
-                subject = f"{asset['symbol']} {asset['assetName']} {report_date} 盤後 技術分析指引"
+                mail = {"email":subscriber["email"], "symbol":asset["symbol"], "assetName":asset["assetName"], "date":report_date, "timing":REPORT_TIMING, "pdfBase64":base64.b64encode(pdf).decode()}
+                subject = f"{asset['symbol']} {asset['assetName']} {report_date} {REPORT_TIMING} 技術分析指引"
                 if dry_run:
                     print(f"DRY_RUN {asset['market']} {asset['symbol']} -> {subscriber['email']}", flush=True)
                     continue
