@@ -337,6 +337,16 @@ def verify_user(token):
     return json_request(SUPABASE_URL + "/auth/v1/user", headers=supabase_headers(token), timeout=15)
 
 
+def verify_service_token(token):
+    """Verify a service-role token without ever storing it in the web application."""
+    headers = {"apikey": token}
+    if not token.startswith("sb_secret_"):
+        headers["Authorization"] = "Bearer {}".format(token)
+    return json_request(
+        SUPABASE_URL + "/auth/v1/admin/users?page=1&per_page=1",
+        headers=headers, timeout=15)
+
+
 def call_rpc(name, token, payload):
     return json_request(SUPABASE_URL + "/rest/v1/rpc/" + name, method="POST",
                         headers=supabase_headers(token), payload=payload, timeout=20)
@@ -397,6 +407,7 @@ class handler(BaseHTTPRequestHandler):
     def do_POST(self):
         request_id = None
         token = bearer_token(self.headers.get("Authorization"))
+        service_request = self.headers.get("X-Morning-Report") == "1"
         if not token:
             return self.send_json({"ok": False, "error": "請先登入會員"}, 401)
         api_key = os.getenv("OPENAI_API_KEY")
@@ -408,22 +419,28 @@ class handler(BaseHTTPRequestHandler):
                 raise ValueError("上傳內容過大")
             payload = json.loads(self.rfile.read(length).decode("utf-8"))
             data = validate_payload(payload)
-            verify_user(token)
-            quota = call_rpc("consume_chart_analysis_quota", token, {
-                "p_mode": data["mode"], "p_symbol": data["symbol"] or None,
-                "p_screenshot_timing": data["screenshotTiming"] or None,
-                "p_proposed_price": data["proposedPrice"]
-            })
-            request_id = quota["requestId"]
+            if service_request:
+                verify_service_token(token)
+                quota = None
+            else:
+                verify_user(token)
+                quota = call_rpc("consume_chart_analysis_quota", token, {
+                    "p_mode": data["mode"], "p_symbol": data["symbol"] or None,
+                    "p_screenshot_timing": data["screenshotTiming"] or None,
+                    "p_proposed_price": data["proposedPrice"]
+                })
+                request_id = quota["requestId"]
             result, model, usage = analyze_chart(data, api_key)
-            call_rpc("finish_chart_analysis_request", token, {
-                "p_request_id": request_id, "p_status": "completed", "p_model": model,
-                "p_result": result, "p_error_message": None
-            })
-            self.send_json({"ok": True, "requestId": request_id, "analysis": result, "quota": {
-                "dailyLimit": quota["dailyLimit"], "used": quota["used"],
-                "remaining": quota["remaining"]
-            }, "usage": {"inputTokens": usage.get("input_tokens"),
+            if request_id:
+                call_rpc("finish_chart_analysis_request", token, {
+                    "p_request_id": request_id, "p_status": "completed", "p_model": model,
+                    "p_result": result, "p_error_message": None
+                })
+            quota_response = None if service_request else {
+                "dailyLimit": quota["dailyLimit"], "used": quota["used"], "remaining": quota["remaining"]
+            }
+            self.send_json({"ok": True, "requestId": request_id, "analysis": result, "model": model,
+                            "quota": quota_response, "usage": {"inputTokens": usage.get("input_tokens"),
                             "outputTokens": usage.get("output_tokens")}})
         except ValueError as error:
             if request_id:

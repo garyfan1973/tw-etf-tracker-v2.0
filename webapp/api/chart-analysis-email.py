@@ -60,6 +60,15 @@ def call_rpc(name, token, payload):
                         headers=supabase_headers(token), payload=payload)
 
 
+def verify_service_token(token):
+    headers = {"apikey": token}
+    if not token.startswith("sb_secret_"):
+        headers["Authorization"] = "Bearer {}".format(token)
+    return json_request(
+        SUPABASE_URL + "/auth/v1/admin/users?page=1&per_page=1",
+        headers=headers)
+
+
 def clean_label(value, max_length):
     return re.sub(r"[\r\n\t]+", " ", str(value or "")).strip()[:max_length]
 
@@ -135,6 +144,7 @@ def public_api_error(error):
 class handler(BaseHTTPRequestHandler):
     def do_POST(self):
         token = bearer_token(self.headers.get("Authorization"))
+        service_request = self.headers.get("X-Morning-Report") == "1"
         log_id = None
         if not token:
             return self.send_json({"ok": False, "error": "請先登入會員"}, 401)
@@ -143,11 +153,15 @@ class handler(BaseHTTPRequestHandler):
             if length <= 0 or length > 4_800_000:
                 raise ValueError("寄送內容過大")
             data = validate_payload(json.loads(self.rfile.read(length).decode("utf-8")))
-            log_id = call_rpc("authorize_chart_analysis_email", token, {
-                "p_symbol": data["symbol"], "p_subject": data["subject"]
-            })
+            if service_request:
+                verify_service_token(token)
+            else:
+                log_id = call_rpc("authorize_chart_analysis_email", token, {
+                    "p_symbol": data["symbol"], "p_subject": data["subject"]
+                })
             send_gmail(data)
-            call_rpc("finish_chart_analysis_email", token, {"p_log_id": log_id, "p_status": "sent"})
+            if log_id:
+                call_rpc("finish_chart_analysis_email", token, {"p_log_id": log_id, "p_status": "sent"})
             self.send_json({"ok": True, "subject": data["subject"]})
         except ValueError as error:
             self.send_json({"ok": False, "error": str(error)}, 400)

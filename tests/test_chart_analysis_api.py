@@ -2,6 +2,7 @@ import base64
 import importlib.util
 from pathlib import Path
 import unittest
+from unittest import mock
 
 
 MODULE_PATH = Path(__file__).resolve().parents[1] / "webapp" / "api" / "chart-analysis.py"
@@ -110,6 +111,21 @@ class ChartAnalysisApiTests(unittest.TestCase):
         self.assertEqual(API.bearer_token("Bearer abc.def"), "abc.def")
         self.assertEqual(API.bearer_token("abc.def"), "")
         self.assertEqual(API.bearer_token("Bearer a b"), "")
+
+    @mock.patch.object(API, "json_request")
+    def test_service_token_is_verified_with_admin_endpoint(self, request):
+        request.return_value = {"users": []}
+        API.verify_service_token("service-secret")
+        url = request.call_args.args[0]
+        headers = request.call_args.kwargs["headers"]
+        self.assertIn("/auth/v1/admin/users", url)
+        self.assertEqual(headers["apikey"], "service-secret")
+
+    @mock.patch.object(API, "json_request")
+    def test_secret_key_is_not_sent_as_jwt(self, request):
+        request.return_value = {"users": []}
+        API.verify_service_token("sb_secret_example")
+        self.assertNotIn("Authorization", request.call_args.kwargs["headers"])
 
 
 if __name__ == "__main__":

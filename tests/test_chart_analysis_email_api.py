@@ -2,6 +2,7 @@ import base64
 import importlib.util
 from pathlib import Path
 import unittest
+from unittest import mock
 
 
 MODULE_PATH = Path(__file__).parents[1] / "webapp" / "api" / "chart-analysis-email.py"
@@ -39,6 +40,19 @@ class ChartAnalysisEmailValidationTests(unittest.TestCase):
     def test_rejects_unrecognized_timing(self):
         with self.assertRaisesRegex(ValueError, "時點"):
             API.validate_payload(self.payload(timing="未知"))
+
+    @mock.patch.object(API, "json_request")
+    def test_service_token_is_verified_with_admin_endpoint(self, request):
+        request.return_value = {"users": []}
+        API.verify_service_token("service-secret")
+        self.assertIn("/auth/v1/admin/users", request.call_args.args[0])
+        self.assertEqual(request.call_args.kwargs["headers"]["apikey"], "service-secret")
+
+    @mock.patch.object(API, "json_request")
+    def test_secret_key_is_not_sent_as_jwt(self, request):
+        request.return_value = {"users": []}
+        API.verify_service_token("sb_secret_example")
+        self.assertNotIn("Authorization", request.call_args.kwargs["headers"])
 
 
 if __name__ == "__main__":

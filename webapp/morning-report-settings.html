@@ -1,0 +1,63 @@
+<!doctype html>
+<html lang="zh-Hant-tw">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>晨報設定｜投資研究工作台</title>
+  <link rel="stylesheet" href="market-pages.css?v=20260827">
+  <style>
+    .morning-shell{max-width:1080px;margin:0 auto;padding:20px 18px 48px}
+    .morning-head{display:flex;justify-content:space-between;align-items:flex-start;gap:18px;margin:8px 0 22px}
+    .morning-head h1{margin:0 0 6px}.morning-head p{margin:0;color:var(--muted)}
+    .morning-card{background:var(--card);border:1px solid var(--border);border-radius:16px;padding:22px;box-shadow:var(--shadow)}
+    .access-state{text-align:center;padding:42px 20px;color:var(--muted)}
+    .search-row{display:grid;grid-template-columns:minmax(0,1fr) auto;gap:10px;align-items:end}
+    .asset-picker{position:relative;display:grid;gap:7px;font-weight:700}
+    .asset-picker input{width:100%;padding:12px 13px;border:1px solid var(--border);border-radius:10px;background:var(--bg);color:var(--text);font:inherit}
+    .asset-results{display:none;position:absolute;left:0;right:0;top:100%;z-index:20;max-height:330px;overflow:auto;margin-top:5px;padding:6px;background:var(--card);border:1px solid var(--border);border-radius:11px;box-shadow:0 16px 36px rgba(15,23,42,.18)}
+    .asset-results.open{display:grid}.asset-result{display:grid;grid-template-columns:90px minmax(0,1fr) auto;gap:10px;align-items:center;padding:10px;border:0;border-radius:8px;background:transparent;color:var(--text);text-align:left;cursor:pointer}
+    .asset-result:hover,.asset-result:focus{background:color-mix(in srgb,var(--accent) 10%,transparent);outline:none}.asset-result span,.asset-result small{color:var(--muted)}
+    .primary-btn,.secondary-btn{padding:11px 18px;border-radius:10px;font:inherit;font-weight:800;cursor:pointer}.primary-btn{border:1px solid var(--accent);background:var(--accent);color:#fff}.secondary-btn{border:1px solid var(--border);background:var(--card);color:var(--text)}
+    button:disabled{opacity:.55;cursor:not-allowed}.list-head{display:flex;justify-content:space-between;align-items:center;margin:24px 0 10px}.list-head h2{margin:0;font-size:18px}.count{color:var(--muted);font-variant-numeric:tabular-nums}
+    .symbol-list{display:grid;gap:8px}.symbol-row{display:grid;grid-template-columns:58px 88px minmax(0,1fr) 42px;gap:10px;align-items:center;padding:12px 13px;border:1px solid var(--border);border-radius:11px;background:var(--bg)}
+    .market-tag{display:inline-flex;justify-content:center;padding:4px 7px;border-radius:7px;background:color-mix(in srgb,var(--accent) 12%,transparent);color:var(--accent);font-size:12px;font-weight:800}.symbol-row strong{font-variant-numeric:tabular-nums}.symbol-row span.name{color:var(--muted);overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+    .trash{width:36px;height:36px;border:0;border-radius:8px;background:transparent;color:var(--muted);cursor:pointer;font-size:18px}.trash:hover{background:color-mix(in srgb,#d64545 12%,transparent);color:#d64545}.empty-list{padding:30px 16px;border:1px dashed var(--border);border-radius:11px;color:var(--muted);text-align:center}
+    .settings-foot{display:flex;justify-content:space-between;align-items:center;gap:16px;margin-top:22px;padding-top:18px;border-top:1px solid var(--border)}.toggle{display:flex;align-items:center;gap:9px;font-weight:700}.toggle input{width:19px;height:19px}.delivery-note{margin-top:14px;padding:12px 14px;border-radius:10px;background:color-mix(in srgb,var(--accent) 8%,var(--card));color:var(--muted);font-size:13px}.status{min-height:22px;margin-top:12px;color:var(--muted)}.status.success{color:#16884c}.status.error{color:#d64545}
+    @media(max-width:700px){.search-row{grid-template-columns:1fr}.search-row .primary-btn{width:100%}.settings-foot{align-items:stretch;flex-direction:column}.settings-foot .primary-btn{width:100%}.symbol-row{grid-template-columns:52px 75px minmax(0,1fr) 38px}.morning-head{display:block}}
+  </style>
+</head>
+<body>
+  <main class="morning-shell">
+    <nav class="top-nav" style="display:flex;gap:8px;margin-bottom:14px;align-items:center;">
+      <a class="tracker-brand" href="index.html" aria-label="回到投資研究工作台首頁"><span class="tracker-mark" aria-hidden="true"></span><span>投資研究工作台</span></a>
+      <a id="marketResearchNav" href="tracker.html?view=overview">市場研究</a>
+      <a href="dividends.html">配息日曆</a><a href="portfolio.html">我的持股</a><a href="transactions.html">交易紀錄</a><a href="journal.html">短線日誌</a><a href="performance.html">績效走勢</a>
+      <span id="authBox" style="margin-left:auto;display:flex;align-items:center;gap:6px"></span>
+      <button id="themeToggle" class="theme-toggle" aria-label="切換主題">🌙</button>
+    </nav>
+    <header class="morning-head"><div><h1>晨報設定</h1><p>每天約 06:30 開始產生，每檔分析完成後立即寄送一封附 PDF 的 Email。</p></div></header>
+    <section class="morning-card">
+      <div id="accessState" class="access-state">正在確認會員權限…</div>
+      <div id="settingsContent" hidden>
+        <div class="search-row">
+          <label class="asset-picker">搜尋標的
+            <input id="morningAssetSearch" type="search" autocomplete="off" placeholder="輸入代號或名稱，例如 2330、AAPL、VOO">
+            <div id="morningAssetResults" class="asset-results" role="listbox"></div>
+          </label>
+          <button id="addMorningAsset" class="primary-btn" type="button" disabled>新增</button>
+        </div>
+        <div class="list-head"><h2>晨報標的</h2><span id="morningCount" class="count">0 / 20</span></div>
+        <div id="morningSymbolList" class="symbol-list"></div>
+        <div class="settings-foot">
+          <label class="toggle"><input id="morningEnabled" type="checkbox" checked> 啟用平日晨報</label>
+          <button id="saveMorningSettings" class="primary-btn" type="button">完成設定</button>
+        </div>
+        <div class="delivery-note">晨報寄至會員登入 Email；週一至週五寄送。晨報分析不扣除互動式 AI 線圖分析額度。</div>
+        <div id="morningStatus" class="status" role="status" aria-live="polite"></div>
+      </div>
+    </section>
+  </main>
+  <script src="theme.js"></script><script src="config.js"></script><script src="market-nav.js?v=20260827"></script>
+  <script type="module" src="auth.js?v=20260827"></script><script type="module" src="morning-report-settings.js?v=20260827"></script>
+</body>
+</html>
