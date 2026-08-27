@@ -164,14 +164,14 @@ def existing_delivery(db: SupabaseAdmin, report_date: str, user_id: str, market:
 
 async def capture_chart(page, base_url: str, asset: dict):
     settings_json = json.dumps(CHART_SETTINGS, separators=(",", ":"))
-    await page.add_init_script(f"""() => {{
+    await page.add_init_script(f"""(() => {{
       const settings = {settings_json};
       localStorage.setItem("etf-chart-type", "candle");
       localStorage.setItem("etf-chart-range", String(settings.rangeDays));
       localStorage.setItem("etf-visible-mas", JSON.stringify(settings.mas));
       localStorage.setItem("etf-visible-volume-mas", JSON.stringify(settings.volumeMas));
       localStorage.setItem("etf-visible-indicators-v2", JSON.stringify(settings.indicators));
-    }}""")
+    }})();""")
     query = urllib.parse.urlencode({"view": "kline", "market": asset["market"], "symbol": asset["symbol"]})
     await page.goto(f"{base_url.rstrip('/')}/tracker.html?{query}", wait_until="domcontentloaded", timeout=90_000)
     await page.wait_for_function(

@@ -98,6 +98,7 @@ class MorningReportAsyncTests(unittest.IsolatedAsyncioTestCase):
             "indicators":["bollinger", "kd", "macd", "rsi"],
         })
         init_script = page.init_scripts[0]
+        self.assertTrue(init_script.strip().endswith("})();"))
         self.assertIn('localStorage.setItem("etf-chart-range"', init_script)
         self.assertIn('localStorage.setItem("etf-visible-indicators-v2"', init_script)
         self.assertEqual(image, b"jpeg")
