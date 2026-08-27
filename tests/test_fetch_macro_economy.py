@@ -1,6 +1,6 @@
 import unittest
 
-from fetch_macro_economy import column_series, parse_dgbas_xml, parse_fred_csv, period_date, transform_rows
+from fetch_macro_economy import column_series, parse_dgbas_xml, parse_fed_industrial_production, parse_fred_csv, period_date, transform_rows
 
 
 class MacroEconomyDataTests(unittest.TestCase):
@@ -22,6 +22,14 @@ class MacroEconomyDataTests(unittest.TestCase):
     def test_column_series_skips_missing_values(self):
         rows = [{"Date": "202601", "PMI": "51.2"}, {"Date": "202602", "PMI": "-"}]
         self.assertEqual(column_series(rows, "PMI"), [{"date": "2026-01-01", "value": 51.2}])
+
+    def test_parse_fed_industrial_production_total_index(self):
+        content = b'"B50001: Total index"\n"B50001" 2026 100.1 101.2 . 103.4\n'
+        self.assertEqual(parse_fed_industrial_production(content), [
+            {"date": "2026-01-01", "value": 100.1},
+            {"date": "2026-02-01", "value": 101.2},
+            {"date": "2026-04-01", "value": 103.4},
+        ])
 
 
 if __name__ == "__main__":

@@ -2,6 +2,7 @@
 """Build the U.S. and Taiwan macro-economic dashboard data file."""
 
 import csv
+import concurrent.futures
 import datetime as dt
 import html
 import io
@@ -34,6 +35,8 @@ TAIWAN_URLS = {
     "money": "https://www.cbc.gov.tw/public/data/OpenData/%E7%B6%93%E7%A0%94%E8%99%95/EF15M01.csv",
     "assets": "https://www.cbc.gov.tw/public/data/OpenData/%E7%B6%93%E7%A0%94%E8%99%95/EF23M01.csv",
 }
+BLS_API = "https://api.bls.gov/publicAPI/v2/timeseries/data/"
+FED_INDUSTRIAL_PRODUCTION = "https://www.federalreserve.gov/releases/g17/ipdisk/ip_sa.txt"
 
 US_SERIES = [
     dict(id="us-gdp", series="A191RL1Q225SBEA", name="實質 GDP 成長率", category="growth", unit="%", frequency="季", source="美國商務部經濟分析局 BEA", sourceUrl="https://www.bea.gov/data/gdp/gross-domestic-product", digits=1),
@@ -76,22 +79,23 @@ def number(value):
         return None
 
 
-def read_url(url, retries=3):
+def read_url(url, retries=3, timeout=30):
     request = urllib.request.Request(url, headers={"User-Agent": USER_AGENT, "Accept": "text/csv,application/xml,text/xml,application/zip,*/*"})
     for attempt in range(retries):
         try:
-            with urllib.request.urlopen(request, timeout=60) as response:
+            with urllib.request.urlopen(request, timeout=timeout) as response:
                 return response.read()
-        except urllib.error.URLError as error:
+        except Exception as error:
             # Some Taiwan government servers still serve an incomplete legacy
             # certificate chain. Keep verification by default and limit this
             # compatibility retry to the known official hosts.
             official = urllib.parse.urlparse(url).hostname in {"www.cbc.gov.tw", "ws.dgbas.gov.tw", "nstatdb.dgbas.gov.tw"}
-            if official and isinstance(error.reason, ssl.SSLCertVerificationError):
+            reason = getattr(error, "reason", error)
+            if official and isinstance(reason, ssl.SSLCertVerificationError):
                 context = ssl.create_default_context()
                 context.check_hostname = False
                 context.verify_mode = ssl.CERT_NONE
-                with urllib.request.urlopen(request, timeout=60, context=context) as response:
+                with urllib.request.urlopen(request, timeout=timeout, context=context) as response:
                     return response.read()
             if attempt + 1 == retries:
                 raise
@@ -124,6 +128,26 @@ def fetch_fred_batch(configs, start):
             if filename:
                 result[series_id] = parse_fred_csv(archive.read(filename), series_id)
     return result
+
+
+def fetch_fred_individual(configs, start, workers=6):
+    """Fetch independently so a slow FRED series cannot discard the batch."""
+    def fetch(config):
+        series_id = config["series"]
+        url = FRED_CSV.format(series=urllib.parse.quote(series_id), start=start)
+        return series_id, parse_fred_csv(read_url(url, retries=1, timeout=10), series_id)
+
+    result, failures = {}, []
+    with concurrent.futures.ThreadPoolExecutor(max_workers=workers) as executor:
+        futures = {executor.submit(fetch, config): config for config in configs}
+        for future in concurrent.futures.as_completed(futures):
+            config = futures[future]
+            try:
+                series_id, rows = future.result()
+                result[series_id] = rows
+            except Exception as error:
+                failures.append("{}: {}".format(config["series"], error))
+    return result, failures
 
 
 def transform_rows(rows, config):
@@ -361,25 +385,86 @@ def local_us_fallback():
     return result
 
 
+def fetch_bls_series(series_ids, start_year, end_year):
+    body = json.dumps({"seriesid": series_ids, "startyear": str(start_year), "endyear": str(end_year)}).encode("utf-8")
+    request = urllib.request.Request(BLS_API, data=body, headers={"User-Agent": USER_AGENT, "Content-Type": "application/json"})
+    with urllib.request.urlopen(request, timeout=30) as response:
+        payload = json.load(response)
+    if payload.get("status") != "REQUEST_SUCCEEDED":
+        raise RuntimeError("BLS API request failed: {}".format(payload.get("message")))
+    result = {}
+    for series in payload.get("Results", {}).get("series", []):
+        rows = []
+        for row in series.get("data", []):
+            period = row.get("period", "")
+            value = number(row.get("value"))
+            if not re.fullmatch(r"M(0[1-9]|1[0-2])", period) or value is None:
+                continue
+            rows.append({"date": "{}-{}-01".format(row["year"], period[1:]), "value": value})
+        result[series["seriesID"]] = sorted(rows, key=lambda item: item["date"])
+    return result
+
+
+def parse_fed_industrial_production(content, series_id="B50001"):
+    rows = []
+    for line in content.decode("utf-8-sig", "ignore").splitlines():
+        match = re.match(r'^"{}"\s+(\d{{4}})\s+(.+)$'.format(re.escape(series_id)), line.strip())
+        if not match:
+            continue
+        values = [number(value) for value in match.group(2).split()[:12]]
+        for month, value in enumerate(values, 1):
+            if value is not None:
+                rows.append({"date": "{}-{:02d}-01".format(match.group(1), month), "value": value})
+    return rows
+
+
+def official_us_supplements(start_year, end_year):
+    """Official public APIs used when individual FRED mirrors are delayed."""
+    result = local_us_fallback()
+    configs = {config["id"]: config for config in US_SERIES}
+    bls_map = {
+        "CUUR0000SA0": "us-cpi",
+        "CUUR0000SA0L1E": "us-core-cpi",
+        "CES0000000001": "us-payrolls",
+        "LNS14000000": "us-unemployment",
+    }
+    try:
+        # The unregistered BLS API permits a maximum inclusive ten-year span.
+        bls = fetch_bls_series(list(bls_map), max(start_year, end_year - 9), end_year)
+        for series_id, item_id in bls_map.items():
+            config = configs[item_id]
+            rows = transform_rows(bls.get(series_id, []), config)
+            if rows:
+                result[item_id] = make_series(config, rows)
+    except Exception:
+        pass
+    try:
+        config = configs["us-industrial"]
+        raw = parse_fed_industrial_production(read_url(FED_INDUSTRIAL_PRODUCTION, retries=2, timeout=20))
+        rows = transform_rows([row for row in raw if int(row["date"][:4]) >= start_year], config)
+        if rows:
+            result[config["id"]] = make_series(config, rows)
+    except Exception:
+        pass
+    return result
+
+
 def main():
     now = dt.datetime.now(dt.timezone.utc)
     start = (now.date() - dt.timedelta(days=365 * 10 + 10)).isoformat()
     existing = load_existing()
     old = {item.get("id"): item for item in existing.get("series", [])}
-    fallback = local_us_fallback()
+    fallback = official_us_supplements(int(start[:4]), now.year)
     series, failures = [], []
-    try:
-        fred_rows = fetch_fred_batch(US_SERIES, start)
-    except Exception as error:
-        fred_rows = {}
-        failures.append("FRED batch: {}".format(error))
+    fred_rows, fred_failures = fetch_fred_individual(US_SERIES, start)
+    failures.extend("FRED {}".format(error) for error in fred_failures)
     for config in US_SERIES:
         try:
             rows = transform_rows(fred_rows[config["series"]], config)
             series.append(make_series(config, rows))
             print("updated {}".format(config["id"]))
         except Exception as error:
-            replacement = old.get(config["id"]) or fallback.get(config["id"])
+            replacement = fallback.get(config["id"]) or old.get(config["id"])
             if replacement:
                 series.append(replacement)
             failures.append("{}: {}".format(config["id"], error))
