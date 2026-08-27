@@ -17,6 +17,8 @@ OUT_FILE = os.path.join(BASE_DIR, "webapp", "market_data.json")
 YAHOO_CHART = "https://query1.finance.yahoo.com/v8/finance/chart/{}?interval=1d&range={}"
 TREASURY_CSV = "https://home.treasury.gov/resource-center/data-chart-center/interest-rates/daily-treasury-rates.csv/{year}/all?type=daily_treasury_yield_curve&field_tdr_date_value={year}&page&_format=csv"
 TWSE_MARKET_STATISTICS = "https://www.twse.com.tw/rwd/zh/afterTrading/FMTQIK?date={date}&response=json"
+TWSE_INDEX_SNAPSHOT = "https://openapi.twse.com.tw/v1/exchangeReport/MI_INDEX"
+TPEX_INDEX_SNAPSHOT = "https://www.tpex.org.tw/www/zh-tw/afterTrading/indexSummary?date=&response=json"
 USER_AGENT = "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36"
 US_MARKET_TIMEZONE = ZoneInfo("America/New_York")
 US_CLOSE_SETTLE_TIME = dt.time(16, 15)
@@ -172,6 +174,84 @@ def parse_twse_market_turnovers(payload):
     return result
 
 
+def parse_twse_market_closes(payload):
+    fields = payload.get("fields") or []
+    if "日期" not in fields or "發行量加權股價指數" not in fields:
+        return {}
+    date_index, close_index = fields.index("日期"), fields.index("發行量加權股價指數")
+    result = {}
+    for row in payload.get("data") or []:
+        if max(date_index, close_index) >= len(row):
+            continue
+        parts = str(row[date_index]).split("/")
+        close = market_number(row[close_index])
+        if len(parts) == 3 and all(part.isdigit() for part in parts) and close is not None:
+            result["{:04d}-{:02d}-{:02d}".format(int(parts[0]) + 1911, int(parts[1]), int(parts[2]))] = close
+    return result
+
+
+def compact_roc_date(value):
+    text = str(value or "").strip()
+    if len(text) != 7 or not text.isdigit():
+        return None
+    return "{:04d}-{}-{}".format(int(text[:3]) + 1911, text[3:5], text[5:7])
+
+
+def market_number(value):
+    try:
+        return float(str(value).replace(",", "").strip())
+    except (TypeError, ValueError):
+        return None
+
+
+def parse_twse_index_snapshot(payload):
+    wanted = {
+        "發行量加權股價指數": ("twii", "加權指數"),
+        "電子工業類指數": ("electronics", "電子"),
+        "金融保險類指數": ("finance", "金融"),
+    }
+    result = []
+    for row in payload or []:
+        config = wanted.get(row.get("指數"))
+        latest = market_number(row.get("收盤指數"))
+        change = market_number(row.get("漲跌點數"))
+        change_pct = market_number(row.get("漲跌百分比"))
+        as_of = compact_roc_date(row.get("日期"))
+        if not config or latest is None or change is None or change_pct is None or not as_of:
+            continue
+        direction = -1 if str(row.get("漲跌") or "").strip() == "-" else 1
+        result.append({
+            "id": config[0], "name": config[1], "asOf": as_of, "latest": latest,
+            "change": round(abs(change) * direction, 4),
+            "changePct": round(abs(change_pct) * direction, 4),
+            "source": "臺灣證券交易所",
+        })
+    return result
+
+
+def parse_tpex_index_snapshot(payload):
+    date = str((payload or {}).get("date") or "")
+    as_of = "{}-{}-{}".format(date[:4], date[4:6], date[6:8]) if len(date) == 8 and date.isdigit() else None
+    for table in (payload or {}).get("tables") or []:
+        fields = table.get("fields") or []
+        if "指數" not in fields or "收市指數" not in fields:
+            continue
+        name_index, latest_index = fields.index("指數"), fields.index("收市指數")
+        change_index = fields.index("漲跌") if "漲跌" in fields else None
+        pct_index = fields.index("漲跌幅度(%)") if "漲跌幅度(%)" in fields else None
+        for row in table.get("data") or []:
+            if row[name_index] != "櫃買指數" or change_index is None or pct_index is None:
+                continue
+            latest, change, change_pct = market_number(row[latest_index]), market_number(row[change_index]), market_number(row[pct_index])
+            if latest is None or change is None or change_pct is None or not as_of:
+                return []
+            return [{
+                "id": "otc", "name": "上櫃", "asOf": as_of, "latest": latest,
+                "change": change, "changePct": change_pct, "source": "證券櫃檯買賣中心",
+            }]
+    return []
+
+
 def apply_twse_market_turnover(item, payload, previous=None):
     previous_official = {
         row.get("date"): row.get("turnover")
@@ -179,6 +259,11 @@ def apply_twse_market_turnover(item, payload, previous=None):
         if row.get("turnoverOfficial") and row.get("date")
     }
     previous_official.update(parse_twse_market_turnovers(payload))
+    official_closes = parse_twse_market_closes(payload)
+    known_dates = {row.get("date") for row in item.get("rows", [])}
+    for date in sorted(official_closes):
+        if date not in known_dates and (not item.get("rows") or date > item["rows"][-1].get("date", "")):
+            item["rows"].append({"date": date, "open": None, "high": None, "low": None, "close": official_closes[date]})
     for row in item.get("rows", []):
         prior_turnover = previous_official.get(row.get("date"))
         row["turnover"] = prior_turnover
@@ -188,9 +273,14 @@ def apply_twse_market_turnover(item, payload, previous=None):
         if prior_turnover is not None:
             row["turnoverOfficial"] = True
     latest = item.get("rows", [])[-1]
+    previous_row = item.get("rows", [])[-2] if len(item.get("rows", [])) > 1 else latest
     item.pop("volume", None)
     item.pop("volumeLabel", None)
     item["turnover"] = latest.get("turnover")
+    item["asOf"] = latest.get("date")
+    item["latest"] = latest.get("close")
+    item["change"] = round(latest.get("close", 0) - previous_row.get("close", 0), 4)
+    item["changePct"] = round(item["change"] / previous_row.get("close") * 100, 4) if previous_row.get("close") else None
     item["turnoverLabel"] = "成交金額"
     item["source"] = "Yahoo Finance／臺灣證券交易所"
     return item
@@ -321,6 +411,7 @@ def main(backfill_twse_turnover=False):
     existing = load_existing()
     old_indices = by_key(existing.get("indices"), "id")
     old_currencies = by_key(existing.get("currencies"), "code")
+    old_taiwan_highlights = by_key(existing.get("taiwanHighlights"), "id")
     indices, currencies, failures = [], [], []
     for config in INDICES:
         try:
@@ -348,6 +439,20 @@ def main(backfill_twse_turnover=False):
             if config["code"] in old_currencies:
                 currencies.append(old_currencies[config["code"]])
             failures.append("{}: {}".format(config["code"], error))
+    taiwan_highlights = []
+    try:
+        taiwan_highlights.extend(parse_twse_index_snapshot(json.loads(read_url(TWSE_INDEX_SNAPSHOT))))
+        print("updated TWSE index snapshot")
+    except Exception as error:
+        taiwan_highlights.extend(item for key, item in old_taiwan_highlights.items() if key in {"twii", "electronics", "finance"})
+        failures.append("TWSE index snapshot: {}".format(error))
+    try:
+        taiwan_highlights.extend(parse_tpex_index_snapshot(json.loads(read_url(TPEX_INDEX_SNAPSHOT))))
+        print("updated TPEx index snapshot")
+    except Exception as error:
+        if old_taiwan_highlights.get("otc"):
+            taiwan_highlights.append(old_taiwan_highlights["otc"])
+        failures.append("TPEx index snapshot: {}".format(error))
     try:
         dollar_index = build_index(DOLLAR_INDEX, fetch_yahoo(DOLLAR_INDEX["symbol"], "2y"))
         print("updated dollar index {}".format(DOLLAR_INDEX["symbol"]))
@@ -374,11 +479,12 @@ def main(backfill_twse_turnover=False):
     payload = {
         "updatedAt": dt.datetime.now(dt.timezone.utc).replace(microsecond=0).isoformat().replace("+00:00", "Z"),
         "indices": indices, "currencies": currencies,
+        "taiwanHighlights": taiwan_highlights,
         "dollarIndex": dollar_index,
         "currencyIndices": build_currency_indices(currencies),
         "treasuryTenors": [{"key": key, "label": label} for key, label, _ in TENORS if any(key in row["rates"] for row in treasuries)],
         "treasuries": treasuries,
-        "sources": {"indices": "Yahoo Finance", "currencies": "Yahoo Finance", "dollarIndex": "Yahoo Finance", "treasuries": "U.S. Department of the Treasury"},
+        "sources": {"indices": "Yahoo Finance", "taiwanHighlights": "臺灣證券交易所／證券櫃檯買賣中心", "currencies": "Yahoo Finance", "dollarIndex": "Yahoo Finance", "treasuries": "U.S. Department of the Treasury"},
     }
     encoded = json.dumps(payload, ensure_ascii=False, separators=(",", ":")) + "\n"
     with open(OUT_FILE, "w", encoding="utf-8") as handle:

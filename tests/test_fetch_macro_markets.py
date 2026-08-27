@@ -1,7 +1,7 @@
 import datetime as dt
 import unittest
 
-from fetch_macro_markets import DOLLAR_INDEX, INDICES, apply_twse_market_turnover, build_currency, build_index, normalize_currency_rows, parse_treasury_csv, parse_twse_market_turnovers, parse_yahoo_rows
+from fetch_macro_markets import DOLLAR_INDEX, INDICES, apply_twse_market_turnover, build_currency, build_index, normalize_currency_rows, parse_tpex_index_snapshot, parse_treasury_csv, parse_twse_index_snapshot, parse_twse_market_closes, parse_twse_market_turnovers, parse_yahoo_rows
 
 
 class MacroMarketDataTests(unittest.TestCase):
@@ -111,6 +111,37 @@ class MacroMarketDataTests(unittest.TestCase):
         result = apply_twse_market_turnover(item, payload, previous)
         self.assertEqual(result["rows"][0]["turnover"], 784512346516)
         self.assertTrue(result["rows"][0]["turnoverOfficial"])
+
+    def test_twse_market_snapshot_can_append_a_newer_official_close(self):
+        payload = {
+            "fields": ["日期", "成交金額", "發行量加權股價指數"],
+            "data": [["115/08/27", "926,202,000,000", "45,975.22"]],
+        }
+        self.assertEqual(parse_twse_market_closes(payload), {"2026-08-27": 45975.22})
+        item = {"rows":[{"date":"2026-08-26","close":45832.62,"volume":1}],"volume":1}
+        result = apply_twse_market_turnover(item, payload)
+        self.assertEqual(result["asOf"], "2026-08-27")
+        self.assertEqual(result["latest"], 45975.22)
+        self.assertEqual(result["turnover"], 926202000000)
+        self.assertEqual(result["change"], 142.6)
+
+    def test_parse_twse_index_snapshot_extracts_homepage_highlights(self):
+        payload = [
+            {"日期":"1150827","指數":"發行量加權股價指數","收盤指數":"45,975.22","漲跌":"+","漲跌點數":"142.60","漲跌百分比":"0.31"},
+            {"日期":"1150827","指數":"電子工業類指數","收盤指數":"2,920.91","漲跌":"-","漲跌點數":"4.65","漲跌百分比":"0.16"},
+            {"日期":"1150827","指數":"金融保險類指數","收盤指數":"3,229.67","漲跌":"+","漲跌點數":"6.60","漲跌百分比":"0.20"},
+        ]
+        result = {item["id"]: item for item in parse_twse_index_snapshot(payload)}
+        self.assertEqual(result["twii"]["asOf"], "2026-08-27")
+        self.assertEqual(result["electronics"]["change"], -4.65)
+        self.assertEqual(result["finance"]["latest"], 3229.67)
+
+    def test_parse_tpex_index_snapshot_extracts_otc_index(self):
+        payload = {"date":"20260827","tables":[{"fields":["指數","收市指數","漲跌","漲跌幅度(%)"],"data":[["櫃買指數","400.38","4.72","1.19"]]}]}
+        self.assertEqual(parse_tpex_index_snapshot(payload), [{
+            "id":"otc", "name":"上櫃", "asOf":"2026-08-27", "latest":400.38,
+            "change":4.72, "changePct":1.19, "source":"證券櫃檯買賣中心",
+        }])
 
     def test_parse_treasury_csv_maps_tenors_and_sorts(self):
         content = "Date,1 Mo,3 Mo,2 Yr,10 Yr,30 Yr\n08/21/2026,4.1,4.2,3.9,4.3,4.8\n08/20/2026,4.0,4.1,3.8,4.2,4.7\n"
