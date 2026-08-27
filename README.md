@@ -1,6 +1,6 @@
 # 跨市場投資研究工作台
 
-這是一個整合台股、台灣 ETF、美股與美國 ETF 的個人投資研究工具。所有標的共用完整 K 線、技術指標、財報、消息與個人交易圖層；ETF 另提供持股、每日加減碼、配息、三大法人、融資融券及股東分佈。
+這是一個整合台股、台灣 ETF、美股與美國 ETF 的個人投資研究工具。所有標的共用完整 K 線、技術指標、財報、消息與個人交易圖層；ETF 另提供持股、每日加減碼、配息、三大法人、融資融券及股東分佈。會員功能包含多市場持股、交易日誌、績效追蹤、AI 線圖分析與平日 Email 晨報。
 
 目前公開市場資料以 JSON 保存並由 GitHub Actions 定期更新；個人交易、關注清單與績效快照則使用 Supabase 保存。
 
@@ -74,11 +74,13 @@
 
 - Supabase Auth Email／密碼登入。
 - 我的關注 ETF 清單。
-- 個人交易紀錄：買入、賣出、編輯、刪除與日期／ETF 條件查詢。
+- 個人交易紀錄：支援台灣／美國市場、股票／ETF 的買入、賣出、編輯與刪除，並以 TWD、USD 分開計算持股成本、現值與損益。
+- 台股手續費與交易稅可自動估算，美股支援零股與自行填寫交易成本；賣出依 FIFO 回沖買進批次。
 - 短線操作日誌：獨立記錄台灣／美國 ETF 與股票的操作計畫、買進日／賣出日、進出場價格、停損／目標、狀態與事後檢討，不與個人交易紀錄或公開 ETF 清單連動。
-- FIFO 持股計算。
 - 每日績效快照，可查詢日期區間、切換含息／不含息報酬率，並查看報酬率曲線與明細。
-- 限定會員 AI 線圖分析：上傳 JPG／PNG／WebP 技術線圖，選擇一般、快閃、隔日沖或低接模式，取得結構化技術判讀、支撐壓力、交易計畫與風險提醒。原始圖片不保存，分析結果與每日使用次數保存在 Supabase。
+- 限定會員 AI 線圖分析：上傳 JPG／PNG／WebP 技術線圖，選擇一般、快閃、隔日沖或低接模式，取得結構化技術判讀、支撐壓力、交易計畫與風險提醒。
+- AI 分析結果保存在 Supabase；線圖保存五天，期間可由歷史紀錄重新檢視、匯出 PDF 或寄送 Email，逾期後仍保留文字分析。
+- 會員 AI 晨報：最多設定 20 檔台灣／美國股票或 ETF，平日約 06:30 開始產生盤前技術分析，每檔完成後立即寄送一封 PDF 至會員登入 Email，且不扣除互動式分析額度。
 
 ## 頁面
 
@@ -93,8 +95,10 @@
 | 聯準會政策／利率與資產負債表 | `fed-policy.html` |
 | 本週財經影音 | `videos.html` |
 | 限定會員 AI 線圖分析 | `chart-analysis.html` |
+| 會員 AI 晨報設定 | `morning-report-settings.html` |
 | ETF 持股資訊／加減碼 | `tracker.html` |
 | 配息日曆 | `dividends.html` |
+| 我的持股 | `portfolio.html` |
 | 交易紀錄 | `transactions.html` |
 | 短線操作日誌 | `journal.html` |
 | 績效與報酬率 | `performance.html` |
@@ -114,7 +118,8 @@
 - 全球指數、Russell 2000、VIX、美元指數、原油與主要貨幣參考匯率：Yahoo Finance 日線資料，由 `fetch_macro_markets.py` 每日整理至 `webapp/market_data.json`；台灣加權指數成交金額以證交所大盤統計資訊覆蓋，並保留近一年官方歷史資料。
 - 美國公債殖利率曲線：美國財政部 Daily Treasury Par Yield Curve Rates，由 `fetch_macro_markets.py` 每日更新。
 - 聯準會政策：FRED 的政策利率、總資產、公債、MBS、準備金與 ON RRP 序列，搭配聯準會官方貨幣政策 RSS 與 FOMC 日程，由 `fetch_fed_policy.py` 更新。
-- 財經影音：五個指定 YouTube 官方頻道的 RSS，只保留最近七天公開影片，由 `fetch_financial_videos.py` 每兩小時更新。
+- 財經影音：六個指定 YouTube 官方頻道的 RSS，只保留最近七天公開影片，由 `fetch_financial_videos.py` 每兩小時更新。
+- 總經新聞：中央社財經／國際 RSS，加上經濟日報與工商時報首頁標題，保留最近五天內容，由 `fetch_macro_news.py` 每兩小時更新。
 - K 線歷史行情：Yahoo Finance 兩年日線 OHLCV，依市場與代號保存於 `webapp/price-history/`；市場研究開啟標的時會再合併最新行情，上市台股最新月份以臺灣證券交易所官方 OHLCV 覆蓋。
 - ETF 清單：官方上市／上櫃 ETF 資料。
 - 短線日誌標的清單：台灣使用 TWSE／TPEx，美國使用 Nasdaq Trader 公開掛牌清單；清單是一次性手動更新，日誌仍允許自行輸入清單外代號。
@@ -124,11 +129,52 @@
 
 行情批次有嚴格日期校驗：每個行情欄位的 `quoteDate` 必須等於該份 ETF 快照的日期，避免把前一天或前幾天的行情誤標成最新資料。
 
-## 本機測試
+## 本機啟動與測試
 
-AI 線圖分析需要在 `webapp/.env.local` 或專案根目錄的 `.env.local` 設定 `OPENAI_API_KEY`；正式環境則在 Vercel 專案環境變數設定同名金鑰。請勿將金鑰提交到 Git。
+純前端頁面可直接使用 Python 靜態伺服器：
 
-首次啟用時，請將 `supabase_chart_analysis.sql` 套用至 Supabase。以 Email 開通會員與設定每日額度的範例：
+```bash
+cd /Users/garyfan/.codex/tw-etf-tracker-v2.0/webapp
+python3 -m http.server 8002
+```
+
+主要入口：
+
+```text
+http://localhost:8002/index.html
+http://localhost:8002/tracker.html?view=overview
+http://localhost:8002/portfolio.html
+http://localhost:8002/transactions.html
+http://localhost:8002/dividends.html
+http://localhost:8002/performance.html
+http://localhost:8002/chart-analysis.html
+http://localhost:8002/morning-report-settings.html
+```
+
+測試完在終端機按 `Ctrl + C` 停止伺服器。`webapp/api/` 下的 Vercel Functions 不會由 Python 靜態伺服器執行；要完整測試行情／財報 API、AI 分析及 Email 寄送，請使用 Vercel 開發環境或已部署的 Preview。
+
+複製 `.env.example` 為 `webapp/.env.local`（若從專案根目錄啟動開發環境，也可放在根目錄）後按需設定：
+
+| 環境變數 | 用途 |
+| --- | --- |
+| `OPENAI_API_KEY` | 伺服器端 AI 線圖分析 |
+| `OPENAI_MODEL` | 選用的 OpenAI 模型；未設定時預設 `gpt-5.4` |
+| `GMAIL_USER` | 寄送分析 PDF 與晨報的 Gmail 帳號 |
+| `GMAIL_APP_PASSWORD` | Gmail App Password，不是一般登入密碼 |
+| `GMAIL_FROM_NAME` | 寄件者顯示名稱 |
+| `SUPABASE_URL` | 晨報批次與伺服器端授權使用的 Supabase URL |
+| `SUPABASE_SERVICE_ROLE_KEY` | 晨報批次與每日績效快照使用，僅限伺服器端／GitHub Secrets |
+
+任何 Secret 都不可提交到 Git，`SUPABASE_SERVICE_ROLE_KEY` 也不可放入瀏覽器程式。
+
+首次啟用 AI 功能時，請依功能套用下列 Supabase migration：
+
+1. `supabase_chart_analysis.sql`：會員權限、每日額度與分析紀錄。
+2. `supabase_chart_analysis_history.sql`：線圖歷史與五天保存期限。
+3. `supabase_chart_analysis_email.sql`：PDF Email 寄送紀錄與每日限制。
+4. `supabase_morning_reports.sql`：晨報設定、分析結果與寄送狀態。
+
+以 Email 開通會員與設定每日額度的範例：
 
 ```sql
 insert into public.ai_feature_access (user_id, enabled, daily_limit, note)
@@ -144,25 +190,11 @@ set enabled = excluded.enabled,
 
 停用時將該會員的 `enabled` 改為 `false`；也可設定 `expires_at` 控制到期日。
 
-請使用真正的 repo 路徑：
+執行全部單元測試：
 
 ```bash
-cd /Users/garyfan/.codex/tw-etf-tracker-v2.0/webapp
-python3 -m http.server 8002
+python3 -m unittest discover -s tests -v
 ```
-
-瀏覽器網址：
-
-```text
-http://localhost:8002/index.html
-http://localhost:8002/portfolio.html
-http://localhost:8002/transactions.html
-http://localhost:8002/dividends.html
-http://localhost:8002/performance.html
-http://localhost:8002/kline.html
-```
-
-測試完在終端機按 `Ctrl + C` 停止伺服器。
 
 ## 更新資料
 
@@ -174,7 +206,11 @@ python3 fetch_etf_list.py
 python3 fetch_trade_assets.py
 python3 fetch.py
 python3 fetch_price_history.py
+python3 fetch_macro_markets.py
 python3 fetch_company_profiles.py
+python3 fetch_fed_policy.py
+python3 fetch_financial_videos.py
+python3 fetch_macro_news.py
 ```
 
 `fetch.py` 會：
@@ -198,24 +234,24 @@ K 線圖支援 MA5／10／20／60／120／240、布林通道、MACD、RSI、KD�
 
 ## GitHub Actions 自動更新
 
-工作流程位於 `.github/workflows/update-data.yml`，目前每天執行五次：
+工作流程位於 `.github/workflows/`，分為三條：
 
-- 台灣時間 19:30
-- 台灣時間 20:00
-- 台灣時間 20:30
-- 台灣時間 21:00
-- 台灣時間 21:30
+| 工作流程 | 排程（台灣時間） | 用途 |
+| --- | --- | --- |
+| `update-data.yml` | 每日 19:30、20:00、20:30、21:00、21:30；週一至週五 05:20 再補抓美股收盤 | ETF、行情、K 線、總經市場、公司資料與績效快照 |
+| `update-financial-content.yml` | 每兩小時 | 聯準會政策、財經影音與總經新聞 |
+| `morning-report.yml` | 週一至週五 06:30 | 產生會員 AI 晨報並逐檔寄送 PDF |
 
-GitHub Actions 會依序：
+主要資料工作流會依序：
 
 1. 更新 ETF 清單。
 2. 執行 `fetch.py` 更新持股、行情、配息與參考資料。
 3. 增量更新兩年 K 線歷史行情。
-4. 更新公司產業資料。
+4. 更新指數、匯率、美國公債與公司產業資料。
 5. 執行 `record_daily_snapshots.py` 寫入 Supabase 績效快照。
 6. 有資料變更時 commit 並 push 回 GitHub。
 
-也可以在 GitHub repo 的 Actions 頁面手動執行 `更新 ETF 資料`。
+三條工作流都支援從 GitHub repo 的 Actions 頁面手動執行。晨報另提供 `dry_run`（只產生分析與 PDF、不寄信）及 `force`（忽略當日完成紀錄並重跑）選項。
 
 需要注意：GitHub Actions 的執行時間是 UTC cron，workflow 內已換算為台灣時間。不同日期若來源尚未更新，該次執行可能沒有新快照。
 
@@ -266,9 +302,12 @@ git pull origin main
 目前 Supabase 用於：
 
 - `watchlist`：使用者關注 ETF。
-- `portfolio_transactions`：個人買入／賣出交易。
+- `portfolio_transactions`：台灣／美國股票與 ETF 的個人買入／賣出交易；多市場欄位需套用 `supabase_portfolio_multi_market.sql`。
 - `trade_journal_entries`／`trade_journal_fills`：個人短線操作計畫與多筆進出明細（需執行 `supabase_trade_journal.sql`；既有舊版資料表請依序執行 `supabase_trade_journal_v2.sql`、`supabase_trade_journal_v3.sql`、`supabase_trade_journal_v4.sql`、`supabase_trade_journal_v5.sql`、`supabase_trade_journal_v6.sql`）。標的可獨立記錄台灣／美國 ETF 與股票，不依賴公開 ETF 清單，並以 FIFO 保存分批進出、交易成本與淨損益。
 - `portfolio_daily_snapshots`：每日績效快照。
+- `ai_feature_access`／`chart_analysis_requests`／`chart_analysis_email_log`：AI 會員權限、每日用量、分析歷史與 Email 紀錄。
+- `morning_report_settings`／`morning_report_symbols`：會員晨報開關與最多 20 檔標的設定。
+- `morning_report_runs`／`morning_report_results`／`morning_report_deliveries`：每日晨報批次、逐檔分析結果與寄送狀態；資料庫不保存收件 Email 地址。
 
 前端設定檔為 `webapp/config.js`，只可放 Project URL 與 publishable／anon key；絕對不可放入 `service_role` 或 Secret key。
 
@@ -318,9 +357,15 @@ ETFS = {
 ├── fetch.py                      # 主資料抓取與快照產生
 ├── fetch_price_history.py        # 兩年日線 OHLCV 匯入與增量更新
 ├── fetch_etf_list.py             # 更新 ETF 清單
+├── fetch_macro_markets.py        # 更新指數、匯率與美國公債資料
+├── fetch_fed_policy.py           # 更新聯準會政策資料
+├── fetch_financial_videos.py     # 更新最近七天財經影音
+├── fetch_macro_news.py           # 更新最近五天總經新聞
 ├── fetch_trade_assets.py         # 一次性／手動更新短線日誌標的清單
 ├── fetch_company_profiles.py     # 更新公司產業資料
 ├── record_daily_snapshots.py     # 寫入 Supabase 績效快照
+├── scripts/morning_report.py     # 產生並寄送會員 AI 晨報
+├── tests/                        # Python 單元測試
 ├── supabase_*.sql                # Supabase 資料表與函式 SQL
 ├── .github/workflows/             # GitHub Actions 排程
 └── webapp/                       # 靜態網站與前端資料
