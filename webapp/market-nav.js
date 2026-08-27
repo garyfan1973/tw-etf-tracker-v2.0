@@ -4,6 +4,7 @@
     ["market-index.html", "指數資訊", "indices"],
     ["forex.html", "匯市資訊", "forex"],
     ["bonds.html", "債市資訊", "bonds"],
+    ["macro-economy.html", "總經指標", "economy"],
     ["fed-policy.html", "聯準會政策", "fed"],
     ["videos.html", "財經影音", "videos"],
     ["chart-analysis.html", "AI 線圖分析", "ai"],
@@ -15,6 +16,7 @@
     if (page === "market-index.html") return "indices";
     if (page === "forex.html") return "forex";
     if (page === "bonds.html") return "bonds";
+    if (page === "macro-economy.html") return "economy";
     if (page === "fed-policy.html") return "fed";
     if (page === "videos.html") return "videos";
     if (page === "chart-analysis.html") return "ai";

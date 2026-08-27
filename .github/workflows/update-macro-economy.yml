@@ -1,0 +1,35 @@
+name: 更新美台總經指標
+
+on:
+  schedule:
+    - cron: "15 0,6,12,18 * * *"
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+concurrency:
+  group: repository-data-writes
+  cancel-in-progress: false
+
+jobs:
+  update:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: 更新美國與台灣總經資料
+        run: python3 fetch_macro_economy.py
+      - name: 有變更才 commit 回 repo
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git add webapp/macro_economy_data.json
+          if git diff --cached --quiet; then
+            echo "資料無變更，略過 commit"
+          else
+            git commit -m "chore(data): update U.S. and Taiwan macro indicators"
+            git push
+          fi

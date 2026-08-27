@@ -1,0 +1,27 @@
+<!doctype html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>總經指標｜投資研究工作台</title>
+  <link rel="stylesheet" href="market-pages.css">
+  <script>(function(){var t=localStorage.getItem("etf-theme");if(t)document.documentElement.dataset.theme=t})();</script>
+  <script src="config.js"></script><script src="market-nav.js" defer></script>
+</head>
+<body data-market-page="economy"><div class="wrap">
+  <nav class="top-nav">
+    <a class="tracker-brand" href="index.html"><span class="tracker-mark" aria-hidden="true"></span><span>投資研究工作台</span></a>
+    <a href="tracker.html?view=overview">市場研究</a><a href="tracker.html">ETF 持股</a><a href="dividends.html">配息日曆</a><a href="portfolio.html">我的持股</a><a href="transactions.html">交易紀錄</a><a href="journal.html">短線日誌</a><a href="performance.html">績效走勢</a>
+    <span id="authBox" style="margin-left:auto;display:flex;align-items:center;gap:6px"></span><button id="themeToggle" class="theme-toggle" aria-label="切換主題">🌙</button>
+  </nav>
+  <header class="page-head macro-head"><div><div class="eyebrow">Macro Dashboard</div><h1>總經指標</h1><p>把短期市場訊號與中期景氣循環放在同一個觀察面板。</p></div><div class="updated" id="macroUpdated">資料載入中…</div></header>
+  <div id="pageError" class="error" hidden></div>
+  <div class="macro-country-tabs" role="tablist" aria-label="選擇國家"><button class="active" data-country="US" role="tab" aria-selected="true"><span>美國</span><small>United States</small></button><button data-country="TW" role="tab" aria-selected="false"><span>台灣</span><small>Taiwan</small></button></div>
+  <section id="macroHero" class="macro-hero" aria-label="重要總經摘要"></section>
+  <section id="macroChartPanel" class="panel macro-chart-panel">
+    <div class="chart-head macro-chart-head"><div><span id="macroChartKicker" class="video-kicker">Macro trend</span><h2 id="macroChartTitle">總經走勢</h2><p id="macroChartSubtitle">選擇下方指標即可切換</p></div><div id="macroRanges" class="range-switch" aria-label="圖表期間"><button data-range="1Y">1 年</button><button data-range="3Y" class="active">3 年</button><button data-range="5Y">5 年</button><button data-range="10Y">10 年</button></div></div>
+    <div id="macroSeriesSwitch" class="macro-series-switch" aria-label="選擇圖上顯示的指標"></div><div id="macroChart" class="chart macro-interactive-chart"></div><div id="macroSource" class="macro-source"></div>
+  </section>
+  <section class="panel macro-catalog-panel"><div class="macro-catalog-head"><div><h2>指標庫</h2><p>點選指標卡片查看完整走勢；最新值均標示資料期間。</p></div><div id="macroCategoryFilters" class="macro-category-filters"></div></div><div id="macroIndicatorGrid" class="macro-indicator-grid"></div></section>
+  <div class="notice macro-method-note">「變化」為相對前一期資料，不等同市場預期差。不同指標發布頻率與時間不同，圖表與卡片均以各系列最新可得日期為準；資料可能由原發布機關修訂。</div>
+</div><script src="theme.js"></script><script type="module" src="auth.js"></script><script src="macro-economy.js?v=20260827"></script></body>
+</html>
