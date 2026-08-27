@@ -1,5 +1,5 @@
 window.DATA = {
-  "generated_at": "2026-08-26T22:18:51+08:00",
+  "generated_at": "2026-08-27T08:58:15+08:00",
   "etfs": {
     "00981A": {
       "name": "主動統一台股增長",
@@ -31244,7 +31244,7 @@ window.DATA = {
         },
         {
           "date": "2026-08-26",
-          "fetched_at": "2026-08-26T22:13:52+08:00",
+          "fetched_at": "2026-08-27T08:52:45+08:00",
           "count": 51,
           "self": {
             "open": 28.66,
@@ -33187,13 +33187,13 @@ window.DATA = {
         "securityType": "主動式ETF",
         "issuer": "統一證券投資信託股份有限公司",
         "index": "臺灣證券交易所發行量加權股價報酬指數",
-        "fundSizeHundredMillion": 2826.68,
+        "fundSizeHundredMillion": 2899.08,
         "beneficiaryTenThousands": 98.29,
         "tags": [
           "大型權值"
         ],
         "source": "TWSE ETF e添富",
-        "fetchedAt": "2026-08-26T22:18:15+08:00",
+        "fetchedAt": "2026-08-27T08:57:37+08:00",
         "navHistory": [
           {
             "date": "2026-07-13",
@@ -67584,7 +67584,7 @@ window.DATA = {
         },
         {
           "date": "2026-08-26",
-          "fetched_at": "2026-08-26T22:13:53+08:00",
+          "fetched_at": "2026-08-27T08:52:47+08:00",
           "count": 59,
           "self": {
             "open": 21.61,
@@ -69875,14 +69875,14 @@ window.DATA = {
         "securityType": "主動式ETF",
         "issuer": "群益證券投資信託股份有限公司",
         "index": "無",
-        "fundSizeHundredMillion": 496.38,
+        "fundSizeHundredMillion": 509.67,
         "beneficiaryTenThousands": 18.35,
         "tags": [
-          "中小型權值",
-          "大型權值"
+          "大型權值",
+          "中小型權值"
         ],
         "source": "TWSE ETF e添富",
-        "fetchedAt": "2026-08-26T22:18:18+08:00",
+        "fetchedAt": "2026-08-27T08:57:42+08:00",
         "navHistory": [
           {
             "date": "2026-07-13",
@@ -89402,7 +89402,7 @@ window.DATA = {
         },
         {
           "date": "2026-08-25",
-          "fetched_at": "2026-08-26T22:14:27+08:00",
+          "fetched_at": "2026-08-27T08:53:18+08:00",
           "count": 46,
           "self": {
             "open": 14.95,
@@ -89453,7 +89453,7 @@ window.DATA = {
               "change": 55.4,
               "changePct": 6.67,
               "amplitude": 5.57,
-              "volume": 3229500,
+              "volume": 3240600,
               "currency": "USD",
               "quoteDate": "2026-08-25"
             },
@@ -89472,7 +89472,7 @@ window.DATA = {
               "change": 22.54,
               "changePct": 2.48,
               "amplitude": 3.34,
-              "volume": 19076500,
+              "volume": 19163200,
               "currency": "USD",
               "quoteDate": "2026-08-25"
             },
@@ -89510,7 +89510,7 @@ window.DATA = {
               "change": 11.09,
               "changePct": 4.84,
               "amplitude": 4.7,
-              "volume": 21276300,
+              "volume": 21347000,
               "currency": "USD",
               "quoteDate": "2026-08-25"
             },
@@ -89529,7 +89529,7 @@ window.DATA = {
               "change": -12.35,
               "changePct": -0.83,
               "amplitude": 6.56,
-              "volume": 8991800,
+              "volume": 9032300,
               "currency": "USD",
               "quoteDate": "2026-08-25"
             },
@@ -89586,7 +89586,7 @@ window.DATA = {
               "change": 22.43,
               "changePct": 4.91,
               "amplitude": 2.72,
-              "volume": 18951900,
+              "volume": 19001400,
               "currency": "USD",
               "quoteDate": "2026-08-25"
             },
@@ -89683,7 +89683,7 @@ window.DATA = {
               "change": 13.43,
               "changePct": 6.58,
               "amplitude": 5.01,
-              "volume": 14856400,
+              "volume": 14898300,
               "currency": "USD",
               "quoteDate": "2026-08-25"
             },
@@ -89883,7 +89883,7 @@ window.DATA = {
               "change": 6.61,
               "changePct": 5.47,
               "amplitude": 4.02,
-              "volume": 8760700,
+              "volume": 8904600,
               "currency": "USD",
               "quoteDate": "2026-08-25"
             },
@@ -89921,7 +89921,7 @@ window.DATA = {
               "change": 2.95,
               "changePct": 2.19,
               "amplitude": 2.7,
-              "volume": 52887500,
+              "volume": 53075000,
               "currency": "USD",
               "quoteDate": "2026-08-25"
             },
@@ -89959,7 +89959,7 @@ window.DATA = {
               "change": -1.05,
               "changePct": -0.82,
               "amplitude": 3.56,
-              "volume": 12286400,
+              "volume": 12317500,
               "currency": "USD",
               "quoteDate": "2026-08-25"
             },
@@ -90010,7 +90010,7 @@ window.DATA = {
               "change": -1.01,
               "changePct": -0.39,
               "amplitude": 1.55,
-              "volume": 25500900,
+              "volume": 25550200,
               "currency": "USD",
               "quoteDate": "2026-08-25"
             },
@@ -90125,7 +90125,7 @@ window.DATA = {
               "change": 0.22,
               "changePct": 0.25,
               "amplitude": 3.31,
-              "volume": 81468900,
+              "volume": 81853800,
               "currency": "USD",
               "quoteDate": "2026-08-25"
             },
@@ -90176,7 +90176,7 @@ window.DATA = {
               "change": 12.65,
               "changePct": 4.59,
               "amplitude": 3.77,
-              "volume": 4728100,
+              "volume": 4738900,
               "currency": "USD",
               "quoteDate": "2026-08-25"
             },
@@ -90195,7 +90195,7 @@ window.DATA = {
               "change": 2.05,
               "changePct": 3.13,
               "amplitude": 6.76,
-              "volume": 6492700,
+              "volume": 6523000,
               "currency": "USD",
               "quoteDate": "2026-08-25"
             },
@@ -90426,7 +90426,7 @@ window.DATA = {
               "change": -3.16,
               "changePct": -1.8,
               "amplitude": 4.36,
-              "volume": 24504300,
+              "volume": 24558500,
               "currency": "USD",
               "quoteDate": "2026-08-25"
             },
@@ -90503,7 +90503,7 @@ window.DATA = {
               "change": -1.51,
               "changePct": -0.81,
               "amplitude": 5.45,
-              "volume": 7035700,
+              "volume": 7056100,
               "currency": "USD",
               "quoteDate": "2026-08-25"
             }
@@ -90516,13 +90516,13 @@ window.DATA = {
         "securityType": "主動式ETF",
         "issuer": "元大證券投資信託股份有限公司",
         "index": "無",
-        "fundSizeHundredMillion": 365.16,
+        "fundSizeHundredMillion": 371.99,
         "beneficiaryTenThousands": 12.45,
         "tags": [
           "科技主題型"
         ],
         "source": "TWSE ETF e添富",
-        "fetchedAt": "2026-08-26T22:18:20+08:00",
+        "fetchedAt": "2026-08-27T08:57:44+08:00",
         "navHistory": [
           {
             "date": "2026-07-13",
@@ -90683,6 +90683,11 @@ window.DATA = {
             "date": "2026-08-25",
             "nav": 15.21,
             "premiumPct": -0.72
+          },
+          {
+            "date": "2026-08-26",
+            "nav": 15.42,
+            "premiumPct": -1.17
           }
         ]
       },
@@ -113550,7 +113555,7 @@ window.DATA = {
         },
         {
           "date": "2026-08-26",
-          "fetched_at": "2026-08-26T22:14:28+08:00",
+          "fetched_at": "2026-08-27T08:53:20+08:00",
           "count": 41,
           "self": {
             "open": 17.65,
@@ -115139,13 +115144,13 @@ window.DATA = {
         "securityType": "主動式ETF",
         "issuer": "群益證券投資信託股份有限公司",
         "index": "無",
-        "fundSizeHundredMillion": 423.65,
+        "fundSizeHundredMillion": 435.89,
         "beneficiaryTenThousands": 18.44,
         "tags": [
           "科技主題型"
         ],
         "source": "TWSE ETF e添富",
-        "fetchedAt": "2026-08-26T22:18:23+08:00",
+        "fetchedAt": "2026-08-27T08:57:47+08:00",
         "navHistory": [
           {
             "date": "2026-07-13",
@@ -146302,7 +146307,7 @@ window.DATA = {
         },
         {
           "date": "2026-08-26",
-          "fetched_at": "2026-08-26T22:14:30+08:00",
+          "fetched_at": "2026-08-27T08:53:22+08:00",
           "count": 47,
           "self": {
             "open": 14.34,
@@ -148118,13 +148123,13 @@ window.DATA = {
         "securityType": "主動式ETF",
         "issuer": "國泰證券投資信託股份有限公司",
         "index": "無",
-        "fundSizeHundredMillion": 284.65,
+        "fundSizeHundredMillion": 291.08,
         "beneficiaryTenThousands": 13.35,
         "tags": [
           "高股息"
         ],
         "source": "TWSE ETF e添富",
-        "fetchedAt": "2026-08-26T22:18:26+08:00",
+        "fetchedAt": "2026-08-27T08:57:50+08:00",
         "navHistory": [
           {
             "date": "2026-07-13",
@@ -180979,7 +180984,7 @@ window.DATA = {
         },
         {
           "date": "2026-08-26",
-          "fetched_at": "2026-08-26T22:14:32+08:00",
+          "fetched_at": "2026-08-27T08:53:24+08:00",
           "count": 52,
           "self": {
             "open": 104.1,
@@ -183023,13 +183028,13 @@ window.DATA = {
         "securityType": "台股ETF",
         "issuer": "元大證券投資信託股份有限公司",
         "index": "富時臺灣證券交易所臺灣50指數",
-        "fundSizeHundredMillion": 23367.2,
+        "fundSizeHundredMillion": 23694.34,
         "beneficiaryTenThousands": 354.99,
         "tags": [
           "大型權值"
         ],
         "source": "TWSE ETF e添富",
-        "fetchedAt": "2026-08-26T22:18:28+08:00",
+        "fetchedAt": "2026-08-27T08:57:53+08:00",
         "navHistory": [
           {
             "date": "2026-07-13",
@@ -229812,7 +229817,7 @@ window.DATA = {
         },
         {
           "date": "2026-08-26",
-          "fetched_at": "2026-08-26T22:14:34+08:00",
+          "fetched_at": "2026-08-27T08:53:26+08:00",
           "count": 74,
           "self": {
             "open": 60.7,
@@ -232700,13 +232705,13 @@ window.DATA = {
         "securityType": "台股ETF",
         "issuer": "富邦證券投資信託股份有限公司",
         "index": "臺灣證券交易所臺灣資訊科技指數",
-        "fundSizeHundredMillion": 1600.82,
+        "fundSizeHundredMillion": 1611.38,
         "beneficiaryTenThousands": 46.41,
         "tags": [
           "科技主題型"
         ],
         "source": "TWSE ETF e添富",
-        "fetchedAt": "2026-08-26T22:18:30+08:00",
+        "fetchedAt": "2026-08-27T08:57:55+08:00",
         "navHistory": [
           {
             "date": "2026-07-13",
@@ -265471,7 +265476,7 @@ window.DATA = {
         },
         {
           "date": "2026-08-26",
-          "fetched_at": "2026-08-26T22:14:35+08:00",
+          "fetched_at": "2026-08-27T08:53:28+08:00",
           "count": 51,
           "self": {
             "open": 52.45,
@@ -267533,13 +267538,13 @@ window.DATA = {
         "securityType": "台股ETF",
         "issuer": "元大證券投資信託股份有限公司",
         "index": "臺灣高股息指數",
-        "fundSizeHundredMillion": 7482.14,
+        "fundSizeHundredMillion": 7572.08,
         "beneficiaryTenThousands": 165.78,
         "tags": [
           "高股息"
         ],
         "source": "TWSE ETF e添富",
-        "fetchedAt": "2026-08-26T22:18:33+08:00",
+        "fetchedAt": "2026-08-27T08:57:58+08:00",
         "navHistory": [
           {
             "date": "2026-07-13",
@@ -287384,7 +287389,7 @@ window.DATA = {
         },
         {
           "date": "2026-08-26",
-          "fetched_at": "2026-08-26T22:14:37+08:00",
+          "fetched_at": "2026-08-27T08:53:30+08:00",
           "count": 31,
           "self": {
             "open": 32.7,
@@ -288652,14 +288657,14 @@ window.DATA = {
         "securityType": "台股ETF",
         "issuer": "國泰證券投資信託股份有限公司",
         "index": "MSCI臺灣ESG永續高股息精選30指數",
-        "fundSizeHundredMillion": 6178.2,
+        "fundSizeHundredMillion": 6212.2,
         "beneficiaryTenThousands": 167.16,
         "tags": [
-          "高股息",
-          "公司治理及ESG"
+          "公司治理及ESG",
+          "高股息"
         ],
         "source": "TWSE ETF e添富",
-        "fetchedAt": "2026-08-26T22:18:35+08:00",
+        "fetchedAt": "2026-08-27T08:58:00+08:00",
         "navHistory": [
           {
             "date": "2026-07-13",
@@ -308399,7 +308404,7 @@ window.DATA = {
         },
         {
           "date": "2026-08-26",
-          "fetched_at": "2026-08-26T22:14:38+08:00",
+          "fetched_at": "2026-08-27T08:53:32+08:00",
           "count": 31,
           "self": {
             "open": 48.5,
@@ -309632,13 +309637,13 @@ window.DATA = {
         "securityType": "台股ETF",
         "issuer": "國泰證券投資信託股份有限公司",
         "index": "臺灣指數公司特選臺灣上市上櫃FactSet科技龍頭通訊指數",
-        "fundSizeHundredMillion": 1445.44,
+        "fundSizeHundredMillion": 1473.99,
         "beneficiaryTenThousands": 40.42,
         "tags": [
           "科技主題型"
         ],
         "source": "TWSE ETF e添富",
-        "fetchedAt": "2026-08-26T22:18:38+08:00",
+        "fetchedAt": "2026-08-27T08:58:02+08:00",
         "navHistory": [
           {
             "date": "2026-07-13",
@@ -335765,7 +335770,7 @@ window.DATA = {
         },
         {
           "date": "2026-08-26",
-          "fetched_at": "2026-08-26T22:14:40+08:00",
+          "fetched_at": "2026-08-27T08:53:35+08:00",
           "count": 41,
           "self": {
             "open": 31.3,
@@ -337421,13 +337426,13 @@ window.DATA = {
         "securityType": "台股ETF",
         "issuer": "群益證券投資信託股份有限公司",
         "index": "臺灣指數公司特選臺灣上市上櫃精選高息指數",
-        "fundSizeHundredMillion": 5678.24,
+        "fundSizeHundredMillion": 5682.2,
         "beneficiaryTenThousands": 138.06,
         "tags": [
           "高股息"
         ],
         "source": "TWSE ETF e添富",
-        "fetchedAt": "2026-08-26T22:18:40+08:00",
+        "fetchedAt": "2026-08-27T08:58:05+08:00",
         "navHistory": [
           {
             "date": "2026-07-13",
@@ -369847,7 +369852,7 @@ window.DATA = {
         },
         {
           "date": "2026-08-26",
-          "fetched_at": "2026-08-26T22:14:42+08:00",
+          "fetched_at": "2026-08-27T08:53:37+08:00",
           "count": 51,
           "self": {
             "open": 40.3,
@@ -371860,13 +371865,13 @@ window.DATA = {
         "securityType": "台股ETF",
         "issuer": "國泰證券投資信託股份有限公司",
         "index": "MSCI台灣領袖50精選指數",
-        "fundSizeHundredMillion": 867.9,
+        "fundSizeHundredMillion": 883.03,
         "beneficiaryTenThousands": 18.85,
         "tags": [
           "大型權值"
         ],
         "source": "TWSE ETF e添富",
-        "fetchedAt": "2026-08-26T22:18:43+08:00",
+        "fetchedAt": "2026-08-27T08:58:07+08:00",
         "navHistory": [
           {
             "date": "2026-07-13",
@@ -398124,7 +398129,7 @@ window.DATA = {
         },
         {
           "date": "2026-08-26",
-          "fetched_at": "2026-08-26T22:14:50+08:00",
+          "fetched_at": "2026-08-27T08:53:44+08:00",
           "count": 51,
           "self": {
             "open": 238.75,
@@ -400158,13 +400163,13 @@ window.DATA = {
         "securityType": "台股ETF",
         "issuer": "富邦證券投資信託股份有限公司",
         "index": "富時臺灣證券交易所臺灣50指數",
-        "fundSizeHundredMillion": 4457.56,
+        "fundSizeHundredMillion": 4520.03,
         "beneficiaryTenThousands": 71.36,
         "tags": [
           "大型權值"
         ],
         "source": "TWSE ETF e添富",
-        "fetchedAt": "2026-08-26T22:18:48+08:00",
+        "fetchedAt": "2026-08-27T08:58:11+08:00",
         "navHistory": [
           {
             "date": "2026-07-13",
@@ -411251,7 +411256,7 @@ window.DATA = {
         },
         {
           "date": "2026-08-25",
-          "fetched_at": "2026-08-26T22:14:48+08:00",
+          "fetched_at": "2026-08-27T08:53:42+08:00",
           "count": 31,
           "self": {
             "open": 80.9,
@@ -411302,7 +411307,7 @@ window.DATA = {
               "change": 4.57,
               "changePct": 2.19,
               "amplitude": 2.22,
-              "volume": 121722500,
+              "volume": 122309000,
               "currency": "USD",
               "quoteDate": "2026-08-25"
             },
@@ -411321,7 +411326,7 @@ window.DATA = {
               "change": -2.02,
               "changePct": -0.56,
               "amplitude": 2.14,
-              "volume": 17983100,
+              "volume": 18014900,
               "currency": "USD",
               "quoteDate": "2026-08-25"
             },
@@ -411340,7 +411345,7 @@ window.DATA = {
               "change": 22.54,
               "changePct": 2.48,
               "amplitude": 3.34,
-              "volume": 19076500,
+              "volume": 19163200,
               "currency": "USD",
               "quoteDate": "2026-08-25"
             },
@@ -411359,7 +411364,7 @@ window.DATA = {
               "change": 11.09,
               "changePct": 4.84,
               "amplitude": 4.7,
-              "volume": 21276300,
+              "volume": 21347000,
               "currency": "USD",
               "quoteDate": "2026-08-25"
             },
@@ -411416,7 +411421,7 @@ window.DATA = {
               "change": 7.29,
               "changePct": 1.78,
               "amplitude": 1.4,
-              "volume": 7035700,
+              "volume": 7049800,
               "currency": "USD",
               "quoteDate": "2026-08-25"
             },
@@ -411473,7 +411478,7 @@ window.DATA = {
               "change": 22.43,
               "changePct": 4.91,
               "amplitude": 2.72,
-              "volume": 18951900,
+              "volume": 19001400,
               "currency": "USD",
               "quoteDate": "2026-08-25"
             },
@@ -411530,7 +411535,7 @@ window.DATA = {
               "change": 0.22,
               "changePct": 0.25,
               "amplitude": 3.31,
-              "volume": 81468900,
+              "volume": 81853800,
               "currency": "USD",
               "quoteDate": "2026-08-25"
             },
@@ -411625,7 +411630,7 @@ window.DATA = {
               "change": 12.65,
               "changePct": 4.59,
               "amplitude": 3.77,
-              "volume": 4728100,
+              "volume": 4738900,
               "currency": "USD",
               "quoteDate": "2026-08-25"
             },
@@ -411889,14 +411894,14 @@ window.DATA = {
         "securityType": "國外股票ETF",
         "issuer": "國泰證券投資信託股份有限公司",
         "index": "美國費城半導體指數",
-        "fundSizeHundredMillion": 661.99,
+        "fundSizeHundredMillion": 672.46,
         "beneficiaryTenThousands": 17.78,
         "tags": [
           "科技主題型",
           "大型權值"
         ],
         "source": "TWSE ETF e添富",
-        "fetchedAt": "2026-08-26T22:18:46+08:00",
+        "fetchedAt": "2026-08-27T08:58:09+08:00",
         "navHistory": [
           {
             "date": "2026-07-13",
@@ -412057,6 +412062,11 @@ window.DATA = {
             "date": "2026-08-25",
             "nav": 81.91,
             "premiumPct": 0.42
+          },
+          {
+            "date": "2026-08-26",
+            "nav": 81.94,
+            "premiumPct": 0.32
           }
         ]
       },
