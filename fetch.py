@@ -1122,7 +1122,11 @@ def backfill_quote_history(etf_ids, quote_cache):
 
 
 def validate_quote_dates(etf_ids):
-    """檢查行情欄位不可標示成不同於快照的日期。"""
+    """檢查台股行情欄位不可標示成不同於快照的日期。
+
+    海外市場因時區與休市日不同，允許使用資料日以前最近一個交易日；
+    台股持股與 ETF 自身行情則必須和快照日期完全一致。
+    """
     issues = []
     for etf_id in etf_ids:
         for snapshot in load_snapshots(etf_id):
@@ -1131,6 +1135,8 @@ def validate_quote_dates(etf_ids):
             if self_quote.get("quoteDate") not in (None, data_date):
                 issues.append((etf_id, data_date, "ETF", self_quote.get("quoteDate")))
             for holding in snapshot.get("holdings", []):
+                if holding.get("assetType", "stock") != "stock" or holding.get("market") != "TW":
+                    continue
                 quote_date = holding.get("quoteDate")
                 if quote_date not in (None, data_date):
                     issues.append((etf_id, data_date, holding.get("code") or holding.get("name"), quote_date))
@@ -1276,7 +1282,9 @@ def main():
     backfill_quote_history(etf_ids, quote_cache)
     backfill_institutional_history(etf_ids, inst_cache)
     backfill_margin_history(etf_ids, margin_cache)
-    validate_quote_dates(etf_ids)
+    quote_date_issues = validate_quote_dates(etf_ids)
+    if quote_date_issues:
+        raise RuntimeError("台股行情日期一致性檢查失敗：{} 筆".format(len(quote_date_issues)))
     save_names(names)
     overview_data, distribution_data = update_reference_data(etf_ids)
     out = build_data_js(overview_data, distribution_data)

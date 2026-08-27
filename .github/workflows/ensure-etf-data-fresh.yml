@@ -1,0 +1,37 @@
+name: ETF 資料漏跑監控
+
+on:
+  # 與主要更新 workflow 分開排程；若主要排程被漏觸發，晚間再自動補跑。
+  schedule:
+    - cron: "45 13,15 * * 1-5" # 台灣時間 21:45、23:45
+  workflow_dispatch:
+
+permissions:
+  actions: write
+  contents: read
+
+jobs:
+  ensure-fresh:
+    runs-on: ubuntu-latest
+    steps:
+      - name: 取出目前正式資料
+        uses: actions/checkout@v4
+
+      - name: 檢查台股資料日期
+        id: freshness
+        shell: bash
+        run: |
+          today="$(TZ=Asia/Taipei date +%F)"
+          latest="$(find data -maxdepth 1 -type f -name '*_20??-??-??.json' -printf '%f\n' | sed -nE 's/.*_([0-9]{4}-[0-9]{2}-[0-9]{2})\.json/\1/p' | sort | tail -n 1)"
+          echo "台灣日期：${today}；目前最新快照：${latest:-無}"
+          if [ "${latest}" = "${today}" ]; then
+            echo "stale=false" >> "$GITHUB_OUTPUT"
+          else
+            echo "stale=true" >> "$GITHUB_OUTPUT"
+          fi
+
+      - name: 資料過期時觸發主要更新
+        if: steps.freshness.outputs.stale == 'true'
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: gh workflow run update-data.yml --ref main

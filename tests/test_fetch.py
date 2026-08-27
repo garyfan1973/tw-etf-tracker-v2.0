@@ -1,7 +1,7 @@
 import unittest
 from unittest.mock import patch
 
-from fetch import fetch_json_retry, fetch_twse_etf_nav, summarize_diff
+from fetch import fetch_json_retry, fetch_twse_etf_nav, summarize_diff, validate_quote_dates
 
 
 class SummarizeDiffTests(unittest.TestCase):
@@ -53,6 +53,33 @@ class SummarizeDiffTests(unittest.TestCase):
             {"date": "2026-08-13", "nav": 107.04, "premiumPct": -0.32},
         ])
         self.assertEqual(form_json_mock.call_args.args[1]["id"], "0050")
+
+    @patch("fetch.load_snapshots")
+    def test_quote_date_validation_ignores_overseas_market_lag(self, load_snapshots_mock):
+        load_snapshots_mock.return_value = [{
+            "date": "2026-08-27",
+            "self": {"quoteDate": "2026-08-27"},
+            "holdings": [
+                {"code": "2330", "market": "TW", "assetType": "stock", "quoteDate": "2026-08-27"},
+                {"code": "NVDA", "market": "US", "assetType": "stock", "quoteDate": "2026-08-26"},
+            ],
+        }]
+
+        self.assertEqual(validate_quote_dates(["0050"]), [])
+
+    @patch("fetch.load_snapshots")
+    def test_quote_date_validation_rejects_stale_taiwan_quote(self, load_snapshots_mock):
+        load_snapshots_mock.return_value = [{
+            "date": "2026-08-27",
+            "self": {"quoteDate": "2026-08-27"},
+            "holdings": [
+                {"code": "2330", "market": "TW", "assetType": "stock", "quoteDate": "2026-08-26"},
+            ],
+        }]
+
+        self.assertEqual(validate_quote_dates(["0050"]), [
+            ("0050", "2026-08-27", "2330", "2026-08-26"),
+        ])
 
 
 if __name__ == "__main__":
