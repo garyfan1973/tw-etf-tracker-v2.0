@@ -1,5 +1,5 @@
 {
-  "updated_at": "2026-08-27T15:59:59+00:00",
+  "updated_at": "2026-08-28T05:29:05+00:00",
   "sources": [
     "https://openapi.twse.com.tw/v1/opendata/t187ap47_L",
     "https://www.tpex.org.tw/openapi/v1/tpex_mainboard_quotes"
@@ -1753,6 +1753,11 @@
     {
       "code": "009826",
       "name": "貝萊德世界股票",
+      "market": "上市"
+    },
+    {
+      "code": "009827",
+      "name": "玉山未來全球算力",
       "market": "上市"
     },
     {
