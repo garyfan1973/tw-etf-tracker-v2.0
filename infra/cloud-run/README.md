@@ -36,6 +36,12 @@
    ./infra/cloud-run/deploy.sh
    ```
 
+   若映像已建置完成、只需更新 Jobs 或 Scheduler 設定，可略過重建：
+
+   ```bash
+   SKIP_BUILD=true ./infra/cloud-run/deploy.sh
+   ```
+
 6. 驗證三個 Job，再移除 GitHub workflow 的 `schedule` 區塊：
 
    ```bash
@@ -45,6 +51,14 @@
    ```
 
 晨報具有資料庫防重複機制，但驗證時仍應先確認當日寄送狀態；不要任意使用強制重寄。
+如只想驗證晨報產生流程、不寄出 Email，可覆寫單次執行參數：
+
+```bash
+gcloud run jobs execute member-morning-report \
+  --region asia-east1 \
+  --args morning-report-dry-run \
+  --wait
+```
 
 ## 安全與成本
 

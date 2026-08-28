@@ -150,23 +150,30 @@ def run_data_batch(repo_dir: Path, git_env: dict[str, str], mode: str) -> None:
     run(["git", "push", "origin", f"HEAD:{branch}"], repo_dir, env=git_env)
 
 
-def run_morning_report(repo_dir: Path) -> None:
+def run_morning_report(repo_dir: Path, *, dry_run: bool = False) -> None:
     require_env("SUPABASE_URL")
     require_env("SUPABASE_SERVICE_ROLE_KEY")
-    run([sys.executable, "scripts/morning_report.py"], repo_dir)
+    command = [sys.executable, "scripts/morning_report.py"]
+    if dry_run:
+        command.append("--dry-run")
+    run(command, repo_dir)
 
 
 def main() -> int:
-    if len(sys.argv) != 2 or sys.argv[1] not in {"data-tw", "data-us", "morning-report"}:
-        print("用法：batch_runner.py data-tw|data-us|morning-report", file=sys.stderr)
+    valid_modes = {"data-tw", "data-us", "morning-report", "morning-report-dry-run"}
+    if len(sys.argv) != 2 or sys.argv[1] not in valid_modes:
+        print(
+            "用法：batch_runner.py data-tw|data-us|morning-report|morning-report-dry-run",
+            file=sys.stderr,
+        )
         return 2
 
     mode = sys.argv[1]
     work_root = Path(tempfile.mkdtemp(prefix="market-batch-"))
     try:
         repo_dir, git_env = clone_repository(work_root)
-        if mode == "morning-report":
-            run_morning_report(repo_dir)
+        if mode in {"morning-report", "morning-report-dry-run"}:
+            run_morning_report(repo_dir, dry_run=mode.endswith("dry-run"))
         else:
             run_data_batch(repo_dir, git_env, mode)
         print(f"批次完成：{mode}")

@@ -55,7 +55,11 @@ gcloud projects add-iam-policy-binding "${PROJECT_ID}" \
   --role roles/secretmanager.secretAccessor \
   --condition None >/dev/null
 
-gcloud builds submit "$(dirname "$0")" --tag "${IMAGE}" --project "${PROJECT_ID}"
+if [[ "${SKIP_BUILD:-false}" != "true" ]]; then
+  gcloud builds submit "$(dirname "$0")" --tag "${IMAGE}" --project "${PROJECT_ID}"
+else
+  echo "SKIP_BUILD=true，沿用既有映像：${IMAGE}"
+fi
 
 COMMON_ENV="GITHUB_REPOSITORY=garyfan1973/tw-etf-tracker-v2.0,GITHUB_BRANCH=main,MORNING_REPORT_BASE_URL=https://tw-etf-tracker-v2-0.vercel.app"
 COMMON_SECRETS="GITHUB_TOKEN=github-token:latest,SUPABASE_URL=supabase-url:latest,SUPABASE_SERVICE_ROLE_KEY=supabase-service-role-key:latest"
