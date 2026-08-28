@@ -1,9 +1,7 @@
 name: ETF 資料漏跑監控
 
 on:
-  # 與主要更新 workflow 分開排程；若主要排程被漏觸發，晚間再自動補跑。
-  schedule:
-    - cron: "45 13,15 * * 1-5" # 台灣時間 21:45、23:45
+  # 自動補跑已由 Cloud Scheduler 的同日多時段排程取代。
   workflow_dispatch:
 
 permissions:

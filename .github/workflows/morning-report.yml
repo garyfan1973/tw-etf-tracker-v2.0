@@ -1,9 +1,7 @@
 name: 會員 AI 晨報
 
 on:
-  schedule:
-    # UTC 週日至週四 22:30 = 台北時間週一至週五 06:30
-    - cron: "30 22 * * 0-4"
+  # 自動排程已移至 Google Cloud Scheduler；GitHub 只保留人工備援。
   workflow_dispatch:
     inputs:
       dry_run:
