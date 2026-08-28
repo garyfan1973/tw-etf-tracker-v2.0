@@ -66,3 +66,4 @@ gcloud run jobs execute member-morning-report \
 - Runtime service account 只有讀取秘密的權限；Scheduler service account 只有啟動 Jobs 的權限。
 - 容器內透過 `GIT_ASKPASS` 使用 GitHub token，不把 token 放入 clone URL 或 log。
 - 三個 Cloud Scheduler jobs 落在每個 Billing account 的免費額度內。
+- Artifact Registry 自動保留最近兩版，並刪除超過 14 天的未標記舊版，避免映像持續累積費用。

@@ -41,6 +41,11 @@ if ! gcloud artifacts repositories describe "${AR_REPOSITORY}" \
     --project "${PROJECT_ID}"
 fi
 
+gcloud artifacts repositories set-cleanup-policies "${AR_REPOSITORY}" \
+  --location "${REGION}" \
+  --policy "$(dirname "$0")/artifact-cleanup-policy.json" \
+  --project "${PROJECT_ID}" >/dev/null
+
 for account in "${RUNTIME_SA_NAME}" "${SCHEDULER_SA_NAME}"; do
   if ! gcloud iam service-accounts describe "${account}@${PROJECT_ID}.iam.gserviceaccount.com" \
     --project "${PROJECT_ID}" >/dev/null 2>&1; then
