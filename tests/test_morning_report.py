@@ -71,7 +71,14 @@ class MorningReportTests(unittest.TestCase):
         self.assertNotIn("<script>alert(1)</script>", markup)
         self.assertIn("&lt;script&gt;alert(1)&lt;/script&gt;", markup)
         self.assertIn("&lt;b&gt;test&lt;/b&gt;", markup)
-        self.assertIn("盤前", markup)
+        self.assertIn("盤後", markup)
+
+    def test_uses_latest_market_date_from_chart(self):
+        self.assertEqual(
+            MODULE.latest_market_date({"visibleRange":{"endDate":"2026-08-28"}}, "2026-08-29"),
+            "2026-08-28",
+        )
+        self.assertEqual(MODULE.latest_market_date({}, "2026-08-29"), "2026-08-29")
 
     def test_force_rerun_flag_is_opt_in(self):
         with mock.patch.object(sys, "argv", ["morning_report.py"]):

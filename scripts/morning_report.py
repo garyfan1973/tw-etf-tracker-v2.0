@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Create weekday member morning reports and email each completed symbol immediately."""
+"""Create post-close member reports and email each completed symbol immediately."""
 from __future__ import annotations
 
 import argparse
@@ -22,7 +22,7 @@ ROOT = Path(__file__).resolve().parents[1]
 TAIPEI = ZoneInfo("Asia/Taipei")
 DEFAULT_BASE_URL = "https://tw-etf-tracker-v2-0.vercel.app"
 MAX_PDF_BYTES = 3_500_000
-REPORT_TIMING = "盤前"
+REPORT_TIMING = "盤後"
 CHART_SETTINGS = {
     "rangeDays": 120,
     "mas": [5, 10, 20, 60, 120, 240],
@@ -209,6 +209,14 @@ def analysis_html(asset: dict, report_date: str, analysis: dict, image_bytes: by
     </style></head><body><header><div><em>AI MORNING TECHNICAL ANALYSIS</em><h1>{esc(asset['symbol'])} {esc(asset['assetName'])}</h1></div><small>{esc(report_date)} · {REPORT_TIMING} · 一般分析</small></header><img class="chart" src="data:image/jpeg;base64,{image}" alt="技術線圖"><section class="hero"><label>{esc(analysis.get('marketState'))}</label><h2>{esc(analysis.get('conclusion'))}</h2><p>{esc(analysis.get('thesis'))}</p></section><section class="card"><h3>技術判讀</h3><div class="points">{points}</div></section><div class="zones"><section class="card"><h3>支撐區</h3>{listing(analysis.get('supportZones'))}</section><section class="card"><h3>壓力區</h3>{listing(analysis.get('resistanceZones'))}</section></div><section class="card"><h3>交易計畫</h3><div class="plan">{plan_rows}</div></section><section class="card"><h3>風險提醒</h3>{listing(analysis.get('riskNotes'))}</section><div class="invalid"><b>判斷失效條件</b>{esc(analysis.get('invalidation'))}</div><footer>AI 分析僅供技術研究與交易計畫整理，不構成投資建議或獲利保證。</footer></body></html>"""
 
 
+def latest_market_date(chart_data: dict, fallback: str) -> str:
+    value = str((chart_data.get("visibleRange") or {}).get("endDate") or "")[:10]
+    try:
+        return dt.date.fromisoformat(value).isoformat()
+    except ValueError:
+        return fallback
+
+
 async def make_pdf(page, markup: str) -> bytes:
     await page.set_content(markup, wait_until="load")
     await page.emulate_media(media="screen")
@@ -233,7 +241,8 @@ async def process_asset(db, browser, service_key, run, report_date, base_url, it
                     db.update("morning_report_results", f"id=eq.{result_row['id']}", values)
                 else:
                     result_row = db.insert("morning_report_results", values)
-            pdf = await make_pdf(page, analysis_html(asset, report_date, analysis, image_bytes))
+            market_date = latest_market_date(chart_data, report_date)
+            pdf = await make_pdf(page, analysis_html(asset, market_date, analysis, image_bytes))
         finally:
             await page.close()
         if len(pdf) > MAX_PDF_BYTES:
@@ -248,8 +257,8 @@ async def process_asset(db, browser, service_key, run, report_date, base_url, it
             elif force and not dry_run:
                 db.update("morning_report_deliveries", f"id=eq.{delivery['id']}", {"run_id":run["id"], "status":"pending", "error_message":None, "completed_at":None})
             try:
-                mail = {"email":subscriber["email"], "symbol":asset["symbol"], "assetName":asset["assetName"], "date":report_date, "timing":REPORT_TIMING, "pdfBase64":base64.b64encode(pdf).decode()}
-                subject = f"{asset['symbol']} {asset['assetName']} {report_date} {REPORT_TIMING} 技術分析指引"
+                mail = {"email":subscriber["email"], "symbol":asset["symbol"], "assetName":asset["assetName"], "date":market_date, "timing":REPORT_TIMING, "pdfBase64":base64.b64encode(pdf).decode()}
+                subject = f"{asset['symbol']} {asset['assetName']} {market_date} {REPORT_TIMING} 技術分析指引"
                 if dry_run:
                     print(f"DRY_RUN {asset['market']} {asset['symbol']} -> {subscriber['email']}", flush=True)
                     continue

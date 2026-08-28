@@ -35,7 +35,7 @@
       <span id="authBox" style="margin-left:auto;display:flex;align-items:center;gap:6px"></span>
       <button id="themeToggle" class="theme-toggle" aria-label="切換主題">🌙</button>
     </nav>
-    <header class="morning-head"><div><h1>晨報設定</h1><p>每天約 06:30 開始產生，每檔分析完成後立即寄送一封附 PDF 的 Email。</p></div></header>
+    <header class="morning-head"><div><h1>晨報設定</h1><p>週二至週六約 06:30 產生盤後分析，每檔完成後立即寄送一封附 PDF 的 Email。</p></div></header>
     <section class="morning-card">
       <div id="accessState" class="access-state">正在確認會員權限…</div>
       <div id="settingsContent" hidden>
@@ -49,10 +49,10 @@
         <div class="list-head"><h2>晨報標的</h2><span id="morningCount" class="count">0 / 20</span></div>
         <div id="morningSymbolList" class="symbol-list"></div>
         <div class="settings-foot">
-          <label class="toggle"><input id="morningEnabled" type="checkbox" checked> 啟用平日晨報</label>
+          <label class="toggle"><input id="morningEnabled" type="checkbox" checked> 啟用盤後晨報</label>
           <button id="saveMorningSettings" class="primary-btn" type="button">完成設定</button>
         </div>
-        <div class="delivery-note">晨報寄至會員登入 Email；週一至週五寄送。晨報分析不扣除互動式 AI 線圖分析額度。</div>
+        <div class="delivery-note">晨報寄至會員登入 Email；週二至週六寄送，涵蓋台股與美股前一交易日收盤資料。晨報分析不扣除互動式 AI 線圖分析額度。</div>
         <div id="morningStatus" class="status" role="status" aria-live="polite"></div>
       </div>
     </section>

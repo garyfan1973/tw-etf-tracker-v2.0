@@ -126,6 +126,6 @@ upsert_schedule() {
 # 同一個 Scheduler job 可包含多個小時，仍只佔一個免費 job 額度。
 upsert_schedule market-data-tw market-data-tw "45 19,20,21,23 * * 1-5"
 upsert_schedule market-data-us market-data-us "20 5 * * 2-6"
-upsert_schedule member-morning-report member-morning-report "30 6 * * 1-5"
+upsert_schedule member-morning-report member-morning-report "30 6 * * 2-6"
 
 echo "部署完成。先個別執行三個 Cloud Run Jobs 驗證，確認後再停用 GitHub schedule。"

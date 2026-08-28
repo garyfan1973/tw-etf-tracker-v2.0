@@ -81,7 +81,7 @@ async function saveSettings() {
     const client = window.ETFAuth.client();
     const { data, error } = await client.rpc("save_morning_report_settings", { p_symbols:state.draft, p_enabled:enabled });
     if (error) throw error;
-    setStatus(data.enabled ? `設定完成，已啟用 ${data.count} 檔標的的平日晨報。` : "設定完成，晨報目前已暫停。", "success");
+    setStatus(data.enabled ? `設定完成，已啟用 ${data.count} 檔標的的盤後晨報。` : "設定完成，晨報目前已暫停。", "success");
   } catch (error) {
     const message = String(error?.message || "設定儲存失敗");
     setStatus(message.includes("FEATURE_NOT_ENABLED") ? "目前帳號沒有 AI 線圖分析權限。" : message.includes("LIMIT") ? "晨報最多設定 20 檔標的。" : "設定儲存失敗，請稍後再試。", "error");
