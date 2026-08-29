@@ -1,9 +1,14 @@
 import unittest
 
 from scripts import morning_context as MODULE
+from webapp.api import _analysis_context as SHARED
 
 
 class MorningContextTests(unittest.TestCase):
+    def test_morning_report_uses_shared_context_engine(self):
+        self.assertIs(MODULE.normalize_dividends, SHARED.normalize_dividends)
+        self.assertIs(MODULE.dividend_adjusted_technical, SHARED.dividend_adjusted_technical)
+
     def test_cash_dividend_back_adjustment_separates_mechanical_gap(self):
         chart = {
             "priceRows": [

@@ -163,31 +163,19 @@ def positioning_context(root: Path, asset: dict, as_of: str) -> tuple[dict | Non
     }, []
 
 
+from webapp.api._analysis_context import (  # noqa: E402
+    build_market_context as _build_market_context,
+    dividend_adjusted_technical as _shared_dividend_adjusted_technical,
+    normalize_dividends as _shared_normalize_dividends,
+)
+
+# Morning reports and interactive analysis intentionally share the same
+# normalization and cash-dividend adjustment implementation.
+normalize_dividends = _shared_normalize_dividends
+dividend_adjusted_technical = _shared_dividend_adjusted_technical
+
+
 def build_context(root: Path, asset: dict, chart_data: dict, dividends: list[dict], news: list[dict]) -> dict:
     as_of = str((chart_data.get("visibleRange") or {}).get("endDate") or "")[:10]
-    normalized = normalize_dividends(dividends)
-    start = dt.date.fromisoformat(as_of) - dt.timedelta(days=180)
-    end = dt.date.fromisoformat(as_of) + dt.timedelta(days=90)
-    relevant = [row for row in normalized if start.isoformat() <= row["exDate"] <= end.isoformat()]
-    adjusted, actions = dividend_adjusted_technical(chart_data, relevant)
     positioning, notes = positioning_context(root, asset, as_of)
-    clean_news = [{
-        "title": str(item.get("title") or "")[:240],
-        "source": str(item.get("source") or "")[:100],
-        "publishedAt": str(item.get("publishedAt") or "")[:32],
-        "category": str(item.get("category") or "")[:60],
-        "type": str(item.get("type") or "news")[:20],
-    } for item in (news or [])[:8] if item.get("title")]
-    if not clean_news:
-        notes.append("近 7 日沒有取得可驗證的公司公告或媒體標題。")
-    if not relevant:
-        notes.append("分析區間附近沒有取得配息／除息事件。")
-    return {
-        "version": 1,
-        "asOfDate": as_of,
-        "corporateActions": actions or relevant,
-        "adjustedTechnical": adjusted,
-        "news": clean_news,
-        "positioning": positioning,
-        "availabilityNotes": notes,
-    }
+    return _build_market_context(chart_data, dividends, news, positioning, notes, as_of)

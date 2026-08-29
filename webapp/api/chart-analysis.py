@@ -1,13 +1,23 @@
-"""Authenticated AI technical-chart analysis for entitled Supabase members."""
+"""Authenticated, source-backed chart analysis for entitled Supabase members."""
 from http.server import BaseHTTPRequestHandler
 import base64
 import binascii
+from concurrent.futures import ThreadPoolExecutor
 import json
 import math
 import os
 import re
 import urllib.error
 import urllib.request
+
+try:
+    from api._analysis_context import build_market_context, webapp_positioning
+    from api.dividends import load as load_dividends
+    from api.news import build_payload as load_news
+except ModuleNotFoundError:  # Unit tests import from the repository root.
+    from webapp.api._analysis_context import build_market_context, webapp_positioning
+    from webapp.api.dividends import load as load_dividends
+    from webapp.api.news import build_payload as load_news
 
 
 OPENAI_RESPONSES_URL = "https://api.openai.com/v1/responses"
@@ -31,7 +41,7 @@ INDICATOR_FIELDS = {
 }
 
 
-SYSTEM_PROMPT = """你是台股、美股與 ETF 短線技術線圖分析師。你只根據使用者上傳截圖及網站同時附上的行情快照分析，不主動查網路，也不補造即時行情、價格、指標、成交量、支撐或壓力。
+SYSTEM_PROMPT = """你是台股、美股與 ETF 短線綜合分析師。你只根據使用者上傳截圖及網站後端附上的行情、除息、消息與籌碼資料分析，不自行查網路，也不補造即時行情、價格、指標、成交量、支撐、壓力或基本面事件。
 
 重要規則：
 1. 預設採台灣顯示慣例：紅 K／紅量為上漲，綠 K／綠量為下跌。MACD 不可只靠顏色判斷，必須讀 DIF、Signal 與柱狀體關係。
@@ -330,12 +340,23 @@ def validate_payload(payload, allow_context=False):
     if not decoded or len(decoded) > MAX_IMAGE_BYTES:
         raise ValueError("處理後圖片需小於 3.5 MB")
     symbol = str(payload.get("symbol") or "").strip().upper()[:20]
+    if symbol and not re.fullmatch(r"[0-9A-Z.^_-]{1,20}", symbol):
+        raise ValueError("標的代號格式不正確")
+    market = str(payload.get("market") or "").strip().upper()
+    asset_type = str(payload.get("assetType") or "").strip().lower()
+    asset_name = str(payload.get("assetName") or "").strip()[:80]
+    if market and market not in CHART_MARKETS:
+        raise ValueError("市場類型不正確")
+    if asset_type and asset_type not in CHART_ASSET_TYPES:
+        raise ValueError("標的類型不正確")
     chart_data = validate_chart_data(payload.get("chartData"))
     if chart_data:
         chart_symbol = chart_data["asset"]["symbol"]
         if symbol and symbol != chart_symbol:
             raise ValueError("線圖圖片與行情快照的標的代號不一致，請重新擷取")
         symbol = symbol or chart_symbol
+        market = chart_data["asset"]["market"]
+        asset_type = chart_data["asset"]["assetType"]
     timing = str(payload.get("screenshotTiming") or "").strip()[:40]
     proposed = payload.get("proposedPrice")
     if proposed in (None, ""):
@@ -350,16 +371,45 @@ def validate_payload(payload, allow_context=False):
     context_data = None
     if payload.get("contextData") is not None:
         if not allow_context:
-            raise ValueError("綜合分析資料僅供晨報服務使用")
+            raise ValueError("綜合分析資料僅能由後端建立")
         context_data = sanitize_context_data(payload["contextData"])
     return {"mode": mode, "imageData": image_data, "symbol": symbol,
             "screenshotTiming": timing, "proposedPrice": proposed, "imageBytes": len(decoded),
+            "market": market, "assetType": asset_type, "assetName": asset_name,
             "chartData": chart_data, "contextData": context_data}
+
+
+def build_server_context(data):
+    """Fetch trusted context for an interactive request; all failures degrade explicitly."""
+    symbol, market = data.get("symbol") or "", data.get("market") or ""
+    chart_data, notes = data.get("chartData") or {}, []
+    if not symbol:
+        return build_market_context(chart_data, [], [], None, ["未提供標的代號，無法取得除息、消息與籌碼資料。"])
+    if market not in {"TW", "US"}:
+        return build_market_context(chart_data, [], [], None, ["此市場目前沒有支援來源化的除息、消息與籌碼資料。"])
+
+    with ThreadPoolExecutor(max_workers=2) as executor:
+        dividend_future = executor.submit(load_dividends, symbol, market, data.get("assetType") or None)
+        news_future = executor.submit(load_news, symbol, data.get("assetName") or symbol, market)
+        try:
+            dividends = dividend_future.result(timeout=22)
+        except Exception:
+            dividends = []
+            notes.append("配息／除息來源暫時無法連線。")
+        try:
+            news = (news_future.result(timeout=18) or {}).get("items") or []
+        except Exception:
+            news = []
+            notes.append("公司公告／新聞來源暫時無法連線。")
+    as_of = str((chart_data.get("visibleRange") or {}).get("endDate") or "")[:10]
+    positioning, positioning_notes = webapp_positioning(symbol, market, as_of or "9999-12-31")
+    notes.extend(positioning_notes)
+    return build_market_context(chart_data, dividends, news, positioning, notes, as_of or None)
 
 
 def build_user_prompt(data):
     mode_labels = {
-        "general": "一般技術分析",
+        "general": "一般綜合分析",
         "fast": "快閃／搶反彈",
         "overnight": "隔日沖",
         "low-entry": "低接掛價"
@@ -487,6 +537,7 @@ class handler(BaseHTTPRequestHandler):
                     "p_proposed_price": data["proposedPrice"]
                 })
                 request_id = quota["requestId"]
+                data["contextData"] = build_server_context(data)
             result, model, usage = analyze_chart(data, api_key)
             if request_id:
                 call_rpc("finish_chart_analysis_request", token, {

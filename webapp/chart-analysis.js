@@ -120,7 +120,7 @@ async function loadAssetNames() {
 
 function resultSubject(meta = currentAnalysisMeta) {
   if (!meta) return "";
-  return `${meta.symbol || "未填標的"} ${meta.assetName || meta.symbol || "未填名稱"} ${meta.date} ${meta.timing} 技術分析指引`;
+  return `${meta.symbol || "未填標的"} ${meta.assetName || meta.symbol || "未填名稱"} ${meta.date} ${meta.timing} 綜合分析指引`;
 }
 
 function setExportTools(visible) {
@@ -546,7 +546,7 @@ async function loadTransferredChart(user) {
     transferredAssetName = transfer.assetName || "";
     transferredChartData = transfer.chartData || null;
     $("#analysisStatus").className = "ai-status success";
-    $("#analysisStatus").textContent = transferredChartData ? "已自動帶入線圖與精確行情資料，請選擇分析模式。" : "已自動帶入技術分析頁的線圖，請選擇分析模式。";
+    $("#analysisStatus").textContent = transferredChartData ? "已自動帶入線圖與精確行情資料；分析時會由後端補入除息、消息與籌碼資料。" : "已自動帶入線圖；請確認標的代號以取得除息、消息與籌碼資料。";
   } catch (error) {
     if (generation !== transferGeneration || activeUserId !== user.id) return;
     $("#analysisStatus").className = "ai-status error";
@@ -590,6 +590,22 @@ function renderAnalysis(target, result, compact = false) {
   points.append(pointGrid);
   target.append(points);
 
+  const context = result.contextFactors || {};
+  const contextCard = node("section", "ai-result-card ai-context-card");
+  contextCard.append(node("h3", "", "技術面以外的重要因素"));
+  const contextGrid = node("div", "ai-point-grid");
+  [["除息／公司行動", context.dividendImpact], ["籌碼觀察", context.positioningImpact], ["綜合判斷", context.synthesis]].forEach(([label, value]) => {
+    const item = node("article", "ai-point neutral");
+    item.append(node("b", "", label), node("p", "", value || "資料不足，無法判斷"));
+    contextGrid.append(item);
+  });
+  contextCard.append(contextGrid, node("h4", "", "近期消息"));
+  const newsList = node("ul");
+  (context.newsImpact?.length ? context.newsImpact : ["近 7 日沒有取得可驗證的公司公告或媒體標題。"])
+    .forEach((item) => newsList.append(node("li", "", item)));
+  contextCard.append(newsList);
+  target.append(contextCard);
+
   const zones = node("div", "ai-zone-grid");
   addListCard(zones, "支撐區", result.supportZones, "support");
   addListCard(zones, "壓力區", result.resistanceZones, "resistance");
@@ -624,7 +640,7 @@ function listHtml(items) {
 
 function buildPdfExportFrame() {
   if (!currentAnalysisResult || !currentAnalysisMeta) throw new Error("目前沒有可匯出的分析結果");
-  const result = currentAnalysisResult, plan = result.tradePlan || {};
+  const result = currentAnalysisResult, plan = result.tradePlan || {}, context = result.contextFactors || {};
   const technical = (result.technicalPoints || []).map((point) => {
     const tone = ["bullish", "bearish", "neutral", "warning"].includes(point.tone) ? point.tone : "neutral";
     return `<article class="${tone}"><b>${escapeHtml(point.label)}</b><p>${escapeHtml(point.analysis)}</p></article>`;
@@ -632,6 +648,8 @@ function buildPdfExportFrame() {
   const toneLegend = TECHNICAL_TONE_LEGEND.map(([tone, label]) => `<span class="${tone}"><i></i>${label}</span>`).join("");
   const planRows = [["進場條件", plan.entry], ["防守／停損", plan.defense], ["第一目標", plan.firstTarget], ["第二目標", plan.secondTarget], ["強壓位置", plan.strongResistance], ["部位建議", plan.positionSizing]]
     .map(([label, value]) => `<div><span>${label}</span><strong>${escapeHtml(value || "—")}</strong></div>`).join("");
+  const contextRows = [["除息／公司行動", context.dividendImpact], ["籌碼觀察", context.positioningImpact], ["綜合判斷", context.synthesis]]
+    .map(([label, value]) => `<article><b>${label}</b><p>${escapeHtml(value || "資料不足，無法判斷")}</p></article>`).join("");
   const iframe = document.createElement("iframe");
   iframe.title = "PDF 匯出版面";
   iframe.style.cssText = "position:absolute;left:-12000px;top:0;width:1060px;height:100px;border:0;background:#fff";
@@ -639,12 +657,13 @@ function buildPdfExportFrame() {
     *{box-sizing:border-box}html,body{margin:0;background:#fff;color:#1c2430;font-family:-apple-system,'PingFang TC','Microsoft JhengHei',sans-serif}body{width:1060px;padding:38px;font-size:15px;line-height:1.6}
     header{display:flex;justify-content:space-between;align-items:flex-start;gap:24px;padding-bottom:18px;border-bottom:3px solid #3b5bdb}header em{display:block;color:#3b5bdb;font-size:12px;font-style:normal;font-weight:800;letter-spacing:.12em}h1{margin:5px 0 0;font-size:29px}header small{color:#6b7684;font-size:13px}.chart{display:block;width:100%;max-height:640px;margin:22px 0;border-radius:14px;background:#111827;object-fit:contain}
     .hero{padding:20px;border:1px solid #c7d2fe;border-radius:14px;background:#eef2ff}.hero label{color:#3b5bdb;font-size:12px;font-weight:800}.hero h2{margin:5px 0 0;font-size:24px}.hero p{margin:3px 0 0;color:#596579}.quality{margin:12px 0;padding:11px 13px;border-radius:9px;background:#f1f5f9;color:#596579}.card{margin-top:14px;padding:17px;border:1px solid #e3e7ec;border-radius:13px;background:#f8fafc}.card h3{margin:0;font-size:17px}.title-row{display:flex;align-items:center;justify-content:space-between;gap:18px;margin-bottom:12px}.tone-legend{display:flex;align-items:center;gap:14px;font-size:12px;color:#596579}.tone-legend span{display:flex;align-items:center;gap:5px}.tone-legend i{width:20px;height:3px;border-radius:2px;background:#7b8491}.tone-legend .bullish i{background:#d64545}.tone-legend .bearish i{background:#16884c}.tone-legend .warning i{background:#d69e2e}.points,.zones,.plan{display:grid;grid-template-columns:1fr 1fr;gap:11px}.points article,.plan div{padding:12px;border-radius:9px;background:#fff}.points article{border-left:4px solid #7b8491}.points article.bullish{border-color:#d64545}.points article.bearish{border-color:#16884c}.points article.warning{border-color:#d69e2e}.points p{margin:4px 0 0;color:#596579}.zones section{margin-top:14px;border-top:4px solid #1f9d55}.zones section:last-child{border-color:#d64545}.plan span,.plan strong{display:block}.plan span{color:#6b7684;font-size:12px}.plan strong{margin-top:4px}ul{margin:0;padding-left:22px;color:#596579}.invalid{margin-top:14px;padding:13px;border-radius:10px;background:#fff0f0}.invalid b{color:#d64545;margin-right:12px}footer{margin-top:20px;padding-top:14px;border-top:1px solid #e3e7ec;color:#6b7684;font-size:12px}
-  </style></head><body><header><div><em>AI TECHNICAL ANALYSIS</em><h1>${escapeHtml(currentAnalysisMeta.symbol)} ${escapeHtml(currentAnalysisMeta.assetName)}</h1></div><small>${escapeHtml(currentAnalysisMeta.date)} · ${escapeHtml(currentAnalysisMeta.timing)} · ${escapeHtml(currentAnalysisMeta.modeLabel)}</small></header>
+  </style></head><body><header><div><em>AI COMPREHENSIVE ANALYSIS</em><h1>${escapeHtml(currentAnalysisMeta.symbol)} ${escapeHtml(currentAnalysisMeta.assetName)}</h1></div><small>${escapeHtml(currentAnalysisMeta.date)} · ${escapeHtml(currentAnalysisMeta.timing)} · ${escapeHtml(currentAnalysisMeta.modeLabel)}</small></header>
   ${resultImageData ? `<img class="chart" src="${resultImageData}" alt="技術線圖">` : ""}<section class="hero"><div><label>${escapeHtml(result.marketState || "資訊不足")}</label><h2>${escapeHtml(result.conclusion || "尚無結論")}</h2></div><p>${escapeHtml(result.thesis || "")}</p></section>
   ${SHOW_IMAGE_QUALITY_NOTE && result.imageQualityNote ? `<div class="quality">${escapeHtml(result.imageQualityNote)}</div>` : ""}<section class="card"><div class="title-row"><h3>技術判讀</h3><div class="tone-legend">${toneLegend}</div></div><div class="points">${technical}</div></section>
+  <section class="card"><h3>技術面以外的重要因素</h3><div class="points">${contextRows}</div><h3>近期消息</h3>${listHtml(context.newsImpact)}</section>
   <div class="zones"><section class="card"><h3>支撐區</h3>${listHtml(result.supportZones)}</section><section class="card"><h3>壓力區</h3>${listHtml(result.resistanceZones)}</section></div>
   <section class="card"><h3>交易計畫</h3><div class="plan">${planRows}</div></section><section class="card"><h3>風險提醒</h3>${listHtml(result.riskNotes)}</section>
-  ${result.invalidation ? `<div class="invalid"><b>判斷失效條件</b>${escapeHtml(result.invalidation)}</div>` : ""}<footer>產生時間：${escapeHtml(new Date().toLocaleString("zh-TW"))}。AI 分析僅供技術研究與交易計畫整理，不構成投資建議或獲利保證。</footer></body></html>`;
+  ${result.invalidation ? `<div class="invalid"><b>判斷失效條件</b>${escapeHtml(result.invalidation)}</div>` : ""}<footer>產生時間：${escapeHtml(new Date().toLocaleString("zh-TW"))}。資料來源包含行情、公開配息資訊、公司公告／媒體標題與可取得的籌碼資料；缺漏資料不做推測。AI 分析不構成投資建議或獲利保證。</footer></body></html>`;
   return new Promise((resolve) => {
     iframe.onload = () => {
       const body = iframe.contentDocument.body;
@@ -693,7 +712,7 @@ async function createAnalysisPdf({ download = false } = {}) {
     if (download) {
       const url = URL.createObjectURL(blob), link = document.createElement("a");
       link.href = url;
-      link.download = `${safeFilePart(currentAnalysisMeta.symbol)}_${currentAnalysisMeta.date}_${currentAnalysisMeta.timing}_技術分析.pdf`;
+      link.download = `${safeFilePart(currentAnalysisMeta.symbol)}_${currentAnalysisMeta.date}_${currentAnalysisMeta.timing}_綜合分析.pdf`;
       document.body.append(link); link.click(); link.remove();
       window.setTimeout(() => URL.revokeObjectURL(url), 1500);
     }
@@ -787,10 +806,16 @@ async function analyze() {
   if (!session) return syncAccess();
   const requestUserId = session.user.id;
   const mode = document.querySelector('input[name="analysisMode"]:checked')?.value || "general";
+  const normalizedSymbol = $("#analysisSymbol").value.trim().toUpperCase();
+  const chartAsset = transferredChartData?.asset || {};
+  const inferredMarket = /^\d/.test(normalizedSymbol) ? "TW" : "US";
   const payload = {
     imageData: preparedImage,
     mode,
-    symbol: $("#analysisSymbol").value.trim(),
+    symbol: normalizedSymbol,
+    market: chartAsset.market || (normalizedSymbol ? inferredMarket : ""),
+    assetType: chartAsset.assetType || "stock",
+    assetName: transferredAssetName || assetNames.get(normalizedSymbol) || normalizedSymbol,
     screenshotTiming: $("#screenshotTiming").value,
     proposedPrice: $("#proposedPrice").value || null,
     chartData: transferredChartData,
@@ -799,7 +824,7 @@ async function analyze() {
   $("#analyzeChart").disabled = true;
   $("#analyzeChart").classList.add("loading");
   $("#analysisStatus").className = "ai-status";
-  $("#analysisStatus").textContent = "正在讀取 K 線、均線與技術指標，通常需要 20–60 秒…";
+  $("#analysisStatus").textContent = "正在讀取線圖、除息、近期消息與可取得的籌碼資料，通常需要 20–90 秒…";
   const resultLabel = `${payload.symbol || selectedFileName || "線圖"} · ${MODE_LABELS[mode]}`;
   startAnalysisProgress(resultLabel);
   try {

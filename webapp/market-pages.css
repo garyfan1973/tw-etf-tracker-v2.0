@@ -54,7 +54,7 @@
 .ai-market-tooltip{position:absolute;z-index:30;left:24px;top:50%;width:max-content;max-width:min(360px,70vw);padding:10px 12px;border:1px solid var(--border);border-radius:9px;background:var(--card);box-shadow:0 10px 28px rgba(15,23,42,.18);color:var(--text);font-family:-apple-system,BlinkMacSystemFont,"PingFang TC","Microsoft JhengHei",sans-serif;font-size:14px;font-weight:500;font-style:normal;line-height:1.65;text-align:left;white-space:normal;opacity:0;visibility:hidden;transform:translateY(-50%) translateX(-4px);transition:opacity .15s ease,transform .15s ease,visibility .15s}
 .ai-market-info:hover .ai-market-tooltip,.ai-market-info:focus .ai-market-tooltip,.ai-market-info:focus-visible .ai-market-tooltip{opacity:1;visibility:visible;transform:translateY(-50%) translateX(0)}
 .ai-quality-note{font-size:14px;line-height:1.65}
-.ai-result-card h3{font-size:16px;line-height:1.45}
+.ai-result-card h3{font-size:16px;line-height:1.45}.ai-context-card h4{margin:14px 0 8px;font-size:14px}
 .ai-result-card ul{font-size:15px;line-height:1.75}
 .ai-point b{font-size:14px;line-height:1.5}
 .ai-point p{font-size:15px;line-height:1.7}

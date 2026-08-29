@@ -1,7 +1,8 @@
 {
   "functions": {
     "api/chart-analysis.py": {
-      "maxDuration": 120
+      "maxDuration": 120,
+      "includeFiles": "data.js"
     }
   }
 }
