@@ -36,6 +36,7 @@ class FinancialsApiTests(unittest.TestCase):
 
         self.assertEqual([row["year"] for row in result["years"]], ["2022", "2023", "2024", "2025"])
         self.assertEqual(result["years"][-1]["revenue"], 4)
+        self.assertEqual(result["years"][-1]["grossProfit"], 4)
         self.assertEqual(result["years"][-1]["eps"], 4)
 
     def test_parses_mops_annual_basic_eps_and_twd_thousands(self):
@@ -47,6 +48,7 @@ class FinancialsApiTests(unittest.TestCase):
             ],
             "reportList": [
                 ["營業收入合計", "237,553,199", "100", "232,302,584", "100"],
+                ["營業毛利（毛損）", "132,992,332", "56.0", "125,443,395", "54.0"],
                 ["營業利益（損失）", "43,948,688", "18.5", "51,612,570", "22.2"],
                 ["本期淨利（淨損）", "41,534,748", "17.5", "47,106,256", "20.3"],
                 ["基本每股盈餘", "", "", "", ""],
@@ -60,6 +62,7 @@ class FinancialsApiTests(unittest.TestCase):
         self.assertEqual(rows["2025"]["eps"], 3.34)
         self.assertEqual(rows["2024"]["eps"], 3.80)
         self.assertEqual(rows["2025"]["revenue"], 237_553_199_000)
+        self.assertEqual(rows["2025"]["grossProfit"], 132_992_332_000)
 
     def test_parses_direct_mops_quarter_instead_of_subtracting_eps(self):
         result = {
@@ -71,6 +74,7 @@ class FinancialsApiTests(unittest.TestCase):
             ],
             "reportList": [
                 ["營業收入合計", "42,889,818", "100", "32,466,045", "100", "80,336,273", "100"],
+                ["營業毛利（毛損）", "24,017,915", "56.0", "16,882,343", "52.0", "44,184,841", "55.0"],
                 ["營業利益（損失）", "6,651,152", "15.5", "1,509,357", "4.6", "9,407,786", "11.7"],
                 ["本期淨利（淨損）", "13,342,387", "31.1", "260,125", "0.8", "18,723,125", "23.3"],
                 ["　基本每股盈餘", "8.45", "", "0.02", "", "11.70", ""],
@@ -82,12 +86,14 @@ class FinancialsApiTests(unittest.TestCase):
         self.assertEqual(row["year"], "2026Q2")
         self.assertEqual(row["eps"], 8.45)
         self.assertEqual(row["revenue"], 42_889_818_000)
+        self.assertEqual(row["grossProfit"], 24_017_915_000)
 
     def test_converts_mops_cumulative_values_to_quarters(self):
         html = """
         <table>
           <tr><td></td><td>第一季</td><td>前二季</td><td>前三季</td><td>前四季</td></tr>
           <tr><td>營業收入</td><td>100</td><td>230</td><td>390</td><td>600</td></tr>
+          <tr><td>營業毛利（毛損）</td><td>60</td><td>135</td><td>230</td><td>350</td></tr>
           <tr><td>營業利益（損失）</td><td>20</td><td>45</td><td>75</td><td>110</td></tr>
           <tr><td>本期淨利（淨損）</td><td>10</td><td>24</td><td>42</td><td>64</td></tr>
           <tr><td>基本每股盈餘（元）</td><td>1.0</td><td>2.4</td><td>4.2</td><td>6.4</td></tr>
@@ -98,6 +104,7 @@ class FinancialsApiTests(unittest.TestCase):
 
         self.assertEqual([row["year"] for row in rows], ["2025Q1", "2025Q2", "2025Q3", "2025Q4"])
         self.assertEqual(rows[1]["revenue"], 130_000)
+        self.assertEqual(rows[1]["grossProfit"], 75_000)
         self.assertAlmostEqual(rows[3]["eps"], 2.2)
 
     def test_parses_mops_cash_flow_totals(self):

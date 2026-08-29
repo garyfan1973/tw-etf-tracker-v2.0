@@ -488,7 +488,7 @@
     }
   }
   const financialMetrics = {
-    revenue:{ label:"營收" }, operatingIncome:{ label:"營業利益" },
+    revenue:{ label:"營收" }, grossMargin:{ label:"毛利率", ratio:true }, operatingIncome:{ label:"營業利益" },
     netIncome:{ label:"淨利" }, eps:{ label:"EPS" },
     operatingCashFlow:{ label:"營業現金流" }, investingCashFlow:{ label:"投資現金流" },
     financingCashFlow:{ label:"融資現金流" }, freeCashFlow:{ label:"自由現金流" }
@@ -506,18 +506,25 @@
     return `${value >= 0 ? "+" : ""}${value.toFixed(1)}%`;
   }
   const isLowGrowthBase = (metric, previous) => metric === "eps" && Number.isFinite(previous) && Math.abs(previous) <= .05;
+  function financialMetricValue(row, metric) {
+    if (metric !== "grossMargin") return Number(row?.[metric]);
+    const revenue = Number(row?.revenue), grossProfit = Number(row?.grossProfit);
+    return Number.isFinite(revenue) && revenue !== 0 && Number.isFinite(grossProfit) ? grossProfit / revenue * 100 : NaN;
+  }
   function renderFinancialChart(payload, metric) {
     const box = $("financialPanel"), allRows = (financialPeriod === "quarterly" ? payload.quarters : payload.years) || [], rows = financialPeriod === "annual" ? allRows.slice(-5) : allRows, meta = financialMetrics[metric];
-    const plotRows = rows.filter(row => Number.isFinite(Number(row[metric]))), values = plotRows.map(row => Number(row[metric]));
+    const isRatio = Boolean(meta.ratio), plotRows = rows.filter(row => Number.isFinite(financialMetricValue(row, metric))), values = plotRows.map(row => financialMetricValue(row, metric));
     if (plotRows.length < 2) { box.querySelector(".financial-content").innerHTML = `<div class="financial-empty">這項指標的${financialPeriod === "quarterly" ? "季度" : "年度"}資料不足，無法繪圖。</div>`; return; }
     const yoyOffset = financialPeriod === "quarterly" ? 4 : 1;
     const yoyValues = plotRows.map((row, index) => {
       const sourceIndex = rows.indexOf(row), previous = rows[sourceIndex - yoyOffset];
-      return previous && Number.isFinite(Number(previous[metric])) ? Number(growthText(Number(row[metric]), Number(previous[metric])).replace("%", "")) : null;
+      const currentValue = financialMetricValue(row, metric), previousValue = financialMetricValue(previous, metric);
+      if (!previous || !Number.isFinite(previousValue)) return null;
+      return isRatio ? currentValue - previousValue : Number(growthText(currentValue, previousValue).replace("%", ""));
     });
     const yoyLowBases = plotRows.map(row => {
       const sourceIndex = rows.indexOf(row), previous = rows[sourceIndex - yoyOffset];
-      return Boolean(previous && isLowGrowthBase(metric, Number(previous[metric])));
+      return Boolean(previous && isLowGrowthBase(metric, financialMetricValue(previous, metric)));
     });
     const finiteValues = values.filter(Number.isFinite), finiteYoy = yoyValues.filter(Number.isFinite);
     const width = 900, height = 300, padL = 62, padR = 62, padT = 28, padB = 48;
@@ -542,13 +549,16 @@
     const trend = showLine ? `<polyline points="${points}" class="financial-line"/>${yoyValues.map((value, index) => Number.isFinite(value) ? `<g data-financial-yoy="${value.toFixed(2)}" data-low-base="${yoyLowBases[index]}" data-period="${esc(plotRows[index].year)}"><circle cx="${x(index)}" cy="${yoyY(value)}" r="4" class="financial-dot"/><circle cx="${x(index)}" cy="${yoyY(value)}" r="13" class="financial-dot-hit"/></g>` : "").join("")}` : "";
     const grid = [0, .25, .5, .75, 1].map(ratio => {
       const leftValue = ceiling - ratio * span, rightValue = yoyCeiling - ratio * yoySpan, yy = padT + ratio * plotHeight;
-      return `<line x1="${padL}" x2="${width-padR}" y1="${yy}" y2="${yy}" class="grid"/><text x="${padL-12}" y="${yy+4}" text-anchor="end" class="axis">${esc(metric === "eps" ? price(leftValue) : compactMoney(leftValue, ""))}</text><text x="${width-padR+12}" y="${yy+4}" class="axis">${rightValue.toFixed(0)}%</text>`;
+      const leftLabel = isRatio ? `${leftValue.toFixed(1)}%` : metric === "eps" ? price(leftValue) : compactMoney(leftValue, "");
+      const rightLabel = isRatio ? `${rightValue >= 0 ? "+" : ""}${rightValue.toFixed(1)}pp` : `${rightValue.toFixed(0)}%`;
+      return `<line x1="${padL}" x2="${width-padR}" y1="${yy}" y2="${yy}" class="grid"/><text x="${padL-12}" y="${yy+4}" text-anchor="end" class="axis">${esc(leftLabel)}</text><text x="${width-padR+12}" y="${yy+4}" class="axis">${esc(rightLabel)}</text>`;
     }).join("");
-    const labels = plotRows.map((row, index) => `<g><text x="${x(index)}" y="${Math.max(16, y(values[index]) - 9)}" text-anchor="middle" class="financial-value${values[index] < 0 ? " negative" : ""}">${esc(metric === "eps" ? price(values[index]) : compactMoney(values[index], ""))}</text><text x="${x(index)}" y="${height - 14}" text-anchor="middle" class="axis">${esc(row.year)}</text></g>`).join("");
+    const labels = plotRows.map((row, index) => `<g><text x="${x(index)}" y="${Math.max(16, y(values[index]) - 9)}" text-anchor="middle" class="financial-value${values[index] < 0 ? " negative" : ""}">${esc(isRatio ? `${values[index].toFixed(1)}%` : metric === "eps" ? price(values[index]) : compactMoney(values[index], ""))}</text><text x="${x(index)}" y="${height - 14}" text-anchor="middle" class="axis">${esc(row.year)}</text></g>`).join("");
     const latest = plotRows.at(-1), latestIndex = rows.indexOf(latest), previousIndex = latestIndex - yoyOffset, currency = latest.currency || "";
-    const latestValue = metric === "eps" ? `${price(latest[metric])} ${currency}` : compactMoney(latest[metric], currency);
-    const yoy = previousIndex >= 0 ? growthText(Number(latest[metric]), Number(rows[previousIndex][metric])) : "—";
-    const latestLowBase = previousIndex >= 0 && isLowGrowthBase(metric, Number(rows[previousIndex][metric]));
+    const latestMetricValue = financialMetricValue(latest, metric), previousMetricValue = previousIndex >= 0 ? financialMetricValue(rows[previousIndex], metric) : NaN;
+    const latestValue = isRatio ? `${latestMetricValue.toFixed(1)}%` : metric === "eps" ? `${price(latestMetricValue)} ${currency}` : compactMoney(latestMetricValue, currency);
+    const yoy = previousIndex < 0 || !Number.isFinite(previousMetricValue) ? "—" : isRatio ? `${latestMetricValue - previousMetricValue >= 0 ? "+" : ""}${(latestMetricValue - previousMetricValue).toFixed(1)} 個百分點` : growthText(latestMetricValue, previousMetricValue);
+    const latestLowBase = previousIndex >= 0 && isLowGrowthBase(metric, previousMetricValue);
     const operatingMargin = Number.isFinite(Number(latest.revenue)) && Number.isFinite(Number(latest.operatingIncome)) && Number(latest.revenue) !== 0 ? Number(latest.operatingIncome) / Number(latest.revenue) * 100 : null;
     const netMargin = Number.isFinite(Number(latest.revenue)) && Number.isFinite(Number(latest.netIncome)) && Number(latest.revenue) !== 0 ? Number(latest.netIncome) / Number(latest.revenue) * 100 : null;
     const isCashFlow = cashFlowMetrics.has(metric);
@@ -558,11 +568,13 @@
     const secondaryTwoLabel = isCashFlow ? "期末現金" : "淨利率";
     const source = payload.source || { name:"Yahoo Finance", url:`https://finance.yahoo.com/quote/${encodeURIComponent(payload.symbol)}/financials/` };
     const quarterNote = financialPeriod === "quarterly" && payload.quarterlyMethod ? `；${esc(payload.quarterlyMethod)}` : "";
-    box.querySelector(".financial-content").innerHTML = `<div class="financial-summary"><div><span>${esc(latest.year)} ${esc(meta.label)}</span><strong>${esc(latestValue)}</strong></div><div><span>年增率${latestLowBase ? "（低基期）" : ""}</span><strong class="${yoy.startsWith("+") ? "up" : yoy.startsWith("-") ? "down" : ""}">${esc(yoy)}</strong></div><div><span>${secondaryOneLabel}</span><strong>${esc(secondaryOne)}</strong></div><div><span>${secondaryTwoLabel}</span><strong>${esc(secondaryTwo)}</strong></div></div><div class="financial-chart"><svg viewBox="0 0 ${width} ${height}" role="img" aria-label="${esc(meta.label)}${financialPeriod === "quarterly" ? "季度" : "年度"}長條與 YoY 折線圖">${grid}<line x1="${padL}" x2="${width-padR}" y1="${baseline}" y2="${baseline}" class="grid financial-zero"/>${bars}${trend}${labels}</svg><div class="financial-tooltip" hidden></div></div><div class="financial-note">${financialPeriod === "quarterly" ? "季度財報" : "年度合併財報"}・幣別 ${esc(currency || "未標示")}；長條為 ${esc(meta.label)}，折線為 YoY 成長率${quarterNote}。不同幣別公司不宜直接比較金額。資料來源：<a href="${esc(source.url)}" target="_blank" rel="noopener noreferrer">${esc(source.name)}</a></div>`;
+    const comparisonLabel = isRatio ? "年增減" : `年增率${latestLowBase ? "（低基期）" : ""}`;
+    const trendLabel = isRatio ? "較去年同期增減（百分點）" : "YoY 成長率";
+    box.querySelector(".financial-content").innerHTML = `<div class="financial-summary"><div><span>${esc(latest.year)} ${esc(meta.label)}</span><strong>${esc(latestValue)}</strong></div><div><span>${comparisonLabel}</span><strong class="${yoy.startsWith("+") ? "up" : yoy.startsWith("-") ? "down" : ""}">${esc(yoy)}</strong></div><div><span>${secondaryOneLabel}</span><strong>${esc(secondaryOne)}</strong></div><div><span>${secondaryTwoLabel}</span><strong>${esc(secondaryTwo)}</strong></div></div><div class="financial-chart"><svg viewBox="0 0 ${width} ${height}" role="img" aria-label="${esc(meta.label)}${financialPeriod === "quarterly" ? "季度" : "年度"}長條與趨勢折線圖">${grid}<line x1="${padL}" x2="${width-padR}" y1="${baseline}" y2="${baseline}" class="grid financial-zero"/>${bars}${trend}${labels}</svg><div class="financial-tooltip" hidden></div></div><div class="financial-note">${financialPeriod === "quarterly" ? "季度財報" : "年度合併財報"}・幣別 ${esc(currency || "未標示")}；長條為 ${esc(meta.label)}，折線為 ${trendLabel}${quarterNote}。不同幣別公司不宜直接比較金額。資料來源：<a href="${esc(source.url)}" target="_blank" rel="noopener noreferrer">${esc(source.name)}</a></div>`;
     const chart = box.querySelector(".financial-chart"), tooltip = chart.querySelector(".financial-tooltip");
     const showFinancialTooltip = (event, point) => {
       const chartRect = chart.getBoundingClientRect();
-      tooltip.innerHTML = `<strong>${esc(point.dataset.period)}</strong><span>YoY ${Number(point.dataset.financialYoy) >= 0 ? "+" : ""}${Number(point.dataset.financialYoy).toFixed(2)}%${point.dataset.lowBase === "true" ? "（低基期）" : ""}</span>`;
+      tooltip.innerHTML = `<strong>${esc(point.dataset.period)}</strong><span>${isRatio ? "年增減 " : "YoY "}${Number(point.dataset.financialYoy) >= 0 ? "+" : ""}${Number(point.dataset.financialYoy).toFixed(2)}${isRatio ? " 個百分點" : "%"}${point.dataset.lowBase === "true" ? "（低基期）" : ""}</span>`;
       tooltip.hidden = false;
       const tipWidth = tooltip.offsetWidth, tipHeight = tooltip.offsetHeight;
       const visibleLeft = chart.scrollLeft + 6;
@@ -585,7 +597,7 @@
     box.style.display = "block";
     box.innerHTML = `<div class="financial-heading"><div><h3>財報趨勢</h3><p>${esc(name)}・年度／季度財務表現</p></div><span>載入中…</span></div><div class="financial-empty">正在取得財務資料…</div>`;
     try {
-      const response = await fetch(`/api/financials?code=${encodeURIComponent(info.symbol)}&market=${encodeURIComponent(info.market)}&v=20260819-2`, { cache:"default" });
+      const response = await fetch(`/api/financials?code=${encodeURIComponent(info.symbol)}&market=${encodeURIComponent(info.market)}&v=20260829-1`, { cache:"default" });
       const payload = await response.json().catch(() => ({ ok:false, error:"財務資料暫時無法取得" }));
       if (financialRequestKey !== key) return;
       if (!response.ok || !payload.ok) throw new Error(payload.error || "財務資料暫時無法取得");

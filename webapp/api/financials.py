@@ -18,10 +18,12 @@ YAHOO_TIMESERIES = (
 )
 YAHOO_METRICS = {
     "annualTotalRevenue": ("annual", "revenue"),
+    "annualGrossProfit": ("annual", "grossProfit"),
     "annualOperatingIncome": ("annual", "operatingIncome"),
     "annualNetIncome": ("annual", "netIncome"),
     "annualBasicEPS": ("annual", "eps"),
     "quarterlyTotalRevenue": ("quarterly", "revenue"),
+    "quarterlyGrossProfit": ("quarterly", "grossProfit"),
     "quarterlyOperatingIncome": ("quarterly", "operatingIncome"),
     "quarterlyNetIncome": ("quarterly", "netIncome"),
     "quarterlyBasicEPS": ("quarterly", "eps"),
@@ -38,6 +40,7 @@ YAHOO_METRICS = {
 }
 MOPS_LABELS = {
     "revenue": ("營業收入合計", "營業收入", "收益合計", "淨收益", "收益"),
+    "grossProfit": ("營業毛利（毛損）", "營業毛利(毛損)", "營業毛利", "營業毛損"),
     "operatingIncome": ("營業利益（損失）", "營業利益(損失)", "營業利益"),
     "netIncome": ("本期淨利（淨損）", "本期淨利(淨損)", "本期稅後淨利（淨損）"),
     "eps": ("基本每股盈餘（元）", "基本每股盈餘(元)", "基本每股盈餘"),
