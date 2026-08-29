@@ -139,30 +139,6 @@ def dividend_adjusted_technical(chart_data: dict, dividends: list[dict]) -> tupl
     return technical, actions
 
 
-def positioning_context(root: Path, asset: dict, as_of: str) -> tuple[dict | None, list[str]]:
-    if asset.get("market") != "TW":
-        return None, ["非台股標的，未提供台灣三大法人、融資券與集保資料。"]
-    symbol = asset["symbol"]
-    snapshots = []
-    for path in sorted((root / "data").glob(f"{symbol}_20??-??-??.json"), reverse=True):
-        payload = read_json(path, {})
-        if payload.get("date") and payload["date"] <= as_of:
-            snapshots.append(payload)
-        if len(snapshots) >= 5:
-            break
-    if not snapshots:
-        return None, ["目前沒有此台股標的的法人／融資券快照。"]
-    institutional = [row.get("selfInstitutional") for row in reversed(snapshots) if row.get("selfInstitutional")]
-    margin = [row.get("selfMargin") for row in reversed(snapshots) if row.get("selfMargin")]
-    distribution = read_json(root / "webapp" / "shareholder_distribution.json", {}).get(symbol)
-    return {
-        "institutionalDaily": institutional,
-        "marginDaily": margin,
-        "shareholderDistribution": distribution,
-        "sources": ["TWSE／TPEx 三大法人與融資券", "TDCC 集保戶股權分散表"],
-    }, []
-
-
 from webapp.api._analysis_context import (  # noqa: E402
     build_market_context as _build_market_context,
     dividend_adjusted_technical as _shared_dividend_adjusted_technical,
@@ -175,7 +151,6 @@ normalize_dividends = _shared_normalize_dividends
 dividend_adjusted_technical = _shared_dividend_adjusted_technical
 
 
-def build_context(root: Path, asset: dict, chart_data: dict, dividends: list[dict], news: list[dict]) -> dict:
+def build_context(chart_data: dict, dividends: list[dict]) -> dict:
     as_of = str((chart_data.get("visibleRange") or {}).get("endDate") or "")[:10]
-    positioning, notes = positioning_context(root, asset, as_of)
-    return _build_market_context(chart_data, dividends, news, positioning, notes, as_of)
+    return _build_market_context(chart_data, dividends, [], None, [], as_of)
