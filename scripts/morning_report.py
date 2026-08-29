@@ -17,6 +17,11 @@ import urllib.parse
 import urllib.request
 from zoneinfo import ZoneInfo
 
+try:
+    from morning_context import build_context, read_json
+except ModuleNotFoundError:  # Imported as scripts.morning_report by unit tests.
+    from scripts.morning_context import build_context, read_json
+
 
 ROOT = Path(__file__).resolve().parents[1]
 TAIPEI = ZoneInfo("Asia/Taipei")
@@ -64,6 +69,14 @@ def service_post(base_url: str, endpoint: str, service_key: str, payload: dict, 
     if not result.get("ok"):
         raise MorningReportError(result.get("error") or f"{endpoint} 未完成")
     return result
+
+
+def service_get(base_url: str, endpoint: str, params: dict, timeout: int = 20):
+    query = urllib.parse.urlencode(params)
+    request = urllib.request.Request(base_url.rstrip("/") + endpoint + "?" + query, headers={"Accept":"application/json"})
+    with urllib.request.urlopen(request, timeout=timeout) as response:
+        result = json.loads(response.read().decode())
+    return result if result.get("ok") else {}
 
 
 class SupabaseAdmin:
@@ -203,10 +216,16 @@ def analysis_html(asset: dict, report_date: str, analysis: dict, image_bytes: by
     listing = lambda values: "<ul>" + "".join(f"<li>{esc(value)}</li>" for value in (values or ["資訊不足，無法判斷"])) + "</ul>"
     plan = analysis.get("tradePlan") or {}
     plan_rows = "".join(f"<div><span>{label}</span><strong>{esc(plan.get(key))}</strong></div>" for label, key in (("進場條件","entry"),("防守／停損","defense"),("第一目標","firstTarget"),("第二目標","secondTarget"),("強壓位置","strongResistance"),("部位建議","positionSizing")))
+    context = analysis.get("contextFactors") or {}
+    news_rows = listing(context.get("newsImpact"))
+    context_rows = "".join(
+        f"<article><b>{label}</b><p>{esc(context.get(key))}</p></article>"
+        for label, key in (("除息／公司行動", "dividendImpact"), ("籌碼觀察", "positioningImpact"), ("綜合判斷", "synthesis"))
+    )
     image = base64.b64encode(image_bytes).decode()
     return f"""<!doctype html><html lang="zh-Hant"><head><meta charset="utf-8"><style>
     @page{{size:A4;margin:24px}}*{{box-sizing:border-box}}body{{margin:0;color:#1c2430;font-family:-apple-system,'PingFang TC','Microsoft JhengHei',sans-serif;font-size:14px;line-height:1.6}}header{{display:flex;justify-content:space-between;gap:20px;padding-bottom:14px;border-bottom:3px solid #3b5bdb}}h1{{margin:3px 0 0;font-size:27px}}header em{{color:#3b5bdb;font-size:11px;font-style:normal;font-weight:800;letter-spacing:.12em}}header small{{color:#6b7684}}.chart{{display:block;width:100%;max-height:520px;margin:18px 0;object-fit:contain;border-radius:12px}}.hero,.card{{padding:15px;border:1px solid #e3e7ec;border-radius:11px;background:#f8fafc}}.hero{{border-color:#c7d2fe;background:#eef2ff}}.hero label{{color:#3b5bdb;font-weight:800}}.hero h2{{margin:3px 0;font-size:21px}}.hero p,.points p{{margin:3px 0;color:#596579}}.card{{margin-top:11px}}.card h3{{margin:0 0 8px}}.points,.zones,.plan{{display:grid;grid-template-columns:1fr 1fr;gap:9px}}.points article,.plan div{{padding:10px;border-radius:8px;background:#fff}}.points article{{border-left:4px solid #3b5bdb}}.plan span,.plan strong{{display:block}}.plan span{{color:#6b7684;font-size:11px}}ul{{margin:0;padding-left:20px;color:#596579}}.invalid{{margin-top:11px;padding:11px;background:#fff0f0;border-radius:8px}}.invalid b{{color:#d64545;margin-right:10px}}footer{{margin-top:16px;padding-top:11px;border-top:1px solid #e3e7ec;color:#6b7684;font-size:11px}}
-    </style></head><body><header><div><em>AI MORNING TECHNICAL ANALYSIS</em><h1>{esc(asset['symbol'])} {esc(asset['assetName'])}</h1></div><small>{esc(report_date)} · {REPORT_TIMING} · 一般分析</small></header><img class="chart" src="data:image/jpeg;base64,{image}" alt="技術線圖"><section class="hero"><label>{esc(analysis.get('marketState'))}</label><h2>{esc(analysis.get('conclusion'))}</h2><p>{esc(analysis.get('thesis'))}</p></section><section class="card"><h3>技術判讀</h3><div class="points">{points}</div></section><div class="zones"><section class="card"><h3>支撐區</h3>{listing(analysis.get('supportZones'))}</section><section class="card"><h3>壓力區</h3>{listing(analysis.get('resistanceZones'))}</section></div><section class="card"><h3>交易計畫</h3><div class="plan">{plan_rows}</div></section><section class="card"><h3>風險提醒</h3>{listing(analysis.get('riskNotes'))}</section><div class="invalid"><b>判斷失效條件</b>{esc(analysis.get('invalidation'))}</div><footer>AI 分析僅供技術研究與交易計畫整理，不構成投資建議或獲利保證。</footer></body></html>"""
+    </style></head><body><header><div><em>AI MORNING MARKET ANALYSIS</em><h1>{esc(asset['symbol'])} {esc(asset['assetName'])}</h1></div><small>{esc(report_date)} · {REPORT_TIMING} · 綜合分析</small></header><img class="chart" src="data:image/jpeg;base64,{image}" alt="技術線圖"><section class="hero"><label>{esc(analysis.get('marketState'))}</label><h2>{esc(analysis.get('conclusion'))}</h2><p>{esc(analysis.get('thesis'))}</p></section><section class="card"><h3>技術判讀</h3><div class="points">{points}</div></section><section class="card"><h3>技術面以外的重要因素</h3><div class="points">{context_rows}</div><h3>近期消息</h3>{news_rows}</section><div class="zones"><section class="card"><h3>支撐區</h3>{listing(analysis.get('supportZones'))}</section><section class="card"><h3>壓力區</h3>{listing(analysis.get('resistanceZones'))}</section></div><section class="card"><h3>交易計畫</h3><div class="plan">{plan_rows}</div></section><section class="card"><h3>風險提醒</h3>{listing(analysis.get('riskNotes'))}</section><div class="invalid"><b>判斷失效條件</b>{esc(analysis.get('invalidation'))}</div><footer>資料來源包含行情、公開配息資訊、公司公告／媒體標題與可取得的籌碼資料；缺漏資料不做推測。AI 分析不構成投資建議或獲利保證。</footer></body></html>"""
 
 
 def latest_market_date(chart_data: dict, fallback: str) -> str:
@@ -231,10 +250,19 @@ async def process_asset(db, browser, service_key, run, report_date, base_url, it
         page = await browser.new_page(viewport={"width": 1440, "height": 1280}, device_scale_factor=1)
         try:
             image_bytes, chart_data = await capture_chart(page, base_url, asset)
+            local_dividends = read_json(ROOT / "data" / f"{asset['symbol']}_dividends.json", [])
+            dividend_result, news_result = await asyncio.gather(
+                asyncio.to_thread(service_get, base_url, "/api/dividends", {"market":asset["market"], "type":asset["assetType"], "code":asset["symbol"]}),
+                asyncio.to_thread(service_get, base_url, "/api/news", {"market":asset["market"], "code":asset["symbol"], "name":asset["assetName"]}),
+                return_exceptions=True,
+            )
+            remote_dividends = [] if isinstance(dividend_result, Exception) else dividend_result.get("events") or []
+            news = [] if isinstance(news_result, Exception) else news_result.get("items") or []
+            context_data = build_context(ROOT, asset, chart_data, local_dividends + remote_dividends, news)
             if not force and result_row and result_row.get("status") == "completed" and result_row.get("analysis"):
                 analysis, model = result_row["analysis"], result_row.get("model")
             else:
-                response = service_post(base_url, "/api/chart-analysis", service_key, {"imageData":"data:image/jpeg;base64," + base64.b64encode(image_bytes).decode(), "mode":"general", "symbol":asset["symbol"], "screenshotTiming":REPORT_TIMING, "chartData":chart_data})
+                response = service_post(base_url, "/api/chart-analysis", service_key, {"imageData":"data:image/jpeg;base64," + base64.b64encode(image_bytes).decode(), "mode":"general", "symbol":asset["symbol"], "screenshotTiming":REPORT_TIMING, "chartData":chart_data, "contextData":context_data})
                 analysis, model = response["analysis"], response.get("model")
                 values = {"run_id":run["id"], "report_date":report_date, "market":asset["market"], "symbol":asset["symbol"], "asset_name":asset["assetName"], "status":"completed", "model":model, "analysis":analysis, "error_message":None, "completed_at":dt.datetime.now(dt.timezone.utc).isoformat()}
                 if result_row:
