@@ -252,6 +252,20 @@
     .detail div { flex: 1 0 74px; min-width: 74px; background: var(--detail); padding: 10px 12px; }
     .detail .k { font-size: 11px; color: var(--muted); }
     .detail .v { font-size: 15px; font-variant-numeric: tabular-nums; margin-top: 2px; }
+    .related-etfs { padding: 13px 14px 15px; background: var(--detail); }
+    .related-etfs-head { display:flex; justify-content:space-between; align-items:baseline; gap:12px; margin-bottom:9px; }
+    .related-etfs-title { margin:0; font-size:14px; }
+    .related-etfs-note { color:var(--muted); font-size:11px; }
+    .related-etfs-grid { display:grid; grid-template-columns:repeat(auto-fit,minmax(220px,1fr)); gap:7px; }
+    .related-etf { display:grid; grid-template-columns:minmax(0,1fr) auto; gap:4px 10px; align-items:center; width:100%; padding:9px 10px; border:1px solid var(--border); border-radius:9px; background:var(--card); color:var(--text); text-align:left; cursor:pointer; }
+    .related-etf:hover { border-color:var(--accent); background:color-mix(in srgb,var(--accent) 5%,var(--card)); }
+    .related-etf:focus-visible { outline:2px solid var(--accent); outline-offset:2px; }
+    .related-etf.current { border-color:color-mix(in srgb,var(--accent) 55%,var(--border)); background:color-mix(in srgb,var(--accent) 8%,var(--card)); }
+    .related-etf strong { min-width:0; overflow:hidden; text-overflow:ellipsis; white-space:nowrap; font-size:13px; }
+    .related-etf .weight { color:var(--accent); font-size:14px; font-weight:700; font-variant-numeric:tabular-nums; }
+    .related-etf small { color:var(--muted); font-size:10px; }
+    .related-etf .rank { text-align:right; }
+    .related-etf-badge { display:inline-block; margin-left:5px; padding:1px 5px; border-radius:999px; background:var(--accent); color:#fff; font-size:9px; vertical-align:1px; }
     .other-assets-panel { margin-top: 20px; }
     .other-assets-note { color: var(--muted); font-size: 12px; margin: -3px 0 8px; }
     #otherAssets { overflow-x: auto; }
@@ -309,6 +323,10 @@
       .cards { grid-template-columns: repeat(2, 1fr); }
       .detail { display: grid; grid-template-columns: repeat(2, 1fr); overflow-x: visible; }
       .detail div { min-width: 0; flex: initial; }
+      .related-etfs-head { display:block; }
+      .related-etfs-note { display:block; margin-top:3px; }
+      .related-etfs-grid { display:flex; overflow-x:auto; scroll-snap-type:x proximity; padding-bottom:3px; }
+      .related-etf { flex:0 0 min(82vw,270px); scroll-snap-align:start; }
     }
     .overview-panel, .institutional-margin-panel { background:var(--card); border:1px solid var(--border); border-radius:14px; padding:16px; }
     .market-overview-panel { background:var(--card); border:1px solid var(--border); border-radius:14px; padding:16px; }
@@ -641,7 +659,7 @@
     </section>
 
     <div id="holdingsDataPanel">
-    <h2>股票持股（目標日）<span style="font-size:12px;color:var(--muted);font-weight:400;">　點任一列展開開高低收明細</span></h2>
+    <h2>股票持股（目標日）<span style="font-size:12px;color:var(--muted);font-weight:400;">　點任一列查看行情與持有相同個股的 ETF</span></h2>
     <div class="scroll">
       <table id="full">
         <thead><tr>
@@ -665,6 +683,7 @@
   <script src="theme.js"></script>
   <script src="config.js"></script>
   <script src="data.js"></script>
+  <script src="etf-holdings-index.js?v=20260829"></script>
   <script src="technical-chart-core.js?v=20260825"></script>
   <script src="kline.js?v=20260829a"></script>
   <script src="https://cdn.jsdelivr.net/npm/html2canvas@1.4.1/dist/html2canvas.min.js" integrity="sha512-BNaRQnYJYiPSqHHDb58B0yaPfCu+Wgds8Gp/gU33kqBtgNS4tSPHuGibyoeqMV/TJlSKda6FXzoEyYGjTe+vXA==" crossorigin="anonymous"></script>
@@ -751,6 +770,7 @@
       // 持股識別鍵：有代號用代號，無代號（海外股）用名稱
       const keyOf = h => h.code || h.name;
       const isStockAsset = h => !h.assetType || h.assetType === "stock";
+      const holdingsIndex = window.EtfHoldingsIndex.build(D.etfs);
       const assetTypeName = { cash: "現金", future: "期貨", option: "選擇權", bond: "債券", other: "其他" };
       const assetLabel = h => assetTypeName[h.assetType] || "其他";
 
@@ -1443,7 +1463,7 @@
             const cur = h.currency || (h.market === "TW" ? "TWD" : "—");
             const profile = COMPANY_PROFILES[h.code || h.name] || {};
             const industry = [profile.sector, profile.industry].filter(Boolean).join("／") || "—";
-            dtr.innerHTML = '<td colspan="6"><div class="detail">' +
+            dtr.innerHTML = '<td colspan="6"><div class="holding-detail"><div class="detail">' +
               cell("市場", marketName(h)) +
               cell("幣別", cur) +
               cell("開盤", px(h.open)) +
@@ -1455,7 +1475,11 @@
               (h.quoteDate ? cell("行情日", h.quoteDate) : "") +
               instCells(h) +
               profileCell("產業別", industry) +
-              '</div></td>';
+              '</div>' + relatedEtfsHtml(h) + '</div></td>';
+            dtr.querySelectorAll("[data-related-etf]").forEach(button => button.addEventListener("click", event => {
+              event.stopPropagation();
+              switchToRelatedEtf(button.dataset.relatedEtf, button.dataset.relatedHolding);
+            }));
             fbody.appendChild(dtr);
           }
         });
@@ -1493,6 +1517,39 @@
       const cell = (k, v, cls) => '<div><div class="k">' + k + '</div><div class="v ' + (cls || "") + '">' + v + '</div></div>';
       const esc = v => String(v == null ? "" : v).replaceAll("&", "&amp;").replaceAll("<", "&lt;").replaceAll(">", "&gt;").replaceAll('"', "&quot;").replaceAll("'", "&#39;");
       const profileCell = (k, v) => cell(k, esc(v || "—"));
+      function relatedEtfsHtml(holding) {
+        const rows = window.EtfHoldingsIndex.lookup(holdingsIndex, holding);
+        const title = esc((holding.name || "成分股") + (holding.code ? " " + holding.code : ""));
+        if (!rows.length) {
+          return '<section class="related-etfs"><div class="related-etfs-head"><h3 class="related-etfs-title">持有「' + title + '」的 ETF</h3></div><div class="related-etfs-note">本站目前收錄的 ETF 中沒有可比對資料。</div></section>';
+        }
+        return '<section class="related-etfs" aria-label="持有相同成分股的 ETF"><div class="related-etfs-head"><h3 class="related-etfs-title">持有「' + title + '」的 ETF（共 ' + rows.length + ' 檔）</h3><span class="related-etfs-note">本站收錄 ' + Object.keys(D.etfs).length + ' 檔 ETF・依最新持股權重排序</span></div><div class="related-etfs-grid">' + rows.map(row => {
+          const current = row.symbol === etfSel.value;
+          const weight = Number(row.holding.weight);
+          const shares = Number(row.holding.shares);
+          const holdingMeta = Number.isFinite(shares) ? '持有 ' + shares.toLocaleString('en-US') + ' 股・' : '';
+          return '<button type="button" class="related-etf' + (current ? ' current' : '') + '" data-related-etf="' + esc(row.symbol) + '" data-related-holding="' + esc(window.EtfHoldingsIndex.holdingKey(holding)) + '"><strong>' + esc(row.symbol + ' ' + row.etfName) + (current ? '<span class="related-etf-badge">目前 ETF</span>' : '') + '</strong><span class="weight">' + (Number.isFinite(weight) ? weight.toFixed(2) + '%' : '—') + '</span><small>' + holdingMeta + '資料日 ' + esc(row.date || '—') + '</small><small class="rank">持股第 ' + row.rank + ' 名</small></button>';
+        }).join('') + '</div></section>';
+      }
+
+      function switchToRelatedEtf(symbol, holdingKey) {
+        if (!D.etfs[symbol]) return;
+        const onlyMine = document.getElementById("onlyMine");
+        if (![...etfSel.options].some(option => option.value === symbol) && onlyMine) {
+          onlyMine.checked = false;
+          fillEtfOptions();
+        }
+        etfSel.value = symbol;
+        fillDates();
+        const latest = currentSnapshots().at(-1);
+        const matching = (latest?.holdings || []).find(item => window.EtfHoldingsIndex.holdingKey(item) === holdingKey);
+        expandedFull.clear();
+        if (matching) expandedFull.add(keyOf(matching));
+        expandedInstitutional = "";
+        marginTrendAsset = "__etf__";
+        render();
+        requestAnimationFrame(() => document.querySelector("#full tr.main.open")?.scrollIntoView({ behavior:"smooth", block:"center" }));
+      }
       // 三大法人「最近一次」買賣超金額（買賣超股數 × 當日收盤價估算，紅買綠賣）
       function instCells(h) {
         const inst = h.inst;
