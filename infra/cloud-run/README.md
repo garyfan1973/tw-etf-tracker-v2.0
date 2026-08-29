@@ -1,6 +1,6 @@
 # Google Cloud 批次部署
 
-此目錄將重要批次從 GitHub `schedule` 搬到 Cloud Scheduler 與 Cloud Run Jobs。GitHub Actions 的 `workflow_dispatch` 保留為人工備援。
+此目錄將重要批次從 GitHub `schedule` 搬到 Cloud Scheduler 與 Cloud Run Jobs。GitHub Actions 的 `workflow_dispatch` 保留為人工備援。三個 Scheduler 每日喚醒；行情批次以 Git 差異判斷是否有新資料，晨報則以線圖的實際市場日期與既有寄送紀錄判斷，休市日不重複寄送舊行情，特殊開市或延遲資料可由後續時段補抓、補發。
 
 ## 排程
 

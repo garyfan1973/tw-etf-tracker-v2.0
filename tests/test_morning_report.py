@@ -26,6 +26,16 @@ class FakeDb:
         return {"member-1": "member@example.com"}
 
 
+class DeliveryDb:
+    def __init__(self, subjects):
+        self.subjects = subjects
+        self.query = None
+
+    def select(self, table, query):
+        self.query = query
+        return [{"subject": subject} for subject in self.subjects]
+
+
 class FakeLocator:
     async def scroll_into_view_if_needed(self):
         pass
@@ -38,6 +48,7 @@ class FakePage:
     def __init__(self):
         self.init_scripts = []
         self.wait_kwargs = None
+        self.closed = False
 
     async def add_init_script(self, script):
         self.init_scripts.append(script)
@@ -54,6 +65,17 @@ class FakePage:
 
     def locator(self, selector):
         return FakeLocator()
+
+    async def close(self):
+        self.closed = True
+
+
+class FakeBrowser:
+    def __init__(self, page):
+        self.page = page
+
+    async def new_page(self, **kwargs):
+        return self.page
 
 
 class MorningReportTests(unittest.TestCase):
@@ -86,8 +108,45 @@ class MorningReportTests(unittest.TestCase):
         with mock.patch.object(sys, "argv", ["morning_report.py", "--force"]):
             self.assertTrue(MODULE.parse_args().force)
 
+    def test_latest_sent_market_date_uses_subject_not_legacy_report_date(self):
+        db = DeliveryDb([
+            "00881 國泰台灣5G+ 2026-08-27 盤後 技術分析指引",
+            "00881 國泰台灣5G+ 2026-08-28 盤後 綜合分析指引",
+            "舊格式無日期",
+        ])
+        self.assertEqual(
+            MODULE.latest_sent_market_date(db, "member-1", "TW", "00881"),
+            "2026-08-28",
+        )
+        self.assertIn("status=eq.sent", db.query)
+
+    def test_latest_sent_market_date_returns_none_without_parseable_subject(self):
+        self.assertIsNone(
+            MODULE.latest_sent_market_date(DeliveryDb([None, "舊格式"]), "u", "US", "QQQ")
+        )
+
 
 class MorningReportAsyncTests(unittest.IsolatedAsyncioTestCase):
+    async def test_process_asset_skips_already_delivered_market_session(self):
+        page = FakePage()
+        db = DeliveryDb(["00881 國泰台灣5G+ 2026-08-28 盤後 綜合分析指引"])
+        item = {
+            "asset":{"market":"TW", "assetType":"etf", "symbol":"00881", "assetName":"國泰台灣5G+"},
+            "users":[{"userId":"member-1", "email":"member@example.com"}],
+        }
+        with mock.patch.object(
+            MODULE,
+            "capture_chart",
+            new=mock.AsyncMock(return_value=(b"jpeg", {"visibleRange":{"endDate":"2026-08-28"}})),
+        ), mock.patch.object(MODULE, "service_post") as service_post:
+            result = await MODULE.process_asset(
+                db, FakeBrowser(page), "secret", {"id":"run-1"}, "2026-08-29",
+                "https://example.com", item,
+            )
+        self.assertEqual(result, (0, 0))
+        self.assertTrue(page.closed)
+        service_post.assert_not_called()
+
     async def test_capture_applies_complete_six_month_chart_settings(self):
         page = FakePage()
         image, chart_data = await MODULE.capture_chart(

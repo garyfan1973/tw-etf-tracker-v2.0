@@ -11,6 +11,7 @@ import importlib.util
 import json
 import os
 from pathlib import Path
+import re
 import sys
 import urllib.error
 import urllib.parse
@@ -175,6 +176,35 @@ def existing_delivery(db: SupabaseAdmin, report_date: str, user_id: str, market:
     return rows[0] if rows else None
 
 
+ISO_DATE_RE = re.compile(r"(?<!\d)(\d{4}-\d{2}-\d{2})(?!\d)")
+
+
+def latest_sent_market_date(db: SupabaseAdmin, user_id: str, market: str, symbol: str) -> str | None:
+    """Return the newest actual market date found in previously sent subjects.
+
+    Historical rows used report_date as the execution date, so that column cannot
+    safely identify the represented trading session. The subject has always
+    included the chart's market date and provides a backwards-compatible bridge.
+    New rows use the actual market date as report_date as well.
+    """
+    encoded_symbol = urllib.parse.quote(symbol, safe="-.^")
+    query = (
+        "select=subject&status=eq.sent"
+        f"&user_id=eq.{user_id}&market=eq.{market}&symbol=eq.{encoded_symbol}"
+        "&order=completed_at.desc&limit=20"
+    )
+    dates = []
+    for row in db.select("morning_report_deliveries", query):
+        match = ISO_DATE_RE.search(str(row.get("subject") or ""))
+        if not match:
+            continue
+        try:
+            dates.append(dt.date.fromisoformat(match.group(1)).isoformat())
+        except ValueError:
+            continue
+    return max(dates, default=None)
+
+
 async def capture_chart(page, base_url: str, asset: dict):
     settings_json = json.dumps(CHART_SETTINGS, separators=(",", ":"))
     await page.add_init_script(f"""(() => {{
@@ -244,12 +274,32 @@ async def make_pdf(page, markup: str) -> bytes:
 
 async def process_asset(db, browser, service_key, run, report_date, base_url, item, dry_run=False, force=False):
     asset, subscribers = item["asset"], item["users"]
-    result_row = existing_result(db, report_date, asset["market"], asset["symbol"])
+    result_row = None
+    record_date = report_date
     image_bytes = None
     try:
         page = await browser.new_page(viewport={"width": 1440, "height": 1280}, device_scale_factor=1)
         try:
             image_bytes, chart_data = await capture_chart(page, base_url, asset)
+            market_date = latest_market_date(chart_data, report_date)
+            record_date = market_date
+            active_subscribers = subscribers
+            if not force:
+                active_subscribers = []
+                for subscriber in subscribers:
+                    delivered_date = latest_sent_market_date(
+                        db, subscriber["userId"], asset["market"], asset["symbol"]
+                    )
+                    if not delivered_date or delivered_date < market_date:
+                        active_subscribers.append(subscriber)
+                if not active_subscribers:
+                    print(
+                        f"SKIP_NO_NEW_SESSION {asset['market']} {asset['symbol']} market_date={market_date}",
+                        flush=True,
+                    )
+                    return 0, 0
+
+            result_row = existing_result(db, record_date, asset["market"], asset["symbol"])
             local_dividends = read_json(ROOT / "data" / f"{asset['symbol']}_dividends.json", [])
             dividend_result, news_result = await asyncio.gather(
                 asyncio.to_thread(service_get, base_url, "/api/dividends", {"market":asset["market"], "type":asset["assetType"], "code":asset["symbol"]}),
@@ -264,29 +314,28 @@ async def process_asset(db, browser, service_key, run, report_date, base_url, it
             else:
                 response = service_post(base_url, "/api/chart-analysis", service_key, {"imageData":"data:image/jpeg;base64," + base64.b64encode(image_bytes).decode(), "mode":"general", "symbol":asset["symbol"], "screenshotTiming":REPORT_TIMING, "chartData":chart_data, "contextData":context_data})
                 analysis, model = response["analysis"], response.get("model")
-                values = {"run_id":run["id"], "report_date":report_date, "market":asset["market"], "symbol":asset["symbol"], "asset_name":asset["assetName"], "status":"completed", "model":model, "analysis":analysis, "error_message":None, "completed_at":dt.datetime.now(dt.timezone.utc).isoformat()}
+                values = {"run_id":run["id"], "report_date":record_date, "market":asset["market"], "symbol":asset["symbol"], "asset_name":asset["assetName"], "status":"completed", "model":model, "analysis":analysis, "error_message":None, "completed_at":dt.datetime.now(dt.timezone.utc).isoformat()}
                 if result_row:
                     db.update("morning_report_results", f"id=eq.{result_row['id']}", values)
                 else:
                     result_row = db.insert("morning_report_results", values)
-            market_date = latest_market_date(chart_data, report_date)
             pdf = await make_pdf(page, analysis_html(asset, market_date, analysis, image_bytes))
         finally:
             await page.close()
         if len(pdf) > MAX_PDF_BYTES:
             raise MorningReportError("PDF 超過 3.5 MB")
         sent = 0
-        for subscriber in subscribers:
-            delivery = existing_delivery(db, report_date, subscriber["userId"], asset["market"], asset["symbol"])
+        for subscriber in active_subscribers:
+            delivery = existing_delivery(db, record_date, subscriber["userId"], asset["market"], asset["symbol"])
             if not force and delivery and delivery.get("status") == "sent":
                 continue
             if not delivery:
-                delivery = db.insert("morning_report_deliveries", {"run_id":run["id"], "report_date":report_date, "user_id":subscriber["userId"], "market":asset["market"], "symbol":asset["symbol"], "status":"pending"})
+                delivery = db.insert("morning_report_deliveries", {"run_id":run["id"], "report_date":record_date, "user_id":subscriber["userId"], "market":asset["market"], "symbol":asset["symbol"], "status":"pending"})
             elif force and not dry_run:
                 db.update("morning_report_deliveries", f"id=eq.{delivery['id']}", {"run_id":run["id"], "status":"pending", "error_message":None, "completed_at":None})
             try:
                 mail = {"email":subscriber["email"], "symbol":asset["symbol"], "assetName":asset["assetName"], "date":market_date, "timing":REPORT_TIMING, "pdfBase64":base64.b64encode(pdf).decode()}
-                subject = f"{asset['symbol']} {asset['assetName']} {market_date} {REPORT_TIMING} 技術分析指引"
+                subject = f"{asset['symbol']} {asset['assetName']} {market_date} {REPORT_TIMING} 綜合分析指引"
                 if dry_run:
                     print(f"DRY_RUN {asset['market']} {asset['symbol']} -> {subscriber['email']}", flush=True)
                     continue
@@ -299,7 +348,7 @@ async def process_asset(db, browser, service_key, run, report_date, base_url, it
                 print(f"EMAIL_ERROR {asset['market']} {asset['symbol']}: {error}", file=sys.stderr, flush=True)
         return sent, 0
     except Exception as error:
-        values = {"run_id":run["id"], "report_date":report_date, "market":asset["market"], "symbol":asset["symbol"], "asset_name":asset["assetName"], "status":"error", "model":os.getenv("OPENAI_MODEL", "gpt-5.2"), "analysis":None, "error_message":str(error)[:300], "completed_at":dt.datetime.now(dt.timezone.utc).isoformat()}
+        values = {"run_id":run["id"], "report_date":record_date, "market":asset["market"], "symbol":asset["symbol"], "asset_name":asset["assetName"], "status":"error", "model":os.getenv("OPENAI_MODEL", "gpt-5.2"), "analysis":None, "error_message":str(error)[:300], "completed_at":dt.datetime.now(dt.timezone.utc).isoformat()}
         if result_row:
             db.update("morning_report_results", f"id=eq.{result_row['id']}", values)
         else:

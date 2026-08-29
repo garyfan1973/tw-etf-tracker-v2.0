@@ -124,8 +124,10 @@ upsert_schedule() {
 }
 
 # 同一個 Scheduler job 可包含多個小時，仍只佔一個免費 job 額度。
-upsert_schedule market-data-tw market-data-tw "30 17,18,19,20,21,23 * * 1-5"
-upsert_schedule market-data-us market-data-us "20 5 * * 2-6"
-upsert_schedule member-morning-report member-morning-report "30 6 * * 2-6"
+# 每日喚醒以涵蓋臨時休市、特殊開市與資料延遲；程式依實際行情日期
+# 及既有寄送紀錄決定是否更新／寄送，休市日不會重複發送舊晨報。
+upsert_schedule market-data-tw market-data-tw "30 17,18,19,20,21,23 * * *"
+upsert_schedule market-data-us market-data-us "20 5 * * *"
+upsert_schedule member-morning-report member-morning-report "30 6 * * *"
 
 echo "部署完成。先個別執行三個 Cloud Run Jobs 驗證，確認後再停用 GitHub schedule。"

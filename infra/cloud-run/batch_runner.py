@@ -117,11 +117,9 @@ def clone_repository(temp_dir: Path) -> tuple[Path, dict[str, str]]:
 
 def run_data_batch(repo_dir: Path, git_env: dict[str, str], mode: str) -> None:
     today = dt.datetime.now(TAIPEI).date().isoformat()
-    latest = latest_snapshot_date(repo_dir / "data")
-    if mode == "data-tw" and latest == today:
-        print(f"台股資料已是 {today}，略過重複更新。")
-        return
-
+    # Always fetch when Scheduler wakes the job. A same-day snapshot may have
+    # been produced before final close data became available. Git's no-change
+    # check below keeps repeated holiday/retry executions idempotent.
     for command in DATA_COMMANDS:
         run(command, repo_dir)
 
