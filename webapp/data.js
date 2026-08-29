@@ -1,5 +1,5 @@
 window.DATA = {
-  "generated_at": "2026-08-29T21:33:13+08:00",
+  "generated_at": "2026-08-29T23:31:51+08:00",
   "etfs": {
     "00981A": {
       "name": "主動統一台股增長",
@@ -793,7 +793,17 @@ window.DATA = {
               "name": "旺矽",
               "market": "TW",
               "weight": 4.7,
-              "shares": 2443000
+              "shares": 2443000,
+              "open": 5085.0,
+              "high": 5085.0,
+              "low": 4880.0,
+              "close": 5030.0,
+              "prevClose": 5090.0,
+              "change": -60.0,
+              "changePct": -1.18,
+              "amplitude": 4.03,
+              "volume": 1766866.0,
+              "quoteDate": "2026-08-03"
             },
             {
               "code": "2327",
@@ -919,7 +929,17 @@ window.DATA = {
               "name": "信驊",
               "market": "TW",
               "weight": 2.41,
-              "shares": 454900
+              "shares": 454900,
+              "open": 15525.0,
+              "high": 15745.0,
+              "low": 14815.0,
+              "close": 15630.0,
+              "prevClose": 15305.0,
+              "change": 325.0,
+              "changePct": 2.12,
+              "amplitude": 6.08,
+              "volume": 384764.0,
+              "quoteDate": "2026-08-03"
             },
             {
               "code": "2368",
@@ -943,7 +963,17 @@ window.DATA = {
               "name": "台燿",
               "market": "TW",
               "weight": 2.12,
-              "shares": 5229000
+              "shares": 5229000,
+              "open": 1460.0,
+              "high": 1515.0,
+              "low": 1440.0,
+              "close": 1490.0,
+              "prevClose": 1445.0,
+              "change": 45.0,
+              "changePct": 3.11,
+              "amplitude": 5.19,
+              "volume": 5207091.0,
+              "quoteDate": "2026-08-03"
             },
             {
               "code": "6805",
@@ -1001,7 +1031,17 @@ window.DATA = {
               "name": "萬潤",
               "market": "TW",
               "weight": 0.44,
-              "shares": 1334000
+              "shares": 1334000,
+              "open": 1420.0,
+              "high": 1455.0,
+              "low": 1325.0,
+              "close": 1365.0,
+              "prevClose": 1430.0,
+              "change": -65.0,
+              "changePct": -4.55,
+              "amplitude": 9.09,
+              "volume": 6213167.0,
+              "quoteDate": "2026-08-03"
             },
             {
               "code": "2360",
@@ -1042,7 +1082,17 @@ window.DATA = {
               "name": "華星光",
               "market": "TW",
               "weight": 0.25,
-              "shares": 1874000
+              "shares": 1874000,
+              "open": 603.0,
+              "high": 621.0,
+              "low": 596.0,
+              "close": 610.0,
+              "prevClose": 617.0,
+              "change": -7.0,
+              "changePct": -1.13,
+              "amplitude": 4.05,
+              "volume": 2540856.0,
+              "quoteDate": "2026-08-03"
             },
             {
               "code": "4958",
@@ -1066,7 +1116,17 @@ window.DATA = {
               "name": "精測",
               "market": "TW",
               "weight": 0.23,
-              "shares": 261000
+              "shares": 261000,
+              "open": 2805.0,
+              "high": 2830.0,
+              "low": 2670.0,
+              "close": 2680.0,
+              "prevClose": 2740.0,
+              "change": -60.0,
+              "changePct": -2.19,
+              "amplitude": 5.84,
+              "volume": 466150.0,
+              "quoteDate": "2026-08-03"
             },
             {
               "code": "6515",
@@ -1175,7 +1235,17 @@ window.DATA = {
               "name": "欣銓",
               "market": "TW",
               "weight": 0.09,
-              "shares": 1508000
+              "shares": 1508000,
+              "open": 223.0,
+              "high": 237.5,
+              "low": 222.0,
+              "close": 235.0,
+              "prevClose": 219.5,
+              "change": 15.5,
+              "changePct": 7.06,
+              "amplitude": 7.06,
+              "volume": 11742745.0,
+              "quoteDate": "2026-08-03"
             },
             {
               "code": "2049",
@@ -1199,14 +1269,34 @@ window.DATA = {
               "name": "頎邦",
               "market": "TW",
               "weight": 0.04,
-              "shares": 938000
+              "shares": 938000,
+              "open": 190.0,
+              "high": 203.0,
+              "low": 180.5,
+              "close": 182.5,
+              "prevClose": 187.5,
+              "change": -5.0,
+              "changePct": -2.67,
+              "amplitude": 12.0,
+              "volume": 53168281.0,
+              "quoteDate": "2026-08-03"
             },
             {
               "code": "4966",
               "name": "譜瑞-KY",
               "market": "TW",
               "weight": 0.03,
-              "shares": 140000
+              "shares": 140000,
+              "open": 593.0,
+              "high": 599.0,
+              "low": 578.0,
+              "close": 584.0,
+              "prevClose": 590.0,
+              "change": -6.0,
+              "changePct": -1.02,
+              "amplitude": 3.56,
+              "volume": 986496.0,
+              "quoteDate": "2026-08-03"
             },
             {
               "code": "2002",
@@ -1332,7 +1422,17 @@ window.DATA = {
               "name": "世界",
               "market": "TW",
               "weight": 0.0,
-              "shares": 1000
+              "shares": 1000,
+              "open": 149.5,
+              "high": 158.0,
+              "low": 149.0,
+              "close": 153.0,
+              "prevClose": 151.0,
+              "change": 2.0,
+              "changePct": 1.32,
+              "amplitude": 5.96,
+              "volume": 21842138.0,
+              "quoteDate": "2026-08-03"
             },
             {
               "code": "3443",
@@ -1390,14 +1490,34 @@ window.DATA = {
               "name": "環球晶",
               "market": "TW",
               "weight": 0.0,
-              "shares": 1000
+              "shares": 1000,
+              "open": 967.0,
+              "high": 1015.0,
+              "low": 949.0,
+              "close": 972.0,
+              "prevClose": 958.0,
+              "change": 14.0,
+              "changePct": 1.46,
+              "amplitude": 6.89,
+              "volume": 11772540.0,
+              "quoteDate": "2026-08-03"
             },
             {
               "code": "8358",
               "name": "金居",
               "market": "TW",
               "weight": 0.0,
-              "shares": 1000
+              "shares": 1000,
+              "open": 525.0,
+              "high": 543.0,
+              "low": 505.0,
+              "close": 543.0,
+              "prevClose": 494.0,
+              "change": 49.0,
+              "changePct": 9.92,
+              "amplitude": 7.69,
+              "volume": 40976352.0,
+              "quoteDate": "2026-08-03"
             },
             {
               "code": "8996",
@@ -34970,7 +35090,7 @@ window.DATA = {
         },
         {
           "date": "2026-08-28",
-          "fetched_at": "2026-08-29T21:30:43+08:00",
+          "fetched_at": "2026-08-29T23:30:32+08:00",
           "count": 51,
           "self": {
             "open": 29.83,
@@ -36919,7 +37039,7 @@ window.DATA = {
           "大型權值"
         ],
         "source": "TWSE ETF e添富",
-        "fetchedAt": "2026-08-29T21:33:06+08:00",
+        "fetchedAt": "2026-08-29T23:31:42+08:00",
         "navHistory": [
           {
             "date": "2026-07-15",
@@ -38198,7 +38318,17 @@ window.DATA = {
               "name": "聖暉*",
               "market": "TW",
               "weight": 7.37,
-              "shares": 3792000
+              "shares": 3792000,
+              "open": 856.0,
+              "high": 880.0,
+              "low": 841.0,
+              "close": 871.0,
+              "prevClose": 854.0,
+              "change": 17.0,
+              "changePct": 1.99,
+              "amplitude": 4.57,
+              "volume": 889073.0,
+              "quoteDate": "2026-08-03"
             },
             {
               "code": "2454",
@@ -38273,7 +38403,17 @@ window.DATA = {
               "name": "旺矽",
               "market": "TW",
               "weight": 3.68,
-              "shares": 307000
+              "shares": 307000,
+              "open": 5085.0,
+              "high": 5085.0,
+              "low": 4880.0,
+              "close": 5030.0,
+              "prevClose": 5090.0,
+              "change": -60.0,
+              "changePct": -1.18,
+              "amplitude": 4.03,
+              "volume": 1766866.0,
+              "quoteDate": "2026-08-03"
             },
             {
               "code": "2383",
@@ -38348,7 +38488,17 @@ window.DATA = {
               "name": "穩懋",
               "market": "TW",
               "weight": 2.71,
-              "shares": 4226000
+              "shares": 4226000,
+              "open": 449.5,
+              "high": 461.5,
+              "low": 434.5,
+              "close": 439.0,
+              "prevClose": 445.5,
+              "change": -6.5,
+              "changePct": -1.46,
+              "amplitude": 6.06,
+              "volume": 49190657.0,
+              "quoteDate": "2026-08-03"
             },
             {
               "code": "2303",
@@ -38389,7 +38539,17 @@ window.DATA = {
               "name": "昇達科",
               "market": "TW",
               "weight": 2.17,
-              "shares": 988000
+              "shares": 988000,
+              "open": 1500.0,
+              "high": 1515.0,
+              "low": 1450.0,
+              "close": 1510.0,
+              "prevClose": 1425.0,
+              "change": 85.0,
+              "changePct": 5.96,
+              "amplitude": 4.56,
+              "volume": 2935985.0,
+              "quoteDate": "2026-08-03"
             },
             {
               "code": "3017",
@@ -38413,7 +38573,17 @@ window.DATA = {
               "name": "環球晶",
               "market": "TW",
               "weight": 2.05,
-              "shares": 1148000
+              "shares": 1148000,
+              "open": 967.0,
+              "high": 1015.0,
+              "low": 949.0,
+              "close": 972.0,
+              "prevClose": 958.0,
+              "change": 14.0,
+              "changePct": 1.46,
+              "amplitude": 6.89,
+              "volume": 11772540.0,
+              "quoteDate": "2026-08-03"
             },
             {
               "code": "3008",
@@ -38454,7 +38624,17 @@ window.DATA = {
               "name": "欣銓",
               "market": "TW",
               "weight": 1.85,
-              "shares": 4780000
+              "shares": 4780000,
+              "open": 223.0,
+              "high": 237.5,
+              "low": 222.0,
+              "close": 235.0,
+              "prevClose": 219.5,
+              "change": 15.5,
+              "changePct": 7.06,
+              "amplitude": 7.06,
+              "volume": 11742745.0,
+              "quoteDate": "2026-08-03"
             },
             {
               "code": "2377",
@@ -38580,7 +38760,17 @@ window.DATA = {
               "name": "台燿",
               "market": "TW",
               "weight": 1.15,
-              "shares": 458000
+              "shares": 458000,
+              "open": 1460.0,
+              "high": 1515.0,
+              "low": 1440.0,
+              "close": 1490.0,
+              "prevClose": 1445.0,
+              "change": 45.0,
+              "changePct": 3.11,
+              "amplitude": 5.19,
+              "volume": 5207091.0,
+              "quoteDate": "2026-08-03"
             },
             {
               "code": "2472",
@@ -38638,14 +38828,34 @@ window.DATA = {
               "name": "信驊",
               "market": "TW",
               "weight": 1.02,
-              "shares": 30900
+              "shares": 30900,
+              "open": 15525.0,
+              "high": 15745.0,
+              "low": 14815.0,
+              "close": 15630.0,
+              "prevClose": 15305.0,
+              "change": 325.0,
+              "changePct": 2.12,
+              "amplitude": 6.08,
+              "volume": 384764.0,
+              "quoteDate": "2026-08-03"
             },
             {
               "code": "1785",
               "name": "光洋科",
               "market": "TW",
               "weight": 0.99,
-              "shares": 4500000
+              "shares": 4500000,
+              "open": 104.5,
+              "high": 104.5,
+              "low": 102.0,
+              "close": 103.5,
+              "prevClose": 103.0,
+              "change": 0.5,
+              "changePct": 0.49,
+              "amplitude": 2.43,
+              "volume": 3100954.0,
+              "quoteDate": "2026-08-03"
             },
             {
               "code": "2327",
@@ -38737,7 +38947,17 @@ window.DATA = {
               "name": "力旺",
               "market": "TW",
               "weight": 0.46,
-              "shares": 93000
+              "shares": 93000,
+              "open": 2720.0,
+              "high": 2720.0,
+              "low": 2520.0,
+              "close": 2540.0,
+              "prevClose": 2650.0,
+              "change": -110.0,
+              "changePct": -4.15,
+              "amplitude": 7.55,
+              "volume": 1694636.0,
+              "quoteDate": "2026-08-03"
             },
             {
               "code": "6831",
@@ -38812,7 +39032,17 @@ window.DATA = {
               "name": "萬潤",
               "market": "TW",
               "weight": 0.19,
-              "shares": 91000
+              "shares": 91000,
+              "open": 1420.0,
+              "high": 1455.0,
+              "low": 1325.0,
+              "close": 1365.0,
+              "prevClose": 1430.0,
+              "change": -65.0,
+              "changePct": -4.55,
+              "amplitude": 9.09,
+              "volume": 6213167.0,
+              "quoteDate": "2026-08-03"
             },
             {
               "code": "3231",
@@ -38989,7 +39219,17 @@ window.DATA = {
               "name": "金居",
               "market": "TW",
               "weight": 0.0,
-              "shares": 1000
+              "shares": 1000,
+              "open": 525.0,
+              "high": 543.0,
+              "low": 505.0,
+              "close": 543.0,
+              "prevClose": 494.0,
+              "change": 49.0,
+              "changePct": 9.92,
+              "amplitude": 7.69,
+              "volume": 40976352.0,
+              "quoteDate": "2026-08-03"
             }
           ]
         },
@@ -75619,7 +75859,7 @@ window.DATA = {
         },
         {
           "date": "2026-08-28",
-          "fetched_at": "2026-08-29T21:30:43+08:00",
+          "fetched_at": "2026-08-29T23:30:32+08:00",
           "count": 57,
           "self": {
             "open": 22.56,
@@ -77846,7 +78086,7 @@ window.DATA = {
           "中小型權值"
         ],
         "source": "TWSE ETF e添富",
-        "fetchedAt": "2026-08-29T21:33:07+08:00",
+        "fetchedAt": "2026-08-29T23:31:43+08:00",
         "navHistory": [
           {
             "date": "2026-07-15",
@@ -80340,7 +80580,17 @@ window.DATA = {
               "name": "旺矽",
               "market": "TW",
               "weight": 1.14,
-              "shares": 75000
+              "shares": 75000,
+              "open": 5085.0,
+              "high": 5085.0,
+              "low": 4880.0,
+              "close": 5030.0,
+              "prevClose": 5090.0,
+              "change": -60.0,
+              "changePct": -1.18,
+              "amplitude": 4.03,
+              "volume": 1766866.0,
+              "quoteDate": "2026-08-03"
             },
             {
               "code": "SMTC",
@@ -80418,7 +80668,17 @@ window.DATA = {
               "name": "世界",
               "market": "TW",
               "weight": 0.99,
-              "shares": 2498000
+              "shares": 2498000,
+              "open": 149.5,
+              "high": 158.0,
+              "low": 149.0,
+              "close": 153.0,
+              "prevClose": 151.0,
+              "change": 2.0,
+              "changePct": 1.32,
+              "amplitude": 5.96,
+              "volume": 21842138.0,
+              "quoteDate": "2026-08-03"
             },
             {
               "code": "",
@@ -99621,7 +99881,7 @@ window.DATA = {
         },
         {
           "date": "2026-08-27",
-          "fetched_at": "2026-08-29T21:31:22+08:00",
+          "fetched_at": "2026-08-29T23:30:49+08:00",
           "count": 49,
           "self": {
             "open": 15.4,
@@ -100798,7 +101058,7 @@ window.DATA = {
           "科技主題型"
         ],
         "source": "TWSE ETF e添富",
-        "fetchedAt": "2026-08-29T21:33:07+08:00",
+        "fetchedAt": "2026-08-29T23:31:43+08:00",
         "navHistory": [
           {
             "date": "2026-07-15",
@@ -101868,7 +102128,17 @@ window.DATA = {
               "name": "旺矽",
               "market": "TW",
               "weight": 4.73,
-              "shares": 326000
+              "shares": 326000,
+              "open": 5085.0,
+              "high": 5085.0,
+              "low": 4880.0,
+              "close": 5030.0,
+              "prevClose": 5090.0,
+              "change": -60.0,
+              "changePct": -1.18,
+              "amplitude": 4.03,
+              "volume": 1766866.0,
+              "quoteDate": "2026-08-03"
             },
             {
               "code": "3037",
@@ -101943,14 +102213,34 @@ window.DATA = {
               "name": "萬潤",
               "market": "TW",
               "weight": 3.06,
-              "shares": 1220000
+              "shares": 1220000,
+              "open": 1420.0,
+              "high": 1455.0,
+              "low": 1325.0,
+              "close": 1365.0,
+              "prevClose": 1430.0,
+              "change": -65.0,
+              "changePct": -4.55,
+              "amplitude": 9.09,
+              "volume": 6213167.0,
+              "quoteDate": "2026-08-03"
             },
             {
               "code": "6584",
               "name": "南俊國際",
               "market": "TW",
               "weight": 2.52,
-              "shares": 2231000
+              "shares": 2231000,
+              "open": 680.0,
+              "high": 682.0,
+              "low": 647.0,
+              "close": 682.0,
+              "prevClose": 620.0,
+              "change": 62.0,
+              "changePct": 10.0,
+              "amplitude": 5.65,
+              "volume": 4791672.0,
+              "quoteDate": "2026-08-03"
             },
             {
               "code": "3711",
@@ -102059,7 +102349,17 @@ window.DATA = {
               "name": "群聯",
               "market": "TW",
               "weight": 1.61,
-              "shares": 366000
+              "shares": 366000,
+              "open": 2170.0,
+              "high": 2195.0,
+              "low": 2115.0,
+              "close": 2150.0,
+              "prevClose": 2155.0,
+              "change": -5.0,
+              "changePct": -0.23,
+              "amplitude": 3.71,
+              "volume": 3302190.0,
+              "quoteDate": "2026-08-03"
             },
             {
               "code": "2308",
@@ -102117,14 +102417,34 @@ window.DATA = {
               "name": "竑騰",
               "market": "TW",
               "weight": 0.96,
-              "shares": 310000
+              "shares": 310000,
+              "open": 1975.0,
+              "high": 1975.0,
+              "low": 1790.0,
+              "close": 1790.0,
+              "prevClose": 1985.0,
+              "change": -195.0,
+              "changePct": -9.82,
+              "amplitude": 9.32,
+              "volume": 750421.0,
+              "quoteDate": "2026-08-03"
             },
             {
               "code": "6488",
               "name": "環球晶",
               "market": "TW",
               "weight": 0.85,
-              "shares": 394000
+              "shares": 394000,
+              "open": 967.0,
+              "high": 1015.0,
+              "low": 949.0,
+              "close": 972.0,
+              "prevClose": 958.0,
+              "change": 14.0,
+              "changePct": 1.46,
+              "amplitude": 6.89,
+              "volume": 11772540.0,
+              "quoteDate": "2026-08-03"
             },
             {
               "code": "3189",
@@ -102165,7 +102485,17 @@ window.DATA = {
               "name": "印能科技",
               "market": "TW",
               "weight": 0.52,
-              "shares": 56000
+              "shares": 56000,
+              "open": 2895.0,
+              "high": 3050.0,
+              "low": 2800.0,
+              "close": 2995.0,
+              "prevClose": 2870.0,
+              "change": 125.0,
+              "changePct": 4.36,
+              "amplitude": 8.71,
+              "volume": 332108.0,
+              "quoteDate": "2026-08-03"
             },
             {
               "code": "6139",
@@ -102223,14 +102553,34 @@ window.DATA = {
               "name": "威剛",
               "market": "TW",
               "weight": 0.35,
-              "shares": 358000
+              "shares": 358000,
+              "open": 418.0,
+              "high": 418.5,
+              "low": 407.0,
+              "close": 412.0,
+              "prevClose": 415.5,
+              "change": -3.5,
+              "changePct": -0.84,
+              "amplitude": 2.77,
+              "volume": 6969224.0,
+              "quoteDate": "2026-08-03"
             },
             {
               "code": "5289",
               "name": "宜鼎",
               "market": "TW",
               "weight": 0.34,
-              "shares": 98000
+              "shares": 98000,
+              "open": 1525.0,
+              "high": 1535.0,
+              "low": 1465.0,
+              "close": 1470.0,
+              "prevClose": 1490.0,
+              "change": -20.0,
+              "changePct": -1.34,
+              "amplitude": 4.7,
+              "volume": 2052566.0,
+              "quoteDate": "2026-08-03"
             },
             {
               "code": "3583",
@@ -102271,21 +102621,51 @@ window.DATA = {
               "name": "世界",
               "market": "TW",
               "weight": 0.24,
-              "shares": 629000
+              "shares": 629000,
+              "open": 149.5,
+              "high": 158.0,
+              "low": 149.0,
+              "close": 153.0,
+              "prevClose": 151.0,
+              "change": 2.0,
+              "changePct": 1.32,
+              "amplitude": 5.96,
+              "volume": 21842138.0,
+              "quoteDate": "2026-08-03"
             },
             {
               "code": "1815",
               "name": "富喬",
               "market": "TW",
               "weight": 0.15,
-              "shares": 827000
+              "shares": 827000,
+              "open": 118.5,
+              "high": 128.0,
+              "low": 111.0,
+              "close": 125.5,
+              "prevClose": 116.5,
+              "change": 9.0,
+              "changePct": 7.73,
+              "amplitude": 14.59,
+              "volume": 128743943.0,
+              "quoteDate": "2026-08-03"
             },
             {
               "code": "3264",
               "name": "欣銓",
               "market": "TW",
               "weight": 0.03,
-              "shares": 72000
+              "shares": 72000,
+              "open": 223.0,
+              "high": 237.5,
+              "low": 222.0,
+              "close": 235.0,
+              "prevClose": 219.5,
+              "change": 15.5,
+              "changePct": 7.06,
+              "amplitude": 7.06,
+              "volume": 11742745.0,
+              "quoteDate": "2026-08-03"
             }
           ]
         },
@@ -126858,7 +127238,7 @@ window.DATA = {
         },
         {
           "date": "2026-08-28",
-          "fetched_at": "2026-08-29T21:31:22+08:00",
+          "fetched_at": "2026-08-29T23:30:49+08:00",
           "count": 41,
           "self": {
             "open": 18.64,
@@ -128453,7 +128833,7 @@ window.DATA = {
           "科技主題型"
         ],
         "source": "TWSE ETF e添富",
-        "fetchedAt": "2026-08-29T21:33:07+08:00",
+        "fetchedAt": "2026-08-29T23:31:44+08:00",
         "navHistory": [
           {
             "date": "2026-07-15",
@@ -129766,7 +130146,17 @@ window.DATA = {
               "name": "旺矽",
               "market": "TW",
               "weight": 3.46,
-              "shares": 171000
+              "shares": 171000,
+              "open": 5085.0,
+              "high": 5085.0,
+              "low": 4880.0,
+              "close": 5030.0,
+              "prevClose": 5090.0,
+              "change": -60.0,
+              "changePct": -1.18,
+              "amplitude": 4.03,
+              "volume": 1766866.0,
+              "quoteDate": "2026-08-03"
             },
             {
               "code": "2059",
@@ -129790,7 +130180,17 @@ window.DATA = {
               "name": "信驊",
               "market": "TW",
               "weight": 2.92,
-              "shares": 52400
+              "shares": 52400,
+              "open": 15525.0,
+              "high": 15745.0,
+              "low": 14815.0,
+              "close": 15630.0,
+              "prevClose": 15305.0,
+              "change": 325.0,
+              "changePct": 2.12,
+              "amplitude": 6.08,
+              "volume": 384764.0,
+              "quoteDate": "2026-08-03"
             },
             {
               "code": "3443",
@@ -129831,7 +130231,17 @@ window.DATA = {
               "name": "環球晶",
               "market": "TW",
               "weight": 2.58,
-              "shares": 853000
+              "shares": 853000,
+              "open": 967.0,
+              "high": 1015.0,
+              "low": 949.0,
+              "close": 972.0,
+              "prevClose": 958.0,
+              "change": 14.0,
+              "changePct": 1.46,
+              "amplitude": 6.89,
+              "volume": 11772540.0,
+              "quoteDate": "2026-08-03"
             },
             {
               "code": "2308",
@@ -129872,7 +130282,17 @@ window.DATA = {
               "name": "萬潤",
               "market": "TW",
               "weight": 2.09,
-              "shares": 596000
+              "shares": 596000,
+              "open": 1420.0,
+              "high": 1455.0,
+              "low": 1325.0,
+              "close": 1365.0,
+              "prevClose": 1430.0,
+              "change": -65.0,
+              "changePct": -4.55,
+              "amplitude": 9.09,
+              "volume": 6213167.0,
+              "quoteDate": "2026-08-03"
             },
             {
               "code": "2345",
@@ -130015,7 +130435,17 @@ window.DATA = {
               "name": "力旺",
               "market": "TW",
               "weight": 1.02,
-              "shares": 122000
+              "shares": 122000,
+              "open": 2720.0,
+              "high": 2720.0,
+              "low": 2520.0,
+              "close": 2540.0,
+              "prevClose": 2650.0,
+              "change": -110.0,
+              "changePct": -4.15,
+              "amplitude": 7.55,
+              "volume": 1694636.0,
+              "quoteDate": "2026-08-03"
             },
             {
               "code": "3231",
@@ -130158,7 +130588,17 @@ window.DATA = {
               "name": "世界",
               "market": "TW",
               "weight": 0.71,
-              "shares": 1351000
+              "shares": 1351000,
+              "open": 149.5,
+              "high": 158.0,
+              "low": 149.0,
+              "close": 153.0,
+              "prevClose": 151.0,
+              "change": 2.0,
+              "changePct": 1.32,
+              "amplitude": 5.96,
+              "volume": 21842138.0,
+              "quoteDate": "2026-08-03"
             },
             {
               "code": "6505",
@@ -130199,7 +130639,17 @@ window.DATA = {
               "name": "順達",
               "market": "TW",
               "weight": 0.59,
-              "shares": 549000
+              "shares": 549000,
+              "open": 407.5,
+              "high": 414.5,
+              "low": 397.5,
+              "close": 400.0,
+              "prevClose": 397.5,
+              "change": 2.5,
+              "changePct": 0.63,
+              "amplitude": 4.28,
+              "volume": 11425842.0,
+              "quoteDate": "2026-08-03"
             },
             {
               "code": "6442",
@@ -130240,7 +130690,17 @@ window.DATA = {
               "name": "鈊象",
               "market": "TW",
               "weight": 0.36,
-              "shares": 133000
+              "shares": 133000,
+              "open": 704.0,
+              "high": 713.0,
+              "low": 702.0,
+              "close": 707.0,
+              "prevClose": 704.0,
+              "change": 3.0,
+              "changePct": 0.43,
+              "amplitude": 1.56,
+              "volume": 2805023.0,
+              "quoteDate": "2026-08-03"
             },
             {
               "code": "5434",
@@ -130281,14 +130741,34 @@ window.DATA = {
               "name": "精測",
               "market": "TW",
               "weight": 0.3,
-              "shares": 32000
+              "shares": 32000,
+              "open": 2805.0,
+              "high": 2830.0,
+              "low": 2670.0,
+              "close": 2680.0,
+              "prevClose": 2740.0,
+              "change": -60.0,
+              "changePct": -2.19,
+              "amplitude": 5.84,
+              "volume": 466150.0,
+              "quoteDate": "2026-08-03"
             },
             {
               "code": "3374",
               "name": "精材",
               "market": "TW",
               "weight": 0.29,
-              "shares": 271000
+              "shares": 271000,
+              "open": 352.0,
+              "high": 386.0,
+              "low": 350.0,
+              "close": 386.0,
+              "prevClose": 351.0,
+              "change": 35.0,
+              "changePct": 9.97,
+              "amplitude": 10.26,
+              "volume": 29583730.0,
+              "quoteDate": "2026-08-03"
             },
             {
               "code": "3090",
@@ -130312,7 +130792,17 @@ window.DATA = {
               "name": "新普",
               "market": "TW",
               "weight": 0.22,
-              "shares": 178000
+              "shares": 178000,
+              "open": 410.5,
+              "high": 412.5,
+              "low": 403.5,
+              "close": 405.5,
+              "prevClose": 409.0,
+              "change": -3.5,
+              "changePct": -0.86,
+              "amplitude": 2.2,
+              "volume": 377833.0,
+              "quoteDate": "2026-08-03"
             },
             {
               "code": "6715",
@@ -163078,7 +163568,7 @@ window.DATA = {
         },
         {
           "date": "2026-08-28",
-          "fetched_at": "2026-08-29T21:31:22+08:00",
+          "fetched_at": "2026-08-29T23:30:49+08:00",
           "count": 47,
           "self": {
             "open": 14.96,
@@ -164900,7 +165390,7 @@ window.DATA = {
           "高股息"
         ],
         "source": "TWSE ETF e添富",
-        "fetchedAt": "2026-08-29T21:33:08+08:00",
+        "fetchedAt": "2026-08-29T23:31:45+08:00",
         "navHistory": [
           {
             "date": "2026-07-15",
@@ -201775,7 +202265,7 @@ window.DATA = {
         },
         {
           "date": "2026-08-28",
-          "fetched_at": "2026-08-29T21:31:23+08:00",
+          "fetched_at": "2026-08-29T23:30:49+08:00",
           "count": 52,
           "self": {
             "open": 107.1,
@@ -203825,7 +204315,7 @@ window.DATA = {
           "大型權值"
         ],
         "source": "TWSE ETF e添富",
-        "fetchedAt": "2026-08-29T21:33:08+08:00",
+        "fetchedAt": "2026-08-29T23:31:45+08:00",
         "navHistory": [
           {
             "date": "2026-07-15",
@@ -256344,7 +256834,7 @@ window.DATA = {
         },
         {
           "date": "2026-08-28",
-          "fetched_at": "2026-08-29T21:31:23+08:00",
+          "fetched_at": "2026-08-29T23:30:50+08:00",
           "count": 74,
           "self": {
             "open": 62.5,
@@ -259238,7 +259728,7 @@ window.DATA = {
           "科技主題型"
         ],
         "source": "TWSE ETF e添富",
-        "fetchedAt": "2026-08-29T21:33:09+08:00",
+        "fetchedAt": "2026-08-29T23:31:46+08:00",
         "navHistory": [
           {
             "date": "2026-07-15",
@@ -296003,7 +296493,7 @@ window.DATA = {
         },
         {
           "date": "2026-08-28",
-          "fetched_at": "2026-08-29T21:31:23+08:00",
+          "fetched_at": "2026-08-29T23:30:50+08:00",
           "count": 51,
           "self": {
             "open": 54.0,
@@ -298071,7 +298561,7 @@ window.DATA = {
           "高股息"
         ],
         "source": "TWSE ETF e添富",
-        "fetchedAt": "2026-08-29T21:33:09+08:00",
+        "fetchedAt": "2026-08-29T23:31:46+08:00",
         "navHistory": [
           {
             "date": "2026-07-15",
@@ -299231,7 +299721,17 @@ window.DATA = {
               "name": "世界",
               "market": "TW",
               "weight": 2.45,
-              "shares": 97142442
+              "shares": 97142442,
+              "open": 149.5,
+              "high": 158.0,
+              "low": 149.0,
+              "close": 153.0,
+              "prevClose": 151.0,
+              "change": 2.0,
+              "changePct": 1.32,
+              "amplitude": 5.96,
+              "volume": 21842138.0,
+              "quoteDate": "2026-08-03"
             },
             {
               "code": "2301",
@@ -299374,7 +299874,17 @@ window.DATA = {
               "name": "鈊象",
               "market": "TW",
               "weight": 1.83,
-              "shares": 14253000
+              "shares": 14253000,
+              "open": 704.0,
+              "high": 713.0,
+              "low": 702.0,
+              "close": 707.0,
+              "prevClose": 704.0,
+              "change": 3.0,
+              "changePct": 0.43,
+              "amplitude": 1.56,
+              "volume": 2805023.0,
+              "quoteDate": "2026-08-03"
             },
             {
               "code": "5871",
@@ -320308,7 +320818,7 @@ window.DATA = {
         },
         {
           "date": "2026-08-28",
-          "fetched_at": "2026-08-29T21:31:23+08:00",
+          "fetched_at": "2026-08-29T23:30:50+08:00",
           "count": 31,
           "self": {
             "open": 32.82,
@@ -321579,11 +322089,11 @@ window.DATA = {
         "fundSizeHundredMillion": 6247.25,
         "beneficiaryTenThousands": 167.16,
         "tags": [
-          "公司治理及ESG",
-          "高股息"
+          "高股息",
+          "公司治理及ESG"
         ],
         "source": "TWSE ETF e添富",
-        "fetchedAt": "2026-08-29T21:33:10+08:00",
+        "fetchedAt": "2026-08-29T23:31:47+08:00",
         "navHistory": [
           {
             "date": "2026-07-15",
@@ -322624,7 +323134,17 @@ window.DATA = {
               "name": "旺矽",
               "market": "TW",
               "weight": 1.6,
-              "shares": 350000
+              "shares": 350000,
+              "open": 5085.0,
+              "high": 5085.0,
+              "low": 4880.0,
+              "close": 5030.0,
+              "prevClose": 5090.0,
+              "change": -60.0,
+              "changePct": -1.18,
+              "amplitude": 4.03,
+              "volume": 1766866.0,
+              "quoteDate": "2026-08-03"
             },
             {
               "code": "2382",
@@ -322699,7 +323219,17 @@ window.DATA = {
               "name": "台燿",
               "market": "TW",
               "weight": 1.22,
-              "shares": 1268000
+              "shares": 1268000,
+              "open": 1460.0,
+              "high": 1515.0,
+              "low": 1440.0,
+              "close": 1490.0,
+              "prevClose": 1445.0,
+              "change": 45.0,
+              "changePct": 3.11,
+              "amplitude": 5.19,
+              "volume": 5207091.0,
+              "quoteDate": "2026-08-03"
             },
             {
               "code": "2379",
@@ -322893,7 +323423,17 @@ window.DATA = {
               "name": "穩懋",
               "market": "TW",
               "weight": 0.49,
-              "shares": 1983000
+              "shares": 1983000,
+              "open": 449.5,
+              "high": 461.5,
+              "low": 434.5,
+              "close": 439.0,
+              "prevClose": 445.5,
+              "change": -6.5,
+              "changePct": -1.46,
+              "amplitude": 6.06,
+              "volume": 49190657.0,
+              "quoteDate": "2026-08-03"
             }
           ]
         },
@@ -343691,7 +344231,7 @@ window.DATA = {
         },
         {
           "date": "2026-08-28",
-          "fetched_at": "2026-08-29T21:31:23+08:00",
+          "fetched_at": "2026-08-29T23:30:50+08:00",
           "count": 31,
           "self": {
             "open": 50.1,
@@ -344930,7 +345470,7 @@ window.DATA = {
           "科技主題型"
         ],
         "source": "TWSE ETF e添富",
-        "fetchedAt": "2026-08-29T21:33:11+08:00",
+        "fetchedAt": "2026-08-29T23:31:48+08:00",
         "navHistory": [
           {
             "date": "2026-07-15",
@@ -346141,7 +346681,17 @@ window.DATA = {
               "name": "鈊象",
               "market": "TW",
               "weight": 1.64,
-              "shares": 11430000
+              "shares": 11430000,
+              "open": 704.0,
+              "high": 713.0,
+              "low": 702.0,
+              "close": 707.0,
+              "prevClose": 704.0,
+              "change": 3.0,
+              "changePct": 0.43,
+              "amplitude": 1.56,
+              "volume": 2805023.0,
+              "quoteDate": "2026-08-03"
             },
             {
               "code": "5871",
@@ -346318,7 +346868,17 @@ window.DATA = {
               "name": "新普",
               "market": "TW",
               "weight": 0.57,
-              "shares": 8504000
+              "shares": 8504000,
+              "open": 410.5,
+              "high": 412.5,
+              "low": 403.5,
+              "close": 405.5,
+              "prevClose": 409.0,
+              "change": -3.5,
+              "changePct": -0.86,
+              "amplitude": 2.2,
+              "volume": 377833.0,
+              "quoteDate": "2026-08-03"
             },
             {
               "code": "8454",
@@ -374225,7 +374785,7 @@ window.DATA = {
         },
         {
           "date": "2026-08-28",
-          "fetched_at": "2026-08-29T21:31:23+08:00",
+          "fetched_at": "2026-08-29T23:30:50+08:00",
           "count": 41,
           "self": {
             "open": 31.41,
@@ -375887,7 +376447,7 @@ window.DATA = {
           "高股息"
         ],
         "source": "TWSE ETF e添富",
-        "fetchedAt": "2026-08-29T21:33:11+08:00",
+        "fetchedAt": "2026-08-29T23:31:49+08:00",
         "navHistory": [
           {
             "date": "2026-07-15",
@@ -377540,7 +378100,17 @@ window.DATA = {
               "name": "信驊",
               "market": "TW",
               "weight": 0.68,
-              "shares": 35626
+              "shares": 35626,
+              "open": 15525.0,
+              "high": 15745.0,
+              "low": 14815.0,
+              "close": 15630.0,
+              "prevClose": 15305.0,
+              "change": 325.0,
+              "changePct": 2.12,
+              "amplitude": 6.08,
+              "volume": 384764.0,
+              "quoteDate": "2026-08-03"
             },
             {
               "code": "2890",
@@ -377836,7 +378406,17 @@ window.DATA = {
               "name": "旺矽",
               "market": "TW",
               "weight": 0.38,
-              "shares": 54400
+              "shares": 54400,
+              "open": 5085.0,
+              "high": 5085.0,
+              "low": 4880.0,
+              "close": 5030.0,
+              "prevClose": 5090.0,
+              "change": -60.0,
+              "changePct": -1.18,
+              "amplitude": 4.03,
+              "volume": 1766866.0,
+              "quoteDate": "2026-08-03"
             },
             {
               "code": "2368",
@@ -377877,7 +378457,17 @@ window.DATA = {
               "name": "力旺",
               "market": "TW",
               "weight": 0.25,
-              "shares": 89077
+              "shares": 89077,
+              "open": 2720.0,
+              "high": 2720.0,
+              "low": 2520.0,
+              "close": 2540.0,
+              "prevClose": 2650.0,
+              "change": -110.0,
+              "changePct": -4.15,
+              "amplitude": 7.55,
+              "volume": 1694636.0,
+              "quoteDate": "2026-08-03"
             }
           ]
         },
@@ -412235,7 +412825,7 @@ window.DATA = {
         },
         {
           "date": "2026-08-28",
-          "fetched_at": "2026-08-29T21:31:24+08:00",
+          "fetched_at": "2026-08-29T23:30:51+08:00",
           "count": 51,
           "self": {
             "open": 41.48,
@@ -414254,7 +414844,7 @@ window.DATA = {
           "大型權值"
         ],
         "source": "TWSE ETF e添富",
-        "fetchedAt": "2026-08-29T21:33:11+08:00",
+        "fetchedAt": "2026-08-29T23:31:49+08:00",
         "navHistory": [
           {
             "date": "2026-07-15",
@@ -444512,7 +445102,7 @@ window.DATA = {
         },
         {
           "date": "2026-08-28",
-          "fetched_at": "2026-08-29T21:31:31+08:00",
+          "fetched_at": "2026-08-29T23:30:58+08:00",
           "count": 51,
           "self": {
             "open": 244.9,
@@ -446552,7 +447142,7 @@ window.DATA = {
           "大型權值"
         ],
         "source": "TWSE ETF e添富",
-        "fetchedAt": "2026-08-29T21:33:12+08:00",
+        "fetchedAt": "2026-08-29T23:31:50+08:00",
         "navHistory": [
           {
             "date": "2026-07-15",
@@ -446830,6 +447420,404 @@ window.DATA = {
             "shares": 178172283,
             "peoplePct": 0.01,
             "holdingPct": 9.58
+          }
+        ],
+        "source": "TDCC 集保戶股權分散表"
+      }
+    },
+    "00631L": {
+      "name": "元大台灣50正2",
+      "snapshots": [
+        {
+          "date": "2026-08-28",
+          "fetched_at": "2026-08-29T23:30:58+08:00",
+          "count": 3,
+          "self": {
+            "open": 36.58,
+            "high": 36.65,
+            "low": 36.18,
+            "close": 36.3,
+            "prevClose": 35.95,
+            "change": 0.35,
+            "changePct": 0.97,
+            "amplitude": 1.31,
+            "volume": 129529441.0,
+            "quoteDate": "2026-08-28"
+          },
+          "selfInstitutional": {
+            "foreign": 1578514,
+            "trust": 0,
+            "dealer": 42036366,
+            "total": 43614880,
+            "date": "2026-08-28"
+          },
+          "selfMargin": {
+            "marginBuy": 6090,
+            "marginSell": 9139,
+            "marginCashRedemption": 166,
+            "marginPrevBalance": 205943,
+            "marginBalance": 202728,
+            "shortBuy": 613,
+            "shortSell": 1300,
+            "shortStockRedemption": 10,
+            "shortPrevBalance": 20278,
+            "shortBalance": 20955,
+            "offsetting": 199,
+            "date": "2026-08-28"
+          },
+          "holdings": [
+            {
+              "code": "",
+              "name": "臺股期貨 202609(FITXN*1.TF)",
+              "market": "",
+              "assetType": "future",
+              "weight": 155.49,
+              "quantity": 44950.0,
+              "unit": "口",
+              "amount": null
+            },
+            {
+              "code": "2330",
+              "name": "台積電",
+              "market": "TW",
+              "assetType": "stock",
+              "weight": 41.16,
+              "shares": 45587000,
+              "open": 2440.0,
+              "high": 2445.0,
+              "low": 2410.0,
+              "close": 2420.0,
+              "prevClose": 2410.0,
+              "change": 10.0,
+              "changePct": 0.41,
+              "amplitude": 1.45,
+              "volume": 15025832.0,
+              "quoteDate": "2026-08-28",
+              "inst": {
+                "foreign": 3031655,
+                "trust": -1764995,
+                "dealer": -23367,
+                "total": 1243293,
+                "date": "2026-08-28"
+              },
+              "margin": {
+                "marginBuy": 332,
+                "marginSell": 353,
+                "marginCashRedemption": 19,
+                "marginPrevBalance": 27670,
+                "marginBalance": 27630,
+                "shortBuy": 1,
+                "shortSell": 0,
+                "shortStockRedemption": 3,
+                "shortPrevBalance": 32,
+                "shortBalance": 28,
+                "offsetting": 0,
+                "date": "2026-08-28"
+              }
+            },
+            {
+              "code": "",
+              "name": "台灣50ETF股票期貨 202609",
+              "market": "",
+              "assetType": "future",
+              "weight": 3.12,
+              "quantity": 7800.0,
+              "unit": "口",
+              "amount": null
+            }
+          ]
+        }
+      ],
+      "dividends": [],
+      "overview": {
+        "name": "元大台灣50正2",
+        "securityType": "股票槓反ETF",
+        "issuer": "元大證券投資信託股份有限公司",
+        "index": "臺灣50指數",
+        "fundSizeHundredMillion": 2680.28,
+        "beneficiaryTenThousands": 31.87,
+        "tags": [
+          "大型權值"
+        ],
+        "source": "TWSE ETF e添富",
+        "fetchedAt": "2026-08-29T23:31:51+08:00",
+        "navHistory": [
+          {
+            "date": "2026-07-15",
+            "nav": 37.08,
+            "premiumPct": -0.11
+          },
+          {
+            "date": "2026-07-16",
+            "nav": 36.76,
+            "premiumPct": 1.17
+          },
+          {
+            "date": "2026-07-17",
+            "nav": 31.7,
+            "premiumPct": 1.48
+          },
+          {
+            "date": "2026-07-20",
+            "nav": 31.93,
+            "premiumPct": 0.41
+          },
+          {
+            "date": "2026-07-21",
+            "nav": 34.49,
+            "premiumPct": -0.43
+          },
+          {
+            "date": "2026-07-22",
+            "nav": 34.78,
+            "premiumPct": 0.06
+          },
+          {
+            "date": "2026-07-23",
+            "nav": 35.14,
+            "premiumPct": -0.2
+          },
+          {
+            "date": "2026-07-24",
+            "nav": 33.44,
+            "premiumPct": 0.18
+          },
+          {
+            "date": "2026-07-27",
+            "nav": 33.52,
+            "premiumPct": 0.06
+          },
+          {
+            "date": "2026-07-28",
+            "nav": 30.31,
+            "premiumPct": 0.96
+          },
+          {
+            "date": "2026-07-29",
+            "nav": 28.42,
+            "premiumPct": 0.39
+          },
+          {
+            "date": "2026-07-30",
+            "nav": 28.4,
+            "premiumPct": -0.07
+          },
+          {
+            "date": "2026-07-31",
+            "nav": 33.43,
+            "premiumPct": 0.81
+          },
+          {
+            "date": "2026-08-03",
+            "nav": 32.5,
+            "premiumPct": 0.37
+          },
+          {
+            "date": "2026-08-04",
+            "nav": 32.36,
+            "premiumPct": -0.65
+          },
+          {
+            "date": "2026-08-05",
+            "nav": 34.26,
+            "premiumPct": -0.32
+          },
+          {
+            "date": "2026-08-06",
+            "nav": 33.69,
+            "premiumPct": 0.47
+          },
+          {
+            "date": "2026-08-07",
+            "nav": 33.76,
+            "premiumPct": -0.24
+          },
+          {
+            "date": "2026-08-10",
+            "nav": 34.66,
+            "premiumPct": 0.12
+          },
+          {
+            "date": "2026-08-11",
+            "nav": 34.87,
+            "premiumPct": 0.0
+          },
+          {
+            "date": "2026-08-12",
+            "nav": 35.52,
+            "premiumPct": -0.2
+          },
+          {
+            "date": "2026-08-13",
+            "nav": 36.27,
+            "premiumPct": 0.06
+          },
+          {
+            "date": "2026-08-14",
+            "nav": 35.76,
+            "premiumPct": -0.2
+          },
+          {
+            "date": "2026-08-17",
+            "nav": 35.85,
+            "premiumPct": 0.28
+          },
+          {
+            "date": "2026-08-18",
+            "nav": 34.69,
+            "premiumPct": 0.35
+          },
+          {
+            "date": "2026-08-19",
+            "nav": 33.69,
+            "premiumPct": 0.8
+          },
+          {
+            "date": "2026-08-20",
+            "nav": 34.32,
+            "premiumPct": -0.15
+          },
+          {
+            "date": "2026-08-21",
+            "nav": 34.81,
+            "premiumPct": 0.09
+          },
+          {
+            "date": "2026-08-24",
+            "nav": 34.12,
+            "premiumPct": -0.03
+          },
+          {
+            "date": "2026-08-25",
+            "nav": 34.62,
+            "premiumPct": 0.17
+          },
+          {
+            "date": "2026-08-26",
+            "nav": 35.88,
+            "premiumPct": -0.47
+          },
+          {
+            "date": "2026-08-27",
+            "nav": 35.92,
+            "premiumPct": 0.08
+          },
+          {
+            "date": "2026-08-28",
+            "nav": 36.35,
+            "premiumPct": -0.14
+          }
+        ]
+      },
+      "shareholderDistribution": {
+        "date": "2026-08-28",
+        "totalHolders": 318724,
+        "totalShares": 7517348000,
+        "buckets": [
+          {
+            "label": "<1張",
+            "holders": 39187,
+            "shares": 12528600,
+            "peoplePct": 12.29,
+            "holdingPct": 0.17
+          },
+          {
+            "label": "1-5張",
+            "holders": 135788,
+            "shares": 334171133,
+            "peoplePct": 42.6,
+            "holdingPct": 4.45
+          },
+          {
+            "label": "5-10張",
+            "holders": 46706,
+            "shares": 363527626,
+            "peoplePct": 14.65,
+            "holdingPct": 4.84
+          },
+          {
+            "label": "10-15張",
+            "holders": 22120,
+            "shares": 282488534,
+            "peoplePct": 6.94,
+            "holdingPct": 3.76
+          },
+          {
+            "label": "15-20張",
+            "holders": 14645,
+            "shares": 265524768,
+            "peoplePct": 4.59,
+            "holdingPct": 3.53
+          },
+          {
+            "label": "20-30張",
+            "holders": 17956,
+            "shares": 453279288,
+            "peoplePct": 5.63,
+            "holdingPct": 6.03
+          },
+          {
+            "label": "30-40張",
+            "holders": 9542,
+            "shares": 337537912,
+            "peoplePct": 2.99,
+            "holdingPct": 4.49
+          },
+          {
+            "label": "40-50張",
+            "holders": 6831,
+            "shares": 312613165,
+            "peoplePct": 2.14,
+            "holdingPct": 4.16
+          },
+          {
+            "label": "50-100張",
+            "holders": 14012,
+            "shares": 1000802829,
+            "peoplePct": 4.4,
+            "holdingPct": 13.31
+          },
+          {
+            "label": "100-200張",
+            "holders": 7318,
+            "shares": 1022884240,
+            "peoplePct": 2.3,
+            "holdingPct": 13.61
+          },
+          {
+            "label": "200-400張",
+            "holders": 3107,
+            "shares": 849949292,
+            "peoplePct": 0.97,
+            "holdingPct": 11.31
+          },
+          {
+            "label": "400-600張",
+            "holders": 736,
+            "shares": 358879455,
+            "peoplePct": 0.23,
+            "holdingPct": 4.77
+          },
+          {
+            "label": "600-800張",
+            "holders": 305,
+            "shares": 210772252,
+            "peoplePct": 0.1,
+            "holdingPct": 2.8
+          },
+          {
+            "label": "800-1千張",
+            "holders": 159,
+            "shares": 143112149,
+            "peoplePct": 0.05,
+            "holdingPct": 1.9
+          },
+          {
+            "label": "1千張以上",
+            "holders": 312,
+            "shares": 1569302757,
+            "peoplePct": 0.1,
+            "holdingPct": 20.88
           }
         ],
         "source": "TDCC 集保戶股權分散表"
@@ -458875,7 +459863,7 @@ window.DATA = {
         },
         {
           "date": "2026-08-27",
-          "fetched_at": "2026-08-29T21:31:31+08:00",
+          "fetched_at": "2026-08-29T23:30:58+08:00",
           "count": 31,
           "self": {
             "open": 82.85,
@@ -459520,7 +460508,7 @@ window.DATA = {
           "科技主題型"
         ],
         "source": "TWSE ETF e添富",
-        "fetchedAt": "2026-08-29T21:33:12+08:00",
+        "fetchedAt": "2026-08-29T23:31:50+08:00",
         "navHistory": [
           {
             "date": "2026-07-15",

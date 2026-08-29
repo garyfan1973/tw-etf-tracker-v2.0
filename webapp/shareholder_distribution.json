@@ -1580,5 +1580,118 @@
       }
     ],
     "source": "TDCC 集保戶股權分散表"
+  },
+  "00631L": {
+    "date": "2026-08-28",
+    "totalHolders": 318724,
+    "totalShares": 7517348000,
+    "buckets": [
+      {
+        "label": "<1張",
+        "holders": 39187,
+        "shares": 12528600,
+        "peoplePct": 12.29,
+        "holdingPct": 0.17
+      },
+      {
+        "label": "1-5張",
+        "holders": 135788,
+        "shares": 334171133,
+        "peoplePct": 42.6,
+        "holdingPct": 4.45
+      },
+      {
+        "label": "5-10張",
+        "holders": 46706,
+        "shares": 363527626,
+        "peoplePct": 14.65,
+        "holdingPct": 4.84
+      },
+      {
+        "label": "10-15張",
+        "holders": 22120,
+        "shares": 282488534,
+        "peoplePct": 6.94,
+        "holdingPct": 3.76
+      },
+      {
+        "label": "15-20張",
+        "holders": 14645,
+        "shares": 265524768,
+        "peoplePct": 4.59,
+        "holdingPct": 3.53
+      },
+      {
+        "label": "20-30張",
+        "holders": 17956,
+        "shares": 453279288,
+        "peoplePct": 5.63,
+        "holdingPct": 6.03
+      },
+      {
+        "label": "30-40張",
+        "holders": 9542,
+        "shares": 337537912,
+        "peoplePct": 2.99,
+        "holdingPct": 4.49
+      },
+      {
+        "label": "40-50張",
+        "holders": 6831,
+        "shares": 312613165,
+        "peoplePct": 2.14,
+        "holdingPct": 4.16
+      },
+      {
+        "label": "50-100張",
+        "holders": 14012,
+        "shares": 1000802829,
+        "peoplePct": 4.4,
+        "holdingPct": 13.31
+      },
+      {
+        "label": "100-200張",
+        "holders": 7318,
+        "shares": 1022884240,
+        "peoplePct": 2.3,
+        "holdingPct": 13.61
+      },
+      {
+        "label": "200-400張",
+        "holders": 3107,
+        "shares": 849949292,
+        "peoplePct": 0.97,
+        "holdingPct": 11.31
+      },
+      {
+        "label": "400-600張",
+        "holders": 736,
+        "shares": 358879455,
+        "peoplePct": 0.23,
+        "holdingPct": 4.77
+      },
+      {
+        "label": "600-800張",
+        "holders": 305,
+        "shares": 210772252,
+        "peoplePct": 0.1,
+        "holdingPct": 2.8
+      },
+      {
+        "label": "800-1千張",
+        "holders": 159,
+        "shares": 143112149,
+        "peoplePct": 0.05,
+        "holdingPct": 1.9
+      },
+      {
+        "label": "1千張以上",
+        "holders": 312,
+        "shares": 1569302757,
+        "peoplePct": 0.1,
+        "holdingPct": 20.88
+      }
+    ],
+    "source": "TDCC 集保戶股權分散表"
   }
 }

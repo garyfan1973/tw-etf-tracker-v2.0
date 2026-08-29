@@ -10,7 +10,7 @@
       "大型權值"
     ],
     "source": "TWSE ETF e添富",
-    "fetchedAt": "2026-08-29T21:33:06+08:00",
+    "fetchedAt": "2026-08-29T23:31:42+08:00",
     "navHistory": [
       {
         "date": "2026-07-15",
@@ -191,7 +191,7 @@
       "中小型權值"
     ],
     "source": "TWSE ETF e添富",
-    "fetchedAt": "2026-08-29T21:33:07+08:00",
+    "fetchedAt": "2026-08-29T23:31:43+08:00",
     "navHistory": [
       {
         "date": "2026-07-15",
@@ -371,7 +371,7 @@
       "科技主題型"
     ],
     "source": "TWSE ETF e添富",
-    "fetchedAt": "2026-08-29T21:33:07+08:00",
+    "fetchedAt": "2026-08-29T23:31:43+08:00",
     "navHistory": [
       {
         "date": "2026-07-15",
@@ -546,7 +546,7 @@
       "科技主題型"
     ],
     "source": "TWSE ETF e添富",
-    "fetchedAt": "2026-08-29T21:33:07+08:00",
+    "fetchedAt": "2026-08-29T23:31:44+08:00",
     "navHistory": [
       {
         "date": "2026-07-15",
@@ -726,7 +726,7 @@
       "高股息"
     ],
     "source": "TWSE ETF e添富",
-    "fetchedAt": "2026-08-29T21:33:08+08:00",
+    "fetchedAt": "2026-08-29T23:31:45+08:00",
     "navHistory": [
       {
         "date": "2026-07-15",
@@ -906,7 +906,7 @@
       "大型權值"
     ],
     "source": "TWSE ETF e添富",
-    "fetchedAt": "2026-08-29T21:33:08+08:00",
+    "fetchedAt": "2026-08-29T23:31:45+08:00",
     "navHistory": [
       {
         "date": "2026-07-15",
@@ -1086,7 +1086,7 @@
       "科技主題型"
     ],
     "source": "TWSE ETF e添富",
-    "fetchedAt": "2026-08-29T21:33:09+08:00",
+    "fetchedAt": "2026-08-29T23:31:46+08:00",
     "navHistory": [
       {
         "date": "2026-07-15",
@@ -1266,7 +1266,7 @@
       "高股息"
     ],
     "source": "TWSE ETF e添富",
-    "fetchedAt": "2026-08-29T21:33:09+08:00",
+    "fetchedAt": "2026-08-29T23:31:46+08:00",
     "navHistory": [
       {
         "date": "2026-07-15",
@@ -1443,11 +1443,11 @@
     "fundSizeHundredMillion": 6247.25,
     "beneficiaryTenThousands": 167.16,
     "tags": [
-      "公司治理及ESG",
-      "高股息"
+      "高股息",
+      "公司治理及ESG"
     ],
     "source": "TWSE ETF e添富",
-    "fetchedAt": "2026-08-29T21:33:10+08:00",
+    "fetchedAt": "2026-08-29T23:31:47+08:00",
     "navHistory": [
       {
         "date": "2026-07-15",
@@ -1627,7 +1627,7 @@
       "科技主題型"
     ],
     "source": "TWSE ETF e添富",
-    "fetchedAt": "2026-08-29T21:33:11+08:00",
+    "fetchedAt": "2026-08-29T23:31:48+08:00",
     "navHistory": [
       {
         "date": "2026-07-15",
@@ -1807,7 +1807,7 @@
       "高股息"
     ],
     "source": "TWSE ETF e添富",
-    "fetchedAt": "2026-08-29T21:33:11+08:00",
+    "fetchedAt": "2026-08-29T23:31:49+08:00",
     "navHistory": [
       {
         "date": "2026-07-15",
@@ -1987,7 +1987,7 @@
       "大型權值"
     ],
     "source": "TWSE ETF e添富",
-    "fetchedAt": "2026-08-29T21:33:11+08:00",
+    "fetchedAt": "2026-08-29T23:31:49+08:00",
     "navHistory": [
       {
         "date": "2026-07-15",
@@ -2168,7 +2168,7 @@
       "科技主題型"
     ],
     "source": "TWSE ETF e添富",
-    "fetchedAt": "2026-08-29T21:33:12+08:00",
+    "fetchedAt": "2026-08-29T23:31:50+08:00",
     "navHistory": [
       {
         "date": "2026-07-15",
@@ -2343,7 +2343,7 @@
       "大型權值"
     ],
     "source": "TWSE ETF e添富",
-    "fetchedAt": "2026-08-29T21:33:12+08:00",
+    "fetchedAt": "2026-08-29T23:31:50+08:00",
     "navHistory": [
       {
         "date": "2026-07-15",
@@ -2509,6 +2509,186 @@
         "date": "2026-08-28",
         "nav": 245.62,
         "premiumPct": -0.21
+      }
+    ]
+  },
+  "00631L": {
+    "name": "元大台灣50正2",
+    "securityType": "股票槓反ETF",
+    "issuer": "元大證券投資信託股份有限公司",
+    "index": "臺灣50指數",
+    "fundSizeHundredMillion": 2680.28,
+    "beneficiaryTenThousands": 31.87,
+    "tags": [
+      "大型權值"
+    ],
+    "source": "TWSE ETF e添富",
+    "fetchedAt": "2026-08-29T23:31:51+08:00",
+    "navHistory": [
+      {
+        "date": "2026-07-15",
+        "nav": 37.08,
+        "premiumPct": -0.11
+      },
+      {
+        "date": "2026-07-16",
+        "nav": 36.76,
+        "premiumPct": 1.17
+      },
+      {
+        "date": "2026-07-17",
+        "nav": 31.7,
+        "premiumPct": 1.48
+      },
+      {
+        "date": "2026-07-20",
+        "nav": 31.93,
+        "premiumPct": 0.41
+      },
+      {
+        "date": "2026-07-21",
+        "nav": 34.49,
+        "premiumPct": -0.43
+      },
+      {
+        "date": "2026-07-22",
+        "nav": 34.78,
+        "premiumPct": 0.06
+      },
+      {
+        "date": "2026-07-23",
+        "nav": 35.14,
+        "premiumPct": -0.2
+      },
+      {
+        "date": "2026-07-24",
+        "nav": 33.44,
+        "premiumPct": 0.18
+      },
+      {
+        "date": "2026-07-27",
+        "nav": 33.52,
+        "premiumPct": 0.06
+      },
+      {
+        "date": "2026-07-28",
+        "nav": 30.31,
+        "premiumPct": 0.96
+      },
+      {
+        "date": "2026-07-29",
+        "nav": 28.42,
+        "premiumPct": 0.39
+      },
+      {
+        "date": "2026-07-30",
+        "nav": 28.4,
+        "premiumPct": -0.07
+      },
+      {
+        "date": "2026-07-31",
+        "nav": 33.43,
+        "premiumPct": 0.81
+      },
+      {
+        "date": "2026-08-03",
+        "nav": 32.5,
+        "premiumPct": 0.37
+      },
+      {
+        "date": "2026-08-04",
+        "nav": 32.36,
+        "premiumPct": -0.65
+      },
+      {
+        "date": "2026-08-05",
+        "nav": 34.26,
+        "premiumPct": -0.32
+      },
+      {
+        "date": "2026-08-06",
+        "nav": 33.69,
+        "premiumPct": 0.47
+      },
+      {
+        "date": "2026-08-07",
+        "nav": 33.76,
+        "premiumPct": -0.24
+      },
+      {
+        "date": "2026-08-10",
+        "nav": 34.66,
+        "premiumPct": 0.12
+      },
+      {
+        "date": "2026-08-11",
+        "nav": 34.87,
+        "premiumPct": 0.0
+      },
+      {
+        "date": "2026-08-12",
+        "nav": 35.52,
+        "premiumPct": -0.2
+      },
+      {
+        "date": "2026-08-13",
+        "nav": 36.27,
+        "premiumPct": 0.06
+      },
+      {
+        "date": "2026-08-14",
+        "nav": 35.76,
+        "premiumPct": -0.2
+      },
+      {
+        "date": "2026-08-17",
+        "nav": 35.85,
+        "premiumPct": 0.28
+      },
+      {
+        "date": "2026-08-18",
+        "nav": 34.69,
+        "premiumPct": 0.35
+      },
+      {
+        "date": "2026-08-19",
+        "nav": 33.69,
+        "premiumPct": 0.8
+      },
+      {
+        "date": "2026-08-20",
+        "nav": 34.32,
+        "premiumPct": -0.15
+      },
+      {
+        "date": "2026-08-21",
+        "nav": 34.81,
+        "premiumPct": 0.09
+      },
+      {
+        "date": "2026-08-24",
+        "nav": 34.12,
+        "premiumPct": -0.03
+      },
+      {
+        "date": "2026-08-25",
+        "nav": 34.62,
+        "premiumPct": 0.17
+      },
+      {
+        "date": "2026-08-26",
+        "nav": 35.88,
+        "premiumPct": -0.47
+      },
+      {
+        "date": "2026-08-27",
+        "nav": 35.92,
+        "premiumPct": 0.08
+      },
+      {
+        "date": "2026-08-28",
+        "nav": 36.35,
+        "premiumPct": -0.14
       }
     ]
   }
