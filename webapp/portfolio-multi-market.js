@@ -232,7 +232,7 @@
     renderSummary(all);
     const keys=Object.keys(groups).filter((key)=>groups[key].length).sort();
     holdingSearchIndex=keys.map((key)=>{const lot=groups[key][0].lot,meta=metadata(lot);return {key,market:lot.market,symbol:lot.symbol,name:meta.name||lot.asset_name||lot.symbol};});
-    $("portfolioHoldingOptions").innerHTML=holdingSearchIndex.flatMap((item)=>[`<option value="${esc(item.symbol)}">${esc(item.name)}</option>`,`<option value="${esc(item.name)}">${esc(item.symbol)}</option>`]).join("");
+    $("portfolioHoldingOptions").innerHTML=holdingSearchIndex.map((item)=>`<option value="${esc(item.symbol)}" label="${esc(item.name)}"></option>`).join("");
     const marketSection=(market,title)=>{const marketKeys=keys.filter((key)=>groups[key][0].lot.market===market);return `<details class="market-holdings" data-market-section="${market}"><summary><span class="market-holdings-title">${title}</span><span class="market-holdings-count">${marketKeys.length} 檔</span><span class="market-holdings-toggle" aria-hidden="true"></span></summary><div class="market-holdings-list">${marketKeys.length?marketKeys.map((key)=>card(key,groups[key],portfolio.sales[key]||[])).join(""):'<div class="empty">目前沒有此市場的未結清持股。</div>'}</div></details>`;};
     $("list").innerHTML=keys.length?[marketSection("tw","台股持股"),marketSection("us","美股持股")].join(""):'<div class="panel empty">目前沒有未結清持股，可用上方表單新增買入。</div>';
     $("list").querySelectorAll("[data-toggle-lots]").forEach((button)=>button.onclick=()=>{const box=$("list").querySelector(`[data-lots="${CSS.escape(button.dataset.toggleLots)}"]`);box.hidden=!box.hidden;button.textContent=box.hidden?"展開":"收合";});
