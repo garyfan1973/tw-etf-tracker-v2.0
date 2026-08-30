@@ -36,6 +36,10 @@
   }
 
   async function loadHistory(asset) {
+    if (market === "US") {
+      const payload = await getJson(`/api/market?market=US&code=${encodeURIComponent(asset.symbol)}`, {cache:"no-store"});
+      return { rows:payload.rows || [], source:payload.source || "Yahoo Finance", updatedAt:(payload.rows || []).at(-1)?.date || "" };
+    }
     try {
       const payload = await getJson(`price-history/${market}/${encodeURIComponent(asset.symbol)}.json`, {cache:"no-store"});
       return { rows:payload.rows || [], source:payload.source || "Yahoo Finance", updatedAt:payload.updatedAt || "" };
