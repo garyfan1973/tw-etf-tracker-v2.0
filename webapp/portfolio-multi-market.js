@@ -24,6 +24,7 @@
   let loadedFor = null;
   let readyPromise = null;
   let formContext = "tw:etf:buy";
+  let holdingSearchIndex = [];
   let portfolioConfig = { brokerage:{fee_rate:.000399,sell_fee_rate:.000399,minimum_fee:1} };
 
   function normalize(row) {
@@ -199,12 +200,26 @@
     const nextPayout=next&&next.amount!=null?shares*Number(next.amount):null;
     const divLine = (last || next) ? `<div class="divline dividend-line"><span class="dividend-title">股利｜</span>${last?`<span class="dividend-group recent"><span class="group-label">最近除息</span><b>${esc(last.exDate)}</b><span>每股 ${mark} ${price(last.amount)}</span><span>發放 ${esc(last.payDate||"未公告")}</span>${lastPayout!=null?`<span>符合股數 ${number(lastEligible,4)} · 約 ${mark} ${number(lastPayout)}</span>`:""}</span>`:""}${next?`<span class="dividend-group next"><span class="group-label">下次除息</span><b>${esc(next.exDate)}</b><span>每股 ${mark} ${price(next.amount)}</span><span>發放 ${esc(next.payDate||"未公告")}</span>${nextPayout!=null?`<span>目前部位估算 ${mark} ${number(nextPayout)}</span>`:""}</span>`:""}</div>` : `<div class="divline">目前來源尚無已公告的現金股利資料。</div>`;
     const grid=(label,value,c="")=>`<div><div class="k">${label}</div><div class="v ${c}">${value}</div></div>`;
-    let html=`<article class="hcard"><div class="top"><span class="nm">${esc(meta.name||lot.asset_name||lot.symbol)}</span><span class="cd">${esc(lot.symbol)}</span><span class="asset-badge">${marketLabel(lot.market)} · ${typeLabel(lot.asset_type)} · ${lot.currency}</span><span class="cd" style="margin-left:auto">${quote?`${mark} ${price(quote.price)} <span class="${cls(quote.changePct)}">${pct(quote.changePct)}</span>`:"行情暫無資料"}</span></div>${divLine}`;
+    let html=`<article class="hcard" data-holding-key="${esc(key)}" tabindex="-1"><div class="top"><span class="nm">${esc(meta.name||lot.asset_name||lot.symbol)}</span><span class="cd">${esc(lot.symbol)}</span><span class="asset-badge">${marketLabel(lot.market)} · ${typeLabel(lot.asset_type)} · ${lot.currency}</span><span class="cd" style="margin-left:auto">${quote?`${mark} ${price(quote.price)} <span class="${cls(quote.changePct)}">${pct(quote.changePct)}</span>`:"行情暫無資料"}</span></div>${divLine}`;
     html+=`<div class="sec"><div class="h">合計（${rows.length} 筆）</div><div class="grid">${grid("持有股數",number(shares,4))}${grid("投入成本",`${mark} ${number(cost)}`)}${grid("現值",quote?`${mark} ${number(value)}`:"—")}${grid("未實現損益",quote?`${pnl>0?"+":""}${mark} ${number(pnl)}`:"—",cls(pnl))}${grid("報酬率",pct(pp),cls(pp))}<div class="expand-cell"><button class="lot-toggle" data-toggle-lots="${esc(key)}">展開</button></div></div></div>`;
     html+=`<div class="lots lot-section" data-lots="${esc(key)}" hidden><div class="detail-heading">各筆買入</div>`;
     rows.forEach((r)=>{const t=r.lot;html+=`<div class="lot"><div class="lot-top"><span class="cd">買入 ${esc(t.trade_date||"—")}</span><span class="sp"><button class="icon-btn" data-edit="${esc(t.id)}">✎</button><button class="icon-btn delete" data-del="${esc(t.id)}">🗑</button></span></div><div class="grid">${grid("股數",number(r.shares,4))}${grid("成交均價",`${mark} ${price(t.price)}`)}${grid("投入成本",`${mark} ${number(r.cost)}`)}${grid("現值",r.value!=null?`${mark} ${number(r.value)}`:"—")}${grid("損益",r.pnl!=null?`${r.pnl>0?"+":""}${mark} ${number(r.pnl)}`:"—",cls(r.pnl))}${grid("報酬率",pct(r.pnlPct),cls(r.pnlPct))}</div>${t.note?`<div class="note">📝 ${esc(t.note)}</div>`:""}</div>`;});
     if(sales.length){html+=`<div class="sale-subhead">賣出紀錄（${sales.length} 筆）</div>`;sales.forEach((s)=>{html+=`<div class="trade-row"><span class="sell">賣出</span>　${esc(s.t.trade_date||"—")}　${number(s.t.shares,4)} 股　${mark} ${price(s.t.price)}${s.realized!=null?`　已實現 <span class="${cls(s.realized)}">${s.realized>0?"+":""}${mark} ${number(s.realized)}</span>`:""}　<button class="icon-btn delete" data-del="${esc(s.t.id)}">🗑</button></div>`;});}
     return html+"</div></article>";
+  }
+
+  function searchHolding() {
+    const input=$("portfolioSearch"), status=$("portfolioSearchStatus"), query=String(input.value||"").trim().toLocaleLowerCase("zh-Hant");
+    $("list").querySelectorAll(".search-target").forEach((item)=>item.classList.remove("search-target"));
+    if(!query){status.textContent="請輸入持股代號或名稱。";return;}
+    const exact=holdingSearchIndex.find((item)=>item.symbol.toLocaleLowerCase()===query||item.name.toLocaleLowerCase("zh-Hant")===query);
+    const match=exact||holdingSearchIndex.find((item)=>item.symbol.toLocaleLowerCase().startsWith(query)||item.name.toLocaleLowerCase("zh-Hant").startsWith(query))||holdingSearchIndex.find((item)=>item.symbol.toLocaleLowerCase().includes(query)||item.name.toLocaleLowerCase("zh-Hant").includes(query));
+    if(!match){status.textContent=`找不到「${input.value.trim()}」的持股。`;return;}
+    const section=$("list").querySelector(`[data-market-section="${match.market}"]`), target=$("list").querySelector(`[data-holding-key="${CSS.escape(match.key)}"]`);
+    if(!section||!target){status.textContent="持股資料尚未完成載入。";return;}
+    section.open=true; target.classList.add("search-target"); status.textContent=`已找到 ${match.symbol} ${match.name}`;
+    requestAnimationFrame(()=>{target.focus({preventScroll:true});target.scrollIntoView({behavior:"smooth",block:"center"});});
+    setTimeout(()=>target.classList.remove("search-target"),2400);
   }
 
   function render() {
@@ -215,7 +230,11 @@
     const portfolio=derivePortfolio(), groups={}, all=[];
     Object.entries(portfolio.lots).forEach(([key,lots])=>{groups[key]=lots.map(compute);all.push(...groups[key]);});
     renderSummary(all);
-    $("list").innerHTML=Object.keys(groups).length?Object.keys(groups).sort().map((key)=>card(key,groups[key],portfolio.sales[key]||[])).join(""):'<div class="panel empty">目前沒有未結清持股，可用上方表單新增買入。</div>';
+    const keys=Object.keys(groups).filter((key)=>groups[key].length).sort();
+    holdingSearchIndex=keys.map((key)=>{const lot=groups[key][0].lot,meta=metadata(lot);return {key,market:lot.market,symbol:lot.symbol,name:meta.name||lot.asset_name||lot.symbol};});
+    $("portfolioHoldingOptions").innerHTML=holdingSearchIndex.flatMap((item)=>[`<option value="${esc(item.symbol)}">${esc(item.name)}</option>`,`<option value="${esc(item.name)}">${esc(item.symbol)}</option>`]).join("");
+    const marketSection=(market,title)=>{const marketKeys=keys.filter((key)=>groups[key][0].lot.market===market);return `<details class="market-holdings" data-market-section="${market}"><summary><span class="market-holdings-title">${title}</span><span class="market-holdings-count">${marketKeys.length} 檔</span><span class="market-holdings-toggle" aria-hidden="true"></span></summary><div class="market-holdings-list">${marketKeys.length?marketKeys.map((key)=>card(key,groups[key],portfolio.sales[key]||[])).join(""):'<div class="empty">目前沒有此市場的未結清持股。</div>'}</div></details>`;};
+    $("list").innerHTML=keys.length?[marketSection("tw","台股持股"),marketSection("us","美股持股")].join(""):'<div class="panel empty">目前沒有未結清持股，可用上方表單新增買入。</div>';
     $("list").querySelectorAll("[data-toggle-lots]").forEach((button)=>button.onclick=()=>{const box=$("list").querySelector(`[data-lots="${CSS.escape(button.dataset.toggleLots)}"]`);box.hidden=!box.hidden;button.textContent=box.hidden?"展開":"收合";});
     $("list").querySelectorAll("[data-edit]").forEach((b)=>b.onclick=()=>startEdit(b.dataset.edit));
     $("list").querySelectorAll("[data-del]").forEach((b)=>b.onclick=()=>remove(b.dataset.del));
@@ -261,7 +280,7 @@
     if(!confirm(`確定刪除這筆${t.side==="sell"?"賣出":"買入"}紀錄？${t.side==="sell"?"刪除後 FIFO 成本會重新計算。":""}`))return;const result=await sb().from("portfolio_transactions").delete().eq("id",id).eq("user_id",user().id);if(result.error){alert(`刪除失敗：${result.error.message}`);return;}if(String(editingId)===String(id))resetForm();await loadHoldings();}
 
   function ensureReady(){return readyPromise||(readyPromise=Promise.all([loadConfig(),loadAssets()]));}
-  document.addEventListener("DOMContentLoaded",()=>{$("fSubmit").onclick=submit;$("fCancel").onclick=resetForm;["fMarket","fAssetType"].forEach(id=>$(id).onchange=renderAssetOptions);["fSideBuy","fSideSell"].forEach(id=>$(id).onchange=()=>{if(!editingId)$("fSubmit").textContent=$("fSideSell").checked?"新增賣出":"新增買入";updateMarketFields();});["fShares","fPrice"].forEach(id=>$(id).onblur=autoCosts);updateMarketFields();ensureReady();});
+  document.addEventListener("DOMContentLoaded",()=>{$("fSubmit").onclick=submit;$("fCancel").onclick=resetForm;$("portfolioSearchButton").onclick=searchHolding;$("portfolioSearch").addEventListener("keydown",event=>{if(event.key==="Enter"){event.preventDefault();searchHolding();}});$("portfolioSearch").addEventListener("change",()=>{if($("portfolioSearch").value.trim())searchHolding();});["fMarket","fAssetType"].forEach(id=>$(id).onchange=renderAssetOptions);["fSideBuy","fSideSell"].forEach(id=>$(id).onchange=()=>{if(!editingId)$("fSubmit").textContent=$("fSideSell").checked?"新增賣出":"新增買入";updateMarketFields();});["fShares","fPrice"].forEach(id=>$(id).onblur=autoCosts);updateMarketFields();ensureReady();});
   document.addEventListener("etfwatch:change",async()=>{const uid=user()&&user().id;if(uid&&uid!==loadedFor){loadedFor=uid;await ensureReady();loadHoldings();}else if(!uid){loadedFor=null;transactions=[];render();}else render();});
   setTimeout(async()=>{const uid=user()&&user().id;if(uid&&uid!==loadedFor){loadedFor=uid;await ensureReady();loadHoldings();}else render();},500);
 })();

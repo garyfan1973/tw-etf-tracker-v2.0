@@ -63,7 +63,23 @@
     /* 持股卡 */
     .hcard { background: var(--card); border: 1px solid var(--border); border-radius: 12px; padding: 14px; margin-bottom: 12px; }
     #list { display: flex; flex-direction: column; gap: 12px; }
-    #list > .hcard { margin: 0; }
+    .market-holdings { background: var(--card); border: 1px solid var(--border); border-radius: 12px; overflow: hidden; }
+    .market-holdings summary { display: flex; align-items: center; gap: 10px; padding: 14px 16px; cursor: pointer; list-style: none; user-select: none; }
+    .market-holdings summary::-webkit-details-marker { display: none; }
+    .market-holdings summary:hover { background: rgba(59, 91, 219, .06); }
+    .market-holdings-title { font-size: 16px; font-weight: 700; }
+    .market-holdings-count { color: var(--muted); font-size: 13px; }
+    .market-holdings-toggle { margin-left: auto; color: var(--accent); font-size: 20px; line-height: 1; }
+    .market-holdings-toggle::before { content: "+"; }
+    .market-holdings[open] .market-holdings-toggle::before { content: "−"; }
+    .market-holdings-list { display: flex; flex-direction: column; gap: 12px; padding: 0 14px 14px; border-top: 1px solid var(--border); }
+    .market-holdings-list > .hcard { margin: 12px 0 0; scroll-margin-top: 24px; }
+    .portfolio-search { display: flex; align-items: flex-end; gap: 8px; }
+    .portfolio-search-field { display: flex; flex: 1; flex-direction: column; gap: 4px; }
+    .portfolio-search-field label { color: var(--muted); font-size: 12px; }
+    .portfolio-search-field input { width: 100%; }
+    .portfolio-search-status { min-width: 150px; color: var(--muted); font-size: 13px; }
+    .hcard.search-target { outline: 3px solid var(--accent); outline-offset: 2px; }
     .hcard .top { display: flex; align-items: baseline; gap: 8px; flex-wrap: wrap; }
     .hcard .nm { font-size: 16px; font-weight: 700; }
     .hcard .cd { color: var(--muted); font-size: 13px; }
@@ -139,6 +155,9 @@
     @media (max-width: 720px) {
       .form-row { flex-wrap: wrap; } .cards { grid-template-columns: repeat(2, 1fr); } .grid { grid-template-columns: repeat(2, 1fr); }
       .trade-cost-row .actions { margin-left: 0; }
+      .portfolio-search { align-items: stretch; flex-wrap: wrap; }
+      .portfolio-search-field { flex-basis: calc(100% - 80px); }
+      .portfolio-search-status { flex-basis: 100%; min-width: 0; }
       .dividend-line { flex-wrap: wrap; white-space: normal; overflow: visible; font-size: 13px; }
       .dividend-group { flex-wrap: wrap; }
       .dividend-separator { display: none; }
@@ -189,6 +208,15 @@
         </div>
         <div class="msg" id="fMsg"></div>
       </div>
+      <div class="panel portfolio-search">
+        <div class="portfolio-search-field">
+          <label for="portfolioSearch">搜尋持股</label>
+          <input id="portfolioSearch" type="search" list="portfolioHoldingOptions" autocomplete="off" placeholder="輸入代號或名稱，例如 00878、AAPL">
+          <datalist id="portfolioHoldingOptions"></datalist>
+        </div>
+        <button class="act" id="portfolioSearchButton" type="button">搜尋</button>
+        <div class="portfolio-search-status" id="portfolioSearchStatus" role="status" aria-live="polite"></div>
+      </div>
       <div id="list"></div>
     </div>
   </div>
@@ -197,6 +225,6 @@
   <script src="config.js"></script>
   <script src="data.js"></script>
   <script type="module" src="auth.js"></script>
-  <script src="portfolio-multi-market.js?v=20260830"></script>
+  <script src="portfolio-multi-market.js?v=20260830-2"></script>
 </body>
 </html>
