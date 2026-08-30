@@ -82,6 +82,13 @@
 
   function init() {
     installStyles();
+    document.querySelectorAll('nav a[href="tracker.html"]').forEach(anchor => {
+      if (anchor.closest("nav").querySelector('a[href^="etf-compare.html"]')) return;
+      const link = document.createElement("a");
+      link.href = "etf-compare.html";
+      link.textContent = "ETF 比較";
+      anchor.insertAdjacentElement("afterend", link);
+    });
     document.querySelectorAll('nav a[href*="tracker.html?view=overview"]').forEach(anchor => {
       anchor.closest("nav")?.classList.add("market-nav-enabled");
       enhance(anchor);

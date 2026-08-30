@@ -1,0 +1,74 @@
+<!doctype html>
+<html lang="zh-Hant-tw">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>ETF 雙檔比較｜投資研究工作台</title>
+  <link rel="stylesheet" href="etf-compare.css?v=20260830-1">
+  <script>(function(){var t=localStorage.getItem("etf-theme");if(t)document.documentElement.dataset.theme=t})();</script>
+  <script src="market-nav.js?v=20260830-1" defer></script>
+  <script src="data.js" defer></script>
+  <script src="etf-compare-core.js?v=20260830-1" defer></script>
+  <script src="etf-compare.js?v=20260830-1" defer></script>
+</head>
+<body>
+  <main class="shell">
+    <nav class="top-nav" aria-label="主要導覽">
+      <a class="brand" href="index.html"><i aria-hidden="true"></i><span>投資研究工作台</span></a>
+      <a href="tracker.html?view=overview">市場研究</a>
+      <a href="tracker.html">ETF 持股</a>
+      <a class="active" href="etf-compare.html" aria-current="page">ETF 比較</a>
+      <a href="dividends.html">配息日曆</a>
+      <a href="portfolio.html">我的持股</a>
+      <a href="transactions.html">交易紀錄</a>
+      <a href="journal.html">短線日誌</a>
+      <a href="performance.html">績效走勢</a>
+      <button id="themeToggle" type="button" aria-label="切換明暗主題">🌙</button>
+    </nav>
+
+    <header class="page-head">
+      <div><span class="eyebrow">ETF COMPARISON LAB</span><h1>ETF 雙檔比較</h1><p>用相同口徑檢視基本資料、績效風險、持股重疊與配置差異。</p></div>
+      <div class="head-note"><b>純數據比較</b><span>不提供適合度或買賣建議</span></div>
+    </header>
+
+    <section class="compare-controls" aria-label="比較條件">
+      <div class="market-switch" role="radiogroup" aria-label="ETF 市場">
+        <button class="active" type="button" data-market="TW" role="radio" aria-checked="true">台灣 ETF</button>
+        <button type="button" data-market="US" role="radio" aria-checked="false">美國 ETF</button>
+      </div>
+      <label class="asset-input"><span>ETF A</span><input id="assetA" list="etfOptions" autocomplete="off" placeholder="輸入代號或名稱"><small id="metaA">尚未選擇</small></label>
+      <button id="swapAssets" class="swap" type="button" aria-label="交換 ETF A 與 ETF B">⇄</button>
+      <label class="asset-input"><span>ETF B</span><input id="assetB" list="etfOptions" autocomplete="off" placeholder="輸入代號或名稱"><small id="metaB">尚未選擇</small></label>
+      <datalist id="etfOptions"></datalist>
+      <button id="runCompare" class="primary" type="button">開始比較</button>
+      <div id="compareStatus" class="status" role="status" aria-live="polite"></div>
+    </section>
+
+    <section id="emptyState" class="empty-state"><div class="empty-visual"><span>A</span><i></i><span>B</span></div><h2>選擇兩檔同市場 ETF</h2><p>台灣 ETF 僅能互相比較；美國 ETF 亦同。資料日期會隨各來源顯示。</p></section>
+
+    <div id="results" hidden>
+      <section class="identity-grid">
+        <article class="identity-card tone-a"><div class="identity-label">ETF A</div><div><strong id="symbolA"></strong><h2 id="nameA"></h2></div><dl id="factsA"></dl></article>
+        <article class="overlap-card"><span>持股權重重疊度</span><div id="overlapGauge" class="gauge" style="--value:0"><b id="overlapValue">—</b></div><div class="overlap-counts"><span><b id="commonCount">—</b> 共同持股</span><span><b id="uniqueCount">—</b> 僅單邊持有</span></div></article>
+        <article class="identity-card tone-b"><div class="identity-label">ETF B</div><div><strong id="symbolB"></strong><h2 id="nameB"></h2></div><dl id="factsB"></dl></article>
+      </section>
+
+      <section class="panel"><div class="panel-head"><div><span class="section-tag">SNAPSHOT</span><h2>關鍵數據並排</h2></div><p>報酬率為價格區間計算；含息報酬以除息日再投入估算。</p></div><div id="metricGrid" class="metric-grid"></div></section>
+
+      <section class="two-column">
+        <article class="panel performance-panel"><div class="panel-head"><div><span class="section-tag">PERFORMANCE</span><h2>近一年正規化走勢</h2></div><div class="legend"><span class="dot-a"></span><b id="legendA"></b><span class="dot-b"></span><b id="legendB"></b></div></div><div id="performanceChart" class="chart-box"></div></article>
+        <article class="panel diff-panel"><div class="panel-head"><div><span class="section-tag">DATA DIFFERENCES</span><h2>數據差異摘要</h2></div></div><ul id="differenceSummary"></ul></article>
+      </section>
+
+      <section class="panel"><div class="panel-head"><div><span class="section-tag">HOLDINGS HEAT MAP</span><h2>持股權重差異</h2></div><div class="heat-legend"><span>ETF B 較高</span><i></i><span>接近</span><i></i><span>ETF A 較高</span></div></div><p class="panel-intro">依任一 ETF 的最高權重排序；色彩表示 A 減 B 的百分點差異。</p><div id="holdingsHeatmap" class="heatmap"></div></section>
+
+      <section class="two-column">
+        <article class="panel"><div class="panel-head"><div><span class="section-tag">ALLOCATION</span><h2>產業配置</h2></div><span id="industryCoverage" class="coverage"></span></div><div id="industryBars" class="allocation"></div></article>
+        <article class="panel"><div class="panel-head"><div><span class="section-tag">DISTRIBUTIONS</span><h2>近期配息</h2></div></div><div id="dividendTables" class="dividend-grid"></div></article>
+      </section>
+
+      <section id="sourcePanel" class="source-panel"></section>
+    </div>
+  </main>
+</body>
+</html>

@@ -42,6 +42,12 @@
       border-radius: 12px; padding: 12px 14px; margin-bottom: 16px;
     }
     .controls label { font-size: 12px; color: var(--muted); display: block; margin-bottom: 3px; }
+    .etf-compare-launcher { display:flex;align-items:end;gap:9px;flex-wrap:wrap;margin:-6px 0 16px;padding:12px 14px;border:1px solid color-mix(in srgb,var(--accent) 28%,var(--border));border-radius:12px;background:color-mix(in srgb,var(--accent) 5%,var(--card)); }
+    .etf-compare-launcher>strong { align-self:center;margin-right:auto;font-size:13px; }
+    .etf-compare-launcher label { display:grid;gap:3px;color:var(--muted);font-size:10px; }
+    .etf-compare-launcher select { min-width:180px; }
+    .etf-compare-launcher button { padding:8px 13px;border:0;border-radius:8px;background:var(--accent);color:#fff;font:inherit;font-size:12px;font-weight:700;cursor:pointer; }
+    .etf-compare-launcher small { align-self:center;flex-basis:100%;color:var(--muted);font-size:10px; }
     select, input[type="search"] {
       background: var(--bg); color: var(--text); border: 1px solid var(--border);
       border-radius: 8px; padding: 7px 10px; font-size: 14px; min-width: 120px;
@@ -555,6 +561,15 @@
       </div>
     </div>
 
+    <div id="etfCompareLauncher" class="etf-compare-launcher">
+      <strong>雙檔比較</strong>
+      <label>ETF A<select id="compareEtfA"><option value="">請選擇</option></select></label>
+      <span aria-hidden="true">vs</span>
+      <label>ETF B<select id="compareEtfB"><option value="">請選擇</option></select></label>
+      <button id="openEtfCompare" type="button">開啟比較儀表板</button>
+      <small id="compareEtfMessage">可從目前台灣 ETF 持股資料直接帶入比較。</small>
+    </div>
+
     <div id="watchModal" class="watch-modal" role="dialog" aria-modal="true" aria-labelledby="watchTitle">
       <div class="watch-dialog">
         <div class="watch-dialog-head">
@@ -712,6 +727,8 @@
       const fromSel = document.getElementById("from");
       const toSel = document.getElementById("to");
       const q = document.getElementById("q");
+      const compareEtfA = document.getElementById("compareEtfA");
+      const compareEtfB = document.getElementById("compareEtfB");
 
       document.getElementById("sub").textContent =
         "資料更新時間：" + D.generated_at + "　來源：MoneyDJ 每日持股揭露";
@@ -733,6 +750,14 @@
         });
         const vals = [...etfSel.options].map(o => o.value);
         etfSel.value = vals.includes(prev) ? prev : "";
+      }
+
+      function fillCompareOptions() {
+        [compareEtfA, compareEtfB].forEach(select => {
+          const previous = select.value;
+          select.innerHTML = '<option value="">請選擇</option>' + Object.keys(D.etfs).map(id => '<option value="' + id + '">' + id + ' ' + D.etfs[id].name + '</option>').join("");
+          if (D.etfs[previous]) select.value = previous;
+        });
       }
 
       let sortState = { diff: { k: "sharesDelta", asc: false }, full: { k: "weight", asc: false } };
@@ -988,6 +1013,7 @@
         document.getElementById("etfKlineAssetControls").style.display = mode === "kline" ? "flex" : "none";
         document.getElementById("holdingsDataPanel").style.display = mode === "change" ? "block" : "none";
         document.getElementById("etfControls").style.display = "flex";
+        document.getElementById("etfCompareLauncher").style.display = "flex";
         document.getElementById("workspaceTitle").textContent = "ETF 持股研究";
         document.getElementById("sub").textContent = "追蹤 ETF 持股、加減碼、法人與資券資訊。";
         document.getElementById("selectedEtfSummary").style.display = "flex";
@@ -1014,6 +1040,7 @@
         document.getElementById("marketInstitutionalMarginPanel").style.display = mode === "institutional" ? "block" : "none";
         document.getElementById("holdingsDataPanel").style.display = "none";
         document.getElementById("etfControls").style.display = "none";
+        document.getElementById("etfCompareLauncher").style.display = "none";
         document.getElementById("selectedEtfSummary").style.display = "none";
         document.getElementById("etfViewSwitch").style.display = "none";
         document.getElementById("marketViewSwitch").style.display = "flex";
@@ -1640,7 +1667,7 @@
         etfSel.value = event.detail.symbol; expandedInstitutional = ""; marginTrendAsset = "__etf__"; fillDates(); render();
       });
 
-      etfSel.addEventListener("change", () => { expandedInstitutional = ""; marginTrendAsset = "__etf__"; fillDates(); render(); if (!marketWorkspace && viewMode === "kline") syncEtfHoldingChart(); });
+      etfSel.addEventListener("change", () => { expandedInstitutional = ""; marginTrendAsset = "__etf__"; if (etfSel.value && !compareEtfA.value) compareEtfA.value = etfSel.value; fillDates(); render(); if (!marketWorkspace && viewMode === "kline") syncEtfHoldingChart(); });
       fromSel.addEventListener("change", render);
       toSel.addEventListener("change", render);
       q.addEventListener("input", render);
@@ -1658,7 +1685,14 @@
         }
       });
 
+      document.getElementById("openEtfCompare").addEventListener("click", () => {
+        const message = document.getElementById("compareEtfMessage");
+        if (!compareEtfA.value || !compareEtfB.value) { message.textContent = "請先選擇兩檔 ETF。"; return; }
+        if (compareEtfA.value === compareEtfB.value) { message.textContent = "請選擇兩檔不同的 ETF。"; return; }
+        location.href = "etf-compare.html?market=TW&a=" + encodeURIComponent(compareEtfA.value) + "&b=" + encodeURIComponent(compareEtfB.value);
+      });
       fillEtfOptions();
+      fillCompareOptions();
       fillDates();
       render();
     }
