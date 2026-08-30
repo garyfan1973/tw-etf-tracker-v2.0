@@ -61,10 +61,9 @@
 
   function renderAssetOptions() {
     const list = filteredAssets();
-    $("assetOptions").innerHTML = list.flatMap((a) => [
-      `<option value="${esc(a.symbol)}" label="${esc(a.name)} · ${esc(a.exchange || "")}"></option>`,
-      `<option value="${esc(a.name)}" label="${esc(a.symbol)} · ${esc(a.exchange || "")}"></option>`
-    ]).join("");
+    $("assetOptions").innerHTML = list.map((a) =>
+      `<option value="${esc(a.symbol)}" label="${esc(a.name)} · ${esc(a.exchange || "")}"></option>`
+    ).join("");
     updateMarketFields();
   }
 
