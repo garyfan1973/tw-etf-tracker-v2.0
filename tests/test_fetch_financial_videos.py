@@ -16,6 +16,13 @@ class FinancialVideoDataTests(unittest.TestCase):
             {"channelId": "capitalmorning", "publishedAt": "2026-08-24T08:00:00Z"},
         ]
         self.assertEqual(sorted(rows, key=featured_video_sort_key)[0]["channelId"], "capitalmorning")
+
+    def test_money_mirror_home_channel_is_included(self):
+        channel = next(item for item in CHANNELS if item["id"] == "money-mirror-home")
+        self.assertEqual(channel["name"], "錢鏡你家")
+        self.assertEqual(channel["channelId"], "UCbRtQVBa61mbCZnK6YekjnQ")
+        self.assertEqual(channel["keywords"], ["錢鏡你家"])
+
     def test_feed_filters_by_week_keyword_and_shorts(self):
         xml = """<feed xmlns=\"http://www.w3.org/2005/Atom\" xmlns:yt=\"http://www.youtube.com/xml/schemas/2015\">
           <entry><yt:videoId>new123</yt:videoId><title>錢線百分百 8月21日</title><published>2026-08-21T12:00:00+00:00</published></entry>

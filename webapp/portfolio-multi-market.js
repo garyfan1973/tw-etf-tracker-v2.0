@@ -106,7 +106,11 @@
       const data = await response.json();
       if (data.ok && Array.isArray(data.events)) {
         const byKey = new Map(events.map((d) => [`${d.exDate}:${d.amount}`, d]));
-        data.events.forEach((d) => byKey.set(`${d.exDate}:${d.amount}`, {...(byKey.get(`${d.exDate}:${d.amount}`) || {}), ...d}));
+        data.events.forEach((d) => {
+          const eventKey = `${d.exDate}:${d.amount}`;
+          const existing = byKey.get(eventKey) || {};
+          byKey.set(eventKey, {...existing, ...d, payDate:d.payDate || existing.payDate || null});
+        });
         events = [...byKey.values()];
       }
     } catch (_) { /* 保留既有 ETF 配息 */ }

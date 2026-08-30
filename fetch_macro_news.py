@@ -17,10 +17,8 @@ OUT_FILE = os.path.join(BASE_DIR, "webapp", "macro_news.json")
 USER_AGENT = "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36"
 WINDOW_DAYS = 5
 
-RSS_SOURCES = [
-    {"id": "cna-finance", "name": "中央社產經財經", "category": "台灣總經", "url": "https://feeds.feedburner.com/rsscna/finance"},
-    {"id": "cna-world", "name": "中央社國際財經", "category": "國際總經", "url": "https://feeds.feedburner.com/rsscna/intworld"},
-]
+# 一般產經與國際新聞並不等於總經新聞；在有可靠的官方發布來源前，不建立這兩個分類。
+RSS_SOURCES = []
 
 FRONTPAGE_SOURCES = [
     {"id": "udn-front", "name": "經濟日報頭版", "category": "經濟日報頭版", "url": "https://money.udn.com/money/index", "host": "money.udn.com"},

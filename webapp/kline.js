@@ -976,8 +976,8 @@
     Object.entries(data.etfs || {}).forEach(([symbol, etf]) => {
       if (!catalogAssets.some(asset => asset.market === "TW" && asset.symbol === symbol)) catalogAssets.push({ symbol, name:etf.name || symbol, market:"TW", assetType:"etf", exchange:"TWSE" });
     });
-    const params = new URLSearchParams(location.search), wantedMarket = (params.get("market") || "TW").toUpperCase(), wantedSymbol = (params.get("symbol") || "00981A").toUpperCase();
-    const initial = catalogAssets.find(asset => asset.market === wantedMarket && asset.symbol === wantedSymbol) || catalogAssets.find(asset => asset.market === "TW" && asset.symbol === "0050") || catalogAssets[0];
+    const params = new URLSearchParams(location.search), wantedMarket = (params.get("market") || "TW").toUpperCase(), wantedSymbol = (params.get("symbol") || "").toUpperCase();
+    const initial = wantedSymbol ? catalogAssets.find(asset => asset.market === wantedMarket && asset.symbol === wantedSymbol) : null;
     input.addEventListener("focus", () => { input.select(); renderAssetResults(); });
     input.addEventListener("click", () => input.select());
     input.addEventListener("input", renderAssetResults);

@@ -129,7 +129,7 @@
       renderChart();
     }
     function zoom(factor){const span=view.end-view.start,nextSpan=Math.max(5,Math.min(selected.rows.length,Math.round(span*factor))),center=(view.start+view.end)/2;view=clampWindow(selected.rows.length,center-nextSpan/2,center+nextSpan/2);renderChart();}
-    cards.addEventListener("click",event=>{const button=event.target.closest("[data-index-id]");if(!button)return;selected=data.indices.find(item=>item.id===button.dataset.indexId);period="1Y";view=periodWindow(selected.rows,period);render();});
+    cards.addEventListener("click",event=>{const button=event.target.closest("[data-index-id]");if(!button)return;selected=data.indices.find(item=>item.id===button.dataset.indexId);period="1Y";view=periodWindow(selected.rows,period);render();requestAnimationFrame(()=>panel.scrollIntoView({behavior:"smooth",block:"start"}));});
     document.querySelector(".range-switch")?.addEventListener("click",event=>{const button=event.target.closest("[data-period]");if(!button)return;period=button.dataset.period;view=periodWindow(selected.rows,period);render();});
     document.querySelector(".index-chart-type")?.addEventListener("click",event=>{const button=event.target.closest("[data-index-chart-type]");if(!button)return;chartType=button.dataset.indexChartType;render();});
     $("zoomIn").addEventListener("click",()=>zoom(.75));$("zoomOut").addEventListener("click",()=>zoom(1.3));$("resetZoom").addEventListener("click",()=>{view=periodWindow(selected.rows,period);renderChart();});

@@ -685,7 +685,7 @@
   <script src="data.js"></script>
   <script src="etf-holdings-index.js?v=20260829"></script>
   <script src="technical-chart-core.js?v=20260825"></script>
-  <script src="kline.js?v=20260829a"></script>
+  <script src="kline.js?v=20260830a"></script>
   <script src="https://cdn.jsdelivr.net/npm/html2canvas@1.4.1/dist/html2canvas.min.js" integrity="sha512-BNaRQnYJYiPSqHHDb58B0yaPfCu+Wgds8Gp/gU33kqBtgNS4tSPHuGibyoeqMV/TJlSKda6FXzoEyYGjTe+vXA==" crossorigin="anonymous"></script>
   <script src="chart-analysis-transfer.js?v=20260825"></script>
   <script type="module" src="auth.js"></script>
@@ -724,6 +724,7 @@
         const allow = mine.length ? new Set(mine) : null;  // 空清單視為不篩選
         const prev = etfSel.value;
         etfSel.innerHTML = "";
+        etfSel.appendChild(new Option("請選擇 ETF", ""));
         Object.keys(D.etfs).forEach(id => {
           if (allow && !allow.has(id)) return;
           const o = document.createElement("option");
@@ -731,7 +732,7 @@
           etfSel.appendChild(o);
         });
         const vals = [...etfSel.options].map(o => o.value);
-        etfSel.value = vals.includes(prev) ? prev : (vals[0] || "");
+        etfSel.value = vals.includes(prev) ? prev : "";
       }
 
       let sortState = { diff: { k: "sharesDelta", asc: false }, full: { k: "weight", asc: false } };
@@ -758,6 +759,7 @@
           fromSel.appendChild(new Option(s.date, s.date));
           toSel.appendChild(new Option(s.date, s.date));
         });
+        if (!snaps.length) return;
         // 預設：目標日=最新，基準日=前一筆
         toSel.value = snaps[snaps.length - 1].date;
         fromSel.value = snaps[Math.max(0, snaps.length - 2)].date;
@@ -1383,7 +1385,11 @@
       function render() {
         const currSnap = snapByDate(toSel.value);
         const prevSnap = snapByDate(fromSel.value);
-        if (!currSnap) return;
+        if (!currSnap) {
+          renderEtfSummary();
+          marketWorkspace ? setMarketView(marketViewMode) : setViewMode(viewMode);
+          return;
+        }
         renderEtfSummary();
         renderOverview();
         renderInstitutionalTable();

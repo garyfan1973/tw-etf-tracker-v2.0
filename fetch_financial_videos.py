@@ -21,6 +21,7 @@ CHANNELS = [
     {"id": "moneyline", "name": "錢線百分百", "channelId": "UC_ObC9O0ZQ2FhW6u9_iFlZA", "url": "https://www.youtube.com/@ustvmoney100"},
     {"id": "allaround", "name": "股市全芳位", "channelId": "UCl9uBAM-_wtfte7XHeNMhHw", "url": "https://www.youtube.com/channel/UCl9uBAM-_wtfte7XHeNMhHw"},
     {"id": "stocklive", "name": "非凡股市現場", "channelId": "UCJcPWs0gpYMx_CghPdELUhw", "url": "https://www.youtube.com/@ustvstockonline"},
+    {"id": "money-mirror-home", "name": "錢鏡你家", "channelId": "UCbRtQVBa61mbCZnK6YekjnQ", "url": "https://www.youtube.com/channel/UCbRtQVBa61mbCZnK6YekjnQ", "keywords": ["錢鏡你家"]},
 ]
 
 NS = {
