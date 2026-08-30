@@ -87,7 +87,7 @@ def parse_nport(xml_bytes, expected_series_id=""):
             "country": value(item, "invCountry"),
         })
     return {
-        "name": value(general, "seriesName"), "seriesId": series_id,
+        "name": value(general, "seriesName"), "registrantName": value(general, "regName"), "seriesId": series_id,
         "date": value(general, "repPdDate"), "fundSize": _float(value(fund, "netAssets")),
         "totalAssets": _float(value(fund, "totAssets")), "totalLiabilities": _float(value(fund, "totLiabs")),
         "holdings": sorted(holdings, key=lambda row: row["weight"], reverse=True),

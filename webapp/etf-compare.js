@@ -72,13 +72,13 @@
     } else {
       payload = await getJson(`/api/us_etf_holdings?code=${encodeURIComponent(asset.symbol)}`, {cache:"no-store"});
       latest = { date:payload.date, holdings:payload.holdings || [] };
-      info = { issuer:"—", index:"SEC N-PORT 未提供", fundSize:payload.fundSize };
+      info = { issuer:payload.registrantName || "—", index:"SEC N-PORT 未提供", fundSize:payload.fundSize };
     }
     const [history, dividends] = await Promise.all([loadHistory(asset), loadDividends(asset, legacy)]);
     const holdings = (latest.holdings || []).map(enrichHolding);
     const currentPrice = history.rows.at(-1)?.close ?? latest.self?.close ?? null;
     return {
-      asset, name:payload.name || asset.name, holdings, date:latest.date || payload.date,
+      asset, name:asset.name || payload.name, holdings, date:latest.date || payload.date,
       filedAt:payload.filedAt || "", source:payload.source || {name:"MoneyDJ",url:"https://www.moneydj.com/ETF/"},
       history, dividends, currentPrice, currency:market === "US" ? "USD" : "TWD",
       issuer:info.issuer || "—", index:info.index || "—",

@@ -18,9 +18,10 @@ class UsEtfHoldingsTest(unittest.TestCase):
         self.assertEqual(filing["adsh"], "new")
 
     def test_parse_nport(self):
-        xml = b'''<edgarSubmission xmlns="http://www.sec.gov/edgar/nport"><formData><genInfo><seriesName>Test ETF</seriesName><seriesId>S1</seriesId><repPdDate>2026-06-30</repPdDate></genInfo><fundInfo><totAssets>110</totAssets><totLiabs>10</totLiabs><netAssets>100</netAssets><invstOrSecs><invstOrSec><name>Alpha Inc</name><title>Common</title><cusip>001</cusip><identifiers><isin value="US001"/></identifiers><balance>20</balance><units>NS</units><curCd>USD</curCd><valUSD>60</valUSD><pctVal>60</pctVal><assetCat>EC</assetCat><issuerCat>CORP</issuerCat><invCountry>US</invCountry></invstOrSec><invstOrSec><name>Cash</name><balance>40</balance><units>PA</units><curCd>USD</curCd><valUSD>40</valUSD><pctVal>40</pctVal></invstOrSec></invstOrSecs></fundInfo></formData></edgarSubmission>'''
+        xml = b'''<edgarSubmission xmlns="http://www.sec.gov/edgar/nport"><formData><genInfo><regName>Test Registrant</regName><seriesName>Test ETF</seriesName><seriesId>S1</seriesId><repPdDate>2026-06-30</repPdDate></genInfo><fundInfo><totAssets>110</totAssets><totLiabs>10</totLiabs><netAssets>100</netAssets><invstOrSecs><invstOrSec><name>Alpha Inc</name><title>Common</title><cusip>001</cusip><identifiers><isin value="US001"/></identifiers><balance>20</balance><units>NS</units><curCd>USD</curCd><valUSD>60</valUSD><pctVal>60</pctVal><assetCat>EC</assetCat><issuerCat>CORP</issuerCat><invCountry>US</invCountry></invstOrSec><invstOrSec><name>Cash</name><balance>40</balance><units>PA</units><curCd>USD</curCd><valUSD>40</valUSD><pctVal>40</pctVal></invstOrSec></invstOrSecs></fundInfo></formData></edgarSubmission>'''
         parsed = MODULE.parse_nport(xml, "S1")
         self.assertEqual(parsed["fundSize"], 100)
+        self.assertEqual(parsed["registrantName"], "Test Registrant")
         self.assertEqual(parsed["holdings"][0]["shares"], 20)
         self.assertEqual(parsed["holdings"][1]["shares"], None)
         with self.assertRaises(ValueError):
