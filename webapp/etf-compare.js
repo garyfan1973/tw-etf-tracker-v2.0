@@ -2,11 +2,12 @@
   const $ = id => document.getElementById(id);
   const esc = value => String(value == null ? "" : value).replace(/[&<>"']/g, char => ({"&":"&amp;","<":"&lt;",">":"&gt;","\"":"&quot;","'":"&#39;"}[char]));
   const core = window.ETFCompareCore;
-  let market = "TW", assets = [], overview = {}, profiles = {}, usNameMap = new Map();
+  let market = "TW", assets = [], overview = {}, profiles = {}, usNameMap = new Map(), selectedRange = "1Y", lastComparison = null;
   const currency = value => value == null ? "—" : new Intl.NumberFormat("zh-TW", { maximumFractionDigits:2 }).format(value);
   const pct = value => value == null || !Number.isFinite(value) ? "—" : `${value > 0 ? "+" : ""}${value.toFixed(2)}%`;
   const pp = value => value == null || !Number.isFinite(value) ? "—" : `${value > 0 ? "+" : ""}${value.toFixed(2)} pp`;
   const compactMoney = (value, unit) => value == null ? "—" : `${unit === "USD" ? "US$" : "NT$"} ${new Intl.NumberFormat("zh-TW", {notation:"compact",maximumFractionDigits:2}).format(value)}`;
+  const countText = value => value == null ? "—" : new Intl.NumberFormat("zh-TW", {maximumFractionDigits:2}).format(value);
 
   function normalizeDividend(item) {
     return { exDate:item.exDate || item.ex || item.date || "", payDate:item.payDate || item.pay || "", amount:Number(item.amount ?? item.cashDividend ?? 0), source:item.source || "" };
@@ -87,6 +88,8 @@
       history, dividends, currentPrice, currency:market === "US" ? "USD" : "TWD",
       issuer:info.issuer || "—", index:info.index || "—",
       fundSize:market === "US" ? payload.fundSize : Number(info.fundSizeHundredMillion || 0) * 100000000 || null,
+      securityType:info.securityType || "ETF", tags:info.tags || [], beneficiaries:info.beneficiaryTenThousands ?? null,
+      premiumPct:(info.navHistory || []).at(-1)?.premiumPct ?? null,
     };
   }
 
@@ -94,26 +97,34 @@
     const rows = data.history.rows, lastDate = rows.at(-1)?.date;
     return {
       price:data.currentPrice, fundSize:data.fundSize, holdings:data.holdings.length,
-      top10:core.topConcentration(data.holdings), month:core.priceReturn(rows,21), quarter:core.priceReturn(rows,63), year:core.priceReturn(rows,252),
+      top10:core.topConcentration(data.holdings), month:core.periodReturn(rows,31), quarter:core.periodReturn(rows,92), halfYear:core.periodReturn(rows,183), year:core.periodReturn(rows,366),
+      ytd:core.yearToDateReturn(rows), twoYear:core.periodReturn(rows,731,true),
       total:core.totalReturn(rows,data.dividends,252), volatility:core.annualVolatility(rows), drawdown:core.maxDrawdown(rows),
-      yield:core.trailingDividendYield(data.dividends,data.currentPrice,lastDate),
+      yield:core.trailingDividendYield(data.dividends,data.currentPrice,lastDate), dividendCount:core.dividendFrequency(data.dividends,lastDate),
+      premiumPct:data.premiumPct,
     };
   }
 
   function renderIdentity(side, data) {
     $("symbol" + side).textContent = data.asset.symbol; $("name" + side).textContent = data.name;
-    $("facts" + side).innerHTML = [["持股資料日",data.date || "—"],["行情資料日",data.history.updatedAt || data.history.rows.at(-1)?.date || "—"],["發行機構",data.issuer],["追蹤指數",data.index]].map(([label,value]) => `<div><dt>${label}</dt><dd title="${esc(value)}">${esc(value)}</dd></div>`).join("");
+    const tags=data.tags.length?data.tags.join("・"):data.securityType;
+    $("facts" + side).innerHTML = [["投資類型",tags],["追蹤指數",data.index],["發行機構",data.issuer],["持股資料日",data.date || "—"],["行情資料日",data.history.updatedAt || data.history.rows.at(-1)?.date || "—"]].map(([label,value]) => `<div><dt>${label}</dt><dd title="${esc(value)}">${esc(value)}</dd></div>`).join("");
   }
 
   function renderMetrics(a, b) {
     const left=metrics(a), right=metrics(b);
     const rows = [
       ["最新價格",currency(left.price),currency(right.price),a.currency],["基金規模",compactMoney(left.fundSize,a.currency),compactMoney(right.fundSize,b.currency),"資料來源最新值"],
+      ["受益人數",a.beneficiaries==null?"—":`${countText(a.beneficiaries)} 萬`,b.beneficiaries==null?"—":`${countText(b.beneficiaries)} 萬`,"台灣 ETF 最新受益人"],
+      ["最新折溢價",pct(left.premiumPct),pct(right.premiumPct),"市價相對淨值"],
       ["持股檔數",currency(left.holdings),currency(right.holdings),"依最新持股資料"],["前十大集中度",pct(left.top10),pct(right.top10),"權重合計"],
       ["近 1 個月",pct(left.month),pct(right.month),"價格報酬"],["近 3 個月",pct(left.quarter),pct(right.quarter),"價格報酬"],
-      ["近 1 年",pct(left.year),pct(right.year),"價格報酬"],["近 1 年含息",pct(left.total),pct(right.total),"除息日再投入估算"],
+      ["近 6 個月",pct(left.halfYear),pct(right.halfYear),"價格報酬"],["今年以來",pct(left.ytd),pct(right.ytd),"價格報酬"],
+      ["近 1 年",pct(left.year),pct(right.year),"價格報酬"],["近 2 年年化",pct(left.twoYear),pct(right.twoYear),"資料足夠時顯示"],
+      ["近 1 年含息",pct(left.total),pct(right.total),"除息日再投入估算"],
       ["年化波動率",pct(left.volatility),pct(right.volatility),"近 252 交易日"],["最大回撤",pct(left.drawdown),pct(right.drawdown),"近 252 交易日"],
       ["近 12 月配息率",pct(left.yield),pct(right.yield),"配息合計／最新價"],
+      ["近 12 月配息次數",left.dividendCount==null?"—":`${left.dividendCount} 次`,right.dividendCount==null?"—":`${right.dividendCount} 次`,"依除息日計算"],
     ];
     $("metricGrid").innerHTML = rows.map(([label,x,y,note]) => `<div class="metric"><b class="value-a">${esc(x)}</b><label>${label}</label><b class="value-b">${esc(y)}</b><small>${esc(note)}</small></div>`).join("");
     return {left,right};
@@ -126,18 +137,31 @@
     return value;
   }
 
-  function normalizedMap(rows) {
-    const clean=(rows || []).filter(row=>row.date&&Number(row.close)>0).slice(-253), first=clean[0]?.close;
-    return new Map(clean.map(row=>[row.date,Number(row.close)/first*100]));
+  function rangedRows(rows, range) {
+    const days={"1M":31,"3M":92,"6M":183,"1Y":366,"2Y":731}[range]||366,clean=(rows||[]).filter(row=>row.date&&Number(row.close)>0),end=clean.at(-1)?.date;
+    if(!end)return [];
+    const cutoff=new Date(end+"T00:00:00Z");cutoff.setUTCDate(cutoff.getUTCDate()-days);
+    return clean.filter(row=>new Date(row.date+"T00:00:00Z")>=cutoff);
   }
-  function renderChart(a,b) {
-    const ma=normalizedMap(a.history.rows), mb=normalizedMap(b.history.rows), dates=[...new Set([...ma.keys(),...mb.keys()])].sort();
+  function normalizedMap(rows, range) {
+    const clean=rangedRows(rows,range), first=clean[0]?.close;
+    return new Map(clean.map(row=>[row.date,(Number(row.close)/first-1)*100]));
+  }
+  function renderChart(a,b,range=selectedRange) {
+    selectedRange=range;document.querySelectorAll("[data-range]").forEach(button=>button.classList.toggle("active",button.dataset.range===range));
+    const ma=normalizedMap(a.history.rows,range), mb=normalizedMap(b.history.rows,range), dates=[...new Set([...ma.keys(),...mb.keys()])].sort();
     if(dates.length<2){$("performanceChart").innerHTML='<div class="empty-state">走勢資料不足</div>';return;}
-    const values=[...ma.values(),...mb.values()], min=Math.floor(Math.min(...values)*.98), max=Math.ceil(Math.max(...values)*1.02), w=760,h=270,p={l:42,r:12,t:14,b:28};
+    const values=[...ma.values(),...mb.values(),0], min=Math.floor(Math.min(...values)-1), max=Math.ceil(Math.max(...values)+1), w=760,h=270,p={l:48,r:12,t:14,b:28};
     const x=i=>p.l+i/(dates.length-1)*(w-p.l-p.r), y=v=>p.t+(max-v)/(max-min)*(h-p.t-p.b);
     const path=map=>dates.map((date,i)=>map.has(date)?`${i===0||!map.has(dates[i-1])?'M':'L'}${x(i).toFixed(1)},${y(map.get(date)).toFixed(1)}`:"").join(" ");
     const ticks=[min,(min+max)/2,max];
-    $("performanceChart").innerHTML=`<svg viewBox="0 0 ${w} ${h}" role="img" aria-label="兩檔 ETF 近一年正規化走勢">${ticks.map(v=>`<line class="chart-grid" x1="${p.l}" x2="${w-p.r}" y1="${y(v)}" y2="${y(v)}"/><text class="chart-axis" x="${p.l-6}" y="${y(v)+3}" text-anchor="end">${v.toFixed(0)}</text>`).join("")}<path class="chart-a" d="${path(ma)}"/><path class="chart-b" d="${path(mb)}"/><text class="chart-axis" x="${p.l}" y="${h-6}">${dates[0]}</text><text class="chart-axis" x="${w-p.r}" y="${h-6}" text-anchor="end">${dates.at(-1)}</text></svg>`;
+    $("performanceChart").innerHTML=`<svg viewBox="0 0 ${w} ${h}" role="img" aria-label="兩檔 ETF ${range} 報酬率走勢">${ticks.map(v=>`<line class="chart-grid" x1="${p.l}" x2="${w-p.r}" y1="${y(v)}" y2="${y(v)}"/><text class="chart-axis" x="${p.l-6}" y="${y(v)+3}" text-anchor="end">${v.toFixed(1)}%</text>`).join("")}<path class="chart-a" d="${path(ma)}"/><path class="chart-b" d="${path(mb)}"/><text class="chart-axis" x="${p.l}" y="${h-6}">${dates[0]}</text><text class="chart-axis" x="${w-p.r}" y="${h-6}" text-anchor="end">${dates.at(-1)}</text></svg>`;
+  }
+
+  function renderTopHoldings(a,b) {
+    const side=data=>[...data.holdings].sort((x,y)=>(Number(y.weight)||0)-(Number(x.weight)||0)).slice(0,10);
+    const left=side(a),right=side(b),max=Math.max(1,...left.concat(right).map(item=>Number(item.weight)||0));
+    $("topHoldings").innerHTML=[{data:a,rows:left,tone:"a"},{data:b,rows:right,tone:"b"}].map(column=>`<div class="top-column"><h3 class="value-${column.tone}">${esc(column.data.asset.symbol)}<small>權重</small></h3>${column.rows.map((item,index)=>`<div class="top-row"><em>${index+1}</em><div><b>${esc(item.symbol||item.code||item.name)}</b><span title="${esc(item.name)}">${esc(item.name)}</span><i><u style="width:${(Number(item.weight)||0)/max*100}%"></u></i></div><strong>${(Number(item.weight)||0).toFixed(2)}%</strong></div>`).join("")||'<p class="panel-intro">尚無持股資料</p>'}</div>`).join("");
   }
 
   function renderHeatmap(a,b) {
@@ -176,7 +200,7 @@
 
   function renderAll(a,b) {
     renderIdentity("A",a);renderIdentity("B",b);$("legendA").textContent=a.asset.symbol;$("legendB").textContent=b.asset.symbol;
-    const o=renderOverlap(a,b),m=renderMetrics(a,b);renderChart(a,b);renderHeatmap(a,b);renderIndustries(a,b);renderDividends(a,b);renderSummary(a,b,m,o);renderSources(a,b);
+    lastComparison=[a,b];const o=renderOverlap(a,b),m=renderMetrics(a,b);renderChart(a,b);renderTopHoldings(a,b);renderHeatmap(a,b);renderIndustries(a,b);renderDividends(a,b);renderSummary(a,b,m,o);renderSources(a,b);
     $("emptyState").hidden=true;$("results").hidden=false;
   }
 
@@ -213,5 +237,6 @@
   ["A","B"].forEach(side=>$("asset"+side).addEventListener("input",()=>updateInputMeta(side)));
   $("swapAssets").onclick=()=>{const a=$("assetA").value;$("assetA").value=$("assetB").value;$("assetB").value=a;updateInputMeta("A");updateInputMeta("B");};
   $("runCompare").onclick=run;$("themeToggle").onclick=()=>{const next=document.documentElement.dataset.theme==="dark"?"light":"dark";document.documentElement.dataset.theme=next;localStorage.setItem("etf-theme",next);$("themeToggle").textContent=next==="dark"?"☀️":"🌙";};
+  document.querySelectorAll("[data-range]").forEach(button=>button.addEventListener("click",()=>{if(lastComparison)renderChart(lastComparison[0],lastComparison[1],button.dataset.range);}));
   document.addEventListener("DOMContentLoaded",init);
 })();

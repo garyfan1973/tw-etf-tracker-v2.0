@@ -4,12 +4,12 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width,initial-scale=1">
   <title>ETF 雙檔比較｜投資研究工作台</title>
-  <link rel="stylesheet" href="etf-compare.css?v=20260830-1">
+  <link rel="stylesheet" href="etf-compare.css?v=20260901-1">
   <script>(function(){var t=localStorage.getItem("etf-theme");if(t)document.documentElement.dataset.theme=t})();</script>
   <script src="market-nav.js?v=20260830-1" defer></script>
   <script src="data.js" defer></script>
-  <script src="etf-compare-core.js?v=20260830-1" defer></script>
-  <script src="etf-compare.js?v=20260830-1" defer></script>
+  <script src="etf-compare-core.js?v=20260901-1" defer></script>
+  <script src="etf-compare.js?v=20260901-1" defer></script>
 </head>
 <body>
   <main class="shell">
@@ -56,11 +56,13 @@
       <section class="panel"><div class="panel-head"><div><span class="section-tag">SNAPSHOT</span><h2>關鍵數據並排</h2></div><p>報酬率為價格區間計算；含息報酬以除息日再投入估算。</p></div><div id="metricGrid" class="metric-grid"></div></section>
 
       <section class="two-column">
-        <article class="panel performance-panel"><div class="panel-head"><div><span class="section-tag">PERFORMANCE</span><h2>近一年正規化走勢</h2></div><div class="legend"><span class="dot-a"></span><b id="legendA"></b><span class="dot-b"></span><b id="legendB"></b></div></div><div id="performanceChart" class="chart-box"></div></article>
+        <article class="panel performance-panel"><div class="panel-head chart-head"><div><span class="section-tag">PERFORMANCE</span><h2 id="chartTitle">報酬率比較圖</h2></div><div class="chart-tools"><div id="rangeSwitch" class="range-switch" aria-label="走勢期間"><button type="button" data-range="1M">1月</button><button type="button" data-range="3M">3月</button><button type="button" data-range="6M">6月</button><button class="active" type="button" data-range="1Y">1年</button><button type="button" data-range="2Y">2年</button></div><div class="legend"><span class="dot-a"></span><b id="legendA"></b><span class="dot-b"></span><b id="legendB"></b></div></div></div><div id="performanceChart" class="chart-box"></div></article>
         <article class="panel diff-panel"><div class="panel-head"><div><span class="section-tag">DATA DIFFERENCES</span><h2>數據差異摘要</h2></div></div><ul id="differenceSummary"></ul></article>
       </section>
 
-      <section class="panel"><div class="panel-head"><div><span class="section-tag">HOLDINGS HEAT MAP</span><h2>持股權重差異</h2></div><div class="heat-legend"><span>ETF B 較高</span><i></i><span>接近</span><i></i><span>ETF A 較高</span></div></div><p class="panel-intro">依任一 ETF 的最高權重排序；色彩表示 A 減 B 的百分點差異。</p><div id="holdingsHeatmap" class="heatmap"></div></section>
+      <section class="panel"><div class="panel-head"><div><span class="section-tag">TOP HOLDINGS</span><h2>前十大持股排行榜</h2></div><p>快速看出各自集中在哪些公司</p></div><div id="topHoldings" class="top-holdings"></div></section>
+
+      <section class="panel"><div class="panel-head"><div><span class="section-tag">HOLDINGS HEAT MAP</span><h2>完整持股權重差異</h2></div><div class="heat-legend"><span>ETF B 較高</span><i></i><span>接近</span><i></i><span>ETF A 較高</span></div></div><p class="panel-intro">依任一 ETF 的最高權重排序；色彩表示 A 減 B 的百分點差異。</p><div id="holdingsHeatmap" class="heatmap"></div></section>
 
       <section class="two-column">
         <article class="panel"><div class="panel-head"><div><span class="section-tag">ALLOCATION</span><h2>產業配置</h2></div><span id="industryCoverage" class="coverage"></span></div><div id="industryBars" class="allocation"></div></article>

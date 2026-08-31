@@ -21,6 +21,36 @@
     return start ? (end / start - 1) * 100 : null;
   }
 
+  function periodReturn(rows, days, annualized = false) {
+    const clean = cleanRows(rows);
+    if (clean.length < 2) return null;
+    const endRow = clean[clean.length - 1], cutoff = new Date(endRow.date + "T00:00:00Z");
+    cutoff.setUTCDate(cutoff.getUTCDate() - days);
+    const startRow = clean.find(row => new Date(row.date + "T00:00:00Z") >= cutoff) || clean[0];
+    const elapsed = (new Date(endRow.date + "T00:00:00Z") - new Date(startRow.date + "T00:00:00Z")) / 86400000;
+    if (!startRow.close || elapsed < Math.min(days * .7, 20)) return null;
+    const factor = endRow.close / startRow.close;
+    return (annualized ? factor ** (365.25 / elapsed) - 1 : factor - 1) * 100;
+  }
+
+  function yearToDateReturn(rows) {
+    const clean = cleanRows(rows);
+    if (clean.length < 2) return null;
+    const year = clean[clean.length - 1].date.slice(0, 4), subset = clean.filter(row => row.date.startsWith(year));
+    if (subset.length < 2 || !subset[0].close) return null;
+    return (subset[subset.length - 1].close / subset[0].close - 1) * 100;
+  }
+
+  function dividendFrequency(dividends, latestDate) {
+    const end = new Date((latestDate || new Date().toISOString().slice(0, 10)) + "T00:00:00Z");
+    const start = new Date(end); start.setUTCFullYear(start.getUTCFullYear() - 1);
+    const count = (dividends || []).filter(item => {
+      const date = new Date((item.exDate || item.date || item.ex_date || "") + "T00:00:00Z");
+      return !Number.isNaN(date.valueOf()) && date > start && date <= end;
+    }).length;
+    return count || null;
+  }
+
   function totalReturn(rows, dividends, periods) {
     const clean = cleanRows(rows);
     if (clean.length < 2) return null;
@@ -108,5 +138,5 @@
     return total / price * 100;
   }
 
-  return { normalizeName, priceReturn, totalReturn, annualVolatility, maxDrawdown, holdingDiff, overlap, topConcentration, trailingDividendYield };
+  return { normalizeName, priceReturn, periodReturn, yearToDateReturn, dividendFrequency, totalReturn, annualVolatility, maxDrawdown, holdingDiff, overlap, topConcentration, trailingDividendYield };
 });
