@@ -18,13 +18,19 @@ import urllib.parse
 import urllib.request
 from zoneinfo import ZoneInfo
 
+# Executing ``python scripts/morning_report.py`` sets sys.path[0] to the
+# scripts directory.  Add the repository root before importing shared webapp
+# modules so Cloud Run and GitHub Actions behave like module-based test runs.
+ROOT = Path(__file__).resolve().parents[1]
+if str(ROOT) not in sys.path:
+    sys.path.insert(0, str(ROOT))
+
 try:
     from morning_context import build_context, read_json
 except ModuleNotFoundError:  # Imported as scripts.morning_report by unit tests.
     from scripts.morning_context import build_context, read_json
 
 
-ROOT = Path(__file__).resolve().parents[1]
 TAIPEI = ZoneInfo("Asia/Taipei")
 DEFAULT_BASE_URL = "https://tw-etf-tracker-v2-0.vercel.app"
 MAX_PDF_BYTES = 3_500_000

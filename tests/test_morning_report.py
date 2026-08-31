@@ -1,6 +1,7 @@
 import datetime as dt
 import importlib.util
 from pathlib import Path
+import subprocess
 import sys
 import unittest
 from unittest import mock
@@ -79,6 +80,14 @@ class FakeBrowser:
 
 
 class MorningReportTests(unittest.TestCase):
+    def test_direct_script_entrypoint_can_import_shared_webapp_modules(self):
+        result = subprocess.run(
+            [sys.executable, "scripts/morning_report.py", "--help"],
+            cwd=MODULE_PATH.parents[1], capture_output=True, text=True,
+        )
+        self.assertEqual(result.returncode, 0, result.stderr)
+        self.assertIn("--dry-run", result.stdout)
+
     def test_groups_eligible_subscriptions_by_asset(self):
         by_asset, by_user = MODULE.eligible_subscriptions(FakeDb())
         self.assertEqual(by_asset[("TW", "2330")]["asset"]["assetName"], "台積電")
