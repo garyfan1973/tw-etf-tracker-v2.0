@@ -4,12 +4,12 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width,initial-scale=1">
   <title>ETF 雙檔比較｜投資研究工作台</title>
-  <link rel="stylesheet" href="etf-compare.css?v=20260901-1">
+  <link rel="stylesheet" href="etf-compare.css?v=20260901-2">
   <script>(function(){var t=localStorage.getItem("etf-theme");if(t)document.documentElement.dataset.theme=t})();</script>
   <script src="market-nav.js?v=20260830-1" defer></script>
   <script src="data.js" defer></script>
   <script src="etf-compare-core.js?v=20260901-1" defer></script>
-  <script src="etf-compare.js?v=20260901-1" defer></script>
+  <script src="etf-compare.js?v=20260901-2" defer></script>
 </head>
 <body>
   <main class="shell">
@@ -47,10 +47,11 @@
     <section id="emptyState" class="empty-state"><div class="empty-visual"><span>A</span><i></i><span>B</span></div><h2>選擇兩檔同市場 ETF</h2><p>台灣 ETF 僅能互相比較；美國 ETF 亦同。資料日期會隨各來源顯示。</p></section>
 
     <div id="results" hidden>
+      <div class="comparison-key" aria-label="目前比較標的"><span class="key-a"><i></i><b id="keySymbolA"></b><small id="keyNameA"></small></span><em>VS</em><span class="key-b"><i></i><b id="keySymbolB"></b><small id="keyNameB"></small></span></div>
       <section class="identity-grid">
-        <article class="identity-card tone-a"><div class="identity-label">ETF A</div><div><strong id="symbolA"></strong><h2 id="nameA"></h2></div><dl id="factsA"></dl></article>
+        <article class="identity-card tone-a"><div id="identityLabelA" class="identity-label"></div><div><strong id="symbolA"></strong><h2 id="nameA"></h2></div><dl id="factsA"></dl></article>
         <article class="overlap-card"><span>持股權重重疊度</span><div id="overlapGauge" class="gauge" style="--value:0"><b id="overlapValue">—</b></div><div class="overlap-counts"><span><b id="commonCount">—</b> 共同持股</span><span><b id="uniqueCount">—</b> 僅單邊持有</span></div></article>
-        <article class="identity-card tone-b"><div class="identity-label">ETF B</div><div><strong id="symbolB"></strong><h2 id="nameB"></h2></div><dl id="factsB"></dl></article>
+        <article class="identity-card tone-b"><div id="identityLabelB" class="identity-label"></div><div><strong id="symbolB"></strong><h2 id="nameB"></h2></div><dl id="factsB"></dl></article>
       </section>
 
       <section class="panel"><div class="panel-head"><div><span class="section-tag">SNAPSHOT</span><h2>關鍵數據並排</h2></div><p>報酬率為價格區間計算；含息報酬以除息日再投入估算。</p></div><div id="metricGrid" class="metric-grid"></div></section>
@@ -62,7 +63,7 @@
 
       <section class="panel"><div class="panel-head"><div><span class="section-tag">TOP HOLDINGS</span><h2>前十大持股排行榜</h2></div><p>快速看出各自集中在哪些公司</p></div><div id="topHoldings" class="top-holdings"></div></section>
 
-      <section class="panel"><div class="panel-head"><div><span class="section-tag">HOLDINGS HEAT MAP</span><h2>完整持股權重差異</h2></div><div class="heat-legend"><span>ETF B 較高</span><i></i><span>接近</span><i></i><span>ETF A 較高</span></div></div><p class="panel-intro">依任一 ETF 的最高權重排序；色彩表示 A 減 B 的百分點差異。</p><div id="holdingsHeatmap" class="heatmap"></div></section>
+      <section class="panel"><div class="panel-head"><div><span class="section-tag">HOLDINGS HEAT MAP</span><h2>完整持股權重差異</h2></div><div class="heat-legend"><span id="heatLegendB"></span><i></i><span>接近</span><i></i><span id="heatLegendA"></span></div></div><p id="heatIntro" class="panel-intro"></p><div id="holdingsHeatmap" class="heatmap"></div></section>
 
       <section class="two-column">
         <article class="panel"><div class="panel-head"><div><span class="section-tag">ALLOCATION</span><h2>產業配置</h2></div><span id="industryCoverage" class="coverage"></span></div><div id="industryBars" class="allocation"></div></article>

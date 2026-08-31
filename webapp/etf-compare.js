@@ -107,6 +107,7 @@
 
   function renderIdentity(side, data) {
     $("symbol" + side).textContent = data.asset.symbol; $("name" + side).textContent = data.name;
+    $("identityLabel" + side).textContent = data.asset.symbol;
     const tags=data.tags.length?data.tags.join("・"):data.securityType;
     $("facts" + side).innerHTML = [["投資類型",tags],["追蹤指數",data.index],["發行機構",data.issuer],["持股資料日",data.date || "—"],["行情資料日",data.history.updatedAt || data.history.rows.at(-1)?.date || "—"]].map(([label,value]) => `<div><dt>${label}</dt><dd title="${esc(value)}">${esc(value)}</dd></div>`).join("");
   }
@@ -166,7 +167,8 @@
 
   function renderHeatmap(a,b) {
     const rows=core.holdingDiff(a.holdings,b.holdings).slice(0,40), max=Math.max(1,...rows.map(r=>Math.max(r.left,r.right))), maxDiff=Math.max(1,...rows.map(r=>Math.abs(r.difference)));
-    $("holdingsHeatmap").innerHTML='<div class="heat-row header"><span>持股</span><span>ETF A 權重</span><span>A − B</span><span>ETF B 權重</span></div>'+rows.map(row=>{
+    $("heatLegendA").textContent=`${a.asset.symbol} 較高`;$("heatLegendB").textContent=`${b.asset.symbol} 較高`;$("heatIntro").textContent=`依任一 ETF 的最高權重排序；色彩表示 ${a.asset.symbol} 減 ${b.asset.symbol} 的百分點差異。`;
+    $("holdingsHeatmap").innerHTML=`<div class="heat-row header"><span>持股</span><span>${esc(a.asset.symbol)} 權重</span><span>${esc(a.asset.symbol)} − ${esc(b.asset.symbol)}</span><span>${esc(b.asset.symbol)} 權重</span></div>`+rows.map(row=>{
       const intensity=Math.min(1,Math.abs(row.difference)/maxDiff), bg=row.difference>0?`color-mix(in srgb,var(--a) ${Math.round(10+intensity*35)}%,transparent)`:row.difference<0?`color-mix(in srgb,var(--b) ${Math.round(10+intensity*35)}%,transparent)`:"var(--bg)";
       return `<div class="heat-row"><div class="holding-name"><b>${esc(row.symbol||row.key)}</b><span>${esc(row.name)}</span></div><div class="heat-cell"><i style="width:${row.left/max*100}%"></i><span>${row.left.toFixed(2)}%</span></div><div class="heat-diff" style="background:${bg}">${pp(row.difference)}</div><div class="heat-cell b"><i style="width:${row.right/max*100}%"></i><span>${row.right.toFixed(2)}%</span></div></div>`;
     }).join("");
@@ -179,8 +181,8 @@
   }
   function renderIndustries(a,b) {
     const ga=groupIndustry(a.holdings),gb=groupIndustry(b.holdings),names=[...new Set([...ga.map.keys(),...gb.map.keys()])].sort((x,y)=>Math.max(gb.map.get(y)||0,ga.map.get(y)||0)-Math.max(gb.map.get(x)||0,ga.map.get(x)||0)).slice(0,12),max=Math.max(1,...names.flatMap(n=>[ga.map.get(n)||0,gb.map.get(n)||0]));
-    $("industryCoverage").textContent=`分類覆蓋 A ${ga.coverage.toFixed(0)}%／B ${gb.coverage.toFixed(0)}%`;
-    $("industryBars").innerHTML=names.map(name=>{const x=ga.map.get(name)||0,y=gb.map.get(name)||0;return `<div class="allocation-row"><b title="${esc(name)}">${esc(name)}</b><div class="allocation-track"><i style="width:${x/max*100}%"></i></div><span>${x.toFixed(1)}%</span><div class="allocation-track b"><i style="width:${y/max*100}%"></i></div><span>${y.toFixed(1)}%</span></div>`}).join("")||'<p class="panel-intro">尚無可分類的產業資料。</p>';
+    $("industryCoverage").textContent=`分類覆蓋 ${a.asset.symbol} ${ga.coverage.toFixed(0)}%／${b.asset.symbol} ${gb.coverage.toFixed(0)}%`;
+    $("industryBars").innerHTML=`<div class="allocation-row allocation-header"><b>產業</b><span>${esc(a.asset.symbol)}</span><i></i><span>${esc(b.asset.symbol)}</span><i></i></div>`+names.map(name=>{const x=ga.map.get(name)||0,y=gb.map.get(name)||0;return `<div class="allocation-row"><b title="${esc(name)}">${esc(name)}</b><div class="allocation-track"><i style="width:${x/max*100}%"></i></div><span>${x.toFixed(1)}%</span><div class="allocation-track b"><i style="width:${y/max*100}%"></i></div><span>${y.toFixed(1)}%</span></div>`}).join("");
   }
 
   function renderDividends(a,b) {
@@ -199,6 +201,7 @@
   }
 
   function renderAll(a,b) {
+    $("keySymbolA").textContent=a.asset.symbol;$("keyNameA").textContent=a.name;$("keySymbolB").textContent=b.asset.symbol;$("keyNameB").textContent=b.name;
     renderIdentity("A",a);renderIdentity("B",b);$("legendA").textContent=a.asset.symbol;$("legendB").textContent=b.asset.symbol;
     lastComparison=[a,b];const o=renderOverlap(a,b),m=renderMetrics(a,b);renderChart(a,b);renderTopHoldings(a,b);renderHeatmap(a,b);renderIndustries(a,b);renderDividends(a,b);renderSummary(a,b,m,o);renderSources(a,b);
     $("emptyState").hidden=true;$("results").hidden=false;
