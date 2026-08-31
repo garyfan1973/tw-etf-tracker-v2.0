@@ -619,7 +619,17 @@
         "shortBalance": 92,
         "offsetting": 12,
         "date": "2026-08-24"
-      }
+      },
+      "open": 1435.0,
+      "high": 1485.0,
+      "low": 1385.0,
+      "close": 1435.0,
+      "prevClose": 1490.0,
+      "change": -55.0,
+      "changePct": -3.69,
+      "amplitude": 6.71,
+      "volume": 7581669.0,
+      "quoteDate": "2026-08-24"
     },
     {
       "code": "TER",
@@ -737,7 +747,17 @@
         "shortBalance": 4,
         "offsetting": 2,
         "date": "2026-08-24"
-      }
+      },
+      "open": 4930.0,
+      "high": 5130.0,
+      "low": 4870.0,
+      "close": 5130.0,
+      "prevClose": 5030.0,
+      "change": 100.0,
+      "changePct": 1.99,
+      "amplitude": 5.17,
+      "volume": 1231887.0,
+      "quoteDate": "2026-08-24"
     },
     {
       "code": "COHR",
