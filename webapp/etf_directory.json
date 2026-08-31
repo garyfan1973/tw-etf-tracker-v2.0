@@ -1,5 +1,5 @@
 {
-  "updated_at": "2026-08-31T21:20:17+00:00",
+  "updated_at": "2026-08-31T22:20:18+00:00",
   "sources": [
     "https://openapi.twse.com.tw/v1/opendata/t187ap47_L",
     "https://www.tpex.org.tw/openapi/v1/tpex_mainboard_quotes"
@@ -48,6 +48,11 @@
     {
       "code": "00408A",
       "name": "主動第一金優股息",
+      "market": "上市"
+    },
+    {
+      "code": "00409A",
+      "name": "主動復華全球50",
       "market": "上市"
     },
     {
@@ -1758,6 +1763,11 @@
     {
       "code": "009827",
       "name": "玉山未來全球算力",
+      "market": "上市"
+    },
+    {
+      "code": "009828",
+      "name": "中信台日韓PCB ETF基金",
       "market": "上市"
     },
     {
