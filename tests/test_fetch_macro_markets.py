@@ -86,6 +86,47 @@ class MacroMarketDataTests(unittest.TestCase):
         self.assertEqual(item["asOf"], "2026-08-24")
         self.assertEqual(item["latest"], 112.0)
 
+    def test_us_index_uses_quote_previous_close_when_daily_prior_candle_is_missing(self):
+        result = {
+            "meta": {"gmtoffset": -14400},
+            "timestamp": [1787837400, 1787923800, 1788183000],
+            "indicators": {"quote": [{
+                "open": [110, None, 106], "high": [115, None, 108], "low": [108, None, 103],
+                "close": [112, None, 105], "volume": [1000, None, 1300],
+            }]},
+        }
+        quote_result = {"meta": {
+            "gmtoffset": -14400, "regularMarketTime": 1788210575, "previousClose": 111,
+        }}
+        now = dt.datetime(2026, 8, 31, 22, 0, tzinfo=dt.timezone.utc)
+        item = build_index(
+            {"id":"dow","name":"Dow","region":"美國","symbol":"^DJI","currency":"USD"},
+            result, now=now, quote_result=quote_result,
+        )
+        self.assertEqual(item["asOf"], "2026-08-31")
+        self.assertEqual(item["change"], -6.0)
+        self.assertEqual(item["changePct"], -5.4054)
+
+    def test_us_index_ignores_quote_from_a_newer_incomplete_session(self):
+        result = {
+            "meta": {"gmtoffset": -14400},
+            "timestamp": [1787837400, 1788183000],
+            "indicators": {"quote": [{
+                "open": [110, 106], "high": [115, 108], "low": [108, 103],
+                "close": [112, 105], "volume": [1000, 300],
+            }]},
+        }
+        quote_result = {"meta": {
+            "gmtoffset": -14400, "regularMarketTime": 1788186600, "previousClose": 111,
+        }}
+        now = dt.datetime(2026, 8, 31, 14, 30, tzinfo=dt.timezone.utc)
+        item = build_index(
+            {"id":"dow","name":"Dow","region":"美國","symbol":"^DJI","currency":"USD"},
+            result, now=now, quote_result=quote_result,
+        )
+        self.assertEqual(item["asOf"], "2026-08-27")
+        self.assertEqual(item["change"], 0.0)
+
     def test_twse_market_turnover_replaces_yahoo_index_volume(self):
         payload = {
             "fields": ["日期", "成交股數", "成交金額", "成交筆數", "發行量加權股價指數"],

@@ -14,7 +14,7 @@ from zoneinfo import ZoneInfo
 
 BASE_DIR = os.path.dirname(os.path.abspath(__file__))
 OUT_FILE = os.path.join(BASE_DIR, "webapp", "market_data.json")
-YAHOO_CHART = "https://query1.finance.yahoo.com/v8/finance/chart/{}?interval=1d&range={}"
+YAHOO_CHART = "https://query1.finance.yahoo.com/v8/finance/chart/{}?interval={}&range={}"
 TREASURY_CSV = "https://home.treasury.gov/resource-center/data-chart-center/interest-rates/daily-treasury-rates.csv/{year}/all?type=daily_treasury_yield_curve&field_tdr_date_value={year}&page&_format=csv"
 TWSE_MARKET_STATISTICS = "https://www.twse.com.tw/rwd/zh/afterTrading/FMTQIK?date={date}&response=json"
 TWSE_INDEX_SNAPSHOT = "https://openapi.twse.com.tw/v1/exchangeReport/MI_INDEX"
@@ -85,8 +85,8 @@ def read_url(url, retries=3):
             time.sleep(1.5 * (attempt + 1))
 
 
-def fetch_yahoo(symbol, range_period="1y"):
-    url = YAHOO_CHART.format(urllib.parse.quote(symbol, safe=".-^="), range_period)
+def fetch_yahoo(symbol, range_period="1y", interval="1d"):
+    url = YAHOO_CHART.format(urllib.parse.quote(symbol, safe=".-^="), interval, range_period)
     payload = json.loads(read_url(url))
     result = (payload.get("chart", {}).get("result") or [None])[0]
     if not result:
@@ -128,7 +128,25 @@ def completed_index_rows(config, rows, now=None):
     return rows
 
 
-def build_index(config, result, now=None):
+def yahoo_quote_previous_close(result, latest_date):
+    """Return Yahoo's prior close when the quote belongs to latest_date.
+
+    Daily chart history can occasionally contain a null candle for the prior
+    session.  The short-range quote metadata still carries the official
+    previousClose used by Yahoo's own quote cards.
+    """
+    meta = result.get("meta", {}) if result else {}
+    timestamp = meta.get("regularMarketTime")
+    previous_close = number(meta.get("previousClose"))
+    if timestamp is None or previous_close is None:
+        return None
+    offset = meta.get("gmtoffset", 0) or 0
+    timezone = dt.timezone(dt.timedelta(seconds=offset))
+    quote_date = dt.datetime.fromtimestamp(timestamp, timezone).strftime("%Y-%m-%d")
+    return previous_close if quote_date == latest_date else None
+
+
+def build_index(config, result, now=None, quote_result=None):
     rows = parse_yahoo_rows(result)
     rows = completed_index_rows(config, rows, now)
     if not rows:
@@ -137,13 +155,16 @@ def build_index(config, result, now=None):
         if row.get("volume") is not None and row["volume"] <= 0:
             row["volume"] = None
     latest, previous = rows[-1], rows[-2] if len(rows) > 1 else rows[-1]
-    change = latest["close"] - previous["close"]
+    previous_close = yahoo_quote_previous_close(quote_result, latest["date"])
+    if previous_close is None:
+        previous_close = previous["close"]
+    change = latest["close"] - previous_close
     volume = latest.get("volume")
     if volume is not None and volume <= 0:
         volume = None
     item = {
         **config, "source": "Yahoo Finance", "asOf": latest["date"], "latest": latest["close"],
-        "change": round(change, 4), "changePct": round(change / previous["close"] * 100, 4) if previous["close"] else None,
+        "change": round(change, 4), "changePct": round(change / previous_close * 100, 4) if previous_close else None,
         "volume": volume,
         "week52Low": min((row.get("low") if row.get("low") is not None else row["close"]) for row in rows[-260:]),
         "week52High": max((row.get("high") if row.get("high") is not None else row["close"]) for row in rows[-260:]),
@@ -415,7 +436,8 @@ def main(backfill_twse_turnover=False):
     indices, currencies, failures = [], [], []
     for config in INDICES:
         try:
-            item = build_index(config, fetch_yahoo(config["symbol"]))
+            quote_result = fetch_yahoo(config["symbol"], "1d", "5m") if str(config.get("region", "")).startswith("美國") else None
+            item = build_index(config, fetch_yahoo(config["symbol"]), quote_result=quote_result)
             if config["id"] == "twii":
                 previous = old_indices.get(config["id"])
                 if backfill_twse_turnover:
