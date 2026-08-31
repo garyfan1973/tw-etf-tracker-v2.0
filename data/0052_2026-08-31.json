@@ -1,6 +1,6 @@
 {
   "date": "2026-08-31",
-  "fetched_at": "2026-08-31T20:30:45+08:00",
+  "fetched_at": "2026-08-31T21:31:21+08:00",
   "count": 74,
   "self": {
     "open": 61.35,
@@ -21,7 +21,20 @@
     "total": -2089099,
     "date": "2026-08-31"
   },
-  "selfMargin": null,
+  "selfMargin": {
+    "marginBuy": 79,
+    "marginSell": 858,
+    "marginCashRedemption": 1,
+    "marginPrevBalance": 9479,
+    "marginBalance": 8699,
+    "shortBuy": 14,
+    "shortSell": 0,
+    "shortStockRedemption": 0,
+    "shortPrevBalance": 53,
+    "shortBalance": 39,
+    "offsetting": 4,
+    "date": "2026-08-31"
+  },
   "holdings": [
     {
       "code": "2330",
@@ -48,18 +61,18 @@
         "date": "2026-08-31"
       },
       "margin": {
-        "marginBuy": 332,
-        "marginSell": 353,
-        "marginCashRedemption": 19,
-        "marginPrevBalance": 27670,
-        "marginBalance": 27630,
+        "marginBuy": 676,
+        "marginSell": 236,
+        "marginCashRedemption": 7,
+        "marginPrevBalance": 27630,
+        "marginBalance": 28063,
         "shortBuy": 1,
-        "shortSell": 0,
-        "shortStockRedemption": 3,
-        "shortPrevBalance": 32,
-        "shortBalance": 28,
-        "offsetting": 0,
-        "date": "2026-08-28"
+        "shortSell": 2,
+        "shortStockRedemption": 0,
+        "shortPrevBalance": 28,
+        "shortBalance": 29,
+        "offsetting": 1,
+        "date": "2026-08-31"
       }
     },
     {
@@ -87,18 +100,18 @@
         "date": "2026-08-31"
       },
       "margin": {
-        "marginBuy": 295,
-        "marginSell": 326,
-        "marginCashRedemption": 6,
-        "marginPrevBalance": 9660,
-        "marginBalance": 9623,
-        "shortBuy": 2,
-        "shortSell": 6,
+        "marginBuy": 234,
+        "marginSell": 255,
+        "marginCashRedemption": 3,
+        "marginPrevBalance": 9623,
+        "marginBalance": 9599,
+        "shortBuy": 5,
+        "shortSell": 1,
         "shortStockRedemption": 0,
-        "shortPrevBalance": 34,
-        "shortBalance": 38,
-        "offsetting": 0,
-        "date": "2026-08-28"
+        "shortPrevBalance": 38,
+        "shortBalance": 34,
+        "offsetting": 2,
+        "date": "2026-08-31"
       }
     },
     {
@@ -126,18 +139,18 @@
         "date": "2026-08-31"
       },
       "margin": {
-        "marginBuy": 1139,
-        "marginSell": 627,
-        "marginCashRedemption": 58,
-        "marginPrevBalance": 52603,
-        "marginBalance": 53057,
-        "shortBuy": 6,
-        "shortSell": 15,
+        "marginBuy": 949,
+        "marginSell": 531,
+        "marginCashRedemption": 25,
+        "marginPrevBalance": 53057,
+        "marginBalance": 53450,
+        "shortBuy": 19,
+        "shortSell": 24,
         "shortStockRedemption": 0,
-        "shortPrevBalance": 486,
-        "shortBalance": 495,
-        "offsetting": 4,
-        "date": "2026-08-28"
+        "shortPrevBalance": 495,
+        "shortBalance": 500,
+        "offsetting": 7,
+        "date": "2026-08-31"
       }
     },
     {
@@ -165,18 +178,18 @@
         "date": "2026-08-31"
       },
       "margin": {
-        "marginBuy": 1919,
-        "marginSell": 748,
-        "marginCashRedemption": 3,
-        "marginPrevBalance": 11815,
-        "marginBalance": 12983,
-        "shortBuy": 23,
-        "shortSell": 9,
-        "shortStockRedemption": 9,
-        "shortPrevBalance": 168,
-        "shortBalance": 145,
-        "offsetting": 15,
-        "date": "2026-08-28"
+        "marginBuy": 2047,
+        "marginSell": 991,
+        "marginCashRedemption": 4,
+        "marginPrevBalance": 12983,
+        "marginBalance": 14035,
+        "shortBuy": 28,
+        "shortSell": 25,
+        "shortStockRedemption": 1,
+        "shortPrevBalance": 145,
+        "shortBalance": 141,
+        "offsetting": 12,
+        "date": "2026-08-31"
       }
     },
     {
@@ -204,18 +217,18 @@
         "date": "2026-08-31"
       },
       "margin": {
-        "marginBuy": 110,
-        "marginSell": 122,
-        "marginCashRedemption": 0,
-        "marginPrevBalance": 1949,
-        "marginBalance": 1937,
+        "marginBuy": 77,
+        "marginSell": 55,
+        "marginCashRedemption": 1,
+        "marginPrevBalance": 1937,
+        "marginBalance": 1958,
         "shortBuy": 0,
         "shortSell": 0,
         "shortStockRedemption": 0,
         "shortPrevBalance": 0,
         "shortBalance": 0,
-        "offsetting": 12,
-        "date": "2026-08-28"
+        "offsetting": 3,
+        "date": "2026-08-31"
       }
     },
     {
@@ -243,18 +256,18 @@
         "date": "2026-08-31"
       },
       "margin": {
-        "marginBuy": 19126,
-        "marginSell": 21862,
-        "marginCashRedemption": 84,
-        "marginPrevBalance": 163665,
-        "marginBalance": 160845,
-        "shortBuy": 48,
-        "shortSell": 2422,
+        "marginBuy": 22593,
+        "marginSell": 15430,
+        "marginCashRedemption": 12,
+        "marginPrevBalance": 160845,
+        "marginBalance": 167996,
+        "shortBuy": 634,
+        "shortSell": 80,
         "shortStockRedemption": 0,
-        "shortPrevBalance": 2732,
-        "shortBalance": 5106,
-        "offsetting": 55,
-        "date": "2026-08-28"
+        "shortPrevBalance": 5106,
+        "shortBalance": 4552,
+        "offsetting": 109,
+        "date": "2026-08-31"
       }
     },
     {
@@ -282,18 +295,18 @@
         "date": "2026-08-31"
       },
       "margin": {
-        "marginBuy": 1900,
-        "marginSell": 2579,
-        "marginCashRedemption": 5,
-        "marginPrevBalance": 36355,
-        "marginBalance": 35671,
-        "shortBuy": 81,
-        "shortSell": 659,
+        "marginBuy": 94,
+        "marginSell": 49,
+        "marginCashRedemption": 33,
+        "marginPrevBalance": 35671,
+        "marginBalance": 35683,
+        "shortBuy": 27,
+        "shortSell": 2236,
         "shortStockRedemption": 1,
-        "shortPrevBalance": 681,
-        "shortBalance": 1258,
-        "offsetting": 24,
-        "date": "2026-08-28"
+        "shortPrevBalance": 1258,
+        "shortBalance": 3466,
+        "offsetting": 0,
+        "date": "2026-08-31"
       }
     },
     {
@@ -321,18 +334,18 @@
         "date": "2026-08-31"
       },
       "margin": {
-        "marginBuy": 286,
-        "marginSell": 376,
-        "marginCashRedemption": 4,
-        "marginPrevBalance": 4546,
-        "marginBalance": 4452,
-        "shortBuy": 2,
-        "shortSell": 2,
+        "marginBuy": 229,
+        "marginSell": 285,
+        "marginCashRedemption": 0,
+        "marginPrevBalance": 4452,
+        "marginBalance": 4396,
+        "shortBuy": 1,
+        "shortSell": 56,
         "shortStockRedemption": 0,
         "shortPrevBalance": 41,
-        "shortBalance": 41,
-        "offsetting": 3,
-        "date": "2026-08-28"
+        "shortBalance": 96,
+        "offsetting": 4,
+        "date": "2026-08-31"
       }
     },
     {
@@ -360,18 +373,18 @@
         "date": "2026-08-31"
       },
       "margin": {
-        "marginBuy": 301,
-        "marginSell": 278,
-        "marginCashRedemption": 4,
-        "marginPrevBalance": 14988,
-        "marginBalance": 15007,
+        "marginBuy": 85,
+        "marginSell": 423,
+        "marginCashRedemption": 9,
+        "marginPrevBalance": 15007,
+        "marginBalance": 14660,
         "shortBuy": 4,
-        "shortSell": 2,
-        "shortStockRedemption": 6,
-        "shortPrevBalance": 67,
-        "shortBalance": 59,
-        "offsetting": 7,
-        "date": "2026-08-28"
+        "shortSell": 19,
+        "shortStockRedemption": 0,
+        "shortPrevBalance": 59,
+        "shortBalance": 74,
+        "offsetting": 0,
+        "date": "2026-08-31"
       }
     },
     {
@@ -399,18 +412,18 @@
         "date": "2026-08-31"
       },
       "margin": {
-        "marginBuy": 4468,
-        "marginSell": 3216,
-        "marginCashRedemption": 31,
-        "marginPrevBalance": 39022,
-        "marginBalance": 40243,
-        "shortBuy": 39,
-        "shortSell": 202,
-        "shortStockRedemption": 3,
-        "shortPrevBalance": 342,
-        "shortBalance": 502,
-        "offsetting": 70,
-        "date": "2026-08-28"
+        "marginBuy": 4753,
+        "marginSell": 2685,
+        "marginCashRedemption": 11,
+        "marginPrevBalance": 40243,
+        "marginBalance": 42300,
+        "shortBuy": 179,
+        "shortSell": 49,
+        "shortStockRedemption": 0,
+        "shortPrevBalance": 502,
+        "shortBalance": 372,
+        "offsetting": 51,
+        "date": "2026-08-31"
       }
     },
     {
@@ -438,18 +451,18 @@
         "date": "2026-08-31"
       },
       "margin": {
-        "marginBuy": 124,
-        "marginSell": 107,
-        "marginCashRedemption": 1,
-        "marginPrevBalance": 1401,
-        "marginBalance": 1417,
+        "marginBuy": 196,
+        "marginSell": 89,
+        "marginCashRedemption": 104,
+        "marginPrevBalance": 1417,
+        "marginBalance": 1420,
         "shortBuy": 0,
         "shortSell": 0,
         "shortStockRedemption": 0,
         "shortPrevBalance": 0,
         "shortBalance": 0,
         "offsetting": 0,
-        "date": "2026-08-28"
+        "date": "2026-08-31"
       }
     },
     {
@@ -477,18 +490,18 @@
         "date": "2026-08-31"
       },
       "margin": {
-        "marginBuy": 652,
-        "marginSell": 291,
-        "marginCashRedemption": 1,
-        "marginPrevBalance": 3673,
-        "marginBalance": 4033,
-        "shortBuy": 4,
-        "shortSell": 8,
+        "marginBuy": 452,
+        "marginSell": 231,
+        "marginCashRedemption": 0,
+        "marginPrevBalance": 4033,
+        "marginBalance": 4254,
+        "shortBuy": 8,
+        "shortSell": 17,
         "shortStockRedemption": 0,
-        "shortPrevBalance": 86,
-        "shortBalance": 90,
-        "offsetting": 3,
-        "date": "2026-08-28"
+        "shortPrevBalance": 90,
+        "shortBalance": 99,
+        "offsetting": 6,
+        "date": "2026-08-31"
       }
     },
     {
@@ -516,18 +529,18 @@
         "date": "2026-08-31"
       },
       "margin": {
-        "marginBuy": 169,
-        "marginSell": 91,
+        "marginBuy": 146,
+        "marginSell": 135,
         "marginCashRedemption": 0,
-        "marginPrevBalance": 1570,
-        "marginBalance": 1648,
-        "shortBuy": 0,
-        "shortSell": 0,
+        "marginPrevBalance": 1648,
+        "marginBalance": 1659,
+        "shortBuy": 1,
+        "shortSell": 10,
         "shortStockRedemption": 0,
         "shortPrevBalance": 38,
-        "shortBalance": 38,
+        "shortBalance": 47,
         "offsetting": 0,
-        "date": "2026-08-28"
+        "date": "2026-08-31"
       }
     },
     {
@@ -555,18 +568,18 @@
         "date": "2026-08-31"
       },
       "margin": {
-        "marginBuy": 5449,
-        "marginSell": 4421,
-        "marginCashRedemption": 11,
-        "marginPrevBalance": 63966,
-        "marginBalance": 64983,
-        "shortBuy": 247,
-        "shortSell": 89,
+        "marginBuy": 3139,
+        "marginSell": 2876,
+        "marginCashRedemption": 4,
+        "marginPrevBalance": 64983,
+        "marginBalance": 65242,
+        "shortBuy": 98,
+        "shortSell": 275,
         "shortStockRedemption": 0,
-        "shortPrevBalance": 2734,
-        "shortBalance": 2576,
-        "offsetting": 88,
-        "date": "2026-08-28"
+        "shortPrevBalance": 2576,
+        "shortBalance": 2753,
+        "offsetting": 69,
+        "date": "2026-08-31"
       }
     },
     {
@@ -594,18 +607,18 @@
         "date": "2026-08-31"
       },
       "margin": {
-        "marginBuy": 1462,
-        "marginSell": 1925,
-        "marginCashRedemption": 1,
-        "marginPrevBalance": 21061,
-        "marginBalance": 20597,
-        "shortBuy": 32,
-        "shortSell": 166,
+        "marginBuy": 1740,
+        "marginSell": 2149,
+        "marginCashRedemption": 0,
+        "marginPrevBalance": 20597,
+        "marginBalance": 20188,
+        "shortBuy": 119,
+        "shortSell": 9,
         "shortStockRedemption": 0,
-        "shortPrevBalance": 382,
-        "shortBalance": 516,
-        "offsetting": 51,
-        "date": "2026-08-28"
+        "shortPrevBalance": 516,
+        "shortBalance": 406,
+        "offsetting": 15,
+        "date": "2026-08-31"
       }
     },
     {
@@ -633,18 +646,18 @@
         "date": "2026-08-31"
       },
       "margin": {
-        "marginBuy": 11612,
-        "marginSell": 5242,
-        "marginCashRedemption": 526,
-        "marginPrevBalance": 115877,
-        "marginBalance": 121721,
-        "shortBuy": 316,
-        "shortSell": 373,
-        "shortStockRedemption": 1,
-        "shortPrevBalance": 4613,
-        "shortBalance": 4669,
+        "marginBuy": 3348,
+        "marginSell": 6682,
+        "marginCashRedemption": 21,
+        "marginPrevBalance": 121721,
+        "marginBalance": 118366,
+        "shortBuy": 507,
+        "shortSell": 440,
+        "shortStockRedemption": 2,
+        "shortPrevBalance": 4669,
+        "shortBalance": 4600,
         "offsetting": 127,
-        "date": "2026-08-28"
+        "date": "2026-08-31"
       }
     },
     {
@@ -672,18 +685,18 @@
         "date": "2026-08-31"
       },
       "margin": {
-        "marginBuy": 1347,
-        "marginSell": 614,
-        "marginCashRedemption": 13,
-        "marginPrevBalance": 44429,
-        "marginBalance": 45149,
-        "shortBuy": 25,
-        "shortSell": 21,
+        "marginBuy": 1799,
+        "marginSell": 602,
+        "marginCashRedemption": 11,
+        "marginPrevBalance": 45149,
+        "marginBalance": 46335,
+        "shortBuy": 28,
+        "shortSell": 43,
         "shortStockRedemption": 0,
-        "shortPrevBalance": 511,
-        "shortBalance": 507,
-        "offsetting": 4,
-        "date": "2026-08-28"
+        "shortPrevBalance": 507,
+        "shortBalance": 522,
+        "offsetting": 7,
+        "date": "2026-08-31"
       }
     },
     {
@@ -711,18 +724,18 @@
         "date": "2026-08-31"
       },
       "margin": {
-        "marginBuy": 135,
-        "marginSell": 100,
-        "marginCashRedemption": 0,
-        "marginPrevBalance": 3053,
-        "marginBalance": 3088,
-        "shortBuy": 0,
-        "shortSell": 1,
+        "marginBuy": 129,
+        "marginSell": 107,
+        "marginCashRedemption": 1,
+        "marginPrevBalance": 3088,
+        "marginBalance": 3109,
+        "shortBuy": 3,
+        "shortSell": 15,
         "shortStockRedemption": 0,
-        "shortPrevBalance": 53,
-        "shortBalance": 54,
-        "offsetting": 0,
-        "date": "2026-08-28"
+        "shortPrevBalance": 54,
+        "shortBalance": 66,
+        "offsetting": 1,
+        "date": "2026-08-31"
       }
     },
     {
@@ -750,18 +763,18 @@
         "date": "2026-08-31"
       },
       "margin": {
-        "marginBuy": 210,
-        "marginSell": 182,
-        "marginCashRedemption": 1,
-        "marginPrevBalance": 4833,
-        "marginBalance": 4860,
-        "shortBuy": 2,
-        "shortSell": 2,
-        "shortStockRedemption": 0,
+        "marginBuy": 144,
+        "marginSell": 232,
+        "marginCashRedemption": 0,
+        "marginPrevBalance": 4860,
+        "marginBalance": 4772,
+        "shortBuy": 18,
+        "shortSell": 1,
+        "shortStockRedemption": 1,
         "shortPrevBalance": 129,
-        "shortBalance": 129,
+        "shortBalance": 111,
         "offsetting": 1,
-        "date": "2026-08-28"
+        "date": "2026-08-31"
       }
     },
     {
@@ -789,18 +802,18 @@
         "date": "2026-08-31"
       },
       "margin": {
-        "marginBuy": 1248,
-        "marginSell": 945,
-        "marginCashRedemption": 9,
-        "marginPrevBalance": 7216,
-        "marginBalance": 7510,
-        "shortBuy": 7,
-        "shortSell": 56,
+        "marginBuy": 1489,
+        "marginSell": 1539,
+        "marginCashRedemption": 0,
+        "marginPrevBalance": 7510,
+        "marginBalance": 7460,
+        "shortBuy": 26,
+        "shortSell": 38,
         "shortStockRedemption": 0,
-        "shortPrevBalance": 87,
-        "shortBalance": 136,
-        "offsetting": 3,
-        "date": "2026-08-28"
+        "shortPrevBalance": 136,
+        "shortBalance": 148,
+        "offsetting": 76,
+        "date": "2026-08-31"
       }
     },
     {
@@ -828,18 +841,18 @@
         "date": "2026-08-31"
       },
       "margin": {
-        "marginBuy": 323,
-        "marginSell": 423,
-        "marginCashRedemption": 2,
-        "marginPrevBalance": 3181,
-        "marginBalance": 3079,
-        "shortBuy": 3,
-        "shortSell": 14,
+        "marginBuy": 182,
+        "marginSell": 282,
+        "marginCashRedemption": 1,
+        "marginPrevBalance": 3079,
+        "marginBalance": 2978,
+        "shortBuy": 13,
+        "shortSell": 0,
         "shortStockRedemption": 0,
-        "shortPrevBalance": 6,
-        "shortBalance": 17,
-        "offsetting": 1,
-        "date": "2026-08-28"
+        "shortPrevBalance": 17,
+        "shortBalance": 4,
+        "offsetting": 0,
+        "date": "2026-08-31"
       }
     },
     {
@@ -867,18 +880,18 @@
         "date": "2026-08-31"
       },
       "margin": {
-        "marginBuy": 1581,
-        "marginSell": 1569,
-        "marginCashRedemption": 20,
-        "marginPrevBalance": 32459,
-        "marginBalance": 32451,
-        "shortBuy": 17,
-        "shortSell": 60,
+        "marginBuy": 3940,
+        "marginSell": 2526,
+        "marginCashRedemption": 14,
+        "marginPrevBalance": 32451,
+        "marginBalance": 33851,
+        "shortBuy": 11,
+        "shortSell": 57,
         "shortStockRedemption": 0,
-        "shortPrevBalance": 212,
-        "shortBalance": 255,
-        "offsetting": 38,
-        "date": "2026-08-28"
+        "shortPrevBalance": 255,
+        "shortBalance": 301,
+        "offsetting": 68,
+        "date": "2026-08-31"
       }
     },
     {
@@ -906,18 +919,18 @@
         "date": "2026-08-31"
       },
       "margin": {
-        "marginBuy": 27425,
-        "marginSell": 14128,
-        "marginCashRedemption": 59,
-        "marginPrevBalance": 309811,
-        "marginBalance": 323049,
-        "shortBuy": 970,
-        "shortSell": 776,
+        "marginBuy": 14336,
+        "marginSell": 19600,
+        "marginCashRedemption": 44,
+        "marginPrevBalance": 323049,
+        "marginBalance": 317741,
+        "shortBuy": 420,
+        "shortSell": 1734,
         "shortStockRedemption": 1,
-        "shortPrevBalance": 4286,
-        "shortBalance": 4091,
-        "offsetting": 307,
-        "date": "2026-08-28"
+        "shortPrevBalance": 4091,
+        "shortBalance": 5404,
+        "offsetting": 267,
+        "date": "2026-08-31"
       }
     },
     {
@@ -945,18 +958,18 @@
         "date": "2026-08-31"
       },
       "margin": {
-        "marginBuy": 37,
-        "marginSell": 13,
+        "marginBuy": 7,
+        "marginSell": 40,
         "marginCashRedemption": 0,
-        "marginPrevBalance": 2578,
-        "marginBalance": 2602,
-        "shortBuy": 3,
+        "marginPrevBalance": 2602,
+        "marginBalance": 2569,
+        "shortBuy": 2,
         "shortSell": 1,
-        "shortStockRedemption": 0,
-        "shortPrevBalance": 15,
-        "shortBalance": 13,
-        "offsetting": 1,
-        "date": "2026-08-28"
+        "shortStockRedemption": 3,
+        "shortPrevBalance": 13,
+        "shortBalance": 9,
+        "offsetting": 0,
+        "date": "2026-08-31"
       }
     },
     {
@@ -984,18 +997,18 @@
         "date": "2026-08-31"
       },
       "margin": {
-        "marginBuy": 9,
-        "marginSell": 2,
+        "marginBuy": 99,
+        "marginSell": 25,
         "marginCashRedemption": 0,
-        "marginPrevBalance": 320,
-        "marginBalance": 327,
-        "shortBuy": 0,
+        "marginPrevBalance": 327,
+        "marginBalance": 401,
+        "shortBuy": 4,
         "shortSell": 0,
         "shortStockRedemption": 0,
         "shortPrevBalance": 4,
-        "shortBalance": 4,
-        "offsetting": 0,
-        "date": "2026-08-28"
+        "shortBalance": 0,
+        "offsetting": 2,
+        "date": "2026-08-31"
       }
     },
     {
@@ -1023,18 +1036,18 @@
         "date": "2026-08-31"
       },
       "margin": {
-        "marginBuy": 197,
-        "marginSell": 286,
-        "marginCashRedemption": 7,
-        "marginPrevBalance": 6254,
-        "marginBalance": 6158,
-        "shortBuy": 13,
+        "marginBuy": 204,
+        "marginSell": 378,
+        "marginCashRedemption": 0,
+        "marginPrevBalance": 6158,
+        "marginBalance": 5984,
+        "shortBuy": 0,
         "shortSell": 0,
-        "shortStockRedemption": 0,
-        "shortPrevBalance": 14,
-        "shortBalance": 1,
+        "shortStockRedemption": 1,
+        "shortPrevBalance": 1,
+        "shortBalance": 0,
         "offsetting": 0,
-        "date": "2026-08-28"
+        "date": "2026-08-31"
       }
     },
     {
@@ -1062,18 +1075,18 @@
         "date": "2026-08-31"
       },
       "margin": {
-        "marginBuy": 24,
-        "marginSell": 44,
+        "marginBuy": 44,
+        "marginSell": 51,
         "marginCashRedemption": 0,
-        "marginPrevBalance": 1650,
-        "marginBalance": 1630,
-        "shortBuy": 0,
-        "shortSell": 3,
+        "marginPrevBalance": 1630,
+        "marginBalance": 1623,
+        "shortBuy": 1,
+        "shortSell": 1,
         "shortStockRedemption": 0,
-        "shortPrevBalance": 36,
+        "shortPrevBalance": 39,
         "shortBalance": 39,
-        "offsetting": 0,
-        "date": "2026-08-28"
+        "offsetting": 1,
+        "date": "2026-08-31"
       }
     },
     {
@@ -1101,18 +1114,18 @@
         "date": "2026-08-31"
       },
       "margin": {
-        "marginBuy": 39,
-        "marginSell": 75,
+        "marginBuy": 31,
+        "marginSell": 36,
         "marginCashRedemption": 0,
-        "marginPrevBalance": 2625,
-        "marginBalance": 2589,
-        "shortBuy": 4,
+        "marginPrevBalance": 2589,
+        "marginBalance": 2584,
+        "shortBuy": 7,
         "shortSell": 0,
         "shortStockRedemption": 0,
-        "shortPrevBalance": 195,
-        "shortBalance": 191,
+        "shortPrevBalance": 191,
+        "shortBalance": 184,
         "offsetting": 0,
-        "date": "2026-08-28"
+        "date": "2026-08-31"
       }
     },
     {
@@ -1140,18 +1153,18 @@
         "date": "2026-08-31"
       },
       "margin": {
-        "marginBuy": 3552,
-        "marginSell": 2430,
-        "marginCashRedemption": 26,
-        "marginPrevBalance": 20396,
-        "marginBalance": 21492,
-        "shortBuy": 24,
-        "shortSell": 172,
+        "marginBuy": 2660,
+        "marginSell": 1716,
+        "marginCashRedemption": 18,
+        "marginPrevBalance": 21492,
+        "marginBalance": 22418,
+        "shortBuy": 184,
+        "shortSell": 3,
         "shortStockRedemption": 0,
-        "shortPrevBalance": 137,
-        "shortBalance": 285,
-        "offsetting": 48,
-        "date": "2026-08-28"
+        "shortPrevBalance": 285,
+        "shortBalance": 104,
+        "offsetting": 31,
+        "date": "2026-08-31"
       }
     },
     {
@@ -1179,18 +1192,18 @@
         "date": "2026-08-31"
       },
       "margin": {
-        "marginBuy": 1656,
-        "marginSell": 1017,
-        "marginCashRedemption": 5,
-        "marginPrevBalance": 18624,
-        "marginBalance": 19258,
-        "shortBuy": 35,
-        "shortSell": 38,
+        "marginBuy": 2955,
+        "marginSell": 2436,
+        "marginCashRedemption": 3,
+        "marginPrevBalance": 19258,
+        "marginBalance": 19774,
+        "shortBuy": 180,
+        "shortSell": 100,
         "shortStockRedemption": 0,
-        "shortPrevBalance": 439,
-        "shortBalance": 442,
-        "offsetting": 15,
-        "date": "2026-08-28"
+        "shortPrevBalance": 442,
+        "shortBalance": 362,
+        "offsetting": 64,
+        "date": "2026-08-31"
       }
     },
     {
@@ -1228,18 +1241,18 @@
         "date": "2026-08-31"
       },
       "margin": {
-        "marginBuy": 1213,
-        "marginSell": 1182,
+        "marginBuy": 993,
+        "marginSell": 1454,
         "marginCashRedemption": 1,
-        "marginPrevBalance": 10599,
-        "marginBalance": 10629,
-        "shortBuy": 121,
-        "shortSell": 16,
+        "marginPrevBalance": 10629,
+        "marginBalance": 10167,
+        "shortBuy": 55,
+        "shortSell": 42,
         "shortStockRedemption": 0,
-        "shortPrevBalance": 696,
-        "shortBalance": 591,
-        "offsetting": 8,
-        "date": "2026-08-28"
+        "shortPrevBalance": 591,
+        "shortBalance": 578,
+        "offsetting": 24,
+        "date": "2026-08-31"
       }
     },
     {
@@ -1267,18 +1280,18 @@
         "date": "2026-08-31"
       },
       "margin": {
-        "marginBuy": 7367,
-        "marginSell": 3048,
-        "marginCashRedemption": 4,
-        "marginPrevBalance": 31848,
-        "marginBalance": 36163,
-        "shortBuy": 394,
-        "shortSell": 81,
+        "marginBuy": 3408,
+        "marginSell": 3892,
+        "marginCashRedemption": 15,
+        "marginPrevBalance": 36163,
+        "marginBalance": 35664,
+        "shortBuy": 64,
+        "shortSell": 165,
         "shortStockRedemption": 0,
-        "shortPrevBalance": 1783,
-        "shortBalance": 1470,
-        "offsetting": 91,
-        "date": "2026-08-28"
+        "shortPrevBalance": 1470,
+        "shortBalance": 1571,
+        "offsetting": 425,
+        "date": "2026-08-31"
       }
     },
     {
@@ -1306,18 +1319,18 @@
         "date": "2026-08-31"
       },
       "margin": {
-        "marginBuy": 6498,
-        "marginSell": 6042,
-        "marginCashRedemption": 231,
-        "marginPrevBalance": 138588,
-        "marginBalance": 138813,
-        "shortBuy": 54,
-        "shortSell": 273,
+        "marginBuy": 5151,
+        "marginSell": 11915,
+        "marginCashRedemption": 22,
+        "marginPrevBalance": 138813,
+        "marginBalance": 132027,
+        "shortBuy": 141,
+        "shortSell": 486,
         "shortStockRedemption": 0,
-        "shortPrevBalance": 255,
-        "shortBalance": 474,
-        "offsetting": 2381,
-        "date": "2026-08-28"
+        "shortPrevBalance": 474,
+        "shortBalance": 819,
+        "offsetting": 186,
+        "date": "2026-08-31"
       }
     },
     {
@@ -1345,18 +1358,18 @@
         "date": "2026-08-31"
       },
       "margin": {
-        "marginBuy": 1416,
-        "marginSell": 1272,
-        "marginCashRedemption": 11,
-        "marginPrevBalance": 92409,
-        "marginBalance": 92542,
-        "shortBuy": 175,
-        "shortSell": 122,
+        "marginBuy": 1148,
+        "marginSell": 571,
+        "marginCashRedemption": 10,
+        "marginPrevBalance": 92542,
+        "marginBalance": 93109,
+        "shortBuy": 217,
+        "shortSell": 137,
         "shortStockRedemption": 0,
-        "shortPrevBalance": 2399,
-        "shortBalance": 2346,
-        "offsetting": 14,
-        "date": "2026-08-28"
+        "shortPrevBalance": 2346,
+        "shortBalance": 2266,
+        "offsetting": 29,
+        "date": "2026-08-31"
       }
     },
     {
@@ -1384,18 +1397,18 @@
         "date": "2026-08-31"
       },
       "margin": {
-        "marginBuy": 107,
-        "marginSell": 205,
-        "marginCashRedemption": 0,
-        "marginPrevBalance": 5908,
-        "marginBalance": 5810,
-        "shortBuy": 2,
-        "shortSell": 8,
+        "marginBuy": 274,
+        "marginSell": 230,
+        "marginCashRedemption": 1,
+        "marginPrevBalance": 5810,
+        "marginBalance": 5853,
+        "shortBuy": 1,
+        "shortSell": 1,
         "shortStockRedemption": 0,
-        "shortPrevBalance": 43,
+        "shortPrevBalance": 49,
         "shortBalance": 49,
-        "offsetting": 1,
-        "date": "2026-08-28"
+        "offsetting": 3,
+        "date": "2026-08-31"
       }
     },
     {
@@ -1423,18 +1436,18 @@
         "date": "2026-08-31"
       },
       "margin": {
-        "marginBuy": 197,
-        "marginSell": 167,
-        "marginCashRedemption": 8,
-        "marginPrevBalance": 6581,
-        "marginBalance": 6603,
-        "shortBuy": 0,
-        "shortSell": 3,
+        "marginBuy": 356,
+        "marginSell": 273,
+        "marginCashRedemption": 5,
+        "marginPrevBalance": 6603,
+        "marginBalance": 6681,
+        "shortBuy": 1,
+        "shortSell": 14,
         "shortStockRedemption": 0,
-        "shortPrevBalance": 165,
-        "shortBalance": 168,
+        "shortPrevBalance": 168,
+        "shortBalance": 181,
         "offsetting": 0,
-        "date": "2026-08-28"
+        "date": "2026-08-31"
       }
     },
     {
@@ -1462,18 +1475,18 @@
         "date": "2026-08-31"
       },
       "margin": {
-        "marginBuy": 1037,
-        "marginSell": 2473,
-        "marginCashRedemption": 32,
-        "marginPrevBalance": 23448,
-        "marginBalance": 21980,
-        "shortBuy": 12,
-        "shortSell": 24,
+        "marginBuy": 1139,
+        "marginSell": 488,
+        "marginCashRedemption": 9,
+        "marginPrevBalance": 21980,
+        "marginBalance": 22622,
+        "shortBuy": 42,
+        "shortSell": 5,
         "shortStockRedemption": 0,
-        "shortPrevBalance": 102,
-        "shortBalance": 114,
-        "offsetting": 21,
-        "date": "2026-08-28"
+        "shortPrevBalance": 114,
+        "shortBalance": 77,
+        "offsetting": 7,
+        "date": "2026-08-31"
       }
     },
     {
@@ -1501,18 +1514,18 @@
         "date": "2026-08-31"
       },
       "margin": {
-        "marginBuy": 405,
-        "marginSell": 90,
+        "marginBuy": 279,
+        "marginSell": 517,
         "marginCashRedemption": 0,
-        "marginPrevBalance": 4516,
-        "marginBalance": 4831,
-        "shortBuy": 1,
-        "shortSell": 0,
+        "marginPrevBalance": 4831,
+        "marginBalance": 4593,
+        "shortBuy": 0,
+        "shortSell": 8,
         "shortStockRedemption": 0,
-        "shortPrevBalance": 21,
-        "shortBalance": 20,
+        "shortPrevBalance": 20,
+        "shortBalance": 28,
         "offsetting": 0,
-        "date": "2026-08-28"
+        "date": "2026-08-31"
       }
     },
     {
@@ -1540,18 +1553,18 @@
         "date": "2026-08-31"
       },
       "margin": {
-        "marginBuy": 822,
-        "marginSell": 564,
-        "marginCashRedemption": 14,
-        "marginPrevBalance": 27405,
-        "marginBalance": 27649,
-        "shortBuy": 37,
-        "shortSell": 12,
+        "marginBuy": 1189,
+        "marginSell": 1054,
+        "marginCashRedemption": 3,
+        "marginPrevBalance": 27649,
+        "marginBalance": 27781,
+        "shortBuy": 13,
+        "shortSell": 41,
         "shortStockRedemption": 0,
-        "shortPrevBalance": 422,
-        "shortBalance": 397,
-        "offsetting": 0,
-        "date": "2026-08-28"
+        "shortPrevBalance": 397,
+        "shortBalance": 425,
+        "offsetting": 17,
+        "date": "2026-08-31"
       }
     },
     {
@@ -1579,18 +1592,18 @@
         "date": "2026-08-31"
       },
       "margin": {
-        "marginBuy": 1642,
-        "marginSell": 1644,
-        "marginCashRedemption": 16,
-        "marginPrevBalance": 57058,
-        "marginBalance": 57040,
-        "shortBuy": 76,
-        "shortSell": 14,
+        "marginBuy": 1566,
+        "marginSell": 3722,
+        "marginCashRedemption": 2,
+        "marginPrevBalance": 57040,
+        "marginBalance": 54882,
+        "shortBuy": 14,
+        "shortSell": 55,
         "shortStockRedemption": 0,
-        "shortPrevBalance": 1146,
-        "shortBalance": 1084,
-        "offsetting": 22,
-        "date": "2026-08-28"
+        "shortPrevBalance": 1084,
+        "shortBalance": 1125,
+        "offsetting": 30,
+        "date": "2026-08-31"
       }
     },
     {
@@ -1618,18 +1631,18 @@
         "date": "2026-08-31"
       },
       "margin": {
-        "marginBuy": 7702,
-        "marginSell": 6264,
-        "marginCashRedemption": 95,
-        "marginPrevBalance": 230081,
-        "marginBalance": 231424,
-        "shortBuy": 1028,
-        "shortSell": 456,
-        "shortStockRedemption": 5,
-        "shortPrevBalance": 17846,
-        "shortBalance": 17269,
-        "offsetting": 119,
-        "date": "2026-08-28"
+        "marginBuy": 6560,
+        "marginSell": 9793,
+        "marginCashRedemption": 21,
+        "marginPrevBalance": 231424,
+        "marginBalance": 228170,
+        "shortBuy": 200,
+        "shortSell": 2649,
+        "shortStockRedemption": 0,
+        "shortPrevBalance": 17269,
+        "shortBalance": 19718,
+        "offsetting": 186,
+        "date": "2026-08-31"
       }
     },
     {
@@ -1657,18 +1670,18 @@
         "date": "2026-08-31"
       },
       "margin": {
-        "marginBuy": 36,
-        "marginSell": 8,
-        "marginCashRedemption": 2,
-        "marginPrevBalance": 535,
-        "marginBalance": 561,
+        "marginBuy": 30,
+        "marginSell": 7,
+        "marginCashRedemption": 0,
+        "marginPrevBalance": 561,
+        "marginBalance": 584,
         "shortBuy": 0,
         "shortSell": 0,
-        "shortStockRedemption": 1,
-        "shortPrevBalance": 5,
+        "shortStockRedemption": 0,
+        "shortPrevBalance": 4,
         "shortBalance": 4,
         "offsetting": 0,
-        "date": "2026-08-28"
+        "date": "2026-08-31"
       }
     },
     {
@@ -1696,18 +1709,18 @@
         "date": "2026-08-31"
       },
       "margin": {
-        "marginBuy": 272,
-        "marginSell": 198,
-        "marginCashRedemption": 11,
-        "marginPrevBalance": 11987,
-        "marginBalance": 12050,
-        "shortBuy": 5,
-        "shortSell": 2,
+        "marginBuy": 118,
+        "marginSell": 124,
+        "marginCashRedemption": 1,
+        "marginPrevBalance": 12050,
+        "marginBalance": 12043,
+        "shortBuy": 2,
+        "shortSell": 3,
         "shortStockRedemption": 0,
-        "shortPrevBalance": 43,
-        "shortBalance": 40,
+        "shortPrevBalance": 40,
+        "shortBalance": 41,
         "offsetting": 0,
-        "date": "2026-08-28"
+        "date": "2026-08-31"
       }
     },
     {
@@ -1735,18 +1748,18 @@
         "date": "2026-08-31"
       },
       "margin": {
-        "marginBuy": 846,
-        "marginSell": 137,
-        "marginCashRedemption": 2,
-        "marginPrevBalance": 9106,
-        "marginBalance": 9813,
+        "marginBuy": 382,
+        "marginSell": 715,
+        "marginCashRedemption": 15,
+        "marginPrevBalance": 9813,
+        "marginBalance": 9465,
         "shortBuy": 3,
-        "shortSell": 4,
+        "shortSell": 11,
         "shortStockRedemption": 0,
-        "shortPrevBalance": 10,
-        "shortBalance": 11,
-        "offsetting": 47,
-        "date": "2026-08-28"
+        "shortPrevBalance": 11,
+        "shortBalance": 19,
+        "offsetting": 8,
+        "date": "2026-08-31"
       }
     },
     {
@@ -1774,18 +1787,18 @@
         "date": "2026-08-31"
       },
       "margin": {
-        "marginBuy": 232,
-        "marginSell": 137,
-        "marginCashRedemption": 1,
-        "marginPrevBalance": 1647,
-        "marginBalance": 1741,
-        "shortBuy": 0,
-        "shortSell": 1,
+        "marginBuy": 91,
+        "marginSell": 68,
+        "marginCashRedemption": 0,
+        "marginPrevBalance": 1741,
+        "marginBalance": 1764,
+        "shortBuy": 1,
+        "shortSell": 7,
         "shortStockRedemption": 0,
-        "shortPrevBalance": 1,
-        "shortBalance": 2,
-        "offsetting": 1,
-        "date": "2026-08-28"
+        "shortPrevBalance": 2,
+        "shortBalance": 8,
+        "offsetting": 0,
+        "date": "2026-08-31"
       }
     },
     {
@@ -1813,18 +1826,18 @@
         "date": "2026-08-31"
       },
       "margin": {
-        "marginBuy": 538,
-        "marginSell": 151,
-        "marginCashRedemption": 2,
-        "marginPrevBalance": 4492,
-        "marginBalance": 4877,
-        "shortBuy": 71,
-        "shortSell": 1,
+        "marginBuy": 510,
+        "marginSell": 468,
+        "marginCashRedemption": 4,
+        "marginPrevBalance": 4877,
+        "marginBalance": 4915,
+        "shortBuy": 12,
+        "shortSell": 184,
         "shortStockRedemption": 0,
-        "shortPrevBalance": 136,
-        "shortBalance": 66,
+        "shortPrevBalance": 66,
+        "shortBalance": 238,
         "offsetting": 1,
-        "date": "2026-08-28"
+        "date": "2026-08-31"
       }
     },
     {
@@ -1852,18 +1865,18 @@
         "date": "2026-08-31"
       },
       "margin": {
-        "marginBuy": 521,
-        "marginSell": 600,
+        "marginBuy": 181,
+        "marginSell": 336,
         "marginCashRedemption": 0,
-        "marginPrevBalance": 3074,
-        "marginBalance": 2995,
-        "shortBuy": 4,
-        "shortSell": 8,
-        "shortStockRedemption": 0,
-        "shortPrevBalance": 36,
-        "shortBalance": 40,
-        "offsetting": 4,
-        "date": "2026-08-28"
+        "marginPrevBalance": 2995,
+        "marginBalance": 2840,
+        "shortBuy": 7,
+        "shortSell": 27,
+        "shortStockRedemption": 1,
+        "shortPrevBalance": 40,
+        "shortBalance": 59,
+        "offsetting": 5,
+        "date": "2026-08-31"
       }
     },
     {
@@ -1891,18 +1904,18 @@
         "date": "2026-08-31"
       },
       "margin": {
-        "marginBuy": 2070,
-        "marginSell": 1489,
-        "marginCashRedemption": 1,
-        "marginPrevBalance": 19816,
-        "marginBalance": 20396,
-        "shortBuy": 77,
-        "shortSell": 113,
-        "shortStockRedemption": 7,
-        "shortPrevBalance": 1371,
-        "shortBalance": 1400,
-        "offsetting": 70,
-        "date": "2026-08-28"
+        "marginBuy": 1764,
+        "marginSell": 2397,
+        "marginCashRedemption": 0,
+        "marginPrevBalance": 20396,
+        "marginBalance": 19763,
+        "shortBuy": 231,
+        "shortSell": 36,
+        "shortStockRedemption": 2,
+        "shortPrevBalance": 1400,
+        "shortBalance": 1203,
+        "offsetting": 20,
+        "date": "2026-08-31"
       }
     },
     {
@@ -1930,18 +1943,18 @@
         "date": "2026-08-31"
       },
       "margin": {
-        "marginBuy": 26,
-        "marginSell": 26,
+        "marginBuy": 22,
+        "marginSell": 8,
         "marginCashRedemption": 0,
         "marginPrevBalance": 801,
-        "marginBalance": 801,
-        "shortBuy": 0,
+        "marginBalance": 815,
+        "shortBuy": 1,
         "shortSell": 0,
         "shortStockRedemption": 0,
         "shortPrevBalance": 10,
-        "shortBalance": 10,
-        "offsetting": 1,
-        "date": "2026-08-28"
+        "shortBalance": 9,
+        "offsetting": 0,
+        "date": "2026-08-31"
       }
     },
     {
@@ -1979,18 +1992,18 @@
         "date": "2026-08-31"
       },
       "margin": {
-        "marginBuy": 528,
-        "marginSell": 325,
-        "marginCashRedemption": 9,
-        "marginPrevBalance": 15406,
-        "marginBalance": 15600,
-        "shortBuy": 1,
-        "shortSell": 2,
+        "marginBuy": 674,
+        "marginSell": 1894,
+        "marginCashRedemption": 21,
+        "marginPrevBalance": 15600,
+        "marginBalance": 14359,
+        "shortBuy": 3,
+        "shortSell": 22,
         "shortStockRedemption": 0,
-        "shortPrevBalance": 25,
-        "shortBalance": 26,
-        "offsetting": 0,
-        "date": "2026-08-28"
+        "shortPrevBalance": 26,
+        "shortBalance": 45,
+        "offsetting": 2,
+        "date": "2026-08-31"
       }
     },
     {
@@ -2018,18 +2031,18 @@
         "date": "2026-08-31"
       },
       "margin": {
-        "marginBuy": 1191,
-        "marginSell": 1013,
+        "marginBuy": 1220,
+        "marginSell": 1516,
         "marginCashRedemption": 0,
-        "marginPrevBalance": 10410,
-        "marginBalance": 10588,
-        "shortBuy": 47,
-        "shortSell": 136,
-        "shortStockRedemption": 28,
-        "shortPrevBalance": 332,
-        "shortBalance": 393,
-        "offsetting": 5,
-        "date": "2026-08-28"
+        "marginPrevBalance": 10588,
+        "marginBalance": 10292,
+        "shortBuy": 104,
+        "shortSell": 33,
+        "shortStockRedemption": 0,
+        "shortPrevBalance": 393,
+        "shortBalance": 322,
+        "offsetting": 33,
+        "date": "2026-08-31"
       }
     },
     {
@@ -2057,18 +2070,18 @@
         "date": "2026-08-31"
       },
       "margin": {
-        "marginBuy": 343,
-        "marginSell": 266,
-        "marginCashRedemption": 0,
-        "marginPrevBalance": 5643,
-        "marginBalance": 5720,
-        "shortBuy": 13,
-        "shortSell": 1,
+        "marginBuy": 294,
+        "marginSell": 188,
+        "marginCashRedemption": 2,
+        "marginPrevBalance": 5720,
+        "marginBalance": 5824,
+        "shortBuy": 3,
+        "shortSell": 7,
         "shortStockRedemption": 0,
-        "shortPrevBalance": 43,
-        "shortBalance": 31,
-        "offsetting": 2,
-        "date": "2026-08-28"
+        "shortPrevBalance": 31,
+        "shortBalance": 35,
+        "offsetting": 1,
+        "date": "2026-08-31"
       }
     },
     {
@@ -2096,18 +2109,18 @@
         "date": "2026-08-31"
       },
       "margin": {
-        "marginBuy": 81,
-        "marginSell": 236,
-        "marginCashRedemption": 0,
-        "marginPrevBalance": 7400,
-        "marginBalance": 7245,
+        "marginBuy": 56,
+        "marginSell": 293,
+        "marginCashRedemption": 1,
+        "marginPrevBalance": 7245,
+        "marginBalance": 7007,
         "shortBuy": 0,
-        "shortSell": 0,
+        "shortSell": 2,
         "shortStockRedemption": 0,
         "shortPrevBalance": 7,
-        "shortBalance": 7,
+        "shortBalance": 9,
         "offsetting": 0,
-        "date": "2026-08-28"
+        "date": "2026-08-31"
       }
     },
     {
@@ -2135,18 +2148,18 @@
         "date": "2026-08-31"
       },
       "margin": {
-        "marginBuy": 969,
-        "marginSell": 1356,
-        "marginCashRedemption": 3,
-        "marginPrevBalance": 11974,
-        "marginBalance": 11584,
-        "shortBuy": 6,
-        "shortSell": 13,
+        "marginBuy": 1260,
+        "marginSell": 425,
+        "marginCashRedemption": 0,
+        "marginPrevBalance": 11584,
+        "marginBalance": 12419,
+        "shortBuy": 14,
+        "shortSell": 2,
         "shortStockRedemption": 0,
-        "shortPrevBalance": 37,
-        "shortBalance": 44,
-        "offsetting": 8,
-        "date": "2026-08-28"
+        "shortPrevBalance": 44,
+        "shortBalance": 32,
+        "offsetting": 4,
+        "date": "2026-08-31"
       }
     },
     {
@@ -2174,18 +2187,18 @@
         "date": "2026-08-31"
       },
       "margin": {
-        "marginBuy": 452,
-        "marginSell": 154,
-        "marginCashRedemption": 0,
-        "marginPrevBalance": 37044,
-        "marginBalance": 37342,
-        "shortBuy": 10,
-        "shortSell": 0,
-        "shortStockRedemption": 200,
-        "shortPrevBalance": 2442,
-        "shortBalance": 2232,
+        "marginBuy": 251,
+        "marginSell": 451,
+        "marginCashRedemption": 4,
+        "marginPrevBalance": 37342,
+        "marginBalance": 37138,
+        "shortBuy": 18,
+        "shortSell": 3,
+        "shortStockRedemption": 0,
+        "shortPrevBalance": 2232,
+        "shortBalance": 2217,
         "offsetting": 0,
-        "date": "2026-08-28"
+        "date": "2026-08-31"
       }
     },
     {
@@ -2213,18 +2226,18 @@
         "date": "2026-08-31"
       },
       "margin": {
-        "marginBuy": 78,
-        "marginSell": 434,
-        "marginCashRedemption": 2,
-        "marginPrevBalance": 8697,
-        "marginBalance": 8339,
-        "shortBuy": 7,
-        "shortSell": 27,
+        "marginBuy": 3593,
+        "marginSell": 1528,
+        "marginCashRedemption": 108,
+        "marginPrevBalance": 8339,
+        "marginBalance": 10296,
+        "shortBuy": 72,
+        "shortSell": 123,
         "shortStockRedemption": 0,
-        "shortPrevBalance": 501,
-        "shortBalance": 521,
-        "offsetting": 181,
-        "date": "2026-08-28"
+        "shortPrevBalance": 521,
+        "shortBalance": 572,
+        "offsetting": 80,
+        "date": "2026-08-31"
       }
     },
     {
@@ -2252,18 +2265,18 @@
         "date": "2026-08-31"
       },
       "margin": {
-        "marginBuy": 11,
-        "marginSell": 57,
+        "marginBuy": 29,
+        "marginSell": 21,
         "marginCashRedemption": 0,
-        "marginPrevBalance": 853,
-        "marginBalance": 807,
+        "marginPrevBalance": 807,
+        "marginBalance": 815,
         "shortBuy": 0,
         "shortSell": 0,
         "shortStockRedemption": 0,
         "shortPrevBalance": 1,
         "shortBalance": 1,
         "offsetting": 0,
-        "date": "2026-08-28"
+        "date": "2026-08-31"
       }
     },
     {
@@ -2291,18 +2304,18 @@
         "date": "2026-08-31"
       },
       "margin": {
-        "marginBuy": 3226,
-        "marginSell": 4194,
-        "marginCashRedemption": 2,
-        "marginPrevBalance": 17503,
-        "marginBalance": 16533,
-        "shortBuy": 22,
-        "shortSell": 167,
+        "marginBuy": 3051,
+        "marginSell": 3061,
+        "marginCashRedemption": 5,
+        "marginPrevBalance": 16533,
+        "marginBalance": 16518,
+        "shortBuy": 177,
+        "shortSell": 49,
         "shortStockRedemption": 0,
-        "shortPrevBalance": 840,
-        "shortBalance": 985,
-        "offsetting": 49,
-        "date": "2026-08-28"
+        "shortPrevBalance": 985,
+        "shortBalance": 857,
+        "offsetting": 56,
+        "date": "2026-08-31"
       }
     },
     {
@@ -2330,18 +2343,18 @@
         "date": "2026-08-31"
       },
       "margin": {
-        "marginBuy": 350,
-        "marginSell": 811,
-        "marginCashRedemption": 3,
-        "marginPrevBalance": 27067,
-        "marginBalance": 26603,
-        "shortBuy": 1,
-        "shortSell": 5,
+        "marginBuy": 684,
+        "marginSell": 439,
+        "marginCashRedemption": 7,
+        "marginPrevBalance": 26603,
+        "marginBalance": 26841,
+        "shortBuy": 11,
+        "shortSell": 10,
         "shortStockRedemption": 0,
-        "shortPrevBalance": 118,
-        "shortBalance": 122,
-        "offsetting": 1,
-        "date": "2026-08-28"
+        "shortPrevBalance": 122,
+        "shortBalance": 121,
+        "offsetting": 3,
+        "date": "2026-08-31"
       }
     },
     {
@@ -2369,18 +2382,18 @@
         "date": "2026-08-31"
       },
       "margin": {
-        "marginBuy": 1368,
-        "marginSell": 941,
+        "marginBuy": 659,
+        "marginSell": 859,
         "marginCashRedemption": 1,
-        "marginPrevBalance": 27003,
-        "marginBalance": 27429,
-        "shortBuy": 12,
-        "shortSell": 18,
+        "marginPrevBalance": 27429,
+        "marginBalance": 27228,
+        "shortBuy": 19,
+        "shortSell": 6,
         "shortStockRedemption": 0,
-        "shortPrevBalance": 127,
-        "shortBalance": 133,
-        "offsetting": 13,
-        "date": "2026-08-28"
+        "shortPrevBalance": 133,
+        "shortBalance": 120,
+        "offsetting": 2,
+        "date": "2026-08-31"
       }
     },
     {
@@ -2408,18 +2421,18 @@
         "date": "2026-08-31"
       },
       "margin": {
-        "marginBuy": 157,
-        "marginSell": 166,
-        "marginCashRedemption": 1,
-        "marginPrevBalance": 3511,
-        "marginBalance": 3501,
-        "shortBuy": 1,
+        "marginBuy": 189,
+        "marginSell": 51,
+        "marginCashRedemption": 3,
+        "marginPrevBalance": 3501,
+        "marginBalance": 3636,
+        "shortBuy": 0,
         "shortSell": 0,
         "shortStockRedemption": 0,
-        "shortPrevBalance": 12,
+        "shortPrevBalance": 11,
         "shortBalance": 11,
-        "offsetting": 2,
-        "date": "2026-08-28"
+        "offsetting": 0,
+        "date": "2026-08-31"
       }
     },
     {
@@ -2447,18 +2460,18 @@
         "date": "2026-08-31"
       },
       "margin": {
-        "marginBuy": 32,
-        "marginSell": 48,
-        "marginCashRedemption": 1,
-        "marginPrevBalance": 2719,
-        "marginBalance": 2702,
+        "marginBuy": 52,
+        "marginSell": 43,
+        "marginCashRedemption": 2,
+        "marginPrevBalance": 2702,
+        "marginBalance": 2709,
         "shortBuy": 1,
         "shortSell": 0,
         "shortStockRedemption": 0,
-        "shortPrevBalance": 6,
-        "shortBalance": 5,
+        "shortPrevBalance": 5,
+        "shortBalance": 4,
         "offsetting": 0,
-        "date": "2026-08-28"
+        "date": "2026-08-31"
       }
     },
     {
@@ -2486,18 +2499,18 @@
         "date": "2026-08-31"
       },
       "margin": {
-        "marginBuy": 316,
-        "marginSell": 163,
-        "marginCashRedemption": 8,
-        "marginPrevBalance": 6158,
-        "marginBalance": 6303,
-        "shortBuy": 14,
-        "shortSell": 2,
+        "marginBuy": 161,
+        "marginSell": 92,
+        "marginCashRedemption": 1,
+        "marginPrevBalance": 6303,
+        "marginBalance": 6371,
+        "shortBuy": 6,
+        "shortSell": 9,
         "shortStockRedemption": 0,
-        "shortPrevBalance": 283,
-        "shortBalance": 271,
+        "shortPrevBalance": 271,
+        "shortBalance": 274,
         "offsetting": 0,
-        "date": "2026-08-28"
+        "date": "2026-08-31"
       }
     },
     {
@@ -2525,18 +2538,18 @@
         "date": "2026-08-31"
       },
       "margin": {
-        "marginBuy": 179,
-        "marginSell": 160,
-        "marginCashRedemption": 0,
-        "marginPrevBalance": 1694,
-        "marginBalance": 1713,
-        "shortBuy": 3,
+        "marginBuy": 94,
+        "marginSell": 94,
+        "marginCashRedemption": 1,
+        "marginPrevBalance": 1713,
+        "marginBalance": 1712,
+        "shortBuy": 7,
         "shortSell": 7,
-        "shortStockRedemption": 0,
-        "shortPrevBalance": 47,
-        "shortBalance": 51,
-        "offsetting": 1,
-        "date": "2026-08-28"
+        "shortStockRedemption": 1,
+        "shortPrevBalance": 51,
+        "shortBalance": 50,
+        "offsetting": 4,
+        "date": "2026-08-31"
       }
     },
     {
@@ -2564,18 +2577,18 @@
         "date": "2026-08-31"
       },
       "margin": {
-        "marginBuy": 54,
-        "marginSell": 26,
-        "marginCashRedemption": 1,
-        "marginPrevBalance": 1849,
-        "marginBalance": 1876,
+        "marginBuy": 21,
+        "marginSell": 14,
+        "marginCashRedemption": 0,
+        "marginPrevBalance": 1876,
+        "marginBalance": 1883,
         "shortBuy": 0,
         "shortSell": 0,
         "shortStockRedemption": 0,
         "shortPrevBalance": 66,
         "shortBalance": 66,
         "offsetting": 0,
-        "date": "2026-08-28"
+        "date": "2026-08-31"
       }
     },
     {
@@ -2603,18 +2616,18 @@
         "date": "2026-08-31"
       },
       "margin": {
-        "marginBuy": 88,
-        "marginSell": 88,
+        "marginBuy": 93,
+        "marginSell": 84,
         "marginCashRedemption": 1,
-        "marginPrevBalance": 4871,
-        "marginBalance": 4870,
+        "marginPrevBalance": 4870,
+        "marginBalance": 4878,
         "shortBuy": 2,
-        "shortSell": 1,
+        "shortSell": 5,
         "shortStockRedemption": 0,
-        "shortPrevBalance": 51,
-        "shortBalance": 50,
-        "offsetting": 2,
-        "date": "2026-08-28"
+        "shortPrevBalance": 50,
+        "shortBalance": 53,
+        "offsetting": 1,
+        "date": "2026-08-31"
       }
     },
     {
@@ -2642,18 +2655,18 @@
         "date": "2026-08-31"
       },
       "margin": {
-        "marginBuy": 40,
-        "marginSell": 19,
+        "marginBuy": 30,
+        "marginSell": 21,
         "marginCashRedemption": 0,
-        "marginPrevBalance": 1475,
-        "marginBalance": 1496,
-        "shortBuy": 1,
-        "shortSell": 0,
+        "marginPrevBalance": 1496,
+        "marginBalance": 1505,
+        "shortBuy": 0,
+        "shortSell": 11,
         "shortStockRedemption": 0,
-        "shortPrevBalance": 10,
-        "shortBalance": 9,
-        "offsetting": 0,
-        "date": "2026-08-28"
+        "shortPrevBalance": 9,
+        "shortBalance": 20,
+        "offsetting": 1,
+        "date": "2026-08-31"
       }
     },
     {
@@ -2681,18 +2694,18 @@
         "date": "2026-08-31"
       },
       "margin": {
-        "marginBuy": 107,
-        "marginSell": 133,
+        "marginBuy": 128,
+        "marginSell": 126,
         "marginCashRedemption": 0,
-        "marginPrevBalance": 8488,
-        "marginBalance": 8462,
+        "marginPrevBalance": 8462,
+        "marginBalance": 8464,
         "shortBuy": 0,
         "shortSell": 0,
         "shortStockRedemption": 0,
         "shortPrevBalance": 46,
         "shortBalance": 46,
         "offsetting": 0,
-        "date": "2026-08-28"
+        "date": "2026-08-31"
       }
     },
     {
@@ -2720,18 +2733,18 @@
         "date": "2026-08-31"
       },
       "margin": {
-        "marginBuy": 47,
-        "marginSell": 101,
-        "marginCashRedemption": 2,
-        "marginPrevBalance": 10043,
-        "marginBalance": 9987,
-        "shortBuy": 1,
+        "marginBuy": 36,
+        "marginSell": 22,
+        "marginCashRedemption": 1,
+        "marginPrevBalance": 9987,
+        "marginBalance": 10000,
+        "shortBuy": 4,
         "shortSell": 1,
         "shortStockRedemption": 0,
         "shortPrevBalance": 8,
-        "shortBalance": 8,
-        "offsetting": 0,
-        "date": "2026-08-28"
+        "shortBalance": 5,
+        "offsetting": 1,
+        "date": "2026-08-31"
       }
     },
     {
@@ -2759,18 +2772,18 @@
         "date": "2026-08-31"
       },
       "margin": {
-        "marginBuy": 40,
-        "marginSell": 12,
+        "marginBuy": 12,
+        "marginSell": 76,
         "marginCashRedemption": 0,
-        "marginPrevBalance": 1272,
-        "marginBalance": 1300,
+        "marginPrevBalance": 1300,
+        "marginBalance": 1236,
         "shortBuy": 0,
         "shortSell": 0,
         "shortStockRedemption": 0,
         "shortPrevBalance": 2,
         "shortBalance": 2,
         "offsetting": 0,
-        "date": "2026-08-28"
+        "date": "2026-08-31"
       }
     },
     {
@@ -2798,18 +2811,18 @@
         "date": "2026-08-31"
       },
       "margin": {
-        "marginBuy": 1077,
-        "marginSell": 786,
+        "marginBuy": 310,
+        "marginSell": 653,
         "marginCashRedemption": 0,
-        "marginPrevBalance": 8905,
-        "marginBalance": 9196,
-        "shortBuy": 25,
-        "shortSell": 163,
+        "marginPrevBalance": 9196,
+        "marginBalance": 8853,
+        "shortBuy": 73,
+        "shortSell": 108,
         "shortStockRedemption": 0,
-        "shortPrevBalance": 470,
-        "shortBalance": 608,
-        "offsetting": 5,
-        "date": "2026-08-28"
+        "shortPrevBalance": 608,
+        "shortBalance": 643,
+        "offsetting": 2,
+        "date": "2026-08-31"
       }
     },
     {
@@ -2837,18 +2850,18 @@
         "date": "2026-08-31"
       },
       "margin": {
-        "marginBuy": 166,
-        "marginSell": 191,
-        "marginCashRedemption": 18,
-        "marginPrevBalance": 12462,
-        "marginBalance": 12419,
-        "shortBuy": 12,
-        "shortSell": 9,
+        "marginBuy": 53,
+        "marginSell": 78,
+        "marginCashRedemption": 2,
+        "marginPrevBalance": 12419,
+        "marginBalance": 12392,
+        "shortBuy": 87,
+        "shortSell": 2,
         "shortStockRedemption": 0,
-        "shortPrevBalance": 979,
-        "shortBalance": 976,
-        "offsetting": 1,
-        "date": "2026-08-28"
+        "shortPrevBalance": 976,
+        "shortBalance": 891,
+        "offsetting": 0,
+        "date": "2026-08-31"
       }
     }
   ]
