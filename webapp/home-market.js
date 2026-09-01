@@ -33,5 +33,15 @@
     const globalIds=["dow","nasdaq","sp500","sox","nikkei","kospi","nasdaq100","russell2000"];$("globalGrid").innerHTML=globalIds.map(id=>byId[id]).filter(Boolean).map(item=>`<a class="global-card" href="market-index.html" aria-label="查看${esc(item.name)}完整資訊"><header><h3>${esc(item.name)}</h3><time>${esc(shortDate(item.asOf))}</time></header>${sparkline(item.rows,item)}<strong>${fmt(item.latest)}</strong><div class="market-move ${tone(item.change)}">${esc(moveText(item))}</div></a>`).join("");
     const updated=new Date(data.updatedAt);$("marketStatus").textContent="最新市場資料";$("marketUpdated").textContent=Number.isNaN(updated.getTime())?data.updatedAt||"":updated.toLocaleString("zh-TW",{month:"numeric",day:"numeric",hour:"2-digit",minute:"2-digit"});
   }
-  fetch("market_data.json",{cache:"no-cache"}).then(response=>{if(!response.ok)throw new Error(`HTTP ${response.status}`);return response.json();}).then(render).catch(error=>{$("marketStatus").textContent="資料載入失敗";$("homeError").hidden=false;$("homeError").textContent=`市場資料暫時無法載入，請稍後重新整理。${error.message?`（${error.message}）`:""}`;});
+  let loading=false;
+  async function load(){
+    if(loading)return;loading=true;
+    try{
+      const response=await fetch(`market_data.json?v=${Date.now()}`,{cache:"no-store"});
+      if(!response.ok)throw new Error(`HTTP ${response.status}`);
+      render(await response.json());$("homeError").hidden=true;
+    }catch(error){$("marketStatus").textContent="資料載入失敗";$("homeError").hidden=false;$("homeError").textContent=`市場資料暫時無法載入，請稍後重新整理。${error.message?`（${error.message}）`:""}`}
+    finally{loading=false}
+  }
+  load();setInterval(()=>{if(!document.hidden)load()},60000);document.addEventListener("visibilitychange",()=>{if(!document.hidden)load()});
 })();
