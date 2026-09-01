@@ -13,7 +13,7 @@
   const maPeriods = [5, 10, 20, 60, 120, 240];
   const volumeMaPeriods = [5, 10];
   const defaultRangeDays = Number(localStorage.getItem("etf-chart-range")) || 60;
-  const indicatorNames = ["bollinger", "kd", "macd", "rsi"];
+  const indicatorNames = ["bollinger", "kd", "macd", "rsi", "williams"];
   let visibleIndicators;
   try {
     const savedKey = localStorage.getItem("etf-visible-indicators-v2"), saved = JSON.parse(savedKey || localStorage.getItem("etf-visible-indicators"));
@@ -225,6 +225,16 @@
       return { k, d };
     });
   }
+  function williamsValues(rows, period = 14) {
+    if (window.TechnicalChartCore) return window.TechnicalChartCore.williamsValues(rows, period);
+    return rows.map((row, index) => {
+      if (index < period - 1) return null;
+      const range = rows.slice(index - period + 1, index + 1);
+      const high = Math.max(...range.map(item => Number(item.high)));
+      const low = Math.min(...range.map(item => Number(item.low)));
+      return high === low ? -50 : -100 * (high - Number(row.close)) / (high - low);
+    });
+  }
   function snapshotNumber(value) {
     const numeric = Number(value);
     return Number.isFinite(numeric) ? Math.round(numeric * 1e6) / 1e6 : null;
@@ -239,7 +249,7 @@
       date:String(row.date || "").slice(0, 10), open:snapshotNumber(row.open), high:snapshotNumber(row.high),
       low:snapshotNumber(row.low), close:snapshotNumber(row.close), volume:snapshotNumber(row.volume)
     }));
-    const kd = kdValues(currentRows), macd = macdValues(currentRows), rsi5 = rsiValues(currentRows, 5), rsi10 = rsiValues(currentRows, 10);
+    const kd = kdValues(currentRows), macd = macdValues(currentRows), rsi5 = rsiValues(currentRows, 5), rsi10 = rsiValues(currentRows, 10), williams14 = williamsValues(currentRows, 14);
     const indicatorStart = Math.max(start, end - 20), indicatorRows = [];
     for (let index = indicatorStart; index < end; index += 1) {
       const bollinger = visibleIndicators.has("bollinger") ? bollingerValues(currentRows, index) : null;
@@ -259,7 +269,8 @@
         k:snapshotNumber(kdRow?.k), d:snapshotNumber(kdRow?.d), dif:snapshotNumber(macdRow?.macd),
         macd:snapshotNumber(macdRow?.signal), dm:snapshotNumber(macdRow?.histogram),
         rsi5:visibleIndicators.has("rsi") ? snapshotNumber(rsi5[index]) : null,
-        rsi10:visibleIndicators.has("rsi") ? snapshotNumber(rsi10[index]) : null
+        rsi10:visibleIndicators.has("rsi") ? snapshotNumber(rsi10[index]) : null,
+        williams14:visibleIndicators.has("williams") ? snapshotNumber(williams14[index]) : null
       });
     }
     const validHighs = visibleRows.filter(row => Number.isFinite(Number(row.high)));
@@ -274,7 +285,15 @@
         high:highRow ? { date:highRow.date, value:snapshotNumber(highRow.high) } : null,
         low:lowRow ? { date:lowRow.date, value:snapshotNumber(lowRow.low) } : null },
       priceRows,
-      indicatorRows
+      indicatorRows,
+      operationSignal:serializeOperationSignal(analyzeSignal(currentRows))
+    };
+  }
+  function serializeOperationSignal(signal) {
+    return {
+      score:snapshotNumber(signal.score), key:signal.meta.key, label:signal.meta.label,
+      components:signal.components.map(item => ({ name:item.name, score:snapshotNumber(item.score), detail:item.detail })),
+      reasons:signal.reasons.slice(), risks:signal.risks.slice()
     };
   }
   function signalMeta(score) {
@@ -687,6 +706,7 @@
       macdSignal: rootStyle.getPropertyValue("--macd-signal").trim() || "#db2777",
       rsi5: rootStyle.getPropertyValue("--rsi5").trim() || "#64b5f6",
       rsi10: rootStyle.getPropertyValue("--rsi10").trim() || "#6c5ce7",
+      williams: rootStyle.getPropertyValue("--williams").trim() || "#f59f00",
       k: rootStyle.getPropertyValue("--kd-k").trim() || "#19a7a0",
       d: rootStyle.getPropertyValue("--kd-d").trim() || "#e06b8b",
       buy: rootStyle.getPropertyValue("--trade-buy").trim() || "#3977f6",
@@ -698,7 +718,7 @@
     const referenceValues = visibleTrades.map(fill => Number(fill.price));
     if (visibleTradeOverlays.has("cost") && personalTrades.averageCost != null) referenceValues.push(Number(personalTrades.averageCost));
     const bb = currentRows.map((_, i) => bollingerValues(currentRows, i)).slice(viewStart, viewEnd);
-    const macd = macdValues(currentRows).slice(viewStart, viewEnd), rsi5 = rsiValues(currentRows, 5).slice(viewStart, viewEnd), rsi10 = rsiValues(currentRows, 10).slice(viewStart, viewEnd), kd = kdValues(currentRows).slice(viewStart, viewEnd);
+    const macd = macdValues(currentRows).slice(viewStart, viewEnd), rsi5 = rsiValues(currentRows, 5).slice(viewStart, viewEnd), rsi10 = rsiValues(currentRows, 10).slice(viewStart, viewEnd), kd = kdValues(currentRows).slice(viewStart, viewEnd), williams14 = williamsValues(currentRows, 14).slice(viewStart, viewEnd);
     const maSeries = Object.fromEntries(maPeriods.map(period => [period, currentRows.map((_, index) => movingAverage(currentRows, index, period)).slice(viewStart, viewEnd)]));
     const volumeMaSeries = Object.fromEntries(volumeMaPeriods.map(period => [period, currentRows.map((_, index) => volumeMovingAverage(currentRows, index, period)).slice(viewStart, viewEnd)]));
     const indicatorValues = visibleIndicators.has("bollinger") ? bb.flatMap(v => v ? [v.upper, v.lower] : []) : [];
@@ -710,7 +730,8 @@
     if (visibleIndicators.has("kd")) panels.push({ name:"KD", top:440, height:110 });
     if (visibleIndicators.has("macd")) { const previous = panels.at(-1); panels.push({ name:"MACD", top:previous ? previous.top + previous.height + 28 : 440, height:100 }); }
     if (visibleIndicators.has("rsi")) { const previous = panels.at(-1); panels.push({ name:"RSI", top:previous ? previous.top + previous.height + 28 : 440, height:100 }); }
-    const panel = name => panels.find(item => item.name === name), kdPanel = panel("KD"), macdPanel = panel("MACD"), rsiPanel = panel("RSI");
+    if (visibleIndicators.has("williams")) { const previous = panels.at(-1); panels.push({ name:"W%R", top:previous ? previous.top + previous.height + 28 : 440, height:100 }); }
+    const panel = name => panels.find(item => item.name === name), kdPanel = panel("KD"), macdPanel = panel("MACD"), rsiPanel = panel("RSI"), williamsPanel = panel("W%R");
     const lastPanel = panels.at(-1), chartBottom = lastPanel ? lastPanel.top + lastPanel.height : volumeBottom + 32, chartHeight = chartBottom + 42;
     // X 軸使用交易日序號，不把週末／休市日當成空白時間。資料很少時，
     // 讓 K 棒集中在圖中央並保持固定間距；資料變多後才逐步填滿圖寬。
@@ -725,6 +746,7 @@
     const macdFlat = macd.flatMap(v => [v.macd, v.signal]).filter(Number.isFinite), macdMin = Math.min(0, ...macdFlat), macdMax = Math.max(0, ...macdFlat);
     const macdY = value => macdPanel ? extentY(value, macdMin, macdMax, macdPanel) : 0;
     const rsiY = value => rsiPanel ? rsiPanel.top + rsiPanel.height - Number(value) / 100 * rsiPanel.height : 0;
+    const williamsY = value => williamsPanel ? williamsPanel.top + (-Number(value) / 100) * williamsPanel.height : 0;
     let svg = `<svg viewBox="0 0 ${W} ${H}" role="img" aria-label="${esc($("chartTitle").textContent)} ${chartType === "line" ? "收盤價線圖" : "K 線圖"}">`;
     [0, .25, .5, .75, 1].forEach(t => { const yy = top + t * priceH, val = max - t * (max - min); svg += `<line x1="${left}" x2="${W - right}" y1="${yy}" y2="${yy}" class="grid"/><text x="4" y="${yy + 4}" class="axis">${price(val)}</text>`; });
     svg += `<line x1="${left}" x2="${W - right}" y1="${volumeBottom}" y2="${volumeBottom}" class="grid"/>`;
@@ -736,6 +758,10 @@
     if (rsiPanel) {
       [20, 50, 80].forEach(value => svg += `<line x1="${left}" x2="${W-right}" y1="${rsiY(value)}" y2="${rsiY(value)}" class="grid${value === 50 ? "" : " kd-threshold"}"/><text x="30" y="${rsiY(value)+4}" class="axis">${value}</text>`);
       svg += `<text x="4" y="${rsiPanel.top + 12}" class="axis">RSI</text><text x="42" y="${rsiPanel.top + 12}" fill="${chartColors.rsi5}" font-size="11" font-weight="700">RSI5</text><text x="84" y="${rsiPanel.top + 12}" fill="${chartColors.rsi10}" font-size="11" font-weight="700">RSI10</text>`;
+    }
+    if (williamsPanel) {
+      [-20, -50, -80].forEach(value => svg += `<line x1="${left}" x2="${W-right}" y1="${williamsY(value)}" y2="${williamsY(value)}" class="grid${value === -50 ? "" : " kd-threshold"}"/><text x="24" y="${williamsY(value)+4}" class="axis">${value}</text>`);
+      svg += `<text x="4" y="${williamsPanel.top + 12}" class="axis">W%R(14)</text>`;
     }
     const tickCount = Math.min(7, rows.length);
     const tickIndexes = [...new Set(Array.from({ length: tickCount }, (_, i) => Math.round(i * (rows.length - 1) / Math.max(1, tickCount - 1))))];
@@ -775,6 +801,7 @@
       svg += screenLine(rsi5.map(v => Number.isFinite(v) ? rsiY(v) : null), chartColors.rsi5, 1.8);
       svg += screenLine(rsi10.map(v => Number.isFinite(v) ? rsiY(v) : null), chartColors.rsi10, 1.8);
     }
+    if (williamsPanel) svg += screenLine(williams14.map(value => Number.isFinite(value) ? williamsY(value) : null), chartColors.williams, 1.9);
     if (visibleTradeOverlays.has("cost") && Number.isFinite(personalTrades.averageCost)) svg += `<line x1="${left}" x2="${W-right}" y1="${y(personalTrades.averageCost)}" y2="${y(personalTrades.averageCost)}" stroke="${chartColors.cost}" stroke-width="1.5" stroke-dasharray="7 5"/><text x="${W-right-4}" y="${y(personalTrades.averageCost)-6}" text-anchor="end" fill="${chartColors.cost}" font-size="11">持倉成本 ${price(personalTrades.averageCost)}</text>`;
     visibleTrades.forEach(fill => {
       const index = rows.findIndex(row => row.date === fill.fill_date), cx = x(index), cy = y(Number(fill.price)), buy = fill.side === "buy", color = buy ? chartColors.buy : chartColors.sell;
@@ -820,7 +847,8 @@
       const pointerY = top + ((event.clientY - rect.top) / rect.height) * (chartBottom - top);
       const horizontalLine = $("hoverHorizontalLine");
       horizontalLine.setAttribute("y1", pointerY); horizontalLine.setAttribute("y2", pointerY); horizontalLine.setAttribute("visibility", "visible");
-      const zone = rsiPanel && pointerY >= rsiPanel.top ? "rsi"
+      const zone = williamsPanel && pointerY >= williamsPanel.top ? "williams"
+        : rsiPanel && pointerY >= rsiPanel.top ? "rsi"
         : macdPanel && pointerY >= macdPanel.top ? "macd"
         : kdPanel && pointerY >= kdPanel.top ? "kd"
         : "price";
@@ -832,9 +860,11 @@
       const kdHtml = visibleIndicators.has("kd") && indicator ? `<div class="tip-extra">K ${price(indicator.k)}　D ${price(indicator.d)}</div>` : "";
       const macdHtml = macd[index]?.macd != null ? `<div class="tip-extra">DIF: ${price(macd[index].macd)}　MACD: ${price(macd[index].signal)}　D-M: ${price(macd[index].histogram)}</div>` : "";
       const rsiHtml = `<div class="tip-extra">RSI5 ${price(rsi5[index])}　RSI10 ${price(rsi10[index])}</div>`;
+      const williamsHtml = `<div class="tip-extra">Williams %R(14) ${price(williams14[index])}</div>`;
       tip.innerHTML = zone === "kd" ? dateHtml + kdHtml
         : zone === "macd" ? dateHtml + macdHtml
         : zone === "rsi" ? dateHtml + rsiHtml
+        : zone === "williams" ? dateHtml + williamsHtml
         : dateHtml + priceHtml + bbHtml;
       tip.style.visibility = "hidden";
       tip.style.left = "0px";

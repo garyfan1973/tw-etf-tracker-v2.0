@@ -17,6 +17,7 @@
     return result;
   }
   function kdValues(rows){let k=50,d=50;return rows.map((row,index)=>{const period=rows.slice(Math.max(0,index-8),index+1),high=Math.max(...period.map(r=>Number(r.high??r.close))),low=Math.min(...period.map(r=>Number(r.low??r.close))),rsv=high===low?50:(Number(row.close)-low)/(high-low)*100;k=k*2/3+rsv/3;d=d*2/3+k/3;return{k,d};});}
+  function williamsValues(rows,period=14){return rows.map((row,index)=>{if(index<period-1)return null;const range=rows.slice(index-period+1,index+1),high=Math.max(...range.map(r=>Number(r.high??r.close))),low=Math.min(...range.map(r=>Number(r.low??r.close)));return high===low?-50:-100*(high-Number(row.close))/(high-low);});}
   function pathFor(values,x,y){let path="",drawing=false;values.forEach((value,index)=>{if(!finite(value)){drawing=false;return;}path+=`${drawing?"L":"M"}${x(index).toFixed(2)},${y(Number(value)).toFixed(2)}`;drawing=true;});return path;}
   function css(name,fallback){return getComputedStyle(document.documentElement).getPropertyValue(name).trim()||fallback;}
   class TechnicalChart {
@@ -61,5 +62,5 @@
       hit.addEventListener("pointerleave",()=>{crossX.setAttribute("visibility","hidden");crossY.setAttribute("visibility","hidden");tip.hidden=true;});
     }
   }
-  window.TechnicalChartCore={movingAverage,bollingerValues,emaValues,macdValues,rsiValues,kdValues,create:(target,options)=>new TechnicalChart(target,options)};
+  window.TechnicalChartCore={movingAverage,bollingerValues,emaValues,macdValues,rsiValues,kdValues,williamsValues,create:(target,options)=>new TechnicalChart(target,options)};
 })();
