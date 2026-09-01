@@ -1,5 +1,5 @@
 {
-  "updated_at": "2026-09-01T21:20:19+00:00",
+  "updated_at": "2026-09-01T22:20:19+00:00",
   "sources": [
     "https://openapi.twse.com.tw/v1/opendata/t187ap47_L",
     "https://www.tpex.org.tw/openapi/v1/tpex_mainboard_quotes"
@@ -1767,7 +1767,7 @@
     },
     {
       "code": "009828",
-      "name": "中信台日韓PCB ETF基金",
+      "name": "中信台日韓PCB",
       "market": "上市"
     },
     {
