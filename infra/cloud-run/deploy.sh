@@ -132,4 +132,4 @@ upsert_schedule market-data-us market-data-us "20 5,6,7 * * *"
 upsert_schedule financial-content financial-content "*/30 * * * *"
 upsert_schedule member-morning-report member-morning-report "30 6,7,8 * * *"
 
-echo "部署完成。先個別執行三個 Cloud Run Jobs 驗證，確認後再停用 GitHub schedule。"
+echo "部署完成。先個別執行四個 Cloud Run Jobs 驗證，確認後再停用 GitHub schedule。"
