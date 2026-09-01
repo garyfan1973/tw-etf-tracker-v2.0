@@ -12,7 +12,10 @@ import xml.etree.ElementTree as ET
 BASE_DIR = os.path.dirname(os.path.abspath(__file__))
 OUT_FILE = os.path.join(BASE_DIR, "webapp", "financial_videos.json")
 USER_AGENT = "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36"
-YOUTUBE_FEED = "https://www.youtube.com/feeds/videos.xml?channel_id={}"
+YOUTUBE_FEEDS = (
+    "https://www.youtube.com/feeds/videos.xml?channel_id={}",
+    "https://youtube.com/feeds/videos.xml?channel_id={}",
+)
 
 CHANNELS = [
     {"id": "capitalmorning", "name": "群益早安", "channelId": "UCZsKjvJdVl1o8dhOPIdthpw", "url": "https://www.youtube.com/@capitalcare6005", "keywords": ["群益早安"], "pinned": True},
@@ -41,6 +44,17 @@ def read_url(url, retries=3):
             if attempt + 1 == retries:
                 raise
             time.sleep(1.5 * (attempt + 1))
+
+
+def read_youtube_feed(channel_id):
+    """Try both official YouTube feed hosts to survive transient 404s."""
+    errors = []
+    for template in YOUTUBE_FEEDS:
+        try:
+            return read_url(template.format(channel_id))
+        except Exception as error:
+            errors.append(str(error))
+    raise RuntimeError("; ".join(errors))
 
 
 def parse_youtube_feed(content, channel, now=None, days=7):
@@ -107,7 +121,7 @@ def main():
     failures = []
     for channel in CHANNELS:
         try:
-            videos = parse_youtube_feed(read_url(YOUTUBE_FEED.format(channel["channelId"])), channel, now)
+            videos = parse_youtube_feed(read_youtube_feed(channel["channelId"]), channel, now)
             channel_rows.append({**channel, "videos": videos})
             print("updated {} ({} videos)".format(channel["name"], len(videos)))
         except Exception as error:

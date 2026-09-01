@@ -1,7 +1,8 @@
 import datetime as dt
 import unittest
+from unittest.mock import patch
 
-from fetch_financial_videos import CHANNELS, featured_video_sort_key, parse_youtube_feed, still_current
+from fetch_financial_videos import CHANNELS, featured_video_sort_key, parse_youtube_feed, read_youtube_feed, still_current
 
 
 class FinancialVideoDataTests(unittest.TestCase):
@@ -41,6 +42,13 @@ class FinancialVideoDataTests(unittest.TestCase):
             {"videoId": "old", "publishedAt": "2026-08-01T12:00:00Z"},
         ], dt.datetime(2026, 8, 23, tzinfo=dt.timezone.utc))
         self.assertEqual([row["videoId"] for row in rows], ["new"])
+
+    @patch("fetch_financial_videos.read_url", side_effect=[OSError("primary unavailable"), b"feed"])
+    def test_feed_uses_official_host_fallback(self, mocked_read):
+        self.assertEqual(read_youtube_feed("channel123"), b"feed")
+        self.assertEqual(mocked_read.call_count, 2)
+        self.assertIn("www.youtube.com", mocked_read.call_args_list[0].args[0])
+        self.assertIn("youtube.com", mocked_read.call_args_list[1].args[0])
 
 
 if __name__ == "__main__":

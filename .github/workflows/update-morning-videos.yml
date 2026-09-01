@@ -1,0 +1,43 @@
+name: 早盤財經影音高頻更新
+
+on:
+  schedule:
+    # 台北時間週一至週五 06:00–12:30，每 30 分鐘更新一次。
+    - cron: "*/30 22-23 * * 0-4"
+    - cron: "*/30 0-4 * * 1-5"
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+concurrency:
+  group: repository-data-writes
+  cancel-in-progress: false
+
+jobs:
+  update:
+    runs-on: ubuntu-latest
+    steps:
+      - name: 取出 repo
+        uses: actions/checkout@v4
+
+      - name: 安裝 Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: 更新財經影音
+        run: python3 fetch_financial_videos.py
+
+      - name: 有變更才 commit 回 repo
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git add webapp/financial_videos.json
+          if git diff --cached --quiet; then
+            echo "影音資料無變更，略過 commit"
+          else
+            git commit -m "chore(data): update morning financial videos"
+            git pull --rebase origin main
+            git push
+          fi
