@@ -1,8 +1,7 @@
 name: 更新聯準會與財經影音
 
 on:
-  schedule:
-    - cron: "17 */2 * * *"
+  # 自動排程已移至 Google Cloud Scheduler；GitHub 只保留人工備援。
   workflow_dispatch:
 
 permissions:

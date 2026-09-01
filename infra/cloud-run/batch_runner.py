@@ -41,6 +41,16 @@ DATA_COMMANDS = [
     [sys.executable, "fetch_macro_markets.py"],
     [sys.executable, "fetch_company_profiles.py"],
 ]
+FINANCIAL_CONTENT_PATHS = [
+    "webapp/fed_policy_data.json",
+    "webapp/financial_videos.json",
+    "webapp/macro_news.json",
+]
+FINANCIAL_CONTENT_COMMANDS = [
+    [sys.executable, "fetch_fed_policy.py"],
+    [sys.executable, "fetch_financial_videos.py"],
+    [sys.executable, "fetch_macro_news.py"],
+]
 
 
 def run(command: list[str], cwd: Path, *, env: dict[str, str] | None = None) -> None:
@@ -148,6 +158,25 @@ def run_data_batch(repo_dir: Path, git_env: dict[str, str], mode: str) -> None:
     run(["git", "push", "origin", f"HEAD:{branch}"], repo_dir, env=git_env)
 
 
+def run_financial_content(repo_dir: Path, git_env: dict[str, str]) -> None:
+    for command in FINANCIAL_CONTENT_COMMANDS:
+        run(command, repo_dir)
+
+    run(["git", "config", "user.name", "cloud-run-batch[bot]"], repo_dir)
+    run(["git", "config", "user.email", "cloud-run-batch[bot]@users.noreply.github.com"], repo_dir)
+    run(["git", "add", *FINANCIAL_CONTENT_PATHS], repo_dir)
+    if subprocess.run(["git", "diff", "--cached", "--quiet"], cwd=repo_dir).returncode == 0:
+        print("財經內容無變更，不建立 commit。")
+        return
+
+    today = dt.datetime.now(TAIPEI).date().isoformat()
+    run(["git", "commit", "-m", f"chore(data)：Cloud Run 更新財經內容 {today}"], repo_dir)
+    branch = os.environ.get("GITHUB_BRANCH", "main")
+    run(["git", "fetch", "origin", branch], repo_dir, env=git_env)
+    run(["git", "rebase", f"origin/{branch}"], repo_dir, env=git_env)
+    run(["git", "push", "origin", f"HEAD:{branch}"], repo_dir, env=git_env)
+
+
 def run_morning_report(repo_dir: Path, *, dry_run: bool = False) -> None:
     require_env("SUPABASE_URL")
     require_env("SUPABASE_SERVICE_ROLE_KEY")
@@ -158,10 +187,10 @@ def run_morning_report(repo_dir: Path, *, dry_run: bool = False) -> None:
 
 
 def main() -> int:
-    valid_modes = {"data-tw", "data-us", "morning-report", "morning-report-dry-run"}
+    valid_modes = {"data-tw", "data-us", "financial-content", "morning-report", "morning-report-dry-run"}
     if len(sys.argv) != 2 or sys.argv[1] not in valid_modes:
         print(
-            "用法：batch_runner.py data-tw|data-us|morning-report|morning-report-dry-run",
+            "用法：batch_runner.py data-tw|data-us|financial-content|morning-report|morning-report-dry-run",
             file=sys.stderr,
         )
         return 2
@@ -172,6 +201,8 @@ def main() -> int:
         repo_dir, git_env = clone_repository(work_root)
         if mode in {"morning-report", "morning-report-dry-run"}:
             run_morning_report(repo_dir, dry_run=mode.endswith("dry-run"))
+        elif mode == "financial-content":
+            run_financial_content(repo_dir, git_env)
         else:
             run_data_batch(repo_dir, git_env, mode)
         print(f"批次完成：{mode}")

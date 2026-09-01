@@ -1,14 +1,15 @@
 # Google Cloud 批次部署
 
-此目錄將重要批次從 GitHub `schedule` 搬到 Cloud Scheduler 與 Cloud Run Jobs。GitHub Actions 的 `workflow_dispatch` 保留為人工備援。三個 Scheduler 每日喚醒；行情批次以 Git 差異判斷是否有新資料，晨報則以線圖的實際市場日期與既有寄送紀錄判斷，休市日不重複寄送舊行情，特殊開市或延遲資料可由後續時段補抓、補發。美股資料於 05:20、06:20、07:20 重試，晨報於 06:30、07:30、08:30 重試。
+此目錄將重要批次從 GitHub `schedule` 搬到 Cloud Scheduler 與 Cloud Run Jobs。GitHub Actions 的 `workflow_dispatch` 保留為人工備援。四個 Scheduler 定期喚醒；行情批次以 Git 差異判斷是否有新資料，財經內容每 30 分鐘更新，晨報則以線圖的實際市場日期與既有寄送紀錄判斷，休市日不重複寄送舊行情，特殊開市或延遲資料可由後續時段補抓、補發。
 
 ## 排程
 
 - 台股／美股資料：台北時間平日 17:30、18:30、19:30、20:30、21:30、23:30；若 repo 已有當日台股快照便跳過後續重複更新。
 - 美股資料：台北時間週二至週六 05:20。
+- 聯準會政策、財經影音與總經新聞：每日每 30 分鐘。
 - 會員盤後晨報：台北時間週二至週六 06:30，分析台股與美股前一交易日行情，並以還原權息避免除息落差造成誤判。
 
-三個排程各自啟動一個 Cloud Run Job。Job 失敗最多重試兩次，Scheduler 呼叫失敗最多重試五次。
+四個排程各自啟動一個 Cloud Run Job。Job 失敗最多重試兩次，Scheduler 呼叫失敗最多重試五次。
 
 ## 第一次部署
 
@@ -47,6 +48,7 @@
    ```bash
    gcloud run jobs execute market-data-tw --region asia-east1 --wait
    gcloud run jobs execute market-data-us --region asia-east1 --wait
+   gcloud run jobs execute financial-content --region asia-east1 --wait
    gcloud run jobs execute member-morning-report --region asia-east1 --wait
    ```
 
@@ -65,5 +67,5 @@ gcloud run jobs execute member-morning-report \
 - `GITHUB_TOKEN`、`SUPABASE_URL`、`SUPABASE_SERVICE_ROLE_KEY` 只存於 Secret Manager。
 - Runtime service account 只有讀取秘密的權限；Scheduler service account 只有啟動 Jobs 的權限。
 - 容器內透過 `GIT_ASKPASS` 使用 GitHub token，不把 token 放入 clone URL 或 log。
-- 三個 Cloud Scheduler jobs 落在每個 Billing account 的免費額度內。
+- Cloud Scheduler 每個 Billing account 前三個 job 免費；新增財經內容後為四個 job，第四個依 Google Cloud 當期費率計費。
 - Artifact Registry 自動保留最近兩版，並刪除超過 14 天的未標記舊版，避免映像持續累積費用。

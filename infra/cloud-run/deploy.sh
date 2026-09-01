@@ -91,6 +91,7 @@ deploy_job() {
 
 deploy_job market-data-tw data-tw 1Gi 45m
 deploy_job market-data-us data-us 1Gi 45m
+deploy_job financial-content financial-content 1Gi 20m
 deploy_job member-morning-report morning-report 2Gi 90m
 
 gcloud projects add-iam-policy-binding "${PROJECT_ID}" \
@@ -128,6 +129,7 @@ upsert_schedule() {
 # 及既有寄送紀錄決定是否更新／寄送，休市日不會重複發送舊晨報。
 upsert_schedule market-data-tw market-data-tw "30 17,18,19,20,21,23 * * *"
 upsert_schedule market-data-us market-data-us "20 5,6,7 * * *"
+upsert_schedule financial-content financial-content "*/30 * * * *"
 upsert_schedule member-morning-report member-morning-report "30 6,7,8 * * *"
 
 echo "部署完成。先個別執行三個 Cloud Run Jobs 驗證，確認後再停用 GitHub schedule。"

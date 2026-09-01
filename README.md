@@ -119,8 +119,8 @@
 - 全球指數、Russell 2000、VIX、美元指數、原油與主要貨幣參考匯率：Yahoo Finance 日線資料，由 `fetch_macro_markets.py` 每日整理至 `webapp/market_data.json`；台灣加權指數成交金額以證交所大盤統計資訊覆蓋，並保留近一年官方歷史資料。
 - 美國公債殖利率曲線：美國財政部 Daily Treasury Par Yield Curve Rates，由 `fetch_macro_markets.py` 每日更新。
 - 聯準會政策：FRED 的政策利率、總資產、公債、MBS、準備金與 ON RRP 序列，搭配聯準會官方貨幣政策 RSS 與 FOMC 日程，由 `fetch_fed_policy.py` 更新。
-- 財經影音：六個指定 YouTube 官方頻道的 RSS，只保留最近七天公開影片，由 `fetch_financial_videos.py` 每兩小時更新。
-- 總經新聞：中央社財經／國際 RSS，加上經濟日報與工商時報首頁標題，保留最近五天內容，由 `fetch_macro_news.py` 每兩小時更新。
+- 財經影音：七個指定 YouTube 官方頻道的 RSS，只保留最近七天公開影片，由 Cloud Scheduler 每 30 分鐘執行 `fetch_financial_videos.py` 更新。
+- 總經新聞：中央社財經／國際 RSS，加上經濟日報與工商時報首頁標題，保留最近五天內容，與財經影音同由 Cloud Scheduler 每 30 分鐘更新。
 - K 線歷史行情：Yahoo Finance 兩年日線 OHLCV，依市場與代號保存於 `webapp/price-history/`；市場研究開啟標的時會再合併最新行情，上市台股最新月份以臺灣證券交易所官方 OHLCV 覆蓋。
 - ETF 清單：官方上市／上櫃 ETF 資料。
 - 短線日誌標的清單：台灣使用 TWSE／TPEx，美國使用 Nasdaq Trader 公開掛牌清單；清單是一次性手動更新，日誌仍允許自行輸入清單外代號。
@@ -233,15 +233,17 @@ python3 fetch_price_history.py --full
 
 K 線圖支援 MA5／10／20／60／120／240、布林通道、MACD、RSI、KD，以及 1 個月至 2 年的快捷區間。滑鼠滾輪或觸控板可縮放，拖曳可平移時間區間。
 
-## GitHub Actions 自動更新
+## 自動更新排程
 
-工作流程位於 `.github/workflows/`，分為三條：
+正式自動排程已移至 Google Cloud Scheduler 與 Cloud Run Jobs；`.github/workflows/` 僅保留人工備援入口：
 
-| 工作流程 | 排程（台灣時間） | 用途 |
+| 工作流程 | 自動排程 | 用途 |
 | --- | --- | --- |
-| `update-data.yml` | 每日 19:30、20:00、20:30、21:00、21:30；週一至週五 05:20 再補抓美股收盤 | ETF、行情、K 線、總經市場、公司資料與績效快照 |
-| `update-financial-content.yml` | 每兩小時 | 聯準會政策、財經影音與總經新聞 |
-| `morning-report.yml` | 週一至週五 06:30 | 產生會員 AI 晨報並逐檔寄送 PDF |
+| `update-data.yml` | 無（人工備援） | ETF、行情、K 線、總經市場、公司資料與績效快照 |
+| `update-financial-content.yml` | 無（人工備援） | 聯準會政策、財經影音與總經新聞 |
+| `morning-report.yml` | 無（人工備援） | 產生會員 AI 晨報並逐檔寄送 PDF |
+
+Cloud Scheduler 的正式排程與部署方式請見 `infra/cloud-run/README.md`。
 
 主要資料工作流會依序：
 
