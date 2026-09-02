@@ -5,12 +5,35 @@ import datetime as dt
 import json
 import re
 import urllib.request
+from concurrent.futures import ThreadPoolExecutor
 
 
 UA = "Mozilla/5.0 (compatible; InvestmentResearchWorkspace/1.0)"
 TWSE_ALL = "https://openapi.twse.com.tw/v1/exchangeReport/STOCK_DAY_ALL"
 TPEX_ALL = "https://www.tpex.org.tw/openapi/v1/tpex_mainboard_quotes"
 MIS = "https://mis.twse.com.tw/stock/api/getStockInfo.jsp?ex_ch={}&json=1&delay=0"
+YAHOO_CHART = "https://query1.finance.yahoo.com/v8/finance/chart/{}?interval=1d&range=5d"
+
+# Representative large constituents keep the mobile treemap readable. Weights are
+# stable sizing proxies; price changes are fetched on every request.
+US_UNIVERSES = {
+    "SP500": [
+        ("NVDA","NVIDIA","Technology",7.6),("MSFT","Microsoft","Technology",6.7),("AAPL","Apple","Technology",6.3),("AMZN","Amazon","Consumer Cyclical",3.8),
+        ("META","Meta","Communication Services",2.9),("AVGO","Broadcom","Technology",2.6),("GOOGL","Alphabet A","Communication Services",2.1),("GOOG","Alphabet C","Communication Services",1.8),
+        ("BRK-B","Berkshire Hathaway","Financial",1.8),("TSLA","Tesla","Consumer Cyclical",1.7),("JPM","JPMorgan","Financial",1.4),("LLY","Eli Lilly","Healthcare",1.4),
+        ("WMT","Walmart","Consumer Defensive",1.1),("V","Visa","Financial",1.0),("ORCL","Oracle","Technology",1.0),("MA","Mastercard","Financial",0.9),
+        ("XOM","Exxon Mobil","Energy",0.9),("NFLX","Netflix","Communication Services",0.8),("JNJ","Johnson & Johnson","Healthcare",0.8),("COST","Costco","Consumer Defensive",0.8),
+        ("HD","Home Depot","Consumer Cyclical",0.7),("PG","Procter & Gamble","Consumer Defensive",0.7),("ABBV","AbbVie","Healthcare",0.7),("BAC","Bank of America","Financial",0.7),
+    ],
+    "NASDAQ100": [
+        ("NVDA","NVIDIA","Technology",9.2),("MSFT","Microsoft","Technology",8.0),("AAPL","Apple","Technology",7.6),("AMZN","Amazon","Consumer Cyclical",5.2),
+        ("AVGO","Broadcom","Technology",4.8),("META","Meta","Communication Services",4.0),("GOOGL","Alphabet A","Communication Services",3.1),("GOOG","Alphabet C","Communication Services",2.8),
+        ("TSLA","Tesla","Consumer Cyclical",2.7),("NFLX","Netflix","Communication Services",2.2),("COST","Costco","Consumer Defensive",2.0),("PLTR","Palantir","Technology",1.7),
+        ("AMD","AMD","Technology",1.6),("CSCO","Cisco","Technology",1.5),("TMUS","T-Mobile US","Communication Services",1.4),("LIN","Linde","Basic Materials",1.3),
+        ("PEP","PepsiCo","Consumer Defensive",1.2),("INTU","Intuit","Technology",1.1),("AMGN","Amgen","Healthcare",1.0),("TXN","Texas Instruments","Technology",1.0),
+        ("QCOM","Qualcomm","Technology",0.9),("ISRG","Intuitive Surgical","Healthcare",0.9),("BKNG","Booking","Consumer Cyclical",0.8),("AMAT","Applied Materials","Technology",0.8),
+    ],
+}
 
 
 def fetch_json(url):
@@ -96,15 +119,47 @@ def build_heatmap(market, limit=36):
     }
 
 
+def us_quote(row):
+    symbol, name, sector, weight = row
+    payload = fetch_json(YAHOO_CHART.format(quote(symbol, safe=".-")))
+    result = (payload.get("chart", {}).get("result") or [None])[0]
+    closes = [value for value in (((result or {}).get("indicators") or {}).get("quote") or [{}])[0].get("close", []) if value is not None]
+    timestamps = (result or {}).get("timestamp") or []
+    if len(closes) < 2:
+        return None
+    return {"symbol":symbol, "name":name, "sector":sector, "market":"US", "price":round(closes[-1], 4),
+            "changePct":round((closes[-1] / closes[-2] - 1) * 100, 4), "turnover":weight,
+            "asOf":dt.datetime.fromtimestamp(timestamps[-1], dt.timezone.utc).strftime("%Y-%m-%d") if timestamps else None, "live":False}
+
+
+def safe_us_quote(row):
+    try:
+        return us_quote(row)
+    except Exception:
+        return None
+
+
+def build_us_heatmap(market):
+    universe = US_UNIVERSES[market]
+    with ThreadPoolExecutor(max_workers=8) as pool:
+        items = [item for item in pool.map(safe_us_quote, universe) if item]
+    if not items:
+        raise ValueError("美股行情暫時無法取得")
+    dates = sorted({item["asOf"] for item in items if item.get("asOf")})
+    return {"ok":True, "market":market, "items":items, "asOf":dates[-1] if dates else None,
+            "updatedAt":dt.datetime.now(dt.timezone.utc).replace(microsecond=0).isoformat().replace("+00:00","Z"),
+            "liveCount":0, "sizeBasis":"指數代表權重", "sources":["Yahoo Finance"]}
+
+
 class handler(BaseHTTPRequestHandler):
     def do_GET(self):
         query = parse_qs(urlparse(self.path).query)
         market = str((query.get("market") or ["TWSE"])[0]).upper()
-        if market not in {"TWSE", "TPEX"}:
-            return self.send_json({"ok": False, "error": "market 必須是 TWSE 或 TPEX"}, 400)
+        if market not in {"TWSE", "TPEX", "SP500", "NASDAQ100"}:
+            return self.send_json({"ok": False, "error": "market 不支援"}, 400)
         try:
             limit = max(12, min(50, int((query.get("limit") or ["36"])[0])))
-            self.send_json(build_heatmap(market, limit))
+            self.send_json(build_us_heatmap(market) if market in US_UNIVERSES else build_heatmap(market, limit))
         except Exception:
             self.send_json({"ok": False, "error": "市場熱力圖資料暫時無法取得"}, 502)
 

@@ -245,7 +245,7 @@
     const end = Math.max(start, Math.min(viewport.end || currentRows.length, currentRows.length));
     const visibleRows = currentRows.slice(start, end);
     if (!asset?.symbol || !visibleRows.length) return null;
-    const priceRows = visibleRows.slice(-120).map(row => ({
+    const priceRows = visibleRows.slice(-140).map(row => ({
       date:String(row.date || "").slice(0, 10), open:snapshotNumber(row.open), high:snapshotNumber(row.high),
       low:snapshotNumber(row.low), close:snapshotNumber(row.close), volume:snapshotNumber(row.volume)
     }));
@@ -367,6 +367,21 @@
     const signal = analyzeSignal(rows);
     const componentCards = signal.components.map(item => { const meta = signalMeta(item.score); return `<article class="signal-component"><h4>${esc(item.name)}</h4>${gaugeSvg(Math.round((item.score + 2) / 4 * 100), meta.color, `${item.name}：${meta.label}`, true)}<strong style="color:${meta.color}">${esc(meta.label)}</strong><small>${esc(item.detail)}</small></article>`; }).join("");
     box.innerHTML = `<div class="signal-heading"><div><h3>每日操作訊號</h3><p>依最新收盤資料計算，作為技術面觀察，不是保證獲利的買賣指令。</p></div><span class="signal-date">資料日 ${esc(rows.at(-1).date)}</span></div><div class="signal-main"><div class="signal-overall">${gaugeSvg(signal.gauge, signal.meta.color, `綜合訊號：${signal.meta.label}`, false)}<div class="signal-label" style="color:${signal.meta.color}">${esc(signal.meta.label)}</div><div class="signal-score">訊號分數 ${signal.score.toFixed(2)}／2</div></div><div class="signal-explain"><div class="signal-notes"><section><h4>成立理由</h4>${signal.reasons.length ? `<ul>${signal.reasons.map(x=>`<li>${esc(x)}</li>`).join("")}</ul>` : "<p>目前沒有足夠的偏多確認條件。</p>"}</section><section class="risk"><h4>風險提醒</h4>${signal.risks.length ? `<ul>${signal.risks.map(x=>`<li>${esc(x)}</li>`).join("")}</ul>` : "<p>目前未偵測到明顯技術面風險。</p>"}</section></div></div></div><div class="signal-components">${componentCards}</div><div class="signal-footnote">判斷項目：價格趨勢、移動平均線、KD 動能與量價表現。至少搭配自身風險承受度、資金配置及重大消息判斷。</div>`;
+  }
+  async function withAnalysisPreset(callback) {
+    const saved = { viewport:{ ...viewport }, indicators:new Set(visibleIndicators), mas:new Set(visibleMas), volumeMas:new Set(visibleVolumeMas), tradeOverlays:new Set(visibleTradeOverlays) };
+    try {
+      viewport = { key:viewport.key, start:Math.max(0, currentRows.length - 126), end:currentRows.length };
+      visibleIndicators = new Set(indicatorNames); visibleMas = new Set(maPeriods);
+      visibleVolumeMas = new Set(volumeMaPeriods); visibleTradeOverlays = new Set();
+      updateRangeControls(); updateLegendState(); drawChart();
+      await new Promise(resolve => requestAnimationFrame(() => requestAnimationFrame(resolve)));
+      return await callback(buildAnalysisSnapshot());
+    } finally {
+      viewport = saved.viewport; visibleIndicators = saved.indicators; visibleMas = saved.mas;
+      visibleVolumeMas = saved.volumeMas; visibleTradeOverlays = saved.tradeOverlays;
+      updateRangeControls(); updateLegendState(); drawChart();
+    }
   }
   function newsDate(value) {
     if (!value) return "時間未提供";
@@ -1016,7 +1031,7 @@
       if (event.key === "Enter") { event.preventDefault(); const first = catalogMatches(input.value)[0]; if (first) selectDirectAsset(first); }
     });
     document.addEventListener("pointerdown", event => { if (!event.target.closest?.(".asset-picker")) $("assetResults")?.classList.remove("open"); });
-    window.MarketChart = { currentAsset:null, currentRows:[], currentFinancials:null, getAnalysisSnapshot:buildAnalysisSnapshot, selectAsset: (asset, options = {}) => {
+    window.MarketChart = { currentAsset:null, currentRows:[], currentFinancials:null, getAnalysisSnapshot:buildAnalysisSnapshot, withAnalysisPreset, selectAsset: (asset, options = {}) => {
       const normalized = { symbol:String(asset.symbol || "").toUpperCase(), market:String(asset.market || "TW").toUpperCase(), assetType:String(asset.assetType || "stock").toLowerCase(), name:asset.name || asset.symbol };
       const matched = catalogAssets.find(item => item.market === normalized.market && item.symbol === normalized.symbol && item.assetType === normalized.assetType) || normalized;
       selectDirectAsset(matched, options.updateUrl !== false);

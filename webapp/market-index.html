@@ -22,6 +22,11 @@
     <div id="marketHeatmap" class="market-heatmap" aria-live="polite"></div>
     <div class="notice">方塊面積依當日成交金額，顏色依即時漲跌幅；盤前或即時行情暫缺時顯示最近官方收盤。點擊個股可查看完整 K 線。</div>
   </section>
+  <section class="panel market-heatmap-panel" aria-labelledby="usHeatmapTitle">
+    <div class="market-heatmap-head"><div><div class="eyebrow">U.S. MARKET HEATMAP</div><h2 id="usHeatmapTitle">美股市場熱力圖</h2><p>依產業分區快速掌握大型權值股表現；紅色上漲、綠色下跌。</p></div><div class="market-heatmap-actions"><div class="market-heatmap-tabs" role="tablist"><button class="active" type="button" data-us-heat-market="SP500" role="tab" aria-selected="true">S&amp;P 500</button><button type="button" data-us-heat-market="NASDAQ100" role="tab" aria-selected="false">Nasdaq 100</button></div><span id="usHeatmapStatus">熱力圖載入中…</span></div></div>
+    <div id="usMarketHeatmap" class="market-heatmap" aria-live="polite"></div>
+    <div class="notice">顯示指數中具代表性的大型成分股；外框為產業別，面積依代表權重，顏色依最近正常盤漲跌幅。點擊股票可查看完整 K 線。</div>
+  </section>
   <section id="indexChartPanel" class="panel index-chart-panel">
     <div class="index-quote-strip">
       <div class="index-primary-quote"><span id="quoteAsOf">最新行情</span><h2 id="chartTitle">市場走勢</h2><div><strong id="indexLatest">—</strong><b id="indexMove" class="flat">—</b></div><small id="chartMeta"></small></div>
@@ -35,5 +40,5 @@
     <div id="indexChart" class="chart interactive-chart"></div>
     <div class="notice">移動游標可查看日期、開高低收與成交資訊。美股指數採正常盤完成後的正式收盤資料，不混用盤中或期貨夜盤價格；台灣加權指數顯示證交所官方每日成交金額。其他指數若無可用的實際成交量則顯示「—」。</div>
   </section>
-</div><script src="theme.js"></script><script type="module" src="auth.js"></script><script src="macro-pages.js?v=20260830"></script><script src="market-heatmap.js?v=20260901-1"></script></body>
+</div><script src="theme.js"></script><script type="module" src="auth.js"></script><script src="macro-pages.js?v=20260830"></script><script src="market-heatmap.js?v=20260902"></script></body>
 </html>

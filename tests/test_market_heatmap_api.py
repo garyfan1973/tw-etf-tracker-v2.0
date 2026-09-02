@@ -1,6 +1,7 @@
 import importlib.util
 from pathlib import Path
 import unittest
+from unittest import mock
 
 
 PATH = Path(__file__).parents[1] / "webapp" / "api" / "market_heatmap.py"
@@ -28,6 +29,23 @@ class MarketHeatmapTests(unittest.TestCase):
         self.assertEqual(result[0]["changePct"], 5)
         self.assertEqual(result[0]["turnover"], 2_100_000)
         self.assertTrue(result[0]["live"])
+
+    @mock.patch.object(API, "fetch_json")
+    def test_us_quote_calculates_latest_session_change(self, fetch):
+        fetch.return_value = {"chart":{"result":[{"timestamp":[1788211200,1788297600],"indicators":{"quote":[{"close":[100,103]}]}}]}}
+        item = API.us_quote(("AAPL", "Apple", "Technology", 6.3))
+        self.assertEqual(item["symbol"], "AAPL")
+        self.assertEqual(item["sector"], "Technology")
+        self.assertEqual(item["changePct"], 3)
+        self.assertEqual(item["turnover"], 6.3)
+
+    @mock.patch.object(API, "safe_us_quote")
+    def test_us_heatmap_keeps_available_quotes(self, quote):
+        quote.side_effect = lambda row: {"symbol":row[0], "name":row[1], "sector":row[2], "market":"US", "price":100, "changePct":1, "turnover":row[3], "asOf":"2026-09-01", "live":False}
+        result = API.build_us_heatmap("SP500")
+        self.assertTrue(result["ok"])
+        self.assertEqual(result["market"], "SP500")
+        self.assertGreater(len(result["items"]), 20)
 
 
 if __name__ == "__main__":

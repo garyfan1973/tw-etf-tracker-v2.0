@@ -121,6 +121,8 @@ class ChartAnalysisApiTests(unittest.TestCase):
         self.assertIn("多空證據必須對稱評估", API.SYSTEM_PROMPT)
         self.assertIn("禁止只用「等待確認」", API.SYSTEM_PROMPT)
         self.assertIn("operationSignal", API.SYSTEM_PROMPT)
+        self.assertIn("固定擷取的近六個月", API.SYSTEM_PROMPT)
+        self.assertIn("圖片只輔助", API.SYSTEM_PROMPT)
 
     def test_rejects_invalid_williams_and_operation_signal(self):
         invalid = self.chart_data()
