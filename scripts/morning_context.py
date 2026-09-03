@@ -151,6 +151,13 @@ normalize_dividends = _shared_normalize_dividends
 dividend_adjusted_technical = _shared_dividend_adjusted_technical
 
 
-def build_context(chart_data: dict, dividends: list[dict]) -> dict:
+def build_context(chart_data: dict, dividends: list[dict], market: str = "") -> dict:
     as_of = str((chart_data.get("visibleRange") or {}).get("endDate") or "")[:10]
-    return _build_market_context(chart_data, dividends, [], None, [], as_of)
+    context = _build_market_context(chart_data, dividends, [], None, [], as_of)
+    if market == "TW":
+        try:
+            from webapp.api._taifex import compact_context
+            context["taiwanFutures"] = compact_context()
+        except Exception:
+            context["availabilityNotes"].append("台指期市場背景暫時無法取得。")
+    return context

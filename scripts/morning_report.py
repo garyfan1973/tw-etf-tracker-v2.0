@@ -309,7 +309,7 @@ async def process_asset(db, browser, service_key, run, report_date, base_url, it
             except Exception:
                 dividend_result = {}
             remote_dividends = [] if isinstance(dividend_result, Exception) else dividend_result.get("events") or []
-            context_data = build_context(chart_data, local_dividends + remote_dividends)
+            context_data = build_context(chart_data, local_dividends + remote_dividends, asset["market"])
             if not force and result_row and result_row.get("status") == "completed" and result_row.get("analysis"):
                 analysis, model = result_row["analysis"], result_row.get("model")
             else:

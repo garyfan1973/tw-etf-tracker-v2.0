@@ -2,6 +2,7 @@
   const items = [
     ["tracker.html?view=overview", "個股資訊", "stocks"],
     ["market-index.html", "指數資訊", "indices"],
+    ["taiwan-futures.html", "台指期資訊", "futures"],
     ["forex.html", "匯市資訊", "forex"],
     ["bonds.html", "債市資訊", "bonds"],
     ["macro-economy.html", "總經指標", "economy"],
@@ -14,6 +15,7 @@
   function currentSection() {
     const page = location.pathname.split("/").pop() || "index.html";
     if (page === "market-index.html") return "indices";
+    if (page === "taiwan-futures.html") return "futures";
     if (page === "forex.html") return "forex";
     if (page === "bonds.html") return "bonds";
     if (page === "macro-economy.html") return "economy";
