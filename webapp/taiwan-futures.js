@@ -23,7 +23,7 @@
   }
   async function init(){
     try{const response=await fetch("api/taiwan_futures",{cache:"no-store"});data=await response.json();if(!response.ok||!data.ok)throw new Error(data.error||"資料載入失敗");
-      $("futuresUpdated").textContent=`${data.asOfDate} 最近完整交易資料`;$("realtimeLink").href=data.realtimeUrl;renderProduct();renderInstitutions();renderPutCall();
+      $("futuresUpdated").textContent=`${data.asOfDate} 最近完整交易資料`;renderProduct();renderInstitutions();renderPutCall();
     }catch(error){$("futuresError").hidden=false;$("futuresError").textContent=error.message;$("futuresUpdated").textContent="資料暫時無法取得";}
   }
   document.querySelectorAll("[data-product]").forEach(b=>b.addEventListener("click",()=>{active=b.dataset.product;renderProduct();}));init();

@@ -9,6 +9,7 @@
 </head>
 <body><div class="wrap">
   <nav class="top-nav"><a class="tracker-brand" href="index.html"><span class="tracker-mark"></span><span>投資研究工作台</span></a><a href="tracker.html?view=overview">市場研究</a><a href="tracker.html">ETF 持股</a><a href="dividends.html">配息日曆</a><a href="portfolio.html">我的持股</a><a href="transactions.html">交易紀錄</a><a href="journal.html">短線日誌</a><a href="performance.html">績效走勢</a><span id="authBox" style="margin-left:auto;display:flex;align-items:center;gap:6px"></span><button id="themeToggle" class="theme-toggle">🌙</button></nav>
+  <a class="futures-night-link" href="https://www.wantgoo.com/futures/wtxp%26" target="_blank" rel="noopener"><span><b>昨晚夜盤即時資訊</b><small>前往玩股網查看台指期盤後收盤與完整行情</small></span><strong>立即查看 ↗</strong></a>
   <header class="page-head"><div><div class="eyebrow">TAIWAN INDEX FUTURES</div><h1>台指期資訊</h1><p>台指期、小台與微台的契約、期限結構及籌碼資料。</p></div><div class="updated" id="futuresUpdated">資料載入中…</div></header>
   <div id="futuresError" class="error" hidden></div>
   <div class="futures-tabs" role="tablist"><button class="active" data-product="TX">TX 台指期</button><button data-product="MTX">MTX 小台</button><button data-product="TMF">TMF 微台</button></div>
@@ -18,5 +19,5 @@
     <section class="panel"><div class="chart-head"><div><h2>三大法人臺股期貨</h2><p id="instDate">未平倉淨部位</p></div></div><div id="institutionRows" class="institution-list"></div></section>
     <section class="panel"><div class="chart-head"><div><h2>臺指選擇權 Put/Call Ratio</h2><p>成交量比與未平倉量比，100% 為多空分界參考。</p></div></div><div id="putCallChart" class="pc-chart"></div></section>
   </div>
-  <section class="panel futures-source"><div><strong>行情層級說明</strong><p>本頁資料為期交所 OpenAPI 公布的最近完整交易時段資料，不冒充盤中逐筆即時行情。盤中與夜盤即時價格請使用官方行情頁。</p></div><a id="realtimeLink" class="futures-live-link" href="https://mis.taifex.com.tw/futures/" target="_blank" rel="noopener">開啟期交所即時行情 ↗</a></section>
+  <section class="panel futures-source"><div><strong>行情層級說明</strong><p>本頁資料為期交所 OpenAPI 公布的最近完整交易時段資料，不冒充盤中逐筆即時行情；最新夜盤請使用頁面最上方的玩股網入口。</p></div></section>
 </div><script src="theme.js"></script><script type="module" src="auth.js"></script><script src="taiwan-futures.js?v=20260904-1"></script></body></html>
