@@ -3,6 +3,7 @@
   const esc = value => String(value ?? "").replace(/[&<>"']/g, ch => ({"&":"&amp;","<":"&lt;",">":"&gt;","\"":"&quot;","'":"&#39;"}[ch]));
   const number = (value, digits = 2) => value == null || !Number.isFinite(Number(value)) ? "—" : Number(value).toLocaleString("zh-TW", { maximumFractionDigits:digits, minimumFractionDigits:digits });
   const turnover = value => {
+    if(value==null||value==="")return "—";
     const amount=Number(value);
     if(!Number.isFinite(amount))return "—";
     return Math.abs(amount)>=1e12?`${number(amount/1e12,2)} 兆元`:`${number(amount/1e8,2)} 億元`;
@@ -115,7 +116,8 @@
     const cards=$("indexCards"),chart=$("indexChart"),title=$("chartTitle"),meta=$("chartMeta"),latest=$("indexLatest"),move=$("indexMove"),volume=$("indexVolume"),weekRange=$("indexWeekRange"),asOf=$("quoteAsOf"),panel=$("indexChartPanel");
     let selected=data.indices[0],period="1Y",chartType="line",view=periodWindow(selected.rows,period);
     const groupFor=item=>item.region==="商品"?"commodities":item.region.startsWith("美國")?"us":"asia",groups=[{id:"asia",title:"亞洲市場",description:"台灣、日本與韓國主要股價指數"},{id:"us",title:"美股指數",description:"大型股、科技、半導體、小型股與市場波動"},{id:"commodities",title:"商品市場",description:"國際原油價格參考"}];
-    cards.innerHTML=groups.map(group=>{const rows=data.indices.filter(item=>groupFor(item)===group.id);return `<div class="index-group"><div class="index-group-head"><div><span>${esc(group.title)}</span><small>${esc(group.description)}</small></div><b>${rows.length} 項</b></div><div class="index-group-grid">${rows.map((item,index)=>`<button class="market-card${item.id===selected.id?" active":""}" data-index-id="${esc(item.id)}"><span class="region">${esc(item.region)}</span><h2>${esc(item.name)}</h2><div class="quote">${number(item.latest,item.decimals ?? 2)}</div><div class="change ${tone(item.change)}">${Number(item.change)>0?"+":""}${number(item.change,item.decimals ?? 2)} ・ ${Number(item.changePct)>0?"+":""}${number(item.changePct,2)}%</div><small class="quote-basis">${esc(item.quoteLabel||"最近收盤")}・${esc(item.asOf)}</small></button>`).join("")}</div></div>`;}).join("");
+    function renderCards(){cards.innerHTML=groups.map(group=>{const rows=data.indices.filter(item=>groupFor(item)===group.id);return `<div class="index-group"><div class="index-group-head"><div><span>${esc(group.title)}</span><small>${esc(group.description)}</small></div><b>${rows.length} 項</b></div><div class="index-group-grid">${rows.map(item=>`<button class="market-card${item.id===selected.id?" active":""}" data-index-id="${esc(item.id)}"><span class="region">${esc(item.region)}</span><h2>${esc(item.name)}</h2><div class="quote">${number(item.latest,item.decimals ?? 2)}</div><div class="change ${tone(item.change)}">${Number(item.change)>0?"+":""}${number(item.change,item.decimals ?? 2)} ・ ${Number(item.changePct)>0?"+":""}${number(item.changePct,2)}%</div><small class="quote-basis">${esc(item.quoteLabel||"最近收盤")}・${esc(item.asOf)}${item.quoteTime?` ${esc(item.quoteTime)}`:""}</small></button>`).join("")}</div></div>`;}).join("")}
+    renderCards();
     function renderChart(){interactiveIndexChart(chart,selected.rows,view,selected.name,chartType,selected.turnoverLabel||selected.volumeLabel||"",next=>{view=next;renderChart();});}
     function render() {
       cards.querySelectorAll("button").forEach(btn=>btn.classList.toggle("active",btn.dataset.indexId===selected.id));
@@ -135,6 +137,9 @@
     $("zoomIn").addEventListener("click",()=>zoom(.75));$("zoomOut").addEventListener("click",()=>zoom(1.3));$("resetZoom").addEventListener("click",()=>{view=periodWindow(selected.rows,period);renderChart();});
     $("fullscreenChart").addEventListener("click",()=>{const expanded=panel.classList.toggle("chart-expanded");document.body.style.overflow=expanded?"hidden":"";$("fullscreenChart").setAttribute("aria-pressed",String(expanded));});
     document.addEventListener("keydown",event=>{if(event.key==="Escape"){panel.classList.remove("chart-expanded");document.body.style.overflow="";$("fullscreenChart").setAttribute("aria-pressed","false");}});
+    let liveLoading=false;
+    async function refreshTaiex(){if(liveLoading||document.hidden)return;liveLoading=true;try{const response=await fetch("/api/taiwan_index",{cache:"no-store"}),quote=await response.json();if(!response.ok||!quote.ok)return;const item=data.indices.find(entry=>entry.id==="twii");if(!item)return;item.latest=quote.latest;item.change=quote.change;item.changePct=quote.changePct;item.asOf=quote.date;item.quoteTime=quote.time;item.quoteLabel=quote.quoteLabel;item.source=quote.source;const row={date:quote.date,open:quote.open,high:quote.high,low:quote.low,close:quote.latest,turnover:null},oldLength=item.rows.length,wasAtEnd=view.end===oldLength,last=item.rows.at(-1);if(last?.date===quote.date)item.rows[item.rows.length-1]={...last,...row};else item.rows.push(row);if(selected.id==="twii"&&wasAtEnd&&item.rows.length>oldLength)view={start:view.start+1,end:view.end+1};renderCards();if(selected.id==="twii"){selected=item;render();}}catch(_){}finally{liveLoading=false}}
+    refreshTaiex();const liveTimer=setInterval(refreshTaiex,30000);window.addEventListener("pagehide",()=>clearInterval(liveTimer),{once:true});document.addEventListener("visibilitychange",()=>{if(!document.hidden)refreshTaiex()});
     render();
   }
 
