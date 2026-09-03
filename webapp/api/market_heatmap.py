@@ -57,6 +57,15 @@ def iso_roc_date(value):
     return None
 
 
+def iso_market_date(value):
+    text = str(value or "")
+    return f"{text[:4]}-{text[4:6]}-{text[6:8]}" if len(text) == 8 and text.isdigit() else None
+
+
+def first_book_price(value):
+    return number(str(value or "").split("_")[0])
+
+
 def daily_items(rows, market):
     fields = {
         "TWSE": ("Code", "Name", "ClosingPrice", "Change", "TradeValue", "Date"),
@@ -88,7 +97,14 @@ def merge_realtime(items, payload):
         row = quotes.get(item["symbol"])
         if not row:
             continue
-        price, previous, volume = number(row.get("z")), number(row.get("y")), number(row.get("v"))
+        traded_price, previous, volume = number(row.get("z")), number(row.get("y")), number(row.get("v"))
+        best_ask, best_bid = first_book_price(row.get("a")), first_book_price(row.get("b"))
+        indicative = traded_price is None
+        price = traded_price
+        if price is None and best_ask is not None and best_bid is not None:
+            price = (best_ask + best_bid) / 2
+        elif price is None:
+            price = best_bid if best_bid is not None else best_ask
         if price is None or previous is None or previous <= 0:
             continue
         item["price"] = price
@@ -96,6 +112,8 @@ def merge_realtime(items, payload):
         if volume is not None and volume > 0:
             item["turnover"] = round(volume * 1000 * price)
         item["quoteTime"] = str(row.get("t") or "")
+        item["asOf"] = iso_market_date(row.get("d")) or item.get("asOf")
+        item["indicative"] = indicative
         item["live"] = True
     return sorted(items, key=lambda item: item["turnover"], reverse=True)
 
@@ -115,6 +133,7 @@ def build_heatmap(market, limit=36):
         "asOf": dates[-1] if dates else None,
         "updatedAt": dt.datetime.now(dt.timezone.utc).replace(microsecond=0).isoformat().replace("+00:00", "Z"),
         "liveCount": sum(1 for item in items if item.get("live")),
+        "indicativeCount": sum(1 for item in items if item.get("indicative")),
         "sizeBasis": "成交金額", "sources": ["臺灣證券交易所", "證券櫃檯買賣中心"],
     }
 

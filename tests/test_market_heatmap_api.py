@@ -23,11 +23,22 @@ class MarketHeatmapTests(unittest.TestCase):
         self.assertEqual(items[0]["asOf"], "2026-09-01")
 
     def test_realtime_quote_overrides_price_change_and_turnover(self):
-        items = [{"symbol":"2330","name":"台積電","market":"TWSE","price":100,"changePct":0,"turnover":1,"live":False}]
-        result = API.merge_realtime(items, {"msgArray":[{"c":"2330","z":"105","y":"100","v":"20","t":"09:01:02"}]})
+        items = [{"symbol":"2330","name":"台積電","market":"TWSE","price":100,"changePct":0,"turnover":1,"live":False,"asOf":"2026-09-02"}]
+        result = API.merge_realtime(items, {"msgArray":[{"c":"2330","z":"105","y":"100","v":"20","t":"09:01:02","d":"20260903"}]})
         self.assertEqual(result[0]["price"], 105)
         self.assertEqual(result[0]["changePct"], 5)
         self.assertEqual(result[0]["turnover"], 2_100_000)
+        self.assertTrue(result[0]["live"])
+        self.assertFalse(result[0]["indicative"])
+        self.assertEqual(result[0]["asOf"], "2026-09-03")
+
+    def test_realtime_uses_order_book_midpoint_when_last_trade_is_blank(self):
+        items = [{"symbol":"2330","name":"台積電","market":"TWSE","price":100,"changePct":0,"turnover":1,"live":False,"asOf":"2026-09-02"}]
+        result = API.merge_realtime(items, {"msgArray":[{"c":"2330","z":"-","y":"100","v":"20","t":"09:01:02","d":"20260903","a":"102_103_","b":"101_100_"}]})
+        self.assertEqual(result[0]["price"], 101.5)
+        self.assertEqual(result[0]["changePct"], 1.5)
+        self.assertEqual(result[0]["turnover"], 2_030_000)
+        self.assertTrue(result[0]["indicative"])
         self.assertTrue(result[0]["live"])
 
     @mock.patch.object(API, "fetch_json")
