@@ -1598,6 +1598,14 @@
     "source": "Stock Analysis",
     "sector": "Technology"
   },
+  "ALNY": {
+    "name": "Alnylam Pharmaceuticals",
+    "market": "US",
+    "industry": "Biotechnology",
+    "business": "Alnylam Pharmaceuticals, Inc. discovers, develops, manufactures, and commercializes therapeutics based on ribonucleic acid interference in the United States, Europe, and internationally. The company offers ONPATTRO for hereditary transthyretin-mediated (hATTR) amyloidosis; AMVUTTRA for ATTR and hATTR amyloidosis; Leqvio for hypercholesterolemia; Qfitlia for hemophilia A or B; GIVLAARI for acute hepatic porphyria; and OXLUMO for primary hyperoxaluria type 1. It also develops a range of products in Phase 3 trial, such as Nucresiran for ATTR amyloidosis; Zilebesiran for hypertension; Cemdisiran for myasthenia gravis, paroxysmal nocturnal hemoglobinuria, and geographic atrophy; and Elebsiran for hepatitis D virus infections. In addition, the company is developing various products in Phase 2 trial, including Rapirosiran for metabolic dysfunction-associated steatohepatitis; ALN-ANG3 for diabetic kidney disease; ALN-4324 for type 2 diabetes mellitus; Mivelsiran for cerebral amyloid angiopathy, as well as in Phase 1 trial for Alzheimer’s disease; and ALN-6400 for bleeding disorders. Further, it develops a range of products in Phase 1 trial, such as ALN-2232 for obesity and weight management; ALN-PNP for non-alcoholic fatty liver disease; ALN-APOC3 for dyslipidemia; ALN-CIDEB for metabolic dysfunction-associated steatohepatitis; ALN-HTT02 for Huntington’s disease; ALN-5288 for Alzheimer’s disease; ALN-SOD for SOD1 amyotrophic lateral sclerosis; ALN-SNCA for Parkinson’s disease; AG-236 for polycythemia vera; ALN-CFB for paroxysmal nocturnal hemoglobinuria; ALN-BCAT for hepatocellular carcinoma; and ALN-4285, ALN-4915, and ALN-F1202 for healthy volunteers. The company has collaborations with Regeneron Pharmaceuticals, Inc.; Roche Holding AG; Sanofi S.A.; Novartis AG; PeptiDream, Inc; Dicerna Pharmaceuticals, Inc.; and Ionis Pharmaceuticals, Inc. Alnylam Pharmaceuticals, Inc. was founded in 2002 and is headquartered in Cambridge, Massachusetts.",
+    "source": "Stock Analysis",
+    "sector": "Healthcare"
+  },
   "AMAT": {
     "name": "Applied Materials",
     "market": "US",
@@ -1801,6 +1809,14 @@
     "business": "Alphabet Inc. offers various products and platforms in the United States, Europe, the Middle East, Africa, the Asia-Pacific, Canada, and Latin America. It operates through Google Services, Google Cloud, and Other Bets segments. The Google Services segment provides products and services, including ads, Android, Chrome, devices, Gmail, Google Drive, Google Maps, Google Photos, Google Play, Search, and YouTube. It is also involved in the sale of apps and in-app purchases and digital content in Google Play and YouTube; and devices, as well as the provision of YouTube consumer subscription services, such as YouTube TV, YouTube Music and Premium, NFL Sunday Ticket, and Google One. The Google Cloud segment offers consumption-based fees and subscriptions for AI solutions, including AI infrastructure, Vertex AI platform, and Gemini enterprise. It also provides cybersecurity, and data and analytics services; Google Workspace that include cloud-based communication and collaboration tools for enterprises, such as Calendar, Gmail, Docs, Drive, and Meet; and other enterprise services. The Other Bets segment sells transportation and internet services. Alphabet Inc. was incorporated in 1998 and is headquartered in Mountain View, California.",
     "source": "Stock Analysis",
     "sector": "Communication Services"
+  },
+  "HOOD": {
+    "name": "Robinhood Markets",
+    "market": "US",
+    "industry": "Capital Markets",
+    "business": "Robinhood Markets, Inc. operates financial services platform in the United States. The company’s platform allows users to invest in stocks, exchange-traded funds (ETFs), and American depository receipts. It offers fractional trading, recurring investments, access to investing on margin, fully-paid securities lending, cash sweep, instant withdrawals, retirement program, around-the-clock trading, joint investing accounts, event contracts, future contract services, and short selling. The company also provides various learning and education solutions comprise Snacks, an accessible digest of business news stories for a new generation of investors; Learn, which is an online collection of guides, feature tutorials, and financial dictionary; Newsfeeds that offer access to free, premium news from sites from various sites, such as Barron’s, Reuters, and Dow Jones. In addition, the company offers In-App Education, a resource that covers investing fundamentals, including why people invest, a stock market overview, and tips on how to define investing goals, as well as allows customers to understand the basics of investing before their first trade; and Crypto Learn and Earn, an educational module available to various crypto customers through Robinhood Learn to teach customers the basics related to cryptocurrency. Further, it provides Robinhood credit cards, cash card and spending accounts, and wallets. Robinhood Markets, Inc. was incorporated in 2013 and is headquartered in Menlo Park, California.",
+    "source": "Stock Analysis",
+    "sector": "Financials"
   },
   "INFINEON TECHNOLOGIES AG": {
     "name": "INFINEON TECHNOLOGIES AG",
@@ -2063,6 +2079,14 @@
     "business": "Space Exploration Technologies Corp. provides satellite-based broadband services in the United States, Ireland, Canada, and internationally. It operates through three operating segments: Space, Connectivity, and AI. The Space segment designs, manufactures, and launches reusable rockets to provide access to space. It also provides launch services for the deployment of payloads to intended orbits for commercial and government customers utilizing Falcon 9 and Falcon Heavy; and engages in the launch and development for the development of spacecraft and the provision of launch and mission services for government agency space programs utilizing Falcon 9, Falcon Heavy, Starship, and Dragon. Its company's Connectivity segment operates broadband data and communications network by various Starlink satellites in low-earth orbit, delivering connectivity to various consumers, enterprise, and government customers. The company's AI segment operates a vertically integrated AI platform spanning a frontier LLM Grok; AI solutions for consumer and enterprise customers; X, a real-time information, entertainment, and free speech platform; and AI computational infrastructure. Space Exploration Technologies Corp. was incorporated in 2002 and is based in Starbase, Texas.",
     "source": "Stock Analysis",
     "sector": "Industrials"
+  },
+  "SPOT": {
+    "name": "Spotify",
+    "market": "US",
+    "industry": "Internet Content & Information",
+    "business": "Spotify Technology S.A., together with its subsidiaries, provides audio streaming subscription services worldwide. It operates in two segments, Premium and Ad-Supported. The Premium segment offers online and offline streaming access to its catalog of music and podcasts, including video, lossless music, and audiobooks in select markets through subscription offerings primarily sold directly to end users and partners. The Ad-Supported segment provides limited on-demand online access to its catalog of music and online and offline access to its catalog of podcasts on computers, tablets, mobile devices, and other smart devices. The company also offers sales, distribution and marketing, contract research and development, and customer and other support services. Spotify Technology S.A. was incorporated in 2006 and is headquartered in Stockholm, Sweden.",
+    "source": "Stock Analysis",
+    "sector": "Communication Services"
   },
   "SWKS": {
     "name": "Skyworks Solutions",

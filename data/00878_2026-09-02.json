@@ -847,15 +847,15 @@
         "offsetting": 0,
         "date": "2026-09-02"
       },
-      "open": 151.0,
+      "open": 150.0,
       "high": 151.0,
-      "low": 147.0,
-      "close": 147.0,
-      "prevClose": 149.5,
-      "change": -2.5,
-      "changePct": -1.67,
-      "amplitude": 2.68,
-      "volume": 11343073.0,
+      "low": 148.5,
+      "close": 150.0,
+      "prevClose": 147.0,
+      "change": 3.0,
+      "changePct": 2.04,
+      "amplitude": 1.7,
+      "volume": 4829835.0,
       "quoteDate": "2026-09-02"
     },
     {
