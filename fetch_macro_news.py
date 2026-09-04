@@ -113,6 +113,15 @@ def main():
             clean.append(row)
         if clean:
             output.append({"id": re.sub(r"[^a-z0-9]+", "-", category.lower()).strip("-"), "name": category, "items": clean[:20]})
+    # Preserve the dedicated 21:35 CNBC capture while refreshing other sources.
+    try:
+        with open(OUT_FILE, encoding="utf-8") as handle:
+            previous = json.load(handle)
+        cnbc = next((section for section in previous.get("sections") or [] if section.get("id") == "cnbc-top"), None)
+        if cnbc:
+            output.insert(0, cnbc)
+    except (OSError, ValueError):
+        pass
     payload = {"updatedAt": now.isoformat().replace("+00:00", "Z"), "windowDays": WINDOW_DAYS, "sections": output, "failures": failures}
     with open(OUT_FILE, "w", encoding="utf-8") as handle:
         json.dump(payload, handle, ensure_ascii=False, separators=(",", ":"))

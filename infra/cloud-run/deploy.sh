@@ -29,6 +29,7 @@ gcloud services enable \
   cloudbuild.googleapis.com \
   run.googleapis.com \
   cloudscheduler.googleapis.com \
+  translate.googleapis.com \
   secretmanager.googleapis.com \
   --project "${PROJECT_ID}"
 
@@ -59,6 +60,10 @@ gcloud projects add-iam-policy-binding "${PROJECT_ID}" \
   --member "serviceAccount:${RUNTIME_SA}" \
   --role roles/secretmanager.secretAccessor \
   --condition None >/dev/null
+gcloud projects add-iam-policy-binding "${PROJECT_ID}" \
+  --member "serviceAccount:${RUNTIME_SA}" \
+  --role roles/cloudtranslate.user \
+  --condition None >/dev/null
 
 if [[ "${SKIP_BUILD:-false}" != "true" ]]; then
   gcloud builds submit "$(dirname "$0")" --tag "${IMAGE}" --project "${PROJECT_ID}"
@@ -66,7 +71,7 @@ else
   echo "SKIP_BUILD=true，沿用既有映像：${IMAGE}"
 fi
 
-COMMON_ENV="GITHUB_REPOSITORY=garyfan1973/tw-etf-tracker-v2.0,GITHUB_BRANCH=main,MORNING_REPORT_BASE_URL=https://tw-etf-tracker-v2-0.vercel.app"
+COMMON_ENV="GOOGLE_CLOUD_PROJECT=${PROJECT_ID},GITHUB_REPOSITORY=garyfan1973/tw-etf-tracker-v2.0,GITHUB_BRANCH=main,MORNING_REPORT_BASE_URL=https://tw-etf-tracker-v2-0.vercel.app"
 COMMON_SECRETS="GITHUB_TOKEN=github-token:latest,SUPABASE_URL=supabase-url:latest,SUPABASE_SERVICE_ROLE_KEY=supabase-service-role-key:latest"
 
 deploy_job() {
@@ -129,7 +134,7 @@ upsert_schedule() {
 # 及既有寄送紀錄決定是否更新／寄送，休市日不會重複發送舊晨報。
 upsert_schedule market-data-tw market-data-tw "30 17,18,19,20,21,23 * * *"
 upsert_schedule market-data-us market-data-us "20 5,6,7 * * *"
-upsert_schedule financial-content financial-content "*/30 * * * *"
+upsert_schedule financial-content financial-content "5,35 * * * *"
 upsert_schedule member-morning-report member-morning-report "30 6,7,8 * * *"
 
 echo "部署完成。先個別執行四個 Cloud Run Jobs 驗證，確認後再停用 GitHub schedule。"

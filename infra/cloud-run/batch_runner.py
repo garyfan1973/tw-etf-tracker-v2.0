@@ -50,6 +50,7 @@ FINANCIAL_CONTENT_COMMANDS = [
     [sys.executable, "fetch_fed_policy.py"],
     [sys.executable, "fetch_financial_videos.py"],
     [sys.executable, "fetch_macro_news.py"],
+    [sys.executable, "fetch_cnbc_top_news.py"],
 ]
 
 

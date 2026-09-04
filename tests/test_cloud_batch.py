@@ -12,6 +12,10 @@ SPEC.loader.exec_module(MODULE)
 
 
 class CloudBatchTests(unittest.TestCase):
+    def test_financial_content_runs_cnbc_capture_after_macro_news(self):
+        commands = [command[-1] for command in MODULE.FINANCIAL_CONTENT_COMMANDS]
+        self.assertLess(commands.index("fetch_macro_news.py"), commands.index("fetch_cnbc_top_news.py"))
+
     def test_latest_snapshot_date_ignores_unrelated_files(self):
         with tempfile.TemporaryDirectory() as directory:
             root = Path(directory)
