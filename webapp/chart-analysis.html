@@ -4,6 +4,7 @@
   <meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
   <title>AI 線圖分析｜投資研究工作台</title>
   <link rel="stylesheet" href="market-pages.css?v=20260825c">
+  <link rel="stylesheet" href="chart-report.css?v=20260906">
   <script>(function(){var t=localStorage.getItem("etf-theme");if(t)document.documentElement.dataset.theme=t})();</script>
   <script src="config.js"></script>
   <script src="market-nav.js" defer></script>
@@ -42,6 +43,9 @@
         <label>標的代號（選填）<input id="analysisSymbol" maxlength="20" placeholder="例如 2330、SOXX"></label>
         <label>截圖時點<select id="screenshotTiming"><option value="">不確定／未註明</option><option>盤前</option><option>開盤後 30 分鐘內</option><option>盤中</option><option>接近收盤</option><option>盤後</option></select></label>
         <label id="priceField" hidden>預計買進價（選填）<input id="proposedPrice" type="number" min="0" step="0.01" inputmode="decimal" placeholder="例如 128.5"></label>
+        <label>持倉狀態（選填）<select id="positionStatus"><option value="unspecified">未提供</option><option value="holding">已持有</option><option value="watching">尚未持有／觀察中</option></select></label>
+        <label id="averageCostField" hidden>平均成本（選填）<input id="averageCost" type="number" min="0.0001" max="10000000" step="any" inputmode="decimal" placeholder="例如 394"></label>
+        <label id="costCurrencyField" hidden>成本幣別<select id="costCurrency"><option value="">請選擇</option><option value="TWD">TWD 新台幣</option><option value="USD">USD 美元</option><option value="JPY">JPY 日圓</option><option value="KRW">KRW 韓元</option><option value="HKD">HKD 港幣</option><option value="EUR">EUR 歐元</option><option value="GBP">GBP 英鎊</option><option value="CNY">CNY 人民幣</option></select></label>
       </div>
       <button id="analyzeChart" class="ai-analyze-button" type="button"><span>✦</span>開始分析</button>
       <p id="analysisStatus" class="ai-status" role="status"></p>
@@ -83,7 +87,7 @@
     <footer><button id="emailAnalysisCancel" class="secondary" type="button">取消</button><button id="emailAnalysisSend" class="primary" type="button"><span aria-hidden="true">✉</span> 寄送 Email</button></footer>
   </section>
 </div>
-<script src="theme.js"></script><script src="chart-analysis-transfer.js?v=20260825"></script><script type="module" src="auth.js"></script><script type="module" src="chart-analysis.js?v=20260829b"></script>
+<script src="theme.js"></script><script src="chart-analysis-transfer.js?v=20260825"></script><script src="chart-report.js?v=20260906"></script><script type="module" src="auth.js"></script><script type="module" src="chart-analysis.js?v=20260906"></script>
 <script src="https://cdn.jsdelivr.net/npm/html2canvas@1.4.1/dist/html2canvas.min.js" integrity="sha512-BNaRQnYJYiPSqHHDb58B0yaPfCu+Wgds8Gp/gU33kqBtgNS4tSPHuGibyoeqMV/TJlSKda6FXzoEyYGjTe+vXA==" crossorigin="anonymous"></script>
 <script src="https://cdn.jsdelivr.net/npm/jspdf@2.5.2/dist/jspdf.umd.min.js"></script>
 </body>

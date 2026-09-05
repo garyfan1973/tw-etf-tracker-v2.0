@@ -260,6 +260,16 @@ Cloud Scheduler 的正式排程與部署方式請見 `infra/cloud-run/README.md`
 
 ## GitHub 與 Vercel 部署
 
+### AI 線圖報告規範
+
+`webapp/skills/chart-analysis-report/SKILL.md` 是線圖分析與星等規則的來源，API 在啟動時載入；修改後須更新 skill 版本並重新部署。`vercel.json` 將規範檔納入 Function。會員權限與每日額度維持既有檢查。
+
+新結果使用 schema v2，包含固定六項技術判讀、兩欄價位表、持倉成本、六種操作情境與評分理由。持倉狀態／成本／幣別為選填，不等於預計買價。結果及版本資訊保存於既有 `result` JSON，無需資料庫 migration。
+
+互動頁、歷史紀錄及 PDF 由 `webapp/chart-report.js` 共用呈現；Email 寄送相同 PDF。舊紀錄保留原策略內容並標示新增資料缺值。模型仍有非確定性；格式固定不代表結論保證相同。
+
+驗證：`python3 -m unittest discover -s tests -p 'test_chart_analysis*.py'`、`node tests/test_chart_report.js`。本機瀏覽器驗證使用 `uv run --with playwright python tests/chart_report_browser.py`，需已安裝 Chrome；其中會員與 AI 回應均為測試資料，不會產生付費模型呼叫或寄出 Email。
+
 GitHub repository：
 
 ```text

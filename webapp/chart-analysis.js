@@ -510,6 +510,11 @@ function resetSensitiveState() {
   clearImage();
   $("#analysisSymbol").value = "";
   $("#proposedPrice").value = "";
+  $("#positionStatus").value = "unspecified";
+  $("#averageCost").value = "";
+  $("#costCurrency").value = "";
+  $("#averageCostField").hidden = true;
+  $("#costCurrencyField").hidden = true;
   $("#screenshotTiming").value = "";
   $("#resultContent").replaceChildren();
   $("#resultContent").hidden = true;
@@ -564,54 +569,8 @@ function addListCard(parent, title, items, className = "") {
 }
 
 function renderAnalysis(target, result, compact = false) {
-  target.replaceChildren();
-  const hero = node("section", "ai-result-hero");
-  const heading = node("div");
-  heading.append(buildMarketStateLabel(result.marketState), node("h3", "", result.conclusion || "尚無結論"));
-  hero.append(heading);
-  if (result.thesis) hero.append(node("p", "", result.thesis));
-  target.append(hero);
-  if (compact) return;
-
-  if (SHOW_IMAGE_QUALITY_NOTE && result.imageQualityNote) {
-    const quality = node("div", `ai-quality-note${result.readable ? "" : " warning"}`, result.imageQualityNote);
-    target.append(quality);
-  }
-  const points = node("section", "ai-result-card ai-technical-card");
-  const pointHeading = node("div", "ai-card-title-row");
-  pointHeading.append(node("h3", "", "技術判讀"), buildToneLegend());
-  points.append(pointHeading);
-  const pointGrid = node("div", "ai-point-grid");
-  (result.technicalPoints || []).forEach((point) => {
-    const item = node("article", `ai-point ${point.tone || "neutral"}`);
-    item.append(node("b", "", point.label), node("p", "", point.analysis));
-    pointGrid.append(item);
-  });
-  points.append(pointGrid);
-  target.append(points);
-
-  const zones = node("div", "ai-zone-grid");
-  addListCard(zones, "支撐區", result.supportZones, "support");
-  addListCard(zones, "壓力區", result.resistanceZones, "resistance");
-  target.append(zones);
-
-  const plan = result.tradePlan || {};
-  const planCard = node("section", "ai-result-card ai-plan-card");
-  planCard.append(node("h3", "", "交易計畫"));
-  const planGrid = node("div", "ai-plan-grid");
-  [["進場條件", plan.entry], ["防守／停損", plan.defense], ["第一目標", plan.firstTarget], ["第二目標", plan.secondTarget], ["強壓位置", plan.strongResistance], ["部位建議", plan.positionSizing]].forEach(([label, value]) => {
-    const item = node("div"); item.append(node("span", "", label), node("strong", "", value || "—")); planGrid.append(item);
-  });
-  planCard.append(planGrid);
-  target.append(planCard);
-  addListCard(target, "風險提醒", result.riskNotes, "risk");
-  if (result.invalidation) {
-    const invalidation = node("div", "ai-invalidation");
-    invalidation.append(node("b", "", "判斷失效條件"), node("span", "", result.invalidation));
-    target.append(invalidation);
-  }
+  target.innerHTML = window.ChartReport.render(result, { compact });
 }
-
 function escapeHtml(value) {
   return String(value == null ? "" : value).replace(/[&<>"']/g, (character) => ({
     "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;"
@@ -624,27 +583,16 @@ function listHtml(items) {
 
 function buildPdfExportFrame() {
   if (!currentAnalysisResult || !currentAnalysisMeta) throw new Error("目前沒有可匯出的分析結果");
-  const result = currentAnalysisResult, plan = result.tradePlan || {};
-  const technical = (result.technicalPoints || []).map((point) => {
-    const tone = ["bullish", "bearish", "neutral", "warning"].includes(point.tone) ? point.tone : "neutral";
-    return `<article class="${tone}"><b>${escapeHtml(point.label)}</b><p>${escapeHtml(point.analysis)}</p></article>`;
-  }).join("");
-  const toneLegend = TECHNICAL_TONE_LEGEND.map(([tone, label]) => `<span class="${tone}"><i></i>${label}</span>`).join("");
-  const planRows = [["進場條件", plan.entry], ["防守／停損", plan.defense], ["第一目標", plan.firstTarget], ["第二目標", plan.secondTarget], ["強壓位置", plan.strongResistance], ["部位建議", plan.positionSizing]]
-    .map(([label, value]) => `<div><span>${label}</span><strong>${escapeHtml(value || "—")}</strong></div>`).join("");
+  const result = currentAnalysisResult;
   const iframe = document.createElement("iframe");
   iframe.title = "PDF 匯出版面";
   iframe.style.cssText = "position:absolute;left:-12000px;top:0;width:1060px;height:100px;border:0;background:#fff";
-  iframe.srcdoc = `<!doctype html><html lang="zh-Hant"><head><meta charset="utf-8"><style>
+  iframe.srcdoc = `<!doctype html><html lang="zh-Hant"><head><meta charset="utf-8"><link rel="stylesheet" href="${escapeHtml(new URL('chart-report.css?v=20260906', window.location.href).href)}"><style>
     *{box-sizing:border-box}html,body{margin:0;background:#fff;color:#1c2430;font-family:-apple-system,'PingFang TC','Microsoft JhengHei',sans-serif}body{width:1060px;padding:38px;font-size:15px;line-height:1.6}
     header{display:flex;justify-content:space-between;align-items:flex-start;gap:24px;padding-bottom:18px;border-bottom:3px solid #3b5bdb}header em{display:block;color:#3b5bdb;font-size:12px;font-style:normal;font-weight:800;letter-spacing:.12em}h1{margin:5px 0 0;font-size:29px}header small{color:#6b7684;font-size:13px}.chart{display:block;width:100%;max-height:640px;margin:22px 0;border-radius:14px;background:#111827;object-fit:contain}
     .hero{padding:20px;border:1px solid #c7d2fe;border-radius:14px;background:#eef2ff}.hero label{color:#3b5bdb;font-size:12px;font-weight:800}.hero h2{margin:5px 0 0;font-size:24px}.hero p{margin:3px 0 0;color:#596579}.quality{margin:12px 0;padding:11px 13px;border-radius:9px;background:#f1f5f9;color:#596579}.card{margin-top:14px;padding:17px;border:1px solid #e3e7ec;border-radius:13px;background:#f8fafc}.card h3{margin:0;font-size:17px}.title-row{display:flex;align-items:center;justify-content:space-between;gap:18px;margin-bottom:12px}.tone-legend{display:flex;align-items:center;gap:14px;font-size:12px;color:#596579}.tone-legend span{display:flex;align-items:center;gap:5px}.tone-legend i{width:20px;height:3px;border-radius:2px;background:#7b8491}.tone-legend .bullish i{background:#d64545}.tone-legend .bearish i{background:#16884c}.tone-legend .warning i{background:#d69e2e}.points,.zones,.plan{display:grid;grid-template-columns:1fr 1fr;gap:11px}.points article,.plan div{padding:12px;border-radius:9px;background:#fff}.points article{border-left:4px solid #7b8491}.points article.bullish{border-color:#d64545}.points article.bearish{border-color:#16884c}.points article.warning{border-color:#d69e2e}.points p{margin:4px 0 0;color:#596579}.zones section{margin-top:14px;border-top:4px solid #1f9d55}.zones section:last-child{border-color:#d64545}.plan span,.plan strong{display:block}.plan span{color:#6b7684;font-size:12px}.plan strong{margin-top:4px}ul{margin:0;padding-left:22px;color:#596579}.invalid{margin-top:14px;padding:13px;border-radius:10px;background:#fff0f0}.invalid b{color:#d64545;margin-right:12px}footer{margin-top:20px;padding-top:14px;border-top:1px solid #e3e7ec;color:#6b7684;font-size:12px}
   </style></head><body><header><div><em>AI TECHNICAL ANALYSIS</em><h1>${escapeHtml(currentAnalysisMeta.symbol)} ${escapeHtml(currentAnalysisMeta.assetName)}</h1></div><small>${escapeHtml(currentAnalysisMeta.date)} · ${escapeHtml(currentAnalysisMeta.timing)} · ${escapeHtml(currentAnalysisMeta.modeLabel)}</small></header>
-  ${resultImageData ? `<img class="chart" src="${resultImageData}" alt="技術線圖">` : ""}<section class="hero"><div><label>${escapeHtml(result.marketState || "資訊不足")}</label><h2>${escapeHtml(result.conclusion || "尚無結論")}</h2></div><p>${escapeHtml(result.thesis || "")}</p></section>
-  ${SHOW_IMAGE_QUALITY_NOTE && result.imageQualityNote ? `<div class="quality">${escapeHtml(result.imageQualityNote)}</div>` : ""}<section class="card"><div class="title-row"><h3>技術判讀</h3><div class="tone-legend">${toneLegend}</div></div><div class="points">${technical}</div></section>
-  <div class="zones"><section class="card"><h3>支撐區</h3>${listHtml(result.supportZones)}</section><section class="card"><h3>壓力區</h3>${listHtml(result.resistanceZones)}</section></div>
-  <section class="card"><h3>交易計畫</h3><div class="plan">${planRows}</div></section><section class="card"><h3>風險提醒</h3>${listHtml(result.riskNotes)}</section>
-  ${result.invalidation ? `<div class="invalid"><b>判斷失效條件</b>${escapeHtml(result.invalidation)}</div>` : ""}<footer>產生時間：${escapeHtml(new Date().toLocaleString("zh-TW"))}。除息資料僅用於避免技術走勢誤判；AI 分析不構成投資建議或獲利保證。</footer></body></html>`;
+  ${resultImageData ? `<img class="chart" src="${resultImageData}" alt="技術線圖">` : ""}${window.ChartReport.render(result)}<footer>產生時間：${escapeHtml(new Date().toLocaleString("zh-TW"))}。AI 分析不構成投資建議或獲利保證。</footer></body></html>`;
   return new Promise((resolve) => {
     iframe.onload = () => {
       const body = iframe.contentDocument.body;
@@ -799,8 +747,16 @@ async function analyze() {
     assetName: transferredAssetName || assetNames.get(normalizedSymbol) || normalizedSymbol,
     screenshotTiming: $("#screenshotTiming").value,
     proposedPrice: $("#proposedPrice").value || null,
+    positionStatus: $("#positionStatus").value,
+    averageCost: $("#positionStatus").value === "holding" ? ($("#averageCost").value || null) : null,
+    costCurrency: $("#positionStatus").value === "holding" ? $("#costCurrency").value : "",
     chartData: transferredChartData,
   };
+  if (payload.averageCost !== null && (!Number.isFinite(Number(payload.averageCost)) || Number(payload.averageCost) <= 0 || Number(payload.averageCost) > 10000000 || !payload.costCurrency)) {
+    $("#analysisStatus").className = "ai-status error";
+    $("#analysisStatus").textContent = "請填寫有效的平均成本並選擇成本幣別。";
+    return;
+  }
   busy = true;
   $("#analyzeChart").disabled = true;
   $("#analyzeChart").classList.add("loading");
@@ -906,6 +862,12 @@ async function loadHistory() {
 
 function bind() {
   loadAssetNames();
+  $("#positionStatus").addEventListener("change", () => {
+    const holding = $("#positionStatus").value === "holding";
+    $("#averageCostField").hidden = !holding;
+    $("#costCurrencyField").hidden = !holding;
+    if (!holding) { $("#averageCost").value = ""; $("#costCurrency").value = ""; }
+  });
   $("#chartImage").addEventListener("change", (event) => selectImage(event.target.files?.[0]));
   $("#removeImage").addEventListener("click", clearImage);
   const preview = $("#chartPreview");

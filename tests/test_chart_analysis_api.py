@@ -1,4 +1,6 @@
 import base64
+import io
+import json
 import importlib.util
 from pathlib import Path
 import unittest
@@ -12,6 +14,73 @@ SPEC.loader.exec_module(API)
 
 
 class ChartAnalysisApiTests(unittest.TestCase):
+    def report_result(self):
+        def sample(schema):
+            if 'enum' in schema:
+                return schema['enum'][0]
+            if schema['type'] == 'object':
+                return {k: sample(v) for k, v in schema['properties'].items()}
+            if schema['type'] == 'array':
+                return [sample(schema['items']) for _ in range(schema.get('minItems', 1))]
+            return True if schema['type'] == 'boolean' else '測試資料'
+        result = sample(API.RESULT_SCHEMA)
+        result['technicalPoints'] = [{'label':label, 'analysis':'證據', 'tone':'neutral'} for label in API.TECHNICAL_LABELS]
+        return result
+
+    def test_holding_cost_validates_without_reusing_proposed_price(self):
+        data = API.validate_payload({'imageData': self.image_data(), 'positionStatus':'holding',
+                                     'averageCost':'394', 'costCurrency':'USD', 'proposedPrice':365})
+        self.assertEqual(data['averageCost'], 394)
+        self.assertEqual(data['proposedPrice'], 365)
+        self.assertIn('394', API.build_user_prompt(data))
+        for changes in ({'averageCost':True}, {'averageCost':'nan'}, {'averageCost':-1},
+                        {'costCurrency':''}, {'costCurrency':'inject'}, {'positionStatus':'watching'}):
+            with self.subTest(changes=changes), self.assertRaises(ValueError):
+                API.validate_payload({'imageData': self.image_data(), 'positionStatus':'holding',
+                                      'averageCost':394, 'costCurrency':'USD', **changes})
+
+    def test_output_reorders_points_but_rejects_missing_evidence(self):
+        result = self.report_result()
+        result['technicalPoints'].reverse()
+        result['rating'] = '暫不評分（資訊不足）'
+        self.assertEqual([p['label'] for p in API.validate_analysis(result)['technicalPoints']], API.TECHNICAL_LABELS)
+        result['technicalPoints'][0] = result['technicalPoints'][1]
+        with self.assertRaisesRegex(ValueError, '必要技術'):
+            API.validate_analysis(result)
+        result = self.report_result()
+        del result['tradePlan']['holdingAdvice']
+        with self.assertRaises(ValueError):
+            API.validate_analysis(result)
+
+    @mock.patch.object(API, 'json_request')
+    def test_model_call_uses_skill_and_records_versioned_result(self, request):
+        request.return_value = {'model':'test-model', 'output':[{'type':'message', 'content':[{
+            'type':'output_text', 'text':json.dumps(self.report_result(), ensure_ascii=False)}]}]}
+        data = API.validate_payload({'imageData':self.image_data()})
+        result, model, _ = API.analyze_chart(data, 'test-key')
+        prompt = request.call_args.kwargs['payload']['input'][0]['content']
+        self.assertIn('## 固定評分', prompt)
+        self.assertEqual(result['reportMeta']['schemaVersion'], 2)
+        self.assertEqual(result['reportMeta']['promptVersion'], API.PROMPT_VERSION)
+        self.assertEqual(result['reportMeta']['model'], model)
+        self.assertNotIn('test-key', json.dumps(result))
+
+    def test_member_access_errors_stop_before_model_request(self):
+        for code, status in [('FEATURE_NOT_ENABLED',403), ('FEATURE_ACCESS_EXPIRED',403), ('DAILY_LIMIT_REACHED',429)]:
+            with self.subTest(code=code):
+                body = json.dumps({'imageData':self.image_data()}).encode()
+                handler = object.__new__(API.handler)
+                handler.headers = {'Authorization':'Bearer test-user', 'Content-Length':str(len(body))}
+                handler.rfile = io.BytesIO(body)
+                handler.send_json = mock.Mock()
+                with mock.patch.dict(API.os.environ, {'OPENAI_API_KEY':'test-key'}), \
+                     mock.patch.object(API, 'verify_user'), \
+                     mock.patch.object(API, 'call_rpc', side_effect=API.ApiError(400, {'message':code})), \
+                     mock.patch.object(API, 'analyze_chart') as analyze:
+                    handler.do_POST()
+                    analyze.assert_not_called()
+                    self.assertEqual(handler.send_json.call_args.args[1], status)
+
     def image_data(self, size=32, mime="image/png"):
         return "data:{};base64,{}".format(mime, base64.b64encode(b"x" * size).decode())
 
