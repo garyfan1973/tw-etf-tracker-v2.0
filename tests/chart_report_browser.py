@@ -50,6 +50,34 @@ try:
             route.fulfill(json={"ok":True,"requestId":"qa-result","analysis":fixture,
                                 "quota":{"remaining":4,"dailyLimit":5}})
         page.route('**/api/chart-analysis', response)
+        page.route('**/api/news?*', lambda route: route.fulfill(json={"ok":True,"items":[]}))
+        page.route('**/api/financials?*', lambda route: route.fulfill(json={"ok":False,"error":"QA fixture"}))
+        dialogs = []
+        page.on('dialog', lambda dialog: (dialogs.append(dialog.message), dialog.dismiss()))
+        # Exercise the real K-line entrypoint, including preset restoration on errors.
+        page.goto(f'http://127.0.0.1:{server.server_port}/tracker.html?view=kline&market=US&symbol=AVGO', wait_until='networkidle')
+        page.wait_for_function('window.MarketChart?.getAnalysisSnapshot()?.priceRows?.length > 0')
+        page.locator('[data-ma-period="5"]').click()
+        restored = page.evaluate("""async()=>{
+          const controls=()=>Array.from(document.querySelectorAll('[data-ma-period],[data-volume-ma-period],[data-indicator],[data-trade-overlay]')).map(e=>e.getAttribute('aria-pressed'));
+          const before=JSON.stringify({chart:MarketChart.getAnalysisSnapshot().chart,controls:controls()});
+          const captured=await MarketChart.withAnalysisPreset(async snapshot=>snapshot);
+          const after=JSON.stringify({chart:MarketChart.getAnalysisSnapshot().chart,controls:controls()});
+          const clean=s=>JSON.stringify({...JSON.parse(s),chart:{...JSON.parse(s).chart,capturedAt:null}});
+          let caught=false;
+          try{await MarketChart.withAnalysisPreset(async()=>{throw new Error('capture-fixture-failure')});}catch(e){caught=e.message==='capture-fixture-failure';}
+          const failed=JSON.stringify({chart:MarketChart.getAnalysisSnapshot().chart,controls:controls()});
+          return {restored:clean(before)===clean(after)&&clean(before)===clean(failed),caught,mas:captured.chart.visibleMas,indicators:captured.chart.visibleIndicators};
+        }""")
+        assert restored['restored'] and restored['caught'], restored
+        assert restored['mas']==[5,10,20,60,120,240]
+        assert len(restored['indicators'])==5
+        page.click('[data-ai-chart-capture]')
+        page.wait_for_url('**/chart-analysis.html?source=kline')
+        page.wait_for_function('!document.querySelector("#chartPreview").hidden')
+        assert page.input_value('#analysisSymbol')=='AVGO'
+        assert not dialogs, dialogs
+        assert not errors, errors
         page.goto(f'http://127.0.0.1:{server.server_port}/chart-analysis.html', wait_until='networkidle')
         page.wait_for_function('window.qaReport && !document.querySelector("#aiWorkspace").hidden')
         page.select_option('#positionStatus','holding')
@@ -86,7 +114,7 @@ try:
         assert not page.locator('#aiWorkspace').is_visible()
         assert '尚未開通' in page.locator('#aiGate').inner_text()
         assert not errors, errors
-        print(json.dumps({"browser":"passed", "pdfBytes":pdf['size'], "checks":["upload","cost","fixed report","shared PDF","mobile","dark","member gate"]}))
+        print(json.dumps({"browser":"passed", "pdfBytes":pdf['size'], "checks":["K-line capture and transfer","preset restoration after success and failure","upload","cost","fixed report","shared PDF","mobile","dark","member gate"]}))
         browser.close()
 finally:
     server.shutdown()
