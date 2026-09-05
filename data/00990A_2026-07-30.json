@@ -587,17 +587,7 @@
       "name": "旺矽",
       "market": "TW",
       "weight": 1.01,
-      "shares": 75000,
-      "open": 5175.0,
-      "high": 5280.0,
-      "low": 5090.0,
-      "close": 5155.0,
-      "prevClose": 5045.0,
-      "change": 110.0,
-      "changePct": 2.18,
-      "amplitude": 3.77,
-      "volume": 555526.0,
-      "quoteDate": "2026-07-30"
+      "shares": 75000
     },
     {
       "code": "AMZN",
@@ -640,17 +630,7 @@
       "name": "世界",
       "market": "TW",
       "weight": 0.96,
-      "shares": 2498000,
-      "open": 150.0,
-      "high": 151.0,
-      "low": 148.5,
-      "close": 150.0,
-      "prevClose": 147.0,
-      "change": 3.0,
-      "changePct": 2.04,
-      "amplitude": 1.7,
-      "volume": 4829835.0,
-      "quoteDate": "2026-07-30"
+      "shares": 2498000
     },
     {
       "code": "6981",
