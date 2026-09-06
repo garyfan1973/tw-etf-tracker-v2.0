@@ -94,10 +94,17 @@ try:
         page.click('#analyzeChart')
         page.wait_for_selector('#resultContent .cr-rating')
         assert sent[0]['averageCost']=='394' and sent[0]['costCurrency']=='USD'
+        # The fixed report is additive: the original visual analysis must remain intact.
+        assert page.locator('#resultContent .ai-result-hero').count()==1
+        assert page.locator('#resultContent .ai-technical-card').count()==1
+        assert page.locator('#resultContent .ai-zone-grid').count()==1
+        assert page.locator('#resultContent .ai-plan-card').count()==1
+        assert page.locator('#resultContent .ai-result-card.risk').count()==1
+        assert page.locator('#resultContent .ai-fixed-report').count()==1
         assert page.locator('#resultContent .cr-section h3').all_text_contents()==['結論','技術面','關鍵價位','操作策略']
         page.wait_for_function('!document.querySelector("#resultExportTools").hidden')
         page.screenshot(path='/private/tmp/chart-report-desktop.png',full_page=True)
-        assert page.evaluate("""async()=>{const f=await qaReport.frame();const same=f.node.querySelector('.cr-report').innerHTML===document.querySelector('#resultContent .cr-report').innerHTML;f.frame.remove();return same;}""")
+        assert page.evaluate("""async()=>{const f=await qaReport.frame();const original=!!f.node.querySelector('.hero')&&!!f.node.querySelector('.points')&&!!f.node.querySelector('.zones')&&!!f.node.querySelector('.plan');const same=f.node.querySelector('.cr-report').innerHTML===document.querySelector('#resultContent .cr-report').innerHTML;f.frame.remove();return original&&same;}""")
         pdf = page.evaluate("""async()=>{const b=await qaReport.pdf();return {size:b.size,header:await b.slice(0,4).text()};}""")
         assert pdf['size']>1000 and pdf['header']=='%PDF'
         for width in (390, 1440):
