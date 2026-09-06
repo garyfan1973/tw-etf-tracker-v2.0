@@ -1,5 +1,7 @@
 import importlib.util
+import json
 from pathlib import Path
+import subprocess
 import tempfile
 import unittest
 
@@ -61,6 +63,23 @@ class CloudBatchTests(unittest.TestCase):
             MODULE.without_volatile_content_metadata(first),
             MODULE.without_volatile_content_metadata(second),
         )
+
+    def test_financial_content_changed_ignores_only_timestamp_updates(self):
+        with tempfile.TemporaryDirectory() as directory:
+            root = Path(directory)
+            subprocess.run(["git", "init", "-q"], cwd=root, check=True)
+            subprocess.run(["git", "config", "user.name", "Test"], cwd=root, check=True)
+            subprocess.run(["git", "config", "user.email", "test@example.com"], cwd=root, check=True)
+            target = root / "content.json"
+            target.write_text(json.dumps({"updatedAt": "before", "items": [{"url": "one"}]}), encoding="utf-8")
+            subprocess.run(["git", "add", "content.json"], cwd=root, check=True)
+            subprocess.run(["git", "commit", "-qm", "initial"], cwd=root, check=True)
+
+            target.write_text(json.dumps({"updatedAt": "after", "items": [{"url": "one"}]}), encoding="utf-8")
+            self.assertFalse(MODULE.financial_content_changed(root, "content.json"))
+
+            target.write_text(json.dumps({"updatedAt": "later", "items": [{"url": "two"}]}), encoding="utf-8")
+            self.assertTrue(MODULE.financial_content_changed(root, "content.json"))
 
 
 if __name__ == "__main__":

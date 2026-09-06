@@ -199,6 +199,11 @@ def run_financial_content(repo_dir: Path, git_env: dict[str, str]) -> None:
         path for path in FINANCIAL_CONTENT_PATHS
         if financial_content_changed(repo_dir, path)
     ]
+    unchanged_paths = [path for path in FINANCIAL_CONTENT_PATHS if path not in changed_paths]
+    if unchanged_paths:
+        # Leave the ephemeral clone clean so a later rebase can proceed when
+        # another scheduled batch pushed to main during this execution.
+        run(["git", "restore", "--source=HEAD", "--", *unchanged_paths], repo_dir)
     if not changed_paths:
         print("財經內容只有擷取時間變更，不建立 commit。")
         return
