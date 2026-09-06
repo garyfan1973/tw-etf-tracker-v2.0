@@ -9,6 +9,7 @@ batch, and pushes generated data back only when files changed.
 from __future__ import annotations
 
 import datetime as dt
+import json
 import os
 from pathlib import Path
 import re
@@ -53,6 +54,11 @@ FINANCIAL_CONTENT_COMMANDS = [
     [sys.executable, "fetch_cnbc_top_news.py"],
 ]
 
+# Fetch timestamps change on every poll even when the published content is
+# identical.  They are useful metadata, but must not trigger a full Vercel
+# production deployment on their own.
+VOLATILE_CONTENT_KEYS = {"updatedAt", "capturedAt", "fetchedAt", "publishedAt"}
+
 
 def run(command: list[str], cwd: Path, *, env: dict[str, str] | None = None) -> None:
     print(f"+ {' '.join(command)}", flush=True)
@@ -61,6 +67,30 @@ def run(command: list[str], cwd: Path, *, env: dict[str, str] | None = None) -> 
 
 def output(command: list[str], cwd: Path) -> str:
     return subprocess.check_output(command, cwd=cwd, text=True).strip()
+
+
+def without_volatile_content_metadata(value):
+    if isinstance(value, dict):
+        return {
+            key: without_volatile_content_metadata(child)
+            for key, child in value.items()
+            if key not in VOLATILE_CONTENT_KEYS
+        }
+    if isinstance(value, list):
+        return [without_volatile_content_metadata(child) for child in value]
+    return value
+
+
+def financial_content_changed(repo_dir: Path, path: str) -> bool:
+    """Return whether a generated JSON file changed beyond fetch timestamps."""
+    try:
+        current = json.loads((repo_dir / path).read_text(encoding="utf-8"))
+        previous = json.loads(output(["git", "show", f"HEAD:{path}"], repo_dir))
+    except (FileNotFoundError, json.JSONDecodeError, subprocess.CalledProcessError):
+        # New or malformed output should remain visible to the normal review and
+        # deployment path instead of being silently discarded.
+        return True
+    return without_volatile_content_metadata(current) != without_volatile_content_metadata(previous)
 
 
 def latest_snapshot_date(data_dir: Path) -> str | None:
@@ -165,10 +195,14 @@ def run_financial_content(repo_dir: Path, git_env: dict[str, str]) -> None:
 
     run(["git", "config", "user.name", "cloud-run-batch[bot]"], repo_dir)
     run(["git", "config", "user.email", "cloud-run-batch[bot]@users.noreply.github.com"], repo_dir)
-    run(["git", "add", *FINANCIAL_CONTENT_PATHS], repo_dir)
-    if subprocess.run(["git", "diff", "--cached", "--quiet"], cwd=repo_dir).returncode == 0:
-        print("財經內容無變更，不建立 commit。")
+    changed_paths = [
+        path for path in FINANCIAL_CONTENT_PATHS
+        if financial_content_changed(repo_dir, path)
+    ]
+    if not changed_paths:
+        print("財經內容只有擷取時間變更，不建立 commit。")
         return
+    run(["git", "add", *changed_paths], repo_dir)
 
     today = dt.datetime.now(TAIPEI).date().isoformat()
     run(["git", "commit", "-m", f"chore(data)：Cloud Run 更新財經內容 {today}"], repo_dir)

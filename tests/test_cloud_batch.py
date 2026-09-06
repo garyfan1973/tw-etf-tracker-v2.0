@@ -30,6 +30,38 @@ class CloudBatchTests(unittest.TestCase):
             missing = Path(directory) / "missing"
             self.assertIsNone(MODULE.latest_snapshot_date(missing))
 
+    def test_volatile_fetch_timestamps_do_not_count_as_content_changes(self):
+        first = {
+            "updatedAt": "2026-09-05T16:05:00Z",
+            "items": [{
+                "url": "https://example.com/story",
+                "title": "Same story",
+                "publishedAt": "2026-09-05T16:05:00Z",
+                "capturedAt": "2026-09-05T16:05:01Z",
+            }],
+        }
+        second = {
+            "updatedAt": "2026-09-05T16:35:00Z",
+            "items": [{
+                "url": "https://example.com/story",
+                "title": "Same story",
+                "publishedAt": "2026-09-05T16:35:00Z",
+                "capturedAt": "2026-09-05T16:35:01Z",
+            }],
+        }
+        self.assertEqual(
+            MODULE.without_volatile_content_metadata(first),
+            MODULE.without_volatile_content_metadata(second),
+        )
+
+    def test_article_changes_still_count_as_content_changes(self):
+        first = {"updatedAt": "before", "items": [{"url": "one", "title": "Old"}]}
+        second = {"updatedAt": "after", "items": [{"url": "two", "title": "New"}]}
+        self.assertNotEqual(
+            MODULE.without_volatile_content_metadata(first),
+            MODULE.without_volatile_content_metadata(second),
+        )
+
 
 if __name__ == "__main__":
     unittest.main()

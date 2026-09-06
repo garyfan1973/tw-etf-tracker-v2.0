@@ -119,8 +119,8 @@
 - 全球指數、Russell 2000、VIX、美元指數、原油與主要貨幣參考匯率：Yahoo Finance 日線資料，由 `fetch_macro_markets.py` 每日整理至 `webapp/market_data.json`；台灣加權指數成交金額以證交所大盤統計資訊覆蓋，並保留近一年官方歷史資料。
 - 美國公債殖利率曲線：美國財政部 Daily Treasury Par Yield Curve Rates，由 `fetch_macro_markets.py` 每日更新。
 - 聯準會政策：FRED 的政策利率、總資產、公債、MBS、準備金與 ON RRP 序列，搭配聯準會官方貨幣政策 RSS 與 FOMC 日程，由 `fetch_fed_policy.py` 更新。
-- 財經影音：七個指定 YouTube 官方頻道的 RSS，只保留最近七天公開影片，由 Cloud Scheduler 每 30 分鐘執行 `fetch_financial_videos.py` 更新。
-- 總經新聞：中央社財經／國際 RSS，加上經濟日報與工商時報首頁標題，保留最近五天內容，與財經影音同由 Cloud Scheduler 每 30 分鐘更新。
+- 財經影音：七個指定 YouTube 官方頻道的 RSS，只保留最近七天公開影片，由 Cloud Scheduler 每日四次執行 `fetch_financial_videos.py` 更新。
+- 總經新聞：中央社財經／國際 RSS，加上經濟日報與工商時報首頁標題，保留最近五天內容，與財經影音同由 Cloud Scheduler 每日四次更新；只有實質內容變更才觸發網站部署。
 - K 線歷史行情：Yahoo Finance 兩年日線 OHLCV，依市場與代號保存於 `webapp/price-history/`；市場研究開啟標的時會再合併最新行情，上市台股最新月份以臺灣證券交易所官方 OHLCV 覆蓋。
 - ETF 清單：官方上市／上櫃 ETF 資料。
 - 短線日誌標的清單：台灣使用 TWSE／TPEx，美國使用 Nasdaq Trader 公開掛牌清單；清單是一次性手動更新，日誌仍允許自行輸入清單外代號。
