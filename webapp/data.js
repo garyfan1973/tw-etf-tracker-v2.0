@@ -1,5 +1,5 @@
 window.DATA = {
-  "generated_at": "2026-09-06T18:32:01+08:00",
+  "generated_at": "2026-09-06T19:32:09+08:00",
   "etfs": {
     "00981A": {
       "name": "主動統一台股增長",
@@ -44705,7 +44705,7 @@ window.DATA = {
         },
         {
           "date": "2026-09-04",
-          "fetched_at": "2026-09-06T18:30:33+08:00",
+          "fetched_at": "2026-09-06T19:30:48+08:00",
           "count": 51,
           "self": {
             "open": 29.77,
@@ -45160,7 +45160,7 @@ window.DATA = {
                 "shortPrevBalance": 7,
                 "shortBalance": 6,
                 "offsetting": 1,
-                "date": "2026-09-04"
+                "date": "2026-09-03"
               }
             },
             {
@@ -45348,7 +45348,7 @@ window.DATA = {
                 "shortPrevBalance": 71,
                 "shortBalance": 63,
                 "offsetting": 5,
-                "date": "2026-09-04"
+                "date": "2026-09-03"
               }
             },
             {
@@ -45429,7 +45429,7 @@ window.DATA = {
                 "shortPrevBalance": 0,
                 "shortBalance": 0,
                 "offsetting": 0,
-                "date": "2026-09-04"
+                "date": "2026-09-03"
               }
             },
             {
@@ -45578,7 +45578,7 @@ window.DATA = {
                 "shortPrevBalance": 20,
                 "shortBalance": 18,
                 "offsetting": 0,
-                "date": "2026-09-04"
+                "date": "2026-09-03"
               }
             },
             {
@@ -45649,7 +45649,7 @@ window.DATA = {
                 "shortPrevBalance": 382,
                 "shortBalance": 458,
                 "offsetting": 74,
-                "date": "2026-09-04"
+                "date": "2026-09-03"
               }
             },
             {
@@ -45681,7 +45681,7 @@ window.DATA = {
                 "shortPrevBalance": 150,
                 "shortBalance": 137,
                 "offsetting": 2,
-                "date": "2026-09-04"
+                "date": "2026-09-03"
               }
             },
             {
@@ -46454,7 +46454,7 @@ window.DATA = {
                 "shortPrevBalance": 116,
                 "shortBalance": 124,
                 "offsetting": 2,
-                "date": "2026-09-04"
+                "date": "2026-09-03"
               }
             },
             {
@@ -46486,7 +46486,7 @@ window.DATA = {
                 "shortPrevBalance": 40,
                 "shortBalance": 38,
                 "offsetting": 3,
-                "date": "2026-09-04"
+                "date": "2026-09-03"
               }
             },
             {
@@ -46518,7 +46518,7 @@ window.DATA = {
                 "shortPrevBalance": 3,
                 "shortBalance": 7,
                 "offsetting": 0,
-                "date": "2026-09-04"
+                "date": "2026-09-03"
               }
             },
             {
@@ -46550,7 +46550,7 @@ window.DATA = {
                 "shortPrevBalance": 787,
                 "shortBalance": 881,
                 "offsetting": 591,
-                "date": "2026-09-04"
+                "date": "2026-09-03"
               }
             },
             {
@@ -46582,7 +46582,7 @@ window.DATA = {
                 "shortPrevBalance": 312,
                 "shortBalance": 271,
                 "offsetting": 11,
-                "date": "2026-09-04"
+                "date": "2026-09-03"
               }
             },
             {
@@ -46661,7 +46661,7 @@ window.DATA = {
           "大型權值"
         ],
         "source": "TWSE ETF e添富",
-        "fetchedAt": "2026-09-06T18:31:55+08:00",
+        "fetchedAt": "2026-09-06T19:32:04+08:00",
         "navHistory": [
           {
             "date": "2026-07-23",
@@ -96304,7 +96304,7 @@ window.DATA = {
         },
         {
           "date": "2026-09-04",
-          "fetched_at": "2026-09-06T18:30:33+08:00",
+          "fetched_at": "2026-09-06T19:30:49+08:00",
           "count": 56,
           "self": {
             "open": 22.95,
@@ -96525,7 +96525,7 @@ window.DATA = {
                 "shortPrevBalance": 908,
                 "shortBalance": 921,
                 "offsetting": 33,
-                "date": "2026-09-04"
+                "date": "2026-09-03"
               }
             },
             {
@@ -96635,7 +96635,7 @@ window.DATA = {
                 "shortPrevBalance": 35,
                 "shortBalance": 42,
                 "offsetting": 3,
-                "date": "2026-09-04"
+                "date": "2026-09-03"
               }
             },
             {
@@ -96745,7 +96745,7 @@ window.DATA = {
                 "shortPrevBalance": 7,
                 "shortBalance": 6,
                 "offsetting": 1,
-                "date": "2026-09-04"
+                "date": "2026-09-03"
               }
             },
             {
@@ -96933,7 +96933,7 @@ window.DATA = {
                 "shortPrevBalance": 312,
                 "shortBalance": 271,
                 "offsetting": 11,
-                "date": "2026-09-04"
+                "date": "2026-09-03"
               }
             },
             {
@@ -97277,7 +97277,7 @@ window.DATA = {
                 "shortPrevBalance": 181,
                 "shortBalance": 192,
                 "offsetting": 2,
-                "date": "2026-09-04"
+                "date": "2026-09-03"
               }
             },
             {
@@ -97348,7 +97348,7 @@ window.DATA = {
                 "shortPrevBalance": 0,
                 "shortBalance": 0,
                 "offsetting": 0,
-                "date": "2026-09-04"
+                "date": "2026-09-03"
               }
             },
             {
@@ -97380,7 +97380,7 @@ window.DATA = {
                 "shortPrevBalance": 45,
                 "shortBalance": 47,
                 "offsetting": 0,
-                "date": "2026-09-04"
+                "date": "2026-09-03"
               }
             },
             {
@@ -97490,7 +97490,7 @@ window.DATA = {
                 "shortPrevBalance": 543,
                 "shortBalance": 745,
                 "offsetting": 13,
-                "date": "2026-09-04"
+                "date": "2026-09-03"
               }
             },
             {
@@ -97561,7 +97561,7 @@ window.DATA = {
                 "shortPrevBalance": 71,
                 "shortBalance": 63,
                 "offsetting": 5,
-                "date": "2026-09-04"
+                "date": "2026-09-03"
               }
             },
             {
@@ -97827,7 +97827,7 @@ window.DATA = {
                 "shortPrevBalance": 5,
                 "shortBalance": 3,
                 "offsetting": 0,
-                "date": "2026-09-04"
+                "date": "2026-09-03"
               }
             },
             {
@@ -97859,7 +97859,7 @@ window.DATA = {
                 "shortPrevBalance": 3,
                 "shortBalance": 3,
                 "offsetting": 1,
-                "date": "2026-09-04"
+                "date": "2026-09-03"
               }
             },
             {
@@ -98047,7 +98047,7 @@ window.DATA = {
                 "shortPrevBalance": 20,
                 "shortBalance": 21,
                 "offsetting": 2,
-                "date": "2026-09-04"
+                "date": "2026-09-03"
               }
             },
             {
@@ -98430,7 +98430,7 @@ window.DATA = {
                 "shortPrevBalance": 787,
                 "shortBalance": 881,
                 "offsetting": 591,
-                "date": "2026-09-04"
+                "date": "2026-09-03"
               }
             }
           ]
@@ -98481,11 +98481,11 @@ window.DATA = {
         "fundSizeHundredMillion": 516.58,
         "beneficiaryTenThousands": 18.09,
         "tags": [
-          "大型權值",
-          "中小型權值"
+          "中小型權值",
+          "大型權值"
         ],
         "source": "TWSE ETF e添富",
-        "fetchedAt": "2026-09-06T18:31:55+08:00",
+        "fetchedAt": "2026-09-06T19:32:04+08:00",
         "navHistory": [
           {
             "date": "2026-07-23",
@@ -126158,7 +126158,7 @@ window.DATA = {
         },
         {
           "date": "2026-09-03",
-          "fetched_at": "2026-09-06T18:30:49+08:00",
+          "fetched_at": "2026-09-06T19:31:03+08:00",
           "count": 46,
           "self": {
             "open": 14.79,
@@ -127329,7 +127329,7 @@ window.DATA = {
           "科技主題型"
         ],
         "source": "TWSE ETF e添富",
-        "fetchedAt": "2026-09-06T18:31:56+08:00",
+        "fetchedAt": "2026-09-06T19:32:05+08:00",
         "navHistory": [
           {
             "date": "2026-07-23",
@@ -161228,7 +161228,7 @@ window.DATA = {
         },
         {
           "date": "2026-09-04",
-          "fetched_at": "2026-09-06T18:30:49+08:00",
+          "fetched_at": "2026-09-06T19:31:03+08:00",
           "count": 40,
           "self": {
             "open": 18.46,
@@ -161722,7 +161722,7 @@ window.DATA = {
                 "shortPrevBalance": 0,
                 "shortBalance": 0,
                 "offsetting": 0,
-                "date": "2026-09-04"
+                "date": "2026-09-03"
               }
             },
             {
@@ -161754,7 +161754,7 @@ window.DATA = {
                 "shortPrevBalance": 7,
                 "shortBalance": 6,
                 "offsetting": 1,
-                "date": "2026-09-04"
+                "date": "2026-09-03"
               }
             },
             {
@@ -161786,7 +161786,7 @@ window.DATA = {
                 "shortPrevBalance": 19,
                 "shortBalance": 0,
                 "offsetting": 0,
-                "date": "2026-09-04"
+                "date": "2026-09-03"
               }
             },
             {
@@ -162286,7 +162286,7 @@ window.DATA = {
                 "shortPrevBalance": 273,
                 "shortBalance": 263,
                 "offsetting": 12,
-                "date": "2026-09-04"
+                "date": "2026-09-03"
               }
             },
             {
@@ -162318,7 +162318,7 @@ window.DATA = {
                 "shortPrevBalance": 0,
                 "shortBalance": 0,
                 "offsetting": 0,
-                "date": "2026-09-04"
+                "date": "2026-09-03"
               }
             },
             {
@@ -162584,7 +162584,7 @@ window.DATA = {
                 "shortPrevBalance": 40,
                 "shortBalance": 38,
                 "offsetting": 3,
-                "date": "2026-09-04"
+                "date": "2026-09-03"
               }
             },
             {
@@ -162694,7 +162694,7 @@ window.DATA = {
                 "shortPrevBalance": 71,
                 "shortBalance": 63,
                 "offsetting": 5,
-                "date": "2026-09-04"
+                "date": "2026-09-03"
               }
             },
             {
@@ -162726,7 +162726,7 @@ window.DATA = {
                 "shortPrevBalance": 6,
                 "shortBalance": 5,
                 "offsetting": 0,
-                "date": "2026-09-04"
+                "date": "2026-09-03"
               }
             },
             {
@@ -162758,7 +162758,7 @@ window.DATA = {
                 "shortPrevBalance": 116,
                 "shortBalance": 124,
                 "offsetting": 2,
-                "date": "2026-09-04"
+                "date": "2026-09-03"
               }
             }
           ]
@@ -162784,7 +162784,7 @@ window.DATA = {
           "科技主題型"
         ],
         "source": "TWSE ETF e添富",
-        "fetchedAt": "2026-09-06T18:31:56+08:00",
+        "fetchedAt": "2026-09-06T19:32:05+08:00",
         "navHistory": [
           {
             "date": "2026-07-23",
@@ -206459,7 +206459,7 @@ window.DATA = {
         },
         {
           "date": "2026-09-04",
-          "fetched_at": "2026-09-06T18:30:49+08:00",
+          "fetched_at": "2026-09-06T19:31:04+08:00",
           "count": 47,
           "self": {
             "open": 15.26,
@@ -206719,7 +206719,7 @@ window.DATA = {
                 "shortPrevBalance": 7,
                 "shortBalance": 6,
                 "offsetting": 1,
-                "date": "2026-09-04"
+                "date": "2026-09-03"
               }
             },
             {
@@ -206907,7 +206907,7 @@ window.DATA = {
                 "shortPrevBalance": 312,
                 "shortBalance": 271,
                 "offsetting": 11,
-                "date": "2026-09-04"
+                "date": "2026-09-03"
               }
             },
             {
@@ -206939,7 +206939,7 @@ window.DATA = {
                 "shortPrevBalance": 0,
                 "shortBalance": 0,
                 "offsetting": 0,
-                "date": "2026-09-04"
+                "date": "2026-09-03"
               }
             },
             {
@@ -207049,7 +207049,7 @@ window.DATA = {
                 "shortPrevBalance": 40,
                 "shortBalance": 38,
                 "offsetting": 3,
-                "date": "2026-09-04"
+                "date": "2026-09-03"
               }
             },
             {
@@ -207120,7 +207120,7 @@ window.DATA = {
                 "shortPrevBalance": 71,
                 "shortBalance": 63,
                 "offsetting": 5,
-                "date": "2026-09-04"
+                "date": "2026-09-03"
               }
             },
             {
@@ -207503,7 +207503,7 @@ window.DATA = {
                 "shortPrevBalance": 3,
                 "shortBalance": 3,
                 "offsetting": 1,
-                "date": "2026-09-04"
+                "date": "2026-09-03"
               }
             },
             {
@@ -207769,7 +207769,7 @@ window.DATA = {
                 "shortPrevBalance": 273,
                 "shortBalance": 263,
                 "offsetting": 12,
-                "date": "2026-09-04"
+                "date": "2026-09-03"
               }
             },
             {
@@ -207879,7 +207879,7 @@ window.DATA = {
                 "shortPrevBalance": 116,
                 "shortBalance": 124,
                 "offsetting": 2,
-                "date": "2026-09-04"
+                "date": "2026-09-03"
               }
             },
             {
@@ -207911,7 +207911,7 @@ window.DATA = {
                 "shortPrevBalance": 382,
                 "shortBalance": 458,
                 "offsetting": 74,
-                "date": "2026-09-04"
+                "date": "2026-09-03"
               }
             },
             {
@@ -207982,7 +207982,7 @@ window.DATA = {
                 "shortPrevBalance": 653,
                 "shortBalance": 680,
                 "offsetting": 686,
-                "date": "2026-09-04"
+                "date": "2026-09-03"
               }
             },
             {
@@ -208170,7 +208170,7 @@ window.DATA = {
                 "shortPrevBalance": 0,
                 "shortBalance": 0,
                 "offsetting": 0,
-                "date": "2026-09-04"
+                "date": "2026-09-03"
               }
             },
             {
@@ -208202,7 +208202,7 @@ window.DATA = {
                 "shortPrevBalance": 0,
                 "shortBalance": 0,
                 "offsetting": 0,
-                "date": "2026-09-04"
+                "date": "2026-09-03"
               }
             },
             {
@@ -208281,7 +208281,7 @@ window.DATA = {
           "高股息"
         ],
         "source": "TWSE ETF e添富",
-        "fetchedAt": "2026-09-06T18:31:57+08:00",
+        "fetchedAt": "2026-09-06T19:32:05+08:00",
         "navHistory": [
           {
             "date": "2026-07-23",
@@ -255201,7 +255201,7 @@ window.DATA = {
         },
         {
           "date": "2026-09-04",
-          "fetched_at": "2026-09-06T18:30:49+08:00",
+          "fetched_at": "2026-09-06T19:31:04+08:00",
           "count": 52,
           "self": {
             "open": 107.7,
@@ -257251,7 +257251,7 @@ window.DATA = {
           "大型權值"
         ],
         "source": "TWSE ETF e添富",
-        "fetchedAt": "2026-09-06T18:31:57+08:00",
+        "fetchedAt": "2026-09-06T19:32:06+08:00",
         "navHistory": [
           {
             "date": "2026-07-23",
@@ -324105,7 +324105,7 @@ window.DATA = {
         },
         {
           "date": "2026-09-04",
-          "fetched_at": "2026-09-06T18:30:50+08:00",
+          "fetched_at": "2026-09-06T19:31:04+08:00",
           "count": 74,
           "self": {
             "open": 62.45,
@@ -326999,7 +326999,7 @@ window.DATA = {
           "科技主題型"
         ],
         "source": "TWSE ETF e添富",
-        "fetchedAt": "2026-09-06T18:31:57+08:00",
+        "fetchedAt": "2026-09-06T19:32:06+08:00",
         "navHistory": [
           {
             "date": "2026-07-23",
@@ -373759,7 +373759,7 @@ window.DATA = {
         },
         {
           "date": "2026-09-04",
-          "fetched_at": "2026-09-06T18:30:50+08:00",
+          "fetched_at": "2026-09-06T19:31:04+08:00",
           "count": 51,
           "self": {
             "open": 55.15,
@@ -375827,7 +375827,7 @@ window.DATA = {
           "高股息"
         ],
         "source": "TWSE ETF e添富",
-        "fetchedAt": "2026-09-06T18:31:58+08:00",
+        "fetchedAt": "2026-09-06T19:32:06+08:00",
         "navHistory": [
           {
             "date": "2026-07-23",
@@ -404045,7 +404045,7 @@ window.DATA = {
         },
         {
           "date": "2026-09-04",
-          "fetched_at": "2026-09-06T18:30:50+08:00",
+          "fetched_at": "2026-09-06T19:31:04+08:00",
           "count": 30,
           "self": {
             "open": 33.9,
@@ -404861,7 +404861,7 @@ window.DATA = {
                 "shortPrevBalance": 116,
                 "shortBalance": 124,
                 "offsetting": 2,
-                "date": "2026-09-04"
+                "date": "2026-09-03"
               }
             },
             {
@@ -405284,11 +405284,11 @@ window.DATA = {
         "fundSizeHundredMillion": 6456.8,
         "beneficiaryTenThousands": 166.56,
         "tags": [
-          "公司治理及ESG",
-          "高股息"
+          "高股息",
+          "公司治理及ESG"
         ],
         "source": "TWSE ETF e添富",
-        "fetchedAt": "2026-09-06T18:31:58+08:00",
+        "fetchedAt": "2026-09-06T19:32:07+08:00",
         "navHistory": [
           {
             "date": "2026-07-23",
@@ -433416,7 +433416,7 @@ window.DATA = {
         },
         {
           "date": "2026-09-04",
-          "fetched_at": "2026-09-06T18:30:50+08:00",
+          "fetched_at": "2026-09-06T19:31:05+08:00",
           "count": 31,
           "self": {
             "open": 50.4,
@@ -434027,7 +434027,7 @@ window.DATA = {
                 "shortPrevBalance": 7,
                 "shortBalance": 6,
                 "offsetting": 1,
-                "date": "2026-09-04"
+                "date": "2026-09-03"
               }
             },
             {
@@ -434059,7 +434059,7 @@ window.DATA = {
                 "shortPrevBalance": 71,
                 "shortBalance": 63,
                 "offsetting": 5,
-                "date": "2026-09-04"
+                "date": "2026-09-03"
               }
             },
             {
@@ -434569,7 +434569,7 @@ window.DATA = {
                 "shortPrevBalance": 908,
                 "shortBalance": 921,
                 "offsetting": 33,
-                "date": "2026-09-04"
+                "date": "2026-09-03"
               }
             },
             {
@@ -434655,7 +434655,7 @@ window.DATA = {
           "科技主題型"
         ],
         "source": "TWSE ETF e添富",
-        "fetchedAt": "2026-09-06T18:31:59+08:00",
+        "fetchedAt": "2026-09-06T19:32:07+08:00",
         "navHistory": [
           {
             "date": "2026-07-23",
@@ -471935,7 +471935,7 @@ window.DATA = {
         },
         {
           "date": "2026-09-04",
-          "fetched_at": "2026-09-06T18:30:50+08:00",
+          "fetched_at": "2026-09-06T19:31:05+08:00",
           "count": 41,
           "self": {
             "open": 32.7,
@@ -472507,7 +472507,7 @@ window.DATA = {
                 "shortPrevBalance": 0,
                 "shortBalance": 0,
                 "offsetting": 0,
-                "date": "2026-09-04"
+                "date": "2026-09-03"
               }
             },
             {
@@ -472937,7 +472937,7 @@ window.DATA = {
                 "shortPrevBalance": 0,
                 "shortBalance": 0,
                 "offsetting": 0,
-                "date": "2026-09-04"
+                "date": "2026-09-03"
               }
             },
             {
@@ -473604,7 +473604,7 @@ window.DATA = {
           "高股息"
         ],
         "source": "TWSE ETF e添富",
-        "fetchedAt": "2026-09-06T18:31:59+08:00",
+        "fetchedAt": "2026-09-06T19:32:07+08:00",
         "navHistory": [
           {
             "date": "2026-07-23",
@@ -519776,7 +519776,7 @@ window.DATA = {
         },
         {
           "date": "2026-09-04",
-          "fetched_at": "2026-09-06T18:30:50+08:00",
+          "fetched_at": "2026-09-06T19:31:05+08:00",
           "count": 50,
           "self": {
             "open": 42.04,
@@ -520982,7 +520982,7 @@ window.DATA = {
                 "shortPrevBalance": 0,
                 "shortBalance": 0,
                 "offsetting": 0,
-                "date": "2026-09-04"
+                "date": "2026-09-03"
               }
             },
             {
@@ -521716,7 +521716,7 @@ window.DATA = {
                 "shortPrevBalance": 7,
                 "shortBalance": 6,
                 "offsetting": 1,
-                "date": "2026-09-04"
+                "date": "2026-09-03"
               }
             }
           ]
@@ -521763,7 +521763,7 @@ window.DATA = {
           "大型權值"
         ],
         "source": "TWSE ETF e添富",
-        "fetchedAt": "2026-09-06T18:31:59+08:00",
+        "fetchedAt": "2026-09-06T19:32:08+08:00",
         "navHistory": [
           {
             "date": "2026-07-23",
@@ -562016,7 +562016,7 @@ window.DATA = {
         },
         {
           "date": "2026-09-04",
-          "fetched_at": "2026-09-06T18:30:58+08:00",
+          "fetched_at": "2026-09-06T19:31:12+08:00",
           "count": 51,
           "self": {
             "open": 246.4,
@@ -564056,7 +564056,7 @@ window.DATA = {
           "大型權值"
         ],
         "source": "TWSE ETF e添富",
-        "fetchedAt": "2026-09-06T18:32:00+08:00",
+        "fetchedAt": "2026-09-06T19:32:08+08:00",
         "navHistory": [
           {
             "date": "2026-07-23",
@@ -564834,7 +564834,7 @@ window.DATA = {
         },
         {
           "date": "2026-09-04",
-          "fetched_at": "2026-09-06T18:30:58+08:00",
+          "fetched_at": "2026-09-06T19:31:13+08:00",
           "count": 3,
           "self": {
             "open": 36.46,
@@ -564944,7 +564944,7 @@ window.DATA = {
           "大型權值"
         ],
         "source": "TWSE ETF e添富",
-        "fetchedAt": "2026-09-06T18:32:01+08:00",
+        "fetchedAt": "2026-09-06T19:32:09+08:00",
         "navHistory": [
           {
             "date": "2026-07-23",
@@ -580352,7 +580352,7 @@ window.DATA = {
         },
         {
           "date": "2026-09-03",
-          "fetched_at": "2026-09-06T18:30:58+08:00",
+          "fetched_at": "2026-09-06T19:31:12+08:00",
           "count": 31,
           "self": {
             "open": 80.0,
@@ -580993,11 +580993,11 @@ window.DATA = {
         "fundSizeHundredMillion": 682.52,
         "beneficiaryTenThousands": 18.26,
         "tags": [
-          "科技主題型",
-          "大型權值"
+          "大型權值",
+          "科技主題型"
         ],
         "source": "TWSE ETF e添富",
-        "fetchedAt": "2026-09-06T18:32:00+08:00",
+        "fetchedAt": "2026-09-06T19:32:08+08:00",
         "navHistory": [
           {
             "date": "2026-07-23",

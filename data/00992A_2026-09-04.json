@@ -1,6 +1,6 @@
 {
   "date": "2026-09-04",
-  "fetched_at": "2026-09-06T18:30:49+08:00",
+  "fetched_at": "2026-09-06T19:31:03+08:00",
   "count": 40,
   "self": {
     "open": 18.46,
@@ -494,7 +494,7 @@
         "shortPrevBalance": 0,
         "shortBalance": 0,
         "offsetting": 0,
-        "date": "2026-09-04"
+        "date": "2026-09-03"
       }
     },
     {
@@ -526,7 +526,7 @@
         "shortPrevBalance": 7,
         "shortBalance": 6,
         "offsetting": 1,
-        "date": "2026-09-04"
+        "date": "2026-09-03"
       }
     },
     {
@@ -558,7 +558,7 @@
         "shortPrevBalance": 19,
         "shortBalance": 0,
         "offsetting": 0,
-        "date": "2026-09-04"
+        "date": "2026-09-03"
       }
     },
     {
@@ -1058,7 +1058,7 @@
         "shortPrevBalance": 273,
         "shortBalance": 263,
         "offsetting": 12,
-        "date": "2026-09-04"
+        "date": "2026-09-03"
       }
     },
     {
@@ -1090,7 +1090,7 @@
         "shortPrevBalance": 0,
         "shortBalance": 0,
         "offsetting": 0,
-        "date": "2026-09-04"
+        "date": "2026-09-03"
       }
     },
     {
@@ -1356,7 +1356,7 @@
         "shortPrevBalance": 40,
         "shortBalance": 38,
         "offsetting": 3,
-        "date": "2026-09-04"
+        "date": "2026-09-03"
       }
     },
     {
@@ -1466,7 +1466,7 @@
         "shortPrevBalance": 71,
         "shortBalance": 63,
         "offsetting": 5,
-        "date": "2026-09-04"
+        "date": "2026-09-03"
       }
     },
     {
@@ -1498,7 +1498,7 @@
         "shortPrevBalance": 6,
         "shortBalance": 5,
         "offsetting": 0,
-        "date": "2026-09-04"
+        "date": "2026-09-03"
       }
     },
     {
@@ -1530,7 +1530,7 @@
         "shortPrevBalance": 116,
         "shortBalance": 124,
         "offsetting": 2,
-        "date": "2026-09-04"
+        "date": "2026-09-03"
       }
     }
   ]
