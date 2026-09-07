@@ -8,6 +8,12 @@
 
 完整系統架構、元件責任與資料流請參閱：[系統架構圖](docs/system-architecture.md)，也可查看[簡報級 SVG 架構圖](docs/system-architecture.svg)或[PNG 簡報圖片](docs/system-architecture-presentation-v3.png)。
 
+### 專業分析台
+
+新增 `analysis.html`，整合互動 K 線、MA／布林通道、RSI／MACD／KD、同市場標的與市場指數比較、區間報酬與風險卡、回撤、可點擊的月報酬熱圖、觀察清單與市場排行。支援縮放平移、專注模式、CSV 與圖表設定分享連結。
+
+新頁按需讀取保存歷史，不載入完整 `data.js`。`fetch_price_history.py` 會同步生成約 100 KiB 的 `price-history/catalog.json`，沿用兩條行情批次既有的歷史目錄提交清單。數據口徑、網站改進評估與測試方式見 [專業分析台說明](docs/analysis-workspace.md)。
+
 ### ETF 持股資訊
 
 - 顯示 ETF 合計持有股數、投入成本、現值、損益與報酬率。

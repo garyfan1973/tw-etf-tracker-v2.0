@@ -184,6 +184,9 @@ def main():
     print("price history: {} symbols; {}".format(len(items), ", ".join("{}={}".format(k, v) for k, v in sorted(counts.items()))))
     if failures and len(failures) == len(items):
         raise SystemExit("all price history requests failed")
+    from scripts.build_analysis_catalog import build_catalog
+    catalog = build_catalog(BASE_DIR)
+    print("analysis catalog: {} assets".format(len(catalog["assets"])))
 
 
 if __name__ == "__main__":

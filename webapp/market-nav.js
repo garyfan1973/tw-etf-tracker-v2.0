@@ -1,5 +1,6 @@
 (function () {
   const items = [
+    ["analysis.html", "專業分析台", "analysis"],
     ["tracker.html?view=overview", "個股資訊", "stocks"],
     ["market-index.html", "指數資訊", "indices"],
     ["taiwan-futures.html", "台指期資訊", "futures"],
@@ -14,6 +15,7 @@
 
   function currentSection() {
     const page = location.pathname.split("/").pop() || "index.html";
+    if (page === "analysis.html") return "analysis";
     if (page === "market-index.html") return "indices";
     if (page === "taiwan-futures.html") return "futures";
     if (page === "forex.html") return "forex";

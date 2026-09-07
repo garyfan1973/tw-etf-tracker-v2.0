@@ -1,0 +1,59 @@
+<!doctype html>
+<html lang="zh-Hant-TW">
+<head>
+  <meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="跨市場專業分析台：互動 K 線、技術動能、相對報酬與風險分析，使用工作台歷史日線行情。">
+  <title>專業分析台｜投資研究工作台</title>
+  <link rel="stylesheet" href="analysis.css?v=20260907">
+  <script src="analysis-core.js?v=20260907" defer></script>
+  <script src="analysis-chart.js?v=20260907" defer></script>
+  <script src="analysis.js?v=20260907" defer></script>
+</head>
+<body>
+  <a class="skip-link" href="#main">跳至分析內容</a>
+  <header class="topbar">
+    <a class="brand" href="index.html"><span class="brand-icon" aria-hidden="true">▥</span>投資研究工作台 <small>RESEARCH</small></a>
+    <nav aria-label="主要導覽"><a href="index.html">市場總覽</a><a href="tracker.html?view=overview">市場研究</a><a href="analysis.html" aria-current="page">專業分析台 <span class="new-tag">NEW</span></a><a href="etf-compare.html">ETF 比較</a><a href="portfolio.html">我的持股</a></nav>
+    <button id="help" class="icon-button" aria-label="指標說明與快捷鍵">?</button>
+  </header>
+  <main id="main" class="workspace">
+    <header class="workspace-head"><div><div class="eyebrow"><span></span> ANALYTICS WORKSPACE <i>01 / RESEARCH</i></div><h1>看懂走勢，<wbr><span class="headline-tail">更看見全貌<span>。</span></span></h1><p>價格、動能、風險，在同一個研究視野。</p></div><div class="head-actions"><span class="data-pill">日線資料 · 非即時</span><button id="share">複製分析連結 ↗</button></div></header>
+    <section class="commandbar" aria-label="分析設定">
+      <label class="market-field"><span>市場</span><select id="market"><option value="TW">台灣 TW</option><option value="US">美國 US</option><option value="JP">日本 JP</option><option value="KS">韓國 KS</option></select></label>
+      <div class="search-field"><label for="search">研究標的</label><div><span aria-hidden="true">⌕</span><input id="search" type="search" autocomplete="off" placeholder="搜尋代號或名稱" aria-controls="searchResults" aria-expanded="false"><kbd>/</kbd></div><div id="searchResults" class="search-results" hidden></div></div>
+      <label class="benchmark-field"><span>比較基準</span><select id="benchmark" aria-label="比較基準"></select></label>
+      <div class="command-spacer"></div><button id="focus" aria-pressed="false">⛶ 專注模式</button><button id="export">↓ 匯出 CSV</button>
+    </section>
+    <div id="status" role="status" aria-live="polite" class="status">正在載入歷史行情…</div>
+    <div id="error" class="error" role="alert" hidden><span></span><button id="retry">重新載入</button></div>
+    <div id="dashboard" aria-busy="true">
+      <section class="asset-head" aria-label="標的行情"><div class="identity"><span id="assetAvatar" class="asset-avatar">TW</span><div><div class="asset-title"><h2 id="assetName">載入中</h2><span id="assetSymbol" class="symbol-tag">—</span><button id="pin" class="pin-button" aria-label="加入本機觀察清單" aria-pressed="false">☆</button><a id="researchLink" class="detail-link" aria-label="開啟此標的完整個股研究" title="完整個股研究" hidden>↗</a></div><p id="assetMeta">歷史行情</p></div></div><div class="quote"><strong id="price">—</strong><span id="dailyChange">—</span><small id="quoteDate">—</small></div></section>
+      <section id="metrics" class="metrics" aria-label="可視區間關鍵指標"></section>
+      <div class="main-grid">
+        <section class="panel chart-panel" aria-labelledby="chartTitle">
+          <div class="panel-heading"><div><span class="eyebrow">PRICE & MOMENTUM</span><h2 id="chartTitle">價格與動能</h2></div><div class="segmented" id="chartModes" aria-label="圖表模式"><button data-mode="candle" aria-pressed="true">K 線</button><button data-mode="line" aria-pressed="false">走勢</button><button data-mode="compare" aria-pressed="false">相對報酬</button></div></div>
+          <div class="chart-toolbar"><div class="ranges" id="ranges" aria-label="顯示區間"><button data-range="21">1M</button><button data-range="63" aria-pressed="true">3M</button><button data-range="126">6M</button><button data-range="252">1Y</button><button data-range="all">全部</button></div><div class="chart-tools"><button id="zoomOut" aria-label="縮小時間軸">−</button><button id="zoomIn" aria-label="放大時間軸">＋</button><button id="reset" title="重設時間區間（R）">重設 ↺</button></div></div>
+          <div class="indicator-toolbar" id="overlays" aria-label="疊加指標"><button data-overlay="ma20" aria-pressed="true"><i class="dot amber"></i>MA20</button><button data-overlay="ma60" aria-pressed="true"><i class="dot blue"></i>MA60</button><button data-overlay="bollinger" aria-pressed="false"><i class="dot purple"></i>布林通道</button><span id="chartLegend"></span></div>
+          <div id="hoverReadout" class="hover-readout" aria-live="off">移動游標檢視當日行情</div>
+          <div id="mainChart" class="main-chart" tabindex="0" role="group" aria-label="互動價格與技術指標圖，左右鍵移動游標，加減鍵縮放"></div>
+          <div class="sub-controls"><span>副圖指標</span><div id="subIndicators" class="segmented"><button data-sub="rsi" aria-pressed="true">RSI</button><button data-sub="macd">MACD</button><button data-sub="kd">KD</button></div><span class="muted">十字游標連動</span></div>
+          <div class="navigator"><span id="visibleDates">—</span><label for="timeline">移動時間窗</label><input id="timeline" type="range" min="0" max="100" value="100"></div>
+          <div class="chart-foot"><span>拖曳平移 · 滾輪縮放 · ← → 逐日查看</span><span>紅漲 / 綠跌</span></div>
+        </section>
+        <aside class="sidebar">
+          <section class="panel signals-panel"><div class="panel-heading"><div><span class="eyebrow">TECHNICAL SNAPSHOT</span><h2>動能儀表</h2></div><button class="info" data-explain aria-label="動能指標計算說明">i</button></div><div id="gauge"></div><div id="signals" class="signal-list"></div><p id="signalDate" class="panel-note"></p></section>
+          <section class="panel watch-panel"><div class="panel-heading"><div><span class="eyebrow">YOUR RADAR</span><h2>觀察清單</h2></div><small>本機保存</small></div><div id="watchlist"></div></section>
+        </aside>
+      </div>
+      <div class="insights-grid">
+        <section class="panel"><div class="panel-heading"><div><span class="eyebrow">DOWNSIDE LENS</span><h2>回撤透視</h2></div><span id="drawdownValue" class="metric-callout">—</span></div><p class="panel-description">所選區間內，距離先前收盤高點的跌幅。</p><div id="drawdownChart" class="mini-chart"></div><div class="panel-bottom"><span>0% 為區間內新高</span><span>與主圖區間同步</span></div></section>
+        <section class="panel"><div class="panel-heading"><div><span class="eyebrow">RETURN CALENDAR</span><h2>月度報酬熱圖</h2></div><small>價格報酬</small></div><p class="panel-description">點擊月份查看當月走勢；最新月份截至資料日。</p><div id="monthlyHeatmap" class="month-grid"></div><div class="panel-bottom"><span>歷史全區間 · 首月資料不足顯示 —</span><span><i class="dot green"></i>跌 <i class="dot red"></i>漲</span></div></section>
+      </div>
+      <section class="panel scanner-panel"><div class="panel-heading"><div><span class="eyebrow">MARKET SCANNER</span><h2>找到下一個研究方向</h2></div><div class="scanner-controls"><label>顯示 <select id="scanFilter"><option value="all">全部標的</option><option value="positive">20 日上漲</option><option value="negative">20 日下跌</option><option value="pinned">我的觀察</option></select></label><label>排序 <select id="scanSort"><option value="return">20 日漲幅</option><option value="fall">20 日跌幅</option><option value="symbol">代號</option></select></label></div></div><p id="scannerCaption" class="panel-description"></p><div class="table-scroll"><table><thead><tr><th>標的</th><th>收盤價</th><th>單日漲跌</th><th>20 日報酬</th><th>近 21 筆走勢</th><th>資料日期</th><th><span class="sr-only">操作</span></th></tr></thead><tbody id="scanner"></tbody></table></div><div class="panel-bottom"><span id="scanCount"></span><button id="more">顯示更多 ↓</button></div></section>
+    </div>
+    <footer class="workspace-footer"><span>投資研究工作台 <b> / </b> PROFESSIONAL ANALYTICS</span><span>來源：Yahoo Finance 歷史日線 · 價格報酬未含息、交易成本與匯率 · 僅供研究</span><button data-explain>計算方法與資料說明 ↗</button></footer>
+  </main>
+  <dialog id="helpDialog"><div class="dialog-head"><div><span class="eyebrow">WORKSPACE GUIDE</span><h2>把每一個數字看清楚</h2></div><button id="closeHelp" aria-label="關閉說明">✕</button></div><div class="guide-content"><h3>一個區間，連動分析</h3><p>上方四個數據卡與回撤圖跟隨主圖時間窗；動能儀表使用時間窗最後一天的指標。月度熱圖使用全部歷史，觀察清單與市場掃描使用各標的最新資料。</p><h3>計算口徑</h3><dl><dt>區間報酬</dt><dd>末筆收盤 ÷ 首筆收盤 − 1；不含股息、費用與匯兌。比較圖僅使用兩者共同交易日，從 0% 起算。</dd><dt>年化波動率</dt><dd>區間每日對數報酬的樣本標準差 × √252。至少需要 3 筆收盤，不代表未來波動。</dd><dt>最大回撤</dt><dd>區間內收盤相對先前最高收盤的最大跌幅；起點之前的高點不納入。</dd><dt>RSI / MACD / KD</dt><dd>RSI14 採 Wilder 平滑，30 / 70 為參考線；MACD 使用 EMA12、EMA26 與訊號 EMA9，EMA 以首個完整週期均值初始化；KD 採 9 日 RSV 與 1/3 平滑，初始 K、D 為 50。</dd><dt>MA / 布林通道</dt><dd>20 / 60 日簡單移動平均；布林為 MA20 ± 2 倍母體標準差。所有指標先用完整歷史計算，再截取顯示區間；不足週期顯示缺值。</dd><dt>量比</dt><dd>當日成交量 ÷ 前 20 筆成交量平均。缺少成交量或分母為 0 時不顯示。</dd></dl><h3>資料邊界</h3><p>這是已保存日線的研究頁面，不提供即時報價。各市場日期可能不同；20 日排行為各標的最近 20 個交易區間，並列出個別日期。來源價格未在本頁另行還原權息，除息或拆併股可能影響報酬與風險值。</p><p>指標說明參考 <a href="https://www.tradingview.com/support/solutions/43000502338-relative-strength-index-rsi/" target="_blank" rel="noopener noreferrer">TradingView RSI</a> 與 <a href="https://www.tradingview.com/support/solutions/43000589145-historical-volatility/" target="_blank" rel="noopener noreferrer">Historical Volatility</a>。本頁指標為本地計算，不代表 TradingView 技術評等。</p><h3>快捷操作</h3><p><kbd>/</kbd> 搜尋　<kbd>R</kbd> 重設區間　<kbd>F</kbd> 專注模式　<kbd>Esc</kbd> 關閉視窗<br>圖表內 <kbd>←</kbd> <kbd>→</kbd> 逐日檢視，<kbd>+</kbd> <kbd>−</kbd> 縮放。</p></div></dialog>
+  <div id="toast" role="status" class="toast" hidden></div>
+</body>
+</html>
