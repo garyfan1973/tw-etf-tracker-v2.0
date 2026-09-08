@@ -1,5 +1,6 @@
 (function () {
   const items = [
+    ["academy.html", "K 線研習院", "academy"],
     ["analysis.html", "專業分析台", "analysis"],
     ["tracker.html?view=overview", "個股資訊", "stocks"],
     ["market-index.html", "指數資訊", "indices"],
@@ -15,6 +16,7 @@
 
   function currentSection() {
     const page = location.pathname.split("/").pop() || "index.html";
+    if (page === "academy.html") return "academy";
     if (page === "analysis.html") return "analysis";
     if (page === "market-index.html") return "indices";
     if (page === "taiwan-futures.html") return "futures";

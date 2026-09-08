@@ -9,6 +9,10 @@ __pycache__/
 # macOS
 .DS_Store
 
+# Local browser verification artifacts
+.playwright-cli/
+output/playwright/
+
 # Vercel
 .vercel
 
