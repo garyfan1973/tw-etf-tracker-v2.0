@@ -1,6 +1,6 @@
 {
   "date": "2026-09-07",
-  "fetched_at": "2026-09-08T17:30:59+08:00",
+  "fetched_at": "2026-09-08T18:32:38+08:00",
   "count": 41,
   "self": {
     "open": 33.18,
@@ -572,7 +572,7 @@
         "shortPrevBalance": 0,
         "shortBalance": 0,
         "offsetting": 0,
-        "date": "2026-09-07"
+        "date": "2026-09-04"
       }
     },
     {
@@ -1002,7 +1002,7 @@
         "shortPrevBalance": 0,
         "shortBalance": 0,
         "offsetting": 0,
-        "date": "2026-09-07"
+        "date": "2026-09-04"
       }
     },
     {

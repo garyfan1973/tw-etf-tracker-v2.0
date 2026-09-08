@@ -1,6 +1,6 @@
 {
   "date": "2026-09-07",
-  "fetched_at": "2026-09-08T17:30:58+08:00",
+  "fetched_at": "2026-09-08T18:32:37+08:00",
   "count": 30,
   "self": {
     "open": 34.32,
@@ -724,7 +724,7 @@
       "change": -4.0,
       "changePct": -2.56,
       "amplitude": 3.21,
-      "volume": 12669005.0,
+      "volume": 12869005.0,
       "quoteDate": "2026-09-07",
       "margin": {
         "marginBuy": 664,
@@ -738,7 +738,7 @@
         "shortPrevBalance": 124,
         "shortBalance": 137,
         "offsetting": 4,
-        "date": "2026-09-07"
+        "date": "2026-09-04"
       }
     },
     {
