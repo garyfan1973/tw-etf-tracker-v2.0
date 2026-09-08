@@ -581,7 +581,17 @@
         "shortBalance": 98,
         "offsetting": 8,
         "date": "2026-08-21"
-      }
+      },
+      "open": 1405.0,
+      "high": 1430.0,
+      "low": 1335.0,
+      "close": 1345.0,
+      "prevClose": 1370.0,
+      "change": -25.0,
+      "changePct": -1.82,
+      "amplitude": 6.93,
+      "volume": 5012748.0,
+      "quoteDate": "2026-08-21"
     },
     {
       "code": "TEAM",
@@ -737,7 +747,17 @@
         "shortBalance": 16,
         "offsetting": 0,
         "date": "2026-08-21"
-      }
+      },
+      "open": 5580.0,
+      "high": 5975.0,
+      "low": 5470.0,
+      "close": 5795.0,
+      "prevClose": 5490.0,
+      "change": 305.0,
+      "changePct": 5.56,
+      "amplitude": 9.2,
+      "volume": 1877534.0,
+      "quoteDate": "2026-08-21"
     },
     {
       "code": "COHR",
