@@ -338,7 +338,17 @@
         "shortBalance": 11,
         "offsetting": 0,
         "date": "2026-08-05"
-      }
+      },
+      "open": 6060.0,
+      "high": 6060.0,
+      "low": 5540.0,
+      "close": 5615.0,
+      "prevClose": 5795.0,
+      "change": -180.0,
+      "changePct": -3.11,
+      "amplitude": 8.97,
+      "volume": 1576583.0,
+      "quoteDate": "2026-08-05"
     },
     {
       "code": "8996",
@@ -473,7 +483,17 @@
         "shortBalance": 5,
         "offsetting": 0,
         "date": "2026-08-05"
-      }
+      },
+      "open": 582.0,
+      "high": 600.0,
+      "low": 582.0,
+      "close": 586.0,
+      "prevClose": 602.0,
+      "change": -16.0,
+      "changePct": -2.66,
+      "amplitude": 2.99,
+      "volume": 596725.0,
+      "quoteDate": "2026-08-05"
     },
     {
       "code": "2455",
@@ -684,7 +704,17 @@
         "shortBalance": 39,
         "offsetting": 5,
         "date": "2026-08-05"
-      }
+      },
+      "open": 1410.0,
+      "high": 1425.0,
+      "low": 1325.0,
+      "close": 1330.0,
+      "prevClose": 1385.0,
+      "change": -55.0,
+      "changePct": -3.97,
+      "amplitude": 7.22,
+      "volume": 2967561.0,
+      "quoteDate": "2026-08-05"
     },
     {
       "code": "3661",
@@ -743,7 +773,17 @@
         "shortBalance": 83,
         "offsetting": 5,
         "date": "2026-08-05"
-      }
+      },
+      "open": 2100.0,
+      "high": 2125.0,
+      "low": 2070.0,
+      "close": 2085.0,
+      "prevClose": 2085.0,
+      "change": 0.0,
+      "changePct": 0.0,
+      "amplitude": 2.64,
+      "volume": 2025347.0,
+      "quoteDate": "2026-08-05"
     },
     {
       "code": "1815",
@@ -764,7 +804,13 @@
         "shortBalance": 744,
         "offsetting": 39,
         "date": "2026-08-05"
-      }
+      },
+      "open": 134.0,
+      "high": 135.0,
+      "low": 126.0,
+      "close": 126.0,
+      "volume": 69801364.0,
+      "quoteDate": "2026-08-05"
     },
     {
       "code": "2308",
@@ -885,7 +931,17 @@
       "name": "竑騰",
       "market": "TW",
       "weight": 1.03,
-      "shares": 310000
+      "shares": 310000,
+      "open": 1585.0,
+      "high": 1640.0,
+      "low": 1585.0,
+      "close": 1610.0,
+      "prevClose": 1545.0,
+      "change": 65.0,
+      "changePct": 4.21,
+      "amplitude": 3.56,
+      "volume": 212127.0,
+      "quoteDate": "2026-08-05"
     },
     {
       "code": "3189",
@@ -1020,7 +1076,17 @@
         "shortBalance": 3,
         "offsetting": 1,
         "date": "2026-08-05"
-      }
+      },
+      "open": 2965.0,
+      "high": 3020.0,
+      "low": 2910.0,
+      "close": 2980.0,
+      "prevClose": 2910.0,
+      "change": 70.0,
+      "changePct": 2.41,
+      "amplitude": 3.78,
+      "volume": 183691.0,
+      "quoteDate": "2026-08-05"
     },
     {
       "code": "6805",
@@ -1117,7 +1183,17 @@
         "shortBalance": 22,
         "offsetting": 5,
         "date": "2026-08-05"
-      }
+      },
+      "open": 1375.0,
+      "high": 1395.0,
+      "low": 1345.0,
+      "close": 1355.0,
+      "prevClose": 1370.0,
+      "change": -15.0,
+      "changePct": -1.09,
+      "amplitude": 3.65,
+      "volume": 1224986.0,
+      "quoteDate": "2026-08-05"
     },
     {
       "code": "3260",
@@ -1138,7 +1214,17 @@
         "shortBalance": 1996,
         "offsetting": 23,
         "date": "2026-08-05"
-      }
+      },
+      "open": 417.5,
+      "high": 424.5,
+      "low": 413.5,
+      "close": 414.5,
+      "prevClose": 414.0,
+      "change": 0.5,
+      "changePct": 0.12,
+      "amplitude": 2.66,
+      "volume": 7258739.0,
+      "quoteDate": "2026-08-05"
     },
     {
       "code": "3583",
@@ -1197,7 +1283,17 @@
         "shortBalance": 224,
         "offsetting": 5,
         "date": "2026-08-05"
-      }
+      },
+      "open": 154.0,
+      "high": 159.5,
+      "low": 152.5,
+      "close": 157.0,
+      "prevClose": 152.0,
+      "change": 5.0,
+      "changePct": 3.29,
+      "amplitude": 4.61,
+      "volume": 13955300.0,
+      "quoteDate": "2026-08-05"
     },
     {
       "code": "3264",
@@ -1218,7 +1314,17 @@
         "shortBalance": 104,
         "offsetting": 8,
         "date": "2026-08-05"
-      }
+      },
+      "open": 225.0,
+      "high": 235.5,
+      "low": 225.0,
+      "close": 233.0,
+      "prevClose": 225.0,
+      "change": 8.0,
+      "changePct": 3.56,
+      "amplitude": 4.67,
+      "volume": 7325196.0,
+      "quoteDate": "2026-08-05"
     }
   ],
   "selfInstitutional": {

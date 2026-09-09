@@ -1,5 +1,5 @@
 window.DATA = {
-  "generated_at": "2026-09-09T17:35:00+08:00",
+  "generated_at": "2026-09-09T18:33:45+08:00",
   "etfs": {
     "00981A": {
       "name": "主動統一台股增長",
@@ -290,7 +290,7 @@ window.DATA = {
               "change": -615.0,
               "changePct": -3.2,
               "amplitude": 7.67,
-              "volume": 424297.0,
+              "volume": 450297.0,
               "quoteDate": "2026-07-31"
             },
             {
@@ -324,7 +324,7 @@ window.DATA = {
               "change": 0.0,
               "changePct": 0.0,
               "amplitude": 6.69,
-              "volume": 8536351.0,
+              "volume": 8551351.0,
               "quoteDate": "2026-07-31"
             },
             {
@@ -938,7 +938,7 @@ window.DATA = {
               "change": -615.0,
               "changePct": -3.2,
               "amplitude": 7.67,
-              "volume": 424297.0,
+              "volume": 450297.0,
               "quoteDate": "2026-08-03"
             },
             {
@@ -972,7 +972,7 @@ window.DATA = {
               "change": 0.0,
               "changePct": 0.0,
               "amplitude": 6.69,
-              "volume": 8536351.0,
+              "volume": 8551351.0,
               "quoteDate": "2026-08-03"
             },
             {
@@ -1841,7 +1841,7 @@ window.DATA = {
               "change": 0.0,
               "changePct": 0.0,
               "amplitude": 6.69,
-              "volume": 8536351.0,
+              "volume": 8551351.0,
               "quoteDate": "2026-08-04"
             },
             {
@@ -1858,7 +1858,7 @@ window.DATA = {
               "change": -615.0,
               "changePct": -3.2,
               "amplitude": 7.67,
-              "volume": 424297.0,
+              "volume": 450297.0,
               "quoteDate": "2026-08-04"
             },
             {
@@ -2743,7 +2743,17 @@ window.DATA = {
                 "shortBalance": 11,
                 "offsetting": 0,
                 "date": "2026-08-05"
-              }
+              },
+              "open": 6060.0,
+              "high": 6060.0,
+              "low": 5540.0,
+              "close": 5615.0,
+              "prevClose": 5795.0,
+              "change": -180.0,
+              "changePct": -3.11,
+              "amplitude": 8.97,
+              "volume": 1576583.0,
+              "quoteDate": "2026-08-05"
             },
             {
               "code": "2327",
@@ -3030,7 +3040,17 @@ window.DATA = {
                 "shortBalance": 139,
                 "offsetting": 19,
                 "date": "2026-08-05"
-              }
+              },
+              "open": 1360.0,
+              "high": 1405.0,
+              "low": 1315.0,
+              "close": 1345.0,
+              "prevClose": 1345.0,
+              "change": 0.0,
+              "changePct": 0.0,
+              "amplitude": 6.69,
+              "volume": 8551351.0,
+              "quoteDate": "2026-08-05"
             },
             {
               "code": "5274",
@@ -3051,7 +3071,17 @@ window.DATA = {
                 "shortBalance": 0,
                 "offsetting": 0,
                 "date": "2026-08-05"
-              }
+              },
+              "open": 19565.0,
+              "high": 19575.0,
+              "low": 18100.0,
+              "close": 18605.0,
+              "prevClose": 19220.0,
+              "change": -615.0,
+              "changePct": -3.2,
+              "amplitude": 7.67,
+              "volume": 450297.0,
+              "quoteDate": "2026-08-05"
             },
             {
               "code": "2368",
@@ -3224,7 +3254,17 @@ window.DATA = {
                 "shortBalance": 39,
                 "offsetting": 5,
                 "date": "2026-08-05"
-              }
+              },
+              "open": 1410.0,
+              "high": 1425.0,
+              "low": 1325.0,
+              "close": 1330.0,
+              "prevClose": 1385.0,
+              "change": -55.0,
+              "changePct": -3.97,
+              "amplitude": 7.22,
+              "volume": 2967561.0,
+              "quoteDate": "2026-08-05"
             },
             {
               "code": "4979",
@@ -3245,7 +3285,17 @@ window.DATA = {
                 "shortBalance": 196,
                 "offsetting": 447,
                 "date": "2026-08-05"
-              }
+              },
+              "open": 631.0,
+              "high": 658.0,
+              "low": 602.0,
+              "close": 610.0,
+              "prevClose": 605.0,
+              "change": 5.0,
+              "changePct": 0.83,
+              "amplitude": 9.26,
+              "volume": 16116912.0,
+              "quoteDate": "2026-08-05"
             },
             {
               "code": "2360",
@@ -3418,7 +3468,17 @@ window.DATA = {
                 "shortBalance": 4,
                 "offsetting": 0,
                 "date": "2026-08-05"
-              }
+              },
+              "open": 3810.0,
+              "high": 3935.0,
+              "low": 3570.0,
+              "close": 3610.0,
+              "prevClose": 3620.0,
+              "change": -10.0,
+              "changePct": -0.28,
+              "amplitude": 10.08,
+              "volume": 1853358.0,
+              "quoteDate": "2026-08-05"
             },
             {
               "code": "6515",
@@ -3667,7 +3727,17 @@ window.DATA = {
                 "shortBalance": 104,
                 "offsetting": 8,
                 "date": "2026-08-05"
-              }
+              },
+              "open": 225.0,
+              "high": 235.5,
+              "low": 225.0,
+              "close": 233.0,
+              "prevClose": 225.0,
+              "change": 8.0,
+              "changePct": 3.56,
+              "amplitude": 4.67,
+              "volume": 7325196.0,
+              "quoteDate": "2026-08-05"
             },
             {
               "code": "3376",
@@ -3726,7 +3796,17 @@ window.DATA = {
                 "shortBalance": 33,
                 "offsetting": 1,
                 "date": "2026-08-05"
-              }
+              },
+              "open": 549.0,
+              "high": 555.0,
+              "low": 547.0,
+              "close": 550.0,
+              "prevClose": 547.0,
+              "change": 3.0,
+              "changePct": 0.55,
+              "amplitude": 1.46,
+              "volume": 343713.0,
+              "quoteDate": "2026-08-05"
             },
             {
               "code": "2002",
@@ -4013,7 +4093,17 @@ window.DATA = {
                 "shortBalance": 224,
                 "offsetting": 5,
                 "date": "2026-08-05"
-              }
+              },
+              "open": 154.0,
+              "high": 159.5,
+              "low": 152.5,
+              "close": 157.0,
+              "prevClose": 152.0,
+              "change": 5.0,
+              "changePct": 3.29,
+              "amplitude": 4.61,
+              "volume": 13955300.0,
+              "quoteDate": "2026-08-05"
             },
             {
               "code": "3443",
@@ -4148,7 +4238,17 @@ window.DATA = {
                 "shortBalance": 149,
                 "offsetting": 15,
                 "date": "2026-08-05"
-              }
+              },
+              "open": 961.0,
+              "high": 965.0,
+              "low": 946.0,
+              "close": 955.0,
+              "prevClose": 955.0,
+              "change": 0.0,
+              "changePct": 0.0,
+              "amplitude": 1.99,
+              "volume": 4488526.0,
+              "quoteDate": "2026-08-05"
             },
             {
               "code": "8358",
@@ -4169,7 +4269,17 @@ window.DATA = {
                 "shortBalance": 846,
                 "offsetting": 40,
                 "date": "2026-08-05"
-              }
+              },
+              "open": 534.0,
+              "high": 535.0,
+              "low": 519.0,
+              "close": 526.0,
+              "prevClose": 520.0,
+              "change": 6.0,
+              "changePct": 1.15,
+              "amplitude": 3.08,
+              "volume": 3448186.0,
+              "quoteDate": "2026-08-05"
             },
             {
               "code": "8150",
@@ -4840,7 +4950,7 @@ window.DATA = {
               "change": 0.0,
               "changePct": 0.0,
               "amplitude": 6.69,
-              "volume": 8536351.0,
+              "volume": 8551351.0,
               "quoteDate": "2026-08-06"
             },
             {
@@ -4871,7 +4981,7 @@ window.DATA = {
               "change": -615.0,
               "changePct": -3.2,
               "amplitude": 7.67,
-              "volume": 424297.0,
+              "volume": 450297.0,
               "quoteDate": "2026-08-06"
             },
             {
@@ -6435,7 +6545,17 @@ window.DATA = {
                 "shortBalance": 12,
                 "offsetting": 1,
                 "date": "2026-08-07"
-              }
+              },
+              "open": 6060.0,
+              "high": 6060.0,
+              "low": 5540.0,
+              "close": 5615.0,
+              "prevClose": 5795.0,
+              "change": -180.0,
+              "changePct": -3.11,
+              "amplitude": 8.97,
+              "volume": 1576583.0,
+              "quoteDate": "2026-08-07"
             },
             {
               "code": "2345",
@@ -6769,7 +6889,17 @@ window.DATA = {
                 "shortBalance": 142,
                 "offsetting": 278,
                 "date": "2026-08-07"
-              }
+              },
+              "open": 1360.0,
+              "high": 1405.0,
+              "low": 1315.0,
+              "close": 1345.0,
+              "prevClose": 1345.0,
+              "change": 0.0,
+              "changePct": 0.0,
+              "amplitude": 6.69,
+              "volume": 8551351.0,
+              "quoteDate": "2026-08-07"
             },
             {
               "code": "5274",
@@ -6791,7 +6921,17 @@ window.DATA = {
                 "shortBalance": 0,
                 "offsetting": 0,
                 "date": "2026-08-07"
-              }
+              },
+              "open": 19565.0,
+              "high": 19575.0,
+              "low": 18100.0,
+              "close": 18605.0,
+              "prevClose": 19220.0,
+              "change": -615.0,
+              "changePct": -3.2,
+              "amplitude": 7.67,
+              "volume": 450297.0,
+              "quoteDate": "2026-08-07"
             },
             {
               "code": "2368",
@@ -6969,7 +7109,17 @@ window.DATA = {
                 "shortBalance": 11,
                 "offsetting": 8,
                 "date": "2026-08-07"
-              }
+              },
+              "open": 1410.0,
+              "high": 1425.0,
+              "low": 1325.0,
+              "close": 1330.0,
+              "prevClose": 1385.0,
+              "change": -55.0,
+              "changePct": -3.97,
+              "amplitude": 7.22,
+              "volume": 2967561.0,
+              "quoteDate": "2026-08-07"
             },
             {
               "code": "2360",
@@ -7030,7 +7180,17 @@ window.DATA = {
                 "shortBalance": 473,
                 "offsetting": 62,
                 "date": "2026-08-07"
-              }
+              },
+              "open": 631.0,
+              "high": 658.0,
+              "low": 602.0,
+              "close": 610.0,
+              "prevClose": 605.0,
+              "change": 5.0,
+              "changePct": 0.83,
+              "amplitude": 9.26,
+              "volume": 16116912.0,
+              "quoteDate": "2026-08-07"
             },
             {
               "code": "4958",
@@ -7169,7 +7329,17 @@ window.DATA = {
                 "shortBalance": 4,
                 "offsetting": 0,
                 "date": "2026-08-07"
-              }
+              },
+              "open": 3810.0,
+              "high": 3935.0,
+              "low": 3570.0,
+              "close": 3610.0,
+              "prevClose": 3620.0,
+              "change": -10.0,
+              "changePct": -0.28,
+              "amplitude": 10.08,
+              "volume": 1853358.0,
+              "quoteDate": "2026-08-07"
             },
             {
               "code": "6278",
@@ -7386,7 +7556,17 @@ window.DATA = {
                 "shortBalance": 148,
                 "offsetting": 2,
                 "date": "2026-08-07"
-              }
+              },
+              "open": 225.0,
+              "high": 235.5,
+              "low": 225.0,
+              "close": 233.0,
+              "prevClose": 225.0,
+              "change": 8.0,
+              "changePct": 3.56,
+              "amplitude": 4.67,
+              "volume": 7325196.0,
+              "quoteDate": "2026-08-07"
             },
             {
               "code": "6515",
@@ -7447,7 +7627,17 @@ window.DATA = {
                 "shortBalance": 31,
                 "offsetting": 0,
                 "date": "2026-08-07"
-              }
+              },
+              "open": 549.0,
+              "high": 555.0,
+              "low": 547.0,
+              "close": 550.0,
+              "prevClose": 547.0,
+              "change": 3.0,
+              "changePct": 0.55,
+              "amplitude": 1.46,
+              "volume": 343713.0,
+              "quoteDate": "2026-08-07"
             },
             {
               "code": "2002",
@@ -7859,7 +8049,17 @@ window.DATA = {
                 "shortBalance": 273,
                 "offsetting": 24,
                 "date": "2026-08-07"
-              }
+              },
+              "open": 154.0,
+              "high": 159.5,
+              "low": 152.5,
+              "close": 157.0,
+              "prevClose": 152.0,
+              "change": 5.0,
+              "changePct": 3.29,
+              "amplitude": 4.61,
+              "volume": 13955300.0,
+              "quoteDate": "2026-08-07"
             },
             {
               "code": "6488",
@@ -7881,7 +8081,17 @@ window.DATA = {
                 "shortBalance": 120,
                 "offsetting": 9,
                 "date": "2026-08-07"
-              }
+              },
+              "open": 961.0,
+              "high": 965.0,
+              "low": 946.0,
+              "close": 955.0,
+              "prevClose": 955.0,
+              "change": 0.0,
+              "changePct": 0.0,
+              "amplitude": 1.99,
+              "volume": 4488526.0,
+              "quoteDate": "2026-08-07"
             },
             {
               "code": "8150",
@@ -7942,7 +8152,17 @@ window.DATA = {
                 "shortBalance": 527,
                 "offsetting": 69,
                 "date": "2026-08-07"
-              }
+              },
+              "open": 534.0,
+              "high": 535.0,
+              "low": 519.0,
+              "close": 526.0,
+              "prevClose": 520.0,
+              "change": 6.0,
+              "changePct": 1.15,
+              "amplitude": 3.08,
+              "volume": 3448186.0,
+              "quoteDate": "2026-08-07"
             }
           ]
         },
@@ -8601,7 +8821,7 @@ window.DATA = {
               "change": 0.0,
               "changePct": 0.0,
               "amplitude": 6.69,
-              "volume": 8536351.0,
+              "volume": 8551351.0,
               "quoteDate": "2026-08-10"
             },
             {
@@ -8633,7 +8853,7 @@ window.DATA = {
               "change": -615.0,
               "changePct": -3.2,
               "amplitude": 7.67,
-              "volume": 424297.0,
+              "volume": 450297.0,
               "quoteDate": "2026-08-10"
             },
             {
@@ -10524,7 +10744,7 @@ window.DATA = {
               "change": 0.0,
               "changePct": 0.0,
               "amplitude": 6.69,
-              "volume": 8536351.0,
+              "volume": 8551351.0,
               "quoteDate": "2026-08-11"
             },
             {
@@ -10556,7 +10776,7 @@ window.DATA = {
               "change": -615.0,
               "changePct": -3.2,
               "amplitude": 7.67,
-              "volume": 424297.0,
+              "volume": 450297.0,
               "quoteDate": "2026-08-11"
             },
             {
@@ -12437,7 +12657,7 @@ window.DATA = {
               "change": 0.0,
               "changePct": 0.0,
               "amplitude": 6.69,
-              "volume": 8536351.0,
+              "volume": 8551351.0,
               "quoteDate": "2026-08-12"
             },
             {
@@ -12469,7 +12689,7 @@ window.DATA = {
               "change": -615.0,
               "changePct": -3.2,
               "amplitude": 7.67,
-              "volume": 424297.0,
+              "volume": 450297.0,
               "quoteDate": "2026-08-12"
             },
             {
@@ -14360,7 +14580,7 @@ window.DATA = {
               "change": 0.0,
               "changePct": 0.0,
               "amplitude": 6.69,
-              "volume": 8536351.0,
+              "volume": 8551351.0,
               "quoteDate": "2026-08-13"
             },
             {
@@ -14392,7 +14612,7 @@ window.DATA = {
               "change": -615.0,
               "changePct": -3.2,
               "amplitude": 7.67,
-              "volume": 424297.0,
+              "volume": 450297.0,
               "quoteDate": "2026-08-13"
             },
             {
@@ -16283,7 +16503,7 @@ window.DATA = {
               "change": 0.0,
               "changePct": 0.0,
               "amplitude": 6.69,
-              "volume": 8536351.0,
+              "volume": 8551351.0,
               "quoteDate": "2026-08-14"
             },
             {
@@ -16315,7 +16535,7 @@ window.DATA = {
               "change": -615.0,
               "changePct": -3.2,
               "amplitude": 7.67,
-              "volume": 424297.0,
+              "volume": 450297.0,
               "quoteDate": "2026-08-14"
             },
             {
@@ -18206,7 +18426,7 @@ window.DATA = {
               "change": 0.0,
               "changePct": 0.0,
               "amplitude": 6.69,
-              "volume": 8536351.0,
+              "volume": 8551351.0,
               "quoteDate": "2026-08-17"
             },
             {
@@ -18238,7 +18458,7 @@ window.DATA = {
               "change": -615.0,
               "changePct": -3.2,
               "amplitude": 7.67,
-              "volume": 424297.0,
+              "volume": 450297.0,
               "quoteDate": "2026-08-17"
             },
             {
@@ -20129,7 +20349,7 @@ window.DATA = {
               "change": 0.0,
               "changePct": 0.0,
               "amplitude": 6.69,
-              "volume": 8536351.0,
+              "volume": 8551351.0,
               "quoteDate": "2026-08-18"
             },
             {
@@ -20161,7 +20381,7 @@ window.DATA = {
               "change": -615.0,
               "changePct": -3.2,
               "amplitude": 7.67,
-              "volume": 424297.0,
+              "volume": 450297.0,
               "quoteDate": "2026-08-18"
             },
             {
@@ -22052,7 +22272,7 @@ window.DATA = {
               "change": 0.0,
               "changePct": 0.0,
               "amplitude": 6.69,
-              "volume": 8536351.0,
+              "volume": 8551351.0,
               "quoteDate": "2026-08-19"
             },
             {
@@ -22084,7 +22304,7 @@ window.DATA = {
               "change": -615.0,
               "changePct": -3.2,
               "amplitude": 7.67,
-              "volume": 424297.0,
+              "volume": 450297.0,
               "quoteDate": "2026-08-19"
             },
             {
@@ -23975,7 +24195,7 @@ window.DATA = {
               "change": 0.0,
               "changePct": 0.0,
               "amplitude": 6.69,
-              "volume": 8536351.0,
+              "volume": 8551351.0,
               "quoteDate": "2026-08-20"
             },
             {
@@ -24007,7 +24227,7 @@ window.DATA = {
               "change": -615.0,
               "changePct": -3.2,
               "amplitude": 7.67,
-              "volume": 424297.0,
+              "volume": 450297.0,
               "quoteDate": "2026-08-20"
             },
             {
@@ -25898,7 +26118,7 @@ window.DATA = {
               "change": 0.0,
               "changePct": 0.0,
               "amplitude": 6.69,
-              "volume": 8536351.0,
+              "volume": 8551351.0,
               "quoteDate": "2026-08-21"
             },
             {
@@ -25930,7 +26150,7 @@ window.DATA = {
               "change": -615.0,
               "changePct": -3.2,
               "amplitude": 7.67,
-              "volume": 424297.0,
+              "volume": 450297.0,
               "quoteDate": "2026-08-21"
             },
             {
@@ -27821,7 +28041,7 @@ window.DATA = {
               "change": 0.0,
               "changePct": 0.0,
               "amplitude": 6.69,
-              "volume": 8536351.0,
+              "volume": 8551351.0,
               "quoteDate": "2026-08-24"
             },
             {
@@ -27863,7 +28083,7 @@ window.DATA = {
               "change": -615.0,
               "changePct": -3.2,
               "amplitude": 7.67,
-              "volume": 424297.0,
+              "volume": 450297.0,
               "quoteDate": "2026-08-24"
             },
             {
@@ -29744,7 +29964,7 @@ window.DATA = {
               "change": 0.0,
               "changePct": 0.0,
               "amplitude": 6.69,
-              "volume": 8536351.0,
+              "volume": 8551351.0,
               "quoteDate": "2026-08-25"
             },
             {
@@ -29786,7 +30006,7 @@ window.DATA = {
               "change": -615.0,
               "changePct": -3.2,
               "amplitude": 7.67,
-              "volume": 424297.0,
+              "volume": 450297.0,
               "quoteDate": "2026-08-25"
             },
             {
@@ -31653,7 +31873,7 @@ window.DATA = {
               "change": 0.0,
               "changePct": 0.0,
               "amplitude": 6.69,
-              "volume": 8536351.0,
+              "volume": 8551351.0,
               "quoteDate": "2026-08-26",
               "margin": {
                 "marginBuy": 574,
@@ -31695,7 +31915,7 @@ window.DATA = {
               "change": -615.0,
               "changePct": -3.2,
               "amplitude": 7.67,
-              "volume": 424297.0,
+              "volume": 450297.0,
               "quoteDate": "2026-08-26",
               "margin": {
                 "marginBuy": 14,
@@ -33576,7 +33796,7 @@ window.DATA = {
               "change": 0.0,
               "changePct": 0.0,
               "amplitude": 6.69,
-              "volume": 8536351.0,
+              "volume": 8551351.0,
               "quoteDate": "2026-08-27",
               "margin": {
                 "marginBuy": 473,
@@ -33618,7 +33838,7 @@ window.DATA = {
               "change": -615.0,
               "changePct": -3.2,
               "amplitude": 7.67,
-              "volume": 424297.0,
+              "volume": 450297.0,
               "quoteDate": "2026-08-27",
               "margin": {
                 "marginBuy": 20,
@@ -35513,7 +35733,7 @@ window.DATA = {
               "change": 0.0,
               "changePct": 0.0,
               "amplitude": 6.69,
-              "volume": 8536351.0,
+              "volume": 8551351.0,
               "quoteDate": "2026-08-28"
             },
             {
@@ -35594,7 +35814,7 @@ window.DATA = {
               "change": -615.0,
               "changePct": -3.2,
               "amplitude": 7.67,
-              "volume": 424297.0,
+              "volume": 450297.0,
               "quoteDate": "2026-08-28"
             },
             {
@@ -37422,7 +37642,7 @@ window.DATA = {
               "change": 0.0,
               "changePct": 0.0,
               "amplitude": 6.69,
-              "volume": 8536351.0,
+              "volume": 8551351.0,
               "quoteDate": "2026-08-31",
               "margin": {
                 "marginBuy": 261,
@@ -37503,7 +37723,7 @@ window.DATA = {
               "change": -615.0,
               "changePct": -3.2,
               "amplitude": 7.67,
-              "volume": 424297.0,
+              "volume": 450297.0,
               "quoteDate": "2026-08-31",
               "margin": {
                 "marginBuy": 34,
@@ -39359,7 +39579,7 @@ window.DATA = {
               "change": 0.0,
               "changePct": 0.0,
               "amplitude": 6.69,
-              "volume": 8536351.0,
+              "volume": 8551351.0,
               "quoteDate": "2026-09-01"
             },
             {
@@ -39479,7 +39699,7 @@ window.DATA = {
               "change": -615.0,
               "changePct": -3.2,
               "amplitude": 7.67,
-              "volume": 424297.0,
+              "volume": 450297.0,
               "quoteDate": "2026-09-01"
             },
             {
@@ -41282,7 +41502,7 @@ window.DATA = {
               "change": 0.0,
               "changePct": 0.0,
               "amplitude": 6.69,
-              "volume": 8536351.0,
+              "volume": 8551351.0,
               "quoteDate": "2026-09-02"
             },
             {
@@ -41324,7 +41544,7 @@ window.DATA = {
               "change": -615.0,
               "changePct": -3.2,
               "amplitude": 7.67,
-              "volume": 424297.0,
+              "volume": 450297.0,
               "quoteDate": "2026-09-02"
             },
             {
@@ -43191,7 +43411,7 @@ window.DATA = {
               "change": 0.0,
               "changePct": 0.0,
               "amplitude": 6.69,
-              "volume": 8536351.0,
+              "volume": 8551351.0,
               "quoteDate": "2026-09-03",
               "margin": {
                 "marginBuy": 457,
@@ -43233,7 +43453,7 @@ window.DATA = {
               "change": -615.0,
               "changePct": -3.2,
               "amplitude": 7.67,
-              "volume": 424297.0,
+              "volume": 450297.0,
               "quoteDate": "2026-09-03",
               "margin": {
                 "marginBuy": 35,
@@ -45128,7 +45348,7 @@ window.DATA = {
               "change": 0.0,
               "changePct": 0.0,
               "amplitude": 6.69,
-              "volume": 8536351.0,
+              "volume": 8551351.0,
               "quoteDate": "2026-09-04"
             },
             {
@@ -45209,7 +45429,7 @@ window.DATA = {
               "change": -615.0,
               "changePct": -3.2,
               "amplitude": 7.67,
-              "volume": 424297.0,
+              "volume": 450297.0,
               "quoteDate": "2026-09-04"
             },
             {
@@ -47037,7 +47257,7 @@ window.DATA = {
               "change": 0.0,
               "changePct": 0.0,
               "amplitude": 6.69,
-              "volume": 8536351.0,
+              "volume": 8551351.0,
               "quoteDate": "2026-09-07",
               "margin": {
                 "marginBuy": 495,
@@ -47079,7 +47299,7 @@ window.DATA = {
               "change": -615.0,
               "changePct": -3.2,
               "amplitude": 7.67,
-              "volume": 424297.0,
+              "volume": 450297.0,
               "quoteDate": "2026-09-07",
               "margin": {
                 "marginBuy": 14,
@@ -48331,7 +48551,7 @@ window.DATA = {
         },
         {
           "date": "2026-09-08",
-          "fetched_at": "2026-09-09T17:31:00+08:00",
+          "fetched_at": "2026-09-09T18:31:12+08:00",
           "count": 51,
           "self": {
             "open": 30.2,
@@ -48960,7 +49180,7 @@ window.DATA = {
               "change": 0.0,
               "changePct": 0.0,
               "amplitude": 6.69,
-              "volume": 8536351.0,
+              "volume": 8551351.0,
               "quoteDate": "2026-09-08",
               "margin": {
                 "marginBuy": 495,
@@ -49002,7 +49222,7 @@ window.DATA = {
               "change": -615.0,
               "changePct": -3.2,
               "amplitude": 7.67,
-              "volume": 424297.0,
+              "volume": 450297.0,
               "quoteDate": "2026-09-08",
               "margin": {
                 "marginBuy": 14,
@@ -50287,7 +50507,7 @@ window.DATA = {
           "大型權值"
         ],
         "source": "TWSE ETF e添富",
-        "fetchedAt": "2026-09-09T17:34:48+08:00",
+        "fetchedAt": "2026-09-09T18:33:31+08:00",
         "navHistory": [
           {
             "date": "2026-07-27",
@@ -51080,7 +51300,7 @@ window.DATA = {
               "change": 0.0,
               "changePct": 0.0,
               "amplitude": 6.69,
-              "volume": 8536351.0,
+              "volume": 8551351.0,
               "quoteDate": "2026-07-31"
             },
             {
@@ -51148,7 +51368,7 @@ window.DATA = {
               "change": -615.0,
               "changePct": -3.2,
               "amplitude": 7.67,
-              "volume": 424297.0,
+              "volume": 450297.0,
               "quoteDate": "2026-07-31"
             },
             {
@@ -51250,7 +51470,7 @@ window.DATA = {
               "change": -45.0,
               "changePct": -1.59,
               "amplitude": 6.9,
-              "volume": 2226037.0,
+              "volume": 2233037.0,
               "quoteDate": "2026-07-31"
             },
             {
@@ -52017,7 +52237,7 @@ window.DATA = {
               "change": 0.0,
               "changePct": 0.0,
               "amplitude": 6.69,
-              "volume": 8536351.0,
+              "volume": 8551351.0,
               "quoteDate": "2026-08-03"
             },
             {
@@ -52085,7 +52305,7 @@ window.DATA = {
               "change": -615.0,
               "changePct": -3.2,
               "amplitude": 7.67,
-              "volume": 424297.0,
+              "volume": 450297.0,
               "quoteDate": "2026-08-03"
             },
             {
@@ -52204,7 +52424,7 @@ window.DATA = {
               "change": -45.0,
               "changePct": -1.59,
               "amplitude": 6.9,
-              "volume": 2226037.0,
+              "volume": 2233037.0,
               "quoteDate": "2026-08-03"
             },
             {
@@ -52937,7 +53157,7 @@ window.DATA = {
               "change": 0.0,
               "changePct": 0.0,
               "amplitude": 6.69,
-              "volume": 8536351.0,
+              "volume": 8551351.0,
               "quoteDate": "2026-08-04"
             },
             {
@@ -53073,7 +53293,7 @@ window.DATA = {
               "change": -615.0,
               "changePct": -3.2,
               "amplitude": 7.67,
-              "volume": 424297.0,
+              "volume": 450297.0,
               "quoteDate": "2026-08-04"
             },
             {
@@ -53158,7 +53378,7 @@ window.DATA = {
               "change": -45.0,
               "changePct": -1.59,
               "amplitude": 6.9,
-              "volume": 2226037.0,
+              "volume": 2233037.0,
               "quoteDate": "2026-08-04"
             },
             {
@@ -53509,7 +53729,17 @@ window.DATA = {
                 "shortBalance": 4,
                 "offsetting": 0,
                 "date": "2026-08-05"
-              }
+              },
+              "open": 857.0,
+              "high": 881.0,
+              "low": 852.0,
+              "close": 862.0,
+              "prevClose": 851.0,
+              "change": 11.0,
+              "changePct": 1.29,
+              "amplitude": 3.41,
+              "volume": 577491.0,
+              "quoteDate": "2026-08-05"
             },
             {
               "code": "2454",
@@ -53682,7 +53912,17 @@ window.DATA = {
                 "shortBalance": 11,
                 "offsetting": 0,
                 "date": "2026-08-05"
-              }
+              },
+              "open": 6060.0,
+              "high": 6060.0,
+              "low": 5540.0,
+              "close": 5615.0,
+              "prevClose": 5795.0,
+              "change": -180.0,
+              "changePct": -3.11,
+              "amplitude": 8.97,
+              "volume": 1576583.0,
+              "quoteDate": "2026-08-05"
             },
             {
               "code": "2059",
@@ -53779,7 +54019,17 @@ window.DATA = {
                 "shortBalance": 716,
                 "offsetting": 74,
                 "date": "2026-08-05"
-              }
+              },
+              "open": 462.0,
+              "high": 478.0,
+              "low": 457.5,
+              "close": 464.0,
+              "prevClose": 441.5,
+              "change": 22.5,
+              "changePct": 5.1,
+              "amplitude": 4.64,
+              "volume": 36406744.0,
+              "quoteDate": "2026-08-05"
             },
             {
               "code": "2360",
@@ -53876,7 +54126,17 @@ window.DATA = {
                 "shortBalance": 56,
                 "offsetting": 3,
                 "date": "2026-08-05"
-              }
+              },
+              "open": 1500.0,
+              "high": 1550.0,
+              "low": 1450.0,
+              "close": 1455.0,
+              "prevClose": 1490.0,
+              "change": -35.0,
+              "changePct": -2.35,
+              "amplitude": 6.71,
+              "volume": 1404513.0,
+              "quoteDate": "2026-08-05"
             },
             {
               "code": "6531",
@@ -54049,7 +54309,17 @@ window.DATA = {
                 "shortBalance": 149,
                 "offsetting": 15,
                 "date": "2026-08-05"
-              }
+              },
+              "open": 961.0,
+              "high": 965.0,
+              "low": 946.0,
+              "close": 955.0,
+              "prevClose": 955.0,
+              "change": 0.0,
+              "changePct": 0.0,
+              "amplitude": 1.99,
+              "volume": 4488526.0,
+              "quoteDate": "2026-08-05"
             },
             {
               "code": "6257",
@@ -54108,7 +54378,17 @@ window.DATA = {
                 "shortBalance": 104,
                 "offsetting": 8,
                 "date": "2026-08-05"
-              }
+              },
+              "open": 225.0,
+              "high": 235.5,
+              "low": 225.0,
+              "close": 233.0,
+              "prevClose": 225.0,
+              "change": 8.0,
+              "changePct": 3.56,
+              "amplitude": 4.67,
+              "volume": 7325196.0,
+              "quoteDate": "2026-08-05"
             },
             {
               "code": "2377",
@@ -54281,7 +54561,17 @@ window.DATA = {
                 "shortBalance": 139,
                 "offsetting": 19,
                 "date": "2026-08-05"
-              }
+              },
+              "open": 1360.0,
+              "high": 1405.0,
+              "low": 1315.0,
+              "close": 1345.0,
+              "prevClose": 1345.0,
+              "change": 0.0,
+              "changePct": 0.0,
+              "amplitude": 6.69,
+              "volume": 8551351.0,
+              "quoteDate": "2026-08-05"
             },
             {
               "code": "8016",
@@ -54530,7 +54820,17 @@ window.DATA = {
                 "shortBalance": 142,
                 "offsetting": 1,
                 "date": "2026-08-05"
-              }
+              },
+              "open": 100.5,
+              "high": 102.0,
+              "low": 100.5,
+              "close": 101.5,
+              "prevClose": 100.0,
+              "change": 1.5,
+              "changePct": 1.5,
+              "amplitude": 1.5,
+              "volume": 1981541.0,
+              "quoteDate": "2026-08-05"
             },
             {
               "code": "2327",
@@ -54589,7 +54889,17 @@ window.DATA = {
                 "shortBalance": 0,
                 "offsetting": 0,
                 "date": "2026-08-05"
-              }
+              },
+              "open": 19565.0,
+              "high": 19575.0,
+              "low": 18100.0,
+              "close": 18605.0,
+              "prevClose": 19220.0,
+              "change": -615.0,
+              "changePct": -3.2,
+              "amplitude": 7.67,
+              "volume": 450297.0,
+              "quoteDate": "2026-08-05"
             },
             {
               "code": "8996",
@@ -54762,7 +55072,17 @@ window.DATA = {
                 "shortBalance": 5,
                 "offsetting": 4,
                 "date": "2026-08-05"
-              }
+              },
+              "open": 2800.0,
+              "high": 2875.0,
+              "low": 2680.0,
+              "close": 2780.0,
+              "prevClose": 2825.0,
+              "change": -45.0,
+              "changePct": -1.59,
+              "amplitude": 6.9,
+              "volume": 2233037.0,
+              "quoteDate": "2026-08-05"
             },
             {
               "code": "6239",
@@ -54935,7 +55255,17 @@ window.DATA = {
                 "shortBalance": 39,
                 "offsetting": 5,
                 "date": "2026-08-05"
-              }
+              },
+              "open": 1410.0,
+              "high": 1425.0,
+              "low": 1325.0,
+              "close": 1330.0,
+              "prevClose": 1385.0,
+              "change": -55.0,
+              "changePct": -3.97,
+              "amplitude": 7.22,
+              "volume": 2967561.0,
+              "quoteDate": "2026-08-05"
             },
             {
               "code": "3231",
@@ -55336,7 +55666,17 @@ window.DATA = {
                 "shortBalance": 846,
                 "offsetting": 40,
                 "date": "2026-08-05"
-              }
+              },
+              "open": 534.0,
+              "high": 535.0,
+              "low": 519.0,
+              "close": 526.0,
+              "prevClose": 520.0,
+              "change": 6.0,
+              "changePct": 1.15,
+              "amplitude": 3.08,
+              "volume": 3448186.0,
+              "quoteDate": "2026-08-05"
             }
           ],
           "selfInstitutional": {
@@ -56314,7 +56654,7 @@ window.DATA = {
               "change": 0.0,
               "changePct": 0.0,
               "amplitude": 6.69,
-              "volume": 8536351.0,
+              "volume": 8551351.0,
               "quoteDate": "2026-08-06"
             },
             {
@@ -56528,7 +56868,7 @@ window.DATA = {
               "change": -615.0,
               "changePct": -3.2,
               "amplitude": 7.67,
-              "volume": 424297.0,
+              "volume": 450297.0,
               "quoteDate": "2026-08-06"
             },
             {
@@ -56787,7 +57127,7 @@ window.DATA = {
               "change": -45.0,
               "changePct": -1.59,
               "amplitude": 6.9,
-              "volume": 2226037.0,
+              "volume": 2233037.0,
               "quoteDate": "2026-08-06"
             },
             {
@@ -57504,7 +57844,17 @@ window.DATA = {
                 "shortBalance": 81,
                 "offsetting": 0,
                 "date": "2026-08-07"
-              }
+              },
+              "open": 857.0,
+              "high": 881.0,
+              "low": 852.0,
+              "close": 862.0,
+              "prevClose": 851.0,
+              "change": 11.0,
+              "changePct": 1.29,
+              "amplitude": 3.41,
+              "volume": 577491.0,
+              "quoteDate": "2026-08-07"
             },
             {
               "code": "2454",
@@ -57682,7 +58032,17 @@ window.DATA = {
                 "shortBalance": 12,
                 "offsetting": 1,
                 "date": "2026-08-07"
-              }
+              },
+              "open": 6060.0,
+              "high": 6060.0,
+              "low": 5540.0,
+              "close": 5615.0,
+              "prevClose": 5795.0,
+              "change": -180.0,
+              "changePct": -3.11,
+              "amplitude": 8.97,
+              "volume": 1576583.0,
+              "quoteDate": "2026-08-07"
             },
             {
               "code": "2345",
@@ -57821,7 +58181,17 @@ window.DATA = {
                 "shortBalance": 725,
                 "offsetting": 15,
                 "date": "2026-08-07"
-              }
+              },
+              "open": 462.0,
+              "high": 478.0,
+              "low": 457.5,
+              "close": 464.0,
+              "prevClose": 441.5,
+              "change": 22.5,
+              "changePct": 5.1,
+              "amplitude": 4.64,
+              "volume": 36406744.0,
+              "quoteDate": "2026-08-07"
             },
             {
               "code": "4958",
@@ -57921,7 +58291,17 @@ window.DATA = {
                 "shortBalance": 39,
                 "offsetting": 1,
                 "date": "2026-08-07"
-              }
+              },
+              "open": 1500.0,
+              "high": 1550.0,
+              "low": 1450.0,
+              "close": 1455.0,
+              "prevClose": 1490.0,
+              "change": -35.0,
+              "changePct": -2.35,
+              "amplitude": 6.71,
+              "volume": 1404513.0,
+              "quoteDate": "2026-08-07"
             },
             {
               "code": "3017",
@@ -58060,7 +58440,17 @@ window.DATA = {
                 "shortBalance": 148,
                 "offsetting": 2,
                 "date": "2026-08-07"
-              }
+              },
+              "open": 225.0,
+              "high": 235.5,
+              "low": 225.0,
+              "close": 233.0,
+              "prevClose": 225.0,
+              "change": 8.0,
+              "changePct": 3.56,
+              "amplitude": 4.67,
+              "volume": 7325196.0,
+              "quoteDate": "2026-08-07"
             },
             {
               "code": "6488",
@@ -58082,7 +58472,17 @@ window.DATA = {
                 "shortBalance": 120,
                 "offsetting": 9,
                 "date": "2026-08-07"
-              }
+              },
+              "open": 961.0,
+              "high": 965.0,
+              "low": 946.0,
+              "close": 955.0,
+              "prevClose": 955.0,
+              "change": 0.0,
+              "changePct": 0.0,
+              "amplitude": 1.99,
+              "volume": 4488526.0,
+              "quoteDate": "2026-08-07"
             },
             {
               "code": "6257",
@@ -58338,7 +58738,17 @@ window.DATA = {
                 "shortBalance": 142,
                 "offsetting": 278,
                 "date": "2026-08-07"
-              }
+              },
+              "open": 1360.0,
+              "high": 1405.0,
+              "low": 1315.0,
+              "close": 1345.0,
+              "prevClose": 1345.0,
+              "change": 0.0,
+              "changePct": 0.0,
+              "amplitude": 6.69,
+              "volume": 8551351.0,
+              "quoteDate": "2026-08-07"
             },
             {
               "code": "3711",
@@ -58516,7 +58926,17 @@ window.DATA = {
                 "shortBalance": 2128,
                 "offsetting": 0,
                 "date": "2026-08-07"
-              }
+              },
+              "open": 100.5,
+              "high": 102.0,
+              "low": 100.5,
+              "close": 101.5,
+              "prevClose": 100.0,
+              "change": 1.5,
+              "changePct": 1.5,
+              "amplitude": 1.5,
+              "volume": 1981541.0,
+              "quoteDate": "2026-08-07"
             },
             {
               "code": "5274",
@@ -58538,7 +58958,17 @@ window.DATA = {
                 "shortBalance": 0,
                 "offsetting": 0,
                 "date": "2026-08-07"
-              }
+              },
+              "open": 19565.0,
+              "high": 19575.0,
+              "low": 18100.0,
+              "close": 18605.0,
+              "prevClose": 19220.0,
+              "change": -615.0,
+              "changePct": -3.2,
+              "amplitude": 7.67,
+              "volume": 450297.0,
+              "quoteDate": "2026-08-07"
             },
             {
               "code": "8996",
@@ -58794,7 +59224,17 @@ window.DATA = {
                 "shortBalance": 8,
                 "offsetting": 0,
                 "date": "2026-08-07"
-              }
+              },
+              "open": 2800.0,
+              "high": 2875.0,
+              "low": 2680.0,
+              "close": 2780.0,
+              "prevClose": 2825.0,
+              "change": -45.0,
+              "changePct": -1.59,
+              "amplitude": 6.9,
+              "volume": 2233037.0,
+              "quoteDate": "2026-08-07"
             },
             {
               "code": "6831",
@@ -58972,7 +59412,17 @@ window.DATA = {
                 "shortBalance": 11,
                 "offsetting": 8,
                 "date": "2026-08-07"
-              }
+              },
+              "open": 1410.0,
+              "high": 1425.0,
+              "low": 1325.0,
+              "close": 1330.0,
+              "prevClose": 1385.0,
+              "change": -55.0,
+              "changePct": -3.97,
+              "amplitude": 7.22,
+              "volume": 2967561.0,
+              "quoteDate": "2026-08-07"
             },
             {
               "code": "3231",
@@ -59384,7 +59834,17 @@ window.DATA = {
                 "shortBalance": 527,
                 "offsetting": 69,
                 "date": "2026-08-07"
-              }
+              },
+              "open": 534.0,
+              "high": 535.0,
+              "low": 519.0,
+              "close": 526.0,
+              "prevClose": 520.0,
+              "change": 6.0,
+              "changePct": 1.15,
+              "amplitude": 3.08,
+              "volume": 3448186.0,
+              "quoteDate": "2026-08-07"
             }
           ]
         },
@@ -60388,7 +60848,7 @@ window.DATA = {
               "change": 0.0,
               "changePct": 0.0,
               "amplitude": 6.69,
-              "volume": 8536351.0,
+              "volume": 8551351.0,
               "quoteDate": "2026-08-10"
             },
             {
@@ -60608,7 +61068,7 @@ window.DATA = {
               "change": -615.0,
               "changePct": -3.2,
               "amplitude": 7.67,
-              "volume": 424297.0,
+              "volume": 450297.0,
               "quoteDate": "2026-08-10"
             },
             {
@@ -60835,7 +61295,7 @@ window.DATA = {
               "change": -45.0,
               "changePct": -1.59,
               "amplitude": 6.9,
-              "volume": 2226037.0,
+              "volume": 2233037.0,
               "quoteDate": "2026-08-10"
             },
             {
@@ -62450,7 +62910,7 @@ window.DATA = {
               "change": 0.0,
               "changePct": 0.0,
               "amplitude": 6.69,
-              "volume": 8536351.0,
+              "volume": 8551351.0,
               "quoteDate": "2026-08-11"
             },
             {
@@ -62716,7 +63176,7 @@ window.DATA = {
               "change": -615.0,
               "changePct": -3.2,
               "amplitude": 7.67,
-              "volume": 424297.0,
+              "volume": 450297.0,
               "quoteDate": "2026-08-11"
             },
             {
@@ -62975,7 +63435,7 @@ window.DATA = {
               "change": -45.0,
               "changePct": -1.59,
               "amplitude": 6.9,
-              "volume": 2226037.0,
+              "volume": 2233037.0,
               "quoteDate": "2026-08-11"
             },
             {
@@ -64590,7 +65050,7 @@ window.DATA = {
               "change": 0.0,
               "changePct": 0.0,
               "amplitude": 6.69,
-              "volume": 8536351.0,
+              "volume": 8551351.0,
               "quoteDate": "2026-08-12"
             },
             {
@@ -64856,7 +65316,7 @@ window.DATA = {
               "change": -615.0,
               "changePct": -3.2,
               "amplitude": 7.67,
-              "volume": 424297.0,
+              "volume": 450297.0,
               "quoteDate": "2026-08-12"
             },
             {
@@ -65115,7 +65575,7 @@ window.DATA = {
               "change": -45.0,
               "changePct": -1.59,
               "amplitude": 6.9,
-              "volume": 2226037.0,
+              "volume": 2233037.0,
               "quoteDate": "2026-08-12"
             },
             {
@@ -66730,7 +67190,7 @@ window.DATA = {
               "change": 0.0,
               "changePct": 0.0,
               "amplitude": 6.69,
-              "volume": 8536351.0,
+              "volume": 8551351.0,
               "quoteDate": "2026-08-13"
             },
             {
@@ -66957,7 +67417,7 @@ window.DATA = {
               "change": -615.0,
               "changePct": -3.2,
               "amplitude": 7.67,
-              "volume": 424297.0,
+              "volume": 450297.0,
               "quoteDate": "2026-08-13"
             },
             {
@@ -67255,7 +67715,7 @@ window.DATA = {
               "change": -45.0,
               "changePct": -1.59,
               "amplitude": 6.9,
-              "volume": 2226037.0,
+              "volume": 2233037.0,
               "quoteDate": "2026-08-13"
             },
             {
@@ -68870,7 +69330,7 @@ window.DATA = {
               "change": 0.0,
               "changePct": 0.0,
               "amplitude": 6.69,
-              "volume": 8536351.0,
+              "volume": 8551351.0,
               "quoteDate": "2026-08-14"
             },
             {
@@ -69097,7 +69557,7 @@ window.DATA = {
               "change": -615.0,
               "changePct": -3.2,
               "amplitude": 7.67,
-              "volume": 424297.0,
+              "volume": 450297.0,
               "quoteDate": "2026-08-14"
             },
             {
@@ -69395,7 +69855,7 @@ window.DATA = {
               "change": -45.0,
               "changePct": -1.59,
               "amplitude": 6.9,
-              "volume": 2226037.0,
+              "volume": 2233037.0,
               "quoteDate": "2026-08-14"
             },
             {
@@ -70978,7 +71438,7 @@ window.DATA = {
               "change": 0.0,
               "changePct": 0.0,
               "amplitude": 6.69,
-              "volume": 8536351.0,
+              "volume": 8551351.0,
               "quoteDate": "2026-08-17"
             },
             {
@@ -71205,7 +71665,7 @@ window.DATA = {
               "change": -615.0,
               "changePct": -3.2,
               "amplitude": 7.67,
-              "volume": 424297.0,
+              "volume": 450297.0,
               "quoteDate": "2026-08-17"
             },
             {
@@ -71503,7 +71963,7 @@ window.DATA = {
               "change": -45.0,
               "changePct": -1.59,
               "amplitude": 6.9,
-              "volume": 2226037.0,
+              "volume": 2233037.0,
               "quoteDate": "2026-08-17"
             },
             {
@@ -73047,7 +73507,7 @@ window.DATA = {
               "change": 0.0,
               "changePct": 0.0,
               "amplitude": 6.69,
-              "volume": 8536351.0,
+              "volume": 8551351.0,
               "quoteDate": "2026-08-18"
             },
             {
@@ -73157,7 +73617,7 @@ window.DATA = {
               "change": -615.0,
               "changePct": -3.2,
               "amplitude": 7.67,
-              "volume": 424297.0,
+              "volume": 450297.0,
               "quoteDate": "2026-08-18"
             },
             {
@@ -73909,7 +74369,7 @@ window.DATA = {
               "change": -45.0,
               "changePct": -1.59,
               "amplitude": 6.9,
-              "volume": 2226037.0,
+              "volume": 2233037.0,
               "quoteDate": "2026-08-18"
             },
             {
@@ -76209,7 +76669,7 @@ window.DATA = {
               "change": 0.0,
               "changePct": 0.0,
               "amplitude": 6.69,
-              "volume": 8536351.0,
+              "volume": 8551351.0,
               "quoteDate": "2026-08-20"
             },
             {
@@ -76734,7 +77194,7 @@ window.DATA = {
               "change": -615.0,
               "changePct": -3.2,
               "amplitude": 7.67,
-              "volume": 424297.0,
+              "volume": 450297.0,
               "quoteDate": "2026-08-20"
             },
             {
@@ -76915,7 +77375,7 @@ window.DATA = {
               "change": -45.0,
               "changePct": -1.59,
               "amplitude": 6.9,
-              "volume": 2226037.0,
+              "volume": 2233037.0,
               "quoteDate": "2026-08-20"
             },
             {
@@ -78420,7 +78880,7 @@ window.DATA = {
               "change": 0.0,
               "changePct": 0.0,
               "amplitude": 6.69,
-              "volume": 8536351.0,
+              "volume": 8551351.0,
               "quoteDate": "2026-08-21"
             },
             {
@@ -79023,7 +79483,7 @@ window.DATA = {
               "change": -615.0,
               "changePct": -3.2,
               "amplitude": 7.67,
-              "volume": 424297.0,
+              "volume": 450297.0,
               "quoteDate": "2026-08-21"
             },
             {
@@ -79204,7 +79664,7 @@ window.DATA = {
               "change": -45.0,
               "changePct": -1.59,
               "amplitude": 6.9,
-              "volume": 2226037.0,
+              "volume": 2233037.0,
               "quoteDate": "2026-08-21"
             },
             {
@@ -80780,7 +81240,7 @@ window.DATA = {
               "change": 0.0,
               "changePct": 0.0,
               "amplitude": 6.69,
-              "volume": 8536351.0,
+              "volume": 8551351.0,
               "quoteDate": "2026-08-24"
             },
             {
@@ -81195,7 +81655,7 @@ window.DATA = {
               "change": -615.0,
               "changePct": -3.2,
               "amplitude": 7.67,
-              "volume": 424297.0,
+              "volume": 450297.0,
               "quoteDate": "2026-08-24"
             },
             {
@@ -81493,7 +81953,7 @@ window.DATA = {
               "change": -45.0,
               "changePct": -1.59,
               "amplitude": 6.9,
-              "volume": 2226037.0,
+              "volume": 2233037.0,
               "quoteDate": "2026-08-24"
             },
             {
@@ -83044,7 +83504,7 @@ window.DATA = {
               "change": 0.0,
               "changePct": 0.0,
               "amplitude": 6.69,
-              "volume": 8536351.0,
+              "volume": 8551351.0,
               "quoteDate": "2026-08-25"
             },
             {
@@ -83413,7 +83873,7 @@ window.DATA = {
               "change": -615.0,
               "changePct": -3.2,
               "amplitude": 7.67,
-              "volume": 424297.0,
+              "volume": 450297.0,
               "quoteDate": "2026-08-25"
             },
             {
@@ -83743,7 +84203,7 @@ window.DATA = {
               "change": -45.0,
               "changePct": -1.59,
               "amplitude": 6.9,
-              "volume": 2226037.0,
+              "volume": 2233037.0,
               "quoteDate": "2026-08-25"
             },
             {
@@ -85241,7 +85701,7 @@ window.DATA = {
               "change": 0.0,
               "changePct": 0.0,
               "amplitude": 6.69,
-              "volume": 8536351.0,
+              "volume": 8551351.0,
               "quoteDate": "2026-08-26",
               "margin": {
                 "marginBuy": 574,
@@ -85649,7 +86109,7 @@ window.DATA = {
               "change": -615.0,
               "changePct": -3.2,
               "amplitude": 7.67,
-              "volume": 424297.0,
+              "volume": 450297.0,
               "quoteDate": "2026-08-26",
               "margin": {
                 "marginBuy": 14,
@@ -85979,7 +86439,7 @@ window.DATA = {
               "change": -45.0,
               "changePct": -1.59,
               "amplitude": 6.9,
-              "volume": 2226037.0,
+              "volume": 2233037.0,
               "quoteDate": "2026-08-26",
               "margin": {
                 "marginBuy": 249,
@@ -87640,7 +88100,7 @@ window.DATA = {
               "change": 0.0,
               "changePct": 0.0,
               "amplitude": 6.69,
-              "volume": 8536351.0,
+              "volume": 8551351.0,
               "quoteDate": "2026-08-27",
               "margin": {
                 "marginBuy": 473,
@@ -88009,7 +88469,7 @@ window.DATA = {
               "change": -615.0,
               "changePct": -3.2,
               "amplitude": 7.67,
-              "volume": 424297.0,
+              "volume": 450297.0,
               "quoteDate": "2026-08-27",
               "margin": {
                 "marginBuy": 20,
@@ -88229,7 +88689,7 @@ window.DATA = {
               "change": -45.0,
               "changePct": -1.59,
               "amplitude": 6.9,
-              "volume": 2226037.0,
+              "volume": 2233037.0,
               "quoteDate": "2026-08-27",
               "margin": {
                 "marginBuy": 244,
@@ -89755,7 +90215,7 @@ window.DATA = {
               "change": 0.0,
               "changePct": 0.0,
               "amplitude": 6.69,
-              "volume": 8536351.0,
+              "volume": 8551351.0,
               "quoteDate": "2026-08-28"
             },
             {
@@ -90202,7 +90662,7 @@ window.DATA = {
               "change": -615.0,
               "changePct": -3.2,
               "amplitude": 7.67,
-              "volume": 424297.0,
+              "volume": 450297.0,
               "quoteDate": "2026-08-28"
             },
             {
@@ -90422,7 +90882,7 @@ window.DATA = {
               "change": -45.0,
               "changePct": -1.59,
               "amplitude": 6.9,
-              "volume": 2226037.0,
+              "volume": 2233037.0,
               "quoteDate": "2026-08-28"
             },
             {
@@ -92037,7 +92497,7 @@ window.DATA = {
               "change": 0.0,
               "changePct": 0.0,
               "amplitude": 6.69,
-              "volume": 8536351.0,
+              "volume": 8551351.0,
               "quoteDate": "2026-08-31",
               "margin": {
                 "marginBuy": 261,
@@ -92289,7 +92749,7 @@ window.DATA = {
               "change": -615.0,
               "changePct": -3.2,
               "amplitude": 7.67,
-              "volume": 424297.0,
+              "volume": 450297.0,
               "quoteDate": "2026-08-31",
               "margin": {
                 "marginBuy": 34,
@@ -92587,7 +93047,7 @@ window.DATA = {
               "change": -45.0,
               "changePct": -1.59,
               "amplitude": 6.9,
-              "volume": 2226037.0,
+              "volume": 2233037.0,
               "quoteDate": "2026-08-31",
               "margin": {
                 "marginBuy": 171,
@@ -94294,7 +94754,7 @@ window.DATA = {
               "change": 0.0,
               "changePct": 0.0,
               "amplitude": 6.69,
-              "volume": 8536351.0,
+              "volume": 8551351.0,
               "quoteDate": "2026-09-01"
             },
             {
@@ -94365,7 +94825,7 @@ window.DATA = {
               "change": -615.0,
               "changePct": -3.2,
               "amplitude": 7.67,
-              "volume": 424297.0,
+              "volume": 450297.0,
               "quoteDate": "2026-09-01"
             },
             {
@@ -94773,7 +95233,7 @@ window.DATA = {
               "change": -45.0,
               "changePct": -1.59,
               "amplitude": 6.9,
-              "volume": 2226037.0,
+              "volume": 2233037.0,
               "quoteDate": "2026-09-01"
             },
             {
@@ -96363,7 +96823,7 @@ window.DATA = {
               "change": -615.0,
               "changePct": -3.2,
               "amplitude": 7.67,
-              "volume": 424297.0,
+              "volume": 450297.0,
               "quoteDate": "2026-09-02"
             },
             {
@@ -96537,7 +96997,7 @@ window.DATA = {
               "change": 0.0,
               "changePct": 0.0,
               "amplitude": 6.69,
-              "volume": 8536351.0,
+              "volume": 8551351.0,
               "quoteDate": "2026-09-02"
             },
             {
@@ -96945,7 +97405,7 @@ window.DATA = {
               "change": -45.0,
               "changePct": -1.59,
               "amplitude": 6.9,
-              "volume": 2226037.0,
+              "volume": 2233037.0,
               "quoteDate": "2026-09-02"
             },
             {
@@ -98482,7 +98942,7 @@ window.DATA = {
               "change": -615.0,
               "changePct": -3.2,
               "amplitude": 7.67,
-              "volume": 424297.0,
+              "volume": 450297.0,
               "quoteDate": "2026-09-03",
               "margin": {
                 "marginBuy": 35,
@@ -98727,7 +99187,7 @@ window.DATA = {
               "change": 0.0,
               "changePct": 0.0,
               "amplitude": 6.69,
-              "volume": 8536351.0,
+              "volume": 8551351.0,
               "quoteDate": "2026-09-03",
               "margin": {
                 "marginBuy": 457,
@@ -99103,7 +99563,7 @@ window.DATA = {
               "change": -45.0,
               "changePct": -1.59,
               "amplitude": 6.9,
-              "volume": 2226037.0,
+              "volume": 2233037.0,
               "quoteDate": "2026-09-03",
               "margin": {
                 "marginBuy": 248,
@@ -100725,7 +101185,7 @@ window.DATA = {
               "change": -615.0,
               "changePct": -3.2,
               "amplitude": 7.67,
-              "volume": 424297.0,
+              "volume": 450297.0,
               "quoteDate": "2026-09-04",
               "margin": {
                 "marginBuy": 14,
@@ -100938,7 +101398,7 @@ window.DATA = {
               "change": 0.0,
               "changePct": 0.0,
               "amplitude": 6.69,
-              "volume": 8536351.0,
+              "volume": 8551351.0,
               "quoteDate": "2026-09-04",
               "margin": {
                 "marginBuy": 495,
@@ -101236,7 +101696,7 @@ window.DATA = {
               "change": -45.0,
               "changePct": -1.59,
               "amplitude": 6.9,
-              "volume": 2226037.0,
+              "volume": 2233037.0,
               "quoteDate": "2026-09-04",
               "margin": {
                 "marginBuy": 212,
@@ -102709,7 +103169,7 @@ window.DATA = {
               "change": -615.0,
               "changePct": -3.2,
               "amplitude": 7.67,
-              "volume": 424297.0,
+              "volume": 450297.0,
               "quoteDate": "2026-09-07",
               "margin": {
                 "marginBuy": 14,
@@ -103071,7 +103531,7 @@ window.DATA = {
               "change": 0.0,
               "changePct": 0.0,
               "amplitude": 6.69,
-              "volume": 8536351.0,
+              "volume": 8551351.0,
               "quoteDate": "2026-09-07",
               "margin": {
                 "marginBuy": 495,
@@ -103369,7 +103829,7 @@ window.DATA = {
               "change": -45.0,
               "changePct": -1.59,
               "amplitude": 6.9,
-              "volume": 2226037.0,
+              "volume": 2233037.0,
               "quoteDate": "2026-09-07",
               "margin": {
                 "marginBuy": 212,
@@ -103961,7 +104421,7 @@ window.DATA = {
         },
         {
           "date": "2026-09-08",
-          "fetched_at": "2026-09-09T17:31:00+08:00",
+          "fetched_at": "2026-09-09T18:31:13+08:00",
           "count": 56,
           "self": {
             "open": 23.25,
@@ -104803,7 +105263,7 @@ window.DATA = {
               "change": -615.0,
               "changePct": -3.2,
               "amplitude": 7.67,
-              "volume": 424297.0,
+              "volume": 450297.0,
               "quoteDate": "2026-09-08",
               "margin": {
                 "marginBuy": 14,
@@ -105172,7 +105632,7 @@ window.DATA = {
               "change": 0.0,
               "changePct": 0.0,
               "amplitude": 6.69,
-              "volume": 8536351.0,
+              "volume": 8551351.0,
               "quoteDate": "2026-09-08",
               "margin": {
                 "marginBuy": 495,
@@ -105502,7 +105962,7 @@ window.DATA = {
               "change": -45.0,
               "changePct": -1.59,
               "amplitude": 6.9,
-              "volume": 2226037.0,
+              "volume": 2233037.0,
               "quoteDate": "2026-09-08",
               "margin": {
                 "marginBuy": 212,
@@ -106138,11 +106598,11 @@ window.DATA = {
         "fundSizeHundredMillion": 509.39,
         "beneficiaryTenThousands": 18.09,
         "tags": [
-          "中小型權值",
-          "大型權值"
+          "大型權值",
+          "中小型權值"
         ],
         "source": "TWSE ETF e添富",
-        "fetchedAt": "2026-09-09T17:34:49+08:00",
+        "fetchedAt": "2026-09-09T18:33:32+08:00",
         "navHistory": [
           {
             "date": "2026-07-27",
@@ -110727,7 +111187,17 @@ window.DATA = {
                 "shortBalance": 12,
                 "offsetting": 2,
                 "date": "2026-08-05"
-              }
+              },
+              "open": 6060.0,
+              "high": 6060.0,
+              "low": 5540.0,
+              "close": 5615.0,
+              "prevClose": 5795.0,
+              "change": -180.0,
+              "changePct": -3.11,
+              "amplitude": 8.97,
+              "volume": 1576583.0,
+              "quoteDate": "2026-08-05"
             },
             {
               "code": "GOOGL",
@@ -110820,7 +111290,17 @@ window.DATA = {
                 "shortBalance": 292,
                 "offsetting": 2,
                 "date": "2026-08-05"
-              }
+              },
+              "open": 154.0,
+              "high": 159.5,
+              "low": 152.5,
+              "close": 157.0,
+              "prevClose": 152.0,
+              "change": 5.0,
+              "changePct": 3.29,
+              "amplitude": 4.61,
+              "volume": 13955300.0,
+              "quoteDate": "2026-08-05"
             },
             {
               "code": "3711",
@@ -111953,7 +112433,7 @@ window.DATA = {
               "change": 0.0,
               "changePct": 0.0,
               "amplitude": 6.69,
-              "volume": 8536351.0,
+              "volume": 8551351.0,
               "quoteDate": "2026-08-06"
             },
             {
@@ -113009,7 +113489,17 @@ window.DATA = {
                 "shortBalance": 14,
                 "offsetting": 0,
                 "date": "2026-08-07"
-              }
+              },
+              "open": 6060.0,
+              "high": 6060.0,
+              "low": 5540.0,
+              "close": 5615.0,
+              "prevClose": 5795.0,
+              "change": -180.0,
+              "changePct": -3.11,
+              "amplitude": 8.97,
+              "volume": 1576583.0,
+              "quoteDate": "2026-08-07"
             },
             {
               "code": "AVGO",
@@ -113135,7 +113625,17 @@ window.DATA = {
                 "shortBalance": 127,
                 "offsetting": 190,
                 "date": "2026-08-07"
-              }
+              },
+              "open": 1360.0,
+              "high": 1405.0,
+              "low": 1315.0,
+              "close": 1345.0,
+              "prevClose": 1345.0,
+              "change": 0.0,
+              "changePct": 0.0,
+              "amplitude": 6.69,
+              "volume": 8551351.0,
+              "quoteDate": "2026-08-07"
             },
             {
               "code": "ALAB",
@@ -114237,7 +114737,7 @@ window.DATA = {
               "change": 0.0,
               "changePct": 0.0,
               "amplitude": 6.69,
-              "volume": 8536351.0,
+              "volume": 8551351.0,
               "quoteDate": "2026-08-10"
             },
             {
@@ -115225,7 +115725,7 @@ window.DATA = {
               "change": 0.0,
               "changePct": 0.0,
               "amplitude": 6.69,
-              "volume": 8536351.0,
+              "volume": 8551351.0,
               "quoteDate": "2026-08-11"
             },
             {
@@ -116344,7 +116844,7 @@ window.DATA = {
               "change": 0.0,
               "changePct": 0.0,
               "amplitude": 6.69,
-              "volume": 8536351.0,
+              "volume": 8551351.0,
               "quoteDate": "2026-08-12"
             },
             {
@@ -117526,7 +118026,7 @@ window.DATA = {
               "change": 0.0,
               "changePct": 0.0,
               "amplitude": 6.69,
-              "volume": 8536351.0,
+              "volume": 8551351.0,
               "quoteDate": "2026-08-13"
             },
             {
@@ -118596,7 +119096,7 @@ window.DATA = {
               "change": 0.0,
               "changePct": 0.0,
               "amplitude": 6.69,
-              "volume": 8536351.0,
+              "volume": 8551351.0,
               "quoteDate": "2026-08-14"
             },
             {
@@ -119800,7 +120300,7 @@ window.DATA = {
               "change": 0.0,
               "changePct": 0.0,
               "amplitude": 6.69,
-              "volume": 8536351.0,
+              "volume": 8551351.0,
               "quoteDate": "2026-08-17"
             },
             {
@@ -120890,7 +121390,7 @@ window.DATA = {
               "change": 0.0,
               "changePct": 0.0,
               "amplitude": 6.69,
-              "volume": 8536351.0,
+              "volume": 8551351.0,
               "quoteDate": "2026-08-18"
             },
             {
@@ -121980,7 +122480,7 @@ window.DATA = {
               "change": 0.0,
               "changePct": 0.0,
               "amplitude": 6.69,
-              "volume": 8536351.0,
+              "volume": 8551351.0,
               "quoteDate": "2026-08-19"
             },
             {
@@ -122828,7 +123328,7 @@ window.DATA = {
               "change": 0.0,
               "changePct": 0.0,
               "amplitude": 6.69,
-              "volume": 8536351.0,
+              "volume": 8551351.0,
               "quoteDate": "2026-08-20"
             },
             {
@@ -123994,7 +124494,7 @@ window.DATA = {
               "change": 0.0,
               "changePct": 0.0,
               "amplitude": 6.69,
-              "volume": 8536351.0,
+              "volume": 8551351.0,
               "quoteDate": "2026-08-21"
             },
             {
@@ -125141,7 +125641,7 @@ window.DATA = {
               "change": 0.0,
               "changePct": 0.0,
               "amplitude": 6.69,
-              "volume": 8536351.0,
+              "volume": 8551351.0,
               "quoteDate": "2026-08-24"
             },
             {
@@ -126212,7 +126712,7 @@ window.DATA = {
               "change": 0.0,
               "changePct": 0.0,
               "amplitude": 6.69,
-              "volume": 8536351.0,
+              "volume": 8551351.0,
               "quoteDate": "2026-08-25"
             },
             {
@@ -127288,7 +127788,7 @@ window.DATA = {
               "change": 0.0,
               "changePct": 0.0,
               "amplitude": 6.69,
-              "volume": 8536351.0,
+              "volume": 8551351.0,
               "quoteDate": "2026-08-26",
               "margin": {
                 "marginBuy": 473,
@@ -128550,7 +129050,7 @@ window.DATA = {
               "change": 0.0,
               "changePct": 0.0,
               "amplitude": 6.69,
-              "volume": 8536351.0,
+              "volume": 8551351.0,
               "quoteDate": "2026-08-27",
               "margin": {
                 "marginBuy": 415,
@@ -129716,7 +130216,7 @@ window.DATA = {
               "change": 0.0,
               "changePct": 0.0,
               "amplitude": 6.69,
-              "volume": 8536351.0,
+              "volume": 8551351.0,
               "quoteDate": "2026-08-28",
               "margin": {
                 "marginBuy": 261,
@@ -130958,7 +131458,7 @@ window.DATA = {
               "change": 0.0,
               "changePct": 0.0,
               "amplitude": 6.69,
-              "volume": 8536351.0,
+              "volume": 8551351.0,
               "quoteDate": "2026-08-31",
               "margin": {
                 "marginBuy": 294,
@@ -132130,7 +132630,7 @@ window.DATA = {
               "change": 0.0,
               "changePct": 0.0,
               "amplitude": 6.69,
-              "volume": 8536351.0,
+              "volume": 8551351.0,
               "quoteDate": "2026-09-01"
             },
             {
@@ -133341,7 +133841,7 @@ window.DATA = {
               "change": 0.0,
               "changePct": 0.0,
               "amplitude": 6.69,
-              "volume": 8536351.0,
+              "volume": 8551351.0,
               "quoteDate": "2026-09-02",
               "margin": {
                 "marginBuy": 495,
@@ -134559,7 +135059,7 @@ window.DATA = {
               "change": 0.0,
               "changePct": 0.0,
               "amplitude": 6.69,
-              "volume": 8536351.0,
+              "volume": 8551351.0,
               "quoteDate": "2026-09-03",
               "margin": {
                 "marginBuy": 495,
@@ -135776,7 +136276,7 @@ window.DATA = {
               "change": 0.0,
               "changePct": 0.0,
               "amplitude": 6.69,
-              "volume": 8536351.0,
+              "volume": 8551351.0,
               "quoteDate": "2026-09-04",
               "margin": {
                 "marginBuy": 495,
@@ -136119,7 +136619,7 @@ window.DATA = {
         },
         {
           "date": "2026-09-08",
-          "fetched_at": "2026-09-09T17:31:09+08:00",
+          "fetched_at": "2026-09-09T18:31:21+08:00",
           "count": 49,
           "self": {
             "open": 15.16,
@@ -137122,7 +137622,7 @@ window.DATA = {
               "change": 0.0,
               "changePct": 0.0,
               "amplitude": 6.69,
-              "volume": 8536351.0,
+              "volume": 8551351.0,
               "quoteDate": "2026-09-08",
               "margin": {
                 "marginBuy": 495,
@@ -137348,7 +137848,7 @@ window.DATA = {
               "change": -45.0,
               "changePct": -1.59,
               "amplitude": 6.9,
-              "volume": 2226037.0,
+              "volume": 2233037.0,
               "quoteDate": "2026-09-08",
               "margin": {
                 "marginBuy": 212,
@@ -137380,7 +137880,7 @@ window.DATA = {
           "科技主題型"
         ],
         "source": "TWSE ETF e添富",
-        "fetchedAt": "2026-09-09T17:34:50+08:00",
+        "fetchedAt": "2026-09-09T18:33:33+08:00",
         "navHistory": [
           {
             "date": "2026-07-27",
@@ -139996,7 +140496,17 @@ window.DATA = {
                 "shortBalance": 11,
                 "offsetting": 0,
                 "date": "2026-08-05"
-              }
+              },
+              "open": 6060.0,
+              "high": 6060.0,
+              "low": 5540.0,
+              "close": 5615.0,
+              "prevClose": 5795.0,
+              "change": -180.0,
+              "changePct": -3.11,
+              "amplitude": 8.97,
+              "volume": 1576583.0,
+              "quoteDate": "2026-08-05"
             },
             {
               "code": "8996",
@@ -140131,7 +140641,17 @@ window.DATA = {
                 "shortBalance": 5,
                 "offsetting": 0,
                 "date": "2026-08-05"
-              }
+              },
+              "open": 582.0,
+              "high": 600.0,
+              "low": 582.0,
+              "close": 586.0,
+              "prevClose": 602.0,
+              "change": -16.0,
+              "changePct": -2.66,
+              "amplitude": 2.99,
+              "volume": 596725.0,
+              "quoteDate": "2026-08-05"
             },
             {
               "code": "2455",
@@ -140342,7 +140862,17 @@ window.DATA = {
                 "shortBalance": 39,
                 "offsetting": 5,
                 "date": "2026-08-05"
-              }
+              },
+              "open": 1410.0,
+              "high": 1425.0,
+              "low": 1325.0,
+              "close": 1330.0,
+              "prevClose": 1385.0,
+              "change": -55.0,
+              "changePct": -3.97,
+              "amplitude": 7.22,
+              "volume": 2967561.0,
+              "quoteDate": "2026-08-05"
             },
             {
               "code": "3661",
@@ -140401,7 +140931,17 @@ window.DATA = {
                 "shortBalance": 83,
                 "offsetting": 5,
                 "date": "2026-08-05"
-              }
+              },
+              "open": 2100.0,
+              "high": 2125.0,
+              "low": 2070.0,
+              "close": 2085.0,
+              "prevClose": 2085.0,
+              "change": 0.0,
+              "changePct": 0.0,
+              "amplitude": 2.64,
+              "volume": 2025347.0,
+              "quoteDate": "2026-08-05"
             },
             {
               "code": "1815",
@@ -140422,7 +140962,13 @@ window.DATA = {
                 "shortBalance": 744,
                 "offsetting": 39,
                 "date": "2026-08-05"
-              }
+              },
+              "open": 134.0,
+              "high": 135.0,
+              "low": 126.0,
+              "close": 126.0,
+              "volume": 69801364.0,
+              "quoteDate": "2026-08-05"
             },
             {
               "code": "2308",
@@ -140543,7 +141089,17 @@ window.DATA = {
               "name": "竑騰",
               "market": "TW",
               "weight": 1.03,
-              "shares": 310000
+              "shares": 310000,
+              "open": 1585.0,
+              "high": 1640.0,
+              "low": 1585.0,
+              "close": 1610.0,
+              "prevClose": 1545.0,
+              "change": 65.0,
+              "changePct": 4.21,
+              "amplitude": 3.56,
+              "volume": 212127.0,
+              "quoteDate": "2026-08-05"
             },
             {
               "code": "3189",
@@ -140678,7 +141234,17 @@ window.DATA = {
                 "shortBalance": 3,
                 "offsetting": 1,
                 "date": "2026-08-05"
-              }
+              },
+              "open": 2965.0,
+              "high": 3020.0,
+              "low": 2910.0,
+              "close": 2980.0,
+              "prevClose": 2910.0,
+              "change": 70.0,
+              "changePct": 2.41,
+              "amplitude": 3.78,
+              "volume": 183691.0,
+              "quoteDate": "2026-08-05"
             },
             {
               "code": "6805",
@@ -140775,7 +141341,17 @@ window.DATA = {
                 "shortBalance": 22,
                 "offsetting": 5,
                 "date": "2026-08-05"
-              }
+              },
+              "open": 1375.0,
+              "high": 1395.0,
+              "low": 1345.0,
+              "close": 1355.0,
+              "prevClose": 1370.0,
+              "change": -15.0,
+              "changePct": -1.09,
+              "amplitude": 3.65,
+              "volume": 1224986.0,
+              "quoteDate": "2026-08-05"
             },
             {
               "code": "3260",
@@ -140796,7 +141372,17 @@ window.DATA = {
                 "shortBalance": 1996,
                 "offsetting": 23,
                 "date": "2026-08-05"
-              }
+              },
+              "open": 417.5,
+              "high": 424.5,
+              "low": 413.5,
+              "close": 414.5,
+              "prevClose": 414.0,
+              "change": 0.5,
+              "changePct": 0.12,
+              "amplitude": 2.66,
+              "volume": 7258739.0,
+              "quoteDate": "2026-08-05"
             },
             {
               "code": "3583",
@@ -140855,7 +141441,17 @@ window.DATA = {
                 "shortBalance": 224,
                 "offsetting": 5,
                 "date": "2026-08-05"
-              }
+              },
+              "open": 154.0,
+              "high": 159.5,
+              "low": 152.5,
+              "close": 157.0,
+              "prevClose": 152.0,
+              "change": 5.0,
+              "changePct": 3.29,
+              "amplitude": 4.61,
+              "volume": 13955300.0,
+              "quoteDate": "2026-08-05"
             },
             {
               "code": "3264",
@@ -140876,7 +141472,17 @@ window.DATA = {
                 "shortBalance": 104,
                 "offsetting": 8,
                 "date": "2026-08-05"
-              }
+              },
+              "open": 225.0,
+              "high": 235.5,
+              "low": 225.0,
+              "close": 233.0,
+              "prevClose": 225.0,
+              "change": 8.0,
+              "changePct": 3.56,
+              "amplitude": 4.67,
+              "volume": 7325196.0,
+              "quoteDate": "2026-08-05"
             }
           ],
           "selfInstitutional": {
@@ -142626,7 +143232,17 @@ window.DATA = {
                 "shortBalance": 12,
                 "offsetting": 1,
                 "date": "2026-08-07"
-              }
+              },
+              "open": 6060.0,
+              "high": 6060.0,
+              "low": 5540.0,
+              "close": 5615.0,
+              "prevClose": 5795.0,
+              "change": -180.0,
+              "changePct": -3.11,
+              "amplitude": 8.97,
+              "volume": 1576583.0,
+              "quoteDate": "2026-08-07"
             },
             {
               "code": "8996",
@@ -142765,7 +143381,17 @@ window.DATA = {
                 "shortBalance": 2,
                 "offsetting": 0,
                 "date": "2026-08-07"
-              }
+              },
+              "open": 582.0,
+              "high": 600.0,
+              "low": 582.0,
+              "close": 586.0,
+              "prevClose": 602.0,
+              "change": -16.0,
+              "changePct": -2.66,
+              "amplitude": 2.99,
+              "volume": 596725.0,
+              "quoteDate": "2026-08-07"
             },
             {
               "code": "1303",
@@ -142982,7 +143608,17 @@ window.DATA = {
                 "shortBalance": 11,
                 "offsetting": 8,
                 "date": "2026-08-07"
-              }
+              },
+              "open": 1410.0,
+              "high": 1425.0,
+              "low": 1325.0,
+              "close": 1330.0,
+              "prevClose": 1385.0,
+              "change": -55.0,
+              "changePct": -3.97,
+              "amplitude": 7.22,
+              "volume": 2967561.0,
+              "quoteDate": "2026-08-07"
             },
             {
               "code": "3661",
@@ -143082,7 +143718,13 @@ window.DATA = {
                 "shortBalance": 721,
                 "offsetting": 436,
                 "date": "2026-08-07"
-              }
+              },
+              "open": 134.0,
+              "high": 135.0,
+              "low": 126.0,
+              "close": 126.0,
+              "volume": 69801364.0,
+              "quoteDate": "2026-08-07"
             },
             {
               "code": "2308",
@@ -143207,7 +143849,17 @@ window.DATA = {
               "market": "TW",
               "assetType": "stock",
               "weight": 0.88,
-              "shares": 270000
+              "shares": 270000,
+              "open": 1585.0,
+              "high": 1640.0,
+              "low": 1585.0,
+              "close": 1610.0,
+              "prevClose": 1545.0,
+              "change": 65.0,
+              "changePct": 4.21,
+              "amplitude": 3.56,
+              "volume": 212127.0,
+              "quoteDate": "2026-08-07"
             },
             {
               "code": "6515",
@@ -143307,7 +143959,17 @@ window.DATA = {
                 "shortBalance": 2,
                 "offsetting": 0,
                 "date": "2026-08-07"
-              }
+              },
+              "open": 2965.0,
+              "high": 3020.0,
+              "low": 2910.0,
+              "close": 2980.0,
+              "prevClose": 2910.0,
+              "change": 70.0,
+              "changePct": 2.41,
+              "amplitude": 3.78,
+              "volume": 183691.0,
+              "quoteDate": "2026-08-07"
             },
             {
               "code": "6805",
@@ -143407,7 +144069,17 @@ window.DATA = {
                 "shortBalance": 1889,
                 "offsetting": 9,
                 "date": "2026-08-07"
-              }
+              },
+              "open": 417.5,
+              "high": 424.5,
+              "low": 413.5,
+              "close": 414.5,
+              "prevClose": 414.0,
+              "change": 0.5,
+              "changePct": 0.12,
+              "amplitude": 2.66,
+              "volume": 7258739.0,
+              "quoteDate": "2026-08-07"
             },
             {
               "code": "5289",
@@ -143429,7 +144101,17 @@ window.DATA = {
                 "shortBalance": 27,
                 "offsetting": 1,
                 "date": "2026-08-07"
-              }
+              },
+              "open": 1375.0,
+              "high": 1395.0,
+              "low": 1345.0,
+              "close": 1355.0,
+              "prevClose": 1370.0,
+              "change": -15.0,
+              "changePct": -1.09,
+              "amplitude": 3.65,
+              "volume": 1224986.0,
+              "quoteDate": "2026-08-07"
             },
             {
               "code": "3583",
@@ -143490,7 +144172,17 @@ window.DATA = {
                 "shortBalance": 273,
                 "offsetting": 24,
                 "date": "2026-08-07"
-              }
+              },
+              "open": 154.0,
+              "high": 159.5,
+              "low": 152.5,
+              "close": 157.0,
+              "prevClose": 152.0,
+              "change": 5.0,
+              "changePct": 3.29,
+              "amplitude": 4.61,
+              "volume": 13955300.0,
+              "quoteDate": "2026-08-07"
             },
             {
               "code": "3264",
@@ -143512,7 +144204,17 @@ window.DATA = {
                 "shortBalance": 148,
                 "offsetting": 2,
                 "date": "2026-08-07"
-              }
+              },
+              "open": 225.0,
+              "high": 235.5,
+              "low": 225.0,
+              "close": 233.0,
+              "prevClose": 225.0,
+              "change": 8.0,
+              "changePct": 3.56,
+              "amplitude": 4.67,
+              "volume": 7325196.0,
+              "quoteDate": "2026-08-07"
             }
           ]
         },
@@ -152905,7 +153607,7 @@ window.DATA = {
               "change": -615.0,
               "changePct": -3.2,
               "amplitude": 7.67,
-              "volume": 424297.0,
+              "volume": 450297.0,
               "quoteDate": "2026-08-18"
             },
             {
@@ -153242,7 +153944,7 @@ window.DATA = {
               "change": 0.0,
               "changePct": 0.0,
               "amplitude": 6.69,
-              "volume": 8536351.0,
+              "volume": 8551351.0,
               "quoteDate": "2026-08-18"
             },
             {
@@ -155108,7 +155810,7 @@ window.DATA = {
               "change": 0.0,
               "changePct": 0.0,
               "amplitude": 6.69,
-              "volume": 8536351.0,
+              "volume": 8551351.0,
               "quoteDate": "2026-08-20"
             },
             {
@@ -155250,7 +155952,7 @@ window.DATA = {
               "change": -615.0,
               "changePct": -3.2,
               "amplitude": 7.67,
-              "volume": 424297.0,
+              "volume": 450297.0,
               "quoteDate": "2026-08-20"
             },
             {
@@ -156794,7 +157496,7 @@ window.DATA = {
               "change": -615.0,
               "changePct": -3.2,
               "amplitude": 7.67,
-              "volume": 424297.0,
+              "volume": 450297.0,
               "quoteDate": "2026-08-21"
             },
             {
@@ -156865,7 +157567,7 @@ window.DATA = {
               "change": 0.0,
               "changePct": 0.0,
               "amplitude": 6.69,
-              "volume": 8536351.0,
+              "volume": 8551351.0,
               "quoteDate": "2026-08-21"
             },
             {
@@ -158370,7 +159072,7 @@ window.DATA = {
               "change": 0.0,
               "changePct": 0.0,
               "amplitude": 6.69,
-              "volume": 8536351.0,
+              "volume": 8551351.0,
               "quoteDate": "2026-08-24"
             },
             {
@@ -158402,7 +159104,7 @@ window.DATA = {
               "change": -615.0,
               "changePct": -3.2,
               "amplitude": 7.67,
-              "volume": 424297.0,
+              "volume": 450297.0,
               "quoteDate": "2026-08-24"
             },
             {
@@ -159939,7 +160641,7 @@ window.DATA = {
               "change": -615.0,
               "changePct": -3.2,
               "amplitude": 7.67,
-              "volume": 424297.0,
+              "volume": 450297.0,
               "quoteDate": "2026-08-25"
             },
             {
@@ -160010,7 +160712,7 @@ window.DATA = {
               "change": 0.0,
               "changePct": 0.0,
               "amplitude": 6.69,
-              "volume": 8536351.0,
+              "volume": 8551351.0,
               "quoteDate": "2026-08-25"
             },
             {
@@ -161508,7 +162210,7 @@ window.DATA = {
               "change": 0.0,
               "changePct": 0.0,
               "amplitude": 6.69,
-              "volume": 8536351.0,
+              "volume": 8551351.0,
               "quoteDate": "2026-08-26",
               "margin": {
                 "marginBuy": 574,
@@ -161572,7 +162274,7 @@ window.DATA = {
               "change": -615.0,
               "changePct": -3.2,
               "amplitude": 7.67,
-              "volume": 424297.0,
+              "volume": 450297.0,
               "quoteDate": "2026-08-26",
               "margin": {
                 "marginBuy": 14,
@@ -163194,7 +163896,7 @@ window.DATA = {
               "change": -615.0,
               "changePct": -3.2,
               "amplitude": 7.67,
-              "volume": 424297.0,
+              "volume": 450297.0,
               "quoteDate": "2026-08-27",
               "margin": {
                 "marginBuy": 20,
@@ -163226,7 +163928,7 @@ window.DATA = {
               "change": 0.0,
               "changePct": 0.0,
               "amplitude": 6.69,
-              "volume": 8536351.0,
+              "volume": 8551351.0,
               "quoteDate": "2026-08-27",
               "margin": {
                 "marginBuy": 473,
@@ -164745,7 +165447,7 @@ window.DATA = {
               "change": -615.0,
               "changePct": -3.2,
               "amplitude": 7.67,
-              "volume": 424297.0,
+              "volume": 450297.0,
               "quoteDate": "2026-08-28"
             },
             {
@@ -164816,7 +165518,7 @@ window.DATA = {
               "change": 0.0,
               "changePct": 0.0,
               "amplitude": 6.69,
-              "volume": 8536351.0,
+              "volume": 8551351.0,
               "quoteDate": "2026-08-28"
             },
             {
@@ -166229,7 +166931,7 @@ window.DATA = {
               "change": -615.0,
               "changePct": -3.2,
               "amplitude": 7.67,
-              "volume": 424297.0,
+              "volume": 450297.0,
               "quoteDate": "2026-08-31",
               "margin": {
                 "marginBuy": 34,
@@ -166300,7 +167002,7 @@ window.DATA = {
               "change": 0.0,
               "changePct": 0.0,
               "amplitude": 6.69,
-              "volume": 8536351.0,
+              "volume": 8551351.0,
               "quoteDate": "2026-08-31",
               "margin": {
                 "marginBuy": 261,
@@ -167709,7 +168411,7 @@ window.DATA = {
               "change": -615.0,
               "changePct": -3.2,
               "amplitude": 7.67,
-              "volume": 424297.0,
+              "volume": 450297.0,
               "quoteDate": "2026-09-01"
             },
             {
@@ -167890,7 +168592,7 @@ window.DATA = {
               "change": 0.0,
               "changePct": 0.0,
               "amplitude": 6.69,
-              "volume": 8536351.0,
+              "volume": 8551351.0,
               "quoteDate": "2026-09-01"
             },
             {
@@ -169090,7 +169792,7 @@ window.DATA = {
               "change": -615.0,
               "changePct": -3.2,
               "amplitude": 7.67,
-              "volume": 424297.0,
+              "volume": 450297.0,
               "quoteDate": "2026-09-02"
             },
             {
@@ -169388,7 +170090,7 @@ window.DATA = {
               "change": 0.0,
               "changePct": 0.0,
               "amplitude": 6.69,
-              "volume": 8536351.0,
+              "volume": 8551351.0,
               "quoteDate": "2026-09-02"
             },
             {
@@ -170503,7 +171205,7 @@ window.DATA = {
               "change": -615.0,
               "changePct": -3.2,
               "amplitude": 7.67,
-              "volume": 424297.0,
+              "volume": 450297.0,
               "quoteDate": "2026-09-03",
               "margin": {
                 "marginBuy": 35,
@@ -170989,7 +171691,7 @@ window.DATA = {
               "change": 0.0,
               "changePct": 0.0,
               "amplitude": 6.69,
-              "volume": 8536351.0,
+              "volume": 8551351.0,
               "quoteDate": "2026-09-03",
               "margin": {
                 "marginBuy": 457,
@@ -172150,7 +172852,7 @@ window.DATA = {
               "change": -615.0,
               "changePct": -3.2,
               "amplitude": 7.67,
-              "volume": 424297.0,
+              "volume": 450297.0,
               "quoteDate": "2026-09-04",
               "margin": {
                 "marginBuy": 14,
@@ -172526,7 +173228,7 @@ window.DATA = {
               "change": 0.0,
               "changePct": 0.0,
               "amplitude": 6.69,
-              "volume": 8536351.0,
+              "volume": 8551351.0,
               "quoteDate": "2026-09-04",
               "margin": {
                 "marginBuy": 495,
@@ -173577,7 +174279,7 @@ window.DATA = {
               "change": -615.0,
               "changePct": -3.2,
               "amplitude": 7.67,
-              "volume": 424297.0,
+              "volume": 450297.0,
               "quoteDate": "2026-09-07",
               "margin": {
                 "marginBuy": 14,
@@ -174063,7 +174765,7 @@ window.DATA = {
               "change": 0.0,
               "changePct": 0.0,
               "amplitude": 6.69,
-              "volume": 8536351.0,
+              "volume": 8551351.0,
               "quoteDate": "2026-09-07",
               "margin": {
                 "marginBuy": 495,
@@ -174148,7 +174850,7 @@ window.DATA = {
         },
         {
           "date": "2026-09-08",
-          "fetched_at": "2026-09-09T17:31:09+08:00",
+          "fetched_at": "2026-09-09T18:31:21+08:00",
           "count": 39,
           "self": {
             "open": 18.46,
@@ -175075,7 +175777,7 @@ window.DATA = {
               "change": -615.0,
               "changePct": -3.2,
               "amplitude": 7.67,
-              "volume": 424297.0,
+              "volume": 450297.0,
               "quoteDate": "2026-09-08",
               "margin": {
                 "marginBuy": 14,
@@ -175561,7 +176263,7 @@ window.DATA = {
               "change": 0.0,
               "changePct": 0.0,
               "amplitude": 6.69,
-              "volume": 8536351.0,
+              "volume": 8551351.0,
               "quoteDate": "2026-09-08",
               "margin": {
                 "marginBuy": 495,
@@ -175665,7 +176367,7 @@ window.DATA = {
           "科技主題型"
         ],
         "source": "TWSE ETF e添富",
-        "fetchedAt": "2026-09-09T17:34:51+08:00",
+        "fetchedAt": "2026-09-09T18:33:33+08:00",
         "navHistory": [
           {
             "date": "2026-07-27",
@@ -176135,7 +176837,7 @@ window.DATA = {
               "change": -615.0,
               "changePct": -3.2,
               "amplitude": 7.67,
-              "volume": 424297.0,
+              "volume": 450297.0,
               "quoteDate": "2026-07-31"
             },
             {
@@ -176373,7 +177075,7 @@ window.DATA = {
               "change": -45.0,
               "changePct": -1.59,
               "amplitude": 6.9,
-              "volume": 2226037.0,
+              "volume": 2233037.0,
               "quoteDate": "2026-07-31"
             },
             {
@@ -177021,7 +177723,7 @@ window.DATA = {
               "change": -615.0,
               "changePct": -3.2,
               "amplitude": 7.67,
-              "volume": 424297.0,
+              "volume": 450297.0,
               "quoteDate": "2026-08-03"
             },
             {
@@ -177276,7 +177978,7 @@ window.DATA = {
               "change": -45.0,
               "changePct": -1.59,
               "amplitude": 6.9,
-              "volume": 2226037.0,
+              "volume": 2233037.0,
               "quoteDate": "2026-08-03"
             },
             {
@@ -177958,7 +178660,7 @@ window.DATA = {
               "change": -615.0,
               "changePct": -3.2,
               "amplitude": 7.67,
-              "volume": 424297.0,
+              "volume": 450297.0,
               "quoteDate": "2026-08-04"
             },
             {
@@ -178179,7 +178881,7 @@ window.DATA = {
               "change": -45.0,
               "changePct": -1.59,
               "amplitude": 6.9,
-              "volume": 2226037.0,
+              "volume": 2233037.0,
               "quoteDate": "2026-08-04"
             },
             {
@@ -178434,7 +179136,7 @@ window.DATA = {
               "change": 0.0,
               "changePct": 0.0,
               "amplitude": 6.69,
-              "volume": 8536351.0,
+              "volume": 8551351.0,
               "quoteDate": "2026-08-04"
             },
             {
@@ -178776,7 +179478,17 @@ window.DATA = {
                 "shortBalance": 11,
                 "offsetting": 0,
                 "date": "2026-08-05"
-              }
+              },
+              "open": 6060.0,
+              "high": 6060.0,
+              "low": 5540.0,
+              "close": 5615.0,
+              "prevClose": 5795.0,
+              "change": -180.0,
+              "changePct": -3.11,
+              "amplitude": 8.97,
+              "volume": 1576583.0,
+              "quoteDate": "2026-08-05"
             },
             {
               "code": "3037",
@@ -179025,7 +179737,17 @@ window.DATA = {
                 "shortBalance": 0,
                 "offsetting": 0,
                 "date": "2026-08-05"
-              }
+              },
+              "open": 19565.0,
+              "high": 19575.0,
+              "low": 18100.0,
+              "close": 18605.0,
+              "prevClose": 19220.0,
+              "change": -615.0,
+              "changePct": -3.2,
+              "amplitude": 7.67,
+              "volume": 450297.0,
+              "quoteDate": "2026-08-05"
             },
             {
               "code": "3443",
@@ -179122,7 +179844,17 @@ window.DATA = {
                 "shortBalance": 149,
                 "offsetting": 15,
                 "date": "2026-08-05"
-              }
+              },
+              "open": 961.0,
+              "high": 965.0,
+              "low": 946.0,
+              "close": 955.0,
+              "prevClose": 955.0,
+              "change": 0.0,
+              "changePct": 0.0,
+              "amplitude": 1.99,
+              "volume": 4488526.0,
+              "quoteDate": "2026-08-05"
             },
             {
               "code": "2308",
@@ -179219,7 +179951,17 @@ window.DATA = {
                 "shortBalance": 39,
                 "offsetting": 5,
                 "date": "2026-08-05"
-              }
+              },
+              "open": 1410.0,
+              "high": 1425.0,
+              "low": 1325.0,
+              "close": 1330.0,
+              "prevClose": 1385.0,
+              "change": -55.0,
+              "changePct": -3.97,
+              "amplitude": 7.22,
+              "volume": 2967561.0,
+              "quoteDate": "2026-08-05"
             },
             {
               "code": "2345",
@@ -179544,7 +180286,17 @@ window.DATA = {
                 "shortBalance": 5,
                 "offsetting": 4,
                 "date": "2026-08-05"
-              }
+              },
+              "open": 2800.0,
+              "high": 2875.0,
+              "low": 2680.0,
+              "close": 2780.0,
+              "prevClose": 2825.0,
+              "change": -45.0,
+              "changePct": -1.59,
+              "amplitude": 6.9,
+              "volume": 2233037.0,
+              "quoteDate": "2026-08-05"
             },
             {
               "code": "7750",
@@ -179907,7 +180659,17 @@ window.DATA = {
                 "shortBalance": 224,
                 "offsetting": 5,
                 "date": "2026-08-05"
-              }
+              },
+              "open": 154.0,
+              "high": 159.5,
+              "low": 152.5,
+              "close": 157.0,
+              "prevClose": 152.0,
+              "change": 5.0,
+              "changePct": 3.29,
+              "amplitude": 4.61,
+              "volume": 13955300.0,
+              "quoteDate": "2026-08-05"
             },
             {
               "code": "2382",
@@ -180004,7 +180766,17 @@ window.DATA = {
                 "shortBalance": 94,
                 "offsetting": 5,
                 "date": "2026-08-05"
-              }
+              },
+              "open": 378.0,
+              "high": 381.5,
+              "low": 365.0,
+              "close": 367.0,
+              "prevClose": 375.5,
+              "change": -8.5,
+              "changePct": -2.26,
+              "amplitude": 4.39,
+              "volume": 5020322.0,
+              "quoteDate": "2026-08-05"
             },
             {
               "code": "6274",
@@ -180025,7 +180797,17 @@ window.DATA = {
                 "shortBalance": 139,
                 "offsetting": 19,
                 "date": "2026-08-05"
-              }
+              },
+              "open": 1360.0,
+              "high": 1405.0,
+              "low": 1315.0,
+              "close": 1345.0,
+              "prevClose": 1345.0,
+              "change": 0.0,
+              "changePct": 0.0,
+              "amplitude": 6.69,
+              "volume": 8551351.0,
+              "quoteDate": "2026-08-05"
             },
             {
               "code": "6442",
@@ -180160,7 +180942,17 @@ window.DATA = {
                 "shortBalance": 22,
                 "offsetting": 0,
                 "date": "2026-08-05"
-              }
+              },
+              "open": 711.0,
+              "high": 711.0,
+              "low": 705.0,
+              "close": 708.0,
+              "prevClose": 708.0,
+              "change": 0.0,
+              "changePct": 0.0,
+              "amplitude": 0.85,
+              "volume": 1008749.0,
+              "quoteDate": "2026-08-05"
             },
             {
               "code": "3090",
@@ -180219,7 +181011,17 @@ window.DATA = {
                 "shortBalance": 4,
                 "offsetting": 0,
                 "date": "2026-08-05"
-              }
+              },
+              "open": 3810.0,
+              "high": 3935.0,
+              "low": 3570.0,
+              "close": 3610.0,
+              "prevClose": 3620.0,
+              "change": -10.0,
+              "changePct": -0.28,
+              "amplitude": 10.08,
+              "volume": 1853358.0,
+              "quoteDate": "2026-08-05"
             },
             {
               "code": "3374",
@@ -180240,7 +181042,17 @@ window.DATA = {
                 "shortBalance": 145,
                 "offsetting": 14,
                 "date": "2026-08-05"
-              }
+              },
+              "open": 471.0,
+              "high": 487.0,
+              "low": 471.0,
+              "close": 478.5,
+              "prevClose": 475.0,
+              "change": 3.5,
+              "changePct": 0.74,
+              "amplitude": 3.37,
+              "volume": 2497539.0,
+              "quoteDate": "2026-08-05"
             },
             {
               "code": "6121",
@@ -180261,7 +181073,17 @@ window.DATA = {
                 "shortBalance": 0,
                 "offsetting": 0,
                 "date": "2026-08-05"
-              }
+              },
+              "open": 381.0,
+              "high": 383.5,
+              "low": 377.5,
+              "close": 383.0,
+              "prevClose": 378.5,
+              "change": 4.5,
+              "changePct": 1.19,
+              "amplitude": 1.59,
+              "volume": 376405.0,
+              "quoteDate": "2026-08-05"
             },
             {
               "code": "6715",
@@ -180856,7 +181678,7 @@ window.DATA = {
               "change": -615.0,
               "changePct": -3.2,
               "amplitude": 7.67,
-              "volume": 424297.0,
+              "volume": 450297.0,
               "quoteDate": "2026-08-06"
             },
             {
@@ -181405,7 +182227,7 @@ window.DATA = {
               "change": -45.0,
               "changePct": -1.59,
               "amplitude": 6.9,
-              "volume": 2226037.0,
+              "volume": 2233037.0,
               "quoteDate": "2026-08-06"
             },
             {
@@ -181436,7 +182258,7 @@ window.DATA = {
               "change": 0.0,
               "changePct": 0.0,
               "amplitude": 6.69,
-              "volume": 8536351.0,
+              "volume": 8551351.0,
               "quoteDate": "2026-08-06"
             },
             {
@@ -182583,7 +183405,17 @@ window.DATA = {
                 "shortBalance": 12,
                 "offsetting": 1,
                 "date": "2026-08-07"
-              }
+              },
+              "open": 6060.0,
+              "high": 6060.0,
+              "low": 5540.0,
+              "close": 5615.0,
+              "prevClose": 5795.0,
+              "change": -180.0,
+              "changePct": -3.11,
+              "amplitude": 8.97,
+              "volume": 1576583.0,
+              "quoteDate": "2026-08-07"
             },
             {
               "code": "3037",
@@ -182878,7 +183710,17 @@ window.DATA = {
                 "shortBalance": 0,
                 "offsetting": 0,
                 "date": "2026-08-07"
-              }
+              },
+              "open": 19565.0,
+              "high": 19575.0,
+              "low": 18100.0,
+              "close": 18605.0,
+              "prevClose": 19220.0,
+              "change": -615.0,
+              "changePct": -3.2,
+              "amplitude": 7.67,
+              "volume": 450297.0,
+              "quoteDate": "2026-08-07"
             },
             {
               "code": "6488",
@@ -182900,7 +183742,17 @@ window.DATA = {
                 "shortBalance": 120,
                 "offsetting": 9,
                 "date": "2026-08-07"
-              }
+              },
+              "open": 961.0,
+              "high": 965.0,
+              "low": 946.0,
+              "close": 955.0,
+              "prevClose": 955.0,
+              "change": 0.0,
+              "changePct": 0.0,
+              "amplitude": 1.99,
+              "volume": 4488526.0,
+              "quoteDate": "2026-08-07"
             },
             {
               "code": "3665",
@@ -183039,7 +183891,17 @@ window.DATA = {
                 "shortBalance": 11,
                 "offsetting": 8,
                 "date": "2026-08-07"
-              }
+              },
+              "open": 1410.0,
+              "high": 1425.0,
+              "low": 1325.0,
+              "close": 1330.0,
+              "prevClose": 1385.0,
+              "change": -55.0,
+              "changePct": -3.97,
+              "amplitude": 7.22,
+              "volume": 2967561.0,
+              "quoteDate": "2026-08-07"
             },
             {
               "code": "2408",
@@ -183334,7 +184196,17 @@ window.DATA = {
                 "shortBalance": 8,
                 "offsetting": 0,
                 "date": "2026-08-07"
-              }
+              },
+              "open": 2800.0,
+              "high": 2875.0,
+              "low": 2680.0,
+              "close": 2780.0,
+              "prevClose": 2825.0,
+              "change": -45.0,
+              "changePct": -1.59,
+              "amplitude": 6.9,
+              "volume": 2233037.0,
+              "quoteDate": "2026-08-07"
             },
             {
               "code": "6274",
@@ -183356,7 +184228,17 @@ window.DATA = {
                 "shortBalance": 142,
                 "offsetting": 278,
                 "date": "2026-08-07"
-              }
+              },
+              "open": 1360.0,
+              "high": 1405.0,
+              "low": 1315.0,
+              "close": 1345.0,
+              "prevClose": 1345.0,
+              "change": 0.0,
+              "changePct": 0.0,
+              "amplitude": 6.69,
+              "volume": 8551351.0,
+              "quoteDate": "2026-08-07"
             },
             {
               "code": "7750",
@@ -183768,7 +184650,17 @@ window.DATA = {
                 "shortBalance": 273,
                 "offsetting": 24,
                 "date": "2026-08-07"
-              }
+              },
+              "open": 154.0,
+              "high": 159.5,
+              "low": 152.5,
+              "close": 157.0,
+              "prevClose": 152.0,
+              "change": 5.0,
+              "changePct": 3.29,
+              "amplitude": 4.61,
+              "volume": 13955300.0,
+              "quoteDate": "2026-08-07"
             },
             {
               "code": "3211",
@@ -183790,7 +184682,17 @@ window.DATA = {
                 "shortBalance": 282,
                 "offsetting": 54,
                 "date": "2026-08-07"
-              }
+              },
+              "open": 378.0,
+              "high": 381.5,
+              "low": 365.0,
+              "close": 367.0,
+              "prevClose": 375.5,
+              "change": -8.5,
+              "changePct": -2.26,
+              "amplitude": 4.39,
+              "volume": 5020322.0,
+              "quoteDate": "2026-08-07"
             },
             {
               "code": "6442",
@@ -183929,7 +184831,17 @@ window.DATA = {
                 "shortBalance": 20,
                 "offsetting": 1,
                 "date": "2026-08-07"
-              }
+              },
+              "open": 711.0,
+              "high": 711.0,
+              "low": 705.0,
+              "close": 708.0,
+              "prevClose": 708.0,
+              "change": 0.0,
+              "changePct": 0.0,
+              "amplitude": 0.85,
+              "volume": 1008749.0,
+              "quoteDate": "2026-08-07"
             },
             {
               "code": "5434",
@@ -184029,7 +184941,17 @@ window.DATA = {
                 "shortBalance": 192,
                 "offsetting": 14,
                 "date": "2026-08-07"
-              }
+              },
+              "open": 471.0,
+              "high": 487.0,
+              "low": 471.0,
+              "close": 478.5,
+              "prevClose": 475.0,
+              "change": 3.5,
+              "changePct": 0.74,
+              "amplitude": 3.37,
+              "volume": 2497539.0,
+              "quoteDate": "2026-08-07"
             },
             {
               "code": "6121",
@@ -184051,7 +184973,17 @@ window.DATA = {
                 "shortBalance": 7,
                 "offsetting": 1,
                 "date": "2026-08-07"
-              }
+              },
+              "open": 381.0,
+              "high": 383.5,
+              "low": 377.5,
+              "close": 383.0,
+              "prevClose": 378.5,
+              "change": 4.5,
+              "changePct": 1.19,
+              "amplitude": 1.59,
+              "volume": 376405.0,
+              "quoteDate": "2026-08-07"
             },
             {
               "code": "6715",
@@ -184661,7 +185593,7 @@ window.DATA = {
               "change": -615.0,
               "changePct": -3.2,
               "amplitude": 7.67,
-              "volume": 424297.0,
+              "volume": 450297.0,
               "quoteDate": "2026-08-10"
             },
             {
@@ -185186,7 +186118,7 @@ window.DATA = {
               "change": -45.0,
               "changePct": -1.59,
               "amplitude": 6.9,
-              "volume": 2226037.0,
+              "volume": 2233037.0,
               "quoteDate": "2026-08-10"
             },
             {
@@ -185218,7 +186150,7 @@ window.DATA = {
               "change": 0.0,
               "changePct": 0.0,
               "amplitude": 6.69,
-              "volume": 8536351.0,
+              "volume": 8551351.0,
               "quoteDate": "2026-08-10"
             },
             {
@@ -186645,7 +187577,7 @@ window.DATA = {
               "change": -615.0,
               "changePct": -3.2,
               "amplitude": 7.67,
-              "volume": 424297.0,
+              "volume": 450297.0,
               "quoteDate": "2026-08-11"
             },
             {
@@ -187131,7 +188063,7 @@ window.DATA = {
               "change": 0.0,
               "changePct": 0.0,
               "amplitude": 6.69,
-              "volume": 8536351.0,
+              "volume": 8551351.0,
               "quoteDate": "2026-08-11"
             },
             {
@@ -187163,7 +188095,7 @@ window.DATA = {
               "change": -45.0,
               "changePct": -1.59,
               "amplitude": 6.9,
-              "volume": 2226037.0,
+              "volume": 2233037.0,
               "quoteDate": "2026-08-11"
             },
             {
@@ -188629,7 +189561,7 @@ window.DATA = {
               "change": -615.0,
               "changePct": -3.2,
               "amplitude": 7.67,
-              "volume": 424297.0,
+              "volume": 450297.0,
               "quoteDate": "2026-08-12"
             },
             {
@@ -189154,7 +190086,7 @@ window.DATA = {
               "change": 0.0,
               "changePct": 0.0,
               "amplitude": 6.69,
-              "volume": 8536351.0,
+              "volume": 8551351.0,
               "quoteDate": "2026-08-12"
             },
             {
@@ -189225,7 +190157,7 @@ window.DATA = {
               "change": -45.0,
               "changePct": -1.59,
               "amplitude": 6.9,
-              "volume": 2226037.0,
+              "volume": 2233037.0,
               "quoteDate": "2026-08-12"
             },
             {
@@ -190606,7 +191538,7 @@ window.DATA = {
               "change": -615.0,
               "changePct": -3.2,
               "amplitude": 7.67,
-              "volume": 424297.0,
+              "volume": 450297.0,
               "quoteDate": "2026-08-13"
             },
             {
@@ -191060,7 +191992,7 @@ window.DATA = {
               "change": 0.0,
               "changePct": 0.0,
               "amplitude": 6.69,
-              "volume": 8536351.0,
+              "volume": 8551351.0,
               "quoteDate": "2026-08-13"
             },
             {
@@ -191092,7 +192024,7 @@ window.DATA = {
               "change": -45.0,
               "changePct": -1.59,
               "amplitude": 6.9,
-              "volume": 2226037.0,
+              "volume": 2233037.0,
               "quoteDate": "2026-08-13"
             },
             {
@@ -192441,7 +193373,7 @@ window.DATA = {
               "change": -615.0,
               "changePct": -3.2,
               "amplitude": 7.67,
-              "volume": 424297.0,
+              "volume": 450297.0,
               "quoteDate": "2026-08-14"
             },
             {
@@ -192927,7 +193859,7 @@ window.DATA = {
               "change": 0.0,
               "changePct": 0.0,
               "amplitude": 6.69,
-              "volume": 8536351.0,
+              "volume": 8551351.0,
               "quoteDate": "2026-08-14"
             },
             {
@@ -192998,7 +193930,7 @@ window.DATA = {
               "change": -45.0,
               "changePct": -1.59,
               "amplitude": 6.9,
-              "volume": 2226037.0,
+              "volume": 2233037.0,
               "quoteDate": "2026-08-14"
             },
             {
@@ -194340,7 +195272,7 @@ window.DATA = {
               "change": -615.0,
               "changePct": -3.2,
               "amplitude": 7.67,
-              "volume": 424297.0,
+              "volume": 450297.0,
               "quoteDate": "2026-08-17"
             },
             {
@@ -194833,7 +195765,7 @@ window.DATA = {
               "change": 0.0,
               "changePct": 0.0,
               "amplitude": 6.69,
-              "volume": 8536351.0,
+              "volume": 8551351.0,
               "quoteDate": "2026-08-17"
             },
             {
@@ -194904,7 +195836,7 @@ window.DATA = {
               "change": -45.0,
               "changePct": -1.59,
               "amplitude": 6.9,
-              "volume": 2226037.0,
+              "volume": 2233037.0,
               "quoteDate": "2026-08-17"
             },
             {
@@ -196207,7 +197139,7 @@ window.DATA = {
               "change": -615.0,
               "changePct": -3.2,
               "amplitude": 7.67,
-              "volume": 424297.0,
+              "volume": 450297.0,
               "quoteDate": "2026-08-18"
             },
             {
@@ -196622,7 +197554,7 @@ window.DATA = {
               "change": 0.0,
               "changePct": 0.0,
               "amplitude": 6.69,
-              "volume": 8536351.0,
+              "volume": 8551351.0,
               "quoteDate": "2026-08-18"
             },
             {
@@ -196732,7 +197664,7 @@ window.DATA = {
               "change": -45.0,
               "changePct": -1.59,
               "amplitude": 6.9,
-              "volume": 2226037.0,
+              "volume": 2233037.0,
               "quoteDate": "2026-08-18"
             },
             {
@@ -198074,7 +199006,7 @@ window.DATA = {
               "change": -615.0,
               "changePct": -3.2,
               "amplitude": 7.67,
-              "volume": 424297.0,
+              "volume": 450297.0,
               "quoteDate": "2026-08-19"
             },
             {
@@ -198411,7 +199343,7 @@ window.DATA = {
               "change": 0.0,
               "changePct": 0.0,
               "amplitude": 6.69,
-              "volume": 8536351.0,
+              "volume": 8551351.0,
               "quoteDate": "2026-08-19"
             },
             {
@@ -198560,7 +199492,7 @@ window.DATA = {
               "change": -45.0,
               "changePct": -1.59,
               "amplitude": 6.9,
-              "volume": 2226037.0,
+              "volume": 2233037.0,
               "quoteDate": "2026-08-19"
             },
             {
@@ -199863,7 +200795,7 @@ window.DATA = {
               "change": -615.0,
               "changePct": -3.2,
               "amplitude": 7.67,
-              "volume": 424297.0,
+              "volume": 450297.0,
               "quoteDate": "2026-08-20"
             },
             {
@@ -200200,7 +201132,7 @@ window.DATA = {
               "change": 0.0,
               "changePct": 0.0,
               "amplitude": 6.69,
-              "volume": 8536351.0,
+              "volume": 8551351.0,
               "quoteDate": "2026-08-20"
             },
             {
@@ -200349,7 +201281,7 @@ window.DATA = {
               "change": -45.0,
               "changePct": -1.59,
               "amplitude": 6.9,
-              "volume": 2226037.0,
+              "volume": 2233037.0,
               "quoteDate": "2026-08-20"
             },
             {
@@ -201691,7 +202623,7 @@ window.DATA = {
               "change": -615.0,
               "changePct": -3.2,
               "amplitude": 7.67,
-              "volume": 424297.0,
+              "volume": 450297.0,
               "quoteDate": "2026-08-21"
             },
             {
@@ -202067,7 +202999,7 @@ window.DATA = {
               "change": 0.0,
               "changePct": 0.0,
               "amplitude": 6.69,
-              "volume": 8536351.0,
+              "volume": 8551351.0,
               "quoteDate": "2026-08-21"
             },
             {
@@ -202177,7 +203109,7 @@ window.DATA = {
               "change": -45.0,
               "changePct": -1.59,
               "amplitude": 6.9,
-              "volume": 2226037.0,
+              "volume": 2233037.0,
               "quoteDate": "2026-08-21"
             },
             {
@@ -203519,7 +204451,7 @@ window.DATA = {
               "change": -615.0,
               "changePct": -3.2,
               "amplitude": 7.67,
-              "volume": 424297.0,
+              "volume": 450297.0,
               "quoteDate": "2026-08-24"
             },
             {
@@ -203895,7 +204827,7 @@ window.DATA = {
               "change": 0.0,
               "changePct": 0.0,
               "amplitude": 6.69,
-              "volume": 8536351.0,
+              "volume": 8551351.0,
               "quoteDate": "2026-08-24"
             },
             {
@@ -204005,7 +204937,7 @@ window.DATA = {
               "change": -45.0,
               "changePct": -1.59,
               "amplitude": 6.9,
-              "volume": 2226037.0,
+              "volume": 2233037.0,
               "quoteDate": "2026-08-24"
             },
             {
@@ -205276,7 +206208,7 @@ window.DATA = {
               "change": -615.0,
               "changePct": -3.2,
               "amplitude": 7.67,
-              "volume": 424297.0,
+              "volume": 450297.0,
               "quoteDate": "2026-08-25"
             },
             {
@@ -205418,7 +206350,7 @@ window.DATA = {
               "change": 0.0,
               "changePct": 0.0,
               "amplitude": 6.69,
-              "volume": 8536351.0,
+              "volume": 8551351.0,
               "quoteDate": "2026-08-25"
             },
             {
@@ -205879,7 +206811,7 @@ window.DATA = {
               "change": -45.0,
               "changePct": -1.59,
               "amplitude": 6.9,
-              "volume": 2226037.0,
+              "volume": 2233037.0,
               "quoteDate": "2026-08-25"
             },
             {
@@ -207058,7 +207990,7 @@ window.DATA = {
               "change": -615.0,
               "changePct": -3.2,
               "amplitude": 7.67,
-              "volume": 424297.0,
+              "volume": 450297.0,
               "quoteDate": "2026-08-26",
               "margin": {
                 "marginBuy": 14,
@@ -207200,7 +208132,7 @@ window.DATA = {
               "change": 0.0,
               "changePct": 0.0,
               "amplitude": 6.69,
-              "volume": 8536351.0,
+              "volume": 8551351.0,
               "quoteDate": "2026-08-26",
               "margin": {
                 "marginBuy": 574,
@@ -207544,7 +208476,7 @@ window.DATA = {
               "change": -45.0,
               "changePct": -1.59,
               "amplitude": 6.9,
-              "volume": 2226037.0,
+              "volume": 2233037.0,
               "quoteDate": "2026-08-26",
               "margin": {
                 "marginBuy": 249,
@@ -208879,7 +209811,7 @@ window.DATA = {
               "change": -615.0,
               "changePct": -3.2,
               "amplitude": 7.67,
-              "volume": 424297.0,
+              "volume": 450297.0,
               "quoteDate": "2026-08-27",
               "margin": {
                 "marginBuy": 20,
@@ -208989,7 +209921,7 @@ window.DATA = {
               "change": 0.0,
               "changePct": 0.0,
               "amplitude": 6.69,
-              "volume": 8536351.0,
+              "volume": 8551351.0,
               "quoteDate": "2026-08-27",
               "margin": {
                 "marginBuy": 473,
@@ -209333,7 +210265,7 @@ window.DATA = {
               "change": -45.0,
               "changePct": -1.59,
               "amplitude": 6.9,
-              "volume": 2226037.0,
+              "volume": 2233037.0,
               "quoteDate": "2026-08-27",
               "margin": {
                 "marginBuy": 244,
@@ -210650,7 +211582,7 @@ window.DATA = {
               "change": -615.0,
               "changePct": -3.2,
               "amplitude": 7.67,
-              "volume": 424297.0,
+              "volume": 450297.0,
               "quoteDate": "2026-08-28"
             },
             {
@@ -210792,7 +211724,7 @@ window.DATA = {
               "change": 0.0,
               "changePct": 0.0,
               "amplitude": 6.69,
-              "volume": 8536351.0,
+              "volume": 8551351.0,
               "quoteDate": "2026-08-28"
             },
             {
@@ -211136,7 +212068,7 @@ window.DATA = {
               "change": -45.0,
               "changePct": -1.59,
               "amplitude": 6.9,
-              "volume": 2226037.0,
+              "volume": 2233037.0,
               "quoteDate": "2026-08-28"
             },
             {
@@ -212425,7 +213357,7 @@ window.DATA = {
               "change": -615.0,
               "changePct": -3.2,
               "amplitude": 7.67,
-              "volume": 424297.0,
+              "volume": 450297.0,
               "quoteDate": "2026-08-31",
               "margin": {
                 "marginBuy": 34,
@@ -212567,7 +213499,7 @@ window.DATA = {
               "change": 0.0,
               "changePct": 0.0,
               "amplitude": 6.69,
-              "volume": 8536351.0,
+              "volume": 8551351.0,
               "quoteDate": "2026-08-31",
               "margin": {
                 "marginBuy": 261,
@@ -212989,7 +213921,7 @@ window.DATA = {
               "change": -45.0,
               "changePct": -1.59,
               "amplitude": 6.9,
-              "volume": 2226037.0,
+              "volume": 2233037.0,
               "quoteDate": "2026-08-31",
               "margin": {
                 "marginBuy": 171,
@@ -214228,7 +215160,7 @@ window.DATA = {
               "change": -615.0,
               "changePct": -3.2,
               "amplitude": 7.67,
-              "volume": 424297.0,
+              "volume": 450297.0,
               "quoteDate": "2026-09-01"
             },
             {
@@ -214409,7 +215341,7 @@ window.DATA = {
               "change": 0.0,
               "changePct": 0.0,
               "amplitude": 6.69,
-              "volume": 8536351.0,
+              "volume": 8551351.0,
               "quoteDate": "2026-09-01"
             },
             {
@@ -214714,7 +215646,7 @@ window.DATA = {
               "change": -45.0,
               "changePct": -1.59,
               "amplitude": 6.9,
-              "volume": 2226037.0,
+              "volume": 2233037.0,
               "quoteDate": "2026-09-01"
             },
             {
@@ -215985,7 +216917,7 @@ window.DATA = {
               "change": -615.0,
               "changePct": -3.2,
               "amplitude": 7.67,
-              "volume": 424297.0,
+              "volume": 450297.0,
               "quoteDate": "2026-09-02"
             },
             {
@@ -216198,7 +217130,7 @@ window.DATA = {
               "change": 0.0,
               "changePct": 0.0,
               "amplitude": 6.69,
-              "volume": 8536351.0,
+              "volume": 8551351.0,
               "quoteDate": "2026-09-02"
             },
             {
@@ -216503,7 +217435,7 @@ window.DATA = {
               "change": -45.0,
               "changePct": -1.59,
               "amplitude": 6.9,
-              "volume": 2226037.0,
+              "volume": 2233037.0,
               "quoteDate": "2026-09-02"
             },
             {
@@ -217760,7 +218692,7 @@ window.DATA = {
               "change": -615.0,
               "changePct": -3.2,
               "amplitude": 7.67,
-              "volume": 424297.0,
+              "volume": 450297.0,
               "quoteDate": "2026-09-03",
               "margin": {
                 "marginBuy": 35,
@@ -217973,7 +218905,7 @@ window.DATA = {
               "change": 0.0,
               "changePct": 0.0,
               "amplitude": 6.69,
-              "volume": 8536351.0,
+              "volume": 8551351.0,
               "quoteDate": "2026-09-03",
               "margin": {
                 "marginBuy": 457,
@@ -218356,7 +219288,7 @@ window.DATA = {
               "change": -45.0,
               "changePct": -1.59,
               "amplitude": 6.9,
-              "volume": 2226037.0,
+              "volume": 2233037.0,
               "quoteDate": "2026-09-03",
               "margin": {
                 "marginBuy": 248,
@@ -219581,7 +220513,7 @@ window.DATA = {
               "change": -615.0,
               "changePct": -3.2,
               "amplitude": 7.67,
-              "volume": 424297.0,
+              "volume": 450297.0,
               "quoteDate": "2026-09-04",
               "margin": {
                 "marginBuy": 14,
@@ -219762,7 +220694,7 @@ window.DATA = {
               "change": 0.0,
               "changePct": 0.0,
               "amplitude": 6.69,
-              "volume": 8536351.0,
+              "volume": 8551351.0,
               "quoteDate": "2026-09-04",
               "margin": {
                 "marginBuy": 495,
@@ -220145,7 +221077,7 @@ window.DATA = {
               "change": -45.0,
               "changePct": -1.59,
               "amplitude": 6.9,
-              "volume": 2226037.0,
+              "volume": 2233037.0,
               "quoteDate": "2026-09-04",
               "margin": {
                 "marginBuy": 212,
@@ -221338,7 +222270,7 @@ window.DATA = {
               "change": -615.0,
               "changePct": -3.2,
               "amplitude": 7.67,
-              "volume": 424297.0,
+              "volume": 450297.0,
               "quoteDate": "2026-09-07",
               "margin": {
                 "marginBuy": 14,
@@ -221551,7 +222483,7 @@ window.DATA = {
               "change": 0.0,
               "changePct": 0.0,
               "amplitude": 6.69,
-              "volume": 8536351.0,
+              "volume": 8551351.0,
               "quoteDate": "2026-09-07",
               "margin": {
                 "marginBuy": 495,
@@ -221856,7 +222788,7 @@ window.DATA = {
               "change": -45.0,
               "changePct": -1.59,
               "amplitude": 6.9,
-              "volume": 2226037.0,
+              "volume": 2233037.0,
               "quoteDate": "2026-09-07",
               "margin": {
                 "marginBuy": 212,
@@ -222693,7 +223625,7 @@ window.DATA = {
         },
         {
           "date": "2026-09-08",
-          "fetched_at": "2026-09-09T17:31:09+08:00",
+          "fetched_at": "2026-09-09T18:31:21+08:00",
           "count": 47,
           "self": {
             "open": 15.25,
@@ -223166,7 +224098,7 @@ window.DATA = {
               "change": -615.0,
               "changePct": -3.2,
               "amplitude": 7.67,
-              "volume": 424297.0,
+              "volume": 450297.0,
               "quoteDate": "2026-09-08",
               "margin": {
                 "marginBuy": 14,
@@ -223301,7 +224233,7 @@ window.DATA = {
               "change": 0.0,
               "changePct": 0.0,
               "amplitude": 6.69,
-              "volume": 8536351.0,
+              "volume": 8551351.0,
               "quoteDate": "2026-09-08",
               "margin": {
                 "marginBuy": 495,
@@ -223606,7 +224538,7 @@ window.DATA = {
               "change": -45.0,
               "changePct": -1.59,
               "amplitude": 6.9,
-              "volume": 2226037.0,
+              "volume": 2233037.0,
               "quoteDate": "2026-09-08",
               "margin": {
                 "marginBuy": 212,
@@ -224515,7 +225447,7 @@ window.DATA = {
           "高股息"
         ],
         "source": "TWSE ETF e添富",
-        "fetchedAt": "2026-09-09T17:34:52+08:00",
+        "fetchedAt": "2026-09-09T18:33:34+08:00",
         "navHistory": [
           {
             "date": "2026-07-27",
@@ -224676,6 +225608,11 @@ window.DATA = {
             "date": "2026-09-08",
             "nav": 15.05,
             "premiumPct": -0.33
+          },
+          {
+            "date": "2026-09-09",
+            "nav": 15.08,
+            "premiumPct": -0.13
           }
         ]
       },
@@ -275455,7 +276392,7 @@ window.DATA = {
         },
         {
           "date": "2026-09-08",
-          "fetched_at": "2026-09-09T17:31:09+08:00",
+          "fetched_at": "2026-09-09T18:31:21+08:00",
           "count": 52,
           "self": {
             "open": 110.0,
@@ -277505,7 +278442,7 @@ window.DATA = {
           "大型權值"
         ],
         "source": "TWSE ETF e添富",
-        "fetchedAt": "2026-09-09T17:34:52+08:00",
+        "fetchedAt": "2026-09-09T18:33:35+08:00",
         "navHistory": [
           {
             "date": "2026-07-27",
@@ -352968,7 +353905,7 @@ window.DATA = {
         },
         {
           "date": "2026-09-09",
-          "fetched_at": "2026-09-09T17:31:51+08:00",
+          "fetched_at": "2026-09-09T18:31:47+08:00",
           "count": 74,
           "self": {
             "open": 63.8,
@@ -355849,7 +356786,7 @@ window.DATA = {
           "科技主題型"
         ],
         "source": "TWSE ETF e添富",
-        "fetchedAt": "2026-09-09T17:34:52+08:00",
+        "fetchedAt": "2026-09-09T18:33:35+08:00",
         "navHistory": [
           {
             "date": "2026-07-27",
@@ -356010,6 +356947,11 @@ window.DATA = {
             "date": "2026-09-08",
             "nav": 63.84,
             "premiumPct": -0.38
+          },
+          {
+            "date": "2026-09-09",
+            "nav": 63.92,
+            "premiumPct": -0.27
           }
         ]
       },
@@ -408609,7 +409551,7 @@ window.DATA = {
         },
         {
           "date": "2026-09-09",
-          "fetched_at": "2026-09-09T17:31:52+08:00",
+          "fetched_at": "2026-09-09T18:31:48+08:00",
           "count": 51,
           "self": {
             "open": 55.8,
@@ -410664,7 +411606,7 @@ window.DATA = {
           "高股息"
         ],
         "source": "TWSE ETF e添富",
-        "fetchedAt": "2026-09-09T17:34:55+08:00",
+        "fetchedAt": "2026-09-09T18:33:36+08:00",
         "navHistory": [
           {
             "date": "2026-07-27",
@@ -413219,7 +414161,17 @@ window.DATA = {
                 "shortBalance": 224,
                 "offsetting": 5,
                 "date": "2026-08-05"
-              }
+              },
+              "open": 154.0,
+              "high": 159.5,
+              "low": 152.5,
+              "close": 157.0,
+              "prevClose": 152.0,
+              "change": 5.0,
+              "changePct": 3.29,
+              "amplitude": 4.61,
+              "volume": 13955300.0,
+              "quoteDate": "2026-08-05"
             },
             {
               "code": "1216",
@@ -413620,7 +414572,17 @@ window.DATA = {
                 "shortBalance": 22,
                 "offsetting": 0,
                 "date": "2026-08-05"
-              }
+              },
+              "open": 711.0,
+              "high": 711.0,
+              "low": 705.0,
+              "close": 708.0,
+              "prevClose": 708.0,
+              "change": 0.0,
+              "changePct": 0.0,
+              "amplitude": 0.85,
+              "volume": 1008749.0,
+              "quoteDate": "2026-08-05"
             },
             {
               "code": "5871",
@@ -415687,7 +416649,17 @@ window.DATA = {
                 "shortBalance": 273,
                 "offsetting": 24,
                 "date": "2026-08-07"
-              }
+              },
+              "open": 154.0,
+              "high": 159.5,
+              "low": 152.5,
+              "close": 157.0,
+              "prevClose": 152.0,
+              "change": 5.0,
+              "changePct": 3.29,
+              "amplitude": 4.61,
+              "volume": 13955300.0,
+              "quoteDate": "2026-08-07"
             },
             {
               "code": "2412",
@@ -415943,7 +416915,17 @@ window.DATA = {
                 "shortBalance": 20,
                 "offsetting": 1,
                 "date": "2026-08-07"
-              }
+              },
+              "open": 711.0,
+              "high": 711.0,
+              "low": 705.0,
+              "close": 708.0,
+              "prevClose": 708.0,
+              "change": 0.0,
+              "changePct": 0.0,
+              "amplitude": 0.85,
+              "volume": 1008749.0,
+              "quoteDate": "2026-08-07"
             },
             {
               "code": "5876",
@@ -441195,7 +442177,7 @@ window.DATA = {
         },
         {
           "date": "2026-09-08",
-          "fetched_at": "2026-09-09T17:31:52+08:00",
+          "fetched_at": "2026-09-09T18:31:48+08:00",
           "count": 30,
           "self": {
             "open": 34.35,
@@ -442434,11 +443416,11 @@ window.DATA = {
         "fundSizeHundredMillion": 6437.93,
         "beneficiaryTenThousands": 166.56,
         "tags": [
-          "公司治理及ESG",
-          "高股息"
+          "高股息",
+          "公司治理及ESG"
         ],
         "source": "TWSE ETF e添富",
-        "fetchedAt": "2026-09-09T17:34:56+08:00",
+        "fetchedAt": "2026-09-09T18:33:36+08:00",
         "navHistory": [
           {
             "date": "2026-07-27",
@@ -442599,6 +443581,11 @@ window.DATA = {
             "date": "2026-09-08",
             "nav": 34.25,
             "premiumPct": -0.53
+          },
+          {
+            "date": "2026-09-09",
+            "nav": 34.33,
+            "premiumPct": -0.58
           }
         ]
       },
@@ -443056,7 +444043,7 @@ window.DATA = {
               "change": 0.0,
               "changePct": 0.0,
               "amplitude": 6.69,
-              "volume": 8536351.0,
+              "volume": 8551351.0,
               "quoteDate": "2026-07-31"
             },
             {
@@ -443568,7 +444555,7 @@ window.DATA = {
               "change": 0.0,
               "changePct": 0.0,
               "amplitude": 6.69,
-              "volume": 8536351.0,
+              "volume": 8551351.0,
               "quoteDate": "2026-08-03"
             },
             {
@@ -444080,7 +445067,7 @@ window.DATA = {
               "change": 0.0,
               "changePct": 0.0,
               "amplitude": 6.69,
-              "volume": 8536351.0,
+              "volume": 8551351.0,
               "quoteDate": "2026-08-04"
             },
             {
@@ -444798,7 +445785,17 @@ window.DATA = {
                 "shortBalance": 11,
                 "offsetting": 0,
                 "date": "2026-08-05"
-              }
+              },
+              "open": 6060.0,
+              "high": 6060.0,
+              "low": 5540.0,
+              "close": 5615.0,
+              "prevClose": 5795.0,
+              "change": -180.0,
+              "changePct": -3.11,
+              "amplitude": 8.97,
+              "volume": 1576583.0,
+              "quoteDate": "2026-08-05"
             },
             {
               "code": "3008",
@@ -444933,7 +445930,17 @@ window.DATA = {
                 "shortBalance": 139,
                 "offsetting": 19,
                 "date": "2026-08-05"
-              }
+              },
+              "open": 1360.0,
+              "high": 1405.0,
+              "low": 1315.0,
+              "close": 1345.0,
+              "prevClose": 1345.0,
+              "change": 0.0,
+              "changePct": 0.0,
+              "amplitude": 6.69,
+              "volume": 8551351.0,
+              "quoteDate": "2026-08-05"
             },
             {
               "code": "4958",
@@ -445410,7 +446417,17 @@ window.DATA = {
                 "shortBalance": 716,
                 "offsetting": 74,
                 "date": "2026-08-05"
-              }
+              },
+              "open": 462.0,
+              "high": 478.0,
+              "low": 457.5,
+              "close": 464.0,
+              "prevClose": 441.5,
+              "change": 22.5,
+              "changePct": 5.1,
+              "amplitude": 4.64,
+              "volume": 36406744.0,
+              "quoteDate": "2026-08-05"
             }
           ],
           "selfInstitutional": {
@@ -446005,7 +447022,7 @@ window.DATA = {
               "change": 0.0,
               "changePct": 0.0,
               "amplitude": 6.69,
-              "volume": 8536351.0,
+              "volume": 8551351.0,
               "quoteDate": "2026-08-06"
             },
             {
@@ -447120,7 +448137,17 @@ window.DATA = {
                 "shortBalance": 12,
                 "offsetting": 1,
                 "date": "2026-08-07"
-              }
+              },
+              "open": 6060.0,
+              "high": 6060.0,
+              "low": 5540.0,
+              "close": 5615.0,
+              "prevClose": 5795.0,
+              "change": -180.0,
+              "changePct": -3.11,
+              "amplitude": 8.97,
+              "volume": 1576583.0,
+              "quoteDate": "2026-08-07"
             },
             {
               "code": "3008",
@@ -447220,7 +448247,17 @@ window.DATA = {
                 "shortBalance": 142,
                 "offsetting": 278,
                 "date": "2026-08-07"
-              }
+              },
+              "open": 1360.0,
+              "high": 1405.0,
+              "low": 1315.0,
+              "close": 1345.0,
+              "prevClose": 1345.0,
+              "change": 0.0,
+              "changePct": 0.0,
+              "amplitude": 6.69,
+              "volume": 8551351.0,
+              "quoteDate": "2026-08-07"
             },
             {
               "code": "3665",
@@ -447749,7 +448786,17 @@ window.DATA = {
                 "shortBalance": 725,
                 "offsetting": 15,
                 "date": "2026-08-07"
-              }
+              },
+              "open": 462.0,
+              "high": 478.0,
+              "low": 457.5,
+              "close": 464.0,
+              "prevClose": 441.5,
+              "change": 22.5,
+              "changePct": 5.1,
+              "amplitude": 4.64,
+              "volume": 36406744.0,
+              "quoteDate": "2026-08-07"
             }
           ]
         },
@@ -448398,7 +449445,7 @@ window.DATA = {
               "change": 0.0,
               "changePct": 0.0,
               "amplitude": 6.69,
-              "volume": 8536351.0,
+              "volume": 8551351.0,
               "quoteDate": "2026-08-10"
             },
             {
@@ -449509,7 +450556,7 @@ window.DATA = {
               "change": 0.0,
               "changePct": 0.0,
               "amplitude": 6.69,
-              "volume": 8536351.0,
+              "volume": 8551351.0,
               "quoteDate": "2026-08-11"
             },
             {
@@ -450776,7 +451823,7 @@ window.DATA = {
               "change": 0.0,
               "changePct": 0.0,
               "amplitude": 6.69,
-              "volume": 8536351.0,
+              "volume": 8551351.0,
               "quoteDate": "2026-08-12"
             },
             {
@@ -451975,7 +453022,7 @@ window.DATA = {
               "change": 0.0,
               "changePct": 0.0,
               "amplitude": 6.69,
-              "volume": 8536351.0,
+              "volume": 8551351.0,
               "quoteDate": "2026-08-13"
             },
             {
@@ -453135,7 +454182,7 @@ window.DATA = {
               "change": 0.0,
               "changePct": 0.0,
               "amplitude": 6.69,
-              "volume": 8536351.0,
+              "volume": 8551351.0,
               "quoteDate": "2026-08-14"
             },
             {
@@ -454373,7 +455420,7 @@ window.DATA = {
               "change": 0.0,
               "changePct": 0.0,
               "amplitude": 6.69,
-              "volume": 8536351.0,
+              "volume": 8551351.0,
               "quoteDate": "2026-08-17"
             },
             {
@@ -455530,7 +456577,7 @@ window.DATA = {
               "change": 0.0,
               "changePct": 0.0,
               "amplitude": 6.69,
-              "volume": 8536351.0,
+              "volume": 8551351.0,
               "quoteDate": "2026-08-18"
             },
             {
@@ -456729,7 +457776,7 @@ window.DATA = {
               "change": 0.0,
               "changePct": 0.0,
               "amplitude": 6.69,
-              "volume": 8536351.0,
+              "volume": 8551351.0,
               "quoteDate": "2026-08-19"
             },
             {
@@ -457928,7 +458975,7 @@ window.DATA = {
               "change": 0.0,
               "changePct": 0.0,
               "amplitude": 6.69,
-              "volume": 8536351.0,
+              "volume": 8551351.0,
               "quoteDate": "2026-08-20"
             },
             {
@@ -459159,7 +460206,7 @@ window.DATA = {
               "change": 0.0,
               "changePct": 0.0,
               "amplitude": 6.69,
-              "volume": 8536351.0,
+              "volume": 8551351.0,
               "quoteDate": "2026-08-21"
             },
             {
@@ -460358,7 +461405,7 @@ window.DATA = {
               "change": 0.0,
               "changePct": 0.0,
               "amplitude": 6.69,
-              "volume": 8536351.0,
+              "volume": 8551351.0,
               "quoteDate": "2026-08-24"
             },
             {
@@ -461557,7 +462604,7 @@ window.DATA = {
               "change": 0.0,
               "changePct": 0.0,
               "amplitude": 6.69,
-              "volume": 8536351.0,
+              "volume": 8551351.0,
               "quoteDate": "2026-08-25"
             },
             {
@@ -462710,7 +463757,7 @@ window.DATA = {
               "change": 0.0,
               "changePct": 0.0,
               "amplitude": 6.69,
-              "volume": 8536351.0,
+              "volume": 8551351.0,
               "quoteDate": "2026-08-26",
               "margin": {
                 "marginBuy": 574,
@@ -463909,7 +464956,7 @@ window.DATA = {
               "change": 0.0,
               "changePct": 0.0,
               "amplitude": 6.69,
-              "volume": 8536351.0,
+              "volume": 8551351.0,
               "quoteDate": "2026-08-27",
               "margin": {
                 "marginBuy": 473,
@@ -465122,7 +466169,7 @@ window.DATA = {
               "change": 0.0,
               "changePct": 0.0,
               "amplitude": 6.69,
-              "volume": 8536351.0,
+              "volume": 8551351.0,
               "quoteDate": "2026-08-28"
             },
             {
@@ -466307,7 +467354,7 @@ window.DATA = {
               "change": 0.0,
               "changePct": 0.0,
               "amplitude": 6.69,
-              "volume": 8536351.0,
+              "volume": 8551351.0,
               "quoteDate": "2026-08-31",
               "margin": {
                 "marginBuy": 261,
@@ -467591,7 +468638,7 @@ window.DATA = {
               "change": 0.0,
               "changePct": 0.0,
               "amplitude": 6.69,
-              "volume": 8536351.0,
+              "volume": 8551351.0,
               "quoteDate": "2026-09-01"
             },
             {
@@ -468751,7 +469798,7 @@ window.DATA = {
               "change": 0.0,
               "changePct": 0.0,
               "amplitude": 6.69,
-              "volume": 8536351.0,
+              "volume": 8551351.0,
               "quoteDate": "2026-09-02"
             },
             {
@@ -469936,7 +470983,7 @@ window.DATA = {
               "change": 0.0,
               "changePct": 0.0,
               "amplitude": 6.69,
-              "volume": 8536351.0,
+              "volume": 8551351.0,
               "quoteDate": "2026-09-03",
               "margin": {
                 "marginBuy": 457,
@@ -471149,7 +472196,7 @@ window.DATA = {
               "change": 0.0,
               "changePct": 0.0,
               "amplitude": 6.69,
-              "volume": 8536351.0,
+              "volume": 8551351.0,
               "quoteDate": "2026-09-04"
             },
             {
@@ -472373,7 +473420,7 @@ window.DATA = {
               "change": 0.0,
               "changePct": 0.0,
               "amplitude": 6.69,
-              "volume": 8536351.0,
+              "volume": 8551351.0,
               "quoteDate": "2026-09-07",
               "margin": {
                 "marginBuy": 495,
@@ -473572,7 +474619,7 @@ window.DATA = {
               "change": 0.0,
               "changePct": 0.0,
               "amplitude": 6.69,
-              "volume": 8536351.0,
+              "volume": 8551351.0,
               "quoteDate": "2026-09-08",
               "margin": {
                 "marginBuy": 495,
@@ -474103,7 +475150,7 @@ window.DATA = {
         },
         {
           "date": "2026-09-09",
-          "fetched_at": "2026-09-09T17:31:52+08:00",
+          "fetched_at": "2026-09-09T18:31:48+08:00",
           "count": 31,
           "self": {
             "open": 51.05,
@@ -474758,7 +475805,7 @@ window.DATA = {
               "change": 0.0,
               "changePct": 0.0,
               "amplitude": 6.69,
-              "volume": 8536351.0,
+              "volume": 8551351.0,
               "quoteDate": "2026-09-09",
               "margin": {
                 "marginBuy": 495,
@@ -475329,7 +476376,7 @@ window.DATA = {
           "科技主題型"
         ],
         "source": "TWSE ETF e添富",
-        "fetchedAt": "2026-09-09T17:34:57+08:00",
+        "fetchedAt": "2026-09-09T18:33:37+08:00",
         "navHistory": [
           {
             "date": "2026-07-27",
@@ -475490,6 +476537,11 @@ window.DATA = {
             "date": "2026-09-08",
             "nav": 50.95,
             "premiumPct": -0.29
+          },
+          {
+            "date": "2026-09-09",
+            "nav": 51.14,
+            "premiumPct": -0.37
           }
         ]
       },
@@ -478199,7 +479251,17 @@ window.DATA = {
                 "shortBalance": 22,
                 "offsetting": 0,
                 "date": "2026-08-05"
-              }
+              },
+              "open": 711.0,
+              "high": 711.0,
+              "low": 705.0,
+              "close": 708.0,
+              "prevClose": 708.0,
+              "change": 0.0,
+              "changePct": 0.0,
+              "amplitude": 0.85,
+              "volume": 1008749.0,
+              "quoteDate": "2026-08-05"
             },
             {
               "code": "5871",
@@ -478638,7 +479700,17 @@ window.DATA = {
                 "shortBalance": 0,
                 "offsetting": 0,
                 "date": "2026-08-05"
-              }
+              },
+              "open": 381.0,
+              "high": 383.5,
+              "low": 377.5,
+              "close": 383.0,
+              "prevClose": 378.5,
+              "change": 4.5,
+              "changePct": 1.19,
+              "amplitude": 1.59,
+              "volume": 376405.0,
+              "quoteDate": "2026-08-05"
             },
             {
               "code": "1477",
@@ -481305,7 +482377,17 @@ window.DATA = {
                 "shortBalance": 20,
                 "offsetting": 1,
                 "date": "2026-08-07"
-              }
+              },
+              "open": 711.0,
+              "high": 711.0,
+              "low": 705.0,
+              "close": 708.0,
+              "prevClose": 708.0,
+              "change": 0.0,
+              "changePct": 0.0,
+              "amplitude": 0.85,
+              "volume": 1008749.0,
+              "quoteDate": "2026-08-07"
             },
             {
               "code": "5871",
@@ -481756,7 +482838,17 @@ window.DATA = {
                 "shortBalance": 7,
                 "offsetting": 1,
                 "date": "2026-08-07"
-              }
+              },
+              "open": 381.0,
+              "high": 383.5,
+              "low": 377.5,
+              "close": 383.0,
+              "prevClose": 378.5,
+              "change": 4.5,
+              "changePct": 1.19,
+              "amplitude": 1.59,
+              "volume": 376405.0,
+              "quoteDate": "2026-08-07"
             },
             {
               "code": "1477",
@@ -515757,7 +516849,7 @@ window.DATA = {
         },
         {
           "date": "2026-09-08",
-          "fetched_at": "2026-09-09T07:20:53+08:00",
+          "fetched_at": "2026-09-09T18:31:48+08:00",
           "count": 41,
           "self": {
             "open": 32.89,
@@ -519007,7 +520099,7 @@ window.DATA = {
           "高股息"
         ],
         "source": "TWSE ETF e添富",
-        "fetchedAt": "2026-09-09T17:34:57+08:00",
+        "fetchedAt": "2026-09-09T18:33:38+08:00",
         "navHistory": [
           {
             "date": "2026-07-27",
@@ -519834,7 +520926,7 @@ window.DATA = {
               "change": -615.0,
               "changePct": -3.2,
               "amplitude": 7.67,
-              "volume": 424297.0,
+              "volume": 450297.0,
               "quoteDate": "2026-07-31"
             },
             {
@@ -520157,7 +521249,7 @@ window.DATA = {
               "change": -45.0,
               "changePct": -1.59,
               "amplitude": 6.9,
-              "volume": 2226037.0,
+              "volume": 2233037.0,
               "quoteDate": "2026-07-31"
             }
           ]
@@ -520669,7 +521761,7 @@ window.DATA = {
               "change": -615.0,
               "changePct": -3.2,
               "amplitude": 7.67,
-              "volume": 424297.0,
+              "volume": 450297.0,
               "quoteDate": "2026-08-03"
             },
             {
@@ -521026,7 +522118,7 @@ window.DATA = {
               "change": -45.0,
               "changePct": -1.59,
               "amplitude": 6.9,
-              "volume": 2226037.0,
+              "volume": 2233037.0,
               "quoteDate": "2026-08-03"
             }
           ]
@@ -521555,7 +522647,7 @@ window.DATA = {
               "change": -615.0,
               "changePct": -3.2,
               "amplitude": 7.67,
-              "volume": 424297.0,
+              "volume": 450297.0,
               "quoteDate": "2026-08-04"
             },
             {
@@ -521895,7 +522987,7 @@ window.DATA = {
               "change": -45.0,
               "changePct": -1.59,
               "amplitude": 6.9,
-              "volume": 2226037.0,
+              "volume": 2233037.0,
               "quoteDate": "2026-08-04"
             }
           ]
@@ -523076,7 +524168,17 @@ window.DATA = {
                 "shortBalance": 0,
                 "offsetting": 0,
                 "date": "2026-08-05"
-              }
+              },
+              "open": 19565.0,
+              "high": 19575.0,
+              "low": 18100.0,
+              "close": 18605.0,
+              "prevClose": 19220.0,
+              "change": -615.0,
+              "changePct": -3.2,
+              "amplitude": 7.67,
+              "volume": 450297.0,
+              "quoteDate": "2026-08-05"
             },
             {
               "code": "2890",
@@ -523667,7 +524769,17 @@ window.DATA = {
                 "shortBalance": 11,
                 "offsetting": 0,
                 "date": "2026-08-05"
-              }
+              },
+              "open": 6060.0,
+              "high": 6060.0,
+              "low": 5540.0,
+              "close": 5615.0,
+              "prevClose": 5795.0,
+              "change": -180.0,
+              "changePct": -3.11,
+              "amplitude": 8.97,
+              "volume": 1576583.0,
+              "quoteDate": "2026-08-05"
             },
             {
               "code": "2368",
@@ -523764,7 +524876,17 @@ window.DATA = {
                 "shortBalance": 5,
                 "offsetting": 4,
                 "date": "2026-08-05"
-              }
+              },
+              "open": 2800.0,
+              "high": 2875.0,
+              "low": 2680.0,
+              "close": 2780.0,
+              "prevClose": 2825.0,
+              "change": -45.0,
+              "changePct": -1.59,
+              "amplitude": 6.9,
+              "volume": 2233037.0,
+              "quoteDate": "2026-08-05"
             }
           ],
           "selfInstitutional": {
@@ -524898,7 +526020,7 @@ window.DATA = {
               "change": -615.0,
               "changePct": -3.2,
               "amplitude": 7.67,
-              "volume": 424297.0,
+              "volume": 450297.0,
               "quoteDate": "2026-08-06"
             },
             {
@@ -525682,7 +526804,7 @@ window.DATA = {
               "change": -45.0,
               "changePct": -1.59,
               "amplitude": 6.9,
-              "volume": 2226037.0,
+              "volume": 2233037.0,
               "quoteDate": "2026-08-06"
             }
           ],
@@ -526897,7 +528019,17 @@ window.DATA = {
                 "shortBalance": 0,
                 "offsetting": 0,
                 "date": "2026-08-07"
-              }
+              },
+              "open": 19565.0,
+              "high": 19575.0,
+              "low": 18100.0,
+              "close": 18605.0,
+              "prevClose": 19220.0,
+              "change": -615.0,
+              "changePct": -3.2,
+              "amplitude": 7.67,
+              "volume": 450297.0,
+              "quoteDate": "2026-08-07"
             },
             {
               "code": "2890",
@@ -527582,7 +528714,17 @@ window.DATA = {
                 "shortBalance": 12,
                 "offsetting": 1,
                 "date": "2026-08-07"
-              }
+              },
+              "open": 6060.0,
+              "high": 6060.0,
+              "low": 5540.0,
+              "close": 5615.0,
+              "prevClose": 5795.0,
+              "change": -180.0,
+              "changePct": -3.11,
+              "amplitude": 8.97,
+              "volume": 1576583.0,
+              "quoteDate": "2026-08-07"
             },
             {
               "code": "2449",
@@ -527643,7 +528785,17 @@ window.DATA = {
                 "shortBalance": 8,
                 "offsetting": 0,
                 "date": "2026-08-07"
-              }
+              },
+              "open": 2800.0,
+              "high": 2875.0,
+              "low": 2680.0,
+              "close": 2780.0,
+              "prevClose": 2825.0,
+              "change": -45.0,
+              "changePct": -1.59,
+              "amplitude": 6.9,
+              "volume": 2233037.0,
+              "quoteDate": "2026-08-07"
             }
           ]
         },
@@ -528806,7 +529958,7 @@ window.DATA = {
               "change": -615.0,
               "changePct": -3.2,
               "amplitude": 7.67,
-              "volume": 424297.0,
+              "volume": 450297.0,
               "quoteDate": "2026-08-10"
             },
             {
@@ -529611,7 +530763,7 @@ window.DATA = {
               "change": -45.0,
               "changePct": -1.59,
               "amplitude": 6.9,
-              "volume": 2226037.0,
+              "volume": 2233037.0,
               "quoteDate": "2026-08-10"
             }
           ]
@@ -530853,7 +532005,7 @@ window.DATA = {
               "change": -615.0,
               "changePct": -3.2,
               "amplitude": 7.67,
-              "volume": 424297.0,
+              "volume": 450297.0,
               "quoteDate": "2026-08-11"
             },
             {
@@ -531580,7 +532732,7 @@ window.DATA = {
               "change": -45.0,
               "changePct": -1.59,
               "amplitude": 6.9,
-              "volume": 2226037.0,
+              "volume": 2233037.0,
               "quoteDate": "2026-08-11"
             }
           ]
@@ -532744,7 +533896,7 @@ window.DATA = {
               "change": -615.0,
               "changePct": -3.2,
               "amplitude": 7.67,
-              "volume": 424297.0,
+              "volume": 450297.0,
               "quoteDate": "2026-08-12"
             },
             {
@@ -533549,7 +534701,7 @@ window.DATA = {
               "change": -45.0,
               "changePct": -1.59,
               "amplitude": 6.9,
-              "volume": 2226037.0,
+              "volume": 2233037.0,
               "quoteDate": "2026-08-12"
             }
           ]
@@ -534723,7 +535875,7 @@ window.DATA = {
               "change": -615.0,
               "changePct": -3.2,
               "amplitude": 7.67,
-              "volume": 424297.0,
+              "volume": 450297.0,
               "quoteDate": "2026-08-13"
             },
             {
@@ -535528,7 +536680,7 @@ window.DATA = {
               "change": -45.0,
               "changePct": -1.59,
               "amplitude": 6.9,
-              "volume": 2226037.0,
+              "volume": 2233037.0,
               "quoteDate": "2026-08-13"
             }
           ]
@@ -536702,7 +537854,7 @@ window.DATA = {
               "change": -615.0,
               "changePct": -3.2,
               "amplitude": 7.67,
-              "volume": 424297.0,
+              "volume": 450297.0,
               "quoteDate": "2026-08-14"
             },
             {
@@ -537507,7 +538659,7 @@ window.DATA = {
               "change": -45.0,
               "changePct": -1.59,
               "amplitude": 6.9,
-              "volume": 2226037.0,
+              "volume": 2233037.0,
               "quoteDate": "2026-08-14"
             }
           ]
@@ -538681,7 +539833,7 @@ window.DATA = {
               "change": -615.0,
               "changePct": -3.2,
               "amplitude": 7.67,
-              "volume": 424297.0,
+              "volume": 450297.0,
               "quoteDate": "2026-08-17"
             },
             {
@@ -539486,7 +540638,7 @@ window.DATA = {
               "change": -45.0,
               "changePct": -1.59,
               "amplitude": 6.9,
-              "volume": 2226037.0,
+              "volume": 2233037.0,
               "quoteDate": "2026-08-17"
             }
           ]
@@ -540660,7 +541812,7 @@ window.DATA = {
               "change": -615.0,
               "changePct": -3.2,
               "amplitude": 7.67,
-              "volume": 424297.0,
+              "volume": 450297.0,
               "quoteDate": "2026-08-18"
             },
             {
@@ -541465,7 +542617,7 @@ window.DATA = {
               "change": -45.0,
               "changePct": -1.59,
               "amplitude": 6.9,
-              "volume": 2226037.0,
+              "volume": 2233037.0,
               "quoteDate": "2026-08-18"
             }
           ]
@@ -542756,7 +543908,7 @@ window.DATA = {
               "change": -615.0,
               "changePct": -3.2,
               "amplitude": 7.67,
-              "volume": 424297.0,
+              "volume": 450297.0,
               "quoteDate": "2026-08-19"
             },
             {
@@ -543444,7 +544596,7 @@ window.DATA = {
               "change": -45.0,
               "changePct": -1.59,
               "amplitude": 6.9,
-              "volume": 2226037.0,
+              "volume": 2233037.0,
               "quoteDate": "2026-08-19"
             }
           ]
@@ -544696,7 +545848,7 @@ window.DATA = {
               "change": -615.0,
               "changePct": -3.2,
               "amplitude": 7.67,
-              "volume": 424297.0,
+              "volume": 450297.0,
               "quoteDate": "2026-08-20"
             },
             {
@@ -545423,7 +546575,7 @@ window.DATA = {
               "change": -45.0,
               "changePct": -1.59,
               "amplitude": 6.9,
-              "volume": 2226037.0,
+              "volume": 2233037.0,
               "quoteDate": "2026-08-20"
             }
           ]
@@ -546675,7 +547827,7 @@ window.DATA = {
               "change": -615.0,
               "changePct": -3.2,
               "amplitude": 7.67,
-              "volume": 424297.0,
+              "volume": 450297.0,
               "quoteDate": "2026-08-21"
             },
             {
@@ -547402,7 +548554,7 @@ window.DATA = {
               "change": -45.0,
               "changePct": -1.59,
               "amplitude": 6.9,
-              "volume": 2226037.0,
+              "volume": 2233037.0,
               "quoteDate": "2026-08-21"
             }
           ]
@@ -548732,7 +549884,7 @@ window.DATA = {
               "change": -615.0,
               "changePct": -3.2,
               "amplitude": 7.67,
-              "volume": 424297.0,
+              "volume": 450297.0,
               "quoteDate": "2026-08-24"
             },
             {
@@ -549381,7 +550533,7 @@ window.DATA = {
               "change": -45.0,
               "changePct": -1.59,
               "amplitude": 6.9,
-              "volume": 2226037.0,
+              "volume": 2233037.0,
               "quoteDate": "2026-08-24"
             }
           ]
@@ -550711,7 +551863,7 @@ window.DATA = {
               "change": -615.0,
               "changePct": -3.2,
               "amplitude": 7.67,
-              "volume": 424297.0,
+              "volume": 450297.0,
               "quoteDate": "2026-08-25"
             },
             {
@@ -551360,7 +552512,7 @@ window.DATA = {
               "change": -45.0,
               "changePct": -1.59,
               "amplitude": 6.9,
-              "volume": 2226037.0,
+              "volume": 2233037.0,
               "quoteDate": "2026-08-25"
             }
           ]
@@ -552676,7 +553828,7 @@ window.DATA = {
               "change": -615.0,
               "changePct": -3.2,
               "amplitude": 7.67,
-              "volume": 424297.0,
+              "volume": 450297.0,
               "quoteDate": "2026-08-26",
               "margin": {
                 "marginBuy": 14,
@@ -553325,7 +554477,7 @@ window.DATA = {
               "change": -45.0,
               "changePct": -1.59,
               "amplitude": 6.9,
-              "volume": 2226037.0,
+              "volume": 2233037.0,
               "quoteDate": "2026-08-26",
               "margin": {
                 "marginBuy": 249,
@@ -554694,7 +555846,7 @@ window.DATA = {
               "change": -615.0,
               "changePct": -3.2,
               "amplitude": 7.67,
-              "volume": 424297.0,
+              "volume": 450297.0,
               "quoteDate": "2026-08-27",
               "margin": {
                 "marginBuy": 20,
@@ -555304,7 +556456,7 @@ window.DATA = {
               "change": -45.0,
               "changePct": -1.59,
               "amplitude": 6.9,
-              "volume": 2226037.0,
+              "volume": 2233037.0,
               "quoteDate": "2026-08-27",
               "margin": {
                 "marginBuy": 244,
@@ -556609,7 +557761,7 @@ window.DATA = {
               "change": -615.0,
               "changePct": -3.2,
               "amplitude": 7.67,
-              "volume": 424297.0,
+              "volume": 450297.0,
               "quoteDate": "2026-08-28"
             },
             {
@@ -557297,7 +558449,7 @@ window.DATA = {
               "change": -45.0,
               "changePct": -1.59,
               "amplitude": 6.9,
-              "volume": 2226037.0,
+              "volume": 2233037.0,
               "quoteDate": "2026-08-28"
             }
           ]
@@ -558574,7 +559726,7 @@ window.DATA = {
               "change": -615.0,
               "changePct": -3.2,
               "amplitude": 7.67,
-              "volume": 424297.0,
+              "volume": 450297.0,
               "quoteDate": "2026-08-31",
               "margin": {
                 "marginBuy": 34,
@@ -559262,7 +560414,7 @@ window.DATA = {
               "change": -45.0,
               "changePct": -1.59,
               "amplitude": 6.9,
-              "volume": 2226037.0,
+              "volume": 2233037.0,
               "quoteDate": "2026-08-31",
               "margin": {
                 "marginBuy": 171,
@@ -560489,7 +561641,7 @@ window.DATA = {
               "change": -615.0,
               "changePct": -3.2,
               "amplitude": 7.67,
-              "volume": 424297.0,
+              "volume": 450297.0,
               "quoteDate": "2026-09-01"
             },
             {
@@ -562436,7 +563588,7 @@ window.DATA = {
               "change": -615.0,
               "changePct": -3.2,
               "amplitude": 7.67,
-              "volume": 424297.0,
+              "volume": 450297.0,
               "quoteDate": "2026-09-02"
             },
             {
@@ -564330,7 +565482,7 @@ window.DATA = {
               "change": -615.0,
               "changePct": -3.2,
               "amplitude": 7.67,
-              "volume": 424297.0,
+              "volume": 450297.0,
               "quoteDate": "2026-09-03",
               "margin": {
                 "marginBuy": 35,
@@ -566316,7 +567468,7 @@ window.DATA = {
               "change": -615.0,
               "changePct": -3.2,
               "amplitude": 7.67,
-              "volume": 424297.0,
+              "volume": 450297.0,
               "quoteDate": "2026-09-04",
               "margin": {
                 "marginBuy": 14,
@@ -568185,7 +569337,7 @@ window.DATA = {
               "change": -615.0,
               "changePct": -3.2,
               "amplitude": 7.67,
-              "volume": 424297.0,
+              "volume": 450297.0,
               "quoteDate": "2026-09-07",
               "margin": {
                 "marginBuy": 14,
@@ -569018,7 +570170,7 @@ window.DATA = {
         },
         {
           "date": "2026-09-08",
-          "fetched_at": "2026-09-09T17:31:52+08:00",
+          "fetched_at": "2026-09-09T18:31:48+08:00",
           "count": 50,
           "self": {
             "open": 42.93,
@@ -570132,7 +571284,7 @@ window.DATA = {
               "change": -615.0,
               "changePct": -3.2,
               "amplitude": 7.67,
-              "volume": 424297.0,
+              "volume": 450297.0,
               "quoteDate": "2026-09-08",
               "margin": {
                 "marginBuy": 14,
@@ -571005,7 +572157,7 @@ window.DATA = {
           "大型權值"
         ],
         "source": "TWSE ETF e添富",
-        "fetchedAt": "2026-09-09T17:34:57+08:00",
+        "fetchedAt": "2026-09-09T18:33:40+08:00",
         "navHistory": [
           {
             "date": "2026-07-27",
@@ -571166,6 +572318,11 @@ window.DATA = {
             "date": "2026-09-08",
             "nav": 42.69,
             "premiumPct": -0.3
+          },
+          {
+            "date": "2026-09-09",
+            "nav": 42.7,
+            "premiumPct": -0.4
           }
         ]
       },
@@ -615258,7 +616415,7 @@ window.DATA = {
         },
         {
           "date": "2026-09-08",
-          "fetched_at": "2026-09-09T17:32:00+08:00",
+          "fetched_at": "2026-09-09T18:32:02+08:00",
           "count": 51,
           "self": {
             "open": 251.7,
@@ -617298,7 +618455,7 @@ window.DATA = {
           "大型權值"
         ],
         "source": "TWSE ETF e添富",
-        "fetchedAt": "2026-09-09T17:34:58+08:00",
+        "fetchedAt": "2026-09-09T18:33:43+08:00",
         "navHistory": [
           {
             "date": "2026-07-27",
@@ -617459,6 +618616,11 @@ window.DATA = {
             "date": "2026-09-08",
             "nav": 251.63,
             "premiumPct": -0.63
+          },
+          {
+            "date": "2026-09-09",
+            "nav": 251.56,
+            "premiumPct": -0.5
           }
         ]
       },
@@ -618383,7 +619545,7 @@ window.DATA = {
         },
         {
           "date": "2026-09-09",
-          "fetched_at": "2026-09-09T17:32:00+08:00",
+          "fetched_at": "2026-09-09T18:32:02+08:00",
           "count": 4,
           "self": {
             "open": 37.78,
@@ -618490,7 +619652,7 @@ window.DATA = {
           "大型權值"
         ],
         "source": "TWSE ETF e添富",
-        "fetchedAt": "2026-09-09T17:34:59+08:00",
+        "fetchedAt": "2026-09-09T18:33:45+08:00",
         "navHistory": [
           {
             "date": "2026-07-27",
@@ -634521,7 +635683,7 @@ window.DATA = {
         },
         {
           "date": "2026-09-04",
-          "fetched_at": "2026-09-09T07:21:01+08:00",
+          "fetched_at": "2026-09-09T18:32:02+08:00",
           "count": 31,
           "self": {
             "open": 80.2,
@@ -634572,7 +635734,7 @@ window.DATA = {
               "change": 1.91,
               "changePct": 0.84,
               "amplitude": 2.25,
-              "volume": 134946800,
+              "volume": 135352400,
               "currency": "USD",
               "quoteDate": "2026-09-04"
             },
@@ -634591,7 +635753,7 @@ window.DATA = {
               "change": 58.43,
               "changePct": 6.1,
               "amplitude": 5.09,
-              "volume": 35116600,
+              "volume": 35249500,
               "currency": "USD",
               "quoteDate": "2026-09-04"
             },
@@ -634610,7 +635772,7 @@ window.DATA = {
               "change": 0.74,
               "changePct": 0.21,
               "amplitude": 1.81,
-              "volume": 32773600,
+              "volume": 32863300,
               "currency": "USD",
               "quoteDate": "2026-09-04"
             },
@@ -634629,7 +635791,7 @@ window.DATA = {
               "change": 14.72,
               "changePct": 7.05,
               "amplitude": 6.13,
-              "volume": 21150500,
+              "volume": 21218100,
               "currency": "USD",
               "quoteDate": "2026-09-04"
             },
@@ -634743,7 +635905,7 @@ window.DATA = {
               "change": 21.41,
               "changePct": 4.69,
               "amplitude": 4.57,
-              "volume": 19651900,
+              "volume": 19678700,
               "currency": "USD",
               "quoteDate": "2026-09-04"
             },
@@ -634800,7 +635962,7 @@ window.DATA = {
               "change": 4.13,
               "changePct": 4.51,
               "amplitude": 4.44,
-              "volume": 97428100,
+              "volume": 97654300,
               "currency": "USD",
               "quoteDate": "2026-09-04"
             },
@@ -634914,7 +636076,7 @@ window.DATA = {
               "change": 27.58,
               "changePct": 9.75,
               "amplitude": 12.66,
-              "volume": 6503400,
+              "volume": 6536300,
               "currency": "USD",
               "quoteDate": "2026-09-04"
             },
@@ -634971,7 +636133,7 @@ window.DATA = {
               "change": 6.4,
               "changePct": 3.9,
               "amplitude": 6.88,
-              "volume": 10710100,
+              "volume": 10756500,
               "currency": "USD",
               "quoteDate": "2026-09-04"
             },
@@ -635780,11 +636942,11 @@ window.DATA = {
         "fundSizeHundredMillion": 704.48,
         "beneficiaryTenThousands": 18.26,
         "tags": [
-          "科技主題型",
-          "大型權值"
+          "大型權值",
+          "科技主題型"
         ],
         "source": "TWSE ETF e添富",
-        "fetchedAt": "2026-09-09T17:34:58+08:00",
+        "fetchedAt": "2026-09-09T18:33:42+08:00",
         "navHistory": [
           {
             "date": "2026-07-27",
