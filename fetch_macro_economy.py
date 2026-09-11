@@ -44,6 +44,8 @@ US_SERIES = [
     dict(id="us-retail", series="RSAFS", name="零售銷售年增率", category="growth", unit="%", frequency="月", source="U.S. Census Bureau", sourceUrl="https://www.census.gov/retail/sales.html", transform="yoy", periods=12, digits=1),
     dict(id="us-cpi", series="CPIAUCSL", name="CPI 年增率", category="inflation", unit="%", frequency="月", source="美國勞工統計局 BLS", sourceUrl="https://www.bls.gov/cpi/", transform="yoy", periods=12, digits=1),
     dict(id="us-core-cpi", series="CPILFESL", name="核心 CPI 年增率", category="inflation", unit="%", frequency="月", source="美國勞工統計局 BLS", sourceUrl="https://www.bls.gov/cpi/", transform="yoy", periods=12, digits=1),
+    dict(id="us-ppi", series="PPIFID", name="PPI 年增率", category="inflation", unit="%", changeUnit="百分點", frequency="月", source="美國勞工統計局 BLS（FRED）", sourceUrl="https://fred.stlouisfed.org/series/PPIFID", transform="yoy", periods=12, calendarMonths=12, digits=1, note="最終需求生產者物價指數；未季調、相對去年同月"),
+    dict(id="us-core-ppi", series="PPICOR", name="核心 PPI 年增率", category="inflation", unit="%", changeUnit="百分點", frequency="月", source="美國勞工統計局 BLS（FRED）", sourceUrl="https://fred.stlouisfed.org/series/PPICOR", transform="yoy", periods=12, calendarMonths=12, digits=1, note="最終需求扣除食品與能源，仍含貿易服務；未季調、相對去年同月"),
     dict(id="us-pce", series="PCEPI", name="PCE 年增率", category="inflation", unit="%", frequency="月", source="美國商務部經濟分析局 BEA", sourceUrl="https://www.bea.gov/data/personal-consumption-expenditures-price-index", transform="yoy", periods=12, digits=1),
     dict(id="us-core-pce", series="PCEPILFE", name="核心 PCE 年增率", category="inflation", unit="%", frequency="月", source="美國商務部經濟分析局 BEA", sourceUrl="https://www.bea.gov/data/personal-consumption-expenditures-price-index", transform="yoy", periods=12, digits=1),
     dict(id="us-payrolls", series="PAYEMS", name="非農就業月增", category="labor", unit="千人", frequency="月", source="美國勞工統計局 BLS", sourceUrl="https://www.bls.gov/ces/", transform="difference", digits=0),
@@ -154,13 +156,20 @@ def transform_rows(rows, config):
     transform = config.get("transform")
     scale = config.get("scale", 1)
     output = []
+    monthly_values = {row["date"][:7]: row["value"] for row in rows} if config.get("calendarMonths") else {}
     for index, row in enumerate(rows):
         value = row["value"]
         if transform == "yoy":
             periods = config.get("periods", 12)
-            if index < periods or not rows[index - periods]["value"]:
+            if config.get("calendarMonths"):
+                year, month = map(int, row["date"][:7].split("-"))
+                previous_year, previous_month = divmod(year * 12 + month - 1 - config["calendarMonths"], 12)
+                previous_value = monthly_values.get("{:04d}-{:02d}".format(previous_year, previous_month + 1))
+            else:
+                previous_value = rows[index - periods]["value"] if index >= periods else None
+            if not previous_value:
                 continue
-            value = (value / rows[index - periods]["value"] - 1) * 100
+            value = (value / previous_value - 1) * 100
         elif transform == "difference":
             if index == 0:
                 continue
@@ -174,7 +183,7 @@ def make_series(config, rows, country="US", extra=None):
         raise ValueError("{} has no observations".format(config["id"]))
     latest = rows[-1]
     previous = rows[-2] if len(rows) > 1 else latest
-    result = {key: value for key, value in config.items() if key not in {"transform", "periods", "scale"}}
+    result = {key: value for key, value in config.items() if key not in {"transform", "periods", "scale", "calendarMonths"}}
     result.update({
         "country": country,
         "categoryLabel": CATEGORY_LABELS[config["category"]],

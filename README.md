@@ -124,6 +124,7 @@
 - 首頁市場總覽：台灣加權、電子與金融指數採臺灣證券交易所資料，櫃買指數採證券櫃檯買賣中心資料；主圖搭配近 40 個交易日收盤與官方成交金額。
 - 全球指數、Russell 2000、VIX、美元指數、原油與主要貨幣參考匯率：Yahoo Finance 日線資料，由 `fetch_macro_markets.py` 每日整理至 `webapp/market_data.json`；台灣加權指數成交金額以證交所大盤統計資訊覆蓋，並保留近一年官方歷史資料。
 - 美國公債殖利率曲線：美國財政部 Daily Treasury Par Yield Curve Rates，由 `fetch_macro_markets.py` 每日更新。
+- 美國總經通膨指標：PPI 與核心 PPI 年增率採 BLS 經 FRED 提供的未季調最終需求指數（`PPIFID`、`PPICOR`），與去年同月相比；核心排除食品與能源、仍含貿易服務。由 `fetch_macro_economy.py` 隨既有總經排程更新，支援雙線比較與 1／3／5／10 年期間切換。
 - 聯準會政策：FRED 的政策利率、總資產、公債、MBS、準備金與 ON RRP 序列，搭配聯準會官方貨幣政策 RSS 與 FOMC 日程，由 `fetch_fed_policy.py` 更新。
 - 財經影音：七個指定 YouTube 官方頻道的 RSS，只保留最近七天公開影片，由 Cloud Scheduler 每日四次執行 `fetch_financial_videos.py` 更新。
 - 總經新聞：中央社財經／國際 RSS，加上經濟日報與工商時報首頁標題，保留最近五天內容，與財經影音同由 Cloud Scheduler 每日四次更新；只有實質內容變更才觸發網站部署。
