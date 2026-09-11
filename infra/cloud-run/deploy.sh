@@ -79,6 +79,7 @@ deploy_job() {
   local mode="$2"
   local memory="$3"
   local timeout="$4"
+  local secrets="${5:-${COMMON_SECRETS}}"
   gcloud run jobs deploy "${name}" \
     --image "${IMAGE}" \
     --region "${REGION}" \
@@ -89,7 +90,7 @@ deploy_job() {
     --cpu 1 \
     --memory "${memory}" \
     --set-env-vars "${COMMON_ENV}" \
-    --set-secrets "${COMMON_SECRETS}" \
+    --set-secrets "${secrets}" \
     --args "${mode}" \
     --project "${PROJECT_ID}"
 }
@@ -97,6 +98,7 @@ deploy_job() {
 deploy_job market-data-tw data-tw 1Gi 45m
 deploy_job market-data-us data-us 1Gi 45m
 deploy_job financial-content financial-content 1Gi 20m
+deploy_job macro-economy macro-economy 512Mi 20m "GITHUB_TOKEN=github-token:latest"
 deploy_job member-morning-report morning-report 2Gi 90m
 
 gcloud projects add-iam-policy-binding "${PROJECT_ID}" \
@@ -135,6 +137,7 @@ upsert_schedule() {
 upsert_schedule market-data-tw market-data-tw "30 17,18,19,20,21,23 * * *"
 upsert_schedule market-data-us market-data-us "20 5,6,7 * * *"
 upsert_schedule financial-content financial-content "5 6,12,18,22 * * *"
+upsert_schedule macro-economy macro-economy "15 2,8,14,20 * * *"
 upsert_schedule member-morning-report member-morning-report "30 6,7,8 * * *"
 
-echo "部署完成。先個別執行四個 Cloud Run Jobs 驗證，確認後再停用 GitHub schedule。"
+echo "部署完成。先個別執行五個 Cloud Run Jobs 驗證，確認後再停用 GitHub schedule。"

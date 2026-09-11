@@ -248,6 +248,7 @@ K 線圖支援 MA5／10／20／60／120／240、布林通道、MACD、RSI、KD�
 | --- | --- | --- |
 | `update-data.yml` | 無（人工備援） | ETF、行情、K 線、總經市場、公司資料與績效快照 |
 | `update-financial-content.yml` | 無（人工備援） | 聯準會政策、財經影音與總經新聞 |
+| `update-macro-economy.yml` | 無（人工備援） | 美國與台灣總經指標，含 PPI／核心 PPI；Cloud Scheduler 每日台北時間 02:15、08:15、14:15、20:15 執行 |
 | `morning-report.yml` | 無（人工備援） | 產生會員 AI 晨報並逐檔寄送 PDF |
 
 Cloud Scheduler 的正式排程與部署方式請見 `infra/cloud-run/README.md`。

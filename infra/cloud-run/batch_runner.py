@@ -190,27 +190,38 @@ def run_data_batch(repo_dir: Path, git_env: dict[str, str], mode: str) -> None:
 
 
 def run_financial_content(repo_dir: Path, git_env: dict[str, str]) -> None:
-    for command in FINANCIAL_CONTENT_COMMANDS:
+    run_json_batch(repo_dir, git_env, FINANCIAL_CONTENT_COMMANDS, FINANCIAL_CONTENT_PATHS, "財經內容")
+
+
+def run_macro_economy(repo_dir: Path, git_env: dict[str, str]) -> None:
+    run_json_batch(
+        repo_dir, git_env, [[sys.executable, "fetch_macro_economy.py"]],
+        ["webapp/macro_economy_data.json"], "美台總經指標",
+    )
+
+
+def run_json_batch(repo_dir: Path, git_env: dict[str, str], commands: list[list[str]], paths: list[str], label: str) -> None:
+    for command in commands:
         run(command, repo_dir)
 
     run(["git", "config", "user.name", "cloud-run-batch[bot]"], repo_dir)
     run(["git", "config", "user.email", "cloud-run-batch[bot]@users.noreply.github.com"], repo_dir)
     changed_paths = [
-        path for path in FINANCIAL_CONTENT_PATHS
+        path for path in paths
         if financial_content_changed(repo_dir, path)
     ]
-    unchanged_paths = [path for path in FINANCIAL_CONTENT_PATHS if path not in changed_paths]
+    unchanged_paths = [path for path in paths if path not in changed_paths]
     if unchanged_paths:
         # Leave the ephemeral clone clean so a later rebase can proceed when
         # another scheduled batch pushed to main during this execution.
         run(["git", "restore", "--source=HEAD", "--", *unchanged_paths], repo_dir)
     if not changed_paths:
-        print("財經內容只有擷取時間變更，不建立 commit。")
+        print(f"{label}只有擷取時間變更，不建立 commit。")
         return
     run(["git", "add", *changed_paths], repo_dir)
 
     today = dt.datetime.now(TAIPEI).date().isoformat()
-    run(["git", "commit", "-m", f"chore(data)：Cloud Run 更新財經內容 {today}"], repo_dir)
+    run(["git", "commit", "-m", f"chore(data)：Cloud Run 更新{label} {today}"], repo_dir)
     branch = os.environ.get("GITHUB_BRANCH", "main")
     run(["git", "fetch", "origin", branch], repo_dir, env=git_env)
     run(["git", "rebase", f"origin/{branch}"], repo_dir, env=git_env)
@@ -227,10 +238,10 @@ def run_morning_report(repo_dir: Path, *, dry_run: bool = False) -> None:
 
 
 def main() -> int:
-    valid_modes = {"data-tw", "data-us", "financial-content", "morning-report", "morning-report-dry-run"}
+    valid_modes = {"data-tw", "data-us", "financial-content", "macro-economy", "morning-report", "morning-report-dry-run"}
     if len(sys.argv) != 2 or sys.argv[1] not in valid_modes:
         print(
-            "用法：batch_runner.py data-tw|data-us|financial-content|morning-report|morning-report-dry-run",
+            "用法：batch_runner.py data-tw|data-us|financial-content|macro-economy|morning-report|morning-report-dry-run",
             file=sys.stderr,
         )
         return 2
@@ -243,6 +254,8 @@ def main() -> int:
             run_morning_report(repo_dir, dry_run=mode.endswith("dry-run"))
         elif mode == "financial-content":
             run_financial_content(repo_dir, git_env)
+        elif mode == "macro-economy":
+            run_macro_economy(repo_dir, git_env)
         else:
             run_data_batch(repo_dir, git_env, mode)
         print(f"批次完成：{mode}")

@@ -1,8 +1,7 @@
 name: 更新美台總經指標
 
 on:
-  schedule:
-    - cron: "15 0,6,12,18 * * *"
+  # 自動排程已移至 Cloud Scheduler 的 macro-economy；此處保留人工備援。
   workflow_dispatch:
 
 permissions:

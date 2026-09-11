@@ -4,6 +4,7 @@ from pathlib import Path
 import subprocess
 import tempfile
 import unittest
+from unittest.mock import patch
 
 
 MODULE_PATH = Path(__file__).parents[1] / "infra" / "cloud-run" / "batch_runner.py"
@@ -14,6 +15,44 @@ SPEC.loader.exec_module(MODULE)
 
 
 class CloudBatchTests(unittest.TestCase):
+    def test_macro_batch_only_commits_substantive_macro_changes(self):
+        for latest, should_commit in [(3.0, False), (3.2, True)]:
+            with self.subTest(latest=latest), tempfile.TemporaryDirectory() as directory:
+                root = Path(directory)
+                target = root / "webapp/macro_economy_data.json"
+                target.parent.mkdir()
+                original = {"updatedAt": "before", "series": [{"id": "us-ppi", "latest": 3.0}]}
+                target.write_text(json.dumps(original))
+                for command in [["git", "init", "-q"], ["git", "config", "user.name", "Test"], ["git", "config", "user.email", "test@example.com"], ["git", "add", "."], ["git", "commit", "-qm", "initial"]]:
+                    subprocess.run(command, cwd=root, check=True)
+                initial_head = MODULE.output(["git", "rev-parse", "HEAD"], root)
+                original_run = MODULE.run
+                remote_actions = []
+
+                def fake_run(command, cwd, **kwargs):
+                    if command[-1] == "fetch_macro_economy.py":
+                        target.write_text(json.dumps({"updatedAt": "after", "series": [{"id": "us-ppi", "latest": latest}]}))
+                        (root / "unrelated.json").write_text("{}")
+                    elif command[:2] in [["git", "fetch"], ["git", "rebase"], ["git", "push"]]:
+                        remote_actions.append(command[1])
+                    else:
+                        original_run(command, cwd, **kwargs)
+
+                with patch.object(MODULE, "run", side_effect=fake_run):
+                    MODULE.run_macro_economy(root, {})
+                head_changed = initial_head != MODULE.output(["git", "rev-parse", "HEAD"], root)
+                self.assertEqual(head_changed, should_commit)
+                self.assertEqual(remote_actions, ["fetch", "rebase", "push"] if should_commit else [])
+                self.assertEqual(MODULE.output(["git", "status", "--porcelain", "--untracked-files=no"], root), "")
+                self.assertEqual(MODULE.output(["git", "ls-files"], root), "webapp/macro_economy_data.json")
+
+    def test_macro_fetch_failure_does_not_publish(self):
+        with patch.object(MODULE, "run", side_effect=subprocess.CalledProcessError(1, "fetch_macro_economy.py")) as run:
+            with self.assertRaises(subprocess.CalledProcessError):
+                MODULE.run_macro_economy(Path("unused"), {})
+        self.assertEqual(run.call_count, 1)
+        self.assertEqual(run.call_args.args[0][-1], "fetch_macro_economy.py")
+
     def test_financial_content_runs_cnbc_capture_after_macro_news(self):
         commands = [command[-1] for command in MODULE.FINANCIAL_CONTENT_COMMANDS]
         self.assertLess(commands.index("fetch_macro_news.py"), commands.index("fetch_cnbc_top_news.py"))
