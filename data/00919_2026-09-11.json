@@ -1,6 +1,6 @@
 {
   "date": "2026-09-11",
-  "fetched_at": "2026-09-11T18:32:04+08:00",
+  "fetched_at": "2026-09-11T20:30:54+08:00",
   "count": 41,
   "self": {
     "open": 32.25,
@@ -159,9 +159,9 @@
       "quoteDate": "2026-09-11",
       "inst": {
         "foreign": 665935,
-        "trust": 953530,
+        "trust": 957155,
         "dealer": 97567,
-        "total": 1717032,
+        "total": 1720657,
         "date": "2026-09-11"
       },
       "margin": {
@@ -545,6 +545,16 @@
       "assetType": "stock",
       "weight": 1.32,
       "shares": 11520000,
+      "open": 703.0,
+      "high": 703.0,
+      "low": 693.0,
+      "close": 693.0,
+      "prevClose": 704.0,
+      "change": -11.0,
+      "changePct": -1.56,
+      "amplitude": 1.42,
+      "volume": 1922407.0,
+      "quoteDate": "2026-09-11",
       "margin": {
         "marginBuy": 53,
         "marginSell": 42,
@@ -558,17 +568,7 @@
         "shortBalance": 0,
         "offsetting": 1,
         "date": "2026-09-11"
-      },
-      "open": 703.0,
-      "high": 703.0,
-      "low": 693.0,
-      "close": 693.0,
-      "prevClose": 704.0,
-      "change": -11.0,
-      "changePct": -1.56,
-      "amplitude": 1.42,
-      "volume": 1922407.0,
-      "quoteDate": "2026-09-11"
+      }
     },
     {
       "code": "1402",
@@ -967,6 +967,16 @@
       "assetType": "stock",
       "weight": 0.54,
       "shares": 8564000,
+      "open": 377.0,
+      "high": 381.5,
+      "low": 371.5,
+      "close": 380.5,
+      "prevClose": 378.5,
+      "change": 2.0,
+      "changePct": 0.53,
+      "amplitude": 2.64,
+      "volume": 632144.0,
+      "quoteDate": "2026-09-11",
       "margin": {
         "marginBuy": 9,
         "marginSell": 7,
@@ -980,17 +990,7 @@
         "shortBalance": 0,
         "offsetting": 0,
         "date": "2026-09-11"
-      },
-      "open": 377.0,
-      "high": 381.5,
-      "low": 371.5,
-      "close": 380.5,
-      "prevClose": 378.5,
-      "change": 2.0,
-      "changePct": 0.53,
-      "amplitude": 2.64,
-      "volume": 632144.0,
-      "quoteDate": "2026-09-11"
+      }
     },
     {
       "code": "2606",
