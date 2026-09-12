@@ -104,6 +104,18 @@ class MorningReportTests(unittest.TestCase):
         self.assertIn("&lt;b&gt;test&lt;/b&gt;", markup)
         self.assertIn("盤後", markup)
 
+    def test_standard_report_uses_shared_renderer_without_script_injection(self):
+        markup = MODULE.analysis_html(
+            {"symbol":"TEST", "assetName":"<script>alert(1)</script>"}, "2026-09-11",
+            {"reportMeta":{"schemaVersion":3}, "chart":{"symbol":"TEST"},
+             "verdict":{"state":"<script>alert(2)</script>"}, "strategies":[]}, b"jpeg"
+        )
+        self.assertIn("ChartReport.render", markup)
+        self.assertIn("&lt;script&gt;alert(1)&lt;/script&gt;", markup)
+        self.assertNotIn("<script>alert(1)</script>", markup)
+        self.assertNotIn("<script>alert(2)</script>", markup)
+        self.assertIn("\\u003cscript\\u003ealert(2)", markup)
+
     def test_uses_latest_market_date_from_chart(self):
         self.assertEqual(
             MODULE.latest_market_date({"visibleRange":{"endDate":"2026-08-28"}}, "2026-08-29"),

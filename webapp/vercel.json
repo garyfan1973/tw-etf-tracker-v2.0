@@ -2,7 +2,7 @@
   "functions": {
     "api/chart-analysis.py": {
       "maxDuration": 120,
-      "includeFiles": "skills/chart-analysis-report/**"
+      "includeFiles": "skills/stock-analysis-standard/**"
     }
   }
 }

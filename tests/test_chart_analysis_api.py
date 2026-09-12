@@ -24,7 +24,11 @@ class ChartAnalysisApiTests(unittest.TestCase):
                 return [sample(schema['items']) for _ in range(schema.get('minItems', 1))]
             return True if schema['type'] == 'boolean' else '測試資料'
         result = sample(API.RESULT_SCHEMA)
-        result['technicalPoints'] = [{'label':label, 'analysis':'證據', 'tone':'neutral'} for label in API.TECHNICAL_LABELS]
+        for row, horizon in zip(result['strategies'], ('短期（1～4 週）', '中期（1～3 季）', '長期（1 年以上）')):
+            row['horizon'] = horizon
+        result['fundamentals']['status'] = '未查證'
+        result['fundamentals']['judgment'] = '未查證'
+        result['fundamentals']['sources'] = []
         return result
 
     def test_holding_cost_validates_without_reusing_proposed_price(self):
@@ -39,16 +43,14 @@ class ChartAnalysisApiTests(unittest.TestCase):
                 API.validate_payload({'imageData': self.image_data(), 'positionStatus':'holding',
                                       'averageCost':394, 'costCurrency':'USD', **changes})
 
-    def test_output_reorders_points_but_rejects_missing_evidence(self):
+    def test_output_requires_all_three_strategy_horizons(self):
         result = self.report_result()
-        result['technicalPoints'].reverse()
-        result['rating'] = '暫不評分（資訊不足）'
-        self.assertEqual([p['label'] for p in API.validate_analysis(result)['technicalPoints']], API.TECHNICAL_LABELS)
-        result['technicalPoints'][0] = result['technicalPoints'][1]
-        with self.assertRaisesRegex(ValueError, '必要技術'):
+        self.assertEqual(API.validate_analysis(result)['strategies'][0]['horizon'], '短期（1～4 週）')
+        result['strategies'].reverse()
+        with self.assertRaisesRegex(ValueError, '週期'):
             API.validate_analysis(result)
         result = self.report_result()
-        del result['tradePlan']['holdingAdvice']
+        del result['fastTrade']['stop']
         with self.assertRaises(ValueError):
             API.validate_analysis(result)
 
@@ -59,11 +61,31 @@ class ChartAnalysisApiTests(unittest.TestCase):
         data = API.validate_payload({'imageData':self.image_data()})
         result, model, _ = API.analyze_chart(data, 'test-key')
         prompt = request.call_args.kwargs['payload']['input'][0]['content']
-        self.assertIn('## 固定評分', prompt)
-        self.assertEqual(result['reportMeta']['schemaVersion'], 2)
+        self.assertIn('# Stock Analysis Standard', prompt)
+        self.assertEqual(result['reportMeta']['schemaVersion'], 3)
         self.assertEqual(result['reportMeta']['promptVersion'], API.PROMPT_VERSION)
         self.assertEqual(result['reportMeta']['model'], model)
+        self.assertEqual(request.call_args.kwargs['payload']['tools'][0]['type'], 'web_search')
+        self.assertEqual(request.call_args.kwargs['payload']['include'], ['web_search_call.action.sources'])
         self.assertNotIn('test-key', json.dumps(result))
+
+    def test_unsearched_fundamentals_are_not_shown_as_verified(self):
+        result = self.report_result()
+        result['fundamentals'].update(status='已查證', judgment='偏多', industry='某產品需求上升 [1]',
+                                      sources=[{'title':'測試來源','url':'https://example.com/filing','period':'2026Q2'}])
+        downgraded = API.standard.verify_research_sources(result, {'output':[]})
+        self.assertEqual(downgraded['fundamentals']['status'], '未查證')
+        self.assertEqual(downgraded['fundamentals']['sources'], [])
+        self.assertEqual(downgraded['verdict']['overall'], '等待確認')
+        self.assertEqual(downgraded['strategies'][2]['approach'], '等待基本面查證')
+
+    def test_fundamentals_require_cited_web_search_sources(self):
+        result = self.report_result()
+        result['fundamentals'].update(status='已查證', judgment='偏多', industry='某產品需求上升 [1]',
+                                      sources=[{'title':'官方財報','url':'https://example.com/filing','period':'2026Q2'}])
+        response = {'output':[{'type':'web_search_call', 'action':{'type':'search',
+            'sources':[{'type':'url','url':'https://example.com/filing'}]}}]}
+        self.assertEqual(API.standard.verify_research_sources(result, response)['fundamentals']['status'], '已查證')
 
     def test_member_access_errors_stop_before_model_request(self):
         for code, status in [('FEATURE_NOT_ENABLED',403), ('FEATURE_ACCESS_EXPIRED',403), ('DAILY_LIMIT_REACHED',429)]:
@@ -187,11 +209,10 @@ class ChartAnalysisApiTests(unittest.TestCase):
         self.assertIn('"operationSignal"', prompt)
 
     def test_prompt_requires_balanced_actionable_signal_reconciliation(self):
-        self.assertIn("多空證據必須對稱評估", API.SYSTEM_PROMPT)
-        self.assertIn("禁止只用「等待確認」", API.SYSTEM_PROMPT)
+        self.assertIn("current, cited fundamental data", API.SYSTEM_PROMPT)
+        self.assertIn("web_search 查證最新基本面", API.SYSTEM_PROMPT)
         self.assertIn("operationSignal", API.SYSTEM_PROMPT)
-        self.assertIn("固定擷取的近六個月", API.SYSTEM_PROMPT)
-        self.assertIn("圖片只輔助", API.SYSTEM_PROMPT)
+        self.assertIn("快閃、隔日沖、低接模式仍給完整三部分報告", API.SYSTEM_PROMPT)
 
     def test_rejects_invalid_williams_and_operation_signal(self):
         invalid = self.chart_data()

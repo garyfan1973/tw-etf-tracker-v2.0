@@ -4,7 +4,7 @@
   <meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
   <title>AI 線圖分析｜投資研究工作台</title>
   <link rel="stylesheet" href="market-pages.css?v=20260825c">
-  <link rel="stylesheet" href="chart-report.css?v=20260907">
+  <link rel="stylesheet" href="chart-report.css?v=20260913">
   <script>(function(){var t=localStorage.getItem("etf-theme");if(t)document.documentElement.dataset.theme=t})();</script>
   <script src="config.js"></script>
   <script src="market-nav.js" defer></script>
@@ -16,7 +16,7 @@
     <span id="authBox" style="margin-left:auto;display:flex;align-items:center;gap:6px"></span><button id="themeToggle" class="theme-toggle" aria-label="切換主題">🌙</button>
   </nav>
 
-  <header class="page-head ai-page-head"><div><div class="eyebrow">Member Research Tool</div><h1>AI 線圖分析</h1><p>分析技術線圖並校正除息造成的價格落差，產生短線判讀與交易計畫。</p></div><div id="quotaBadge" class="ai-quota" hidden>今日可用 <strong>—</strong></div></header>
+  <header class="page-head ai-page-head"><div><div class="eyebrow">Member Research Tool</div><h1>AI 線圖分析</h1><p>從線圖結構、最新基本面與評價，整理快閃及短中長期操作策略。</p></div><div id="quotaBadge" class="ai-quota" hidden>今日可用 <strong>—</strong></div></header>
 
   <section id="aiGate" class="panel ai-gate" aria-live="polite">
     <div class="ai-gate-icon">✦</div><div><h2>正在確認會員權限</h2><p>請稍候，系統正在讀取你的使用資格。</p></div>
@@ -34,7 +34,7 @@
 
       <div class="ai-section-title compact"><div><span>02</span><h2>分析設定</h2></div></div>
       <fieldset class="ai-mode-field"><legend>分析模式</legend><div class="ai-mode-grid">
-        <label><input type="radio" name="analysisMode" value="general" checked><span><b>一般分析</b><small>趨勢、支撐壓力與風險</small></span></label>
+        <label><input type="radio" name="analysisMode" value="general" checked><span><b>完整分析</b><small>技術、基本面與各週期策略</small></span></label>
         <label><input type="radio" name="analysisMode" value="fast"><span><b>快閃交易</b><small>短線搶反彈與進出節奏</small></span></label>
         <label><input type="radio" name="analysisMode" value="overnight"><span><b>隔日沖</b><small>進場、防守與隔日賣點</small></span></label>
         <label><input type="radio" name="analysisMode" value="low-entry"><span><b>低接掛價</b><small>評估預計買價與失效條件</small></span></label>
@@ -53,14 +53,14 @@
 
     <section class="panel ai-result-panel">
       <div class="ai-section-title ai-result-heading"><div><span>03</span><h2>分析結果</h2></div><div class="ai-result-head-tools"><small id="resultMeta"></small><div id="resultExportTools" class="ai-export-tools" hidden><button id="exportAnalysisPdf" type="button" title="匯出 PDF" aria-label="匯出 PDF"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 2h8l4 4v16H6zM14 2v5h5M8.5 12h7M8.5 15h7M8.5 18h4"/></svg></button><button id="emailAnalysisPdf" type="button" title="寄送 Email" aria-label="寄送 Email"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3 5h18v14H3zM3 6l9 7 9-7"/></svg></button></div><button id="resultChartThumb" class="ai-result-thumb" type="button" aria-label="放大查看本次分析線圖" title="點擊放大線圖" hidden><img id="resultChartThumbImage" alt="本次分析線圖縮圖"><span>查看線圖</span></button><button id="toggleInputPanel" class="ai-panel-toggle" type="button" aria-expanded="true"><span aria-hidden="true">‹</span><b>收合設定</b></button></div></div>
-      <div id="resultEmpty" class="ai-result-empty"><div>⌁</div><strong>結果會顯示在這裡</strong><p>AI 會判讀線圖並校正除息影響；模糊或缺少的項目會明確標示。</p></div>
+      <div id="resultEmpty" class="ai-result-empty"><div>⌁</div><strong>結果會顯示在這裡</strong><p>AI 會判讀線圖、校正除息影響並查證基本面；缺少來源的項目會明確標示。</p></div>
       <div id="resultLoading" class="ai-analysis-progress" aria-live="polite" hidden>
         <div class="ai-progress-orbit" aria-hidden="true"><span>✦</span></div>
         <strong id="progressTitle">AI 正在分析線圖</strong>
         <p id="progressMessage">正在安全傳送圖片並確認可讀性…</p>
         <div id="analysisProgress" class="ai-progress-track" role="progressbar" aria-label="線圖分析進度" aria-valuemin="0" aria-valuemax="100" aria-valuenow="0"><span id="analysisProgressBar"></span></div>
         <div class="ai-progress-foot"><span id="progressStage">準備分析</span><b id="progressPercent">0%</b></div>
-        <small>線圖分析通常需要 20–90 秒，請保持此頁開啟。</small>
+        <small>含公開資料查證，分析可能需要 30–120 秒，請保持此頁開啟。</small>
       </div>
       <div id="resultContent" hidden></div>
     </section>
@@ -87,7 +87,7 @@
     <footer><button id="emailAnalysisCancel" class="secondary" type="button">取消</button><button id="emailAnalysisSend" class="primary" type="button"><span aria-hidden="true">✉</span> 寄送 Email</button></footer>
   </section>
 </div>
-<script src="theme.js"></script><script src="chart-analysis-transfer.js?v=20260825"></script><script src="chart-report.js?v=20260907"></script><script type="module" src="auth.js"></script><script type="module" src="chart-analysis.js?v=20260907"></script>
+<script src="theme.js"></script><script src="chart-analysis-transfer.js?v=20260825"></script><script src="chart-report.js?v=20260913"></script><script type="module" src="auth.js"></script><script type="module" src="chart-analysis.js?v=20260913"></script>
 <script src="https://cdn.jsdelivr.net/npm/html2canvas@1.4.1/dist/html2canvas.min.js" integrity="sha512-BNaRQnYJYiPSqHHDb58B0yaPfCu+Wgds8Gp/gU33kqBtgNS4tSPHuGibyoeqMV/TJlSKda6FXzoEyYGjTe+vXA==" crossorigin="anonymous"></script>
 <script src="https://cdn.jsdelivr.net/npm/jspdf@2.5.2/dist/jspdf.umd.min.js"></script>
 </body>

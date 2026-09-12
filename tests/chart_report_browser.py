@@ -11,14 +11,19 @@ import sys
 sys.path.insert(0, str(Path(__file__).resolve().parents[1]))
 from playwright.sync_api import sync_playwright
 from test_chart_analysis_api import ChartAnalysisApiTests
+from scripts.morning_report import analysis_html
 
 ROOT = Path(__file__).resolve().parents[1]
 fixture = ChartAnalysisApiTests().report_result()
-fixture.update(marketState="弱勢反彈", conclusion="AVGO 空頭趨勢中的弱勢反彈，尚未確認反轉。", currency="USD",
-               costAnalysis="成本接近 390–395 壓力區。", rating="⭐⭐⭐☆☆",
-               ratingReason="有反彈條件，但量能及中期趨勢仍待確認。",
-               keyLevels=[{"price":"365–368", "meaning":"第一支撐，近期整理區"}, {"price":"390–395", "meaning":"強壓力，MA20 附近"}],
-               reportMeta={"schemaVersion":2, "averageCost":394, "costCurrency":"USD"})
+fixture.update(reportMeta={"schemaVersion":3, "averageCost":394, "costCurrency":"USD"})
+fixture["chart"].update(symbol="AVGO", name="Broadcom", market="US", date="2026-09-11", timeframe="日 K", lastPrice="378", currency="USD")
+fixture["verdict"].update(state="弱勢反彈", entryNow="等待確認", thesis="尚未確認反轉。", biggestRisk="跌破近期低點", overall="等待確認")
+fixture["technical"].update(patternAndMA="價格仍在 MA20 下方。", volume="反彈量能偏弱。", indicators="KD 上彎，MACD 尚未交叉。",
+                            levels=[{"kind":"支撐","price":"365–368","basis":"近期整理區"},{"kind":"壓力","price":"390–395","basis":"MA20 附近"}])
+fixture["fundamentals"].update(status="已查證", industry="產品需求參考官方資料 [1]。", earningsCatalysts="最新季報待核對。",
+                               valuationDownside="評價尚未核對。", judgment="中性", asOf="2026Q2",
+                               sources=[{"title":"官方財報","url":"https://example.com/filing","period":"2026Q2"}])
+fixture["fastTrade"].update(style="逆勢小量試單", entry="365–368", trigger="守住支撐", target1="390–395", stop="跌破 365", rewardRisk="需確認")
 
 AUTH = """
 window.qaAccess={enabled:true, remaining:5, dailyLimit:5};
@@ -92,26 +97,23 @@ try:
         page.set_input_files('#chartImage', {"name":"qa-chart.png","mimeType":"image/png","buffer":base64.b64decode(png)})
         page.wait_for_function('!document.querySelector("#chartPreview").hidden')
         page.click('#analyzeChart')
-        page.wait_for_selector('#resultContent .cr-rating')
+        page.wait_for_selector('#resultContent .sr-report')
         assert sent[0]['averageCost']=='394' and sent[0]['costCurrency']=='USD'
-        # The fixed report is additive: the original visual analysis must remain intact.
-        assert page.locator('#resultContent .ai-result-hero').count()==1
-        assert page.locator('#resultContent .ai-technical-card').count()==1
-        assert page.locator('#resultContent .ai-zone-grid').count()==1
-        assert page.locator('#resultContent .ai-plan-card').count()==1
-        assert page.locator('#resultContent .ai-result-card.risk').count()==1
-        assert page.locator('#resultContent .ai-fixed-report').count()==1
-        assert page.locator('#resultContent .cr-section h3').all_text_contents()==['結論','技術面','關鍵價位','操作策略']
+        assert page.locator('#resultContent .sr-hero').count()==1
+        assert page.locator('#resultContent .ai-fixed-report').count()==0
+        assert page.locator('#resultContent .sr-section h3').all_text_contents()==['技術面現況診斷','基本面與產業重點','快閃／短中長操作策略']
+        assert page.locator('#resultContent .sr-cite[href="https://example.com/filing"]').count()==1
+        assert page.locator('#resultContent .sr-strategy-table tbody tr').count()==3
         page.wait_for_function('!document.querySelector("#resultExportTools").hidden')
         page.screenshot(path='/private/tmp/chart-report-desktop.png',full_page=True)
-        assert page.evaluate("""async()=>{const f=await qaReport.frame();const original=!!f.node.querySelector('.hero')&&!!f.node.querySelector('.points')&&!!f.node.querySelector('.zones')&&!!f.node.querySelector('.plan');const same=f.node.querySelector('.cr-report').innerHTML===document.querySelector('#resultContent .cr-report').innerHTML;f.frame.remove();return original&&same;}""")
+        assert page.evaluate("""async()=>{const f=await qaReport.frame();const same=f.node.querySelector('.sr-report').innerHTML===document.querySelector('#resultContent .sr-report').innerHTML;f.frame.remove();return same;}""")
         pdf = page.evaluate("""async()=>{const b=await qaReport.pdf();return {size:b.size,header:await b.slice(0,4).text()};}""")
         assert pdf['size']>1000 and pdf['header']=='%PDF'
         for width in (390, 1440):
             page.set_viewport_size({"width":width,"height":1000})
             for theme in ('light','dark'):
                 page.evaluate('(theme)=>document.documentElement.dataset.theme=theme', theme)
-                assert page.locator('#resultContent .cr-report').evaluate('(e)=>e.scrollWidth<=e.clientWidth+1')
+                assert page.locator('#resultContent .sr-report').evaluate('(e)=>e.scrollWidth<=e.clientWidth+1')
         page.set_viewport_size({"width":390,"height":1000})
         page.screenshot(path='/private/tmp/chart-report-mobile.png',full_page=True)
         page.select_option('#positionStatus','watching')
@@ -121,7 +123,12 @@ try:
         assert not page.locator('#aiWorkspace').is_visible()
         assert '尚未開通' in page.locator('#aiGate').inner_text()
         assert not errors, errors
-        print(json.dumps({"browser":"passed", "pdfBytes":pdf['size'], "checks":["K-line capture and transfer","preset restoration after success and failure","upload","cost","fixed report","shared PDF","mobile","dark","member gate"]}))
+        page.set_content(analysis_html({"symbol":"AVGO", "assetName":"Broadcom"}, "2026-09-11", fixture, base64.b64decode(png)), wait_until='load')
+        assert page.locator('#report .sr-section').count()==3
+        assert page.locator('#report .sr-cite[href="https://example.com/filing"]').count()==1
+        morning_pdf = page.pdf(format='A4', print_background=True)
+        assert morning_pdf[:4]==b'%PDF' and len(morning_pdf)>1000
+        print(json.dumps({"browser":"passed", "pdfBytes":pdf['size'], "morningPdfBytes":len(morning_pdf), "checks":["K-line capture and transfer","preset restoration after success and failure","upload","cost","standard report","source links","shared PDF","morning PDF","mobile","dark","member gate"]}))
         browser.close()
 finally:
     server.shutdown()

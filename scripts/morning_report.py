@@ -247,6 +247,8 @@ async def capture_chart(page, base_url: str, asset: dict):
 
 
 def analysis_html(asset: dict, report_date: str, analysis: dict, image_bytes: bytes) -> str:
+    if (analysis.get("reportMeta") or {}).get("schemaVersion") == 3:
+        return standard_analysis_html(asset, report_date, analysis, image_bytes)
     esc = lambda value: html.escape(str(value or "—"))
     points = "".join(f"<article><b>{esc(item.get('label'))}</b><p>{esc(item.get('analysis'))}</p></article>" for item in analysis.get("technicalPoints") or [])
     listing = lambda values: "<ul>" + "".join(f"<li>{esc(value)}</li>" for value in (values or ["資訊不足，無法判斷"])) + "</ul>"
@@ -256,6 +258,20 @@ def analysis_html(asset: dict, report_date: str, analysis: dict, image_bytes: by
     return f"""<!doctype html><html lang="zh-Hant"><head><meta charset="utf-8"><style>
     @page{{size:A4;margin:24px}}*{{box-sizing:border-box}}body{{margin:0;color:#1c2430;font-family:-apple-system,'PingFang TC','Microsoft JhengHei',sans-serif;font-size:14px;line-height:1.6}}header{{display:flex;justify-content:space-between;gap:20px;padding-bottom:14px;border-bottom:3px solid #3b5bdb}}h1{{margin:3px 0 0;font-size:27px}}header em{{color:#3b5bdb;font-size:11px;font-style:normal;font-weight:800;letter-spacing:.12em}}header small{{color:#6b7684}}.chart{{display:block;width:100%;max-height:520px;margin:18px 0;object-fit:contain;border-radius:12px}}.hero,.card{{padding:15px;border:1px solid #e3e7ec;border-radius:11px;background:#f8fafc}}.hero{{border-color:#c7d2fe;background:#eef2ff}}.hero label{{color:#3b5bdb;font-weight:800}}.hero h2{{margin:3px 0;font-size:21px}}.hero p,.points p{{margin:3px 0;color:#596579}}.card{{margin-top:11px}}.card h3{{margin:0 0 8px}}.points,.zones,.plan{{display:grid;grid-template-columns:1fr 1fr;gap:9px}}.points article,.plan div{{padding:10px;border-radius:8px;background:#fff}}.points article{{border-left:4px solid #3b5bdb}}.plan span,.plan strong{{display:block}}.plan span{{color:#6b7684;font-size:11px}}ul{{margin:0;padding-left:20px;color:#596579}}.invalid{{margin-top:11px;padding:11px;background:#fff0f0;border-radius:8px}}.invalid b{{color:#d64545;margin-right:10px}}footer{{margin-top:16px;padding-top:11px;border-top:1px solid #e3e7ec;color:#6b7684;font-size:11px}}
     </style></head><body><header><div><em>AI MORNING MARKET ANALYSIS</em><h1>{esc(asset['symbol'])} {esc(asset['assetName'])}</h1></div><small>{esc(report_date)} · {REPORT_TIMING} · 技術分析</small></header><img class="chart" src="data:image/jpeg;base64,{image}" alt="技術線圖"><section class="hero"><label>{esc(analysis.get('marketState'))}</label><h2>{esc(analysis.get('conclusion'))}</h2><p>{esc(analysis.get('thesis'))}</p></section><section class="card"><h3>技術判讀</h3><div class="points">{points}</div></section><div class="zones"><section class="card"><h3>支撐區</h3>{listing(analysis.get('supportZones'))}</section><section class="card"><h3>壓力區</h3>{listing(analysis.get('resistanceZones'))}</section></div><section class="card"><h3>交易計畫</h3><div class="plan">{plan_rows}</div></section><section class="card"><h3>風險提醒</h3>{listing(analysis.get('riskNotes'))}</section><div class="invalid"><b>判斷失效條件</b>{esc(analysis.get('invalidation'))}</div><footer>除息資料僅用於避免技術走勢誤判；AI 分析不構成投資建議或獲利保證。</footer></body></html>"""
+
+
+def standard_analysis_html(asset: dict, report_date: str, analysis: dict, image_bytes: bytes) -> str:
+    """Use the same safe renderer as interactive results and emailed PDFs."""
+    report_js = (ROOT / "webapp/chart-report.js").read_text(encoding="utf-8")
+    report_css = (ROOT / "webapp/chart-report.css").read_text(encoding="utf-8")
+    report_json = (json.dumps(analysis, ensure_ascii=False)
+                   .replace("<", "\\u003c").replace(">", "\\u003e")
+                   .replace("&", "\\u0026").replace("\u2028", "\\u2028").replace("\u2029", "\\u2029"))
+    title = html.escape(f"{asset['symbol']} {asset['assetName']}")
+    image = base64.b64encode(image_bytes).decode()
+    return f"""<!doctype html><html lang="zh-Hant"><head><meta charset="utf-8"><style>
+    *{{box-sizing:border-box}}@page{{size:A4;margin:22px}}html,body{{margin:0;background:#fff;color:#1d2942;font-family:-apple-system,'PingFang TC','Microsoft JhengHei',sans-serif}}body{{--accent:#3b5bdb;--bg:#fff;--text:#1d2942;font-size:14px;line-height:1.65}}.morning-head{{padding:8px 0 14px;border-bottom:3px solid #3b5bdb}}.morning-head small{{color:#3b5bdb;font-weight:800;letter-spacing:.09em}}.morning-head h1{{margin:4px 0;font-size:24px}}.chart{{display:block;width:100%;max-height:500px;margin:16px 0 22px;object-fit:contain;border-radius:11px}}.sr-report{{max-width:none}}.sr-section,.sr-field,.sr-table tr{{break-inside:avoid}}footer{{margin-top:20px;padding-top:10px;border-top:1px solid #dce4f0;color:#65718a;font-size:11px}}
+    {report_css}</style></head><body><header class="morning-head"><small>AI MORNING MARKET ANALYSIS</small><h1>{title}</h1><span>{html.escape(report_date)} · {REPORT_TIMING}</span></header><img class="chart" src="data:image/jpeg;base64,{image}" alt="技術線圖"><main id="report"></main><footer>AI 分析不構成投資建議或獲利保證。</footer><script>{report_js}</script><script>document.getElementById('report').innerHTML=ChartReport.render({report_json});</script></body></html>"""
 
 
 def latest_market_date(chart_data: dict, fallback: str) -> str:

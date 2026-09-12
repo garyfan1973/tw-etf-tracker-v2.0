@@ -1,5 +1,5 @@
 const $ = (selector) => document.querySelector(selector);
-const MODE_LABELS = { general: "一般分析", fast: "快閃交易", overnight: "隔日沖", "low-entry": "低接掛價" };
+const MODE_LABELS = { general: "完整分析", fast: "快閃交易", overnight: "隔日沖", "low-entry": "低接掛價" };
 const CHART_IMAGE_BUCKET = "chart-analysis-images";
 const SHOW_IMAGE_QUALITY_NOTE = false;
 let preparedImage = "";
@@ -26,8 +26,9 @@ const historyImageCache = new Map();
 const PROGRESS_STAGES = [
   { after: 0, label: "上傳與讀圖", message: "正在安全傳送圖片並確認線圖可讀性…" },
   { after: 4, label: "辨識價格趨勢", message: "正在辨識 K 線結構、均線排列與量價關係…" },
-  { after: 12, label: "判讀技術指標", message: "正在交叉檢查 KD、MACD、RSI 與支撐壓力…" },
-  { after: 24, label: "整理分析結論", message: "正在彙整風險、關鍵價位與交易計畫…" },
+  { after: 12, label: "判讀技術指標", message: "正在交叉檢查指標、量能與支撐壓力…" },
+  { after: 24, label: "查證基本面", message: "正在查證產業、財報與評價來源…" },
+  { after: 45, label: "整理操作策略", message: "正在彙整快閃與短中長期的條件和風險…" },
 ];
 
 function node(tag, className, text) {
@@ -570,6 +571,10 @@ function addListCard(parent, title, items, className = "") {
 
 function renderAnalysis(target, result, compact = false) {
   target.replaceChildren();
+  if (result?.reportMeta?.schemaVersion === 3 || result?.chart && result?.verdict && result?.strategies) {
+    target.innerHTML = window.ChartReport.render(result, {compact});
+    return;
+  }
   const hero = node("section", "ai-result-hero");
   const heading = node("div");
   heading.append(buildMarketStateLabel(result.marketState), node("h3", "", result.conclusion || "尚無結論"));
@@ -638,6 +643,22 @@ function listHtml(items) {
 
 function buildPdfExportFrame() {
   if (!currentAnalysisResult || !currentAnalysisMeta) throw new Error("目前沒有可匯出的分析結果");
+  if (currentAnalysisResult.reportMeta?.schemaVersion === 3 || currentAnalysisResult.chart && currentAnalysisResult.verdict) {
+    const iframe = document.createElement("iframe");
+    iframe.title = "PDF 匯出版面";
+    iframe.style.cssText = "position:absolute;left:-12000px;top:0;width:1060px;height:100px;border:0;background:#fff";
+    iframe.srcdoc = `<!doctype html><html lang="zh-Hant"><head><meta charset="utf-8"><link rel="stylesheet" href="${escapeHtml(new URL('chart-report.css?v=20260913', window.location.href).href)}"><style>
+      *{box-sizing:border-box}html,body{margin:0;background:#fff;color:#1d2942;font-family:-apple-system,'PingFang TC','Microsoft JhengHei',sans-serif}body{width:1060px;padding:38px;--accent:#3b5bdb;--bg:#fff;--text:#1d2942}.chart{display:block;width:100%;max-height:620px;margin:18px 0 25px;border-radius:12px;background:#111827;object-fit:contain}.sr-report{max-width:none}.sr-hero{background:#eef2ff!important;border-color:#c7d2fe!important;box-shadow:none!important}.sr-meta span{background:#fff!important}.sr-risk-banner{background:#fff5e9!important;border-color:#f0d5b0!important}.sr-fund-status span:first-child,.sr-fast-head{background:#eef2ff!important}.sr-section,.sr-field,.sr-table tr{break-inside:avoid}footer{margin-top:22px;padding-top:12px;border-top:1px solid #dce4f0;color:#65718a;font-size:11px}
+      </style></head><body>${resultImageData ? `<img class="chart" src="${resultImageData}" alt="技術線圖">` : ""}${window.ChartReport.render(currentAnalysisResult)}<footer>產生時間：${escapeHtml(new Date().toLocaleString("zh-TW"))}。AI 分析不構成投資建議或獲利保證。</footer></body></html>`;
+    return new Promise((resolve) => {
+      iframe.onload = () => {
+        const body = iframe.contentDocument.body;
+        iframe.style.height = `${Math.ceil(body.scrollHeight)}px`;
+        resolve({node:body, frame:iframe});
+      };
+      document.body.append(iframe);
+    });
+  }
   const result = currentAnalysisResult, plan = result.tradePlan || {};
   const technical = (result.technicalPoints || []).map((point) => {
     const tone = ["bullish", "bearish", "neutral", "warning"].includes(point.tone) ? point.tone : "neutral";
@@ -827,7 +848,7 @@ async function analyze() {
   $("#analyzeChart").disabled = true;
   $("#analyzeChart").classList.add("loading");
   $("#analysisStatus").className = "ai-status";
-  $("#analysisStatus").textContent = "正在讀取線圖並校正除息影響，通常需要 20–90 秒…";
+  $("#analysisStatus").textContent = "正在讀圖、校正除息並查證基本面，可能需要 30–120 秒…";
   const resultLabel = `${payload.symbol || selectedFileName || "線圖"} · ${MODE_LABELS[mode]}`;
   startAnalysisProgress(resultLabel);
   try {
@@ -840,6 +861,7 @@ async function analyze() {
     $("#resultContent").hidden = false;
     $("#resultMeta").textContent = resultLabel;
     renderAnalysis($("#resultContent"), data.analysis);
+    if (data.analysis?.reportMeta?.schemaVersion === 3 && window.matchMedia("(min-width: 921px)").matches) setInputPanelCollapsed(true);
     setResultThumbnail(payload.imageData);
     const symbol = payload.symbol.trim().toUpperCase();
     const assetName = transferredAssetName || assetNames.get(symbol) || symbol || "未填名稱";
