@@ -891,6 +891,12 @@ async function analyze() {
     if (window.ETFAuth.user()?.id === requestUserId) failAnalysisProgress(error.message);
     $("#analysisStatus").className = "ai-status error";
     $("#analysisStatus").textContent = error.message;
+    try {
+      const refreshed = await window.ETFAuth.refreshChartAnalysisAccess();
+      if (refreshed) $("#quotaBadge strong").textContent = quotaText(refreshed);
+    } catch (_) {
+      // Preserve the original analysis error when quota refresh is unavailable.
+    }
   } finally {
     busy = false;
     $("#analyzeChart").classList.remove("loading");

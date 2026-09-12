@@ -74,6 +74,7 @@ begin
   select count(*)::integer into v_used
   from public.chart_analysis_requests
   where user_id = v_user
+    and status in ('pending', 'completed')
     and timezone('Asia/Taipei', created_at)::date = timezone('Asia/Taipei', now())::date;
 
   return jsonb_build_object(
@@ -126,6 +127,7 @@ begin
   select count(*)::integer into v_used
   from public.chart_analysis_requests
   where user_id = v_user
+    and status in ('pending', 'completed')
     and timezone('Asia/Taipei', created_at)::date = timezone('Asia/Taipei', now())::date;
 
   if v_used >= v_access.daily_limit then
@@ -172,11 +174,19 @@ begin
   if p_status = 'completed' and (
     p_result is null
     or jsonb_typeof(p_result) <> 'object'
-    or not (p_result ?& array[
-      'readable', 'imageQualityNote', 'conclusion', 'marketState', 'thesis',
-      'technicalPoints', 'supportZones', 'resistanceZones', 'tradePlan',
-      'rating', 'invalidation', 'riskNotes'
-    ])
+    or not (
+      (p_result -> 'reportMeta' ->> 'schemaVersion' = '3'
+        and p_result ?& array[
+          'readable', 'imageQualityNote', 'chart', 'verdict', 'technical',
+          'fundamentals', 'fastTrade', 'strategies', 'closing', 'reportMeta'
+        ])
+      or (coalesce(p_result -> 'reportMeta' ->> 'schemaVersion', '') <> '3'
+        and p_result ?& array[
+          'readable', 'imageQualityNote', 'conclusion', 'marketState', 'thesis',
+          'technicalPoints', 'supportZones', 'resistanceZones', 'tradePlan',
+          'rating', 'invalidation', 'riskNotes'
+        ])
+    )
   ) then
     raise exception 'INVALID_RESULT';
   end if;

@@ -7,6 +7,7 @@ import json
 import math
 import os
 import re
+import sys
 import urllib.error
 import urllib.request
 
@@ -512,6 +513,7 @@ def public_error(error):
 class handler(BaseHTTPRequestHandler):
     def do_POST(self):
         request_id = None
+        stage = "request"
         token = bearer_token(self.headers.get("Authorization"))
         service_request = self.headers.get("X-Morning-Report") == "1"
         if not token:
@@ -526,19 +528,25 @@ class handler(BaseHTTPRequestHandler):
             payload = json.loads(self.rfile.read(length).decode("utf-8"))
             data = validate_payload(payload, allow_context=service_request)
             if service_request:
+                stage = "service_auth"
                 verify_service_token(token)
                 quota = None
             else:
+                stage = "user_auth"
                 verify_user(token)
+                stage = "quota"
                 quota = call_rpc("consume_chart_analysis_quota", token, {
                     "p_mode": data["mode"], "p_symbol": data["symbol"] or None,
                     "p_screenshot_timing": data["screenshotTiming"] or None,
                     "p_proposed_price": data["proposedPrice"]
                 })
                 request_id = quota["requestId"]
+                stage = "market_context"
                 data["contextData"] = build_server_context(data)
+            stage = "openai"
             result, model, usage = analyze_chart(data, api_key)
             if request_id:
+                stage = "save_result"
                 call_rpc("finish_chart_analysis_request", token, {
                     "p_request_id": request_id, "p_status": "completed", "p_model": model,
                     "p_result": result, "p_error_message": None
@@ -554,11 +562,18 @@ class handler(BaseHTTPRequestHandler):
                 self.finish_error(token, request_id, str(error))
             self.send_json({"ok": False, "error": str(error)}, 400)
         except ApiError as error:
+            detail = error.detail if isinstance(error.detail, dict) else {}
+            message = str(detail.get("message") or "")
+            safe_code = message if message in {"INVALID_RESULT", "RESULT_TOO_LARGE", "REQUEST_NOT_FOUND"} else str(detail.get("code") or "")[:40]
+            print(json.dumps({"event": "chart_analysis_upstream_error", "stage": stage,
+                              "status": error.status, "code": safe_code}), file=sys.stderr, flush=True)
             if request_id:
                 self.finish_error(token, request_id, "upstream_error")
             status, message = public_error(error)
             self.send_json({"ok": False, "error": message}, status)
-        except Exception:
+        except Exception as error:
+            print(json.dumps({"event": "chart_analysis_unexpected_error", "stage": stage,
+                              "type": type(error).__name__}), file=sys.stderr, flush=True)
             if request_id:
                 self.finish_error(token, request_id, "unexpected_error")
             self.send_json({"ok": False, "error": "分析服務暫時無法完成，請稍後再試"}, 500)

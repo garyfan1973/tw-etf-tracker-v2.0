@@ -3,6 +3,7 @@ import io
 import json
 import importlib.util
 from pathlib import Path
+import re
 import unittest
 from unittest import mock
 
@@ -14,6 +15,14 @@ SPEC.loader.exec_module(API)
 
 
 class ChartAnalysisApiTests(unittest.TestCase):
+    def test_database_accepts_current_report_contract_and_refunds_failures(self):
+        sql = (MODULE_PATH.parents[2] / "supabase_chart_analysis.sql").read_text(encoding="utf-8")
+        match = re.search(r"schemaVersion' = '3'.*?p_result \?& array\[(.*?)\]", sql, re.S)
+        self.assertIsNotNone(match)
+        accepted = set(re.findall(r"'([^']+)'", match.group(1)))
+        self.assertEqual(accepted, set(API.RESULT_SCHEMA["properties"]) | {"reportMeta"})
+        self.assertEqual(sql.count("and status in ('pending', 'completed')"), 2)
+
     def report_result(self):
         def sample(schema):
             if 'enum' in schema:
