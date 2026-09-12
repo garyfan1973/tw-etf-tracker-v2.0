@@ -1,6 +1,6 @@
 {
   "date": "2026-09-11",
-  "fetched_at": "2026-09-12T07:20:49+08:00",
+  "fetched_at": "2026-09-12T17:30:44+08:00",
   "count": 50,
   "self": {
     "open": 14.75,
@@ -160,16 +160,6 @@
       "assetType": "stock",
       "weight": 4.77,
       "shares": 238000,
-      "open": 5600.0,
-      "high": 5755.0,
-      "low": 5365.0,
-      "close": 5620.0,
-      "prevClose": 5620.0,
-      "change": 0.0,
-      "changePct": 0.0,
-      "amplitude": 6.94,
-      "volume": 738539.0,
-      "quoteDate": "2026-09-11",
       "margin": {
         "marginBuy": 28,
         "marginSell": 54,
@@ -182,7 +172,7 @@
         "shortPrevBalance": 7,
         "shortBalance": 8,
         "offsetting": 0,
-        "date": "2026-09-11"
+        "date": "2026-09-10"
       }
     },
     {
@@ -465,16 +455,6 @@
       "assetType": "stock",
       "weight": 3.02,
       "shares": 47400,
-      "open": 17805.0,
-      "high": 18245.0,
-      "low": 17730.0,
-      "close": 17885.0,
-      "prevClose": 18700.0,
-      "change": -815.0,
-      "changePct": -4.36,
-      "amplitude": 2.75,
-      "volume": 230213.0,
-      "quoteDate": "2026-09-11",
       "margin": {
         "marginBuy": 17,
         "marginSell": 2,
@@ -487,7 +467,7 @@
         "shortPrevBalance": 0,
         "shortBalance": 0,
         "offsetting": 0,
-        "date": "2026-09-11"
+        "date": "2026-09-10"
       }
     },
     {
@@ -497,16 +477,6 @@
       "assetType": "stock",
       "weight": 2.65,
       "shares": 596000,
-      "open": 1250.0,
-      "high": 1275.0,
-      "low": 1220.0,
-      "close": 1250.0,
-      "prevClose": 1280.0,
-      "change": -30.0,
-      "changePct": -2.34,
-      "amplitude": 4.3,
-      "volume": 1656814.0,
-      "quoteDate": "2026-09-11",
       "margin": {
         "marginBuy": 55,
         "marginSell": 215,
@@ -519,7 +489,7 @@
         "shortPrevBalance": 43,
         "shortBalance": 36,
         "offsetting": 0,
-        "date": "2026-09-11"
+        "date": "2026-09-10"
       }
     },
     {
@@ -568,16 +538,6 @@
       "assetType": "stock",
       "weight": 2.0,
       "shares": 622000,
-      "open": 887.0,
-      "high": 912.0,
-      "low": 882.0,
-      "close": 902.0,
-      "prevClose": 917.0,
-      "change": -15.0,
-      "changePct": -1.64,
-      "amplitude": 3.27,
-      "volume": 4744408.0,
-      "quoteDate": "2026-09-11",
       "margin": {
         "marginBuy": 140,
         "marginSell": 261,
@@ -590,7 +550,7 @@
         "shortPrevBalance": 118,
         "shortBalance": 137,
         "offsetting": 5,
-        "date": "2026-09-11"
+        "date": "2026-09-10"
       }
     },
     {
@@ -873,16 +833,6 @@
       "assetType": "stock",
       "weight": 1.12,
       "shares": 122000,
-      "open": 2690.0,
-      "high": 2720.0,
-      "low": 2550.0,
-      "close": 2580.0,
-      "prevClose": 2730.0,
-      "change": -150.0,
-      "changePct": -5.49,
-      "amplitude": 6.23,
-      "volume": 1174512.0,
-      "quoteDate": "2026-09-11",
       "margin": {
         "marginBuy": 89,
         "marginSell": 111,
@@ -895,7 +845,7 @@
         "shortPrevBalance": 10,
         "shortBalance": 8,
         "offsetting": 0,
-        "date": "2026-09-11"
+        "date": "2026-09-10"
       }
     },
     {
@@ -1295,16 +1245,6 @@
       "assetType": "stock",
       "weight": 0.85,
       "shares": 175000,
-      "open": 1355.0,
-      "high": 1395.0,
-      "low": 1335.0,
-      "close": 1365.0,
-      "prevClose": 1395.0,
-      "change": -30.0,
-      "changePct": -2.15,
-      "amplitude": 4.3,
-      "volume": 4608423.0,
-      "quoteDate": "2026-09-11",
       "margin": {
         "marginBuy": 289,
         "marginSell": 222,
@@ -1317,7 +1257,7 @@
         "shortPrevBalance": 71,
         "shortBalance": 63,
         "offsetting": 1,
-        "date": "2026-09-11"
+        "date": "2026-09-10"
       }
     },
     {
@@ -1366,16 +1306,6 @@
       "assetType": "stock",
       "weight": 0.82,
       "shares": 82000,
-      "open": 2800.0,
-      "high": 2825.0,
-      "low": 2735.0,
-      "close": 2810.0,
-      "prevClose": 2830.0,
-      "change": -20.0,
-      "changePct": -0.71,
-      "amplitude": 3.18,
-      "volume": 2649860.0,
-      "quoteDate": "2026-09-11",
       "margin": {
         "marginBuy": 225,
         "marginSell": 198,
@@ -1388,7 +1318,7 @@
         "shortPrevBalance": 206,
         "shortBalance": 193,
         "offsetting": 2,
-        "date": "2026-09-11"
+        "date": "2026-09-10"
       }
     },
     {
@@ -1398,16 +1328,6 @@
       "assetType": "stock",
       "weight": 0.76,
       "shares": 1351000,
-      "open": 157.0,
-      "high": 158.5,
-      "low": 156.0,
-      "close": 157.5,
-      "prevClose": 161.5,
-      "change": -4.0,
-      "changePct": -2.48,
-      "amplitude": 1.55,
-      "volume": 8954398.0,
-      "quoteDate": "2026-09-11",
       "margin": {
         "marginBuy": 227,
         "marginSell": 277,
@@ -1420,7 +1340,7 @@
         "shortPrevBalance": 201,
         "shortBalance": 180,
         "offsetting": 4,
-        "date": "2026-09-11"
+        "date": "2026-09-10"
       }
     },
     {
@@ -1430,16 +1350,6 @@
       "assetType": "stock",
       "weight": 0.56,
       "shares": 340000,
-      "open": 472.0,
-      "high": 496.0,
-      "low": 463.0,
-      "close": 463.5,
-      "prevClose": 488.0,
-      "change": -24.5,
-      "changePct": -5.02,
-      "amplitude": 6.76,
-      "volume": 15478166.0,
-      "quoteDate": "2026-09-11",
       "margin": {
         "marginBuy": 1310,
         "marginSell": 2286,
@@ -1452,7 +1362,7 @@
         "shortPrevBalance": 758,
         "shortBalance": 718,
         "offsetting": 31,
-        "date": "2026-09-11"
+        "date": "2026-09-10"
       }
     },
     {
@@ -1462,16 +1372,6 @@
       "assetType": "stock",
       "weight": 0.55,
       "shares": 293000,
-      "open": 545.0,
-      "high": 558.0,
-      "low": 525.0,
-      "close": 531.0,
-      "prevClose": 571.0,
-      "change": -40.0,
-      "changePct": -7.01,
-      "amplitude": 5.78,
-      "volume": 1939398.0,
-      "quoteDate": "2026-09-11",
       "margin": {
         "marginBuy": 32,
         "marginSell": 483,
@@ -1484,7 +1384,7 @@
         "shortPrevBalance": 878,
         "shortBalance": 400,
         "offsetting": 142,
-        "date": "2026-09-11"
+        "date": "2026-09-10"
       }
     },
     {
@@ -1689,16 +1589,6 @@
       "assetType": "stock",
       "weight": 0.33,
       "shares": 133000,
-      "open": 703.0,
-      "high": 703.0,
-      "low": 693.0,
-      "close": 693.0,
-      "prevClose": 704.0,
-      "change": -11.0,
-      "changePct": -1.56,
-      "amplitude": 1.42,
-      "volume": 1922407.0,
-      "quoteDate": "2026-09-11",
       "margin": {
         "marginBuy": 36,
         "marginSell": 48,
@@ -1711,7 +1601,7 @@
         "shortPrevBalance": 0,
         "shortBalance": 0,
         "offsetting": 0,
-        "date": "2026-09-11"
+        "date": "2026-09-10"
       }
     },
     {
@@ -1799,16 +1689,6 @@
       "assetType": "stock",
       "weight": 0.24,
       "shares": 178000,
-      "open": 377.0,
-      "high": 381.5,
-      "low": 371.5,
-      "close": 380.5,
-      "prevClose": 378.5,
-      "change": 2.0,
-      "changePct": 0.53,
-      "amplitude": 2.64,
-      "volume": 632144.0,
-      "quoteDate": "2026-09-11",
       "margin": {
         "marginBuy": 6,
         "marginSell": 10,
@@ -1821,7 +1701,7 @@
         "shortPrevBalance": 0,
         "shortBalance": 0,
         "offsetting": 0,
-        "date": "2026-09-11"
+        "date": "2026-09-10"
       }
     },
     {

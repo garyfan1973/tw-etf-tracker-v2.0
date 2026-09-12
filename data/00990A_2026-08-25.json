@@ -581,17 +581,7 @@
         "shortBalance": 96,
         "offsetting": 3,
         "date": "2026-08-25"
-      },
-      "open": 1355.0,
-      "high": 1395.0,
-      "low": 1335.0,
-      "close": 1365.0,
-      "prevClose": 1395.0,
-      "change": -30.0,
-      "changePct": -2.15,
-      "amplitude": 4.3,
-      "volume": 4608423.0,
-      "quoteDate": "2026-08-25"
+      }
     },
     {
       "code": "AMZN",
@@ -747,17 +737,7 @@
         "shortBalance": 6,
         "offsetting": 0,
         "date": "2026-08-25"
-      },
-      "open": 5600.0,
-      "high": 5755.0,
-      "low": 5365.0,
-      "close": 5620.0,
-      "prevClose": 5620.0,
-      "change": 0.0,
-      "changePct": 0.0,
-      "amplitude": 6.94,
-      "volume": 738539.0,
-      "quoteDate": "2026-08-25"
+      }
     },
     {
       "code": "COHR",

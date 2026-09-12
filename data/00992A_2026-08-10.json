@@ -407,17 +407,7 @@
         "shortBalance": 14,
         "offsetting": 0,
         "date": "2026-08-10"
-      },
-      "open": 5600.0,
-      "high": 5755.0,
-      "low": 5365.0,
-      "close": 5620.0,
-      "prevClose": 5620.0,
-      "change": 0.0,
-      "changePct": 0.0,
-      "amplitude": 6.94,
-      "volume": 738539.0,
-      "quoteDate": "2026-08-10"
+      }
     },
     {
       "code": "2454",
@@ -556,17 +546,7 @@
         "shortBalance": 4,
         "offsetting": 1,
         "date": "2026-08-10"
-      },
-      "open": 550.0,
-      "high": 569.0,
-      "low": 536.0,
-      "close": 567.0,
-      "prevClose": 554.0,
-      "change": 13.0,
-      "changePct": 2.35,
-      "amplitude": 5.96,
-      "volume": 507436.0,
-      "quoteDate": "2026-08-10"
+      }
     },
     {
       "code": "2455",
@@ -705,17 +685,7 @@
         "shortBalance": 707,
         "offsetting": 753,
         "date": "2026-08-10"
-      },
-      "open": 125.0,
-      "high": 129.0,
-      "low": 122.0,
-      "close": 127.5,
-      "prevClose": 126.0,
-      "change": 1.5,
-      "changePct": 1.19,
-      "amplitude": 5.56,
-      "volume": 44556222.0,
-      "quoteDate": "2026-08-10"
+      }
     },
     {
       "code": "6187",
@@ -737,17 +707,7 @@
         "shortBalance": 36,
         "offsetting": 2,
         "date": "2026-08-10"
-      },
-      "open": 1250.0,
-      "high": 1275.0,
-      "low": 1220.0,
-      "close": 1250.0,
-      "prevClose": 1280.0,
-      "change": -30.0,
-      "changePct": -2.34,
-      "amplitude": 4.3,
-      "volume": 1656814.0,
-      "quoteDate": "2026-08-10"
+      }
     },
     {
       "code": "3661",
@@ -989,17 +949,7 @@
       "market": "TW",
       "assetType": "stock",
       "weight": 0.85,
-      "shares": 257000,
-      "open": 1430.0,
-      "high": 1485.0,
-      "low": 1420.0,
-      "close": 1425.0,
-      "prevClose": 1500.0,
-      "change": -75.0,
-      "changePct": -5.0,
-      "amplitude": 4.33,
-      "volume": 198970.0,
-      "quoteDate": "2026-08-10"
+      "shares": 257000
     },
     {
       "code": "6515",
@@ -1099,17 +1049,7 @@
         "shortBalance": 2,
         "offsetting": 0,
         "date": "2026-08-10"
-      },
-      "open": 2620.0,
-      "high": 2660.0,
-      "low": 2535.0,
-      "close": 2580.0,
-      "prevClose": 2810.0,
-      "change": -230.0,
-      "changePct": -8.19,
-      "amplitude": 4.45,
-      "volume": 517643.0,
-      "quoteDate": "2026-08-10"
+      }
     },
     {
       "code": "6805",
@@ -1209,17 +1149,7 @@
         "shortBalance": 1667,
         "offsetting": 3,
         "date": "2026-08-10"
-      },
-      "open": 401.0,
-      "high": 406.0,
-      "low": 396.5,
-      "close": 402.5,
-      "prevClose": 407.0,
-      "change": -4.5,
-      "changePct": -1.11,
-      "amplitude": 2.33,
-      "volume": 5226941.0,
-      "quoteDate": "2026-08-10"
+      }
     },
     {
       "code": "5289",
@@ -1241,17 +1171,7 @@
         "shortBalance": 13,
         "offsetting": 1,
         "date": "2026-08-10"
-      },
-      "open": 1245.0,
-      "high": 1310.0,
-      "low": 1240.0,
-      "close": 1295.0,
-      "prevClose": 1290.0,
-      "change": 5.0,
-      "changePct": 0.39,
-      "amplitude": 5.43,
-      "volume": 1416919.0,
-      "quoteDate": "2026-08-10"
+      }
     },
     {
       "code": "5347",
@@ -1273,17 +1193,7 @@
         "shortBalance": 257,
         "offsetting": 8,
         "date": "2026-08-10"
-      },
-      "open": 157.0,
-      "high": 158.5,
-      "low": 156.0,
-      "close": 157.5,
-      "prevClose": 161.5,
-      "change": -4.0,
-      "changePct": -2.48,
-      "amplitude": 1.55,
-      "volume": 8954398.0,
-      "quoteDate": "2026-08-10"
+      }
     },
     {
       "code": "3583",
@@ -1344,17 +1254,7 @@
         "shortBalance": 158,
         "offsetting": 5,
         "date": "2026-08-10"
-      },
-      "open": 235.5,
-      "high": 237.0,
-      "low": 227.0,
-      "close": 230.5,
-      "prevClose": 240.0,
-      "change": -9.5,
-      "changePct": -3.96,
-      "amplitude": 4.17,
-      "volume": 6621847.0,
-      "quoteDate": "2026-08-10"
+      }
     }
   ]
 }
