@@ -111,6 +111,8 @@ class ChartAnalysisApiTests(unittest.TestCase):
         self.assertEqual(downgraded['closing']['holder'], '平均成本 255 元，跌破 247 元減碼；')
         self.assertEqual(downgraded['closing']['uninvested'], '等待 270 元突破且量能確認，再評估進場。')
         self.assertIn('基本面尚未查證', downgraded['closing']['reason'])
+        self.assertIn('待核對最新已公告完整季度財報', downgraded['fundamentals']['watch'])
+        self.assertNotIn('等待官方財報、交易所或公司公告', downgraded['fundamentals']['watch'])
         self.assertNotIn('營收成長', json.dumps(downgraded, ensure_ascii=False))
 
     def test_fundamentals_require_cited_web_search_sources(self):
@@ -135,6 +137,19 @@ class ChartAnalysisApiTests(unittest.TestCase):
         self.assertEqual(checked['fundamentals']['industry'], '目前未取得可核對的產業來源。')
         self.assertTrue(API.standard._is_blocked_research_url('https://www.stockgo.tw/stock/2449/?x=1'))
         self.assertFalse(API.standard._is_blocked_research_url('https://mops.twse.com.tw/mops/'))
+
+    def test_generic_quarter_gap_is_rewritten_with_period_and_missing_fields(self):
+        result = self.report_result()
+        result['fundamentals'].update(status='未查證', asOf='2026Q2')
+        result['verdict']['thesis'] = (
+            '1～8月營收已有數字，但需補足最新季度財報、毛利率、每股盈餘、自由現金流及同業估值後，才能判斷合理建倉區。')
+        checked = API.standard.verify_research_sources(result, {'output': []})
+        thesis = checked['verdict']['thesis']
+        self.assertIn('截至8月的月營收已納入', thesis)
+        self.assertIn('2026年第2季財報', thesis)
+        self.assertIn('毛利率、每股盈餘、自由現金流、同業估值', thesis)
+        self.assertIn('尚未結束的季度不補寫預估數字', thesis)
+        self.assertNotIn('需補足最新季度財報', thesis)
 
     def test_rejected_source_numbers_are_renumbered(self):
         result = self.report_result()

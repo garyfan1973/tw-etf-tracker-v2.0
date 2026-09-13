@@ -83,6 +83,8 @@ SYSTEM_PROMPT = """你是謹慎的股票與 ETF 研究分析師。以下是目�
 - 台灣線圖依畫面慣例讀紅漲綠跌；MACD 要用數值與前後期關係。盤中量不與完整日均量直接比較。
 - 若有 operationSignal，於 technical.indicators 或 technical.patternAndMA 具體對照；不同意時說出相反證據。
 - 可辨識股票／ETF 代號時，使用 web_search 查證最新基本面、產業、營收與評價。優先官方財報、交易所、投資人關係與權威資料；只有被實際搜尋的來源可列入 fundamentals.sources。各事實後以 [1]、[2] 標示來源序號，並寫明資料期間；每個序號都必須對應 sources 中實際可開啟的 HTTPS 網址。沒有可核對網址的說法不得加來源序號。不能查證的細項直接標示未查證，不可由常識或舊印象填補。ETF 請以追蹤指數、持股、費用、配息與相關產業代替個股營收或本益比。
+- 月營收與季度財報必須分開說明：已有資料期間（例如 1～8 月）的月營收要明確保留，不得寫成「營收資料不足」。季度財報只引用最新已公告的完整季度，必須列出實際缺少的欄位（例如毛利率、每股盈餘、自由現金流或資本支出）；當季尚未結束時，不得要求、臆測或補寫該季財報數字。
+- 禁止使用「需補足最新季度財報」這類沒有期間與欄位的泛化提醒。若需要補充，請寫「月營收截至某年某月；尚需核對某年某季已公告財報中的某欄位」，並明確說明不涉及尚未結束季度的預估。
 - 不得使用 StockGo（stockgo.tw 及其子網域）作為查證來源；該網站資料可能不即時。若搜尋結果只有該網站，該細項標示未查證，改等待官方或權威來源。
 - 標的代號可辨識時，必須先使用 web_search，再輸出基本面段落；若工具沒有回傳可開啟的來源，分別在對應欄位說明「目前未取得可核對的產業／營收與財報／評價來源」，不要把三欄全部寫成同一句。
 - 若整份基本面缺乏可靠來源，fundamentals.status/ judgment 填「未查證」，sources 為空陣列；三個內容欄清楚寫未查證。不得因此省略技術面。
@@ -143,6 +145,53 @@ def _remove_unverified_clauses(value):
     return kept or "技術證據不足，暫不給出額外判斷。"
 
 
+_GENERIC_QUARTER_GAP = re.compile(
+    r"(?:需|需要|尚需|待|應)?\s*(?:補足|補充|核對|確認)\s*(?:最新|近期)?\s*(?:季度|季)\s*(?:財報|報告)"
+    r"(?:[\s、，,及與和]*(?:毛利率|每股盈餘|EPS|自由現金流|現金流|資本支出|"
+    r"同業估值|同業評價|估值|評價)){0,8}\s*後?",
+    re.IGNORECASE,
+)
+
+
+def _quarter_label(value):
+    match = re.search(r"(20\d{2})\s*(?:年|[-/]?)\s*[Qq第]?\s*([1-4])", str(value or ""))
+    return "{}年第{}季".format(match.group(1), match.group(2)) if match else "最新已公告完整季度"
+
+
+def _normalize_fundamental_period_language(value, as_of=""):
+    """Replace vague quarter-data reminders with an explicit, non-predictive gap."""
+    if not isinstance(value, str) or not _GENERIC_QUARTER_GAP.search(value):
+        return value
+    month = re.search(r"(?:1\s*[～至-]\s*)?(\d{1,2})\s*月", value)
+    monthly = "已列出的月營收資料" if not month else "截至{}月的月營收".format(month.group(1))
+    terms = []
+    for label, pattern in (("毛利率", r"毛利率"), ("每股盈餘", r"每股盈餘|\bEPS\b"),
+                           ("自由現金流", r"自由現金流|現金流"), ("資本支出", r"資本支出"),
+                           ("同業估值", r"同業估值|同業評價|估值|評價")):
+        if re.search(pattern, value, re.IGNORECASE):
+            terms.append(label)
+    fields = "、".join(dict.fromkeys(terms)) or "財報中尚未列明的欄位"
+    replacement = "{}已納入；尚需核對{}財報的{}；尚未結束的季度不補寫預估數字".format(
+        monthly, _quarter_label(as_of), fields)
+    return _GENERIC_QUARTER_GAP.sub(replacement, value)
+
+
+def _normalize_fundamental_periods(result):
+    as_of = (result.get("fundamentals") or {}).get("asOf", "")
+    def walk(node, key=""):
+        if key in {"url", "reportMeta"}:
+            return node
+        if isinstance(node, dict):
+            return {name: walk(child, name) for name, child in node.items()}
+        if isinstance(node, list):
+            return [walk(child) for child in node]
+        return _normalize_fundamental_period_language(node, as_of) if isinstance(node, str) else node
+    normalized = walk(result)
+    result.clear()
+    result.update(normalized)
+    return result
+
+
 def _remap_citations(value, mapping):
     """Keep inline source numbers aligned after rejected sources are removed."""
     if isinstance(value, dict):
@@ -162,7 +211,7 @@ def verify_research_sources(result, response):
     research = result["fundamentals"]
     if research["status"] in {"未查證", "不適用"}:
         research["sources"] = []
-        return result
+        return _normalize_fundamental_periods(result)
     searched = set()
     def collect(value):
         if isinstance(value, dict):
@@ -193,6 +242,12 @@ def verify_research_sources(result, response):
         "earningsCatalysts": "目前未取得可核對的營收與財報來源。",
         "valuationDownside": "目前未取得可核對的評價來源。",
     }
+    missing_labels = {
+        "industry": "產業供需與週期",
+        "earningsCatalysts": "毛利率、每股盈餘、自由現金流與營收催化因素",
+        "valuationDownside": "評價倍數與下檔支撐",
+    }
+    missing_fields = []
     verified_count = 0
     for key, fallback in fallbacks.items():
         refs = [int(ref) for ref in re.findall(r"\[(\d+)\]", research[key])]
@@ -200,6 +255,7 @@ def verify_research_sources(result, response):
             verified_count += 1
         else:
             research[key] = fallback
+            missing_fields.append(missing_labels[key])
     if verified_count == 3:
         research["status"] = "已查證"
     elif verified_count:
@@ -208,9 +264,11 @@ def verify_research_sources(result, response):
         research["status"] = "未查證"
     research["sources"] = verified_sources
     if verified_count < 3:
+        period = _quarter_label(research.get("asOf"))
+        missing_text = "、".join(missing_fields) or "財報中尚未列明的欄位"
         research["judgment"] = "未查證"
-        research["watch"] = "等待官方財報、交易所或公司公告等可核對來源。"
-        research["invalidates"] = "取得可核對來源後重新評估。"
+        research["watch"] = "待核對{}財報的{}；月營收與季度財報分開評估。".format(period, missing_text)
+        research["invalidates"] = "{}的上述欄位若仍無法核對，基本面維持未查證。".format(period)
         research["asOf"] = "未查證"
         for key in ("thesis", "entryNow", "biggestRisk"):
             result["verdict"][key] = _remove_unverified_clauses(result["verdict"][key])
@@ -231,4 +289,4 @@ def verify_research_sources(result, response):
                       "status": research["status"], "returnedSources": len(research["sources"]),
                       "searchedUrls": len(searched), "verifiedFields": verified_count}, ensure_ascii=False),
           flush=True)
-    return result
+    return _normalize_fundamental_periods(result)
