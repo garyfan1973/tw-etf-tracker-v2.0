@@ -10,7 +10,7 @@
   let catalog=[], current=null, benchmarkRows=[], requestId=0, scanLimit=10, toastTimer, dataReady=false;
   const cache=new Map(), params=new URLSearchParams(location.search);
   let saved={}; try {saved=JSON.parse(localStorage.getItem('research-analysis-v1')||'{}')||{};} catch (_) {}
-  let pins=Array.isArray(saved.pins)?saved.pins.filter(s=>typeof s==='string').slice(0,12):['TW:2330','TW:0050','TW:00981A','US:NVDA'];
+  let pins=Array.isArray(saved.pins)?saved.pins.filter(s=>typeof s==='string').slice(0,12):[];
   const getSetting=(key,fallback)=>params.get(key)||saved[key]||fallback;
   const initialMarket=getSetting('market','TW'); $('market').value=regions[initialMarket]?initialMarket:'TW';
   let selectedSymbol=String(getSetting('symbol','2330')), selectedBenchmark=String(getSetting('benchmark',''));
