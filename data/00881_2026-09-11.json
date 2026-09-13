@@ -1,6 +1,6 @@
 {
   "date": "2026-09-11",
-  "fetched_at": "2026-09-13T21:30:46+08:00",
+  "fetched_at": "2026-09-13T23:30:48+08:00",
   "count": 31,
   "self": {
     "open": 49.75,
@@ -601,7 +601,7 @@
         "shortPrevBalance": 7,
         "shortBalance": 8,
         "offsetting": 0,
-        "date": "2026-09-10"
+        "date": "2026-09-11"
       }
     },
     {
@@ -662,7 +662,7 @@
         "shortPrevBalance": 71,
         "shortBalance": 63,
         "offsetting": 1,
-        "date": "2026-09-10"
+        "date": "2026-09-11"
       }
     },
     {
@@ -1123,7 +1123,7 @@
         "shortPrevBalance": 945,
         "shortBalance": 891,
         "offsetting": 6,
-        "date": "2026-09-10"
+        "date": "2026-09-11"
       }
     },
     {
