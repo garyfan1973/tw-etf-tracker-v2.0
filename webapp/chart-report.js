@@ -97,7 +97,8 @@
       : position === "holding"
         ? `<div class="sr-personal"><b>持股者</b><p>${cited(closing.holder)}</p></div><div><b>空手者</b><p>${cited(closing.uninvested)}</p></div>`
         : `<div><b>持股者</b><p>${cited(closing.holder)}</p></div><div><b>空手者</b><p>${cited(closing.uninvested)}</p></div>`;
-    const strategiesHtml = `<div class="sr-subhead"><h4>短中長期操作總結</h4><p>各週期各有失效條件，短單不自動轉為長抱。</p></div><div class="sr-table-wrap"><table class="sr-table sr-strategy-table"><thead><tr><th>週期</th><th>策略方針</th><th>進出場點位參考</th><th>風險控管</th></tr></thead><tbody>${strategyRows}</tbody></table></div><div class="sr-closing">${closingBlocks}</div><div class="sr-watch"><b>追蹤清單</b><ul>${(closing.watchlist || []).map(item => `<li>${cited(item)}</li>`).join("")}</ul></div><div class="sr-final"><b>${cited(verdict.overall)}</b><span>${cited(closing.reason)}</span></div>`;
+    const closingClass = position === "watching" ? "sr-closing sr-closing-single" : "sr-closing";
+    const strategiesHtml = `<div class="sr-subhead"><h4>短中長期操作總結</h4><p>各週期各有失效條件，短單不自動轉為長抱。</p></div><div class="sr-table-wrap"><table class="sr-table sr-strategy-table"><thead><tr><th>週期</th><th>策略方針</th><th>進出場點位參考</th><th>風險控管</th></tr></thead><tbody>${strategyRows}</tbody></table></div><div class="${closingClass}">${closingBlocks}</div><div class="sr-watch"><b>追蹤清單</b><ul>${(closing.watchlist || []).map(item => `<li>${cited(item)}</li>`).join("")}</ul></div><div class="sr-final"><b>${cited(verdict.overall)}</b><span>${cited(closing.reason)}</span></div>`;
     const quality = r.imageQualityNote ? `<p class="sr-quality">${cited(r.imageQualityNote)}</p>` : "";
     return `<div class="cr-report sr-report">${hero}${quality}${section("01", "技術面現況診斷", "先看價格結構，再用量能與指標確認。", technicalHtml)}${section("02", "基本面與產業重點", "事實、資料期間與查證來源分開呈現。", fundamentalHtml)}${section("03", "快閃／短中長操作策略", "條件、價位與風險控管一起看。", fastHtml + strategiesHtml)}</div>`;
   }

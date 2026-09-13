@@ -30,4 +30,4 @@
 .sr-report .sr-table th,.sr-report .sr-table td{white-space:normal;overflow-wrap:anywhere;word-break:break-word}
 .sr-sources ol{padding-left:0;list-style:none}
 .sr-meta .sr-position-label{border-color:var(--accent);background:var(--sr-soft);color:var(--accent);font-weight:800}
-.sr-closing>div.sr-personal{border-color:var(--accent);background:var(--sr-soft);box-shadow:inset 0 0 0 1px var(--accent)}
+.sr-closing>div.sr-personal{border-color:var(--accent);background:var(--sr-soft);box-shadow:inset 0 0 0 1px var(--accent)}.sr-closing-single{grid-template-columns:1fr}
