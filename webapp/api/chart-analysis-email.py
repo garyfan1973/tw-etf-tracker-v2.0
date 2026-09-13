@@ -124,7 +124,7 @@ def send_gmail(data):
         <p style="color:#6b7684">分析結果僅供研究與交易規劃參考，不構成投資建議。完整內容請參閱附件 PDF。</p>
       </div></body></html>""".format(symbol=html.escape(data["symbol"]), name=html.escape(data["assetName"]),
                                      date=data["date"], timing=data["timing"]), subtype="html")
-    filename = "{}_{}_{}_technical-analysis.pdf".format(data["symbol"], data["date"], data["timing"])
+    filename = "{}_{}_綜合分析.pdf".format(data["symbol"], data["date"])
     message.add_attachment(data["pdf"], maintype="application", subtype="pdf", filename=filename)
     with smtplib.SMTP_SSL("smtp.gmail.com", 465, context=ssl.create_default_context(), timeout=25) as smtp:
         smtp.login(gmail_user, app_password)

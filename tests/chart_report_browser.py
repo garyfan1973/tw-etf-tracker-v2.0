@@ -138,6 +138,9 @@ try:
         qa_pdf = ROOT/'tmp/pdfs/chart-analysis-qa.pdf'
         qa_pdf.parent.mkdir(parents=True, exist_ok=True)
         download_info.value.save_as(qa_pdf)
+        filename = download_info.value.suggested_filename
+        assert filename.startswith('AVGO_') and filename.endswith('_綜合分析.pdf')
+        assert '盤中' not in filename and '技術分析' not in filename
         assert pdf['size']>1000 and pdf['header']=='%PDF'
         reader = PdfReader(qa_pdf)
         assert len(reader.pages)>=2

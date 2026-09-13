@@ -828,7 +828,7 @@ async function createAnalysisPdf({ download = false } = {}) {
     if (download) {
       const url = URL.createObjectURL(blob), link = document.createElement("a");
       link.href = url;
-      link.download = `${safeFilePart(currentAnalysisMeta.symbol)}_${currentAnalysisMeta.date}_${currentAnalysisMeta.timing}_技術分析.pdf`;
+      link.download = `${safeFilePart(currentAnalysisMeta.symbol)}_${currentAnalysisMeta.date}_綜合分析.pdf`;
       document.body.append(link); link.click(); link.remove();
       window.setTimeout(() => URL.revokeObjectURL(url), 1500);
     }
