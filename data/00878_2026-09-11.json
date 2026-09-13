@@ -1,6 +1,6 @@
 {
   "date": "2026-09-11",
-  "fetched_at": "2026-09-13T20:30:43+08:00",
+  "fetched_at": "2026-09-13T21:30:45+08:00",
   "count": 30,
   "self": {
     "open": 33.7,
@@ -767,7 +767,7 @@
         "shortPrevBalance": 201,
         "shortBalance": 180,
         "offsetting": 4,
-        "date": "2026-09-11"
+        "date": "2026-09-10"
       }
     },
     {
