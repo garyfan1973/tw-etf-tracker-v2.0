@@ -12,6 +12,7 @@ __pycache__/
 # Local browser verification artifacts
 .playwright-cli/
 output/playwright/
+tmp/pdfs/
 
 # Vercel
 .vercel

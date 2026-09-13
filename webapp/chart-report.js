@@ -45,6 +45,12 @@
     .replace(/除息還原後(?:的)?\s*[`"]?adjustedTechnical[`"]?/g, "除息還原後的技術指標")
     .replace(/提供的\s*[`"]?chartData[`"]?/g, "圖表的歷史行情")
     .replace(internalTermPattern, (_, quote, term, suffix) => internalTerms[term] + (suffix ? "：" : ""))
+    .replace(/圖表與附加行情\s*JSON\s*可辨識/gi, "圖表與行情資料均可辨識")
+    .replace(/\bJSON\b/gi, "資料")
+    .replace(/(行情|資料)\s*資料/g, (_, preceding) => preceding === "資料" ? "資料" : "行情資料")
+    .replace(/\bAPI\b/g, "分析服務")
+    .replace(/\bschema\b/gi, "報告格式")
+    .replace(/\bpayload\b/gi, "輸入資料")
     .replace(/交易價位(?:仍採|使用)未調整價格/g, "進出場與風險控管價位以實際報價為準");
   const text = value => esc(prose(value || "資訊不足，無法判定"));
   const cleanResult = (value, key = "") => {
@@ -65,24 +71,25 @@
     const sources = Array.isArray(fundamental.sources) ? fundamental.sources : [];
     const cited = value => esc(prose(value || "圖中未顯示／無法辨識")).replace(/\[(\d+)\]/g, (match, number) => {
       const source = sources[Number(number) - 1], url = safeUrl(source?.url);
-      return url ? `<a class="sr-cite" href="${esc(url)}" target="_blank" rel="noopener noreferrer" aria-label="來源 ${number}：${text(source.title)}">[${number}]</a>` : match;
+      return url ? `<a class="sr-cite" href="${esc(url)}" target="_blank" rel="noopener noreferrer" aria-label="來源 ${number}：${text(source.title)}">[${number}]</a>`
+        : `<span class="sr-cite-missing" title="這項資料未附可點選的查證來源">（來源連結未提供）</span>`;
     });
-    const field = (label, value) => `<div class="sr-field"><span>${label}</span><p>${text(value)}</p></div>`;
+    const field = (label, value) => `<div class="sr-field"><span>${label}</span><p>${cited(value)}</p></div>`;
     const section = (number, title, subtitle, content) => `<section class="sr-section"><header class="sr-section-head"><span class="sr-index">${number}</span><div><h3>${title}</h3><p>${subtitle}</p></div></header>${content}</section>`;
     const marketName = {TW: "台灣市場", US: "美國市場", FX: "外匯市場", INDEX: "指數市場"}[chart.market] || chart.market || "市場未辨識";
-    const hero = `<header class="sr-hero"><div class="sr-hero-top"><span class="sr-eyebrow">標的分析 · ${esc(marketName)}</span><span class="sr-overall">${text(verdict.overall)}</span></div><h2>${text(chart.symbol)} <span>${esc(chart.name || "")}</span></h2><div class="sr-meta"><span>${text(chart.date)}</span><span>${text(chart.timeframe)}</span><span>${text(chart.lastPrice)} ${esc(chart.currency || "")}</span></div><p class="sr-verdict">${text(verdict.state)} · ${text(verdict.entryNow)}</p><p class="sr-thesis">${text(verdict.thesis)}</p><div class="sr-risk-banner"><b>最大風險</b><span>${text(verdict.biggestRisk)}</span></div></header>`;
+    const hero = `<header class="sr-hero"><div class="sr-hero-top"><span class="sr-eyebrow">標的分析 · ${esc(marketName)}</span><span class="sr-overall">${cited(verdict.overall)}</span></div><h2>${text(chart.symbol)} <span>${esc(chart.name || "")}</span></h2><div class="sr-meta"><span>${text(chart.date)}</span><span>${text(chart.timeframe)}</span><span>${text(chart.lastPrice)} ${esc(chart.currency || "")}</span></div><p class="sr-verdict">${cited(verdict.state)} · ${cited(verdict.entryNow)}</p><p class="sr-thesis">${cited(verdict.thesis)}</p><div class="sr-risk-banner"><b>最大風險</b><span>${cited(verdict.biggestRisk)}</span></div></header>`;
     if (compact) return `<div class="cr-report sr-report">${hero}</div>`;
-    const levelRows = (technical.levels || []).map(item => `<tr><td><span class="sr-level-type sr-${item.kind === "支撐" ? "support" : item.kind === "壓力" ? "resistance" : "invalid"}">${esc(item.kind)}</span></td><td><b>${text(item.price)}</b></td><td>${text(item.basis)}</td></tr>`).join("") || `<tr><td colspan="3">圖中沒有足夠依據確認價位</td></tr>`;
+    const levelRows = (technical.levels || []).map(item => `<tr><td><span class="sr-level-type sr-${item.kind === "支撐" ? "support" : item.kind === "壓力" ? "resistance" : "invalid"}">${esc(item.kind)}</span></td><td><b>${cited(item.price)}</b></td><td>${cited(item.basis)}</td></tr>`).join("") || `<tr><td colspan="3">圖中沒有足夠依據確認價位</td></tr>`;
     const technicalHtml = `<div class="sr-grid">${field("型態與均線架構", technical.patternAndMA)}${field("成交量能", technical.volume)}${field("指標訊號", technical.indicators)}</div><div class="sr-table-wrap"><table class="sr-table sr-level-table"><thead><tr><th>類型</th><th>價位（${esc(chart.currency || "未提供")}）</th><th>區域意義與依據</th></tr></thead><tbody>${levelRows}</tbody></table></div>`;
     const sourceHtml = sources.length ? `<div class="sr-sources"><b>資料來源</b><ol>${sources.map((source, index) => {
       const url = safeUrl(source.url);
-      return `<li>${url ? `<a href="${esc(url)}" target="_blank" rel="noopener noreferrer">[${index + 1}] ${text(source.title)}</a>` : `[${index + 1}] ${text(source.title)}`}<span>${text(source.period || "期間未註明")}</span></li>`;
+      return `<li>${url ? `<a href="${esc(url)}" target="_blank" rel="noopener noreferrer">[${index + 1}] ${text(source.title)}</a>` : `${text(source.title)}（連結未提供）`}<span>${text(source.period || "期間未註明")}</span></li>`;
     }).join("")}</ol></div>` : "";
-    const fundamentalHtml = `<div class="sr-fund-status"><span>${text(fundamental.status)}</span><span>資料期間：${text(fundamental.asOf)}</span></div><div class="sr-grid sr-fund-grid"><div class="sr-field"><span>產業週期與供需</span><p>${cited(fundamental.industry)}</p></div><div class="sr-field"><span>營收動能與催化劑</span><p>${cited(fundamental.earningsCatalysts)}</p></div><div class="sr-field"><span>評價與下檔支撐</span><p>${cited(fundamental.valuationDownside)}</p></div></div><div class="sr-judgment"><b>基本面判斷：${text(fundamental.judgment)}</b><p>追蹤 ${text(fundamental.watch)}<br>失效 ${text(fundamental.invalidates)}</p></div>${sourceHtml}`;
-    const fastHtml = `<div class="sr-fast-head"><span>${text(fast.style)}</span><b>${text(fast.rewardRisk)}</b></div><div class="sr-fast-grid">${field("進場價區", fast.entry)}${field("確認條件", fast.trigger)}${field("第一獲利點", fast.target1)}${field("第二獲利點", fast.target2)}${field("防守停損", fast.stop)}${field("執行方式", fast.execution)}</div><p class="sr-size"><b>部位與追價：</b>${text(fast.sizing)}</p>`;
-    const strategyRows = (r.strategies || []).map(row => `<tr><th scope="row">${text(row.horizon)}</th><td>${text(row.approach)}</td><td>${text(row.entryExit)}</td><td>${text(row.riskControl)}</td></tr>`).join("");
-    const strategiesHtml = `<div class="sr-subhead"><h4>短中長期操作總結</h4><p>各週期各有失效條件，短單不自動轉為長抱。</p></div><div class="sr-table-wrap"><table class="sr-table sr-strategy-table"><thead><tr><th>週期</th><th>策略方針</th><th>進出場點位參考</th><th>風險控管</th></tr></thead><tbody>${strategyRows}</tbody></table></div><div class="sr-closing"><div><b>持股者</b><p>${text(closing.holder)}</p></div><div><b>空手者</b><p>${text(closing.uninvested)}</p></div></div><div class="sr-watch"><b>追蹤清單</b><ul>${(closing.watchlist || []).map(item => `<li>${text(item)}</li>`).join("")}</ul></div><div class="sr-final"><b>${text(verdict.overall)}</b><span>${text(closing.reason)}</span></div>`;
-    const quality = r.imageQualityNote ? `<p class="sr-quality">${text(r.imageQualityNote)}</p>` : "";
+    const fundamentalHtml = `<div class="sr-fund-status"><span>${text(fundamental.status)}</span><span>資料期間：${text(fundamental.asOf)}</span></div><div class="sr-grid sr-fund-grid"><div class="sr-field"><span>產業週期與供需</span><p>${cited(fundamental.industry)}</p></div><div class="sr-field"><span>營收動能與催化劑</span><p>${cited(fundamental.earningsCatalysts)}</p></div><div class="sr-field"><span>評價與下檔支撐</span><p>${cited(fundamental.valuationDownside)}</p></div></div><div class="sr-judgment"><b>基本面判斷：${cited(fundamental.judgment)}</b><p>追蹤 ${cited(fundamental.watch)}<br>失效 ${cited(fundamental.invalidates)}</p></div>${sourceHtml}`;
+    const fastHtml = `<div class="sr-fast-head"><span>${cited(fast.style)}</span><b>${cited(fast.rewardRisk)}</b></div><div class="sr-fast-grid">${field("進場價區", fast.entry)}${field("確認條件", fast.trigger)}${field("第一獲利點", fast.target1)}${field("第二獲利點", fast.target2)}${field("防守停損", fast.stop)}${field("執行方式", fast.execution)}</div><p class="sr-size"><b>部位與追價：</b>${cited(fast.sizing)}</p>`;
+    const strategyRows = (r.strategies || []).map(row => `<tr><th scope="row">${text(row.horizon)}</th><td>${cited(row.approach)}</td><td>${cited(row.entryExit)}</td><td>${cited(row.riskControl)}</td></tr>`).join("");
+    const strategiesHtml = `<div class="sr-subhead"><h4>短中長期操作總結</h4><p>各週期各有失效條件，短單不自動轉為長抱。</p></div><div class="sr-table-wrap"><table class="sr-table sr-strategy-table"><thead><tr><th>週期</th><th>策略方針</th><th>進出場點位參考</th><th>風險控管</th></tr></thead><tbody>${strategyRows}</tbody></table></div><div class="sr-closing"><div><b>持股者</b><p>${cited(closing.holder)}</p></div><div><b>空手者</b><p>${cited(closing.uninvested)}</p></div></div><div class="sr-watch"><b>追蹤清單</b><ul>${(closing.watchlist || []).map(item => `<li>${cited(item)}</li>`).join("")}</ul></div><div class="sr-final"><b>${cited(verdict.overall)}</b><span>${cited(closing.reason)}</span></div>`;
+    const quality = r.imageQualityNote ? `<p class="sr-quality">${cited(r.imageQualityNote)}</p>` : "";
     return `<div class="cr-report sr-report">${hero}${quality}${section("01", "技術面現況診斷", "先看價格結構，再用量能與指標確認。", technicalHtml)}${section("02", "基本面與產業重點", "事實、資料期間與查證來源分開呈現。", fundamentalHtml)}${section("03", "快閃／短中長操作策略", "條件、價位與風險控管一起看。", fastHtml + strategiesHtml)}</div>`;
   }
   function render(result, { compact = false } = {}) {

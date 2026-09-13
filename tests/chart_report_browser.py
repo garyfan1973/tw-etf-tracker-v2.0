@@ -1,6 +1,6 @@
 """Local-only browser QA; auth and model responses are fixtures, never live requests.
 
-Run with: uv run --with playwright python tests/chart_report_browser.py
+Run with: uv run --with playwright --with pypdf python tests/chart_report_browser.py
 """
 import functools
 import http.server
@@ -10,6 +10,7 @@ import threading
 import sys
 sys.path.insert(0, str(Path(__file__).resolve().parents[1]))
 from playwright.sync_api import sync_playwright
+from pypdf import PdfReader
 from test_chart_analysis_api import ChartAnalysisApiTests
 from scripts.morning_report import analysis_html
 
@@ -17,7 +18,8 @@ ROOT = Path(__file__).resolve().parents[1]
 fixture = ChartAnalysisApiTests().report_result()
 fixture.update(reportMeta={"schemaVersion":3, "averageCost":394, "costCurrency":"USD"})
 fixture["chart"].update(symbol="AVGO", name="Broadcom", market="US", date="2026-09-11", timeframe="日 K", lastPrice="378", currency="USD")
-fixture["verdict"].update(state="弱勢反彈", entryNow="等待確認", thesis="圖表以 chartData 與 adjustedTechnical 為依據，尚未確認反轉。", biggestRisk="跌破近期低點", overall="等待確認")
+fixture["verdict"].update(state="弱勢反彈", entryNow="等待確認", thesis="圖表以 chartData 與 adjustedTechnical 為依據，尚未確認反轉 [1]。", biggestRisk="跌破近期低點", overall="等待確認")
+fixture["imageQualityNote"] = "圖表與附加行情 JSON 可辨識。"
 fixture["technical"].update(patternAndMA="價格仍在 MA20 下方。", volume="反彈量能偏弱。", indicators="KD 上彎，MACD 尚未交叉。",
                             levels=[{"kind":"支撐","price":"365–368","basis":"近期整理區"},{"kind":"壓力","price":"390–395","basis":"MA20 附近"}])
 fixture["fundamentals"].update(status="已查證", industry="產品需求參考官方資料 [1]。", earningsCatalysts="最新季報待核對。",
@@ -49,7 +51,7 @@ try:
         page.on('pageerror', lambda e: errors.append(str(e)))
         page.route('**/auth.js', lambda route: route.fulfill(content_type='text/javascript', body=AUTH))
         page.route('**/chart-analysis.js?*', lambda route: route.fulfill(content_type='text/javascript', body=(ROOT/'webapp/chart-analysis.js').read_text()+
-                   '\nwindow.qaReport={frame:buildPdfExportFrame,pdf:createAnalysisPdf,sync:syncAccess};'))
+                   '\nwindow.qaReport={frame:buildPdfExportFrame,pdf:createAnalysisPdf,layout:pdfExportLayout,safeCut:pdfSafeCut,sync:syncAccess};'))
         def response(route):
             sent.append(route.request.post_data_json)
             route.fulfill(json={"ok":True,"requestId":"qa-result","analysis":fixture,
@@ -100,16 +102,39 @@ try:
         assert 'chartData' not in page.locator('#resultContent').inner_text()
         assert 'adjustedTechnical' not in page.locator('#resultContent').inner_text()
         assert '圖表歷史行情' in page.locator('#resultContent').inner_text()
+        assert 'JSON' not in page.locator('#resultContent').inner_text()
         assert page.locator('#resultContent .ai-fixed-report').count()==0
         assert page.locator('#resultContent .sr-section h3').all_text_contents()==['技術面現況診斷','基本面與產業重點','快閃／短中長操作策略']
-        assert page.locator('#resultContent .sr-cite[href="https://example.com/filing"]').count()==1
+        assert page.locator('#resultContent .sr-cite[href="https://example.com/filing"]').count()==2
         assert page.locator('#resultContent .sr-strategy-table tbody tr').count()==3
         assert page.locator('#resultContent .sr-strategy-table td').evaluate_all('(els)=>els.every(e=>getComputedStyle(e).whiteSpace==="normal" && e.scrollWidth<=e.clientWidth+1)')
         page.wait_for_function('!document.querySelector("#resultExportTools").hidden')
         page.screenshot(path='/private/tmp/chart-report-desktop.png',full_page=True)
         assert page.evaluate("""async()=>{const f=await qaReport.frame();const same=f.node.querySelector('.sr-report').innerHTML===document.querySelector('#resultContent .sr-report').innerHTML;f.frame.remove();return same;}""")
-        pdf = page.evaluate("""async()=>{const b=await qaReport.pdf();return {size:b.size,header:await b.slice(0,4).text()};}""")
+        pagination = page.evaluate("""async()=>{
+          const f=await qaReport.frame(),width=f.node.getBoundingClientRect().width*1.25;
+          const p=new jspdf.jsPDF({orientation:'portrait',unit:'pt',format:'a4'});
+          const capacity=Math.floor(width*(p.internal.pageSize.getHeight()-48)/(p.internal.pageSize.getWidth()-48));
+          const layout=qaReport.layout(f.node,width),height=Math.ceil(f.node.scrollHeight*1.25),cuts=[];
+          let offset=0;
+          while(offset+capacity<height&&cuts.length<12){const cut=qaReport.safeCut(offset,offset+capacity,layout);cuts.push(cut);offset=cut;}
+          const splitLines=cuts.filter(cut=>layout.lines.some(line=>line.top<cut&&line.bottom>cut)).length;
+          f.frame.remove();return {cuts,splitLines,links:layout.links.length};
+        }""")
+        assert pagination['cuts'] and pagination['splitLines']==0, pagination
+        assert pagination['links']>=3, pagination
+        with page.expect_download() as download_info:
+            pdf = page.evaluate("""async()=>{const b=await qaReport.pdf({download:true});return {size:b.size,header:await b.slice(0,4).text()};}""")
+        qa_pdf = ROOT/'tmp/pdfs/chart-analysis-qa.pdf'
+        qa_pdf.parent.mkdir(parents=True, exist_ok=True)
+        download_info.value.save_as(qa_pdf)
         assert pdf['size']>1000 and pdf['header']=='%PDF'
+        reader = PdfReader(qa_pdf)
+        assert len(reader.pages)>=2
+        urls = [str(annotation.get_object().get('/A', {}).get('/URI'))
+                for pdf_page in reader.pages for annotation in pdf_page.get('/Annots', [])
+                if annotation.get_object().get('/A', {}).get('/URI')]
+        assert urls.count('https://example.com/filing')>=3, urls
         for width in (390, 1440):
             page.set_viewport_size({"width":width,"height":1000})
             for theme in ('light','dark'):
@@ -123,7 +148,7 @@ try:
         assert not errors, errors
         page.set_content(analysis_html({"symbol":"AVGO", "assetName":"Broadcom"}, "2026-09-11", fixture, base64.b64decode(png)), wait_until='load')
         assert page.locator('#report .sr-section').count()==3
-        assert page.locator('#report .sr-cite[href="https://example.com/filing"]').count()==1
+        assert page.locator('#report .sr-cite[href="https://example.com/filing"]').count()==2
         morning_pdf = page.pdf(format='A4', print_background=True)
         assert morning_pdf[:4]==b'%PDF' and len(morning_pdf)>1000
         page.unroute('**/api/chart-analysis', response)
@@ -139,7 +164,7 @@ try:
         assert page.locator('#analysisProgress').get_attribute('aria-valuenow') is None
         assert '本次未扣除分析額度' in page.locator('#progressMessage').inner_text()
         assert not errors, errors
-        print(json.dumps({"browser":"passed", "pdfBytes":pdf['size'], "morningPdfBytes":len(morning_pdf), "checks":["K-line capture and transfer","preset restoration after success and failure","upload","cost","standard report","source links","shared PDF","morning PDF","mobile","dark","member gate","auth timeout feedback"]}))
+        print(json.dumps({"browser":"passed", "pdfBytes":pdf['size'], "pdfPages":len(reader.pages), "pdfLinks":len(urls), "pdfCuts":pagination['cuts'], "morningPdfBytes":len(morning_pdf), "checks":["K-line capture and transfer","preset restoration after success and failure","upload","cost","standard report","source links","PDF safe page cuts and links","morning PDF","mobile","dark","member gate","auth timeout feedback"]}))
         browser.close()
 finally:
     server.shutdown()

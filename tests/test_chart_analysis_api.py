@@ -256,7 +256,8 @@ class ChartAnalysisApiTests(unittest.TestCase):
         self.assertIn("current, cited fundamental data", API.SYSTEM_PROMPT)
         self.assertIn("web_search 查證最新基本面", API.SYSTEM_PROMPT)
         self.assertIn("operationSignal", API.SYSTEM_PROMPT)
-        self.assertIn("程式變數、資料物件名稱、服務代碼只供內部取值", API.SYSTEM_PROMPT)
+        self.assertIn("JSON、API、schema、payload 等資訊技術用語", API.SYSTEM_PROMPT)
+        self.assertIn("每個序號都必須對應 sources 中實際可開啟的 HTTPS 網址", API.SYSTEM_PROMPT)
         self.assertIn("快閃、隔日沖、低接模式仍給完整三部分報告", API.SYSTEM_PROMPT)
 
     def test_rejects_invalid_williams_and_operation_signal(self):

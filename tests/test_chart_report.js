@@ -54,4 +54,21 @@ assert.equal(cleaned.verdict.thesis, '以圖表的歷史行情與除息還原後
 assert.equal(cleaned.reportMeta.promptVersion, 'chartData');
 assert.equal(cleaned.fundamentals.sources[0].url, 'https://example.com/chartData');
 assert.equal(standard.verdict.thesis, '以提供的chartData與除息還原後adjustedTechnical為準。');
+const citedReport = report.render({...standard,
+  imageQualityNote:'圖表與附加行情 JSON 可辨識。',
+  verdict:{...standard.verdict, thesis:'營收成長 [1]；未附來源的看法 [2]。'},
+  technical:{...standard.technical, indicators:'MACD 尚待確認 [1]。'},
+  fastTrade:{...standard.fastTrade, execution:'確認後分批 [1]。'},
+  closing:{...standard.closing, watchlist:['留意下季財報 [1]']}
+});
+assert(!citedReport.includes('JSON'));
+assert(citedReport.includes('圖表與行情資料均可辨識'));
+assert.equal((citedReport.match(/class="sr-cite"/g) || []).length, 5);
+assert(citedReport.includes('（來源連結未提供）'));
+assert(!citedReport.includes('[2]'));
+assert(citedReport.includes('href="https://example.com/filing"'));
+const missingSourceReport = report.render({...standard, fundamentals:{...standard.fundamentals,
+  sources:[{title:'待核對資料',url:'http://example.com/insecure',period:'2026Q2'}]}});
+assert(!missingSourceReport.includes('[1]'));
+assert(missingSourceReport.includes('待核對資料（連結未提供）'));
 console.log('Chart report: fixed sections, ordering, legacy results, cost, rating and escaping passed.');

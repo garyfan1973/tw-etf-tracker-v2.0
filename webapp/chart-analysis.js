@@ -646,7 +646,7 @@ function buildPdfExportFrame() {
     const iframe = document.createElement("iframe");
     iframe.title = "PDF 匯出版面";
     iframe.style.cssText = "position:absolute;left:-12000px;top:0;width:1060px;height:100px;border:0;background:#fff";
-    iframe.srcdoc = `<!doctype html><html lang="zh-Hant"><head><meta charset="utf-8"><link rel="stylesheet" href="${escapeHtml(new URL('chart-report.css?v=20260913', window.location.href).href)}"><style>
+    iframe.srcdoc = `<!doctype html><html lang="zh-Hant"><head><meta charset="utf-8"><link rel="stylesheet" href="${escapeHtml(new URL('chart-report.css?v=20260913-links', window.location.href).href)}"><style>
       *{box-sizing:border-box}html,body{margin:0;background:#fff;color:#1d2942;font-family:-apple-system,'PingFang TC','Microsoft JhengHei',sans-serif}body{width:1060px;padding:38px;--accent:#3b5bdb;--bg:#fff;--text:#1d2942}.chart{display:block;width:100%;max-height:620px;margin:18px 0 25px;border-radius:12px;background:#111827;object-fit:contain}.sr-report{max-width:none}.sr-hero{background:#eef2ff!important;border-color:#c7d2fe!important;box-shadow:none!important}.sr-meta span{background:#fff!important}.sr-risk-banner{background:#fff5e9!important;border-color:#f0d5b0!important}.sr-fund-status span:first-child,.sr-fast-head{background:#eef2ff!important}.sr-section,.sr-field,.sr-table tr{break-inside:avoid}footer{margin-top:22px;padding-top:12px;border-top:1px solid #dce4f0;color:#65718a;font-size:11px}
       </style></head><body>${resultImageData ? `<img class="chart" src="${resultImageData}" alt="技術線圖">` : ""}${window.ChartReport.render(currentAnalysisResult)}<footer>產生時間：${escapeHtml(new Date().toLocaleString("zh-TW"))}。AI 分析不構成投資建議或獲利保證。</footer></body></html>`;
     return new Promise((resolve) => {
@@ -695,6 +695,57 @@ async function waitForImages(element) {
   })));
 }
 
+function pdfExportLayout(root, canvasWidth) {
+  const origin = root.getBoundingClientRect();
+  const scale = canvasWidth / origin.width;
+  const bounds = rect => ({
+    top: (rect.top - origin.top) * scale,
+    bottom: (rect.bottom - origin.top) * scale,
+    left: (rect.left - origin.left) * scale,
+    width: rect.width * scale,
+    height: rect.height * scale
+  });
+  const blocks = [...root.querySelectorAll('img.chart,.sr-hero,.sr-section-head,.sr-field,.sr-table tr,.sr-judgment,.sr-sources li,.sr-closing>div,.sr-watch,.sr-final,.cr-section h3,.cr-points li,.cr-levels tr,.cr-rating')]
+    .map(element => bounds(element.getBoundingClientRect())).filter(rect => rect.height > 0);
+  const lines = [], walker = root.ownerDocument.createTreeWalker(root, 4);
+  while (walker.nextNode()) {
+    const node = walker.currentNode;
+    if (!node.textContent.trim()) continue;
+    const range = root.ownerDocument.createRange();
+    range.selectNodeContents(node);
+    for (const rect of range.getClientRects()) {
+      if (rect.width && rect.height) lines.push(bounds(rect));
+    }
+  }
+  const links = [...root.querySelectorAll('.sr-report a[href],.cr-report a[href]')].flatMap(anchor => {
+    let url;
+    try {
+      const parsed = new URL(anchor.href);
+      if (parsed.protocol !== 'https:' || parsed.username || parsed.password) return [];
+      url = parsed.href;
+    } catch { return []; }
+    return [...anchor.getClientRects()].filter(rect => rect.width && rect.height)
+      .map(rect => ({...bounds(rect), url}));
+  });
+  return {blocks, lines, links};
+}
+
+function pdfSafeCut(offset, limit, layout) {
+  let cut = limit;
+  const room = Math.max(50, (limit - offset) * .2);
+  for (const block of layout.blocks) {
+    if (block.top < cut && block.bottom > cut && block.top > offset + room) {
+      cut = Math.floor(block.top - 5);
+    }
+  }
+  for (const line of layout.lines) {
+    if (line.top < cut && line.bottom > cut && line.top > offset + 20) {
+      cut = Math.floor(line.top - 4);
+    }
+  }
+  return Math.max(offset + 1, cut);
+}
+
 async function createAnalysisPdf({ download = false } = {}) {
   if (exportBusy) throw new Error("PDF 正在產生中，請稍候");
   if (typeof window.html2canvas !== "function" || !window.jspdf?.jsPDF) throw new Error("PDF 元件尚未載入，請重新整理後再試");
@@ -713,15 +764,25 @@ async function createAnalysisPdf({ download = false } = {}) {
     const pageWidth = pdf.internal.pageSize.getWidth(), pageHeight = pdf.internal.pageSize.getHeight();
     const margin = 24, drawWidth = pageWidth - margin * 2, drawHeight = pageHeight - margin * 2;
     const pixelsPerPage = Math.max(1, Math.floor(canvas.width * drawHeight / drawWidth));
+    const layout = pdfExportLayout(exportFrame.node, canvas.width);
     let offset = 0, page = 0;
     while (offset < canvas.height) {
-      const sliceHeight = Math.min(pixelsPerPage, canvas.height - offset);
+      const limit = Math.min(offset + pixelsPerPage, canvas.height);
+      const end = limit === canvas.height ? limit : pdfSafeCut(offset, limit, layout);
+      const sliceHeight = end - offset;
       const slice = document.createElement("canvas");
       slice.width = canvas.width; slice.height = sliceHeight;
       slice.getContext("2d", { alpha: false }).drawImage(canvas, 0, offset, canvas.width, sliceHeight, 0, 0, canvas.width, sliceHeight);
       if (page > 0) pdf.addPage();
       pdf.addImage(slice.toDataURL("image/jpeg", .78), "JPEG", margin, margin, drawWidth, drawWidth * sliceHeight / canvas.width, undefined, "FAST");
-      offset += sliceHeight; page += 1;
+      const pointsPerPixel = drawWidth / canvas.width;
+      for (const link of layout.links) {
+        const top = Math.max(link.top, offset), bottom = Math.min(link.bottom, end);
+        if (bottom <= top) continue;
+        pdf.link(margin + link.left * pointsPerPixel, margin + (top - offset) * pointsPerPixel,
+          link.width * pointsPerPixel, (bottom - top) * pointsPerPixel, {url:link.url});
+      }
+      offset = end; page += 1;
     }
     const blob = pdf.output("blob");
     if (download) {
