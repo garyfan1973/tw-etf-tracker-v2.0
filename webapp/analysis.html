@@ -4,10 +4,10 @@
   <meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="description" content="跨市場專業分析台：互動 K 線、技術動能、相對報酬與風險分析，使用工作台歷史日線行情。">
   <title>專業分析台｜投資研究工作台</title>
-  <link rel="stylesheet" href="analysis.css?v=20260907">
+  <link rel="stylesheet" href="analysis.css?v=20260913b">
   <script src="analysis-core.js?v=20260907" defer></script>
   <script src="analysis-chart.js?v=20260907" defer></script>
-  <script src="analysis.js?v=20260907" defer></script>
+  <script src="analysis.js?v=20260913b" defer></script>
 </head>
 <body>
   <a class="skip-link" href="#main">跳至分析內容</a>
@@ -49,7 +49,7 @@
         <section class="panel"><div class="panel-heading"><div><span class="eyebrow">DOWNSIDE LENS</span><h2>回撤透視</h2></div><span id="drawdownValue" class="metric-callout">—</span></div><p class="panel-description">所選區間內，距離先前收盤高點的跌幅。</p><div id="drawdownChart" class="mini-chart"></div><div class="panel-bottom"><span>0% 為區間內新高</span><span>與主圖區間同步</span></div></section>
         <section class="panel"><div class="panel-heading"><div><span class="eyebrow">RETURN CALENDAR</span><h2>月度報酬熱圖</h2></div><small>價格報酬</small></div><p class="panel-description">點擊月份查看當月走勢；最新月份截至資料日。</p><div id="monthlyHeatmap" class="month-grid"></div><div class="panel-bottom"><span>歷史全區間 · 首月資料不足顯示 —</span><span><i class="dot green"></i>跌 <i class="dot red"></i>漲</span></div></section>
       </div>
-      <section class="panel scanner-panel"><div class="panel-heading"><div><span class="eyebrow">MARKET SCANNER</span><h2>找到下一個研究方向</h2></div><div class="scanner-controls"><label>顯示 <select id="scanFilter"><option value="all">全部標的</option><option value="positive">20 日上漲</option><option value="negative">20 日下跌</option><option value="pinned">我的觀察</option></select></label><label>排序 <select id="scanSort"><option value="return">20 日漲幅</option><option value="fall">20 日跌幅</option><option value="symbol">代號</option></select></label></div></div><p id="scannerCaption" class="panel-description"></p><div class="table-scroll"><table><thead><tr><th>標的</th><th>收盤價</th><th>單日漲跌</th><th>20 日報酬</th><th>近 21 筆走勢</th><th>資料日期</th><th><span class="sr-only">操作</span></th></tr></thead><tbody id="scanner"></tbody></table></div><div class="panel-bottom"><span id="scanCount"></span><button id="more">顯示更多 ↓</button></div></section>
+      <section class="panel scanner-panel"><div class="panel-heading"><div><span class="eyebrow">MARKET SCANNER</span><h2>找到下一個研究方向</h2></div><div class="scanner-controls"><label>顯示 <select id="scanFilter"><option value="all">全部標的</option><option value="positive">20 日上漲</option><option value="negative">20 日下跌</option><option value="pinned">自訂標的</option></select></label><label>排序 <select id="scanSort"><option value="return">20 日漲幅</option><option value="fall">20 日跌幅</option><option value="symbol">代號</option></select></label></div></div><p id="scannerCaption" class="panel-description"></p><form id="scanAddForm" class="scanner-add"><label for="scanSymbol">加入自訂標的</label><input id="scanSymbol" type="search" autocomplete="off" placeholder="輸入本市場已收錄代號，如 NVDA"><button type="submit">加入清單 ＋</button></form><div class="table-scroll"><table><thead><tr><th>標的</th><th>收盤價</th><th>單日漲跌</th><th>20 日報酬</th><th>近 21 筆走勢</th><th>資料日期</th><th><span class="sr-only">操作</span></th></tr></thead><tbody id="scanner"></tbody></table></div><div class="panel-bottom"><span id="scanCount"></span><button id="more">顯示更多 ↓</button></div></section>
     </div>
     <footer class="workspace-footer"><span>投資研究工作台 <b> / </b> PROFESSIONAL ANALYTICS</span><span>來源：Yahoo Finance 歷史日線 · 價格報酬未含息、交易成本與匯率 · 僅供研究</span><button data-explain>計算方法與資料說明 ↗</button></footer>
   </main>

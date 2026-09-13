@@ -90,11 +90,16 @@ with sync_playwright() as p:
     page.locator('#focus').click();expect(page.locator('.sidebar')).to_be_visible()
     page.locator('#help').click();expect(page.locator('#helpDialog')).to_be_visible();page.keyboard.press('Escape');expect(page.locator('#helpDialog')).not_to_be_visible()
     # Scanner filter, pagination, and actual navigation.
+    page.locator('#scanSymbol').fill('0056');page.locator('#scanAddForm button').click()
+    expect(page.locator('#scanFilter')).to_have_value('pinned')
+    expect(page.locator('#scanner')).to_contain_text('0056')
+    assert 'TW:0056' in page.evaluate('JSON.parse(localStorage.getItem("research-analysis-v1")).pins')
     page.locator('#scanFilter').select_option('negative')
     assert page.locator('#scanner tr').count()>0
     values=page.locator('#scanner tr td:nth-child(4)').all_text_contents();assert all(v.startswith('-') for v in values)
     page.locator('#scanFilter').select_option('all');page.locator('#more').click();assert page.locator('#scanner tr').count()==25
     code=page.locator('#scanner [data-symbol]').first.get_attribute('data-symbol');page.locator('#scanner [data-symbol]').first.click();expect(page.locator('#assetSymbol')).to_have_text(code)
+    page.wait_for_function('window.scrollY < 120')
     # All four markets, including the three-stock Korean catalog.
     for market in ['US','JP','KS','TW']:
         page.locator('#market').select_option(market);expect(page.locator('#dashboard')).to_have_attribute('aria-busy','false');expect(page.locator('#assetAvatar')).to_have_text(market)

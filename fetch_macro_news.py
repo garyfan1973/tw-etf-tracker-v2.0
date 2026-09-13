@@ -113,12 +113,14 @@ def main():
             clean.append(row)
         if clean:
             output.append({"id": re.sub(r"[^a-z0-9]+", "-", category.lower()).strip("-"), "name": category, "items": clean[:20]})
-    # Preserve the dedicated 21:35 CNBC capture while refreshing other sources.
+    # Preserve only CNBC captures still inside the news window.
     try:
         with open(OUT_FILE, encoding="utf-8") as handle:
             previous = json.load(handle)
         cnbc = next((section for section in previous.get("sections") or [] if section.get("id") == "cnbc-top"), None)
         if cnbc:
+            cnbc["items"] = [item for item in cnbc.get("items") or [] if item.get("captureDate", "") >= cutoff.date().isoformat()]
+        if cnbc and cnbc["items"]:
             output.insert(0, cnbc)
     except (OSError, ValueError):
         pass

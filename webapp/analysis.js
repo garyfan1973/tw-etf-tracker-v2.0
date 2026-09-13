@@ -133,7 +133,7 @@
     list.sort((a,b)=>sort==='symbol'?a.symbol.localeCompare(b.symbol):(!C.finite(a.return20)?1:!C.finite(b.return20)?-1:(sort==='fall'?a.return20-b.return20:b.return20-a.return20)));
     const shown=list.slice(0,scanLimit);
     $('scanner').innerHTML=shown.length?shown.map(a=>`<tr><td><button data-symbol="${esc(a.symbol)}"><b>${esc(a.symbol)}</b><span>${esc(a.name)}</span></button></td><td>${number(a.close)} <small>${esc(a.currency)}</small></td><td class="${tone(a.changePct)}">${pct(a.changePct)}</td><td class="${tone(a.return20)}">${pct(a.return20)}</td><td>${spark(a.spark||[],a.return20>=0?'var(--up)':'var(--down)')}</td><td class="muted">${esc(a.asOf)}</td><td><button data-symbol="${esc(a.symbol)}" aria-label="分析 ${esc(a.symbol)}">研究 ↗</button></td></tr>`).join(''):'<tr><td colspan="7" style="text-align:center;padding:35px;color:var(--muted)">目前條件沒有符合的標的，請切換篩選條件。</td></tr>';
-    $('scannerCaption').textContent=`${regions[$('market').value]} · 已收錄 ${market.length} 檔歷史行情（非全市場）· 點擊標的直接切換分析`;
+    $('scannerCaption').textContent=`${regions[$('market').value]} · ${market.length} 檔已收錄歷史日線，依 20 日報酬排序（非隨機、非全市場）；可輸入代號建立本機自訂清單`;
     $('scanCount').textContent=`顯示 ${shown.length} / ${list.length} 檔 · 20 日報酬需要至少 21 筆收盤`;$('more').hidden=shown.length>=list.length;
   }
   function search() {
@@ -144,7 +144,9 @@
   $('search').addEventListener('keydown',e=>{if(['ArrowDown','Enter'].includes(e.key)){e.preventDefault();if($('searchResults').hidden)search();const first=$('searchResults').querySelector('button');if(e.key==='Enter')first?.click();else first?.focus();}if(e.key==='Escape'){$('searchResults').hidden=true;$('search').setAttribute('aria-expanded','false');$('search').blur();}});
   $('searchResults').addEventListener('keydown',e=>{const buttons=[...$('searchResults').querySelectorAll('button')],i=buttons.indexOf(document.activeElement);if(['ArrowDown','ArrowUp'].includes(e.key)){e.preventDefault();buttons[(i+(e.key==='ArrowDown'?1:-1)+buttons.length)%buttons.length]?.focus();}if(e.key==='Escape'){$('searchResults').hidden=true;$('search').setAttribute('aria-expanded','false');$('search').focus();}});
   document.addEventListener('click',e=>{if(!e.target.closest('.search-field')){$('searchResults').hidden=true;$('search').setAttribute('aria-expanded','false');}});
-  for(const id of ['searchResults','scanner'])$(id).addEventListener('click',e=>{const b=e.target.closest('[data-symbol]');if(b)loadAsset(b.dataset.symbol);});
+  $('searchResults').addEventListener('click',e=>{const b=e.target.closest('[data-symbol]');if(b)loadAsset(b.dataset.symbol);});
+  $('scanner').addEventListener('click',e=>{const b=e.target.closest('[data-symbol]');if(!b)return;loadAsset(b.dataset.symbol);window.scrollTo({top:0,behavior:matchMedia('(prefers-reduced-motion: reduce)').matches?'instant':'smooth'});});
+  $('scanAddForm').addEventListener('submit',e=>{e.preventDefault();const symbol=$('scanSymbol').value.trim().toUpperCase(),asset=marketAssets().find(a=>a.symbol.toUpperCase()===symbol);if(!asset){toast('此代號尚未收錄在目前市場的歷史日線。');return;}if(!pins.includes(key(asset))){if(pins.length>=12){toast('自訂清單最多 12 檔，請先移除一檔。');return;}pins.push(key(asset));}persist();syncButtons();renderWatchlist();$('scanFilter').value='pinned';scanLimit=12;renderScanner();$('scanSymbol').value='';toast(`已加入 ${asset.symbol} ${asset.name}，並顯示自訂標的。`);});
   $('market').addEventListener('change',()=>{selectedBenchmark='';populateBenchmark();const list=marketAssets(),preferred=$('market').value==='TW'?'2330':$('market').value==='US'?'NVDA':list[0]?.symbol;selectedRange='63';scanLimit=10;renderScanner();if(preferred)loadAsset(preferred);});
   $('benchmark').addEventListener('change',()=>{selectedBenchmark=$('benchmark').value;loadAsset(selectedSymbol);});
   $('ranges').addEventListener('click',e=>{const b=e.target.closest('[data-range]');if(!b||!dataReady)return;selectedRange=b.dataset.range;chart.range(selectedRange);});

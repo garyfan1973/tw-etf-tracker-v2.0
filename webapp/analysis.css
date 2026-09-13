@@ -9,3 +9,5 @@ th{position:relative}.sr-only{top:0;left:0;clip-path:inset(50%)}
 h1>.headline-tail{color:var(--text);white-space:nowrap}h1>.headline-tail>span{color:var(--accent)}
 @media(max-width:560px){.search-field{flex:0 0 calc(100% - 96px)}.benchmark-field{flex:1 1 46%}}
 .detail-link{color:var(--muted);font-size:15px;padding:4px}.detail-link:hover{color:var(--accent)}
+/* Scanner watchlist editor */
+.scanner-add{display:flex;align-items:center;gap:9px;margin:0 26px 18px;flex-wrap:wrap}.scanner-add label{color:var(--muted);font-size:11px}.scanner-add input{width:min(260px,100%);min-height:35px;padding:7px 11px;border:1px solid var(--line);border-radius:7px;background:var(--panel-alt);color:var(--text)}.scanner-add button{min-height:35px;padding:7px 11px}@media(max-width:560px){.scanner-add{margin:0 13px 14px}.scanner-add input{flex:1;min-width:145px}}

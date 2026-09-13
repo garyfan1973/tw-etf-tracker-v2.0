@@ -138,7 +138,7 @@ function setInputPanelCollapsed(collapsed) {
   workspace.classList.toggle("input-collapsed", collapsed);
   button.setAttribute("aria-expanded", String(!collapsed));
   button.querySelector("span").textContent = collapsed ? "›" : "‹";
-  button.querySelector("b").textContent = collapsed ? "展開設定" : "收合設定";
+  button.querySelector("b").textContent = collapsed ? "展開上傳區" : "收合上傳區";
 }
 
 function setResultThumbnail(src = "") {
@@ -182,10 +182,10 @@ async function saveAnalysisImage(sb, userId, requestId, imageData, assetName) {
 }
 
 function historyMeta(row) {
-  const symbol = String(row.symbol || "").trim().toUpperCase();
+  const symbol = String(row.symbol || row.result?.chart?.symbol || "").trim().toUpperCase();
   return {
     symbol,
-    assetName: row.asset_name || assetNames.get(symbol) || symbol || "未填名稱",
+    assetName: row.asset_name || row.result?.chart?.name || assetNames.get(symbol) || symbol || "未填名稱",
     date: taipeiIsoDate(row.created_at),
     timing: timingCategory(row.screenshot_timing),
     modeLabel: MODE_LABELS[row.mode] || row.mode,
@@ -232,7 +232,7 @@ async function activateHistoryResult(sb, row, notice) {
       : "此紀錄建立於線圖保存功能啟用前；僅保留文字分析，無法匯出 PDF 或寄送 Email。";
     notice.textContent = message;
     notice.hidden = false;
-    $("#resultMeta").textContent = `${row.symbol || "未填標的"} · ${meta.modeLabel} · 線圖不可用`;
+    $("#resultMeta").textContent = `${meta.symbol || "未辨識標的"} · ${meta.modeLabel} · 線圖不可用`;
     $("#analysisStatus").className = "ai-status warning";
     $("#analysisStatus").textContent = message;
     $("#resultContent").scrollIntoView({ behavior: "smooth", block: "start" });
@@ -247,7 +247,7 @@ async function activateHistoryResult(sb, row, notice) {
     setResultThumbnail(imageData);
     setExportTools(true);
     notice.textContent = `線圖可使用至 ${new Date(row.chart_expires_at).toLocaleString("zh-TW")}，可匯出 PDF 或寄送 Email。`;
-    $("#resultMeta").textContent = `${row.symbol || "未填標的"} · ${meta.modeLabel} · 歷史分析`;
+    $("#resultMeta").textContent = `${meta.symbol || "未辨識標的"} · ${meta.modeLabel} · 歷史分析`;
     $("#analysisStatus").className = "ai-status success";
     $("#analysisStatus").textContent = "歷史分析與線圖已載入。";
   } catch (error) {
@@ -510,13 +510,6 @@ function resetSensitiveState() {
   transferAttemptUserId = null;
   clearImage();
   $("#analysisSymbol").value = "";
-  $("#proposedPrice").value = "";
-  $("#positionStatus").value = "unspecified";
-  $("#averageCost").value = "";
-  $("#costCurrency").value = "";
-  $("#averageCostField").hidden = true;
-  $("#costCurrencyField").hidden = true;
-  $("#screenshotTiming").value = "";
   $("#resultContent").replaceChildren();
   $("#resultContent").hidden = true;
   $("#resultEmpty").hidden = false;
@@ -552,7 +545,7 @@ async function loadTransferredChart(user) {
     transferredAssetName = transfer.assetName || "";
     transferredChartData = transfer.chartData || null;
     $("#analysisStatus").className = "ai-status success";
-    $("#analysisStatus").textContent = transferredChartData ? "已自動帶入線圖與精確行情資料；分析時會校正除息影響。" : "已自動帶入線圖；請確認標的代號以取得除息資料。";
+    $("#analysisStatus").textContent = transferredChartData ? "已自動帶入線圖與精確行情資料；分析時會校正除息影響。" : "已自動帶入線圖；AI 會從圖片辨識標的。";
   } catch (error) {
     if (generation !== transferGeneration || activeUserId !== user.id) return;
     $("#analysisStatus").className = "ai-status error";
@@ -752,7 +745,7 @@ function blobToBase64(blob) {
 function openEmailModal() {
   if (!currentAnalysisMeta?.symbol) {
     $("#analysisStatus").className = "ai-status error";
-    $("#analysisStatus").textContent = "寄送 Email 前請先填入標的代號。";
+    $("#analysisStatus").textContent = "線圖未辨識標的代號，無法寄送 Email；仍可下載 PDF。";
     return;
   }
   $("#analysisEmailSubject").textContent = resultSubject();
@@ -821,7 +814,7 @@ async function analyze() {
   const { data: { session } } = await sb.auth.getSession();
   if (!session) return syncAccess();
   const requestUserId = session.user.id;
-  const mode = document.querySelector('input[name="analysisMode"]:checked')?.value || "general";
+  const mode = "general";
   const normalizedSymbol = $("#analysisSymbol").value.trim().toUpperCase();
   const chartAsset = transferredChartData?.asset || {};
   const inferredMarket = /^\d/.test(normalizedSymbol) ? "TW" : "US";
@@ -832,18 +825,13 @@ async function analyze() {
     market: chartAsset.market || (normalizedSymbol ? inferredMarket : ""),
     assetType: chartAsset.assetType || "stock",
     assetName: transferredAssetName || assetNames.get(normalizedSymbol) || normalizedSymbol,
-    screenshotTiming: $("#screenshotTiming").value,
-    proposedPrice: $("#proposedPrice").value || null,
-    positionStatus: $("#positionStatus").value,
-    averageCost: $("#positionStatus").value === "holding" ? ($("#averageCost").value || null) : null,
-    costCurrency: $("#positionStatus").value === "holding" ? $("#costCurrency").value : "",
+    screenshotTiming: "",
+    proposedPrice: null,
+    positionStatus: "unspecified",
+    averageCost: null,
+    costCurrency: "",
     chartData: transferredChartData,
   };
-  if (payload.averageCost !== null && (!Number.isFinite(Number(payload.averageCost)) || Number(payload.averageCost) <= 0 || Number(payload.averageCost) > 10000000 || !payload.costCurrency)) {
-    $("#analysisStatus").className = "ai-status error";
-    $("#analysisStatus").textContent = "請填寫有效的平均成本並選擇成本幣別。";
-    return;
-  }
   busy = true;
   $("#analyzeChart").disabled = true;
   $("#analyzeChart").classList.add("loading");
@@ -863,8 +851,9 @@ async function analyze() {
     renderAnalysis($("#resultContent"), data.analysis);
     if (data.analysis?.reportMeta?.schemaVersion === 3 && window.matchMedia("(min-width: 921px)").matches) setInputPanelCollapsed(true);
     setResultThumbnail(payload.imageData);
-    const symbol = payload.symbol.trim().toUpperCase();
-    const assetName = transferredAssetName || assetNames.get(symbol) || symbol || "未填名稱";
+    const detectedSymbol = String(data.analysis?.chart?.symbol || "").trim().toUpperCase();
+    const symbol = payload.symbol.trim().toUpperCase() || (/^[0-9A-Z.^_-]{1,20}$/.test(detectedSymbol) ? detectedSymbol : "");
+    const assetName = transferredAssetName || data.analysis?.chart?.name || assetNames.get(symbol) || symbol || "未辨識標的";
     currentAnalysisResult = data.analysis;
     currentAnalysisMeta = {
       symbol,
@@ -926,7 +915,7 @@ async function loadHistory() {
     const head = node("button", "ai-history-toggle");
     head.type = "button";
     const copy = node("span");
-    copy.append(node("b", "", row.symbol || "未填標的"), node("small", "", `${MODE_LABELS[row.mode] || row.mode} · ${formatDate(row.created_at)}`));
+    copy.append(node("b", "", historyMeta(row).symbol || "未辨識標的"), node("small", "", `${MODE_LABELS[row.mode] || row.mode} · ${formatDate(row.created_at)}`));
     head.append(copy, node("i", "", row.status === "completed" ? "查看" : "未完成"));
     const detail = node("div", "ai-history-detail");
     detail.hidden = true;
@@ -956,12 +945,6 @@ async function loadHistory() {
 
 function bind() {
   loadAssetNames();
-  $("#positionStatus").addEventListener("change", () => {
-    const holding = $("#positionStatus").value === "holding";
-    $("#averageCostField").hidden = !holding;
-    $("#costCurrencyField").hidden = !holding;
-    if (!holding) { $("#averageCost").value = ""; $("#costCurrency").value = ""; }
-  });
   $("#chartImage").addEventListener("change", (event) => selectImage(event.target.files?.[0]));
   $("#removeImage").addEventListener("click", clearImage);
   const preview = $("#chartPreview");
@@ -1031,9 +1014,6 @@ function bind() {
   ["dragenter", "dragover"].forEach((type) => dropzone.addEventListener(type, (event) => { event.preventDefault(); dropzone.classList.add("dragging"); }));
   ["dragleave", "drop"].forEach((type) => dropzone.addEventListener(type, (event) => { event.preventDefault(); dropzone.classList.remove("dragging"); }));
   dropzone.addEventListener("drop", (event) => selectImage(event.dataTransfer.files?.[0]));
-  document.querySelectorAll('input[name="analysisMode"]').forEach((input) => input.addEventListener("change", () => {
-    $("#priceField").hidden = input.checked && input.value === "general";
-  }));
   $("#analyzeChart").addEventListener("click", analyze);
   document.addEventListener("etfauth:change", syncAccess);
   syncAccess();

@@ -85,11 +85,8 @@ try:
         assert not errors, errors
         page.goto(f'http://127.0.0.1:{server.server_port}/chart-analysis.html', wait_until='networkidle')
         page.wait_for_function('window.qaReport && !document.querySelector("#aiWorkspace").hidden')
-        page.select_option('#positionStatus','holding')
-        assert page.locator('#averageCost').is_visible()
-        page.fill('#averageCost','394')
-        page.select_option('#costCurrency','USD')
-        page.fill('#analysisSymbol','AVGO')
+        assert page.locator('#positionStatus').count()==0
+        assert page.locator('text=分析設定').count()==0
         # Browser creates a real PNG to exercise the image preparation flow.
         png = page.evaluate("""()=>{const c=document.createElement('canvas');c.width=800;c.height=400;
             const x=c.getContext('2d');x.fillStyle='#eff3fa';x.fillRect(0,0,800,400);x.fillStyle='#234';x.font='32px sans-serif';x.fillText('AVGO — TEST CHART',40,100);return c.toDataURL('image/png').split(',')[1];}""")
@@ -98,12 +95,13 @@ try:
         page.wait_for_function('!document.querySelector("#chartPreview").hidden')
         page.click('#analyzeChart')
         page.wait_for_selector('#resultContent .sr-report')
-        assert sent[0]['averageCost']=='394' and sent[0]['costCurrency']=='USD'
+        assert sent[0]['mode']=='general' and sent[0]['averageCost'] is None
         assert page.locator('#resultContent .sr-hero').count()==1
         assert page.locator('#resultContent .ai-fixed-report').count()==0
         assert page.locator('#resultContent .sr-section h3').all_text_contents()==['技術面現況診斷','基本面與產業重點','快閃／短中長操作策略']
         assert page.locator('#resultContent .sr-cite[href="https://example.com/filing"]').count()==1
         assert page.locator('#resultContent .sr-strategy-table tbody tr').count()==3
+        assert page.locator('#resultContent .sr-strategy-table td').evaluate_all('(els)=>els.every(e=>getComputedStyle(e).whiteSpace==="normal" && e.scrollWidth<=e.clientWidth+1)')
         page.wait_for_function('!document.querySelector("#resultExportTools").hidden')
         page.screenshot(path='/private/tmp/chart-report-desktop.png',full_page=True)
         assert page.evaluate("""async()=>{const f=await qaReport.frame();const same=f.node.querySelector('.sr-report').innerHTML===document.querySelector('#resultContent .sr-report').innerHTML;f.frame.remove();return same;}""")
@@ -116,9 +114,6 @@ try:
                 assert page.locator('#resultContent .sr-report').evaluate('(e)=>e.scrollWidth<=e.clientWidth+1')
         page.set_viewport_size({"width":390,"height":1000})
         page.screenshot(path='/private/tmp/chart-report-mobile.png',full_page=True)
-        page.select_option('#positionStatus','watching')
-        assert not page.locator('#averageCost').is_visible()
-        assert page.input_value('#averageCost')==''
         page.evaluate('async()=>{qaAccess.enabled=false;await qaReport.sync();}')
         assert not page.locator('#aiWorkspace').is_visible()
         assert '尚未開通' in page.locator('#aiGate').inner_text()

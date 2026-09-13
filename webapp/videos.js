@@ -19,7 +19,8 @@
   }
 
   function renderMacroNews(data) {
-    const target=$("macroNewsSections"),sections=data.sections||[];
+    const target=$("macroNewsSections"),maxAge=Math.max(1,Number(data.windowDays)||5)*86400000;
+    const sections=(data.sections||[]).map(section=>section.id==="cnbc-top"?{...section,items:(section.items||[]).filter(item=>{const time=Date.parse(item.capturedAt||item.publishedAt||item.captureDate);return Number.isFinite(time)&&Date.now()-time<=maxAge;})}:section).filter(section=>section.id!=="cnbc-top"||section.items.length);
     if(!sections.length){target.innerHTML='<div class="macro-news-empty">目前沒有五天內的總經新聞</div>';return;}
     target.innerHTML=sections.map(section=>section.id==="cnbc-top"?`<details class="macro-news-section cnbc-news-section" open><summary><span>${esc(section.name)}</span><b>${section.items.length} 則</b></summary><div class="cnbc-news-list">${section.items.map(item=>`<a href="${esc(item.url)}" target="_blank" rel="noopener"><span>CNBC Top News・${esc(item.captureDate||"")}</span><strong lang="en">${esc(item.titleEn||item.title)}</strong><p lang="en">${esc(item.summaryEn||"")}</p><strong lang="zh-Hant">${esc(item.titleZh||item.title)}</strong><p lang="zh-Hant">${esc(item.summaryZh||"")}</p><small>閱讀 CNBC 原文 ↗</small></a>`).join("")}</div></details>`:`<details class="macro-news-section"><summary><span>${esc(section.name)}</span><b>${section.items.length} 則</b></summary><div class="macro-news-list">${section.items.map(item=>`<a href="${esc(item.url)}" target="_blank" rel="noopener"><span>${esc(item.source)}・${formatDate(item.publishedAt)}</span><strong>${esc(item.title)}</strong></a>`).join("")}</div></details>`).join("");
   }

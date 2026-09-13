@@ -1,8 +1,7 @@
 #!/usr/bin/env python3
-"""Capture CNBC Top News #1 at 21:35 Asia/Taipei and add a bilingual digest."""
+"""Capture the current CNBC top headline whenever the content job runs."""
 from __future__ import annotations
 
-import argparse
 import datetime as dt
 import html
 import json
@@ -103,15 +102,29 @@ def update_payload(payload, article, captured_at, translator=translate):
     return payload
 
 
+def capture_status(payload, article, now):
+    published = dt.datetime.fromisoformat(article["publishedAt"].replace("Z", "+00:00"))
+    if now.astimezone(dt.timezone.utc) - published > dt.timedelta(days=2):
+        return "stale"
+    local_day = now.astimezone(TAIPEI).date().isoformat()
+    previous = next((section for section in payload.get("sections") or [] if section.get("id") == "cnbc-top"), {})
+    if any(item.get("captureDate") == local_day and item.get("url") == article["url"] for item in previous.get("items") or []):
+        return "unchanged"
+    return "capture"
+
+
 def main():
-    parser = argparse.ArgumentParser()
-    parser.add_argument("--force", action="store_true", help="忽略 21:35 執行時段，供人工驗證")
-    args = parser.parse_args()
     now = dt.datetime.now(TAIPEI)
-    if not args.force and not (now.hour == 21 and 35 <= now.minute < 55):
-        print("尚未到台北時間 21:35 擷取時段，保留既有 CNBC 頭條。")
+    article = fetch_first()
+    payload = read_json(OUT_FILE)
+    status = capture_status(payload, article, now)
+    if status == "stale":
+        print("CNBC RSS 首則已超過兩天，略過過期新聞。")
         return 0
-    payload = update_payload(read_json(OUT_FILE), fetch_first(), now)
+    if status == "unchanged":
+        print("CNBC 當日頭條未變，略過重複翻譯。")
+        return 0
+    payload = update_payload(payload, article, now)
     OUT_FILE.write_text(json.dumps(payload, ensure_ascii=False, separators=(",", ":")) + "\n", encoding="utf-8")
     print(f"wrote CNBC Top News: {payload['sections'][0]['items'][0]['titleEn']}")
     return 0
