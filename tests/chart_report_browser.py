@@ -17,7 +17,7 @@ ROOT = Path(__file__).resolve().parents[1]
 fixture = ChartAnalysisApiTests().report_result()
 fixture.update(reportMeta={"schemaVersion":3, "averageCost":394, "costCurrency":"USD"})
 fixture["chart"].update(symbol="AVGO", name="Broadcom", market="US", date="2026-09-11", timeframe="日 K", lastPrice="378", currency="USD")
-fixture["verdict"].update(state="弱勢反彈", entryNow="等待確認", thesis="尚未確認反轉。", biggestRisk="跌破近期低點", overall="等待確認")
+fixture["verdict"].update(state="弱勢反彈", entryNow="等待確認", thesis="圖表以 chartData 與 adjustedTechnical 為依據，尚未確認反轉。", biggestRisk="跌破近期低點", overall="等待確認")
 fixture["technical"].update(patternAndMA="價格仍在 MA20 下方。", volume="反彈量能偏弱。", indicators="KD 上彎，MACD 尚未交叉。",
                             levels=[{"kind":"支撐","price":"365–368","basis":"近期整理區"},{"kind":"壓力","price":"390–395","basis":"MA20 附近"}])
 fixture["fundamentals"].update(status="已查證", industry="產品需求參考官方資料 [1]。", earningsCatalysts="最新季報待核對。",
@@ -97,6 +97,9 @@ try:
         page.wait_for_selector('#resultContent .sr-report')
         assert sent[0]['mode']=='general' and sent[0]['averageCost'] is None
         assert page.locator('#resultContent .sr-hero').count()==1
+        assert 'chartData' not in page.locator('#resultContent').inner_text()
+        assert 'adjustedTechnical' not in page.locator('#resultContent').inner_text()
+        assert '圖表歷史行情' in page.locator('#resultContent').inner_text()
         assert page.locator('#resultContent .ai-fixed-report').count()==0
         assert page.locator('#resultContent .sr-section h3').all_text_contents()==['技術面現況診斷','基本面與產業重點','快閃／短中長操作策略']
         assert page.locator('#resultContent .sr-cite[href="https://example.com/filing"]').count()==1

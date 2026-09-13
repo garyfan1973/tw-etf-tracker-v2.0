@@ -242,7 +242,7 @@ async function activateHistoryResult(sb, row, notice) {
   notice.textContent = "正在載入 5 天保存期內的原始線圖…";
   try {
     const imageData = await loadHistoryImage(sb, row);
-    currentAnalysisResult = row.result;
+    currentAnalysisResult = window.ChartReport.cleanResult(row.result);
     currentAnalysisMeta = meta;
     setResultThumbnail(imageData);
     setExportTools(true);
@@ -564,6 +564,7 @@ function addListCard(parent, title, items, className = "") {
 
 function renderAnalysis(target, result, compact = false) {
   target.replaceChildren();
+  result = window.ChartReport.cleanResult(result);
   if (result?.reportMeta?.schemaVersion === 3 || result?.chart && result?.verdict && result?.strategies) {
     target.innerHTML = window.ChartReport.render(result, {compact});
     return;
@@ -854,7 +855,7 @@ async function analyze() {
     const detectedSymbol = String(data.analysis?.chart?.symbol || "").trim().toUpperCase();
     const symbol = payload.symbol.trim().toUpperCase() || (/^[0-9A-Z.^_-]{1,20}$/.test(detectedSymbol) ? detectedSymbol : "");
     const assetName = transferredAssetName || data.analysis?.chart?.name || assetNames.get(symbol) || symbol || "未辨識標的";
-    currentAnalysisResult = data.analysis;
+    currentAnalysisResult = window.ChartReport.cleanResult(data.analysis);
     currentAnalysisMeta = {
       symbol,
       assetName,

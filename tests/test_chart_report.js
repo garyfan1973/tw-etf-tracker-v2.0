@@ -25,4 +25,33 @@ assert(legacy.includes('失守離場'));
 assert(legacy.includes('舊紀錄未提供持倉成本分析'));
 assert(report.render({...result, rating:'暫不評分（資訊不足）'}).includes('暫不評分（資訊不足）'));
 assert.equal((report.render(result, {compact:true}).match(/<h3>/g)||[]).length,1);
+const standard = {
+  reportMeta: {schemaVersion:3}, imageQualityNote:'圖表資料來自 `chartData`。',
+  chart: {symbol:'2345', name:'智邦', market:'TW', date:'2026-09-11', timeframe:'日 K', lastPrice:'100', currency:'TWD'},
+  verdict: {overall:'等待確認', state:'區間整理', entryNow:'等待確認', thesis:'以提供的chartData與除息還原後adjustedTechnical為準。', biggestRisk:'rawGapPct 不等於真正跌幅。'},
+  technical: {patternAndMA:'MA20 仍向上；operationSignal 顯示觀望。', volume:'priceRows 的量能仍需確認。', indicators:'RSI 與 MACD 未背離。',
+    levels:[{kind:'支撐',price:'95',basis:'依 visibleRange 的前低'}]},
+  fundamentals: {status:'未查證', asOf:'2026Q2', industry:'contextData 尚無可靠來源 [1]。', earningsCatalysts:'未查證',
+    valuationDownside:'未查證', judgment:'未查證', watch:'corporateActions', invalidates:'availabilityNotes 不完整',
+    sources:[{title:'官方財報',url:'https://example.com/filing',period:'2026Q2'}]},
+  fastTrade: {style:'短線', rewardRisk:'未計算', entry:'96', trigger:'確認支撐', target1:'100', target2:'103', stop:'94', execution:'分批', sizing:'輕倉'},
+  strategies:[], closing:{holder:'守住支撐', uninvested:'等待確認', watchlist:['exDate','MA20'], reason:'cash-dividend-back-adjusted 僅用於趨勢。'}
+};
+const standardHtml = report.render(standard);
+for (const term of ['chartData','adjustedTechnical','contextData','operationSignal','priceRows','visibleRange','corporateActions','availabilityNotes','rawGapPct','exDate','cash-dividend-back-adjusted']) {
+  assert(!standardHtml.includes(term), term);
+}
+for (const phrase of ['圖表歷史行情','除息還原後的技術指標','系統操作訊號','除息當日未還原漲跌幅','現金股利除息還原','標的分析 · 台灣市場']) {
+  assert(standardHtml.includes(phrase), phrase);
+}
+assert(standardHtml.includes('RSI 與 MACD'));
+assert(standardHtml.includes('href="https://example.com/filing"'));
+assert(!report.render(standard, {compact:true}).includes('chartData'));
+assert(report.render({...result, thesis:'以 chartData 為準'}).includes('以 圖表歷史行情 為準'));
+const cleaned = report.cleanResult({...standard, reportMeta:{promptVersion:'chartData'}, fundamentals:{...standard.fundamentals,
+  sources:[{title:'chartData 研究報告',url:'https://example.com/chartData',period:'2026Q2'}]}});
+assert.equal(cleaned.verdict.thesis, '以圖表的歷史行情與除息還原後的技術指標為準。');
+assert.equal(cleaned.reportMeta.promptVersion, 'chartData');
+assert.equal(cleaned.fundamentals.sources[0].url, 'https://example.com/chartData');
+assert.equal(standard.verdict.thesis, '以提供的chartData與除息還原後adjustedTechnical為準。');
 console.log('Chart report: fixed sections, ordering, legacy results, cost, rating and escaping passed.');
