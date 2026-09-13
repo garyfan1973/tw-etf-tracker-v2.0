@@ -97,7 +97,7 @@ def update_payload(payload, article, captured_at, translator=translate):
     items = [row] + [item for item in old.get("items") or [] if item.get("captureDate") != local_day]
     cutoff = captured_at.astimezone(TAIPEI).date() - dt.timedelta(days=int(payload.get("windowDays") or 5))
     items = [item for item in items if item.get("captureDate", "") >= cutoff.isoformat()][:7]
-    payload["sections"] = [{"id": "cnbc-top", "name": "CNBC 每日晚間頭條", "items": items}] + sections
+    payload["sections"] = [{"id": "cnbc-top", "name": "CNBC 最新頭條", "items": items}] + sections
     payload["updatedAt"] = captured_at.astimezone(dt.timezone.utc).replace(microsecond=0).isoformat().replace("+00:00", "Z")
     return payload
 
