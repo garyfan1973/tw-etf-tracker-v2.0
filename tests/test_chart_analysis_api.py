@@ -1,11 +1,15 @@
 import base64
+import datetime
 import io
 import json
 import importlib.util
 from pathlib import Path
 import re
+import sys
 import unittest
 from unittest import mock
+sys.path.insert(0, str(Path(__file__).resolve().parents[1]))
+from webapp.api import _industry_context
 
 
 MODULE_PATH = Path(__file__).resolve().parents[1] / "webapp" / "api" / "chart-analysis.py"
@@ -15,6 +19,47 @@ SPEC.loader.exec_module(API)
 
 
 class ChartAnalysisApiTests(unittest.TestCase):
+    @mock.patch.object(_industry_context, 'fetch_json')
+    def test_twse_industry_profile_uses_exact_exchange_code(self, fetch):
+        fetch.return_value = [
+            {'公司代號': '2448', '公司簡稱': '錯誤標的', '產業別': '24'},
+            {'公司代號': '2449', '公司簡稱': '京元電子', '產業別': '24', '出表日期': '1150912'},
+        ]
+        profile = _industry_context.fetch_twse_company_profile('2449')
+        self.assertEqual(profile['industry'], '半導體業')
+        self.assertEqual(profile['asOf'], '2026-09-12')
+        self.assertIn('code=2449', profile['source']['url'])
+        self.assertIsNone(_industry_context.fetch_twse_company_profile('9999'))
+        self.assertIsNone(_industry_context.fetch_twse_company_profile('0050'))
+        self.assertIsNone(_industry_context.fetch_twse_company_profile('AVGO'))
+
+    @mock.patch.object(_industry_context, 'fetch_json')
+    def test_twse_latest_monthly_revenue_is_not_discarded(self, fetch):
+        fetch.return_value = [{'公司代號': '2449', '公司名稱': '京元電子', '產業別': '半導體業',
+                               '出表日期': '1150912', '資料年月': '11508',
+                               '營業收入-當月營收': '4080093', '營業收入-去年同月增減(%)': '31.5779',
+                               '累計營業收入-當月累計營收': '29404354',
+                               '累計營業收入-前期比較增減(%)': '35.5252',
+                               '備註': '另列停業部門營收'}]
+        profile = _industry_context.fetch_twse_company_profile('2449', today=datetime.date(2026, 9, 14))
+        self.assertEqual(profile['monthlyRevenue']['period'], '2026-08')
+        self.assertEqual(profile['monthlyRevenue']['revenue'], 4080093000)
+        self.assertEqual(profile['monthlyRevenue']['cumulativeRevenue'], 29404354000)
+        self.assertIn('index04.html', profile['source']['url'])
+        fetch.assert_called_once_with(_industry_context.TWSE_MONTHLY, timeout=8)
+
+    @mock.patch.object(_industry_context, 'fetch_json')
+    def test_stale_monthly_revenue_is_not_presented_as_current(self, fetch):
+        fetch.side_effect = [
+            [{'公司代號': '2449', '公司名稱': '京元電子', '產業別': '半導體業',
+              '資料年月': '11408', '營業收入-當月營收': '1000000'}],
+            [{'公司代號': '2449', '公司簡稱': '京元電子', '產業別': '24', '出表日期': '1150912'}],
+        ]
+        profile = _industry_context.fetch_twse_company_profile('2449', today=datetime.date(2026, 9, 14))
+        self.assertEqual(profile['industry'], '半導體業')
+        self.assertNotIn('monthlyRevenue', profile)
+        self.assertEqual(fetch.call_count, 2)
+
     def test_database_accepts_current_report_contract_and_refunds_failures(self):
         sql = (MODULE_PATH.parents[2] / "supabase_chart_analysis.sql").read_text(encoding="utf-8")
         match = re.search(r"schemaVersion' = '3'.*?p_result \?& array\[(.*?)\]", sql, re.S)
@@ -122,6 +167,41 @@ class ChartAnalysisApiTests(unittest.TestCase):
         self.assertIn('[1]', result['fundamentals']['earningsCatalysts'])
         self.assertEqual(result['fundamentals']['asOf'], '2026Q2')
 
+    def test_exchange_industry_and_financial_trend_survive_missing_model_citation(self):
+        data = API.validate_payload({'imageData': self.image_data(), 'symbol': '2449', 'market': 'TW', 'assetName': '京元電子'})
+        data['contextData'] = {
+            'industryProfile': {'symbol': '2449', 'name': '京元電子', 'industry': '半導體業',
+                                'asOf': '2026-09-12', 'monthlyRevenue': {
+                                    'period': '2026-08', 'revenue': 4080093000, 'currency': 'TWD',
+                                    'yearOnYearPercent': 31.5779, 'cumulativeRevenue': 29404354000,
+                                    'cumulativeYearOnYearPercent': 35.5252, 'note': '另列停業部門營收'},
+                                'source': {'name': '臺灣證券交易所上市公司月營收',
+                                'url': 'https://www.twse.com.tw/zh/trading/statistics/index04.html'}},
+            'financials': {'quarters': [
+                {'year': '2026Q1', 'currency': 'TWD', 'revenue': 10191943000},
+                {'year': '2026Q2', 'currency': 'TWD', 'revenue': 11141616000, 'grossProfit': 4400123000}],
+                'source': {'name': '公開資訊觀測站', 'url': 'https://mops.twse.com.tw/mops/#/web/t163sb04'}}}
+        result = self.report_result()
+        result['fundamentals']['industry'] = '目前未取得可核對的產業來源。'
+        result = API.attach_industry_snapshot(data, API.attach_financial_snapshot(data, result))
+        industry = result['fundamentals']['industry']
+        self.assertIn('京元電子經證交所列為半導體業', industry)
+        self.assertIn('2026年8月營收40.8 億元', industry)
+        self.assertIn('2026年1～8月累計營收294.0 億元', industry)
+        self.assertIn('較去年同期增加 35.5%', industry)
+        self.assertIn('2026Q2單季營收111.4 億元', industry)
+        self.assertIn('2026年8月營收40.8 億元', result['fundamentals']['earningsCatalysts'])
+        self.assertEqual(result['fundamentals']['asOf'], '月營收 2026-08；財報 2026Q2')
+        self.assertIn('較2026Q1增加 9.3%', industry)
+        self.assertIn('不能單憑它判定整體產業供需', industry)
+        self.assertEqual(result['fundamentals']['status'], '部分查證')
+        self.assertEqual(len(result['fundamentals']['sources']), 2)
+        self.assertIn('[2]', industry)
+        self.assertIn('[1]', industry)
+        self.assertIn('industryProfile', API.build_user_prompt(data))
+        result['fundamentals']['industry'] = '官方已核對的其他產業分析 [2]。'
+        self.assertEqual(API.attach_industry_snapshot(data, result)['fundamentals']['industry'], '官方已核對的其他產業分析 [2]。')
+
     def test_unsearched_fundamentals_are_not_shown_as_verified(self):
         result = self.report_result()
         result['fundamentals'].update(status='已查證', judgment='偏多', industry='某產品需求上升 [1]',
@@ -153,6 +233,17 @@ class ChartAnalysisApiTests(unittest.TestCase):
         response = {'output':[{'type':'web_search_call', 'action':{'type':'search',
             'sources':[{'type':'url','url':'https://example.com/filing'}]}}]}
         self.assertEqual(API.standard.verify_research_sources(result, response)['fundamentals']['status'], '部分查證')
+
+    def test_server_fetched_exchange_source_is_accepted_without_duplicate_search(self):
+        result = self.report_result()
+        result['fundamentals'].update(status='已查證', industry='半導體業；8月營收較去年同期成長 [1]。',
+                                      sources=[{'title':'證交所上市公司月營收',
+                                                'url':'https://www.twse.com.tw/zh/trading/statistics/index04.html',
+                                                'period':'2026-08'}])
+        checked = API.standard.verify_research_sources(
+            result, {'output': []}, trusted_urls=['https://www.twse.com.tw/zh/trading/statistics/index04.html'])
+        self.assertIn('8月營收較去年同期成長', checked['fundamentals']['industry'])
+        self.assertEqual(checked['fundamentals']['status'], '部分查證')
 
     def test_stockgo_is_never_accepted_as_research_source(self):
         result = self.report_result()
@@ -418,8 +509,10 @@ class ChartAnalysisApiTests(unittest.TestCase):
                 "imageData": self.image_data(), "contextData":{"version":1},
             })
 
+    @mock.patch.object(API, "fetch_twse_company_profile", return_value=None)
+    @mock.patch.object(API, "fetch_financials", return_value=None)
     @mock.patch.object(API, "load_dividends")
-    def test_interactive_context_only_builds_dividend_adjustment(self, dividends):
+    def test_interactive_context_only_builds_dividend_adjustment(self, dividends, financials, profile):
         dividends.return_value = [{"exDate":"2026-08-25", "amount":1.0, "currency":"TWD", "source":"TWSE"}]
         data = API.validate_payload({
             "imageData":self.image_data(), "mode":"general", "chartData":self.chart_data(),
@@ -431,6 +524,8 @@ class ChartAnalysisApiTests(unittest.TestCase):
         self.assertIsNone(context["positioning"])
         self.assertEqual(context["corporateActions"][0]["exDate"], "2026-08-25")
         dividends.assert_called_once_with("2330", "TW", "stock")
+        financials.assert_called_once_with("2330", "TW")
+        profile.assert_called_once_with("2330")
 
     def test_extracts_structured_output_text(self):
         response = {"output": [{"type": "message", "content": [{"type": "output_text", "text": '{"readable":true}'}]}]}
