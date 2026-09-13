@@ -163,7 +163,7 @@ def _normalize_fundamental_period_language(value, as_of=""):
     if not isinstance(value, str) or not _GENERIC_QUARTER_GAP.search(value):
         return value
     month = re.search(r"(?:1\s*[～至-]\s*)?(\d{1,2})\s*月", value)
-    monthly = "已列出的月營收資料" if not month else "截至{}月的月營收".format(month.group(1))
+    monthly = "月營收與季度財報分開評估" if not month else "截至{}月的月營收已納入".format(month.group(1))
     terms = []
     for label, pattern in (("毛利率", r"毛利率"), ("每股盈餘", r"每股盈餘|\bEPS\b"),
                            ("自由現金流", r"自由現金流|現金流"), ("資本支出", r"資本支出"),
@@ -171,7 +171,7 @@ def _normalize_fundamental_period_language(value, as_of=""):
         if re.search(pattern, value, re.IGNORECASE):
             terms.append(label)
     fields = "、".join(dict.fromkeys(terms)) or "財報中尚未列明的欄位"
-    replacement = "{}已納入；尚需核對{}財報的{}；尚未結束的季度不補寫預估數字".format(
+    replacement = "{}；尚需核對{}財報的{}；尚未結束的季度不補寫預估數字".format(
         monthly, _quarter_label(as_of), fields)
     return _GENERIC_QUARTER_GAP.sub(replacement, value)
 
