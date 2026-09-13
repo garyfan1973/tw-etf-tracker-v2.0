@@ -76,4 +76,8 @@ assert(holderReport.includes('本次設定：持股者 · 每股平均成本 255
 assert.equal((holderReport.match(/class="sr-personal"/g) || []).length, 1);
 const watcherReport = report.render({...standard, reportMeta:{schemaVersion:3,positionStatus:'watching'}});
 assert(watcherReport.includes('本次設定：空手者'));
+assert(!watcherReport.includes('<b>持股者</b>'));
+const selectedHolderReport = report.render({...standard, reportMeta:{schemaVersion:3,positionStatus:'holding',averageCost:255.5,costCurrency:'TWD'}});
+assert(selectedHolderReport.includes('<b>持股者</b>'));
+assert(selectedHolderReport.includes('<b>空手者</b>'));
 console.log('Chart report: fixed sections, ordering, legacy results, cost, rating and escaping passed.');

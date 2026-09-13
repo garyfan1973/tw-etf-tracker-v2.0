@@ -121,6 +121,41 @@ class ChartAnalysisApiTests(unittest.TestCase):
             'sources':[{'type':'url','url':'https://example.com/filing'}]}}]}
         self.assertEqual(API.standard.verify_research_sources(result, response)['fundamentals']['status'], '部分查證')
 
+    def test_stockgo_is_never_accepted_as_research_source(self):
+        result = self.report_result()
+        result['fundamentals'].update(
+            status='已查證', judgment='偏多',
+            industry='產業需求上升 [1]',
+            sources=[{'title':'StockGo','url':'https://stockgo.tw/stock/2449/','period':'2026-09-11'}])
+        response = {'output':[{'type':'web_search_call', 'action':{'type':'search',
+            'sources':[{'type':'url','url':'https://stockgo.tw/stock/2449/'}]}}]}
+        checked = API.standard.verify_research_sources(result, response)
+        self.assertEqual(checked['fundamentals']['status'], '未查證')
+        self.assertEqual(checked['fundamentals']['sources'], [])
+        self.assertEqual(checked['fundamentals']['industry'], '目前未取得可核對的產業來源。')
+        self.assertTrue(API.standard._is_blocked_research_url('https://www.stockgo.tw/stock/2449/?x=1'))
+        self.assertFalse(API.standard._is_blocked_research_url('https://mops.twse.com.tw/mops/'))
+
+    def test_rejected_source_numbers_are_renumbered(self):
+        result = self.report_result()
+        result['fundamentals'].update(
+            status='已查證', judgment='偏多',
+            industry='產業需求上升 [2]',
+            earningsCatalysts='營收穩健 [2]',
+            valuationDownside='評價合理 [2]',
+            sources=[
+                {'title':'StockGo','url':'https://stockgo.tw/stock/2449/','period':'2026-09-11'},
+                {'title':'官方資料','url':'https://mops.twse.com.tw/mops/','period':'2026Q2'}])
+        result['verdict']['thesis'] = '營收資料見來源 [2]。'
+        response = {'output':[{'type':'web_search_call', 'action':{'type':'search', 'sources':[
+            {'type':'url','url':'https://stockgo.tw/stock/2449/'},
+            {'type':'url','url':'https://mops.twse.com.tw/mops/'}]}}]}
+        checked = API.standard.verify_research_sources(result, response)
+        self.assertEqual(checked['fundamentals']['sources'][0]['title'], '官方資料')
+        self.assertIn('[1]', checked['fundamentals']['industry'])
+        self.assertIn('[1]', checked['verdict']['thesis'])
+        self.assertNotIn('[2]', json.dumps(checked, ensure_ascii=False))
+
     @mock.patch.object(API, 'json_request')
     def test_holding_report_keeps_price_plan_when_research_cannot_be_verified(self, request):
         raw = self.report_result()
