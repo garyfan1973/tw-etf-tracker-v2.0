@@ -5,6 +5,7 @@ Run with: uv run --with playwright --with pypdf python tests/chart_report_browse
 import functools
 import http.server
 import json
+import copy
 from pathlib import Path
 import threading
 import sys
@@ -53,8 +54,11 @@ try:
         page.route('**/chart-analysis.js?*', lambda route: route.fulfill(content_type='text/javascript', body=(ROOT/'webapp/chart-analysis.js').read_text()+
                    '\nwindow.qaReport={frame:buildPdfExportFrame,pdf:createAnalysisPdf,layout:pdfExportLayout,safeCut:pdfSafeCut,sync:syncAccess};'))
         def response(route):
-            sent.append(route.request.post_data_json)
-            route.fulfill(json={"ok":True,"requestId":"qa-result","analysis":fixture,
+            request = route.request.post_data_json
+            sent.append(request)
+            analysis = copy.deepcopy(fixture)
+            analysis['reportMeta'].update(positionStatus=request['positionStatus'], averageCost=request['averageCost'], costCurrency=request['costCurrency'])
+            route.fulfill(json={"ok":True,"requestId":"qa-result","analysis":analysis,
                                 "quota":{"remaining":4,"dailyLimit":5}})
         page.route('**/api/chart-analysis', response)
         page.route('**/api/news?*', lambda route: route.fulfill(json={"ok":True,"items":[]}))
@@ -83,21 +87,27 @@ try:
         page.wait_for_url('**/chart-analysis.html?source=kline')
         page.wait_for_function('!document.querySelector("#chartPreview").hidden')
         assert page.input_value('#analysisSymbol')=='AVGO'
+        page.check('input[name=positionStatus][value=holding]')
+        assert page.input_value('#costCurrency')=='USD'
+        assert page.locator('#costCurrency').is_disabled()
         assert not dialogs, dialogs
         assert not errors, errors
         page.goto(f'http://127.0.0.1:{server.server_port}/chart-analysis.html', wait_until='networkidle')
         page.wait_for_function('window.qaReport && !document.querySelector("#aiWorkspace").hidden')
-        assert page.locator('#positionStatus').count()==0
-        assert page.locator('text=分析設定').count()==0
+        assert page.locator('input[name=positionStatus][value=watching]').is_checked()
+        assert page.locator('#holdingCostFields').is_hidden()
         # Browser creates a real PNG to exercise the image preparation flow.
         png = page.evaluate("""()=>{const c=document.createElement('canvas');c.width=800;c.height=400;
             const x=c.getContext('2d');x.fillStyle='#eff3fa';x.fillRect(0,0,800,400);x.fillStyle='#234';x.font='32px sans-serif';x.fillText('AVGO — TEST CHART',40,100);return c.toDataURL('image/png').split(',')[1];}""")
         import base64
         page.set_input_files('#chartImage', {"name":"qa-chart.png","mimeType":"image/png","buffer":base64.b64decode(png)})
         page.wait_for_function('!document.querySelector("#chartPreview").hidden')
+        page.screenshot(path='/private/tmp/chart-analysis-position.png', full_page=True)
         page.click('#analyzeChart')
         page.wait_for_selector('#resultContent .sr-report')
-        assert sent[0]['mode']=='general' and sent[0]['averageCost'] is None
+        assert sent[0]['mode']=='general' and sent[0]['positionStatus']=='watching'
+        assert sent[0]['averageCost'] is None and sent[0]['costCurrency']==''
+        assert '本次設定：空手者' in page.locator('#resultContent .sr-hero').inner_text()
         assert page.locator('#resultContent .sr-hero').count()==1
         assert 'chartData' not in page.locator('#resultContent').inner_text()
         assert 'adjustedTechnical' not in page.locator('#resultContent').inner_text()
@@ -135,6 +145,21 @@ try:
                 for pdf_page in reader.pages for annotation in pdf_page.get('/Annots', [])
                 if annotation.get_object().get('/A', {}).get('/URI')]
         assert urls.count('https://example.com/filing')>=3, urls
+        page.click('#toggleInputPanel')
+        page.check('input[name=positionStatus][value=holding]')
+        assert page.locator('#holdingCostFields').is_visible()
+        assert page.locator('#averageCost').get_attribute('required') is not None
+        page.click('#analyzeChart')
+        assert len(sent)==1 and '每股平均成本' in page.locator('#analysisStatus').inner_text()
+        page.fill('#averageCost', '0')
+        page.click('#analyzeChart')
+        assert len(sent)==1
+        page.fill('#averageCost', '394.25')
+        page.select_option('#costCurrency', 'USD')
+        page.click('#analyzeChart')
+        page.wait_for_function("document.querySelector('#resultContent .sr-position-label')?.textContent.includes('394.25')")
+        assert sent[1]['positionStatus']=='holding' and sent[1]['averageCost']==394.25 and sent[1]['costCurrency']=='USD'
+        assert page.locator('#resultContent .sr-closing .sr-personal b').inner_text()=='持股者'
         for width in (390, 1440):
             page.set_viewport_size({"width":width,"height":1000})
             for theme in ('light','dark'):
@@ -142,6 +167,10 @@ try:
                 assert page.locator('#resultContent .sr-report').evaluate('(e)=>e.scrollWidth<=e.clientWidth+1')
         page.set_viewport_size({"width":390,"height":1000})
         page.screenshot(path='/private/tmp/chart-report-mobile.png',full_page=True)
+        page.check('input[name=positionStatus][value=watching]')
+        page.click('#analyzeChart')
+        page.wait_for_function("document.querySelector('#resultContent .sr-position-label')?.textContent.includes('空手者')")
+        assert sent[2]['positionStatus']=='watching' and sent[2]['averageCost'] is None and sent[2]['costCurrency']==''
         page.evaluate('async()=>{qaAccess.enabled=false;await qaReport.sync();}')
         assert not page.locator('#aiWorkspace').is_visible()
         assert '尚未開通' in page.locator('#aiGate').inner_text()
@@ -164,7 +193,7 @@ try:
         assert page.locator('#analysisProgress').get_attribute('aria-valuenow') is None
         assert '本次未扣除分析額度' in page.locator('#progressMessage').inner_text()
         assert not errors, errors
-        print(json.dumps({"browser":"passed", "pdfBytes":pdf['size'], "pdfPages":len(reader.pages), "pdfLinks":len(urls), "pdfCuts":pagination['cuts'], "morningPdfBytes":len(morning_pdf), "checks":["K-line capture and transfer","preset restoration after success and failure","upload","cost","standard report","source links","PDF safe page cuts and links","morning PDF","mobile","dark","member gate","auth timeout feedback"]}))
+        print(json.dumps({"browser":"passed", "pdfBytes":pdf['size'], "pdfPages":len(reader.pages), "pdfLinks":len(urls), "pdfCuts":pagination['cuts'], "morningPdfBytes":len(morning_pdf), "checks":["K-line capture and transfer","preset restoration after success and failure","default uninvested","required holding cost","TW/US currency","standard report","source links","PDF safe page cuts and links","morning PDF","mobile","dark","member gate","auth timeout feedback"]}))
         browser.close()
 finally:
     server.shutdown()

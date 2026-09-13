@@ -46,6 +46,18 @@ class ChartAnalysisApiTests(unittest.TestCase):
         self.assertEqual(data['averageCost'], 394)
         self.assertEqual(data['proposedPrice'], 365)
         self.assertIn('394', API.build_user_prompt(data))
+        self.assertIn('使用者已持有', API.build_user_prompt(data))
+        with self.assertRaisesRegex(ValueError, '每股平均成本'):
+            API.validate_payload({'imageData': self.image_data(), 'positionStatus':'holding', 'costCurrency':'USD'})
+        with self.assertRaisesRegex(ValueError, '新台幣'):
+            API.validate_payload({'imageData': self.image_data(), 'market':'TW', 'positionStatus':'holding',
+                                  'averageCost':394, 'costCurrency':'USD'})
+        with self.assertRaisesRegex(ValueError, '美元'):
+            API.validate_payload({'imageData': self.image_data(), 'market':'US', 'positionStatus':'holding',
+                                  'averageCost':394, 'costCurrency':'TWD'})
+        watching = API.validate_payload({'imageData': self.image_data(), 'positionStatus':'watching'})
+        self.assertIsNone(watching['averageCost'])
+        self.assertIn('使用者目前空手', API.build_user_prompt(watching))
         for changes in ({'averageCost':True}, {'averageCost':'nan'}, {'averageCost':-1},
                         {'costCurrency':''}, {'costCurrency':'inject'}, {'positionStatus':'watching'}):
             with self.subTest(changes=changes), self.assertRaises(ValueError):

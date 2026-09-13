@@ -132,6 +132,27 @@ function quotaText(access) {
   return access ? `${access.remaining ?? 0} / ${access.dailyLimit ?? 0}` : "—";
 }
 
+function analysisMarket() {
+  const chartMarket = transferredChartData?.asset?.market;
+  if (chartMarket) return chartMarket;
+  const symbol = $("#analysisSymbol").value.trim().toUpperCase();
+  return symbol ? (/^\d/.test(symbol) ? "TW" : "US") : "";
+}
+
+function syncPositionControls() {
+  const holding = $("input[name=positionStatus]:checked")?.value === "holding";
+  const cost = $("#averageCost"), currency = $("#costCurrency"), market = analysisMarket();
+  $("#holdingCostFields").hidden = !holding;
+  cost.required = holding;
+  cost.disabled = !holding;
+  currency.disabled = !holding || market === "TW" || market === "US";
+  if (market === "TW" || market === "US") currency.value = market === "TW" ? "TWD" : "USD";
+  $("#costHelp").textContent = market === "TW" ? "已依台股線圖選用新台幣，請填每股實際平均成本。"
+    : market === "US" ? "已依美股線圖選用美元，請填每股實際平均成本。"
+      : "請填每股實際平均成本；台股用新台幣，美股用美元。";
+  if (!holding) cost.removeAttribute("aria-invalid");
+}
+
 function setInputPanelCollapsed(collapsed) {
   const workspace = $("#aiWorkspace");
   const button = $("#toggleInputPanel");
@@ -480,6 +501,9 @@ async function selectImage(file) {
   status.textContent = "正在整理圖片…";
   try {
     transferredChartData = null;
+    transferredAssetName = "";
+    $("#analysisSymbol").value = "";
+    syncPositionControls();
     preparedImage = await prepareImage(file);
     if (activeUserId !== requestUserId) return;
     selectedFileName = file.name;
@@ -501,6 +525,9 @@ function clearImage() {
   preparedImage = "";
   selectedFileName = "";
   transferredChartData = null;
+  transferredAssetName = "";
+  $("#analysisSymbol").value = "";
+  syncPositionControls();
   $("#chartImage").value = "";
   $("#chartPreview").removeAttribute("src");
   $("#chartPreview").hidden = true;
@@ -514,7 +541,10 @@ function resetSensitiveState() {
   transferGeneration += 1;
   transferAttemptUserId = null;
   clearImage();
-  $("#analysisSymbol").value = "";
+  $("input[name=positionStatus][value=watching]").checked = true;
+  $("#averageCost").value = "";
+  $("#costCurrency").value = "TWD";
+  syncPositionControls();
   $("#resultContent").replaceChildren();
   $("#resultContent").hidden = true;
   $("#resultEmpty").hidden = false;
@@ -549,6 +579,7 @@ async function loadTransferredChart(user) {
     if (transfer.symbol) $("#analysisSymbol").value = transfer.symbol;
     transferredAssetName = transfer.assetName || "";
     transferredChartData = transfer.chartData || null;
+    syncPositionControls();
     $("#analysisStatus").className = "ai-status success";
     $("#analysisStatus").textContent = transferredChartData ? "已自動帶入線圖與精確行情資料；分析時會校正除息影響。" : "已自動帶入線圖；AI 會從圖片辨識標的。";
   } catch (error) {
@@ -646,7 +677,7 @@ function buildPdfExportFrame() {
     const iframe = document.createElement("iframe");
     iframe.title = "PDF 匯出版面";
     iframe.style.cssText = "position:absolute;left:-12000px;top:0;width:1060px;height:100px;border:0;background:#fff";
-    iframe.srcdoc = `<!doctype html><html lang="zh-Hant"><head><meta charset="utf-8"><link rel="stylesheet" href="${escapeHtml(new URL('chart-report.css?v=20260913-links', window.location.href).href)}"><style>
+    iframe.srcdoc = `<!doctype html><html lang="zh-Hant"><head><meta charset="utf-8"><link rel="stylesheet" href="${escapeHtml(new URL('chart-report.css?v=20260913-position', window.location.href).href)}"><style>
       *{box-sizing:border-box}html,body{margin:0;background:#fff;color:#1d2942;font-family:-apple-system,'PingFang TC','Microsoft JhengHei',sans-serif}body{width:1060px;padding:38px;--accent:#3b5bdb;--bg:#fff;--text:#1d2942}.chart{display:block;width:100%;max-height:620px;margin:18px 0 25px;border-radius:12px;background:#111827;object-fit:contain}.sr-report{max-width:none}.sr-hero{background:#eef2ff!important;border-color:#c7d2fe!important;box-shadow:none!important}.sr-meta span{background:#fff!important}.sr-risk-banner{background:#fff5e9!important;border-color:#f0d5b0!important}.sr-fund-status span:first-child,.sr-fast-head{background:#eef2ff!important}.sr-section,.sr-field,.sr-table tr{break-inside:avoid}footer{margin-top:22px;padding-top:12px;border-top:1px solid #dce4f0;color:#65718a;font-size:11px}
       </style></head><body>${resultImageData ? `<img class="chart" src="${resultImageData}" alt="技術線圖">` : ""}${window.ChartReport.render(currentAnalysisResult)}<footer>產生時間：${escapeHtml(new Date().toLocaleString("zh-TW"))}。AI 分析不構成投資建議或獲利保證。</footer></body></html>`;
     return new Promise((resolve) => {
@@ -877,6 +908,18 @@ async function analyze() {
     $("#analysisStatus").textContent = "請先選擇一張線圖。";
     return;
   }
+  const positionStatus = $("input[name=positionStatus]:checked")?.value || "watching";
+  const costInput = $("#averageCost");
+  const averageCost = positionStatus === "holding" ? Number(costInput.value) : null;
+  if (positionStatus === "holding" && (!costInput.value.trim() || !costInput.checkValidity()
+      || !Number.isFinite(averageCost) || averageCost <= 0 || averageCost > 10000000)) {
+    costInput.setAttribute("aria-invalid", "true");
+    $("#analysisStatus").className = "ai-status error";
+    $("#analysisStatus").textContent = "持股者請輸入有效的每股平均成本，才能開始分析。";
+    costInput.focus();
+    return;
+  }
+  costInput.removeAttribute("aria-invalid");
   const sb = window.ETFAuth?.client();
   const { data: { session } } = await sb.auth.getSession();
   if (!session) return syncAccess();
@@ -884,7 +927,7 @@ async function analyze() {
   const mode = "general";
   const normalizedSymbol = $("#analysisSymbol").value.trim().toUpperCase();
   const chartAsset = transferredChartData?.asset || {};
-  const inferredMarket = /^\d/.test(normalizedSymbol) ? "TW" : "US";
+  const inferredMarket = analysisMarket();
   const payload = {
     imageData: preparedImage,
     mode,
@@ -894,9 +937,9 @@ async function analyze() {
     assetName: transferredAssetName || assetNames.get(normalizedSymbol) || normalizedSymbol,
     screenshotTiming: "",
     proposedPrice: null,
-    positionStatus: "unspecified",
-    averageCost: null,
-    costCurrency: "",
+    positionStatus,
+    averageCost,
+    costCurrency: positionStatus === "holding" ? $("#costCurrency").value : "",
     chartData: transferredChartData,
   };
   busy = true;
@@ -1012,6 +1055,10 @@ async function loadHistory() {
 
 function bind() {
   loadAssetNames();
+  $("input[name=positionStatus][value=watching]").checked = true;
+  document.querySelectorAll("input[name=positionStatus]").forEach(input => input.addEventListener("change", syncPositionControls));
+  $("#averageCost").addEventListener("input", () => $("#averageCost").removeAttribute("aria-invalid"));
+  syncPositionControls();
   $("#chartImage").addEventListener("change", (event) => selectImage(event.target.files?.[0]));
   $("#removeImage").addEventListener("click", clearImage);
   const preview = $("#chartPreview");

@@ -71,4 +71,9 @@ const missingSourceReport = report.render({...standard, fundamentals:{...standar
   sources:[{title:'待核對資料',url:'http://example.com/insecure',period:'2026Q2'}]}});
 assert(!missingSourceReport.includes('[1]'));
 assert(missingSourceReport.includes('待核對資料（連結未提供）'));
+const holderReport = report.render({...standard, reportMeta:{schemaVersion:3,positionStatus:'holding',averageCost:255.5,costCurrency:'TWD'}});
+assert(holderReport.includes('本次設定：持股者 · 每股平均成本 255.5 新台幣'));
+assert.equal((holderReport.match(/class="sr-personal"/g) || []).length, 1);
+const watcherReport = report.render({...standard, reportMeta:{schemaVersion:3,positionStatus:'watching'}});
+assert(watcherReport.includes('本次設定：空手者'));
 console.log('Chart report: fixed sections, ordering, legacy results, cost, rating and escaping passed.');
