@@ -677,7 +677,7 @@ function buildPdfExportFrame() {
     const iframe = document.createElement("iframe");
     iframe.title = "PDF 匯出版面";
     iframe.style.cssText = "position:absolute;left:-12000px;top:0;width:1060px;height:100px;border:0;background:#fff";
-    iframe.srcdoc = `<!doctype html><html lang="zh-Hant"><head><meta charset="utf-8"><link rel="stylesheet" href="${escapeHtml(new URL('chart-report.css?v=20260913-position', window.location.href).href)}"><style>
+    iframe.srcdoc = `<!doctype html><html lang="zh-Hant"><head><meta charset="utf-8"><link rel="stylesheet" href="${escapeHtml(new URL('chart-report.css?v=20260913-pdf-hq', window.location.href).href)}"><style>
       *{box-sizing:border-box}html,body{margin:0;background:#fff;color:#1d2942;font-family:-apple-system,'PingFang TC','Microsoft JhengHei',sans-serif}body{width:1060px;padding:38px;--accent:#3b5bdb;--bg:#fff;--text:#1d2942}.chart{display:block;width:100%;max-height:620px;margin:18px 0 25px;border-radius:12px;background:#111827;object-fit:contain}.sr-report{max-width:none}.sr-hero{background:#eef2ff!important;border-color:#c7d2fe!important;box-shadow:none!important}.sr-meta span{background:#fff!important}.sr-risk-banner{background:#fff5e9!important;border-color:#f0d5b0!important}.sr-fund-status span:first-child,.sr-fast-head{background:#eef2ff!important}.sr-section,.sr-field,.sr-table tr{break-inside:avoid}footer{margin-top:22px;padding-top:12px;border-top:1px solid #dce4f0;color:#65718a;font-size:11px}
       </style></head><body>${resultImageData ? `<img class="chart" src="${resultImageData}" alt="技術線圖">` : ""}${window.ChartReport.render(currentAnalysisResult)}<footer>產生時間：${escapeHtml(new Date().toLocaleString("zh-TW"))}。AI 分析不構成投資建議或獲利保證。</footer></body></html>`;
     return new Promise((resolve) => {
@@ -789,7 +789,13 @@ async function createAnalysisPdf({ download = false } = {}) {
     const exportFrame = await buildPdfExportFrame();
     exportNode = exportFrame.frame;
     await waitForImages(exportFrame.node);
-    const canvas = await window.html2canvas(exportFrame.node, { backgroundColor: "#ffffff", scale: 1.25, logging: false, useCORS: true });
+    // Render at roughly 2x CSS pixels (about 275 DPI on A4) so small Chinese
+    // text and chart labels stay as sharp as the on-screen report.  The old
+    // 1.25x canvas plus low-quality JPEG was visibly soft after PDF scaling.
+    const canvas = await window.html2canvas(exportFrame.node, {
+      backgroundColor: "#ffffff", scale: 2, logging: false, useCORS: true,
+      imageTimeout: 0
+    });
     const { jsPDF } = window.jspdf;
     const pdf = new jsPDF({ orientation: "portrait", unit: "pt", format: "a4", compress: true });
     const pageWidth = pdf.internal.pageSize.getWidth(), pageHeight = pdf.internal.pageSize.getHeight();
@@ -803,9 +809,12 @@ async function createAnalysisPdf({ download = false } = {}) {
       const sliceHeight = end - offset;
       const slice = document.createElement("canvas");
       slice.width = canvas.width; slice.height = sliceHeight;
-      slice.getContext("2d", { alpha: false }).drawImage(canvas, 0, offset, canvas.width, sliceHeight, 0, 0, canvas.width, sliceHeight);
+      const sliceContext = slice.getContext("2d", { alpha: false });
+      sliceContext.imageSmoothingEnabled = true;
+      sliceContext.imageSmoothingQuality = "high";
+      sliceContext.drawImage(canvas, 0, offset, canvas.width, sliceHeight, 0, 0, canvas.width, sliceHeight);
       if (page > 0) pdf.addPage();
-      pdf.addImage(slice.toDataURL("image/jpeg", .78), "JPEG", margin, margin, drawWidth, drawWidth * sliceHeight / canvas.width, undefined, "FAST");
+      pdf.addImage(slice.toDataURL("image/jpeg", .92), "JPEG", margin, margin, drawWidth, drawWidth * sliceHeight / canvas.width, undefined, "MEDIUM");
       const pointsPerPixel = drawWidth / canvas.width;
       for (const link of layout.links) {
         const top = Math.max(link.top, offset), bottom = Math.min(link.bottom, end);

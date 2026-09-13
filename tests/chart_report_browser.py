@@ -122,7 +122,7 @@ try:
         page.screenshot(path='/private/tmp/chart-report-desktop.png',full_page=True)
         assert page.evaluate("""async()=>{const f=await qaReport.frame();const same=f.node.querySelector('.sr-report').innerHTML===document.querySelector('#resultContent .sr-report').innerHTML;f.frame.remove();return same;}""")
         pagination = page.evaluate("""async()=>{
-          const f=await qaReport.frame(),width=f.node.getBoundingClientRect().width*1.25;
+          const f=await qaReport.frame(),width=f.node.getBoundingClientRect().width*2;
           const p=new jspdf.jsPDF({orientation:'portrait',unit:'pt',format:'a4'});
           const capacity=Math.floor(width*(p.internal.pageSize.getHeight()-48)/(p.internal.pageSize.getWidth()-48));
           const layout=qaReport.layout(f.node,width),height=Math.ceil(f.node.scrollHeight*1.25),cuts=[];
