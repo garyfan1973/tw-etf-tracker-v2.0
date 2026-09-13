@@ -73,6 +73,13 @@ def clean_label(value, max_length):
     return re.sub(r"[\r\n\t]+", " ", str(value or "")).strip()[:max_length]
 
 
+def safe_filename_part(value, fallback="未命名"):
+    """Keep readable Unicode names while preventing path/control characters."""
+    text = clean_label(value, 80)
+    text = re.sub(r"[^\w\u3400-\u9fff.\-]+", "-", text, flags=re.UNICODE).strip("-.")
+    return text or fallback
+
+
 def validate_payload(payload):
     if not isinstance(payload, dict):
         raise ValueError("寄送內容格式不正確")
@@ -98,7 +105,7 @@ def validate_payload(payload):
         raise ValueError("PDF 附件內容無法讀取")
     if not pdf.startswith(b"%PDF-") or len(pdf) > MAX_PDF_BYTES:
         raise ValueError("PDF 附件格式不正確或超過 3.5 MB")
-    subject = "{} {} {} {} 技術分析指引".format(symbol, asset_name, date, timing)
+    subject = "{}_{}_{}_綜合分析".format(safe_filename_part(symbol), safe_filename_part(asset_name), date)
     return {"email": recipient, "symbol": symbol, "assetName": asset_name, "date": date,
             "timing": timing, "subject": subject, "pdf": pdf}
 
@@ -109,9 +116,10 @@ def send_gmail(data):
     from_name = os.getenv("GMAIL_FROM_NAME", "投資研究工作台").strip() or "投資研究工作台"
     if not gmail_user or not app_password:
         raise RuntimeError("Gmail 寄信服務尚未完成設定")
-    text = ("您好，\n\n附件為 {symbol} {name} 於 {date} {timing}產生的 AI 技術分析指引。\n\n"
+    text = ("您好，\n\n附件為 {filename}。\n\n"
             "分析結果僅供研究與交易規劃參考，不構成投資建議。完整內容請參閱附件 PDF。")\
-        .format(symbol=data["symbol"], name=data["assetName"], date=data["date"], timing=data["timing"])
+        .format(filename="{}_{}_{}_綜合分析.pdf".format(safe_filename_part(data["symbol"]),
+                                                         safe_filename_part(data["assetName"]), data["date"]))
     message = EmailMessage()
     message["Subject"] = data["subject"]
     message["From"] = formataddr((from_name, gmail_user))
@@ -119,12 +127,13 @@ def send_gmail(data):
     message.set_content(text)
     message.add_alternative("""<!doctype html><html><body style="font-family:Arial,'Microsoft JhengHei',sans-serif;color:#1c2430;line-height:1.7">
       <div style="max-width:620px;margin:auto;padding:28px;border:1px solid #e3e7ec;border-radius:14px">
-        <h2 style="margin:0 0 18px;color:#3b5bdb">AI 技術分析指引</h2>
-        <p>您好，</p><p>附件為 <b>{symbol} {name}</b> 於 <b>{date} {timing}</b> 產生的 AI 技術分析指引。</p>
+        <h2 style="margin:0 0 18px;color:#3b5bdb">AI 綜合分析</h2>
+        <p>您好，</p><p>附件為 <b>{filename}</b>。</p>
         <p style="color:#6b7684">分析結果僅供研究與交易規劃參考，不構成投資建議。完整內容請參閱附件 PDF。</p>
-      </div></body></html>""".format(symbol=html.escape(data["symbol"]), name=html.escape(data["assetName"]),
-                                     date=data["date"], timing=data["timing"]), subtype="html")
-    filename = "{}_{}_綜合分析.pdf".format(data["symbol"], data["date"])
+      </div></body></html>""".format(filename=html.escape("{}_{}_{}_綜合分析.pdf".format(
+          safe_filename_part(data["symbol"]), safe_filename_part(data["assetName"]), data["date"]))), subtype="html")
+    filename = "{}_{}_{}_綜合分析.pdf".format(safe_filename_part(data["symbol"]),
+                                                safe_filename_part(data["assetName"]), data["date"])
     message.add_attachment(data["pdf"], maintype="application", subtype="pdf", filename=filename)
     with smtplib.SMTP_SSL("smtp.gmail.com", 465, context=ssl.create_default_context(), timeout=25) as smtp:
         smtp.login(gmail_user, app_password)

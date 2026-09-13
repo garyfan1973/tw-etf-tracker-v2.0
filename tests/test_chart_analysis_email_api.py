@@ -26,7 +26,7 @@ class ChartAnalysisEmailValidationTests(unittest.TestCase):
 
     def test_builds_subject_on_server(self):
         result = API.validate_payload(self.payload())
-        self.assertEqual(result["subject"], "2330 台積電 2026-08-24 盤後 技術分析指引")
+        self.assertEqual(result["subject"], "2330_台積電_2026-08-24_綜合分析")
 
     @mock.patch.object(API.smtplib, "SMTP_SSL")
     def test_uses_combined_analysis_filename_for_attachment(self, smtp_ssl):
@@ -36,7 +36,7 @@ class ChartAnalysisEmailValidationTests(unittest.TestCase):
         message = smtp.send_message.call_args.args[0]
         attachments = list(message.iter_attachments())
         self.assertEqual(len(attachments), 1)
-        self.assertEqual(attachments[0].get_filename(), "2330_2026-08-24_綜合分析.pdf")
+        self.assertEqual(attachments[0].get_filename(), "2330_台積電_2026-08-24_綜合分析.pdf")
 
     def test_rejects_invalid_recipient(self):
         with self.assertRaisesRegex(ValueError, "Email"):

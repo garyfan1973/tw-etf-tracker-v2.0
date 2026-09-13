@@ -105,7 +105,8 @@ function timingCategory(value) {
 }
 
 function safeFilePart(value) {
-  return String(value || "chart").replace(/[^0-9A-Za-z_-]+/g, "-").replace(/^-+|-+$/g, "") || "chart";
+  return String(value || "chart").normalize("NFKC")
+    .replace(/[^\p{L}\p{N}._-]+/gu, "-").replace(/^-+|-+$/g, "") || "chart";
 }
 
 async function loadAssetNames() {
@@ -121,7 +122,7 @@ async function loadAssetNames() {
 
 function resultSubject(meta = currentAnalysisMeta) {
   if (!meta) return "";
-  return `${meta.symbol || "未填標的"} ${meta.assetName || meta.symbol || "未填名稱"} ${meta.date} ${meta.timing} 技術分析指引`;
+  return `${safeFilePart(meta.symbol || "未填標的")}_${safeFilePart(meta.assetName || meta.symbol || "未填名稱")}_${meta.date}_綜合分析`;
 }
 
 function setExportTools(visible) {
@@ -828,7 +829,7 @@ async function createAnalysisPdf({ download = false } = {}) {
     if (download) {
       const url = URL.createObjectURL(blob), link = document.createElement("a");
       link.href = url;
-      link.download = `${safeFilePart(currentAnalysisMeta.symbol)}_${currentAnalysisMeta.date}_綜合分析.pdf`;
+      link.download = `${safeFilePart(currentAnalysisMeta.symbol)}_${safeFilePart(currentAnalysisMeta.assetName)}_${currentAnalysisMeta.date}_綜合分析.pdf`;
       document.body.append(link); link.click(); link.remove();
       window.setTimeout(() => URL.revokeObjectURL(url), 1500);
     }
