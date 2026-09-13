@@ -678,7 +678,7 @@ function buildPdfExportFrame() {
     const iframe = document.createElement("iframe");
     iframe.title = "PDF 匯出版面";
     iframe.style.cssText = "position:absolute;left:-12000px;top:0;width:1060px;height:100px;border:0;background:#fff";
-    iframe.srcdoc = `<!doctype html><html lang="zh-Hant"><head><meta charset="utf-8"><link rel="stylesheet" href="${escapeHtml(new URL('chart-report.css?v=20260913-pdf-hq', window.location.href).href)}"><style>
+    iframe.srcdoc = `<!doctype html><html lang="zh-Hant"><head><meta charset="utf-8"><link rel="stylesheet" href="${escapeHtml(new URL('chart-report.css?v=20260914-pdf-fix', window.location.href).href)}"><style>
       *{box-sizing:border-box}html,body{margin:0;background:#fff;color:#1d2942;font-family:-apple-system,'PingFang TC','Microsoft JhengHei',sans-serif}body{width:1060px;padding:38px;--accent:#3b5bdb;--bg:#fff;--text:#1d2942}.chart{display:block;width:100%;max-height:620px;margin:18px 0 25px;border-radius:12px;background:#111827;object-fit:contain}.sr-report{max-width:none}.sr-hero{background:#eef2ff!important;border-color:#c7d2fe!important;box-shadow:none!important}.sr-meta span{background:#fff!important}.sr-risk-banner{background:#fff5e9!important;border-color:#f0d5b0!important}.sr-fund-status span:first-child,.sr-fast-head{background:#eef2ff!important}.sr-section,.sr-field,.sr-table tr{break-inside:avoid}footer{margin-top:22px;padding-top:12px;border-top:1px solid #dce4f0;color:#65718a;font-size:11px}
       </style></head><body>${resultImageData ? `<img class="chart" src="${resultImageData}" alt="技術線圖">` : ""}${window.ChartReport.render(currentAnalysisResult)}<footer>產生時間：${escapeHtml(new Date().toLocaleString("zh-TW"))}。AI 分析不構成投資建議或獲利保證。</footer></body></html>`;
     return new Promise((resolve) => {
@@ -803,10 +803,17 @@ async function createAnalysisPdf({ download = false } = {}) {
     const margin = 24, drawWidth = pageWidth - margin * 2, drawHeight = pageHeight - margin * 2;
     const pixelsPerPage = Math.max(1, Math.floor(canvas.width * drawHeight / drawWidth));
     const layout = pdfExportLayout(exportFrame.node, canvas.width);
+    // The body includes generous bottom padding. A safety cut near the end can
+    // otherwise push that empty padding onto a whole extra PDF page.
+    const rootRect = exportFrame.node.getBoundingClientRect();
+    const lastRect = exportFrame.node.lastElementChild?.getBoundingClientRect();
+    const contentHeight = lastRect
+      ? Math.min(canvas.height, Math.ceil((lastRect.bottom - rootRect.top + 8) * canvas.width / rootRect.width))
+      : canvas.height;
     let offset = 0, page = 0;
-    while (offset < canvas.height) {
-      const limit = Math.min(offset + pixelsPerPage, canvas.height);
-      const end = limit === canvas.height ? limit : pdfSafeCut(offset, limit, layout);
+    while (offset < contentHeight) {
+      const limit = Math.min(offset + pixelsPerPage, contentHeight);
+      const end = limit === contentHeight ? limit : pdfSafeCut(offset, limit, layout);
       const sliceHeight = end - offset;
       const slice = document.createElement("canvas");
       slice.width = canvas.width; slice.height = sliceHeight;

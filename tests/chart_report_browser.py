@@ -148,7 +148,7 @@ try:
         assert '盤中' not in filename and '技術分析' not in filename
         assert pdf['size']>1000 and pdf['header']=='%PDF'
         reader = PdfReader(qa_pdf)
-        assert len(reader.pages)>=2
+        assert len(reader.pages)==2, f"PDF should not contain an extra blank page: {len(reader.pages)}"
         urls = [str(annotation.get_object().get('/A', {}).get('/URI'))
                 for pdf_page in reader.pages for annotation in pdf_page.get('/Annots', [])
                 if annotation.get_object().get('/A', {}).get('/URI')]
