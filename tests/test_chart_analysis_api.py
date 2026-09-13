@@ -91,6 +91,22 @@ class ChartAnalysisApiTests(unittest.TestCase):
         self.assertEqual(request.call_args.kwargs['payload']['include'], ['web_search_call.action.sources'])
         self.assertNotIn('test-key', json.dumps(result))
 
+    @mock.patch.object(API, 'news_items')
+    def test_recent_news_keeps_five_latest_https_links(self, news):
+        news.return_value = [
+            {'title': '較舊新聞', 'url': 'https://example.com/old', 'source': '媒體', 'publishedAt': '2026-09-10T09:00:00+08:00'},
+            {'title': '最新新聞', 'url': 'https://example.com/new', 'source': '媒體', 'publishedAt': '2026-09-14T09:00:00+08:00'},
+            {'title': '不安全連結', 'url': 'http://example.com/insecure', 'source': '媒體', 'publishedAt': '2026-09-14T10:00:00+08:00'},
+            {'title': '重複連結', 'url': 'https://example.com/new', 'source': '媒體', 'publishedAt': '2026-09-14T08:00:00+08:00'},
+        ] + [{'title': '新聞 {}'.format(i), 'url': 'https://example.com/{}'.format(i), 'source': '媒體', 'publishedAt': '2026-09-{:02d}T09:00:00+08:00'.format(13 - i)} for i in range(6)]
+        data = API.validate_payload({'imageData': self.image_data(), 'symbol': '2330', 'market': 'TW', 'assetName': '台積電'})
+        result = {'chart': {'symbol': '2330', 'market': 'TW', 'name': '台積電'}}
+        recent = API.recent_news_for_result(data, result)
+        self.assertEqual(len(recent), 5)
+        self.assertEqual(recent[0]['title'], '最新新聞')
+        self.assertTrue(all(item['url'].startswith('https://') for item in recent))
+        self.assertEqual(len({item['url'] for item in recent}), 5)
+
     def test_unsearched_fundamentals_are_not_shown_as_verified(self):
         result = self.report_result()
         result['fundamentals'].update(status='已查證', judgment='偏多', industry='某產品需求上升 [1]',

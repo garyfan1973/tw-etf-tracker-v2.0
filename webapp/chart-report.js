@@ -65,6 +65,13 @@
       return url.protocol === "https:" && !url.username && !url.password ? url.href : "";
     } catch { return ""; }
   };
+  const newsDate = value => {
+    if (!value) return "日期未提供";
+    const date = new Date(value);
+    return Number.isNaN(date.getTime()) ? String(value) : date.toLocaleString("zh-TW", {
+      year: "numeric", month: "2-digit", day: "2-digit", hour: "2-digit", minute: "2-digit", hour12: false
+    });
+  };
   function renderStandard(result, { compact = false } = {}) {
     const r = result || {}, chart = r.chart || {}, verdict = r.verdict || {}, technical = r.technical || {};
     const fundamental = r.fundamentals || {}, fast = r.fastTrade || {}, closing = r.closing || {};
@@ -89,7 +96,9 @@
       const url = safeUrl(source.url);
       return `<li>${url ? `<a href="${esc(url)}" target="_blank" rel="noopener noreferrer">[${index + 1}] ${text(source.title)}</a>` : `${text(source.title)}（連結未提供）`}<span>${text(source.period || "期間未註明")}</span></li>`;
     }).join("")}</ol></div>` : "";
-    const fundamentalHtml = `<div class="sr-fund-status"><span>${text(fundamental.status)}</span><span>資料期間：${text(fundamental.asOf)}</span></div><div class="sr-grid sr-fund-grid"><div class="sr-field"><span>產業週期與供需</span><p>${cited(fundamental.industry)}</p></div><div class="sr-field"><span>營收動能與催化劑</span><p>${cited(fundamental.earningsCatalysts)}</p></div><div class="sr-field"><span>評價與下檔支撐</span><p>${cited(fundamental.valuationDownside)}</p></div></div><div class="sr-judgment"><b>基本面判斷：${cited(fundamental.judgment)}</b><p>追蹤 ${cited(fundamental.watch)}<br>失效 ${cited(fundamental.invalidates)}</p></div>${sourceHtml}`;
+    const recentNews = Array.isArray(r.recentNews) ? r.recentNews : [];
+    const newsHtml = `<div class="sr-news"><div class="sr-news-head"><b>最近 5 則相關財經新聞</b><span>${recentNews.length ? `已找到 ${recentNews.length} 則` : "目前沒有可核對的新聞"}</span></div>${recentNews.length ? `<ol>${recentNews.slice(0, 5).map(item => { const url = safeUrl(item?.url); return `<li>${url ? `<a href="${esc(url)}" target="_blank" rel="noopener noreferrer">${text(item.title || "未提供標題")}</a>` : `${text(item.title || "未提供標題")}（連結未提供）`}<span>${text(item.source || "新聞來源未標示")}・${text(newsDate(item.publishedAt))}</span></li>`; }).join("")}</ol>` : `<p>近 7 日未找到可核對的相關財經新聞連結。</p>`}</div>`;
+    const fundamentalHtml = `<div class="sr-fund-status"><span>${text(fundamental.status)}</span><span>資料期間：${text(fundamental.asOf)}</span></div><div class="sr-grid sr-fund-grid"><div class="sr-field"><span>產業週期與供需</span><p>${cited(fundamental.industry)}</p></div><div class="sr-field"><span>營收動能與催化劑</span><p>${cited(fundamental.earningsCatalysts)}</p></div><div class="sr-field"><span>評價與下檔支撐</span><p>${cited(fundamental.valuationDownside)}</p></div></div><div class="sr-judgment"><b>基本面判斷：${cited(fundamental.judgment)}</b><p>追蹤 ${cited(fundamental.watch)}<br>失效 ${cited(fundamental.invalidates)}</p></div>${sourceHtml}${newsHtml}`;
     const fastHtml = `<div class="sr-fast-head"><span>${cited(fast.style)}</span><b>${cited(fast.rewardRisk)}</b></div><div class="sr-fast-grid">${field("進場價區", fast.entry)}${field("確認條件", fast.trigger)}${field("第一獲利點", fast.target1)}${field("第二獲利點", fast.target2)}${field("防守停損", fast.stop)}${field("執行方式", fast.execution)}</div><p class="sr-size"><b>部位與追價：</b>${cited(fast.sizing)}</p>`;
     const strategyRows = (r.strategies || []).map(row => `<tr><th scope="row">${text(row.horizon)}</th><td>${cited(row.approach)}</td><td>${cited(row.entryExit)}</td><td>${cited(row.riskControl)}</td></tr>`).join("");
     const closingBlocks = position === "watching"

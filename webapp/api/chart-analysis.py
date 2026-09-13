@@ -10,17 +10,20 @@ import re
 import sys
 import time
 import urllib.error
+import urllib.parse
 import urllib.request
 
 try:
     from api._analysis_context import build_market_context
     from api import _stock_analysis_standard as standard
     from api.dividends import load as load_dividends
+    from api.news import news_items
     from api._taifex import compact_context as taifex_context
 except ModuleNotFoundError:  # Unit tests import from the repository root.
     from webapp.api._analysis_context import build_market_context
     from webapp.api import _stock_analysis_standard as standard
     from webapp.api.dividends import load as load_dividends
+    from webapp.api.news import news_items
     from webapp.api._taifex import compact_context as taifex_context
 
 
@@ -485,6 +488,44 @@ def extract_output_text(response):
     raise ValueError("模型沒有回傳可讀取的分析結果")
 
 
+def recent_news_for_result(data, result):
+    """Attach five current, clickable media links without asking the model to invent them."""
+    chart = result.get("chart") or {}
+    symbol = str(data.get("symbol") or chart.get("symbol") or "").strip().upper()
+    if not re.fullmatch(r"[0-9A-Z.^_-]{1,20}", symbol):
+        return []
+    market = str(data.get("market") or chart.get("market") or "").strip().upper()
+    if market not in CHART_MARKETS:
+        return []
+    name = str(data.get("assetName") or chart.get("name") or symbol).strip()[:80]
+    try:
+        items = news_items(symbol, name)
+    except Exception:
+        return []
+    cleaned, seen = [], set()
+    for item in sorted(items if isinstance(items, list) else [],
+                       key=lambda value: str(value.get("publishedAt") or ""), reverse=True):
+        if not isinstance(item, dict):
+            continue
+        title = str(item.get("title") or "").strip()
+        url = str(item.get("url") or "").strip()
+        try:
+            parts = urllib.parse.urlsplit(url)
+        except (AttributeError, ValueError):
+            continue
+        if (not title or not url or parts.scheme != "https" or not parts.netloc
+                or parts.username or parts.password or standard._is_blocked_research_url(url)
+                or url in seen):
+            continue
+        seen.add(url)
+        cleaned.append({"title": title[:240], "url": url[:2000],
+                        "source": str(item.get("source") or "新聞來源未標示")[:100],
+                        "publishedAt": str(item.get("publishedAt") or "")[:40]})
+        if len(cleaned) == 5:
+            break
+    return cleaned
+
+
 def analyze_chart(data, api_key):
     payload = {
         "model": OPENAI_MODEL,
@@ -507,6 +548,7 @@ def analyze_chart(data, api_key):
                             payload=payload, timeout=100)
     result = standard.verify_research_sources(
         validate_analysis(json.loads(extract_output_text(response))), response)
+    result["recentNews"] = recent_news_for_result(data, result)
     result["reportMeta"] = {
         "promptVersion": PROMPT_VERSION, "schemaVersion": 3,
         "promptHash": hashlib.sha256(SYSTEM_PROMPT.encode()).hexdigest(),

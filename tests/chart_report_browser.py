@@ -26,6 +26,9 @@ fixture["technical"].update(patternAndMA="價格仍在 MA20 下方。", volume="
 fixture["fundamentals"].update(status="已查證", industry="產品需求參考官方資料 [1]。", earningsCatalysts="最新季報待核對。",
                                valuationDownside="評價尚未核對。", judgment="中性", asOf="2026Q2",
                                sources=[{"title":"官方財報","url":"https://example.com/filing","period":"2026Q2"}])
+fixture["recentNews"] = [{"title": f"測試新聞 {index}", "url": f"https://news.example.com/{index}",
+                          "source": "測試財經媒體", "publishedAt": f"2026-09-{12 + index:02d}T09:00:00+08:00"}
+                         for index in range(1, 6)]
 fixture["fastTrade"].update(style="逆勢小量試單", entry="365–368", trigger="守住支撐", target1="390–395", stop="跌破 365", rewardRisk="需確認")
 
 AUTH = """
@@ -116,6 +119,8 @@ try:
         assert page.locator('#resultContent .ai-fixed-report').count()==0
         assert page.locator('#resultContent .sr-section h3').all_text_contents()==['技術面現況診斷','基本面與產業重點','快閃／短中長操作策略']
         assert page.locator('#resultContent .sr-cite[href="https://example.com/filing"]').count()==2
+        assert page.locator('#resultContent .sr-news li').count()==5
+        assert page.locator('#resultContent .sr-news a[target="_blank"]').count()==5
         assert page.locator('#resultContent .sr-strategy-table tbody tr').count()==3
         assert page.locator('#resultContent .sr-strategy-table td').evaluate_all('(els)=>els.every(e=>getComputedStyle(e).whiteSpace==="normal" && e.scrollWidth<=e.clientWidth+1)')
         page.wait_for_function('!document.querySelector("#resultExportTools").hidden')

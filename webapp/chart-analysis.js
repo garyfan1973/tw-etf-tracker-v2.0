@@ -737,7 +737,7 @@ function pdfExportLayout(root, canvasWidth) {
     width: rect.width * scale,
     height: rect.height * scale
   });
-  const blocks = [...root.querySelectorAll('img.chart,.sr-hero,.sr-section-head,.sr-field,.sr-table tr,.sr-judgment,.sr-sources li,.sr-closing>div,.sr-watch,.sr-final,.cr-section h3,.cr-points li,.cr-levels tr,.cr-rating')]
+  const blocks = [...root.querySelectorAll('img.chart,.sr-hero,.sr-section-head,.sr-field,.sr-table tr,.sr-judgment,.sr-sources li,.sr-news li,.sr-closing>div,.sr-watch,.sr-final,.cr-section h3,.cr-points li,.cr-levels tr,.cr-rating')]
     .map(element => bounds(element.getBoundingClientRect())).filter(rect => rect.height > 0);
   const lines = [], walker = root.ownerDocument.createTreeWalker(root, 4);
   while (walker.nextNode()) {
