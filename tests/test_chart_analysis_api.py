@@ -47,6 +47,7 @@ class ChartAnalysisApiTests(unittest.TestCase):
         self.assertEqual(data['proposedPrice'], 365)
         self.assertIn('394', API.build_user_prompt(data))
         self.assertIn('使用者已持有', API.build_user_prompt(data))
+        self.assertIn('不可只寫', API.SYSTEM_PROMPT)
         with self.assertRaisesRegex(ValueError, '每股平均成本'):
             API.validate_payload({'imageData': self.image_data(), 'positionStatus':'holding', 'costCurrency':'USD'})
         with self.assertRaisesRegex(ValueError, '新台幣'):
@@ -94,11 +95,23 @@ class ChartAnalysisApiTests(unittest.TestCase):
         result = self.report_result()
         result['fundamentals'].update(status='已查證', judgment='偏多', industry='某產品需求上升 [1]',
                                       sources=[{'title':'測試來源','url':'https://example.com/filing','period':'2026Q2'}])
+        result['verdict'].update(thesis='價格守住 247 元；營收成長 35% [1]。',
+                                 entryNow='回測 255 元止穩才考慮加碼。', biggestRisk='跌破 247 元。')
+        result['strategies'][2].update(approach='突破 270 元且守穩才續抱。',
+                                       entryExit='失守 247 元則退出。', riskControl='依 247 元支撐控管風險。')
+        result['closing'].update(holder='平均成本 255 元，跌破 247 元減碼；營收成長 35% [1] 可長抱。',
+                                 uninvested='等待 270 元突破且量能確認，再評估進場。',
+                                 reason='技術上仍需站穩 270 元。')
         downgraded = API.standard.verify_research_sources(result, {'output':[]})
         self.assertEqual(downgraded['fundamentals']['status'], '未查證')
         self.assertEqual(downgraded['fundamentals']['sources'], [])
-        self.assertEqual(downgraded['verdict']['overall'], '等待確認')
-        self.assertEqual(downgraded['strategies'][2]['approach'], '等待基本面查證')
+        self.assertEqual(downgraded['verdict']['thesis'], '價格守住 247 元；')
+        self.assertEqual(downgraded['verdict']['entryNow'], '回測 255 元止穩才考慮加碼。')
+        self.assertEqual(downgraded['strategies'][2]['approach'], '突破 270 元且守穩才續抱。')
+        self.assertEqual(downgraded['closing']['holder'], '平均成本 255 元，跌破 247 元減碼；')
+        self.assertEqual(downgraded['closing']['uninvested'], '等待 270 元突破且量能確認，再評估進場。')
+        self.assertIn('基本面尚未查證', downgraded['closing']['reason'])
+        self.assertNotIn('營收成長', json.dumps(downgraded, ensure_ascii=False))
 
     def test_fundamentals_require_cited_web_search_sources(self):
         result = self.report_result()
@@ -107,6 +120,24 @@ class ChartAnalysisApiTests(unittest.TestCase):
         response = {'output':[{'type':'web_search_call', 'action':{'type':'search',
             'sources':[{'type':'url','url':'https://example.com/filing'}]}}]}
         self.assertEqual(API.standard.verify_research_sources(result, response)['fundamentals']['status'], '已查證')
+
+    @mock.patch.object(API, 'json_request')
+    def test_holding_report_keeps_price_plan_when_research_cannot_be_verified(self, request):
+        raw = self.report_result()
+        raw['fundamentals'].update(status='已查證', industry='營收成長 [1]。',
+                                   sources=[{'title':'測試來源','url':'https://example.com/filing','period':'2026Q2'}])
+        raw['closing']['holder'] = '平均成本 255 元；若跌破 247 元就減碼，站回 270 元再檢視續抱。'
+        raw['closing']['uninvested'] = '空手者等站穩 270 元才評估進場，跌破 247 元取消計畫。'
+        request.return_value = {'model':'test-model', 'output':[{'type':'message', 'content':[{
+            'type':'output_text', 'text':json.dumps(raw, ensure_ascii=False)}]}]}
+        data = API.validate_payload({'imageData':self.image_data(), 'market':'TW', 'positionStatus':'holding',
+                                     'averageCost':255, 'costCurrency':'TWD'})
+        result, _, _ = API.analyze_chart(data, 'test-key')
+        self.assertEqual(result['fundamentals']['status'], '未查證')
+        self.assertEqual(result['closing']['holder'], raw['closing']['holder'])
+        self.assertEqual(result['closing']['uninvested'], raw['closing']['uninvested'])
+        self.assertEqual(result['reportMeta']['positionStatus'], 'holding')
+        self.assertEqual(result['reportMeta']['averageCost'], 255)
 
     def test_member_access_errors_stop_before_model_request(self):
         for code, status in [('FEATURE_NOT_ENABLED',403), ('FEATURE_ACCESS_EXPIRED',403), ('DAILY_LIMIT_REACHED',429)]:

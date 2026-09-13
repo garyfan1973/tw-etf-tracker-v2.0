@@ -84,6 +84,7 @@ SYSTEM_PROMPT = """你是謹慎的股票與 ETF 研究分析師。以下是目�
 - verdict.overall 必須是四個指定總評之一；closing.reason 用一句話交代依據。不要沿用舊版星等評分。
 - 快閃、隔日沖、低接模式仍給完整三部分報告，並在 fastTrade 欄對應該模式提供進場、防守、出場與放棄條件；失敗短單不可自動轉長抱。
 - 持倉狀態以本次輸入為準：holding 表示已持股，closing.holder 須依每股平均成本與實際報價提出具體續抱、減碼、停損條件；watching 表示目前空手，closing.uninvested 須提出等待、進場與不追價條件。兩種情境仍都要填寫，但不得把空手者說成已持股；已提供成本時不得再說「未提供持股狀態或平均成本」。成本幣別與價格幣別不同時不得直接比較。
+- 基本面未查證不等於技術面無法分析。只要圖上價位可辨識，closing.holder 與 closing.uninvested 都要寫出具體價區、觸發條件、對應動作及失效條件；持股者並須對照輸入成本。不可只寫「依失效條件管理部位」「等待技術觸發」等沒有價位與動作的套話。若價位無法可靠辨識，清楚說明缺少什麼，不捏造數字。
 """
 
 
@@ -95,6 +96,23 @@ def _canonical_url(value):
     if parts.scheme != "https" or not parts.netloc or parts.username or parts.password:
         return ""
     return (parts.hostname.lower() + parts.path.rstrip("/")) if parts.hostname else ""
+
+
+_UNVERIFIED_RESEARCH_CLAIM = re.compile(
+    r"\[\d+\]|營收|財報|季報|獲利|業績|毛利|本益比|EPS|股利|配息|產業|訂單|估值|評價|市占|供需",
+    re.IGNORECASE,
+)
+
+
+def _keep_technical_clauses(value, fallback):
+    """Retain price/position advice without carrying unverified research claims."""
+    clauses = re.findall(r"[^。！？!?；;]+[。！？!?；;]?", value)
+    kept = "".join(clause for clause in clauses if not _UNVERIFIED_RESEARCH_CLAIM.search(clause)).strip()
+    if kept:
+        return kept
+    fallback_clauses = re.findall(r"[^。！？!?；;]+[。！？!?；;]?", fallback)
+    return "".join(clause for clause in fallback_clauses
+                   if not _UNVERIFIED_RESEARCH_CLAIM.search(clause)).strip() or "技術條件不足，暫不依此制定交易計畫。"
 
 
 def verify_research_sources(result, response):
@@ -125,16 +143,21 @@ def verify_research_sources(result, response):
             "judgment": "未查證", "watch": "等待官方財報與交易所揭露。",
             "invalidates": "取得可核對來源後重新評估。", "asOf": "未查證", "sources": [],
         })
-        result["verdict"]["overall"] = "等待確認"
-        result["verdict"]["entryNow"] = "基本面尚未查證；請先依技術條件與風險控管評估"
-        result["verdict"]["thesis"] = "技術證據見下方；中長期判斷需待基本面與評價來源確認。"
-        result["verdict"]["biggestRisk"] = "基本面尚未查證；需嚴守技術失效條件。"
+        verdict, technical, fast = result["verdict"], result["technical"], result["fastTrade"]
+        verdict["entryNow"] = _keep_technical_clauses(verdict["entryNow"], fast["trigger"])
+        verdict["thesis"] = _keep_technical_clauses(verdict["thesis"], technical["patternAndMA"])
+        verdict["biggestRisk"] = _keep_technical_clauses(verdict["biggestRisk"], fast["stop"])
         for row in result["strategies"][1:]:
-            row.update({"approach": "等待基本面查證", "entryExit": "暫不依未查證的評價或催化劑設定價位。",
-                        "riskControl": "取得官方財報、產業與評價來源後重新評估。"})
-        result["closing"].update({
-            "holder": "依技術面失效條件管理既有部位；中長期需待基本面查證。",
-            "uninvested": "只依清楚的技術觸發條件評估；中長期先等待可靠來源。",
-            "reason": "技術判讀仍可參考，但基本面與評價尚無可核對來源。",
-        })
+            row["approach"] = _keep_technical_clauses(row["approach"], technical["patternAndMA"])
+            row["entryExit"] = _keep_technical_clauses(row["entryExit"], fast["trigger"])
+            row["riskControl"] = _keep_technical_clauses(row["riskControl"], fast["stop"])
+        closing = result["closing"]
+        closing["holder"] = _keep_technical_clauses(closing["holder"],
+            "持股者依圖上失效條件調整部位：" + fast["stop"])
+        closing["uninvested"] = _keep_technical_clauses(closing["uninvested"],
+            "空手者等待進場條件成立：" + fast["trigger"])
+        closing["reason"] = _keep_technical_clauses(closing["reason"],
+            "技術條件可參考，基本面尚未查證。")
+        if "基本面" not in closing["reason"]:
+            closing["reason"] += " 基本面尚未查證，不納入本次操作依據。"
     return result
