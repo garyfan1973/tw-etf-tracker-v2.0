@@ -107,6 +107,21 @@ class ChartAnalysisApiTests(unittest.TestCase):
         self.assertTrue(all(item['url'].startswith('https://') for item in recent))
         self.assertEqual(len({item['url'] for item in recent}), 5)
 
+    def test_trusted_financial_snapshot_is_kept_when_web_search_has_no_source(self):
+        data = API.validate_payload({'imageData': self.image_data(), 'symbol': '2330', 'market': 'TW', 'assetName': '台積電'})
+        data['contextData'] = {'financials': {
+            'quarters': [{'year': '2026Q2', 'currency': 'TWD', 'revenue': 100000000000,
+                          'grossProfit': 50000000000, 'operatingIncome': 40000000000,
+                          'netIncome': 35000000000, 'eps': 13.5, 'operatingCashFlow': 45000000000,
+                          'freeCashFlow': 12000000000}],
+            'source': {'name': '公開資訊觀測站', 'url': 'https://mops.twse.com.tw/mops/#/web/t163sb04'}}}
+        result = self.report_result()
+        result = API.attach_financial_snapshot(data, result)
+        self.assertIn('營業收入 1,000.0 億元', result['fundamentals']['earningsCatalysts'])
+        self.assertIn('毛利率 50.0%', result['fundamentals']['earningsCatalysts'])
+        self.assertIn('[1]', result['fundamentals']['earningsCatalysts'])
+        self.assertEqual(result['fundamentals']['asOf'], '2026Q2')
+
     def test_unsearched_fundamentals_are_not_shown_as_verified(self):
         result = self.report_result()
         result['fundamentals'].update(status='已查證', judgment='偏多', industry='某產品需求上升 [1]',
