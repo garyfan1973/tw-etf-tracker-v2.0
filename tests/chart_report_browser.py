@@ -126,7 +126,20 @@ try:
         assert page.locator('#report .sr-cite[href="https://example.com/filing"]').count()==1
         morning_pdf = page.pdf(format='A4', print_background=True)
         assert morning_pdf[:4]==b'%PDF' and len(morning_pdf)>1000
-        print(json.dumps({"browser":"passed", "pdfBytes":pdf['size'], "morningPdfBytes":len(morning_pdf), "checks":["K-line capture and transfer","preset restoration after success and failure","upload","cost","standard report","source links","shared PDF","morning PDF","mobile","dark","member gate"]}))
+        page.unroute('**/api/chart-analysis', response)
+        page.route('**/api/chart-analysis', lambda route: route.fulfill(status=503, json={"ok":False,
+            "error":"會員驗證服務暫時無法連線，請稍後重試；本次未扣除分析額度"}))
+        page.goto(f'http://127.0.0.1:{server.server_port}/chart-analysis.html', wait_until='networkidle')
+        page.wait_for_function('window.qaReport && !document.querySelector("#aiWorkspace").hidden')
+        page.set_input_files('#chartImage', {"name":"qa-chart.png","mimeType":"image/png","buffer":base64.b64decode(png)})
+        page.wait_for_function('!document.querySelector("#chartPreview").hidden')
+        page.click('#analyzeChart')
+        page.wait_for_selector('#resultLoading.error')
+        assert page.locator('#progressPercent').inner_text()=='未完成'
+        assert page.locator('#analysisProgress').get_attribute('aria-valuenow') is None
+        assert '本次未扣除分析額度' in page.locator('#progressMessage').inner_text()
+        assert not errors, errors
+        print(json.dumps({"browser":"passed", "pdfBytes":pdf['size'], "morningPdfBytes":len(morning_pdf), "checks":["K-line capture and transfer","preset restoration after success and failure","upload","cost","standard report","source links","shared PDF","morning PDF","mobile","dark","member gate","auth timeout feedback"]}))
         browser.close()
 finally:
     server.shutdown()

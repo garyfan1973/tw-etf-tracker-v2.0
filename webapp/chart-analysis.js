@@ -322,6 +322,7 @@ function clearAnalysisProgressTimer() {
 function setAnalysisProgress(value, stage, message) {
   const progress = Math.max(0, Math.min(100, Math.round(value)));
   $("#analysisProgress").setAttribute("aria-valuenow", String(progress));
+  $("#analysisProgress").removeAttribute("aria-valuetext");
   $("#analysisProgressBar").style.width = `${progress}%`;
   $("#progressPercent").textContent = `${progress}%`;
   if (stage) $("#progressStage").textContent = stage;
@@ -368,8 +369,12 @@ function failAnalysisProgress(message) {
   panel.classList.add("error");
   panel.querySelector(".ai-progress-orbit span").textContent = "!";
   $("#progressTitle").textContent = "分析未完成";
-  const progress = Number($("#analysisProgress").getAttribute("aria-valuenow")) || 0;
-  setAnalysisProgress(progress, "處理中斷", message || "分析服務暫時無法完成，請稍後再試。");
+  $("#analysisProgress").removeAttribute("aria-valuenow");
+  $("#analysisProgress").setAttribute("aria-valuetext", "分析未完成");
+  $("#analysisProgressBar").style.width = "0%";
+  $("#progressPercent").textContent = "未完成";
+  $("#progressStage").textContent = "處理中斷";
+  $("#progressMessage").textContent = message || "分析服務暫時無法完成，請稍後再試。";
   $("#resultMeta").textContent = "本次分析未完成";
 }
 

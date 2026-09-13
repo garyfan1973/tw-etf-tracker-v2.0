@@ -112,6 +112,41 @@ class ChartAnalysisApiTests(unittest.TestCase):
                     analyze.assert_not_called()
                     self.assertEqual(handler.send_json.call_args.args[1], status)
 
+    @mock.patch.object(API.time, 'sleep')
+    @mock.patch.object(API, 'json_request')
+    def test_member_verification_retries_only_transient_failure(self, request, sleep):
+        request.side_effect = [API.ApiError(504, {'message':'Gateway Timeout'}), {'id':'member-1'}]
+        self.assertEqual(API.verify_user('test-user')['id'], 'member-1')
+        self.assertEqual(request.call_count, 2)
+        sleep.assert_called_once_with(0.5)
+        request.reset_mock(side_effect=True)
+        sleep.reset_mock()
+        request.side_effect = API.ApiError(401, {'message':'Invalid JWT'})
+        with self.assertRaises(API.ApiError):
+            API.verify_user('test-user')
+        request.assert_called_once()
+        sleep.assert_not_called()
+
+    def test_repeated_member_auth_timeout_does_not_consume_quota(self):
+        body = json.dumps({'imageData':self.image_data()}).encode()
+        handler = object.__new__(API.handler)
+        handler.headers = {'Authorization':'Bearer test-user', 'Content-Length':str(len(body))}
+        handler.rfile = io.BytesIO(body)
+        handler.send_json = mock.Mock()
+        with mock.patch.dict(API.os.environ, {'OPENAI_API_KEY':'test-key'}), \
+             mock.patch.object(API, 'json_request', side_effect=API.ApiError(504, {'message':'Gateway Timeout'})) as request, \
+             mock.patch.object(API.time, 'sleep'), \
+             mock.patch.object(API, 'call_rpc') as quota, \
+             mock.patch.object(API, 'analyze_chart') as analyze:
+            handler.do_POST()
+        self.assertEqual(request.call_count, 2)
+        quota.assert_not_called()
+        analyze.assert_not_called()
+        response, status = handler.send_json.call_args.args
+        self.assertEqual(status, 503)
+        self.assertIn('會員驗證服務暫時無法連線', response['error'])
+        self.assertIn('本次未扣除分析額度', response['error'])
+
     def image_data(self, size=32, mime="image/png"):
         return "data:{};base64,{}".format(mime, base64.b64encode(b"x" * size).decode())
 

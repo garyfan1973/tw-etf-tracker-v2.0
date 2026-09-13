@@ -8,6 +8,7 @@ import math
 import os
 import re
 import sys
+import time
 import urllib.error
 import urllib.request
 
@@ -430,7 +431,22 @@ def supabase_headers(token):
 
 
 def verify_user(token):
-    return json_request(SUPABASE_URL + "/auth/v1/user", headers=supabase_headers(token), timeout=15)
+    # Reading the member identity is safe to retry; quota consumption below is not.
+    for attempt in range(2):
+        try:
+            return json_request(SUPABASE_URL + "/auth/v1/user", headers=supabase_headers(token), timeout=15)
+        except (ApiError, urllib.error.URLError, TimeoutError) as error:
+            transient = error.status in (502, 503, 504) if isinstance(error, ApiError) else True
+            if not transient:
+                raise
+            if attempt:
+                if isinstance(error, ApiError):
+                    raise
+                raise ApiError(503, {"message": "AUTH_UPSTREAM_UNAVAILABLE"}) from error
+            print(json.dumps({"event": "chart_analysis_auth_retry", "status":
+                              error.status if isinstance(error, ApiError) else "network"}),
+                  file=sys.stderr, flush=True)
+            time.sleep(0.5)
 
 
 def verify_service_token(token):
@@ -493,7 +509,7 @@ def analyze_chart(data, api_key):
     return result, response.get("model") or OPENAI_MODEL, response.get("usage") or {}
 
 
-def public_error(error):
+def public_error(error, stage=""):
     detail = error.detail if isinstance(error, ApiError) else {}
     message = detail.get("message") if isinstance(detail, dict) else ""
     mappings = {
@@ -505,6 +521,8 @@ def public_error(error):
     for code, response in mappings.items():
         if code in message:
             return response
+    if stage == "user_auth" and isinstance(error, ApiError) and error.status in (502, 503, 504):
+        return 503, "會員驗證服務暫時無法連線，請稍後重試；本次未扣除分析額度"
     if isinstance(error, ApiError) and error.status in (401, 403):
         return 401, "登入狀態已失效，請重新登入"
     return 502, "分析服務暫時無法完成，請稍後再試"
@@ -569,7 +587,7 @@ class handler(BaseHTTPRequestHandler):
                               "status": error.status, "code": safe_code}), file=sys.stderr, flush=True)
             if request_id:
                 self.finish_error(token, request_id, "upstream_error")
-            status, message = public_error(error)
+            status, message = public_error(error, stage)
             self.send_json({"ok": False, "error": message}, status)
         except Exception as error:
             print(json.dumps({"event": "chart_analysis_unexpected_error", "stage": stage,
