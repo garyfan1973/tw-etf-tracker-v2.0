@@ -1,5 +1,6 @@
 """Deployable stock-analysis-standard prompt and structured report contract."""
 import hashlib
+import json
 import re
 from pathlib import Path
 from urllib.parse import urlsplit
@@ -77,6 +78,7 @@ SYSTEM_PROMPT = """你是謹慎的股票與 ETF 研究分析師。以下是目�
 - 台灣線圖依畫面慣例讀紅漲綠跌；MACD 要用數值與前後期關係。盤中量不與完整日均量直接比較。
 - 若有 operationSignal，於 technical.indicators 或 technical.patternAndMA 具體對照；不同意時說出相反證據。
 - 可辨識股票／ETF 代號時，使用 web_search 查證最新基本面、產業、營收與評價。優先官方財報、交易所、投資人關係與權威資料；只有被實際搜尋的來源可列入 fundamentals.sources。各事實後以 [1]、[2] 標示來源序號，並寫明資料期間；每個序號都必須對應 sources 中實際可開啟的 HTTPS 網址。沒有可核對網址的說法不得加來源序號。不能查證的細項直接標示未查證，不可由常識或舊印象填補。ETF 請以追蹤指數、持股、費用、配息與相關產業代替個股營收或本益比。
+- 標的代號可辨識時，必須先使用 web_search，再輸出基本面段落；若工具沒有回傳可開啟的來源，分別在對應欄位說明「目前未取得可核對的產業／營收與財報／評價來源」，不要把三欄全部寫成同一句。
 - 若整份基本面缺乏可靠來源，fundamentals.status/ judgment 填「未查證」，sources 為空陣列；三個內容欄清楚寫未查證。不得因此省略技術面。
 - 若截圖與輸入都無法辨識標的，在 verdict.entryNow 要求補標的代號，基本面標示未查證。
 - technical.levels 只列有依據的支撐、壓力、失效價區；沒有可靠價位時留空，不虛構。fastTrade 欄位在缺乏可靠價位時說明無法計算或暫不交易，不捏造停損與報酬風險。
@@ -95,7 +97,10 @@ def _canonical_url(value):
         return ""
     if parts.scheme != "https" or not parts.netloc or parts.username or parts.password:
         return ""
-    return (parts.hostname.lower() + parts.path.rstrip("/")) if parts.hostname else ""
+    hostname = parts.hostname.lower() if parts.hostname else ""
+    if hostname.startswith("www."):
+        hostname = hostname[4:]
+    return (hostname + (parts.path.rstrip("/") or "/")) if hostname else ""
 
 
 _UNVERIFIED_RESEARCH_CLAIM = re.compile(
@@ -115,49 +120,74 @@ def _keep_technical_clauses(value, fallback):
                    if not _UNVERIFIED_RESEARCH_CLAIM.search(clause)).strip() or "技術條件不足，暫不依此制定交易計畫。"
 
 
+def _remove_unverified_clauses(value):
+    """Remove only unsupported research clauses while retaining technical clauses."""
+    clauses = re.findall(r"[^。！？!?；;]+[。！？!?；;]?", value)
+    kept = "".join(clause for clause in clauses if not _UNVERIFIED_RESEARCH_CLAIM.search(clause)).strip()
+    return kept or "技術證據不足，暫不給出額外判斷。"
+
+
 def verify_research_sources(result, response):
-    """Never show uncited fundamental assertions as verified research."""
+    """Validate research fields independently; do not erase usable technical advice."""
     research = result["fundamentals"]
     if research["status"] in {"未查證", "不適用"}:
         research["sources"] = []
         return result
     searched = set()
-    for item in response.get("output") or []:
-        if item.get("type") != "web_search_call":
-            continue
-        action = item.get("action") or {}
-        searched.update(filter(None, (_canonical_url(source.get("url", ""))
-                          for source in action.get("sources") or [])))
-        if action.get("type") in {"open_page", "find_in_page"}:
-            searched.add(_canonical_url(action.get("url", "")))
-    sources = research["sources"]
-    used_refs = set(re.findall(r"\[(\d+)\]", " ".join(
-        research[key] for key in ("industry", "earningsCatalysts", "valuationDownside"))))
-    if not sources or not searched or not used_refs or any(
-        _canonical_url(source["url"]) not in searched for source in sources
-    ) or any(int(ref) < 1 or int(ref) > len(sources) for ref in used_refs):
-        research.update({
-            "status": "未查證", "industry": "目前沒有可核對的產業來源。",
-            "earningsCatalysts": "最新營收、財報與催化劑尚未查證。",
-            "valuationDownside": "評價與下檔風險尚未查證。",
-            "judgment": "未查證", "watch": "等待官方財報與交易所揭露。",
-            "invalidates": "取得可核對來源後重新評估。", "asOf": "未查證", "sources": [],
-        })
-        verdict, technical, fast = result["verdict"], result["technical"], result["fastTrade"]
-        verdict["entryNow"] = _keep_technical_clauses(verdict["entryNow"], fast["trigger"])
-        verdict["thesis"] = _keep_technical_clauses(verdict["thesis"], technical["patternAndMA"])
-        verdict["biggestRisk"] = _keep_technical_clauses(verdict["biggestRisk"], fast["stop"])
-        for row in result["strategies"][1:]:
-            row["approach"] = _keep_technical_clauses(row["approach"], technical["patternAndMA"])
-            row["entryExit"] = _keep_technical_clauses(row["entryExit"], fast["trigger"])
-            row["riskControl"] = _keep_technical_clauses(row["riskControl"], fast["stop"])
-        closing = result["closing"]
-        closing["holder"] = _keep_technical_clauses(closing["holder"],
-            "持股者依圖上失效條件調整部位：" + fast["stop"])
-        closing["uninvested"] = _keep_technical_clauses(closing["uninvested"],
-            "空手者等待進場條件成立：" + fast["trigger"])
-        closing["reason"] = _keep_technical_clauses(closing["reason"],
-            "技術條件可參考，基本面尚未查證。")
-        if "基本面" not in closing["reason"]:
-            closing["reason"] += " 基本面尚未查證，不納入本次操作依據。"
+    def collect(value):
+        if isinstance(value, dict):
+            if isinstance(value.get("url"), str):
+                canonical = _canonical_url(value["url"])
+                if canonical:
+                    searched.add(canonical)
+            for child in value.values():
+                collect(child)
+        elif isinstance(value, list):
+            for child in value:
+                collect(child)
+    collect(response.get("output") or [])
+    source_by_url = {}
+    for source in research["sources"]:
+        canonical = _canonical_url(source.get("url", ""))
+        if canonical and canonical in searched:
+            source_by_url.setdefault(canonical, source)
+    verified_sources = list(source_by_url.values())
+    source_index = {index: source for index, source in enumerate(research["sources"], 1)
+                    if _canonical_url(source.get("url", "")) in source_by_url}
+    fallbacks = {
+        "industry": "目前未取得可核對的產業來源。",
+        "earningsCatalysts": "目前未取得可核對的營收與財報來源。",
+        "valuationDownside": "目前未取得可核對的評價來源。",
+    }
+    verified_count = 0
+    for key, fallback in fallbacks.items():
+        refs = [int(ref) for ref in re.findall(r"\[(\d+)\]", research[key])]
+        if refs and all(ref in source_index for ref in refs):
+            verified_count += 1
+        else:
+            research[key] = fallback
+    if verified_count == 3:
+        research["status"] = "已查證"
+    elif verified_count:
+        research["status"] = "部分查證"
+    else:
+        research["status"] = "未查證"
+    research["sources"] = verified_sources
+    if verified_count < 3:
+        research["judgment"] = "未查證"
+        research["watch"] = "等待官方財報、交易所或公司公告等可核對來源。"
+        research["invalidates"] = "取得可核對來源後重新評估。"
+        research["asOf"] = "未查證"
+        for key in ("thesis", "entryNow", "biggestRisk"):
+            result["verdict"][key] = _remove_unverified_clauses(result["verdict"][key])
+        for row in result["strategies"]:
+            for key in ("approach", "entryExit", "riskControl"):
+                row[key] = _remove_unverified_clauses(row[key])
+        for key in ("holder", "uninvested", "reason"):
+            result["closing"][key] = _remove_unverified_clauses(result["closing"][key])
+        result["closing"]["reason"] += " 基本面尚未查證，不納入本次操作依據。"
+    print(json.dumps({"event": "chart_analysis_source_verification", "symbol": result.get("chart", {}).get("symbol", ""),
+                      "status": research["status"], "returnedSources": len(research["sources"]),
+                      "searchedUrls": len(searched), "verifiedFields": verified_count}, ensure_ascii=False),
+          flush=True)
     return result

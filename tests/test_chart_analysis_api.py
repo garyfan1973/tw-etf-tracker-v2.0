@@ -119,7 +119,7 @@ class ChartAnalysisApiTests(unittest.TestCase):
                                       sources=[{'title':'官方財報','url':'https://example.com/filing','period':'2026Q2'}])
         response = {'output':[{'type':'web_search_call', 'action':{'type':'search',
             'sources':[{'type':'url','url':'https://example.com/filing'}]}}]}
-        self.assertEqual(API.standard.verify_research_sources(result, response)['fundamentals']['status'], '已查證')
+        self.assertEqual(API.standard.verify_research_sources(result, response)['fundamentals']['status'], '部分查證')
 
     @mock.patch.object(API, 'json_request')
     def test_holding_report_keeps_price_plan_when_research_cannot_be_verified(self, request):
@@ -301,6 +301,7 @@ class ChartAnalysisApiTests(unittest.TestCase):
         self.assertIn("operationSignal", API.SYSTEM_PROMPT)
         self.assertIn("JSON、API、schema、payload 等資訊技術用語", API.SYSTEM_PROMPT)
         self.assertIn("每個序號都必須對應 sources 中實際可開啟的 HTTPS 網址", API.SYSTEM_PROMPT)
+        self.assertIn("必須先使用 web_search", API.SYSTEM_PROMPT)
         self.assertIn("快閃、隔日沖、低接模式仍給完整三部分報告", API.SYSTEM_PROMPT)
 
     def test_rejects_invalid_williams_and_operation_signal(self):
