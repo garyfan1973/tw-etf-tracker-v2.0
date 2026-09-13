@@ -24,6 +24,14 @@ class MacroEconomyDataTests(unittest.TestCase):
         config = next(item for item in US_SERIES if item["id"] == "us-ppi")
         self.assertEqual(transform_rows(rows, config), [{"date": "2025-01-01", "value": 3.0}])
 
+    def test_cpi_uses_unadjusted_official_release_basis(self):
+        for indicator, fred_id in [("us-cpi", "CPIAUCNS"), ("us-core-cpi", "CPILFENS")]:
+            with self.subTest(indicator=indicator):
+                config = next(item for item in US_SERIES if item["id"] == indicator)
+                self.assertEqual(config["series"], fred_id)
+                self.assertEqual(config["calendarMonths"], 12)
+                self.assertIn("未季調", config["note"])
+
     def test_ppi_series_metadata_and_percentage_point_change(self):
         for indicator, fred_id in [("us-ppi", "PPIFID"), ("us-core-ppi", "PPICOR")]:
             with self.subTest(indicator=indicator):
