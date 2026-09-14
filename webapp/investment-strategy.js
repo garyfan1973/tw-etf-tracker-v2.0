@@ -5,6 +5,7 @@
   const market = String(params.get("market") || (/^\d/.test(symbol) ? "TW" : "US")).trim().toUpperCase();
   const valid = market === "TW" ? /^\d{4,6}$/.test(symbol) : market === "US" && /^[A-Z][A-Z0-9.-]{0,9}$/.test(symbol);
   const cacheKey = `investment-strategy:${market}:${symbol}`;
+  const pendingKey = `${cacheKey}:pending`;
   let started = false;
   let busy = false;
 
@@ -104,7 +105,43 @@
     $("strategyReport").hidden = false;
   }
 
-  async function run() {
+  async function waitForJob(job, session, startedAt) {
+    let connectionFailures = 0;
+    while (Date.now() - startedAt < 8.5 * 60 * 1000) {
+      await new Promise((resolve) => setTimeout(resolve, 6000));
+      try {
+        const response = await fetch(`/api/investment-strategy?job=${encodeURIComponent(job)}`, {
+          headers: { Authorization: `Bearer ${session.access_token}` }, cache: "no-store",
+        });
+        const payload = await response.json().catch(() => ({}));
+        if (!response.ok || !payload.ok) {
+          if (payload.retryable) {
+            connectionFailures += 1;
+            if (connectionFailures >= 3)
+              $("gateMessage").textContent = "讀取進度時連線不穩，仍在等待同一份分析，不會重新開始。";
+            continue;
+          }
+          throw new Error(payload.error || "分析未能完成，請重新分析");
+        }
+        connectionFailures = 0;
+        if (payload.status === "completed" && payload.report) return payload.report;
+        if (payload.status !== "working") throw new Error("分析未能完成，請重新分析");
+        if (Date.now() - startedAt > 3 * 60 * 1000)
+          $("gateMessage").textContent = "仍在整理近期資料與投資情境，分析會自動顯示；請保持此頁開啟。";
+      } catch (error) {
+        if (error instanceof TypeError) {
+          connectionFailures += 1;
+          if (connectionFailures >= 3)
+            $("gateMessage").textContent = "連線暫時不穩，仍在等待同一份分析，不會重新開始。";
+          continue;
+        }
+        throw error;
+      }
+    }
+    throw new Error("這份分析等待太久，請重新分析。若持續發生，請稍後再試。");
+  }
+
+  async function run(pending = null) {
     if (busy || !valid) return;
     const client = window.ETFAuth?.client();
     if (!client) return gate("會員服務未連線", "請稍後重新開啟此頁。", () => location.reload());
@@ -112,17 +149,30 @@
     if (!session) return gate("登入後開始分析", "登入即可取得這檔股票的完整投資策略建議。", () => window.ETFAuth.openLogin(), "登入 / 註冊");
     busy = true;
     $("rerunStrategy").disabled = true;
-    gate("正在寫給你的策略", "正在閱讀近期價格、公司營運與市場看法，這通常需要約 30～120 秒。", null);
+    gate("正在寫給你的策略", "正在閱讀近期價格、公司營運與市場看法。分析會自動顯示，通常需要 1～3 分鐘。", null);
     try {
-      const response = await fetch("/api/investment-strategy", {
-        method: "POST", headers: { "Content-Type": "application/json", Authorization: `Bearer ${session.access_token}` },
-        body: JSON.stringify({ symbol, market }),
-      });
-      const payload = await response.json().catch(() => ({}));
-      if (!response.ok || !payload.ok) throw new Error(payload.error || "分析暫時沒有完成，請重試");
-      sessionStorage.setItem(cacheKey, JSON.stringify({ savedAt: Date.now(), userId: session.user.id, report: payload.report }));
-      render(payload.report);
+      let report;
+      if (pending) {
+        report = await waitForJob(pending.job, session, pending.startedAt);
+      } else {
+        const response = await fetch("/api/investment-strategy", {
+          method: "POST", headers: { "Content-Type": "application/json", Authorization: `Bearer ${session.access_token}` },
+          body: JSON.stringify({ symbol, market }),
+        });
+        const payload = await response.json().catch(() => ({}));
+        if (!response.ok || !payload.ok) throw new Error(payload.error || "分析暫時沒有完成，請重試");
+        if (payload.status === "completed" && payload.report) report = payload.report;
+        else if (payload.status === "working" && payload.job) {
+          pending = { job: payload.job, userId: session.user.id, startedAt: Date.now() };
+          sessionStorage.setItem(pendingKey, JSON.stringify(pending));
+          report = await waitForJob(pending.job, session, pending.startedAt);
+        } else throw new Error("分析未能啟動，請重新分析");
+      }
+      sessionStorage.removeItem(pendingKey);
+      sessionStorage.setItem(cacheKey, JSON.stringify({ savedAt: Date.now(), userId: session.user.id, report }));
+      render(report);
     } catch (error) {
+      sessionStorage.removeItem(pendingKey);
       gate("這次沒有順利完成", error.message || "請稍後重試。", () => run());
     } finally {
       busy = false;
@@ -145,6 +195,14 @@
         return;
       }
     } catch (_) { /* 舊的暫存結果無法讀取時重新產生 */ }
+    try {
+      const pending = JSON.parse(sessionStorage.getItem(pendingKey) || "null");
+      if (pending?.job && pending.userId === session.user.id && Date.now() - pending.startedAt < 8.5 * 60 * 1000) {
+        run(pending);
+        return;
+      }
+    } catch (_) { /* 暫存中的工作無法讀取時重新開始 */ }
+    sessionStorage.removeItem(pendingKey);
     run();
   }
 
@@ -153,7 +211,7 @@
     const name = String(params.get("name") || "").trim().slice(0, 60);
     if (name) $("stockName").textContent = ` ${name}`;
     if (!valid) return gate("請先選擇股票", "從個股資訊搜尋並選擇一檔台股或美股，再點「投資策略建議」。", () => { location.href = "tracker.html?view=overview"; });
-    $("rerunStrategy").addEventListener("click", () => { sessionStorage.removeItem(cacheKey); run(); });
+    $("rerunStrategy").addEventListener("click", () => { sessionStorage.removeItem(cacheKey); sessionStorage.removeItem(pendingKey); run(); });
     document.addEventListener("etfauth:change", () => {
       if (!started) onAuthReady();
       else if (!busy && !window.ETFAuth?.user())

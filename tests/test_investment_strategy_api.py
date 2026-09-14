@@ -45,16 +45,38 @@ class InvestmentStrategyTests(unittest.TestCase):
             "takeaway": "營運有支撐，走勢還需觀察。", "body": "投資分析與情境。" * 60,
             "sources": [],
         }
-        request_json.return_value = {"status": "completed", "model": "test-model", "output": [
+        request_json.return_value = {"id": "resp_abc123", "status": "completed", "model": "test-model", "output": [
             {"type": "message", "content": [{"type": "output_text", "text": __import__("json").dumps(report)}]}
         ]}
-        result, model = API.analyze("2345", "TW", "test-key")
+        response = API.start_analysis("2345", "TW", "test-key")
+        result, model = API.finish_analysis(response)
         self.assertEqual(result["companyName"], "智邦")
         self.assertEqual(model, "test-model")
         payload = request_json.call_args.kwargs["payload"]
         self.assertEqual(payload["tools"][0]["type"], "web_search")
+        self.assertTrue(payload["background"])
+        self.assertFalse(payload["store"])
         self.assertIn("請以專業分析師角度告訴我，2345 現在可以買了沒，為什麼", payload["input"][1]["content"])
         self.assertEqual(payload["text"]["format"]["type"], "json_schema")
+
+    def test_background_job_is_bound_to_member_and_expires(self):
+        token = API.sign_job("resp_abc123", "member-a", "2345", "TW", "test-key", now=1000)
+        self.assertEqual(API.verify_job(token, "member-a", "test-key", now=1001),
+                         ("resp_abc123", "2345", "TW"))
+        with self.assertRaises(ValueError):
+            API.verify_job(token, "member-b", "test-key", now=1001)
+        with self.assertRaises(ValueError):
+            API.verify_job(token, "member-a", "test-key", now=1000 + API.JOB_TTL_SECONDS)
+        with self.assertRaises(ValueError):
+            API.verify_job(token[:-1] + ("a" if token[-1] != "a" else "b"),
+                           "member-a", "test-key", now=1001)
+
+    def test_polling_does_not_start_a_second_analysis(self):
+        pending = {"id": "resp_abc123", "status": "in_progress"}
+        response = API.response_payload(pending, "signed-job", "2345", "TW")
+        self.assertEqual(response["status"], "working")
+        self.assertEqual(response["job"], "signed-job")
+        self.assertNotIn("report", response)
 
     @mock.patch.object(API.time, "sleep")
     @mock.patch.object(API, "request_json")

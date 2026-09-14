@@ -1,12 +1,15 @@
 """Conversational, source-linked stock strategy; separate from chart analysis."""
 from datetime import datetime
 from http.server import BaseHTTPRequestHandler
+import base64
+import hashlib
+import hmac
 import json
 import os
 import re
 import sys
 import time
-from urllib.parse import urlsplit
+from urllib.parse import parse_qs, urlsplit
 import urllib.error
 import urllib.request
 from zoneinfo import ZoneInfo
@@ -14,6 +17,7 @@ from zoneinfo import ZoneInfo
 
 OPENAI_URL = "https://api.openai.com/v1/responses"
 OPENAI_MODEL = os.getenv("INVESTMENT_STRATEGY_MODEL", "gpt-5.6-sol")
+JOB_TTL_SECONDS = 9 * 60
 SUPABASE_URL = os.getenv("SUPABASE_URL", "https://amoaxayfsmaxqwecceso.supabase.co").rstrip("/")
 SUPABASE_ANON_KEY = os.getenv("SUPABASE_ANON_KEY", "sb_publishable_3tk0vmHcqmrWAqCvUWCNzw_TfdcS9wb")
 
@@ -140,18 +144,24 @@ def clean_report(value):
     return value
 
 
-def analyze(symbol, market, key):
+def start_analysis(symbol, market, key):
     today = datetime.now(ZoneInfo("Asia/Taipei")).strftime("%Y-%m-%d")
     user_prompt = "請以專業分析師角度告訴我，{} 現在可以買了沒，為什麼？\n標的市場：{}；今天是台北時間 {}。請沿用上一份分析的直接判斷、分層推理、具體價區與情境表風格。".format(
         symbol, "台股" if market == "TW" else "美股", today)
-    response = request_json(OPENAI_URL, method="POST", headers={"Authorization": "Bearer " + key}, timeout=100,
-        payload={"model": OPENAI_MODEL, "store": False, "max_output_tokens": 9000,
+    response = request_json(OPENAI_URL, method="POST", headers={"Authorization": "Bearer " + key}, timeout=30,
+        payload={"model": OPENAI_MODEL, "store": False, "background": True, "max_output_tokens": 9000,
                  "tools": [{"type": "web_search", "search_context_size": "high"}],
                  "include": ["web_search_call.action.sources"],
                  "input": [{"role": "system", "content": SYSTEM_PROMPT},
                            {"role": "user", "content": user_prompt}],
                  "text": {"format": {"type": "json_schema", "name": "investment_strategy_article",
                                      "strict": True, "schema": REPORT_SCHEMA}}})
+    if not re.fullmatch(r"resp_[A-Za-z0-9_-]+", str(response.get("id") or "")):
+        raise RuntimeError("分析工作沒有取得識別碼")
+    return response
+
+
+def finish_analysis(response):
     try:
         report = json.loads(extract_text(response))
     except (ValueError, RuntimeError) as error:
@@ -159,9 +169,51 @@ def analyze(symbol, market, key):
     return clean_report(report), response.get("model") or OPENAI_MODEL
 
 
+def sign_job(response_id, user_id, symbol, market, key, now=None):
+    payload = {"id": response_id, "user": user_id, "symbol": symbol,
+               "market": market, "issued": int(now if now is not None else time.time())}
+    encoded = base64.urlsafe_b64encode(json.dumps(payload, separators=(",", ":")).encode()).decode().rstrip("=")
+    signature = hmac.new(key.encode(), encoded.encode(), hashlib.sha256).hexdigest()
+    return encoded + "." + signature
+
+
+def verify_job(token, user_id, key, now=None):
+    if not re.fullmatch(r"[A-Za-z0-9_-]{1,512}\.[a-f0-9]{64}", str(token or "")):
+        raise ValueError("分析連結無效，請重新分析")
+    encoded, signature = token.split(".", 1)
+    expected = hmac.new(key.encode(), encoded.encode(), hashlib.sha256).hexdigest()
+    if not hmac.compare_digest(signature, expected):
+        raise ValueError("分析連結無效，請重新分析")
+    try:
+        payload = json.loads(base64.urlsafe_b64decode(encoded + "=" * (-len(encoded) % 4)))
+    except (ValueError, UnicodeError) as error:
+        raise ValueError("分析連結無效，請重新分析") from error
+    if not isinstance(payload, dict):
+        raise ValueError("分析連結無效，請重新分析")
+    issued = payload.get("issued") if isinstance(payload, dict) else None
+    age = (now if now is not None else time.time()) - issued if type(issued) is int else -1
+    if (payload.get("user") != user_id or not 0 <= age < JOB_TTL_SECONDS or
+            not re.fullmatch(r"resp_[A-Za-z0-9_-]+", str(payload.get("id") or ""))):
+        raise ValueError("這份分析已逾時，請重新分析")
+    market, symbol = validate_stock(payload)
+    return payload["id"], symbol, market
+
+
+def response_payload(response, token, symbol, market):
+    status = response.get("status")
+    if status in ("queued", "in_progress"):
+        return {"ok": True, "status": "working", "job": token, "symbol": symbol, "market": market}
+    if status == "completed":
+        result, model = finish_analysis(response)
+        return {"ok": True, "status": "completed", "symbol": symbol, "market": market,
+                "report": result, "model": model}
+    raise RuntimeError("分析未能完成，請重新分析")
+
+
 class handler(BaseHTTPRequestHandler):
     def do_POST(self):
         stage = "request"
+        started = time.monotonic()
         token = re.fullmatch(r"Bearer\s+([^\s]+)", self.headers.get("Authorization") or "", re.I)
         if not token:
             return self.send_json({"ok": False, "error": "請先登入會員"}, 401)
@@ -175,18 +227,23 @@ class handler(BaseHTTPRequestHandler):
             market, symbol = validate_stock(json.loads(self.rfile.read(length)))
             headers = {"apikey": SUPABASE_ANON_KEY, "Authorization": "Bearer " + token.group(1)}
             stage = "auth"
-            verify_member(headers)
+            member = verify_member(headers)
             stage = "quota"
             quota = request_json(SUPABASE_URL + "/rest/v1/rpc/consume_investment_strategy_quota",
                 method="POST", headers=headers, payload={"p_symbol": symbol, "p_market": market}, timeout=20)
             stage = "model"
-            result, model = analyze(symbol, market, key)
-            self.send_json({"ok": True, "symbol": symbol, "market": market, "report": result,
-                            "quota": quota, "model": model})
+            response = start_analysis(symbol, market, key)
+            job = sign_job(response["id"], member["id"], symbol, market, key)
+            result = response_payload(response, job, symbol, market)
+            result["quota"] = quota
+            print(json.dumps({"event": "investment_strategy_started", "state": result["status"],
+                              "seconds": round(time.monotonic() - started, 1)}), file=sys.stderr, flush=True)
+            self.send_json(result)
         except (ValueError, json.JSONDecodeError) as error:
             self.send_json({"ok": False, "error": str(error)}, 400)
         except UpstreamError as error:
             print(json.dumps({"event": "investment_strategy_upstream_error", "status": error.status,
+                              "stage": stage, "seconds": round(time.monotonic() - started, 1),
                               "detailCode": "DAILY_LIMIT_REACHED" if "DAILY_LIMIT_REACHED" in error.detail else "other"}),
                   file=sys.stderr, flush=True)
             if "DAILY_LIMIT_REACHED" in error.detail:
@@ -195,9 +252,55 @@ class handler(BaseHTTPRequestHandler):
                 return self.send_json({"ok": False, "error": "登入狀態已失效，請重新登入"}, 401)
             self.send_json({"ok": False, "error": "投資策略服務暫時無法完成，請稍後再試"}, 502)
         except Exception as error:
-            print(json.dumps({"event": "investment_strategy_error", "type": type(error).__name__}),
+            print(json.dumps({"event": "investment_strategy_error", "type": type(error).__name__,
+                              "stage": stage, "seconds": round(time.monotonic() - started, 1)}),
                   file=sys.stderr, flush=True)
             self.send_json({"ok": False, "error": "投資策略服務暫時無法完成，請稍後再試"}, 502)
+
+    def do_GET(self):
+        started = time.monotonic()
+        stage = "auth"
+        token = re.fullmatch(r"Bearer\s+([^\s]+)", self.headers.get("Authorization") or "", re.I)
+        if not token:
+            return self.send_json({"ok": False, "error": "請先登入會員"}, 401)
+        key = os.getenv("OPENAI_API_KEY")
+        if not key:
+            return self.send_json({"ok": False, "error": "投資策略服務尚未完成設定"}, 503)
+        try:
+            job = parse_qs(urlsplit(self.path).query).get("job", [""])[0]
+            if len(job) > 1024:
+                raise ValueError("分析連結無效，請重新分析")
+            headers = {"apikey": SUPABASE_ANON_KEY, "Authorization": "Bearer " + token.group(1)}
+            member = verify_member(headers)
+            stage = "job"
+            response_id, symbol, market = verify_job(job, member["id"], key)
+            stage = "model"
+            response = request_json(OPENAI_URL + "/" + response_id,
+                headers={"Authorization": "Bearer " + key}, timeout=18)
+            result = response_payload(response, job, symbol, market)
+            if result["status"] == "completed":
+                print(json.dumps({"event": "investment_strategy_completed", "seconds": round(time.monotonic() - started, 1)}),
+                      file=sys.stderr, flush=True)
+            self.send_json(result)
+        except ValueError as error:
+            self.send_json({"ok": False, "error": str(error)}, 400)
+        except UpstreamError as error:
+            print(json.dumps({"event": "investment_strategy_poll_upstream_error", "status": error.status,
+                              "stage": stage}),
+                  file=sys.stderr, flush=True)
+            if stage == "auth" and error.status in (401, 403):
+                return self.send_json({"ok": False, "error": "登入狀態已失效，請重新登入"}, 401)
+            if error.status == 404:
+                return self.send_json({"ok": False, "error": "這份分析已逾時，請重新分析"}, 410)
+            self.send_json({"ok": False, "error": "資料讀取暫時中斷，正在繼續等待", "retryable": True}, 503)
+        except (TimeoutError, urllib.error.URLError) as error:
+            print(json.dumps({"event": "investment_strategy_poll_connection_error", "type": type(error).__name__}),
+                  file=sys.stderr, flush=True)
+            self.send_json({"ok": False, "error": "連線暫時中斷，正在繼續等待", "retryable": True}, 503)
+        except Exception as error:
+            print(json.dumps({"event": "investment_strategy_poll_error", "type": type(error).__name__}),
+                  file=sys.stderr, flush=True)
+            self.send_json({"ok": False, "error": "分析未能完成，請重新分析"}, 502)
 
     def do_OPTIONS(self):
         self.send_response(204)
