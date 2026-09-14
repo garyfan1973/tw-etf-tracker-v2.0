@@ -61,6 +61,7 @@ class InvestmentStrategyTests(unittest.TestCase):
         self.assertEqual(payload["model"], "gpt-5.6-sol")
         self.assertEqual(payload["reasoning"], {"effort": "medium"})
         self.assertEqual(payload["max_output_tokens"], 6000)
+        self.assertEqual(payload["max_tool_calls"], 8)
         self.assertEqual(payload["tools"][0]["search_context_size"], "medium")
 
     def test_analysis_options_are_whitelisted_and_model_specific(self):
