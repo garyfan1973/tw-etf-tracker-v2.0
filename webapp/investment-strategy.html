@@ -1,0 +1,65 @@
+<!doctype html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>投資策略建議｜投資研究工作台</title>
+  <link rel="stylesheet" href="market-pages.css">
+  <link rel="stylesheet" href="investment-strategy.css?v=20260914-1">
+  <script>(function(){var t=localStorage.getItem("etf-theme");if(t)document.documentElement.dataset.theme=t})();</script>
+  <script src="config.js"></script>
+</head>
+<body>
+  <div class="strategy-shell">
+    <nav class="strategy-nav" aria-label="頁面導覽">
+      <a class="strategy-brand" href="tracker.html?view=overview"><span class="strategy-mark" aria-hidden="true">✦</span><span>投資研究工作台</span></a>
+      <a class="strategy-back" href="tracker.html?view=overview">← 返回個股資訊</a>
+      <span id="authBox" class="strategy-auth"></span>
+      <button id="themeToggle" class="strategy-theme" type="button" aria-label="切換主題">🌙</button>
+    </nav>
+
+    <header class="strategy-hero">
+      <div class="strategy-eyebrow"><span class="strategy-dot"></span> STOCK STRATEGY / AI RESEARCH</div>
+      <div class="strategy-hero-grid">
+        <div>
+          <p class="strategy-kicker">不只是數字，是下一步的思考方式</p>
+          <h1><span id="stockSymbol">—</span><span id="stockName"></span></h1>
+          <p id="heroSubtitle" class="strategy-subtitle">從成長故事、目前價位到買進與等待的條件，說清楚我會怎麼看。</p>
+        </div>
+        <div class="strategy-hero-side"><span>投資策略建議</span><strong>有結論，也有退路。</strong><small id="reportDate">依最新可得資料分析</small></div>
+      </div>
+    </header>
+
+    <main>
+      <section id="strategyGate" class="strategy-gate" aria-live="polite">
+        <div class="strategy-loader" aria-hidden="true"></div>
+        <div><strong id="gateTitle">正在準備分析</strong><p id="gateMessage">請稍候，我們正在確認會員狀態。</p></div>
+        <button id="gateAction" type="button" hidden>登入 / 註冊</button>
+      </section>
+
+      <div id="strategyReport" hidden>
+        <section class="strategy-verdict" aria-labelledby="verdictTitle">
+          <div class="strategy-verdict-label"><span>THE CALL</span><span>先說結論</span></div>
+          <h2 id="verdictTitle"></h2>
+          <p id="verdictTakeaway"></p>
+          <div class="strategy-verdict-footer"><span id="asOfBadge"></span><button id="rerunStrategy" type="button">↻ 重新分析</button></div>
+        </section>
+
+        <div class="strategy-layout">
+          <article id="strategyArticle" class="strategy-article" aria-label="完整投資策略建議"></article>
+          <aside class="strategy-aside" aria-labelledby="sourcesTitle">
+            <div class="strategy-aside-head"><span>RESEARCH NOTES</span><h2 id="sourcesTitle">資料來源</h2><p>文中的編號可以直接點開對應資料。</p></div>
+            <ol id="strategySources" class="strategy-sources"></ol>
+            <div class="strategy-aside-note">這是一份依公開資料形成的情境分析，不保證未來報酬。價位會隨市場變動；行動前請留意報告採用的交易日。</div>
+          </aside>
+        </div>
+      </div>
+    </main>
+  </div>
+  <script src="theme.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/marked@15.0.12/marked.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/dompurify@3.2.6/dist/purify.min.js"></script>
+  <script type="module" src="auth.js"></script>
+  <script src="investment-strategy.js?v=20260914-1" defer></script>
+</body>
+</html>

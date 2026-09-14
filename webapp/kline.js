@@ -1037,7 +1037,9 @@
       if (event.key === "Enter") { event.preventDefault(); const first = catalogMatches(input.value)[0]; if (first) selectDirectAsset(first); }
     });
     document.addEventListener("pointerdown", event => { if (!event.target.closest?.(".asset-picker")) $("assetResults")?.classList.remove("open"); });
-    window.MarketChart = { currentAsset:null, currentRows:[], currentFinancials:null, getAnalysisSnapshot:buildAnalysisSnapshot, withAnalysisPreset, selectAsset: (asset, options = {}) => {
+    window.MarketChart = { currentAsset:null, currentRows:[], currentFinancials:null, getAnalysisSnapshot:buildAnalysisSnapshot, withAnalysisPreset,
+      findAsset: (symbol, market = "") => catalogAssets.find(item => item.symbol === String(symbol || "").toUpperCase() && (!market || item.market === market)) || null,
+      selectAsset: (asset, options = {}) => {
       const normalized = { symbol:String(asset.symbol || "").toUpperCase(), market:String(asset.market || "TW").toUpperCase(), assetType:String(asset.assetType || "stock").toLowerCase(), name:asset.name || asset.symbol };
       const matched = catalogAssets.find(item => item.market === normalized.market && item.symbol === normalized.symbol && item.assetType === normalized.assetType) || normalized;
       selectDirectAsset(matched, options.updateUrl !== false);

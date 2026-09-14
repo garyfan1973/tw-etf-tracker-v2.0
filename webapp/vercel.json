@@ -3,6 +3,9 @@
     "api/chart-analysis.py": {
       "maxDuration": 120,
       "includeFiles": "skills/stock-analysis-standard/**"
+    },
+    "api/investment-strategy.py": {
+      "maxDuration": 120
     }
   }
 }
