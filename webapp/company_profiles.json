@@ -202,6 +202,20 @@
     "business": "無代號海外成分股，暫無可用公開摘要。",
     "source": ""
   },
+  "2026/10台股指數期貨(FITXN*1.TF)": {
+    "name": "2026/10台股指數期貨(FITXN*1.TF)",
+    "market": "",
+    "industry": "",
+    "business": "無代號海外成分股，暫無可用公開摘要。",
+    "source": ""
+  },
+  "2026/10富邦科技ETF期貨(FIVHF*1.TF)": {
+    "name": "2026/10富邦科技ETF期貨(FIVHF*1.TF)",
+    "market": "",
+    "industry": "",
+    "business": "無代號海外成分股，暫無可用公開摘要。",
+    "source": ""
+  },
   "2027": {
     "name": "大成鋼",
     "market": "TW",
@@ -2497,6 +2511,13 @@
   },
   "台股期貨 2026/09(FITXN*1.TF)": {
     "name": "台股期貨 2026/09(FITXN*1.TF)",
+    "market": "",
+    "industry": "",
+    "business": "無代號海外成分股，暫無可用公開摘要。",
+    "source": ""
+  },
+  "台股期貨 2026/10(FITXN*1.TF)": {
+    "name": "台股期貨 2026/10(FITXN*1.TF)",
     "market": "",
     "industry": "",
     "business": "無代號海外成分股，暫無可用公開摘要。",
