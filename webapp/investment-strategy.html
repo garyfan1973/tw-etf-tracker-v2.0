@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width,initial-scale=1">
   <title>投資策略建議｜投資研究工作台</title>
   <link rel="stylesheet" href="market-pages.css">
-  <link rel="stylesheet" href="investment-strategy.css?v=20260914-1">
+  <link rel="stylesheet" href="investment-strategy.css?v=20260914-2">
   <script>(function(){var t=localStorage.getItem("etf-theme");if(t)document.documentElement.dataset.theme=t})();</script>
   <script src="config.js"></script>
 </head>
@@ -42,7 +42,7 @@
           <div class="strategy-verdict-label"><span>THE CALL</span><span>先說結論</span></div>
           <h2 id="verdictTitle"></h2>
           <p id="verdictTakeaway"></p>
-          <div class="strategy-verdict-footer"><span id="asOfBadge"></span><button id="rerunStrategy" type="button">↻ 重新分析</button></div>
+          <div class="strategy-verdict-footer"><span id="asOfBadge"></span><div class="strategy-footer-actions"><div id="strategyExportTools" class="ai-export-tools" hidden><button id="exportStrategyPdf" type="button" title="匯出 PDF" aria-label="匯出 PDF"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 2h8l4 4v16H6zM14 2v5h5M8.5 12h7M8.5 15h7M8.5 18h4"/></svg></button><button id="emailStrategyPdf" type="button" title="寄送 Email" aria-label="寄送 Email"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3 5h18v14H3zM3 6l9 7 9-7"/></svg></button></div><button id="rerunStrategy" type="button">↻ 重新分析</button></div></div>
         </section>
 
         <div class="strategy-layout">
@@ -55,11 +55,24 @@
         </div>
       </div>
     </main>
-  </div>
-  <script src="theme.js"></script>
+</div>
+<div id="strategyEmailModal" class="ai-email-modal" role="dialog" aria-modal="true" aria-labelledby="strategyEmailTitle" hidden>
+  <section class="ai-email-window">
+    <header><div><span>Email PDF</span><h2 id="strategyEmailTitle">寄送投資策略建議</h2></div><button id="strategyEmailClose" type="button" aria-label="關閉">×</button></header>
+    <p>系統會將目前的投資策略建議製作成 PDF，並以站長 Gmail 帳號寄出。</p>
+    <label for="strategyEmailAddress">收件人 Email address</label>
+    <input id="strategyEmailAddress" type="email" autocomplete="email" inputmode="email" placeholder="name@example.com" required>
+    <div class="ai-email-subject"><span>主旨</span><strong id="strategyEmailSubject"></strong></div>
+    <p id="strategyEmailStatus" class="ai-email-status" role="status"></p>
+    <footer><button id="strategyEmailCancel" class="secondary" type="button">取消</button><button id="strategyEmailSend" class="primary" type="button"><span aria-hidden="true">✉</span> 寄送 Email</button></footer>
+  </section>
+</div>
+<script src="theme.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/marked@15.0.12/marked.min.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/dompurify@3.2.6/dist/purify.min.js"></script>
   <script type="module" src="auth.js"></script>
-  <script src="investment-strategy.js?v=20260914-2" defer></script>
+  <script src="investment-strategy.js?v=20260914-3" defer></script>
+  <script src="https://cdn.jsdelivr.net/npm/html2canvas@1.4.1/dist/html2canvas.min.js" integrity="sha512-BNaRQnYJYiPSqHHDb58B0yaPfCu+Wgds8Gp/gU33kqBtgNS4tSPHuGibyoeqMV/TJlSKda6FXzoEyYGjTe+vXA==" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/jspdf@2.5.2/dist/jspdf.umd.min.js"></script>
 </body>
 </html>
