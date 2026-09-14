@@ -268,10 +268,10 @@
       const pdf = await createStrategyPdf();
       if (pdf.size > 3_500_000) throw new Error("PDF 超過寄送大小限制，請改用匯出 PDF 下載");
       status.textContent = "正在透過 Gmail 寄送…";
-      const response = await fetch("/api/investment-strategy-email", { method: "POST",
+      const response = await fetch("/api/chart-analysis-email", { method: "POST",
         headers: { "Content-Type": "application/json", Authorization: `Bearer ${session.access_token}` },
         body: JSON.stringify({ email, symbol: currentStrategyMeta.symbol, assetName: currentStrategyMeta.assetName,
-          date: currentStrategyMeta.date, pdfBase64: await blobToBase64(pdf) }) });
+          date: currentStrategyMeta.date, reportType: "investment-strategy", pdfBase64: await blobToBase64(pdf) }) });
       const data = await response.json().catch(() => ({}));
       if (!response.ok || !data.ok) throw new Error(data.error || "Email 暫時無法寄出");
       status.className = "ai-email-status success"; status.textContent = `已寄送至 ${email}`;

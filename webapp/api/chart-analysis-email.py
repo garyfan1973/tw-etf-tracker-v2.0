@@ -95,8 +95,11 @@ def validate_payload(payload):
         datetime.date.fromisoformat(date)
     except ValueError:
         raise ValueError("分析日期格式不正確")
+    report_type = clean_label(payload.get("reportType"), 24) or "chart-analysis"
+    if report_type not in {"chart-analysis", "investment-strategy"}:
+        raise ValueError("分析類型格式不正確")
     timing = clean_label(payload.get("timing"), 4)
-    if timing not in {"盤前", "盤中", "盤後"}:
+    if report_type == "chart-analysis" and timing not in {"盤前", "盤中", "盤後"}:
         raise ValueError("分析時點格式不正確")
     encoded = str(payload.get("pdfBase64") or "")
     try:
@@ -105,9 +108,10 @@ def validate_payload(payload):
         raise ValueError("PDF 附件內容無法讀取")
     if not pdf.startswith(b"%PDF-") or len(pdf) > MAX_PDF_BYTES:
         raise ValueError("PDF 附件格式不正確或超過 3.5 MB")
-    subject = "{}_{}_{}_綜合分析".format(safe_filename_part(symbol), safe_filename_part(asset_name), date)
+    label = "投資策略建議" if report_type == "investment-strategy" else "綜合分析"
+    subject = "{}_{}_{}_{}".format(safe_filename_part(symbol), safe_filename_part(asset_name), date, label)
     return {"email": recipient, "symbol": symbol, "assetName": asset_name, "date": date,
-            "timing": timing, "subject": subject, "pdf": pdf}
+            "timing": timing, "reportType": report_type, "subject": subject, "pdf": pdf}
 
 
 def send_gmail(data):
@@ -116,10 +120,12 @@ def send_gmail(data):
     from_name = os.getenv("GMAIL_FROM_NAME", "投資研究工作台").strip() or "投資研究工作台"
     if not gmail_user or not app_password:
         raise RuntimeError("Gmail 寄信服務尚未完成設定")
+    label = "投資策略建議" if data.get("reportType") == "investment-strategy" else "綜合分析"
+    filename = "{}_{}_{}_{}.pdf".format(safe_filename_part(data["symbol"]),
+                                        safe_filename_part(data["assetName"]), data["date"], label)
     text = ("您好，\n\n附件為 {filename}。\n\n"
             "分析結果僅供研究與交易規劃參考，不構成投資建議。完整內容請參閱附件 PDF。")\
-        .format(filename="{}_{}_{}_綜合分析.pdf".format(safe_filename_part(data["symbol"]),
-                                                         safe_filename_part(data["assetName"]), data["date"]))
+        .format(filename=filename)
     message = EmailMessage()
     message["Subject"] = data["subject"]
     message["From"] = formataddr((from_name, gmail_user))
@@ -127,13 +133,10 @@ def send_gmail(data):
     message.set_content(text)
     message.add_alternative("""<!doctype html><html><body style="font-family:Arial,'Microsoft JhengHei',sans-serif;color:#1c2430;line-height:1.7">
       <div style="max-width:620px;margin:auto;padding:28px;border:1px solid #e3e7ec;border-radius:14px">
-        <h2 style="margin:0 0 18px;color:#3b5bdb">AI 綜合分析</h2>
+        <h2 style="margin:0 0 18px;color:#3b5bdb">AI {label}</h2>
         <p>您好，</p><p>附件為 <b>{filename}</b>。</p>
         <p style="color:#6b7684">分析結果僅供研究與交易規劃參考，不構成投資建議。完整內容請參閱附件 PDF。</p>
-      </div></body></html>""".format(filename=html.escape("{}_{}_{}_綜合分析.pdf".format(
-          safe_filename_part(data["symbol"]), safe_filename_part(data["assetName"]), data["date"]))), subtype="html")
-    filename = "{}_{}_{}_綜合分析.pdf".format(safe_filename_part(data["symbol"]),
-                                                safe_filename_part(data["assetName"]), data["date"])
+      </div></body></html>""".format(label=html.escape(label), filename=html.escape(filename)), subtype="html")
     message.add_attachment(data["pdf"], maintype="application", subtype="pdf", filename=filename)
     with smtplib.SMTP_SSL("smtp.gmail.com", 465, context=ssl.create_default_context(), timeout=25) as smtp:
         smtp.login(gmail_user, app_password)
@@ -164,6 +167,8 @@ class handler(BaseHTTPRequestHandler):
             data = validate_payload(json.loads(self.rfile.read(length).decode("utf-8")))
             if service_request:
                 verify_service_token(token)
+            elif data["reportType"] == "investment-strategy":
+                json_request(SUPABASE_URL + "/auth/v1/user", headers=supabase_headers(token), timeout=15)
             else:
                 log_id = call_rpc("authorize_chart_analysis_email", token, {
                     "p_symbol": data["symbol"], "p_subject": data["subject"]

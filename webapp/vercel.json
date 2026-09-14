@@ -6,9 +6,6 @@
     },
     "api/investment-strategy.py": {
       "maxDuration": 120
-    },
-    "api/investment-strategy-email.py": {
-      "maxDuration": 30
     }
   }
 }
