@@ -746,17 +746,7 @@
         "shortBalance": 8,
         "offsetting": 0,
         "date": "2026-09-10"
-      },
-      "open": 5455.0,
-      "high": 5660.0,
-      "low": 5370.0,
-      "close": 5595.0,
-      "prevClose": 5620.0,
-      "change": -25.0,
-      "changePct": -0.44,
-      "amplitude": 5.16,
-      "volume": 562826.0,
-      "quoteDate": "2026-09-10"
+      }
     },
     {
       "code": "KGC",
@@ -932,17 +922,7 @@
         "shortBalance": 63,
         "offsetting": 1,
         "date": "2026-09-10"
-      },
-      "open": 1340.0,
-      "high": 1440.0,
-      "low": 1320.0,
-      "close": 1410.0,
-      "prevClose": 1365.0,
-      "change": 45.0,
-      "changePct": 3.3,
-      "amplitude": 8.79,
-      "volume": 7441172.0,
-      "quoteDate": "2026-09-10"
+      }
     },
     {
       "code": "8046",
@@ -1003,17 +983,7 @@
         "shortBalance": 8,
         "offsetting": 0,
         "date": "2026-09-10"
-      },
-      "open": 2530.0,
-      "high": 2770.0,
-      "low": 2530.0,
-      "close": 2730.0,
-      "prevClose": 2580.0,
-      "change": 150.0,
-      "changePct": 5.81,
-      "amplitude": 9.3,
-      "volume": 1325591.0,
-      "quoteDate": "2026-09-10"
+      }
     },
     {
       "code": "2360",
