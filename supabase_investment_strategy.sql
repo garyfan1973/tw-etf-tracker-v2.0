@@ -40,7 +40,7 @@ declare
   v_user uuid := auth.uid();
   v_used integer;
   v_request_id uuid;
-  v_limit constant integer := 10;
+  v_limit constant integer := 30;
 begin
   if v_user is null then
     raise exception 'AUTH_REQUIRED';
