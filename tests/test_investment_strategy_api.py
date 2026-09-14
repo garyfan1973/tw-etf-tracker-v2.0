@@ -58,6 +58,30 @@ class InvestmentStrategyTests(unittest.TestCase):
         self.assertFalse(payload["store"])
         self.assertIn("請以專業分析師角度告訴我，2345 現在可以買了沒，為什麼", payload["input"][1]["content"])
         self.assertEqual(payload["text"]["format"]["type"], "json_schema")
+        self.assertEqual(payload["model"], "gpt-5.6-sol")
+        self.assertEqual(payload["reasoning"], {"effort": "medium"})
+        self.assertEqual(payload["max_output_tokens"], 6000)
+        self.assertEqual(payload["tools"][0]["search_context_size"], "medium")
+
+    def test_analysis_options_are_whitelisted_and_model_specific(self):
+        self.assertEqual(API.validate_analysis_options({}), {
+            "model": "gpt-5.6-sol", "reasoning": "medium",
+            "max_output_tokens": 6000, "search_context_size": "medium",
+        })
+        self.assertEqual(API.validate_analysis_options({
+            "model": "gpt-5.6-luna", "reasoning": "high",
+            "max_output_tokens": 4500, "search_context_size": "low",
+        })["model"], "gpt-5.6-luna")
+        for payload in (
+            {"model": "gpt-4o"},
+            {"model": "gpt-5.6-luna", "reasoning": "ultra"},
+            {"max_output_tokens": 4400},
+            {"max_output_tokens": 9250},
+            {"max_output_tokens": 4550},
+            {"search_context_size": "extreme"},
+        ):
+            with self.assertRaises(ValueError):
+                API.validate_analysis_options(payload)
 
     def test_background_job_is_bound_to_member_and_expires(self):
         token = API.sign_job("resp_abc123", "member-a", "2345", "TW", "test-key", now=1000)

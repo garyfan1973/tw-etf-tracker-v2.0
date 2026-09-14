@@ -18,6 +18,17 @@ from zoneinfo import ZoneInfo
 OPENAI_URL = "https://api.openai.com/v1/responses"
 OPENAI_MODEL = os.getenv("INVESTMENT_STRATEGY_MODEL", "gpt-5.6-sol")
 JOB_TTL_SECONDS = 9 * 60
+MODEL_REASONING_OPTIONS = {
+    "gpt-5.6-luna": ("low", "medium", "high", "xhigh", "max"),
+    "gpt-5.6-terra": ("low", "medium", "high", "xhigh", "max", "ultra"),
+    "gpt-5.6-sol": ("low", "medium", "high", "xhigh", "max", "ultra"),
+}
+MAX_OUTPUT_TOKEN_MIN = 4500
+MAX_OUTPUT_TOKEN_MAX = 9000
+MAX_OUTPUT_TOKEN_STEP = 500
+DEFAULT_REASONING = "medium"
+DEFAULT_MAX_OUTPUT_TOKENS = 6000
+DEFAULT_SEARCH_CONTEXT_SIZE = "medium"
 SUPABASE_URL = os.getenv("SUPABASE_URL", "https://amoaxayfsmaxqwecceso.supabase.co").rstrip("/")
 SUPABASE_ANON_KEY = os.getenv("SUPABASE_ANON_KEY", "sb_publishable_3tk0vmHcqmrWAqCvUWCNzw_TfdcS9wb")
 
@@ -144,13 +155,38 @@ def clean_report(value):
     return value
 
 
-def start_analysis(symbol, market, key):
+def validate_analysis_options(payload):
+    payload = payload if isinstance(payload, dict) else {}
+    model = str(payload.get("model") or OPENAI_MODEL).strip().lower()
+    if model not in MODEL_REASONING_OPTIONS:
+        raise ValueError("不支援的模型版本")
+    reasoning = str(payload.get("reasoning") or DEFAULT_REASONING).strip().lower()
+    if reasoning not in MODEL_REASONING_OPTIONS[model]:
+        raise ValueError("此模型不支援所選的推理強度")
+    try:
+        max_output_tokens = int(payload.get("max_output_tokens", DEFAULT_MAX_OUTPUT_TOKENS))
+    except (TypeError, ValueError) as error:
+        raise ValueError("輸出 token 數量無效") from error
+    if (max_output_tokens < MAX_OUTPUT_TOKEN_MIN or max_output_tokens > MAX_OUTPUT_TOKEN_MAX or
+            max_output_tokens % MAX_OUTPUT_TOKEN_STEP):
+        raise ValueError("輸出 token 數量必須介於 4500 至 9000，且以 500 為級距")
+    search_context_size = str(payload.get("search_context_size") or DEFAULT_SEARCH_CONTEXT_SIZE).strip().lower()
+    if search_context_size not in ("low", "medium", "high"):
+        raise ValueError("不支援的搜尋上下文設定")
+    return {"model": model, "reasoning": reasoning, "max_output_tokens": max_output_tokens,
+            "search_context_size": search_context_size}
+
+
+def start_analysis(symbol, market, key, options=None):
+    options = validate_analysis_options(options)
     today = datetime.now(ZoneInfo("Asia/Taipei")).strftime("%Y-%m-%d")
     user_prompt = "請以專業分析師角度告訴我，{} 現在可以買了沒，為什麼？\n標的市場：{}；今天是台北時間 {}。請沿用上一份分析的直接判斷、分層推理、具體價區與情境表風格。".format(
         symbol, "台股" if market == "TW" else "美股", today)
     response = request_json(OPENAI_URL, method="POST", headers={"Authorization": "Bearer " + key}, timeout=30,
-        payload={"model": OPENAI_MODEL, "store": False, "background": True, "max_output_tokens": 9000,
-                 "tools": [{"type": "web_search", "search_context_size": "high"}],
+        payload={"model": options["model"], "store": False, "background": True,
+                 "reasoning": {"effort": options["reasoning"]},
+                 "max_output_tokens": options["max_output_tokens"],
+                 "tools": [{"type": "web_search", "search_context_size": options["search_context_size"]}],
                  "include": ["web_search_call.action.sources"],
                  "input": [{"role": "system", "content": SYSTEM_PROMPT},
                            {"role": "user", "content": user_prompt}],
@@ -224,7 +260,9 @@ class handler(BaseHTTPRequestHandler):
             length = int(self.headers.get("Content-Length") or 0)
             if not 0 < length <= 2048:
                 raise ValueError("請輸入有效的股票代號")
-            market, symbol = validate_stock(json.loads(self.rfile.read(length)))
+            request_payload = json.loads(self.rfile.read(length))
+            market, symbol = validate_stock(request_payload)
+            options = validate_analysis_options(request_payload)
             headers = {"apikey": SUPABASE_ANON_KEY, "Authorization": "Bearer " + token.group(1)}
             stage = "auth"
             member = verify_member(headers)
@@ -232,7 +270,7 @@ class handler(BaseHTTPRequestHandler):
             quota = request_json(SUPABASE_URL + "/rest/v1/rpc/consume_investment_strategy_quota",
                 method="POST", headers=headers, payload={"p_symbol": symbol, "p_market": market}, timeout=20)
             stage = "model"
-            response = start_analysis(symbol, market, key)
+            response = start_analysis(symbol, market, key, options)
             job = sign_job(response["id"], member["id"], symbol, market, key)
             result = response_payload(response, job, symbol, market)
             result["quota"] = quota

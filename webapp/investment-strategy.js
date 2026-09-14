@@ -11,6 +11,35 @@
   let currentStrategyReport = null;
   let currentStrategyMeta = null;
   let exportBusy = false;
+  const MODEL_REASONING_OPTIONS = {
+    "gpt-5.6-luna": ["low", "medium", "high", "xhigh", "max"],
+    "gpt-5.6-terra": ["low", "medium", "high", "xhigh", "max", "ultra"],
+    "gpt-5.6-sol": ["low", "medium", "high", "xhigh", "max", "ultra"],
+  };
+  const DEFAULT_ANALYSIS_OPTIONS = { model: "gpt-5.6-sol", reasoning: "medium", max_output_tokens: 6000, search_context_size: "medium" };
+
+  function selectedAnalysisOptions() {
+    return {
+      model: $("strategyModel").value,
+      reasoning: $("strategyReasoning").value,
+      max_output_tokens: Number($("strategyMaxOutputTokens").value),
+      search_context_size: $("strategySearchContext").value,
+    };
+  }
+
+  function populateReasoningOptions(model, selected = "medium") {
+    const select = $("strategyReasoning");
+    const options = MODEL_REASONING_OPTIONS[model] || MODEL_REASONING_OPTIONS[DEFAULT_ANALYSIS_OPTIONS.model];
+    select.replaceChildren(...options.map((value) => new Option(value, value)));
+    select.value = options.includes(selected) ? selected : (options.includes("medium") ? "medium" : options[0]);
+  }
+
+  function showSettings() {
+    $("strategySettings").hidden = false;
+    $("strategyGate").hidden = true;
+    $("strategyReport").hidden = true;
+    $("strategyExportTools").hidden = true;
+  }
 
   function gate(title, message, action, actionLabel = "重試") {
     $("strategyReport").hidden = true;
@@ -318,13 +347,14 @@
     throw new Error("這份分析等待太久，請重新分析。若持續發生，請稍後再試。");
   }
 
-  async function run(pending = null) {
+  async function run(pending = null, options = selectedAnalysisOptions()) {
     if (busy || !valid) return;
     const client = window.ETFAuth?.client();
     if (!client) return gate("會員服務未連線", "請稍後重新開啟此頁。", () => location.reload());
     const { data: { session } } = await client.auth.getSession();
     if (!session) return gate("登入後開始分析", "登入即可取得這檔股票的完整投資策略建議。", () => window.ETFAuth.openLogin(), "登入 / 註冊");
     busy = true;
+    $("strategySettings").hidden = true;
     $("rerunStrategy").disabled = true;
     gate("正在寫給你的策略", "正在閱讀近期價格、公司營運與市場看法。分析會自動顯示，通常需要 1～3 分鐘。", null);
     try {
@@ -334,7 +364,7 @@
       } else {
         const response = await fetch("/api/investment-strategy", {
           method: "POST", headers: { "Content-Type": "application/json", Authorization: `Bearer ${session.access_token}` },
-          body: JSON.stringify({ symbol, market }),
+          body: JSON.stringify({ symbol, market, ...options }),
         });
         const payload = await response.json().catch(() => ({}));
         if (!response.ok || !payload.ok) throw new Error(payload.error || "分析暫時沒有完成，請重試");
@@ -350,7 +380,7 @@
       render(report);
     } catch (error) {
       sessionStorage.removeItem(pendingKey);
-      gate("這次沒有順利完成", error.message || "請稍後重試。", () => run());
+      gate("這次沒有順利完成", error.message || "請稍後重試。", () => showSettings(), "調整設定");
     } finally {
       busy = false;
       $("rerunStrategy").disabled = false;
@@ -380,7 +410,7 @@
       }
     } catch (_) { /* 暫存中的工作無法讀取時重新開始 */ }
     sessionStorage.removeItem(pendingKey);
-    run();
+    showSettings();
   }
 
   function boot() {
@@ -388,7 +418,13 @@
     const name = String(params.get("name") || "").trim().slice(0, 60);
     if (name) $("stockName").textContent = ` ${name}`;
     if (!valid) return gate("請先選擇股票", "從個股資訊搜尋並選擇一檔台股或美股，再點「投資策略建議」。", () => { location.href = "tracker.html?view=overview"; });
-    $("rerunStrategy").addEventListener("click", () => { sessionStorage.removeItem(cacheKey); sessionStorage.removeItem(pendingKey); run(); });
+    $("strategyModel").value = DEFAULT_ANALYSIS_OPTIONS.model;
+    $("strategyMaxOutputTokens").value = String(DEFAULT_ANALYSIS_OPTIONS.max_output_tokens);
+    $("strategySearchContext").value = DEFAULT_ANALYSIS_OPTIONS.search_context_size;
+    populateReasoningOptions(DEFAULT_ANALYSIS_OPTIONS.model, DEFAULT_ANALYSIS_OPTIONS.reasoning);
+    $("strategyModel").addEventListener("change", () => populateReasoningOptions($("strategyModel").value));
+    $("startStrategy").addEventListener("click", () => run(null, selectedAnalysisOptions()));
+    $("rerunStrategy").addEventListener("click", () => { sessionStorage.removeItem(cacheKey); sessionStorage.removeItem(pendingKey); showSettings(); });
     $("exportStrategyPdf").addEventListener("click", async () => {
       const button = $("exportStrategyPdf");
       try { button.disabled = true; await createStrategyPdf({ download: true }); }
@@ -405,7 +441,7 @@
       if (!started) onAuthReady();
       else if (!busy && !window.ETFAuth?.user())
         gate("登入後開始分析", "登入即可取得這檔股票的完整投資策略建議。", () => window.ETFAuth.openLogin(), "登入 / 註冊");
-      else if (!busy && window.ETFAuth?.user() && $("gateTitle").textContent === "登入後開始分析") run();
+      else if (!busy && window.ETFAuth?.user() && $("gateTitle").textContent === "登入後開始分析") showSettings();
     });
     const check = window.setInterval(() => {
       if (window.ETFAuth) { window.clearInterval(check); onAuthReady(); }
