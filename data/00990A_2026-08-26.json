@@ -562,7 +562,17 @@
         "shortBalance": 85,
         "offsetting": 3,
         "date": "2026-08-26"
-      }
+      },
+      "open": 1340.0,
+      "high": 1440.0,
+      "low": 1320.0,
+      "close": 1410.0,
+      "prevClose": 1365.0,
+      "change": 45.0,
+      "changePct": 3.3,
+      "amplitude": 8.79,
+      "volume": 7441172.0,
+      "quoteDate": "2026-08-26"
     },
     {
       "code": "2454",
@@ -794,7 +804,17 @@
         "shortBalance": 7,
         "offsetting": 1,
         "date": "2026-08-26"
-      }
+      },
+      "open": 5455.0,
+      "high": 5660.0,
+      "low": 5370.0,
+      "close": 5595.0,
+      "prevClose": 5620.0,
+      "change": -25.0,
+      "changePct": -0.44,
+      "amplitude": 5.16,
+      "volume": 562826.0,
+      "quoteDate": "2026-08-26"
     },
     {
       "code": "CIEN",
