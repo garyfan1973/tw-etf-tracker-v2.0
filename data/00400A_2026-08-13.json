@@ -212,7 +212,17 @@
         "shortBalance": 24,
         "offsetting": 0,
         "date": "2026-08-13"
-      }
+      },
+      "open": 5570.0,
+      "high": 5660.0,
+      "low": 5490.0,
+      "close": 5600.0,
+      "prevClose": 5440.0,
+      "change": 160.0,
+      "changePct": 2.94,
+      "amplitude": 3.12,
+      "volume": 438158.0,
+      "quoteDate": "2026-08-13"
     },
     {
       "code": "3037",
@@ -468,7 +478,17 @@
         "shortBalance": 168,
         "offsetting": 22,
         "date": "2026-08-13"
-      }
+      },
+      "open": 927.0,
+      "high": 940.0,
+      "low": 910.0,
+      "close": 937.0,
+      "prevClose": 914.0,
+      "change": 23.0,
+      "changePct": 2.52,
+      "amplitude": 3.28,
+      "volume": 6717655.0,
+      "quoteDate": "2026-08-13"
     },
     {
       "code": "5274",
@@ -490,7 +510,17 @@
         "shortBalance": 0,
         "offsetting": 0,
         "date": "2026-08-13"
-      }
+      },
+      "open": 17965.0,
+      "high": 18420.0,
+      "low": 17485.0,
+      "close": 18250.0,
+      "prevClose": 17520.0,
+      "change": 730.0,
+      "changePct": 4.17,
+      "amplitude": 5.34,
+      "volume": 180449.0,
+      "quoteDate": "2026-08-13"
     },
     {
       "code": "2308",
@@ -590,7 +620,17 @@
         "shortBalance": 106,
         "offsetting": 12,
         "date": "2026-08-13"
-      }
+      },
+      "open": 1220.0,
+      "high": 1255.0,
+      "low": 1220.0,
+      "close": 1220.0,
+      "prevClose": 1215.0,
+      "change": 5.0,
+      "changePct": 0.41,
+      "amplitude": 2.88,
+      "volume": 1024583.0,
+      "quoteDate": "2026-08-13"
     },
     {
       "code": "3008",
@@ -924,7 +964,17 @@
         "shortBalance": 123,
         "offsetting": 5,
         "date": "2026-08-13"
-      }
+      },
+      "open": 1360.0,
+      "high": 1460.0,
+      "low": 1345.0,
+      "close": 1415.0,
+      "prevClose": 1370.0,
+      "change": 45.0,
+      "changePct": 3.28,
+      "amplitude": 8.39,
+      "volume": 7140413.0,
+      "quoteDate": "2026-08-13"
     },
     {
       "code": "3529",
@@ -946,7 +996,17 @@
         "shortBalance": 35,
         "offsetting": 0,
         "date": "2026-08-13"
-      }
+      },
+      "open": 2650.0,
+      "high": 2740.0,
+      "low": 2625.0,
+      "close": 2700.0,
+      "prevClose": 2625.0,
+      "change": 75.0,
+      "changePct": 2.86,
+      "amplitude": 4.38,
+      "volume": 559994.0,
+      "quoteDate": "2026-08-13"
     },
     {
       "code": "8046",
@@ -1124,7 +1184,17 @@
         "shortBalance": 184,
         "offsetting": 1,
         "date": "2026-08-13"
-      }
+      },
+      "open": 362.5,
+      "high": 377.0,
+      "low": 362.5,
+      "close": 370.0,
+      "prevClose": 361.0,
+      "change": 9.0,
+      "changePct": 2.49,
+      "amplitude": 4.02,
+      "volume": 2633626.0,
+      "quoteDate": "2026-08-13"
     },
     {
       "code": "2317",
@@ -1263,7 +1333,17 @@
         "shortBalance": 247,
         "offsetting": 1,
         "date": "2026-08-13"
-      }
+      },
+      "open": 155.5,
+      "high": 158.5,
+      "low": 153.0,
+      "close": 158.0,
+      "prevClose": 153.0,
+      "change": 5.0,
+      "changePct": 3.27,
+      "amplitude": 3.59,
+      "volume": 7162052.0,
+      "quoteDate": "2026-08-13"
     },
     {
       "code": "2881",
@@ -1402,7 +1482,17 @@
         "shortBalance": 212,
         "offsetting": 147,
         "date": "2026-08-13"
-      }
+      },
+      "open": 516.0,
+      "high": 547.0,
+      "low": 510.0,
+      "close": 547.0,
+      "prevClose": 509.0,
+      "change": 38.0,
+      "changePct": 7.47,
+      "amplitude": 7.27,
+      "volume": 1070526.0,
+      "quoteDate": "2026-08-13"
     },
     {
       "code": "6515",
@@ -1580,7 +1670,17 @@
         "shortBalance": 8,
         "offsetting": 0,
         "date": "2026-08-13"
-      }
+      },
+      "open": 699.0,
+      "high": 713.0,
+      "low": 698.0,
+      "close": 708.0,
+      "prevClose": 696.0,
+      "change": 12.0,
+      "changePct": 1.72,
+      "amplitude": 2.16,
+      "volume": 1177903.0,
+      "quoteDate": "2026-08-13"
     },
     {
       "code": "3374",
@@ -1602,7 +1702,17 @@
         "shortBalance": 1858,
         "offsetting": 1,
         "date": "2026-08-13"
-      }
+      },
+      "open": 417.0,
+      "high": 436.0,
+      "low": 410.5,
+      "close": 424.0,
+      "prevClose": 408.5,
+      "change": 15.5,
+      "changePct": 3.79,
+      "amplitude": 6.24,
+      "volume": 13043220.0,
+      "quoteDate": "2026-08-13"
     },
     {
       "code": "6121",
@@ -1624,7 +1734,17 @@
         "shortBalance": 2,
         "offsetting": 0,
         "date": "2026-08-13"
-      }
+      },
+      "open": 373.0,
+      "high": 376.5,
+      "low": 370.0,
+      "close": 376.5,
+      "prevClose": 373.0,
+      "change": 3.5,
+      "changePct": 0.94,
+      "amplitude": 1.74,
+      "volume": 512375.0,
+      "quoteDate": "2026-08-13"
     },
     {
       "code": "6715",
