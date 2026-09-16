@@ -1,6 +1,6 @@
 {
   "date": "2026-09-16",
-  "fetched_at": "2026-09-16T18:31:25+08:00",
+  "fetched_at": "2026-09-16T19:31:17+08:00",
   "count": 30,
   "self": {
     "open": 34.24,
@@ -703,6 +703,16 @@
       "assetType": "stock",
       "weight": 2.43,
       "shares": 99718442,
+      "open": 155.5,
+      "high": 158.5,
+      "low": 153.0,
+      "close": 158.0,
+      "prevClose": 153.0,
+      "change": 5.0,
+      "changePct": 3.27,
+      "amplitude": 3.59,
+      "volume": 7162052.0,
+      "quoteDate": "2026-09-16",
       "margin": {
         "marginBuy": 422,
         "marginSell": 771,

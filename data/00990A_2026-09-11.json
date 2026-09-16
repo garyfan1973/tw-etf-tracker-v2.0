@@ -746,7 +746,17 @@
         "shortBalance": 9,
         "offsetting": 1,
         "date": "2026-09-11"
-      }
+      },
+      "open": 5570.0,
+      "high": 5660.0,
+      "low": 5490.0,
+      "close": 5600.0,
+      "prevClose": 5440.0,
+      "change": 160.0,
+      "changePct": 2.94,
+      "amplitude": 3.12,
+      "volume": 438158.0,
+      "quoteDate": "2026-09-11"
     },
     {
       "code": "PANW",
@@ -999,7 +1009,17 @@
         "shortBalance": 8,
         "offsetting": 1,
         "date": "2026-09-11"
-      }
+      },
+      "open": 2650.0,
+      "high": 2740.0,
+      "low": 2625.0,
+      "close": 2700.0,
+      "prevClose": 2625.0,
+      "change": 75.0,
+      "changePct": 2.86,
+      "amplitude": 4.38,
+      "volume": 559994.0,
+      "quoteDate": "2026-09-11"
     },
     {
       "code": "GOOGL",
