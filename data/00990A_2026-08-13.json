@@ -753,17 +753,7 @@
         "shortBalance": 24,
         "offsetting": 0,
         "date": "2026-08-13"
-      },
-      "open": 5570.0,
-      "high": 5660.0,
-      "low": 5490.0,
-      "close": 5600.0,
-      "prevClose": 5440.0,
-      "change": 160.0,
-      "changePct": 2.94,
-      "amplitude": 3.12,
-      "volume": 438158.0,
-      "quoteDate": "2026-08-13"
+      }
     },
     {
       "code": "WDAY",
@@ -842,17 +832,7 @@
         "shortBalance": 123,
         "offsetting": 5,
         "date": "2026-08-13"
-      },
-      "open": 1360.0,
-      "high": 1460.0,
-      "low": 1345.0,
-      "close": 1415.0,
-      "prevClose": 1370.0,
-      "change": 45.0,
-      "changePct": 3.28,
-      "amplitude": 8.39,
-      "volume": 7140413.0,
-      "quoteDate": "2026-08-13"
+      }
     },
     {
       "code": "NOW",
