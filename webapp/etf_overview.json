@@ -4,13 +4,13 @@
     "securityType": "主動式ETF",
     "issuer": "統一證券投資信託股份有限公司",
     "index": "臺灣證券交易所發行量加權股價報酬指數",
-    "fundSizeHundredMillion": 2697.78,
+    "fundSizeHundredMillion": 2693.01,
     "beneficiaryTenThousands": 96.43,
     "tags": [
       "大型權值"
     ],
     "source": "TWSE ETF e添富",
-    "fetchedAt": "2026-09-17T21:34:53+08:00",
+    "fetchedAt": "2026-09-17T23:32:51+08:00",
     "navHistory": [
       {
         "date": "2026-08-03",
@@ -189,14 +189,14 @@
     "securityType": "主動式ETF",
     "issuer": "群益證券投資信託股份有限公司",
     "index": "無",
-    "fundSizeHundredMillion": 492.79,
+    "fundSizeHundredMillion": 490.14,
     "beneficiaryTenThousands": 17.96,
     "tags": [
       "中小型權值",
       "大型權值"
     ],
     "source": "TWSE ETF e添富",
-    "fetchedAt": "2026-09-17T21:34:54+08:00",
+    "fetchedAt": "2026-09-17T23:32:51+08:00",
     "navHistory": [
       {
         "date": "2026-08-03",
@@ -375,13 +375,13 @@
     "securityType": "主動式ETF",
     "issuer": "元大證券投資信託股份有限公司",
     "index": "無",
-    "fundSizeHundredMillion": 348.87,
+    "fundSizeHundredMillion": 354.44,
     "beneficiaryTenThousands": 12.26,
     "tags": [
       "科技主題型"
     ],
     "source": "TWSE ETF e添富",
-    "fetchedAt": "2026-09-17T21:34:54+08:00",
+    "fetchedAt": "2026-09-17T23:32:52+08:00",
     "navHistory": [
       {
         "date": "2026-08-03",
@@ -555,13 +555,13 @@
     "securityType": "主動式ETF",
     "issuer": "群益證券投資信託股份有限公司",
     "index": "無",
-    "fundSizeHundredMillion": 398.55,
+    "fundSizeHundredMillion": 396.14,
     "beneficiaryTenThousands": 17.85,
     "tags": [
       "科技主題型"
     ],
     "source": "TWSE ETF e添富",
-    "fetchedAt": "2026-09-17T21:34:55+08:00",
+    "fetchedAt": "2026-09-17T23:32:52+08:00",
     "navHistory": [
       {
         "date": "2026-08-03",
@@ -740,13 +740,13 @@
     "securityType": "主動式ETF",
     "issuer": "國泰證券投資信託股份有限公司",
     "index": "無",
-    "fundSizeHundredMillion": 277.48,
+    "fundSizeHundredMillion": 277.64,
     "beneficiaryTenThousands": 13.41,
     "tags": [
       "高股息"
     ],
     "source": "TWSE ETF e添富",
-    "fetchedAt": "2026-09-17T21:34:55+08:00",
+    "fetchedAt": "2026-09-17T23:32:53+08:00",
     "navHistory": [
       {
         "date": "2026-08-03",
@@ -925,13 +925,13 @@
     "securityType": "台股ETF",
     "issuer": "元大證券投資信託股份有限公司",
     "index": "富時臺灣證券交易所臺灣50指數",
-    "fundSizeHundredMillion": 23549.71,
+    "fundSizeHundredMillion": 23802.95,
     "beneficiaryTenThousands": 353.25,
     "tags": [
       "大型權值"
     ],
     "source": "TWSE ETF e添富",
-    "fetchedAt": "2026-09-17T21:34:56+08:00",
+    "fetchedAt": "2026-09-17T23:32:53+08:00",
     "navHistory": [
       {
         "date": "2026-08-03",
@@ -1110,13 +1110,13 @@
     "securityType": "台股ETF",
     "issuer": "富邦證券投資信託股份有限公司",
     "index": "臺灣證券交易所臺灣資訊科技指數",
-    "fundSizeHundredMillion": 1578.63,
+    "fundSizeHundredMillion": 1596.57,
     "beneficiaryTenThousands": 45.33,
     "tags": [
       "科技主題型"
     ],
     "source": "TWSE ETF e添富",
-    "fetchedAt": "2026-09-17T21:34:57+08:00",
+    "fetchedAt": "2026-09-17T23:32:53+08:00",
     "navHistory": [
       {
         "date": "2026-08-03",
@@ -1295,13 +1295,13 @@
     "securityType": "台股ETF",
     "issuer": "元大證券投資信託股份有限公司",
     "index": "臺灣高股息指數",
-    "fundSizeHundredMillion": 7824.27,
+    "fundSizeHundredMillion": 7924.58,
     "beneficiaryTenThousands": 165.32,
     "tags": [
       "高股息"
     ],
     "source": "TWSE ETF e添富",
-    "fetchedAt": "2026-09-17T21:34:58+08:00",
+    "fetchedAt": "2026-09-17T23:32:54+08:00",
     "navHistory": [
       {
         "date": "2026-08-03",
@@ -1480,14 +1480,14 @@
     "securityType": "台股ETF",
     "issuer": "國泰證券投資信託股份有限公司",
     "index": "MSCI臺灣ESG永續高股息精選30指數",
-    "fundSizeHundredMillion": 6494.47,
+    "fundSizeHundredMillion": 6536.95,
     "beneficiaryTenThousands": 166.59,
     "tags": [
-      "高股息",
-      "公司治理及ESG"
+      "公司治理及ESG",
+      "高股息"
     ],
     "source": "TWSE ETF e添富",
-    "fetchedAt": "2026-09-17T21:34:58+08:00",
+    "fetchedAt": "2026-09-17T23:32:54+08:00",
     "navHistory": [
       {
         "date": "2026-08-03",
@@ -1666,13 +1666,13 @@
     "securityType": "台股ETF",
     "issuer": "國泰證券投資信託股份有限公司",
     "index": "臺灣指數公司特選臺灣上市上櫃FactSet科技龍頭通訊指數",
-    "fundSizeHundredMillion": 1478.03,
+    "fundSizeHundredMillion": 1482.66,
     "beneficiaryTenThousands": 40.46,
     "tags": [
       "科技主題型"
     ],
     "source": "TWSE ETF e添富",
-    "fetchedAt": "2026-09-17T21:34:59+08:00",
+    "fetchedAt": "2026-09-17T23:32:55+08:00",
     "navHistory": [
       {
         "date": "2026-08-03",
@@ -1851,13 +1851,13 @@
     "securityType": "台股ETF",
     "issuer": "群益證券投資信託股份有限公司",
     "index": "臺灣指數公司特選臺灣上市上櫃精選高息指數",
-    "fundSizeHundredMillion": 6076.07,
+    "fundSizeHundredMillion": 6092.75,
     "beneficiaryTenThousands": 141.9,
     "tags": [
       "高股息"
     ],
     "source": "TWSE ETF e添富",
-    "fetchedAt": "2026-09-17T21:35:00+08:00",
+    "fetchedAt": "2026-09-17T23:32:55+08:00",
     "navHistory": [
       {
         "date": "2026-08-03",
@@ -2036,13 +2036,13 @@
     "securityType": "台股ETF",
     "issuer": "國泰證券投資信託股份有限公司",
     "index": "MSCI台灣領袖50精選指數",
-    "fundSizeHundredMillion": 889.33,
+    "fundSizeHundredMillion": 895.41,
     "beneficiaryTenThousands": 18.71,
     "tags": [
       "大型權值"
     ],
     "source": "TWSE ETF e添富",
-    "fetchedAt": "2026-09-17T21:35:01+08:00",
+    "fetchedAt": "2026-09-17T23:32:55+08:00",
     "navHistory": [
       {
         "date": "2026-08-03",
@@ -2221,14 +2221,14 @@
     "securityType": "國外股票ETF",
     "issuer": "國泰證券投資信託股份有限公司",
     "index": "美國費城半導體指數",
-    "fundSizeHundredMillion": 684.22,
+    "fundSizeHundredMillion": 693.23,
     "beneficiaryTenThousands": 18.21,
     "tags": [
       "科技主題型",
       "大型權值"
     ],
     "source": "TWSE ETF e添富",
-    "fetchedAt": "2026-09-17T21:35:02+08:00",
+    "fetchedAt": "2026-09-17T23:32:56+08:00",
     "navHistory": [
       {
         "date": "2026-08-03",
@@ -2402,13 +2402,13 @@
     "securityType": "台股ETF",
     "issuer": "富邦證券投資信託股份有限公司",
     "index": "富時臺灣證券交易所臺灣50指數",
-    "fundSizeHundredMillion": 4551.29,
+    "fundSizeHundredMillion": 4599.71,
     "beneficiaryTenThousands": 71.3,
     "tags": [
       "大型權值"
     ],
     "source": "TWSE ETF e添富",
-    "fetchedAt": "2026-09-17T21:35:02+08:00",
+    "fetchedAt": "2026-09-17T23:32:56+08:00",
     "navHistory": [
       {
         "date": "2026-08-03",
@@ -2587,13 +2587,13 @@
     "securityType": "股票槓反ETF",
     "issuer": "元大證券投資信託股份有限公司",
     "index": "臺灣50指數",
-    "fundSizeHundredMillion": 2540.58,
+    "fundSizeHundredMillion": 2593.67,
     "beneficiaryTenThousands": 29.86,
     "tags": [
       "大型權值"
     ],
     "source": "TWSE ETF e添富",
-    "fetchedAt": "2026-09-17T21:35:03+08:00",
+    "fetchedAt": "2026-09-17T23:32:57+08:00",
     "navHistory": [
       {
         "date": "2026-08-03",
