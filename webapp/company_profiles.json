@@ -1448,6 +1448,13 @@
     "business": "臺灣上市公司；主要業務請參考公司網站。",
     "source": "臺灣證券交易所"
   },
+  "6920": {
+    "name": "Lasertec Corporation",
+    "market": "JP",
+    "industry": "",
+    "business": "無代號海外成分股，暫無可用公開摘要。",
+    "source": ""
+  },
   "6976": {
     "name": "TAIYO YUDEN",
     "market": "JP",
@@ -1822,6 +1829,14 @@
     "business": "無代號海外成分股，暫無可用公開摘要。",
     "source": ""
   },
+  "FORM": {
+    "name": "FormFactor",
+    "market": "US",
+    "industry": "Semiconductor Equipment & Materials",
+    "business": "FormFactor, Inc. designs, manufactures, and sells probe cards, analytical probes, probe stations, thermal systems, cryogenic systems, and related services in the United States, South Korea, Taiwan, China, Japan, Singapore, Europe, Malaysia, and internationally. The company operates in two segments: Probe Cards and Systems segments. The company provides probe cards to test various semiconductor device types, including systems- on-chip products, such as graphics, central, digital processing units, and other custom application-specific processing units; mobile application processors, microprocessors, and microcontrollers; network devices, which include switches and network processing units; dynamic random-access memory; radio-frequency amplifiers and filters; antenna-in-package devices; analog and mixed-signal integrated circuits; image sensors; co-packaged optical integrated circuits; NAND flash memory; NOR flash memory; and quantum computer processor devices. It also offers analytical probes, which are used for device characterization, electrical simulation model development, failure analysis, and prototype design debugging; probe stations, a critical tool for the development of new generations of semiconductor and electro-optical processes and designs; and thermal subsystems, which include thermal chucks and other test systems used in probe stations and other applications for precise temperature management. In addition, the company provides cryogenic systems, which includes the manufacture of precision cryogenic instruments and semiconductor test and measurement systems; and services and support, including installation services. Further, it offers on-site probe card maintenance and service training, seminars, and telephone support services. It markets and sells its products through direct sales force, manufacturers’ representatives, and distributors. The company was incorporated in 1993 and is headquartered in Livermore, California.",
+    "source": "Stock Analysis",
+    "sector": "Technology"
+  },
   "FSLY": {
     "name": "Fastly",
     "market": "US",
@@ -1969,6 +1984,14 @@
     "market": "US",
     "industry": "Semiconductors",
     "business": "Micron Technology, Inc. designs, develops, manufactures, and sells memory and storage products in the United States, Taiwan, Japan, Mainland China, Hong Kong, Europe, and internationally. It operates through the Cloud Memory Business Unit; Core Data Center Business Unit; Mobile and Client Business Unit; and Automotive and Embedded Business Unit segments. The company provides memory products, including dynamic random access memory components and modules, CXL-based memory, LPDDR components and modules, graphics memory, high-bandwidth memory, and data center memory products; multichip packages (MCP) comprising embedded multimedia card-based, universal flash storage-based, and NAND-based MCPs; and technology leadership products that include 1y DRAM and G9 NAND technologies. It also offers storage products, such as data center solid-state drives (SSD), client SSD storage, and auto and industrial SSD storage; managed NAND; NAND flash; NOR flash; and memory cards. In addition, the company provides design tools, including FBGA and part decoders; DRAM power calculators; NAND power calculators; simulation models; chipset compatibility guides; serial presence-detection tools; cross-reference tools; UFSparm; SSD firmware; software and drivers; storage executive software; and obsolete part catalogs. It markets its semiconductor memory and storage products under the Micron and Crucial brands. The company serves the data center, PC, graphics, networking, automotive, industrial, and consumer embedded markets, as well as the smartphone and other mobile-device markets. It sells its products through its direct sales force, independent sales representatives, distributors, and retailers; web-based customer direct sales channel; and channel and distribution partners. Micron Technology, Inc. was founded in 1978 and is headquartered in Boise, Idaho.",
+    "source": "Stock Analysis",
+    "sector": "Technology"
+  },
+  "MXL": {
+    "name": "MaxLinear",
+    "market": "US",
+    "industry": "Semiconductors",
+    "business": "MaxLinear, Inc. provides communications systems-on-chip solutions in the United States, Asia, Europe, and internationally. Its products integrate various portions of a high-speed communication system, including radio frequency, high-performance analog, mixed-signal, digital signal processing, security engines, data compression and networking layers, and power management. Its products are used in various electronic devices, such as radio transceivers and modems for 4G/5G base-station and backhaul infrastructure; optical transceivers; wi-fi and wireline routers for home networking; broadband modems compliant with data over cable service interface specifications, passive optical fiber standards, and digital subscriber line, as well as power management and interface products. It serves electronics distributors, module makers, original equipment manufacturers, and original design manufacturers through a direct sales force, third-party sales representatives, and a network of distributors. The company has a strategic collaboration with Edgecore Networks Corporation for the development network infrastructure for enterprise and SMB applications. MaxLinear, Inc. has strategic partnership with GCT Semiconductor Holding, Inc. to develop 5G fixed wireless access (FWA) gateways and converged gateways for consumer and enterprise applications. The company was incorporated in 2003 and is headquartered in Carlsbad, California. The company was incorporated in 2003 and is headquartered in Carlsbad, California.",
     "source": "Stock Analysis",
     "sector": "Technology"
   },
