@@ -983,7 +983,11 @@
     box.addEventListener("pointerup", finishPointer);
     box.addEventListener("pointercancel", finishPointer);
   }
-  const assetTypeLabel = info => info.assetType === "etf" ? `${info.market === "TW" ? "台灣" : "美國"} ETF` : info.market === "TW" ? "台股" : "美股";
+  const assetTypeLabel = info => {
+    const marketName = { TW:"台灣", US:"美國", JP:"日本", KS:"韓國" }[info.market] || info.market;
+    if (info.assetType === "etf") return `${marketName} ETF`;
+    return { TW:"台股", US:"美股", JP:"日股", KS:"韓股" }[info.market] || `${marketName}股票`;
+  };
   function catalogMatches(term) {
     const query = term.trim().toLowerCase();
     const scored = catalogAssets.map(asset => {
@@ -1028,7 +1032,9 @@
       if (!catalogAssets.some(asset => asset.market === "TW" && asset.symbol === symbol)) catalogAssets.push({ symbol, name:etf.name || symbol, market:"TW", assetType:"etf", exchange:"TWSE" });
     });
     const params = new URLSearchParams(location.search), wantedMarket = (params.get("market") || "TW").toUpperCase(), wantedSymbol = (params.get("symbol") || "").toUpperCase();
-    const initial = wantedSymbol ? catalogAssets.find(asset => asset.market === wantedMarket && asset.symbol === wantedSymbol) : null;
+    const wantedName = (params.get("name") || wantedSymbol).trim();
+    const initial = wantedSymbol ? (catalogAssets.find(asset => asset.market === wantedMarket && asset.symbol === wantedSymbol)
+      || (["TW", "US", "JP", "KS"].includes(wantedMarket) ? { symbol:wantedSymbol, name:wantedName, market:wantedMarket, assetType:"stock", exchange:"" } : null)) : null;
     input.addEventListener("focus", () => { input.select(); renderAssetResults(); });
     input.addEventListener("click", () => input.select());
     input.addEventListener("input", renderAssetResults);

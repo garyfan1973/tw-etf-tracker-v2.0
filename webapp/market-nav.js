@@ -2,6 +2,7 @@
   const items = [
     ["academy.html", "K 線研習院", "academy"],
     ["analysis.html", "專業分析台", "analysis"],
+    ["ai-industry.html", "AI 產業鏈", "ai-industry"],
     ["tracker.html?view=overview", "個股資訊", "stocks"],
     ["market-index.html", "指數資訊", "indices"],
     ["taiwan-futures.html", "台指期資訊", "futures"],
@@ -18,6 +19,7 @@
     const page = location.pathname.split("/").pop() || "index.html";
     if (page === "academy.html") return "academy";
     if (page === "analysis.html") return "analysis";
+    if (page === "ai-industry.html") return "ai-industry";
     if (page === "market-index.html") return "indices";
     if (page === "taiwan-futures.html") return "futures";
     if (page === "forex.html") return "forex";

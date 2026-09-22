@@ -14,6 +14,10 @@
 
 新頁按需讀取保存歷史，不載入完整 `data.js`。`fetch_price_history.py` 會同步生成約 100 KiB 的 `price-history/catalog.json`，沿用兩條行情批次既有的歷史目錄提交清單。數據口徑、網站改進評估與測試方式見 [專業分析台說明](docs/analysis-workspace.md)。
 
+### AI 產業鏈全景
+
+新增 `ai-industry.html`，以十三個環節整理 AI 伺服器與資料中心供應鏈，包含零組件角色、產品、介面、台美與日韓代表公司。頁面提供可旋轉、縮放與拆解的 3D 伺服器模型、公司競合關係圖，以及直接讀取既有跨市場日線檔的最近收盤、漲跌與六個月／一年迷你線圖。公司代號會另開既有個股資訊頁；日股與韓股可透過 URL 市場參數直接載入本地歷史行情。
+
 ### ETF 持股資訊
 
 - 顯示 ETF 合計持有股數、投入成本、現值、損益與報酬率。
@@ -95,6 +99,7 @@
 | 頁面 | 檔案 |
 | --- | --- |
 | 個股資訊／完整 K 線 | `tracker.html?view=overview` |
+| AI 產業鏈全景 | `ai-industry.html` |
 | 指數資訊 | `market-index.html` |
 | 匯市資訊／匯率試算 | `forex.html` |
 | 美國公債資訊／殖利率曲線 | `bonds.html` |

@@ -1037,7 +1037,7 @@
 
       function setMarketView(mode, selectCurrentEtf = false) {
         marketWorkspace = true;
-        if (mode === "institutional" && marketAsset?.market === "US") mode = "overview";
+        if (mode === "institutional" && marketAsset?.market !== "TW") mode = "overview";
         marketViewMode = mode;
         const pageUrl = new URL(location.href); pageUrl.searchParams.set("view", mode); history.replaceState(null, "", pageUrl);
         ["overviewPanel","changeChartPanel","changeTablePanel","institutionalMarginPanel"].forEach(id => document.getElementById(id).style.display = "none");
@@ -1053,12 +1053,12 @@
         document.getElementById("marketAssetControls").style.display = "flex";
         document.getElementById("etfKlineAssetControls").style.display = "none";
         document.getElementById("workspaceTitle").textContent = "個股資訊";
-        document.getElementById("sub").textContent = "搜尋台股、台灣 ETF、美股或美國 ETF，查看基本資料、技術分析與法人資券。";
+        document.getElementById("sub").textContent = "搜尋台股、台灣 ETF、美股、日股或韓股，查看基本資料與技術分析。";
         const marketNav = document.getElementById("marketResearchNav"), etfNav = document.getElementById("etfResearchNav");
         marketNav.style.color="#fff"; marketNav.style.background="var(--accent)"; marketNav.style.borderColor="var(--accent)";
         etfNav.style.color="var(--muted)"; etfNav.style.background="transparent"; etfNav.style.borderColor="var(--border)";
         const institutionButton = document.getElementById("marketInstitutionalViewBtn");
-        institutionButton.style.display = marketAsset?.market === "US" ? "none" : "inline-block";
+        institutionButton.style.display = marketAsset?.market && marketAsset.market !== "TW" ? "none" : "inline-block";
         [["marketOverviewViewBtn","overview"],["marketKlineViewBtn","kline"],["marketInstitutionalViewBtn","institutional"]].forEach(([id,name]) => { const btn=document.getElementById(id), active=name===mode; btn.classList.toggle("active",active); btn.setAttribute("aria-selected",String(active)); });
         const changeSummary = document.querySelector(".change-summary-inline"); if (changeSummary) changeSummary.style.display = "none";
         if (selectCurrentEtf) syncKlineEtf();
@@ -1650,7 +1650,7 @@
       document.getElementById("marketInstitutionalViewBtn").addEventListener("click", () => setMarketView("institutional"));
       document.addEventListener("marketchart:assetchange", event => {
         marketAsset = event.detail.asset; marketRows = []; marketFinancialPayload = null;
-        if (marketViewMode === "institutional" && marketAsset.market === "US") marketViewMode = "overview";
+        if (marketViewMode === "institutional" && marketAsset.market !== "TW") marketViewMode = "overview";
         if (marketWorkspace) setMarketView(marketViewMode);
       });
       document.addEventListener("marketchart:datachange", event => {
