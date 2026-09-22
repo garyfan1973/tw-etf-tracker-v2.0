@@ -1,6 +1,6 @@
 {
   "date": "2026-09-18",
-  "fetched_at": "2026-09-22T07:21:03+08:00",
+  "fetched_at": "2026-09-22T17:32:13+08:00",
   "count": 31,
   "self": {
     "open": 81.55,
@@ -51,7 +51,7 @@
       "change": 2.93,
       "changePct": 1.34,
       "amplitude": 2.14,
-      "volume": 189683500,
+      "volume": 190287400,
       "currency": "USD",
       "quoteDate": "2026-09-18"
     },
@@ -70,7 +70,7 @@
       "change": 38.3,
       "changePct": 3.92,
       "amplitude": 3.95,
-      "volume": 35656400,
+      "volume": 35803500,
       "currency": "USD",
       "quoteDate": "2026-09-18"
     },
@@ -89,7 +89,7 @@
       "change": 10.31,
       "changePct": 2.97,
       "amplitude": 3.44,
-      "volume": 43948400,
+      "volume": 44032800,
       "currency": "USD",
       "quoteDate": "2026-09-18"
     },
@@ -108,7 +108,7 @@
       "change": 3.49,
       "changePct": 1.45,
       "amplitude": 3.52,
-      "volume": 23546400,
+      "volume": 23635600,
       "currency": "USD",
       "quoteDate": "2026-09-18"
     },
@@ -127,7 +127,7 @@
       "change": 14.73,
       "changePct": 2.7,
       "amplitude": 3.37,
-      "volume": 31785700,
+      "volume": 31867300,
       "currency": "USD",
       "quoteDate": "2026-09-18"
     },
@@ -146,7 +146,7 @@
       "change": 4.41,
       "changePct": 1.02,
       "amplitude": 1.36,
-      "volume": 12884300,
+      "volume": 12905100,
       "currency": "USD",
       "quoteDate": "2026-09-18"
     },
@@ -165,7 +165,7 @@
       "change": -0.2,
       "changePct": -0.18,
       "amplitude": 3.76,
-      "volume": 174679000,
+      "volume": 174996700,
       "currency": "USD",
       "quoteDate": "2026-09-18"
     },
@@ -222,7 +222,7 @@
       "change": 8.01,
       "changePct": 4.74,
       "amplitude": 4.39,
-      "volume": 20054800,
+      "volume": 20072500,
       "currency": "USD",
       "quoteDate": "2026-09-18"
     },
@@ -241,7 +241,7 @@
       "change": 27.17,
       "changePct": 6.51,
       "amplitude": 5.99,
-      "volume": 14276700,
+      "volume": 14302900,
       "currency": "USD",
       "quoteDate": "2026-09-18"
     },
@@ -279,7 +279,7 @@
       "change": 18.8,
       "changePct": 6.98,
       "amplitude": 5.8,
-      "volume": 19608300,
+      "volume": 19636000,
       "currency": "USD",
       "quoteDate": "2026-09-18"
     },
@@ -306,7 +306,7 @@
       "change": -10.99,
       "changePct": -5.82,
       "amplitude": 8.56,
-      "volume": 54427700,
+      "volume": 54480300,
       "currency": "USD",
       "quoteDate": "2026-09-18"
     },
@@ -439,7 +439,7 @@
       "change": 10.71,
       "changePct": 4.04,
       "amplitude": 5.33,
-      "volume": 6943100,
+      "volume": 6963100,
       "currency": "USD",
       "quoteDate": "2026-09-18"
     },
@@ -458,7 +458,7 @@
       "change": 7.64,
       "changePct": 4.54,
       "amplitude": 3.44,
-      "volume": 13318700,
+      "volume": 13345500,
       "currency": "USD",
       "quoteDate": "2026-09-18"
     },
@@ -477,7 +477,7 @@
       "change": 1.68,
       "changePct": 2.46,
       "amplitude": 3.37,
-      "volume": 20488900,
+      "volume": 20501600,
       "currency": "USD",
       "quoteDate": "2026-09-18"
     },
@@ -496,7 +496,7 @@
       "change": 1.98,
       "changePct": 4.32,
       "amplitude": 5.72,
-      "volume": 6568300,
+      "volume": 6585900,
       "currency": "USD",
       "quoteDate": "2026-09-18"
     },
