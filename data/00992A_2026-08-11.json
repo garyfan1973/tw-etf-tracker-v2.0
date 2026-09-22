@@ -416,7 +416,7 @@
       "change": -150.0,
       "changePct": -2.73,
       "amplitude": 11.74,
-      "volume": 2298296.0,
+      "volume": 2303296.0,
       "quoteDate": "2026-08-11"
     },
     {
@@ -824,7 +824,7 @@
       "change": -20.0,
       "changePct": -1.62,
       "amplitude": 4.45,
-      "volume": 1368337.0,
+      "volume": 1384337.0,
       "quoteDate": "2026-08-11"
     },
     {
@@ -1367,7 +1367,7 @@
       "change": -7.5,
       "changePct": -2.64,
       "amplitude": 5.28,
-      "volume": 22192100.0,
+      "volume": 38164508.0,
       "quoteDate": "2026-08-11"
     }
   ]
