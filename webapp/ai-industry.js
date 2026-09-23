@@ -96,7 +96,7 @@
   ]);
 
   const stages = [
-    {id:"compute",number:"01",icon:"▦",color:"#6c63dc",title:"運算晶片與加速器",short:"算力核心",role:"GPU、CPU 與客製 ASIC 執行模型訓練、推論與系統控制，是 AI 伺服器的算力來源。",products:["GPU","CPU","AI ASIC","DPU","控制晶片"],interfaces:["NVLink","PCIe 6.0","CXL","UALink"],communication:"CPU 分派工作，GPU／ASIC 大量平行運算；DPU 卸載網路、儲存與安全工作。",companyIds:["usNVDA","usAMD","usAVGO","usMRVL","usARM","tw2454","tw3443","tw3661","jp6723"]},
+    {id:"compute",number:"01",icon:"▦",color:"#6c63dc",title:"運算晶片與加速器",short:"算力核心",role:"GPU、CPU 與客製 ASIC 執行模型訓練、推論與系統控制，是 AI 伺服器的算力來源。",products:["GPU","CPU","AI ASIC","DPU","控制晶片"],interfaces:["NVLink","PCIe 6.0","CXL","UALink"],communication:"CPU 分派工作，GPU／ASIC 大量平行運算；DPU 卸載網路、儲存與安全工作。",companyIds:["usNVDA","usAMD","usAVGO","usMRVL","usARM","usQCOM","tw2454","tw3443","tw3661","jp6723"]},
     {id:"memory",number:"02",icon:"▤",color:"#e7576b",title:"記憶體與儲存",short:"餵資料給晶片",role:"HBM 把模型參數高速送入 GPU；DRAM 暫存工作資料，NAND／SSD 保存模型、資料集與檢查點。",products:["HBM3E／HBM4","DDR5","NAND","NVMe SSD","HDD"],interfaces:["HBM Interface","DDR5","PCIe／NVMe","SAS"],communication:"HBM 透過超寬匯流排貼近 GPU，SSD 經 PCIe／NVMe 將資料送入主記憶體。",companyIds:["ks000660","ks005930","usMU","jp285A","usSNDK","usWDC"]},
     {id:"foundry",number:"03",icon:"◎",color:"#168fa1",title:"晶圓代工與製程",short:"把設計做成晶片",role:"將電路設計轉成數十億顆電晶體，先進節點提高效能與能源效率，成熟製程則承擔周邊控制。",products:["先進邏輯製程","特殊製程","矽光子","晶圓級整合"],interfaces:["GDSII","PDK","IP Library","Wafer"],communication:"晶片設計公司交付版圖，晶圓廠依製程設計套件與光罩完成製造，再送往封裝測試。",companyIds:["tw2330","usTSM","usINTC","usGFS","ks005930"]},
     {id:"equipment",number:"04",icon:"⌁",color:"#ad7b2a",title:"半導體設備與材料",short:"製程的工具箱",role:"曝光、沉積、蝕刻、清洗、檢測與量測設備決定晶片能否縮小、堆疊並維持良率。",products:["EUV 曝光","蝕刻／沉積","光罩檢測","製程量測","電子材料"],interfaces:["Recipe","Wafer Handling","EUV Mask","Process Control"],communication:"設備依晶圓廠製程配方逐層加工，檢測資料再回饋製程控制系統修正參數。",companyIds:["usASML","usAMAT","usLRCX","usKLAC","jp8035","jp6920","jp5706"]},
@@ -151,6 +151,7 @@
 
   let selectedStage = "compute";
   let chartRange = "6m";
+  let companyLimit = 18;
   const quoteCache = new Map();
 
   function stockUrl(company) {
@@ -232,7 +233,7 @@
       <div class="quote-row"><div class="quote-price"><span>最近收盤</span><strong class="quote-last"><span class="loading-line" style="width:92px"></span></strong></div><div class="quote-change flat"><span class="loading-line" style="width:70px"></span></div></div>
       <div class="sparkline"><span class="loading-line" style="display:block;height:62px"></span></div>
       <div class="company-tags">${[...stageNames,...company.tags].slice(0,4).map(tag => `<span>${esc(tag)}</span>`).join("")}</div>
-      <div class="company-foot"><small class="quote-date">載入行情中</small><a href="${stockUrl(company)}" target="_blank" rel="noopener">${esc(company.symbol)} 個股資訊 ↗</a></div>
+      <div class="company-foot"><small class="quote-date">載入行情中</small><div><button type="button" data-company-research="${company.id}">研究</button><a href="${stockUrl(company)}" target="_blank" rel="noopener">${esc(company.symbol)} 個股資訊 ↗</a></div></div>
     </article>`;
   }
 
@@ -288,18 +289,23 @@
   }
 
   function renderCompanies() {
-    const rows = filteredCompanies();
-    $("companyCount").textContent = `顯示 ${rows.length} / ${companies.length} 家`;
+    const filtered = filteredCompanies();
+    const rows = filtered.slice(0, companyLimit);
+    $("companyCount").textContent = `顯示 ${rows.length} / ${filtered.length} 家（資料庫 ${companies.length} 家）`;
     $("companyGrid").innerHTML = rows.length ? rows.map(companyCard).join("") : '<div class="sparkline-empty" style="grid-column:1/-1;padding:45px">找不到符合條件的公司。</div>';
+    $("companyMore").hidden = rows.length >= filtered.length;
+    $("companyMore").textContent = `再顯示 ${Math.min(18, filtered.length - rows.length)} 家`;
     $("companyGrid").querySelectorAll(".company-logo img").forEach(image => image.addEventListener("error", () => image.parentElement.classList.add("fallback"), {once:true}));
     rows.forEach(hydrateCompanyCard);
   }
 
   function setupCompanyFilters() {
     $("stageFilter").insertAdjacentHTML("beforeend", stages.map(stage => `<option value="${stage.id}">${stage.number} ${stage.title}</option>`).join(""));
-    $("companySearch").addEventListener("input", renderCompanies);
-    $("marketFilter").addEventListener("change", renderCompanies);
-    $("stageFilter").addEventListener("change", renderCompanies);
+    const resetAndRender = () => { companyLimit = 18; renderCompanies(); };
+    $("companySearch").addEventListener("input", resetAndRender);
+    $("marketFilter").addEventListener("change", resetAndRender);
+    $("stageFilter").addEventListener("change", resetAndRender);
+    $("companyMore").addEventListener("click", () => { companyLimit += 18; renderCompanies(); });
     document.querySelectorAll("[data-range]").forEach(button => button.addEventListener("click", () => {
       chartRange = button.dataset.range;
       document.querySelectorAll("[data-range]").forEach(item => item.classList.toggle("active", item === button));
@@ -386,6 +392,11 @@
     setupCompanyFilters(); renderCompanies();
     setupServer(); setupRelations();
   }
+
+  window.AIIndustry = {
+    companies, companyById, stages, stageById, marketMeta, serverParts, relations,
+    loadQuote, stockUrl, logoMarkup, priceFormat, companyStages, selectStage, esc
+  };
 
   if (document.readyState === "loading") document.addEventListener("DOMContentLoaded", init);
   else init();
