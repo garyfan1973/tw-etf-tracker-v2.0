@@ -45,6 +45,7 @@
     {id:"tw3231",market:"TW",symbol:"3231",name:"緯創",exchange:"TWSE",domain:"wistron.com",tags:["AI 伺服器","系統整合","ODM"],role:"提供伺服器設計製造與全球供應鏈整合。"},
     {id:"tw2317",market:"TW",symbol:"2317",name:"鴻海",exchange:"TWSE",domain:"foxconn.com",tags:["AI 伺服器","機櫃","製造服務"],role:"從主板、伺服器到整櫃提供大規模製造整合。"},
     {id:"tw2376",market:"TW",symbol:"2376",name:"技嘉",exchange:"TWSE",domain:"gigabyte.com",tags:["伺服器","GPU 平台","主機板"],role:"提供 GPU 伺服器、主機板與整機系統。"},
+    {id:"tw6690",market:"TW",symbol:"6690",name:"安碁資訊",exchange:"TPEx",domain:"acercsi.com",tags:["MSSP","SOC","IT／OT 資安"],role:"提供 7×24 SOC、MDR、雲端與 OT 資安監控，以及事件應變服務。"},
 
     {id:"usNVDA",market:"US",symbol:"NVDA",name:"NVIDIA",exchange:"NASDAQ",domain:"nvidia.com",tags:["GPU","NVLink","AI 平台"],role:"提供加速運算 GPU、互連、網路與軟體平台。"},
     {id:"usAMD",market:"US",symbol:"AMD",name:"AMD",exchange:"NASDAQ",domain:"amd.com",tags:["GPU","CPU","加速器"],role:"提供 EPYC CPU、Instinct GPU 與資料中心加速平台。"},
@@ -73,6 +74,13 @@
     {id:"usMSFT",market:"US",symbol:"MSFT",name:"Microsoft",exchange:"NASDAQ",domain:"microsoft.com",tags:["Azure","雲端 AI","資料中心"],role:"建置大規模 AI 資料中心並向客戶提供算力。"},
     {id:"usAMZN",market:"US",symbol:"AMZN",name:"Amazon",exchange:"NASDAQ",domain:"amazon.com",tags:["AWS","雲端 AI","自研晶片"],role:"以 AWS 提供 AI 算力並開發自有加速晶片。"},
     {id:"usGOOGL",market:"US",symbol:"GOOGL",name:"Alphabet",exchange:"NASDAQ",domain:"abc.xyz",tags:["Google Cloud","TPU","資料中心"],role:"設計 TPU 並經由 Google Cloud 提供 AI 服務。"},
+    {id:"usPANW",market:"US",symbol:"PANW",name:"Palo Alto Networks",exchange:"NASDAQ",domain:"paloaltonetworks.com",tags:["網路安全","雲端安全","SecOps／身分"],role:"以整合平台保護網路、雲端工作負載、安全營運與人機身分。"},
+    {id:"usCRWD",market:"US",symbol:"CRWD",name:"CrowdStrike",exchange:"NASDAQ",domain:"crowdstrike.com",tags:["端點安全","XDR","雲端／身分"],role:"以雲端原生 Falcon 平台整合端點、雲端、身分、資料與威脅情報。"},
+    {id:"usFTNT",market:"US",symbol:"FTNT",name:"Fortinet",exchange:"NASDAQ",domain:"fortinet.com",tags:["防火牆","SASE","Security Fabric"],role:"以 FortiGate、FortiOS 與 Security Fabric 整合網路、安全與 SecOps。"},
+    {id:"usZS",market:"US",symbol:"ZS",name:"Zscaler",exchange:"NASDAQ",domain:"zscaler.com",tags:["Zero Trust","SASE／SSE","資料安全"],role:"透過雲端 Zero Trust Exchange 保護使用者、裝置、分支與工作負載存取。"},
+    {id:"usNET",market:"US",symbol:"NET",name:"Cloudflare",exchange:"NYSE",domain:"cloudflare.com",tags:["應用安全","Zero Trust","邊緣網路"],role:"在全球邊緣網路提供應用程式、API、網路與 Zero Trust 安全服務。"},
+    {id:"usOKTA",market:"US",symbol:"OKTA",name:"Okta",exchange:"NASDAQ",domain:"okta.com",tags:["身分安全","IAM","AI Agent 身分"],role:"管理員工、客戶、機器與 AI Agent 的驗證、授權、治理與存取。"},
+    {id:"usRBRK",market:"US",symbol:"RBRK",name:"Rubrik",exchange:"NYSE",domain:"rubrik.com",tags:["資料安全","備份復原","Cyber Resilience"],role:"保護企業資料並提供勒索軟體偵測、不可變備份與事件後快速復原。"},
 
     {id:"jp285A",market:"JP",symbol:"285A",name:"鎧俠控股",exchange:"TSE",domain:"kioxia-holdings.com",tags:["NAND","SSD","記憶體"],role:"大型 NAND Flash 與企業級 SSD 供應商。"},
     {id:"jp4062",market:"JP",symbol:"4062",name:"Ibiden",exchange:"TSE",domain:"ibiden.com",tags:["IC 載板","封裝基板","高階 PCB"],role:"供應高階 CPU／GPU 所需封裝基板。"},
@@ -83,6 +91,7 @@
     {id:"jp6976",market:"JP",symbol:"6976",name:"太陽誘電",exchange:"TSE",domain:"yuden.co.jp",tags:["MLCC","電感","被動元件"],role:"供應高可靠度電容與電感元件。"},
     {id:"jp6981",market:"JP",symbol:"6981",name:"村田製作所",exchange:"TSE",domain:"murata.com",tags:["MLCC","電源模組","被動元件"],role:"提供高密度伺服器需要的微型被動元件與模組。"},
     {id:"jp8035",market:"JP",symbol:"8035",name:"東京威力科創",exchange:"TSE",domain:"tel.com",tags:["蝕刻","沉積","塗佈顯影"],role:"提供晶圓製造多道關鍵製程設備。"},
+    {id:"jp4704",market:"JP",symbol:"4704",name:"趨勢科技",exchange:"TSE Prime",domain:"trendmicro.com",tags:["XDR","雲端安全","企業資安平台"],role:"以 TrendAI Vision One 保護端點、雲端、網路、郵件與安全營運。"},
 
     {id:"ks005930",market:"KS",symbol:"005930",name:"三星電子",exchange:"KRX",domain:"samsung.com",tags:["HBM","DRAM","晶圓代工"],role:"同時提供記憶體、晶圓代工與系統半導體。"},
     {id:"ks000660",market:"KS",symbol:"000660",name:"SK 海力士",exchange:"KRX",domain:"skhynix.com",tags:["HBM","DRAM","NAND"],role:"AI GPU 高頻寬記憶體的重要供應商。"},
@@ -92,7 +101,7 @@
   const logoFallback = new Set([
     "tw3443","tw3661","tw6239","tw3037","tw8046","tw3189","tw2383","tw6274","tw2368","tw4958",
     "tw2345","tw3081","tw6442","tw2301","tw8996","tw8210","tw2059","tw2492","tw2472","tw3026",
-    "tw2382","tw3231","tw3363","tw6831","usGLW","jp4062","jp6976","jp8035"
+    "tw2382","tw3231","tw3363","tw6831","tw6690","usGLW","jp4062","jp6976","jp8035"
   ]);
 
   const stages = [
@@ -108,15 +117,25 @@
     {id:"mechanical",number:"10",icon:"▥",color:"#68798b",title:"機殼、機櫃與滑軌",short:"承載與維護",role:"機構件固定高價零件、建立風道、承受整機重量，並讓維修人員能安全抽換設備。",products:["伺服器機殼","整機櫃","滑軌","盲插接頭","Busbar"],interfaces:["OCP Rack","EIA-310","Blind-mate","Rack PDU"],communication:"機櫃定義電力、網路與冷卻入口；滑軌與盲插介面讓節點在不中斷其他設備下維護。",companyIds:["tw8210","tw2059","tw6669","tw2382","tw2317"]},
     {id:"passives",number:"11",icon:"≋",color:"#9b6b3f",title:"被動元件與連接器",short:"穩壓、濾波、保護",role:"電容、電阻、電感與連接器遍布主板、加速卡與電源，抑制雜訊並保持訊號和電壓穩定。",products:["MLCC","鋁質電容","電阻","電感","高速連接器"],interfaces:["Power Integrity","Signal Integrity","Board-to-board","High-current"],communication:"被動元件不處理資料，但直接影響電源完整性、訊號品質與整機可靠度。",companyIds:["tw2327","tw2492","tw2472","tw3026","jp6976","jp6981","ks009150","tw3665"]},
     {id:"system",number:"12",icon:"▧",color:"#5467b6",title:"伺服器 ODM／OEM",short:"把零件變成系統",role:"依雲端業者需求整合主板、GPU、網路、電源、散熱與韌體，完成驗證、量產與全球交付。",products:["GPU Server","Compute Tray","NVL Rack","Storage Server","Rack Integration"],interfaces:["BMC／Redfish","OCP","NVLink Fabric","Rack Management"],communication:"BMC 監控硬體，管理軟體協調運算、網路與能源；整櫃驗證確保節點能共同工作。",companyIds:["tw6669","tw2382","tw3231","tw2317","tw2376","usDELL"]},
-    {id:"cloud",number:"13",icon:"☁",color:"#6c63dc",title:"雲端與資料中心",short:"把算力變成服務",role:"雲端服務商規劃叢集、機房與軟體平台，將底層硬體包裝成模型訓練、推論與 API 服務。",products:["GPU Cloud","AI Platform","自研加速器","模型服務","資料中心"],interfaces:["Kubernetes","CUDA／ROCm","API","Scheduler"],communication:"排程器分配 GPU，分散式軟體同步模型參數，雲端 API 再把運算能力提供給企業與開發者。",companyIds:["usMSFT","usAMZN","usGOOGL","usNVDA","usDELL"]}
+    {id:"cloud",number:"13",icon:"☁",color:"#6c63dc",title:"雲端與資料中心",short:"把算力變成服務",role:"雲端服務商規劃叢集、機房與軟體平台，將底層硬體包裝成模型訓練、推論與 API 服務。",products:["GPU Cloud","AI Platform","自研加速器","模型服務","資料中心"],interfaces:["Kubernetes","CUDA／ROCm","API","Scheduler"],communication:"排程器分配 GPU，分散式軟體同步模型參數，雲端 API 再把運算能力提供給企業與開發者。",companyIds:["usMSFT","usAMZN","usGOOGL","usNVDA","usDELL"]},
+    {id:"security",number:"14",icon:"◇",color:"#7b61d1",title:"資安、身分與營運韌性",short:"守住 AI 攻擊面",role:"保護模型、資料、API、端點、雲端工作負載與人機身分，並在攻擊發生時偵測、回應與復原。",products:["Zero Trust／SASE","XDR／SIEM／SOAR","CNAPP","IAM／PAM","資料備份與復原"],interfaces:["Telemetry／Logs","Identity／OAuth","Policy API","EDR Agent","SOC／MDR"],communication:"身分與政策先決定誰能存取；端點、網路與雲端持續回傳遙測，SOC 關聯告警並自動隔離，資料平台負責事件後復原。",companyIds:["usPANW","usCRWD","usFTNT","usZS","usNET","usOKTA","usRBRK","jp4704","tw6690"]}
   ];
   const stageById = new Map(stages.map(stage => [stage.id, stage]));
+  const securityCompanyIds = ["usPANW","usCRWD","usFTNT","usZS","usNET","usOKTA","usRBRK","jp4704","tw6690"];
+  const securityLayers = [
+    ["01 / IDENTITY","身分與特權","驗證人、機器與 AI Agent；以最小權限、持續驗證與特權控管降低帳號被接管的風險。"],
+    ["02 / ENDPOINT & SOC","端點與安全營運","從伺服器與員工裝置蒐集行為遙測，透過 XDR、SIEM、SOAR 與 MDR 偵測並回應攻擊。"],
+    ["03 / NETWORK & SASE","網路與 Zero Trust","在使用者、分支、API 與私有應用之間執行政策，阻止橫向移動並縮小可見攻擊面。"],
+    ["04 / CLOUD & AI","雲端工作負載與 AI","從程式碼、容器、模型到執行期持續檢查弱點、權限、資料流與異常活動。"],
+    ["05 / DATA RESILIENCE","資料安全與營運韌性","辨識敏感資料、阻止外洩，並用不可變備份與演練過的復原流程降低勒索軟體衝擊。"]
+  ];
 
   const serverParts = {
     mainboard:{icon:"╫",title:"高速主機板",stage:"board",summary:"承載 CPU、加速卡、記憶體與控制晶片，並把電力與高速訊號分配到各模組。",data:"PCIe／CXL",power:"多相 VRM"},
     cpu:{icon:"▣",title:"CPU／Host Processor",stage:"compute",summary:"負責作業系統、資料前處理、排程與控制，並把大量平行工作交給 GPU。",data:"PCIe 6.0／CXL",power:"350–500W 級"},
     gpu:{icon:"▦",title:"GPU 加速器＋HBM",stage:"compute",summary:"Tensor Core 類運算單元執行模型矩陣計算；周圍 HBM 以超寬頻寬持續供應模型參數。",data:"NVLink／HBM",power:"700W+ 級"},
     network:{icon:"⇄",title:"NIC／DPU 網路卡",stage:"network",summary:"把訓練資料送往其他 GPU 節點，並卸載封包處理、儲存與資安工作。",data:"Ethernet／InfiniBand",power:"PCIe／12V"},
+    security:{icon:"◇",title:"BMC／Root of Trust",stage:"security",summary:"驗證韌體與開機鏈、隔離管理平面並記錄硬體遙測，避免攻擊者從伺服器底層取得持久權限。",data:"Redfish／SPDM／Telemetry",power:"待機電源／TPM"},
     optical:{icon:"◈",title:"800G 光收發模組",stage:"network",summary:"把交換器或 NIC 的高速電訊號轉成光訊號，用光纖跨機櫃傳輸。",data:"800G／1.6T",power:"低壓直流"},
     storage:{icon:"▰",title:"NVMe SSD",stage:"memory",summary:"保存資料集、模型權重與訓練檢查點，並以 PCIe 高速送入系統。",data:"PCIe／NVMe",power:"12V／3.3V"},
     power:{icon:"ϟ",title:"高效率 PSU",stage:"power",summary:"將機櫃電力轉換為伺服器穩定直流電，並透過遙測回報負載、溫度與故障。",data:"PMBus",power:"3–5.5kW 級"},
@@ -133,7 +152,9 @@
     {id:"usNVDA",x:445,y:80},{id:"usAMD",x:445,y:190},{id:"usAVGO",x:445,y:300},
     {id:"tw3711",x:625,y:85},{id:"tw3037",x:625,y:195},{id:"tw2308",x:625,y:305},
     {id:"tw2382",x:805,y:70},{id:"tw6669",x:805,y:180},{id:"usDELL",x:805,y:290},{id:"usANET",x:805,y:400},
-    {id:"usMSFT",x:980,y:110},{id:"usAMZN",x:980,y:240},{id:"usGOOGL",x:980,y:370}
+    {id:"usMSFT",x:980,y:110},{id:"usAMZN",x:980,y:240},{id:"usGOOGL",x:980,y:370},
+    {id:"usPANW",x:120,y:620},{id:"usCRWD",x:285,y:620},{id:"usFTNT",x:450,y:620},
+    {id:"usZS",x:615,y:620},{id:"usNET",x:780,y:620},{id:"usRBRK",x:945,y:620}
   ];
   const relations = [
     {from:"usASML",to:"tw2330",type:"supply",label:"EUV 曝光設備"},{from:"usAMAT",to:"tw2330",type:"supply",label:"製程／封裝設備"},{from:"jp8035",to:"tw2330",type:"supply",label:"晶圓製程設備"},
@@ -146,7 +167,10 @@
     {from:"tw2382",to:"tw6669",type:"compete",label:"雲端伺服器 ODM"},{from:"tw6669",to:"usDELL",type:"compete",label:"AI 系統與整機"},{from:"tw2382",to:"usDELL",type:"compete",label:"伺服器方案"},
     {from:"tw2382",to:"usMSFT",type:"supply",label:"雲端硬體生態"},{from:"tw6669",to:"usAMZN",type:"supply",label:"雲端硬體生態"},{from:"usDELL",to:"usMSFT",type:"cooperate",label:"企業 AI 基礎設施"},
     {from:"usAVGO",to:"usANET",type:"supply",label:"交換器晶片"},{from:"usANET",to:"usMSFT",type:"supply",label:"資料中心網路"},{from:"usANET",to:"usGOOGL",type:"supply",label:"AI 網路生態"},
-    {from:"usMSFT",to:"usAMZN",type:"compete",label:"雲端 AI"},{from:"usAMZN",to:"usGOOGL",type:"compete",label:"雲端 AI"},{from:"usMSFT",to:"usGOOGL",type:"compete",label:"雲端 AI"}
+    {from:"usMSFT",to:"usAMZN",type:"compete",label:"雲端 AI"},{from:"usAMZN",to:"usGOOGL",type:"compete",label:"雲端 AI"},{from:"usMSFT",to:"usGOOGL",type:"compete",label:"雲端 AI"},
+    {from:"usPANW",to:"usCRWD",type:"compete",label:"XDR、雲端安全與 SecOps"},{from:"usPANW",to:"usFTNT",type:"compete",label:"網路安全與 SASE"},
+    {from:"usFTNT",to:"usZS",type:"compete",label:"SASE／Zero Trust"},{from:"usZS",to:"usNET",type:"compete",label:"SSE、Zero Trust 與應用安全"},
+    {from:"usPANW",to:"usRBRK",type:"compete",label:"雲端資料安全與營運韌性"},{from:"usCRWD",to:"usRBRK",type:"compete",label:"資料保護與事件復原"}
   ];
 
   let selectedStage = "compute";
@@ -161,9 +185,30 @@
 
   function renderFlow() {
     const groups = [
-      ["A / DESIGN","晶片設計與 IP"],["B / MAKE","晶圓製造與設備"],["C / INTEGRATE","封裝、載板與測試"],["D / BUILD","零組件與伺服器"],["E / SCALE","網路、機櫃與雲端"]
+      ["A / DESIGN","晶片設計與 IP"],["B / MAKE","晶圓製造與設備"],["C / INTEGRATE","封裝、載板與測試"],["D / BUILD","零組件與伺服器"],["E / SCALE","網路、機櫃與雲端"],["F / PROTECT","身分、資安與韌性"]
     ];
     $("chainFlow").innerHTML = groups.map(([small,strong]) => `<div class="flow-step"><small>${small}</small><strong>${strong}</strong></div>`).join("");
+  }
+
+  function showSecurityCompanies(companyId="") {
+    const company = companyId ? companyById.get(companyId) : null;
+    $("marketFilter").value = "all";
+    $("stageFilter").value = "security";
+    $("companySearch").value = company?.name || "";
+    companyLimit = 18;
+    renderCompanies();
+    $("companyAtlas").scrollIntoView({behavior:"smooth",block:"start"});
+  }
+
+  function renderSecuritySpotlight() {
+    $("securityStack").innerHTML = securityLayers.map(([index,title,copy]) => `<div class="cyber-layer"><div class="cyber-layer-title"><span>${esc(index)}</span><strong>${esc(title)}</strong></div><p>${esc(copy)}</p></div>`).join("");
+    $("securityCompanies").innerHTML = securityCompanyIds.map(id => companyById.get(id)).filter(Boolean).map(company => `<button type="button" class="cyber-company" data-security-company="${company.id}">${logoMarkup(company)}<span><strong>${esc(company.name)}</strong><small>${marketMeta[company.market].flag} ${esc(company.exchange)} · ${esc(company.tags[0])}</small></span><span>${esc(company.symbol)} ↗</span></button>`).join("");
+    $("securityCompanies").querySelectorAll(".company-logo img").forEach(image => image.addEventListener("error", event => event.currentTarget.parentElement.classList.add("fallback"), {once:true}));
+    $("securityCompanies").querySelectorAll("[data-security-company]").forEach(button => button.addEventListener("click", () => showSecurityCompanies(button.dataset.securityCompany)));
+    $("openSecurityStage").addEventListener("click", () => {
+      selectStage("security");
+      showSecurityCompanies();
+    });
   }
 
   function renderStages() {
@@ -354,9 +399,9 @@
     const visibleEdges = relations.filter(edge => filter === "all" || edge.type === filter);
     const neighborIds = new Set([activeId]);
     visibleEdges.forEach(edge => { if (edge.from === activeId) neighborIds.add(edge.to); if (edge.to === activeId) neighborIds.add(edge.from); });
-    const svg = `<svg viewBox="0 0 1060 560" role="img" aria-label="AI 供應鏈公司競合關係圖">
+    const svg = `<svg viewBox="0 0 1060 700" role="img" aria-label="AI 供應鏈公司競合關係圖">
       <defs><marker id="arrow-supply" markerWidth="7" markerHeight="7" refX="6" refY="3.5" orient="auto"><path d="M0,0 L7,3.5 L0,7 Z" fill="#67c8d1"/></marker><marker id="arrow-cooperate" markerWidth="7" markerHeight="7" refX="6" refY="3.5" orient="auto"><path d="M0,0 L7,3.5 L0,7 Z" fill="#927be3"/></marker></defs>
-      <text class="relation-label" x="45" y="28">設備</text><text class="relation-label" x="220" y="28">製造／記憶體</text><text class="relation-label" x="410" y="28">晶片平台</text><text class="relation-label" x="590" y="28">封裝／零組件</text><text class="relation-label" x="770" y="28">系統／網路</text><text class="relation-label" x="945" y="28">雲端</text>
+      <text class="relation-label" x="45" y="28">設備</text><text class="relation-label" x="220" y="28">製造／記憶體</text><text class="relation-label" x="410" y="28">晶片平台</text><text class="relation-label" x="590" y="28">封裝／零組件</text><text class="relation-label" x="770" y="28">系統／網路</text><text class="relation-label" x="945" y="28">雲端</text><text class="relation-label" x="45" y="550">資安平台競爭帶</text>
       ${visibleEdges.map(edge => { const a=nodeMap.get(edge.from),b=nodeMap.get(edge.to); if(!a||!b)return""; const dim=activeId&&!neighborIds.has(edge.from)&&!neighborIds.has(edge.to); return `<path class="relation-edge ${edge.type}${dim?" dim":""}" d="${curve(a,b)}" ${edge.type!=="compete"?`marker-end="url(#arrow-${edge.type})"`:""}><title>${esc(edge.label)}</title></path>`; }).join("")}
       ${relationNodes.map(node => { const company=companyById.get(node.id); if(!company)return""; const dim=activeId&&!neighborIds.has(node.id); return `<g class="relation-node${node.id===activeId?" active":""}${dim?" dim":""}" data-relation-node="${node.id}" tabindex="0" role="button" aria-label="${esc(company.name)}"><circle cx="${node.x}" cy="${node.y}" r="34"></circle><text x="${node.x}" y="${node.y-2}">${esc(company.name.length>9?company.name.slice(0,9):company.name)}</text><text x="${node.x}" y="${node.y+13}" fill="#7895a3">${esc(company.symbol)}</text></g>`; }).join("")}
     </svg>`;
@@ -389,7 +434,7 @@
   function init() {
     $("heroCompanyCount").textContent = companies.length;
     renderFlow(); renderStages(); renderStageDetail();
-    setupCompanyFilters(); renderCompanies();
+    setupCompanyFilters(); renderCompanies(); renderSecuritySpotlight();
     setupServer(); setupRelations();
   }
 

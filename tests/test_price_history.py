@@ -1,7 +1,7 @@
 import datetime
 import unittest
 
-from fetch_price_history import parse_rows, yahoo_symbol
+from fetch_price_history import FEATURED_PRICE_SYMBOLS, collect_symbols, parse_rows, yahoo_symbol
 
 
 class PriceHistoryTests(unittest.TestCase):
@@ -37,6 +37,11 @@ class PriceHistoryTests(unittest.TestCase):
             "close": 101.9877,
             "volume": 123456,
         }])
+
+    def test_keeps_featured_cybersecurity_symbols_in_refresh_scope(self):
+        symbols = {(item["market"], item["symbol"]) for item in collect_symbols()}
+
+        self.assertTrue(set(FEATURED_PRICE_SYMBOLS).issubset(symbols))
 
 
 if __name__ == "__main__":

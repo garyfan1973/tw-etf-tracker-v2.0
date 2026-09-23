@@ -17,7 +17,7 @@
       facts:[
         ["運算域","72 GPU / 36 Grace CPU"],["Scale-up","第五代 NVLink；整櫃 130 TB/s"],["記憶體","GB200 NVL72 共 13.4 TB HBM3E"],["熱設計","全液冷機櫃"],["軟體護城河","CUDA、NCCL、Mission Control"],["核心取捨","整櫃密度與效能高，電力、液冷與整合複雜度也高"]
       ],
-      focus:["compute","memory","packaging","network","power","thermal","system"],
+      focus:["compute","memory","packaging","network","power","thermal","system","security"],
       sources:[
         ["NVIDIA GB200 NVL72 官方規格","https://www.nvidia.com/en-us/data-center/gb200-nvl72/"],
         ["NVIDIA 多節點調校指南","https://docs.nvidia.com/multi-node-nvlink-systems/multi-node-tuning-guide/overview.html"]
@@ -33,7 +33,7 @@
       facts:[
         ["運算域","8 顆 MI350X / MI355X OAM"],["Scale-up","第四代 Infinity Fabric"],["記憶體","8-GPU 平台共 2.3 TB HBM3E"],["熱設計","標準氣冷到高密度直接液冷"],["軟體生態","ROCm 與開放式軟體堆疊"],["核心取捨","標準化與選擇彈性較高，跨節點效率更依賴網路與軟體成熟度"]
       ],
-      focus:["compute","memory","board","network","thermal","system"],
+      focus:["compute","memory","board","network","thermal","system","security"],
       sources:[
         ["AMD Instinct MI350 官方平台","https://www.amd.com/en/products/accelerators/instinct/mi350.html"],
         ["AMD MI350 系統驗收指南","https://instinct.docs.amd.com/projects/system-acceptance/en/latest/gpus/mi350x.html"]
@@ -49,7 +49,7 @@
       facts:[
         ["運算域","TPU7x：最高 9,216 chips/pod；Trn2 UltraServer：64 chips"],["Scale-up","Google ICI／AWS NeuronLink"],["記憶體","TPU7x 192 GiB/chip；Trn2 UltraServer 6 TB HBM"],["部署方式","主要由雲端業者封裝成託管算力"],["軟體生態","JAX／PyTorch on TPU；AWS Neuron SDK"],["核心取捨","特定工作負載效率與垂直整合高，可攜性與外部採購選擇較少"]
       ],
-      focus:["compute","memory","foundry","packaging","network","cloud"],
+      focus:["compute","memory","foundry","packaging","network","cloud","security"],
       sources:[
         ["Google Cloud TPU7x 官方文件","https://docs.cloud.google.com/tpu/docs/tpu7x"],
         ["AWS EC2 Trn2 官方頁面","https://aws.amazon.com/ec2/instance-types/trn2/"]
@@ -71,6 +71,7 @@
     passives:{value:"數量龐大的電容、電阻與連接器維持電源與訊號完整性。",bottleneck:"高溫、高頻、高電流規格與長時間可靠度認證。",watch:"單機用量、車規／伺服器等級產品比重、稼動率與高階產品 ASP。",risk:"多數品項同質化、庫存循環、原材料與價格競爭。",question:"AI 伺服器增加的是高階規格含量，還是只有一般用量？",sources:[["Murata Data Center Solutions","https://www.murata.com/en-global/applications/data-center"]]},
     system:{value:"把跨供應商零件驗證成可量產、可維護的伺服器與整櫃。",bottleneck:"GPU 配額、韌體、散熱、電力與整櫃測試任何一項都會拖延認列。",watch:"AI 伺服器營收比、整櫃占比、出貨節奏、存貨與應收帳款。",risk:"低毛利、客戶集中、零件缺料、設計變更與交付遞延。",question:"成長來自單價更高，還是整櫃整合與服務帶來更好價值？",sources:[["NVIDIA MGX","https://www.nvidia.com/en-us/data-center/products/mgx/"]]},
     cloud:{value:"將硬體利用率、排程、軟體與商業模式結合，最後把算力轉為服務收入。",bottleneck:"電力、機房、晶片供給、網路與實際工作負載需求要同時匹配。",watch:"資本支出、AI 雲端收入、折舊年限、利用率、模型推論成本。",risk:"投資回收期拉長、價格競爭、自研晶片切換與需求不及預期。",question:"資本支出增加後，利用率與每單位算力收入能否同步提升？",sources:[["Google AI Hypercomputer","https://cloud.google.com/ai-hypercomputer"],["AWS AI Infrastructure","https://aws.amazon.com/ai/infrastructure/"]]},
+    security:{value:"AI 讓資料、API、端點與非人類身分快速增加，安全平台的價值來自跨域遙測、即時政策與自動化回應。",bottleneck:"產品整合、誤報控制、資料主權、資安人才與既有工具遷移速度。",watch:"ARR／訂閱成長、淨留存、平台模組採用、SASE 流量、端點與工作負載數、事件復原時間。",risk:"平台整併壓低單點工具價格、重大服務中斷、漏洞責任、雲端與 AI 推論成本上升。",question:"成長是威脅增加帶來的席次擴張，還是平台整合真正提高每位客戶的長期價值？",sources:[["Palo Alto Networks 平台整合","https://www.paloaltonetworks.com/why-paloaltonetworks/platformization"],["CrowdStrike Falcon 平台","https://www.crowdstrike.com/platform/"],["Zscaler Zero Trust 平台","https://www.zscaler.com/products-and-services/zscaler-unified-platform"],["Trend Micro 企業資安平台","https://www.trendmicro.com/en/business.html"],["安碁資訊 SOC 服務","https://www.acercsi.com/tw/service/17"]]},
   };
 
   const scenarios = [
@@ -78,7 +79,8 @@
     {id:"power",title:"單櫃功率密度再上修",label:"基礎設施重構",thesis:"算力密度提升迫使資料中心從伺服器級零件，升級到機櫃與設施級電力／液冷設計。",assumptions:["機櫃級加速平台持續提高功耗","資料中心電網接入仍受限制","客戶願意用效率換取更高前期資本支出"],confidence:"中高",direct:[["power","PSU、Power Shelf、BBU"],["thermal","冷板、CDU、熱交換"]],indirect:[["mechanical","機櫃、滑軌、盲插"],["passives","高電流與高可靠元件"]],pressure:[["cloud","建置週期與資本負擔"],["system","驗證複雜度提高"]],companies:["tw2308","tw3017","tw3653","tw8996","tw3211","tw2059"],caveat:"若推論效率與低功耗晶片改善更快，單位算力用電上升不一定等於總功耗同比例成長。"},
     {id:"optics",title:"800G 加速轉向 1.6T",label:"網路升級",thesis:"更大叢集與更快 GPU 需要更高埠速，光學、交換器、低損耗 PCB 與高速連接同步升級。",assumptions:["scale-out 流量成長快於拓撲優化","1.6T 產品通過大型客戶驗證","光學良率與功耗達到部署門檻"],confidence:"中",direct:[["network","光模組、DSP、交換器"],["board","低損耗材料與高速 PCB"]],indirect:[["equipment","光電製程與測試"],["passives","高速連接與電源完整性"]],pressure:[["system","重新驗證與 BOM 成本"],["power","光學功耗與散熱"]],companies:["usAVGO","usMRVL","usANET","usCRDO","tw2345","tw3081","tw3363","tw2383"],caveat:"銅連接距離延伸、CPO 時程改變或網路壓縮技術，都會改變光學內容提升速度。"},
     {id:"capex",title:"雲端資本支出擴張",label:"需求上行",thesis:"大型雲端同步擴充訓練與推論基礎設施，需求從晶片向伺服器、網路與機房外溢。",assumptions:["AI 服務使用量持續成長","雲端業者維持充足現金流","電力與供應鏈可支撐建置計畫"],confidence:"中",direct:[["compute","GPU／ASIC 平台"],["system","伺服器與整櫃整合"]],indirect:[["foundry","先進製程與封裝"],["network","叢集網路擴充"]],pressure:[["power","電網與配電瓶頸"],["thermal","液冷施工與驗證"]],companies:["usMSFT","usAMZN","usGOOGL","usNVDA","tw2382","tw6669","tw2317"],caveat:"資本支出公告不等於同期間營收；交付、驗收與折舊會造成時間差。"},
-    {id:"inference",title:"工作負載轉向推論效率",label:"需求重組",thesis:"採購決策從峰值訓練效能，轉向每 token 成本、延遲、記憶體容量與軟體可部署性。",assumptions:["推論用量快於訓練成長","企業更重視總持有成本","量化與小模型降低部分峰值算力需求"],confidence:"中",direct:[["compute","多元加速器與 ASIC"],["memory","容量、頻寬與 KV cache"]],indirect:[["cloud","排程與託管服務"],["network","推論叢集東西向流量"]],pressure:[["system","產品組合快速切換"],["thermal","每瓦效率改變散熱內容"]],companies:["usNVDA","usAMD","usAVGO","usAMZN","usGOOGL","tw3443","tw3661"],caveat:"訓練與推論並非零和；test-time compute 也可能讓高階推論算力需求再度上升。"}
+    {id:"inference",title:"工作負載轉向推論效率",label:"需求重組",thesis:"採購決策從峰值訓練效能，轉向每 token 成本、延遲、記憶體容量與軟體可部署性。",assumptions:["推論用量快於訓練成長","企業更重視總持有成本","量化與小模型降低部分峰值算力需求"],confidence:"中",direct:[["compute","多元加速器與 ASIC"],["memory","容量、頻寬與 KV cache"]],indirect:[["cloud","排程與託管服務"],["network","推論叢集東西向流量"]],pressure:[["system","產品組合快速切換"],["thermal","每瓦效率改變散熱內容"]],companies:["usNVDA","usAMD","usAVGO","usAMZN","usGOOGL","tw3443","tw3661"],caveat:"訓練與推論並非零和；test-time compute 也可能讓高階推論算力需求再度上升。"},
+    {id:"cyber",title:"AI Agent 與資料攻擊面擴大",label:"安全支出上行",thesis:"AI Agent、API 與非人類身分快速增加，企業把資安預算從單點工具移向身分、雲端、SecOps 與資料韌性的整合平台。",assumptions:["企業 AI 從試驗進入正式工作流程","監管與客戶要求提高可稽核性","攻擊者同步利用 AI 加速社交工程與漏洞利用"],confidence:"中",direct:[["security","身分、XDR、SASE 與資料韌性"],["cloud","雲端工作負載與 AI 治理"]],indirect:[["network","流量檢查與安全閘道"],["system","韌體、BMC 與供應鏈驗證"]],pressure:[["cloud","合規與推論成本上升"],["system","部署與維運複雜度增加"]],companies:["usPANW","usCRWD","usFTNT","usZS","usNET","usOKTA","usRBRK","jp4704","tw6690"],caveat:"威脅升高不會自動轉成同等營收；平台折扣、競爭、事件責任與客戶整併工具都可能壓縮成長。"}
   ];
 
   let selectedArchitecture = "nvidia";

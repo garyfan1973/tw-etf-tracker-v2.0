@@ -3,11 +3,11 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width,initial-scale=1">
-  <meta name="description" content="從 AI 伺服器結構、半導體與零組件供應鏈，一路探索台美日韓代表公司與近期股價。">
+  <meta name="description" content="從 AI 伺服器、半導體與資安供應鏈，一路探索台美日韓代表公司、競合關係與近期股價。">
   <title>AI 產業鏈全景｜投資研究工作台</title>
   <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 64 64%22><rect width=%2264%22 height=%2264%22 rx=%2216%22 fill=%22%23081a2b%22/><text x=%2232%22 y=%2241%22 text-anchor=%22middle%22 font-family=%22Arial%22 font-size=%2226%22 font-weight=%22700%22 fill=%22%236fe4e3%22>AI</text></svg>">
-  <link rel="stylesheet" href="ai-industry.css?v=20260923-2">
-  <link rel="stylesheet" href="ai-industry-research.css?v=20260923-2">
+  <link rel="stylesheet" href="ai-industry.css?v=20260924-1">
+  <link rel="stylesheet" href="ai-industry-research.css?v=20260924-1">
 </head>
 <body>
   <header class="site-head">
@@ -19,7 +19,7 @@
 
   <nav class="research-nav" aria-label="AI 產業研究導覽">
     <div class="shell">
-      <a href="#architectureLab">系統架構</a><a href="#supplyChain">供應鏈</a><a href="#chainPulse">市場脈動</a><a href="#serverExplorer">伺服器拆解</a><a href="#companyAtlas">公司研究</a><a href="#scenarioLab">情境推演</a><a href="#relationshipMap">競合地圖</a>
+      <a href="#architectureLab">系統架構</a><a href="#supplyChain">供應鏈</a><a href="#chainPulse">市場脈動</a><a href="#cybersecuritySpotlight">資安版圖</a><a href="#serverExplorer">伺服器拆解</a><a href="#companyAtlas">公司研究</a><a href="#scenarioLab">情境推演</a><a href="#relationshipMap">競合地圖</a>
     </div>
   </nav>
 
@@ -28,7 +28,7 @@
       <div class="hero-copy">
         <span class="eyebrow">AI INFRASTRUCTURE ATLAS</span>
         <h1 id="pageTitle">從一顆 GPU，看懂整座 AI 資料中心</h1>
-        <p>把運算、記憶體、封裝、網路、電力與散熱放回同一張圖。從伺服器裡的零件出發，往上游追到製程設備，往下游走到機櫃與雲端。</p>
+        <p>把運算、記憶體、封裝、網路、電力、散熱與資安放回同一張圖。從伺服器零件出發，往上游追到製程設備，往下游走到機櫃、雲端與數位防線。</p>
         <div class="hero-actions">
           <a class="primary-action" href="#serverExplorer">拆解 AI 伺服器 <span>↓</span></a>
           <a class="secondary-action" href="#companyAtlas">查看代表公司</a>
@@ -37,8 +37,8 @@
       <div class="hero-visual" aria-label="AI 供應鏈摘要">
         <div class="hero-orbit orbit-one"></div><div class="hero-orbit orbit-two"></div>
         <div class="hero-chip"><span>NPU</span><strong>AI</strong><small>ACCELERATOR</small></div>
-        <span class="orbit-node n1">HBM</span><span class="orbit-node n2">CoWoS</span><span class="orbit-node n3">800G</span><span class="orbit-node n4">液冷</span>
-        <div class="hero-stat s1"><strong>13</strong><span>供應鏈環節</span></div>
+        <span class="orbit-node n1">HBM</span><span class="orbit-node n2">CoWoS</span><span class="orbit-node n3">800G</span><span class="orbit-node n4">液冷</span><span class="orbit-node n5">ZERO TRUST</span>
+        <div class="hero-stat s1"><strong>14</strong><span>供應鏈環節</span></div>
         <div class="hero-stat s2"><strong id="heroCompanyCount">—</strong><span>代表公司</span></div>
       </div>
       <div class="hero-note"><span>資料口徑</span><strong>股價依各交易所最近有效交易日</strong><small>台／美為主；日／韓精選大型代表企業</small></div>
@@ -57,7 +57,7 @@
 
     <section class="section shell" id="supplyChain" aria-labelledby="chainTitle">
       <div class="section-heading">
-        <div><span class="eyebrow">02 / SUPPLY CHAIN</span><h2 id="chainTitle">一台 AI 伺服器，背後是十三段協作</h2></div>
+        <div><span class="eyebrow">02 / SUPPLY CHAIN</span><h2 id="chainTitle">一套 AI 服務，背後是十四段協作</h2></div>
         <p>選一個環節，查看它在系統中的角色、產品、溝通介面與代表公司。</p>
       </div>
       <div class="chain-flow" id="chainFlow" aria-label="AI 供應鏈流程"></div>
@@ -81,15 +81,36 @@
           <span id="pulseAsOf">等待行情資料…</span>
         </div>
         <div class="pulse-summary" id="pulseSummary"></div>
-        <div class="pulse-chart" id="pulseChart" aria-live="polite"><div class="pulse-loading">正在彙整 13 個環節的行情資料…</div></div>
+        <div class="pulse-chart" id="pulseChart" aria-live="polite"><div class="pulse-loading">正在彙整 14 個環節的行情資料…</div></div>
         <p class="method-note">方法：每家公司在指定期間的收盤價報酬；環節動能取公司報酬中位數，廣度為報酬為正的公司比例。公司可能同時歸屬多個環節。這是市場價格觀察，不代表營收或基本面。</p>
+      </div>
+    </section>
+
+    <section class="section cyber-section" id="cybersecuritySpotlight" aria-labelledby="cyberTitle">
+      <div class="shell">
+        <div class="section-heading inverse">
+          <div><span class="eyebrow">04 / AI × CYBERSECURITY</span><h2 id="cyberTitle">算力上線之後，還要守住身分、工作負載與資料</h2></div>
+          <p>AI 擴大 API、非人類身分與敏感資料的攻擊面。這裡依防護層拆解代表公司，避免把所有資安股視為同一種產品。</p>
+        </div>
+        <div class="cyber-layout">
+          <div class="cyber-stack" id="securityStack" aria-label="AI 資安防護層"></div>
+          <aside class="cyber-thesis">
+            <span class="eyebrow">RESEARCH LENS</span>
+            <h3>市場正在從單點工具，走向平台整合與營運韌性</h3>
+            <p>觀察重點不只是哪家公司能擋攻擊，還包括訂閱續約、平台交叉銷售、雲端資料量、AI 推論成本與事件後的復原能力。</p>
+            <div class="cyber-watch"><span>追蹤主軸</span><b>平台整合</b><b>Zero Trust</b><b>AI Agent 身分</b><b>資料韌性</b><b>SOC 自動化</b></div>
+            <button type="button" id="openSecurityStage" data-stage="security">查看完整資安環節與公司行情 →</button>
+          </aside>
+        </div>
+        <div class="cyber-companies" id="securityCompanies" aria-live="polite"></div>
+        <p class="method-note cyber-note">分類依各公司公開產品定位整理；同一家公司可能跨越多層。公司間競爭關係是產品版圖比較，不代表對所有客戶與標案都直接競爭。</p>
       </div>
     </section>
 
     <section class="section server-section" id="serverExplorer" aria-labelledby="serverTitle">
       <div class="shell">
         <div class="section-heading inverse">
-          <div><span class="eyebrow">04 / INTERACTIVE SERVER</span><h2 id="serverTitle">把機殼打開，直接看資料、電力與熱怎麼跑</h2></div>
+          <div><span class="eyebrow">05 / INTERACTIVE SERVER</span><h2 id="serverTitle">把機殼打開，直接看資料、電力與熱怎麼跑</h2></div>
           <p>拖曳旋轉、滾輪縮放；點擊零件可聚焦並查看功能。</p>
         </div>
         <div class="server-workbench">
@@ -108,6 +129,7 @@
               <button class="server-part gpu gpu-3" style="--x:168px;--y:274px;--z:52px" data-part="gpu"><span>GPU 3</span><i></i><i></i><i></i><i></i></button>
               <button class="server-part gpu gpu-4" style="--x:300px;--y:274px;--z:52px" data-part="gpu"><span>GPU 4</span><i></i><i></i><i></i><i></i></button>
               <button class="server-part nic" style="--x:438px;--y:52px;--z:36px" data-part="network"><span>NIC / DPU</span></button>
+              <button class="server-part security-module" style="--x:397px;--y:169px;--z:42px" data-part="security"><span>BMC / Root of Trust</span></button>
               <button class="server-part optical" style="--x:522px;--y:45px;--z:55px" data-part="optical"><span>800G 光模組</span></button>
               <button class="server-part storage" style="--x:468px;--y:152px;--z:32px" data-part="storage"><span>NVMe SSD</span></button>
               <button class="server-part psu" style="--x:486px;--y:250px;--z:44px" data-part="power"><span>PSU</span></button>
@@ -130,7 +152,7 @@
 
     <section class="section shell" id="companyAtlas" aria-labelledby="companyTitle">
       <div class="section-heading">
-        <div><span class="eyebrow">05 / COMPANY RESEARCH</span><h2 id="companyTitle">供應鏈公司、行情與同業比較</h2></div>
+        <div><span class="eyebrow">06 / COMPANY RESEARCH</span><h2 id="companyTitle">供應鏈公司、行情與同業比較</h2></div>
         <p>「研究」會開啟價格動能與同業比較；點股票代號則另開現有個股資訊頁。</p>
       </div>
       <div class="company-toolbar">
@@ -148,7 +170,7 @@
     <section class="section scenario-section" id="scenarioLab" aria-labelledby="scenarioTitle">
       <div class="shell">
         <div class="section-heading">
-          <div><span class="eyebrow">06 / SCENARIO LAB</span><h2 id="scenarioTitle">如果瓶頸移動，誰先受影響？</h2></div>
+          <div><span class="eyebrow">07 / SCENARIO LAB</span><h2 id="scenarioTitle">如果瓶頸移動，誰先受影響？</h2></div>
           <p>以下是研究假設，不是預測。用直接受惠、間接受惠與承壓三層，拆解可能的傳導路徑。</p>
         </div>
         <div class="scenario-tabs" id="scenarioTabs" role="tablist" aria-label="產業情境"></div>
@@ -159,7 +181,7 @@
     <section class="section relation-section" id="relationshipMap" aria-labelledby="relationTitle">
       <div class="shell">
         <div class="section-heading inverse">
-          <div><span class="eyebrow">07 / ECOSYSTEM MAP</span><h2 id="relationTitle">競爭、合作與供應，放在同一張圖</h2></div>
+          <div><span class="eyebrow">08 / ECOSYSTEM MAP</span><h2 id="relationTitle">競爭、合作與供應，放在同一張圖</h2></div>
           <p>關係代表公開可理解的產業結構與典型產品銜接，不等同最新訂單或客戶認證。</p>
         </div>
         <div class="relation-toolbar" role="group" aria-label="關係類型篩選">
@@ -187,8 +209,8 @@
   </div>
 
   <footer><div class="shell"><span>© 2026 投資研究工作台</span><span>AI 產業鏈資訊不構成投資建議</span></div></footer>
-  <script src="ai-industry.js?v=20260923-2"></script>
-  <script src="ai-industry-research.js?v=20260923-2"></script>
+  <script src="ai-industry.js?v=20260924-1"></script>
+  <script src="ai-industry-research.js?v=20260924-1"></script>
   <script src="market-nav.js?v=20260922-1"></script>
 </body>
 </html>

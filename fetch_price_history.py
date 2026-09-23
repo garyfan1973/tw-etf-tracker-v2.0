@@ -20,6 +20,11 @@ ASSET_FILE = os.path.join(WEBAPP_DIR, "trade_assets.json")
 YAHOO_CHART = "https://query1.finance.yahoo.com/v8/finance/chart/{}?interval=1d&range={}"
 YAHOO_SUFFIX = {"US": "", "JP": ".T", "KS": ".KS", "HK": ".HK"}
 USER_AGENT = "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36"
+FEATURED_PRICE_SYMBOLS = (
+    ("US", "PANW"), ("US", "CRWD"), ("US", "FTNT"), ("US", "ZS"),
+    ("US", "NET"), ("US", "OKTA"), ("US", "RBRK"),
+    ("JP", "4704"), ("TW", "6690"),
+)
 
 
 def number(value):
@@ -64,6 +69,8 @@ def collect_symbols():
             current = symbols.get(key)
             if current is None or str(expected or "") > str(current.get("expected") or ""):
                 symbols[key] = {"market": market, "symbol": code, "expected": expected}
+    for market, symbol in FEATURED_PRICE_SYMBOLS:
+        symbols.setdefault((market, symbol), {"market": market, "symbol": symbol, "expected": None})
     return sorted(symbols.values(), key=lambda item: (item["market"], item["symbol"]))
 
 
