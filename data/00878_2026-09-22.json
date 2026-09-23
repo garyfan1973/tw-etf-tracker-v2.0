@@ -1,6 +1,6 @@
 {
   "date": "2026-09-22",
-  "fetched_at": "2026-09-23T07:21:00+08:00",
+  "fetched_at": "2026-09-23T19:30:51+08:00",
   "count": 30,
   "self": {
     "open": 35.43,
@@ -628,6 +628,16 @@
       "assetType": "stock",
       "weight": 2.61,
       "shares": 99718442,
+      "open": 175.5,
+      "high": 176.5,
+      "low": 170.5,
+      "close": 173.0,
+      "prevClose": 173.0,
+      "change": 0.0,
+      "changePct": 0.0,
+      "amplitude": 3.47,
+      "volume": 12955276.0,
+      "quoteDate": "2026-09-22",
       "margin": {
         "marginBuy": 989,
         "marginSell": 1452,
@@ -641,17 +651,7 @@
         "shortBalance": 393,
         "offsetting": 15,
         "date": "2026-09-22"
-      },
-      "open": 175.5,
-      "high": 176.5,
-      "low": 170.5,
-      "close": 173.0,
-      "prevClose": 173.0,
-      "change": 0.0,
-      "changePct": 0.0,
-      "amplitude": 3.47,
-      "volume": 12955276.0,
-      "quoteDate": "2026-09-22"
+      }
     },
     {
       "code": "",
