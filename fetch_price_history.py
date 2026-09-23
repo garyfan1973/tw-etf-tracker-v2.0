@@ -24,6 +24,9 @@ FEATURED_PRICE_SYMBOLS = (
     ("US", "PANW"), ("US", "CRWD"), ("US", "FTNT"), ("US", "ZS"),
     ("US", "NET"), ("US", "OKTA"), ("US", "RBRK"),
     ("JP", "4704"), ("TW", "6690"),
+    ("US", "AAPL"), ("US", "META"), ("US", "PLTR"), ("US", "MSFT"),
+    ("US", "GOOGL"), ("US", "AMZN"), ("US", "NOW"), ("US", "CRM"),
+    ("US", "SNOW"), ("US", "DDOG"), ("US", "ADBE"), ("US", "ORCL"),
 )
 
 

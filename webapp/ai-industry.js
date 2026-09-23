@@ -74,6 +74,15 @@
     {id:"usMSFT",market:"US",symbol:"MSFT",name:"Microsoft",exchange:"NASDAQ",domain:"microsoft.com",tags:["Azure","雲端 AI","資料中心"],role:"建置大規模 AI 資料中心並向客戶提供算力。"},
     {id:"usAMZN",market:"US",symbol:"AMZN",name:"Amazon",exchange:"NASDAQ",domain:"amazon.com",tags:["AWS","雲端 AI","自研晶片"],role:"以 AWS 提供 AI 算力並開發自有加速晶片。"},
     {id:"usGOOGL",market:"US",symbol:"GOOGL",name:"Alphabet",exchange:"NASDAQ",domain:"abc.xyz",tags:["Google Cloud","TPU","資料中心"],role:"設計 TPU 並經由 Google Cloud 提供 AI 服務。"},
+    {id:"usAAPL",market:"US",symbol:"AAPL",name:"Apple",exchange:"NASDAQ",domain:"apple.com",tags:["Apple Intelligence","裝置端 AI","作業系統"],role:"把生成式 AI、個人情境與隱私運算整合進 iPhone、iPad、Mac 與系統級應用。"},
+    {id:"usMETA",market:"US",symbol:"META",name:"Meta Platforms",exchange:"NASDAQ",domain:"meta.com",tags:["Meta AI","Llama","推薦與廣告"],role:"以 Llama、Meta AI 與推薦系統把 AI 導入社群、通訊、廣告與智慧眼鏡。"},
+    {id:"usPLTR",market:"US",symbol:"PLTR",name:"Palantir",exchange:"NASDAQ",domain:"palantir.com",tags:["AIP","企業決策","資料作業系統"],role:"用 AIP、Foundry 與 Apollo 將企業資料、模型、權限與實際工作流程連接。"},
+    {id:"usNOW",market:"US",symbol:"NOW",name:"ServiceNow",exchange:"NYSE",domain:"servicenow.com",tags:["AI Agents","企業工作流","Now Platform"],role:"把 AI Agent、知識與自動化嵌入 IT、客服、人資與企業工作流程。"},
+    {id:"usCRM",market:"US",symbol:"CRM",name:"Salesforce",exchange:"NYSE",domain:"salesforce.com",tags:["Agentforce","CRM","企業 AI"],role:"以 Agentforce、Data Cloud 與 CRM 資料讓 AI Agent 執行銷售、客服與行銷工作。"},
+    {id:"usSNOW",market:"US",symbol:"SNOW",name:"Snowflake",exchange:"NYSE",domain:"snowflake.com",tags:["Cortex AI","資料雲","企業資料"],role:"在治理後的企業資料上提供 Cortex AI、模型服務與資料應用開發能力。"},
+    {id:"usDDOG",market:"US",symbol:"DDOG",name:"Datadog",exchange:"NASDAQ",domain:"datadoghq.com",tags:["AI Observability","LLM 監控","DevOps"],role:"監控 AI 應用、模型呼叫、基礎設施與使用者體驗，協助團隊找出品質與成本異常。"},
+    {id:"usADBE",market:"US",symbol:"ADBE",name:"Adobe",exchange:"NASDAQ",domain:"adobe.com",tags:["Firefly","創意軟體","文件 AI"],role:"把生成式影像、影片、設計與文件智慧整合進 Creative Cloud 與 Acrobat。"},
+    {id:"usORCL",market:"US",symbol:"ORCL",name:"Oracle",exchange:"NYSE",domain:"oracle.com",tags:["OCI AI","資料庫","企業應用"],role:"以資料庫、OCI AI 與 Fusion 應用把模型能力帶入企業資料與核心營運系統。"},
     {id:"usPANW",market:"US",symbol:"PANW",name:"Palo Alto Networks",exchange:"NASDAQ",domain:"paloaltonetworks.com",tags:["網路安全","雲端安全","SecOps／身分"],role:"以整合平台保護網路、雲端工作負載、安全營運與人機身分。"},
     {id:"usCRWD",market:"US",symbol:"CRWD",name:"CrowdStrike",exchange:"NASDAQ",domain:"crowdstrike.com",tags:["端點安全","XDR","雲端／身分"],role:"以雲端原生 Falcon 平台整合端點、雲端、身分、資料與威脅情報。"},
     {id:"usFTNT",market:"US",symbol:"FTNT",name:"Fortinet",exchange:"NASDAQ",domain:"fortinet.com",tags:["防火牆","SASE","Security Fabric"],role:"以 FortiGate、FortiOS 與 Security Fabric 整合網路、安全與 SecOps。"},
@@ -118,16 +127,25 @@
     {id:"passives",number:"11",icon:"≋",color:"#9b6b3f",title:"被動元件與連接器",short:"穩壓、濾波、保護",role:"電容、電阻、電感與連接器遍布主板、加速卡與電源，抑制雜訊並保持訊號和電壓穩定。",products:["MLCC","鋁質電容","電阻","電感","高速連接器"],interfaces:["Power Integrity","Signal Integrity","Board-to-board","High-current"],communication:"被動元件不處理資料，但直接影響電源完整性、訊號品質與整機可靠度。",companyIds:["tw2327","tw2492","tw2472","tw3026","jp6976","jp6981","ks009150","tw3665"]},
     {id:"system",number:"12",icon:"▧",color:"#5467b6",title:"伺服器 ODM／OEM",short:"把零件變成系統",role:"依雲端業者需求整合主板、GPU、網路、電源、散熱與韌體，完成驗證、量產與全球交付。",products:["GPU Server","Compute Tray","NVL Rack","Storage Server","Rack Integration"],interfaces:["BMC／Redfish","OCP","NVLink Fabric","Rack Management"],communication:"BMC 監控硬體，管理軟體協調運算、網路與能源；整櫃驗證確保節點能共同工作。",companyIds:["tw6669","tw2382","tw3231","tw2317","tw2376","usDELL"]},
     {id:"cloud",number:"13",icon:"☁",color:"#6c63dc",title:"雲端與資料中心",short:"把算力變成服務",role:"雲端服務商規劃叢集、機房與軟體平台，將底層硬體包裝成模型訓練、推論與 API 服務。",products:["GPU Cloud","AI Platform","自研加速器","模型服務","資料中心"],interfaces:["Kubernetes","CUDA／ROCm","API","Scheduler"],communication:"排程器分配 GPU，分散式軟體同步模型參數，雲端 API 再把運算能力提供給企業與開發者。",companyIds:["usMSFT","usAMZN","usGOOGL","usNVDA","usDELL"]},
-    {id:"security",number:"14",icon:"◇",color:"#7b61d1",title:"資安、身分與營運韌性",short:"守住 AI 攻擊面",role:"保護模型、資料、API、端點、雲端工作負載與人機身分，並在攻擊發生時偵測、回應與復原。",products:["Zero Trust／SASE","XDR／SIEM／SOAR","CNAPP","IAM／PAM","資料備份與復原"],interfaces:["Telemetry／Logs","Identity／OAuth","Policy API","EDR Agent","SOC／MDR"],communication:"身分與政策先決定誰能存取；端點、網路與雲端持續回傳遙測，SOC 關聯告警並自動隔離，資料平台負責事件後復原。",companyIds:["usPANW","usCRWD","usFTNT","usZS","usNET","usOKTA","usRBRK","jp4704","tw6690"]}
+    {id:"security",number:"14",icon:"◇",color:"#7b61d1",title:"資安、身分與營運韌性",short:"守住 AI 攻擊面",role:"保護模型、資料、API、端點、雲端工作負載與人機身分，並在攻擊發生時偵測、回應與復原。",products:["Zero Trust／SASE","XDR／SIEM／SOAR","CNAPP","IAM／PAM","資料備份與復原"],interfaces:["Telemetry／Logs","Identity／OAuth","Policy API","EDR Agent","SOC／MDR"],communication:"身分與政策先決定誰能存取；端點、網路與雲端持續回傳遙測，SOC 關聯告警並自動隔離，資料平台負責事件後復原。",companyIds:["usCRWD","usPANW","usFTNT","usZS","usNET","usOKTA","usRBRK","jp4704","tw6690"]},
+    {id:"software",number:"15",icon:"✦",color:"#d04f91",title:"AI 軟體、平台與應用",short:"把模型變成收入",role:"將模型能力嵌入裝置、消費平台、企業資料與工作流程，透過訂閱、廣告、雲端用量或硬體生態完成 AI 商業化。",products:["AI Agent","企業工作流","資料與模型平台","裝置端 AI","創意與開發工具"],interfaces:["Model API","Agent Protocol","Data Connector","App Intent","Telemetry"],communication:"資料平台提供治理後的企業資料，模型與 Agent 透過 API 呼叫工具，應用層把結果送進既有工作流程、終端裝置與使用者介面。",companyIds:["usPLTR","usAAPL","usMETA","usMSFT","usGOOGL","usAMZN","usNOW","usCRM","usSNOW","usDDOG","usADBE","usORCL"]}
   ];
   const stageById = new Map(stages.map(stage => [stage.id, stage]));
-  const securityCompanyIds = ["usPANW","usCRWD","usFTNT","usZS","usNET","usOKTA","usRBRK","jp4704","tw6690"];
+  const securityCompanyIds = ["usCRWD","usPANW","usFTNT","usZS","usNET","usOKTA","usRBRK","jp4704","tw6690"];
+  const softwareCompanyIds = ["usPLTR","usAAPL","usMETA","usMSFT","usGOOGL","usAMZN","usNOW","usCRM","usSNOW","usDDOG","usADBE","usORCL"];
   const securityLayers = [
     ["01 / IDENTITY","身分與特權","驗證人、機器與 AI Agent；以最小權限、持續驗證與特權控管降低帳號被接管的風險。"],
     ["02 / ENDPOINT & SOC","端點與安全營運","從伺服器與員工裝置蒐集行為遙測，透過 XDR、SIEM、SOAR 與 MDR 偵測並回應攻擊。"],
     ["03 / NETWORK & SASE","網路與 Zero Trust","在使用者、分支、API 與私有應用之間執行政策，阻止橫向移動並縮小可見攻擊面。"],
     ["04 / CLOUD & AI","雲端工作負載與 AI","從程式碼、容器、模型到執行期持續檢查弱點、權限、資料流與異常活動。"],
     ["05 / DATA RESILIENCE","資料安全與營運韌性","辨識敏感資料、阻止外洩，並用不可變備份與演練過的復原流程降低勒索軟體衝擊。"]
+  ];
+  const softwareLayers = [
+    ["01 / DEVICE & OS","裝置、作業系統與個人 AI","把推論放到手機與電腦端，結合個人情境、隱私運算與系統級入口。"],
+    ["02 / CONSUMER PLATFORM","搜尋、社群、廣告與助理","以龐大流量和內容資料訓練推薦與生成模型，再透過廣告、訂閱與互動變現。"],
+    ["03 / ENTERPRISE AGENTS","企業 Agent 與工作流","讓模型能讀取企業權限內資料、呼叫工具並執行銷售、客服、IT 與營運流程。"],
+    ["04 / DATA & MODEL CLOUD","資料、模型與治理平台","整理企業資料、提供模型服務與治理，決定 AI 能否安全地進入正式生產環境。"],
+    ["05 / BUILD & OBSERVE","開發、創意與可觀測性","協助開發 AI 應用、生成內容並監控模型品質、延遲、成本與錯誤。"]
   ];
 
   const serverParts = {
@@ -154,7 +172,9 @@
     {id:"tw2382",x:805,y:70},{id:"tw6669",x:805,y:180},{id:"usDELL",x:805,y:290},{id:"usANET",x:805,y:400},
     {id:"usMSFT",x:980,y:110},{id:"usAMZN",x:980,y:240},{id:"usGOOGL",x:980,y:370},
     {id:"usPANW",x:120,y:620},{id:"usCRWD",x:285,y:620},{id:"usFTNT",x:450,y:620},
-    {id:"usZS",x:615,y:620},{id:"usNET",x:780,y:620},{id:"usRBRK",x:945,y:620}
+    {id:"usZS",x:615,y:620},{id:"usNET",x:780,y:620},{id:"usRBRK",x:945,y:620},
+    {id:"usAAPL",x:120,y:790},{id:"usMETA",x:285,y:790},{id:"usPLTR",x:450,y:790},
+    {id:"usNOW",x:615,y:790},{id:"usSNOW",x:780,y:790},{id:"usCRM",x:945,y:790}
   ];
   const relations = [
     {from:"usASML",to:"tw2330",type:"supply",label:"EUV 曝光設備"},{from:"usAMAT",to:"tw2330",type:"supply",label:"製程／封裝設備"},{from:"jp8035",to:"tw2330",type:"supply",label:"晶圓製程設備"},
@@ -170,7 +190,10 @@
     {from:"usMSFT",to:"usAMZN",type:"compete",label:"雲端 AI"},{from:"usAMZN",to:"usGOOGL",type:"compete",label:"雲端 AI"},{from:"usMSFT",to:"usGOOGL",type:"compete",label:"雲端 AI"},
     {from:"usPANW",to:"usCRWD",type:"compete",label:"XDR、雲端安全與 SecOps"},{from:"usPANW",to:"usFTNT",type:"compete",label:"網路安全與 SASE"},
     {from:"usFTNT",to:"usZS",type:"compete",label:"SASE／Zero Trust"},{from:"usZS",to:"usNET",type:"compete",label:"SSE、Zero Trust 與應用安全"},
-    {from:"usPANW",to:"usRBRK",type:"compete",label:"雲端資料安全與營運韌性"},{from:"usCRWD",to:"usRBRK",type:"compete",label:"資料保護與事件復原"}
+    {from:"usPANW",to:"usRBRK",type:"compete",label:"雲端資料安全與營運韌性"},{from:"usCRWD",to:"usRBRK",type:"compete",label:"資料保護與事件復原"},
+    {from:"usAAPL",to:"usMETA",type:"compete",label:"個人 AI 助理與裝置入口"},{from:"usMETA",to:"usGOOGL",type:"compete",label:"模型、搜尋、推薦與廣告"},
+    {from:"usPLTR",to:"usNOW",type:"compete",label:"企業 AI Agent 與工作流"},{from:"usNOW",to:"usCRM",type:"compete",label:"企業 Agent 與流程自動化"},
+    {from:"usSNOW",to:"usMSFT",type:"compete",label:"企業資料與 AI 平台"},{from:"usPLTR",to:"usSNOW",type:"cooperate",label:"資料平台與企業 AI 應用生態"}
   ];
 
   let selectedStage = "compute";
@@ -185,29 +208,43 @@
 
   function renderFlow() {
     const groups = [
-      ["A / DESIGN","晶片設計與 IP"],["B / MAKE","晶圓製造與設備"],["C / INTEGRATE","封裝、載板與測試"],["D / BUILD","零組件與伺服器"],["E / SCALE","網路、機櫃與雲端"],["F / PROTECT","身分、資安與韌性"]
+      ["A / DESIGN","晶片設計與 IP"],["B / MAKE","晶圓製造與設備"],["C / INTEGRATE","封裝、載板與測試"],["D / BUILD","零組件與伺服器"],["E / SCALE","網路、機櫃與雲端"],["F / PROTECT","身分、資安與韌性"],["G / MONETIZE","軟體、平台與應用"]
     ];
     $("chainFlow").innerHTML = groups.map(([small,strong]) => `<div class="flow-step"><small>${small}</small><strong>${strong}</strong></div>`).join("");
   }
 
-  function showSecurityCompanies(companyId="") {
+  function showStageCompanies(stageId, companyId="") {
     const company = companyId ? companyById.get(companyId) : null;
     $("marketFilter").value = "all";
-    $("stageFilter").value = "security";
+    $("stageFilter").value = stageId;
     $("companySearch").value = company?.name || "";
     companyLimit = 18;
     renderCompanies();
     $("companyAtlas").scrollIntoView({behavior:"smooth",block:"start"});
   }
 
+  function showSecurityCompanies(companyId="") { showStageCompanies("security", companyId); }
+  function showSoftwareCompanies(companyId="") { showStageCompanies("software", companyId); }
+
   function renderSecuritySpotlight() {
     $("securityStack").innerHTML = securityLayers.map(([index,title,copy]) => `<div class="cyber-layer"><div class="cyber-layer-title"><span>${esc(index)}</span><strong>${esc(title)}</strong></div><p>${esc(copy)}</p></div>`).join("");
-    $("securityCompanies").innerHTML = securityCompanyIds.map(id => companyById.get(id)).filter(Boolean).map(company => `<button type="button" class="cyber-company" data-security-company="${company.id}">${logoMarkup(company)}<span><strong>${esc(company.name)}</strong><small>${marketMeta[company.market].flag} ${esc(company.exchange)} · ${esc(company.tags[0])}</small></span><span>${esc(company.symbol)} ↗</span></button>`).join("");
+    $("securityCompanies").innerHTML = securityCompanyIds.map(id => companyById.get(id)).filter(Boolean).map(company => `<button type="button" class="cyber-company${company.id === "usCRWD" ? " featured" : ""}" data-security-company="${company.id}">${logoMarkup(company)}<span><strong>${esc(company.name)}${company.id === "usCRWD" ? " · XDR 核心" : ""}</strong><small>${marketMeta[company.market].flag} ${esc(company.exchange)} · ${esc(company.tags[0])}</small></span><span>${esc(company.symbol)} ↗</span></button>`).join("");
     $("securityCompanies").querySelectorAll(".company-logo img").forEach(image => image.addEventListener("error", event => event.currentTarget.parentElement.classList.add("fallback"), {once:true}));
     $("securityCompanies").querySelectorAll("[data-security-company]").forEach(button => button.addEventListener("click", () => showSecurityCompanies(button.dataset.securityCompany)));
     $("openSecurityStage").addEventListener("click", () => {
       selectStage("security");
       showSecurityCompanies();
+    });
+  }
+
+  function renderSoftwareSpotlight() {
+    $("softwareStack").innerHTML = softwareLayers.map(([index,title,copy]) => `<div class="cyber-layer"><div class="cyber-layer-title"><span>${esc(index)}</span><strong>${esc(title)}</strong></div><p>${esc(copy)}</p></div>`).join("");
+    $("softwareCompanies").innerHTML = softwareCompanyIds.map(id => companyById.get(id)).filter(Boolean).map(company => `<button type="button" class="cyber-company" data-software-company="${company.id}">${logoMarkup(company)}<span><strong>${esc(company.name)}</strong><small>${marketMeta[company.market].flag} ${esc(company.exchange)} · ${esc(company.tags[0])}</small></span><span>${esc(company.symbol)} ↗</span></button>`).join("");
+    $("softwareCompanies").querySelectorAll(".company-logo img").forEach(image => image.addEventListener("error", event => event.currentTarget.parentElement.classList.add("fallback"), {once:true}));
+    $("softwareCompanies").querySelectorAll("[data-software-company]").forEach(button => button.addEventListener("click", () => showSoftwareCompanies(button.dataset.softwareCompany)));
+    $("openSoftwareStage").addEventListener("click", () => {
+      selectStage("software");
+      showSoftwareCompanies();
     });
   }
 
@@ -399,9 +436,9 @@
     const visibleEdges = relations.filter(edge => filter === "all" || edge.type === filter);
     const neighborIds = new Set([activeId]);
     visibleEdges.forEach(edge => { if (edge.from === activeId) neighborIds.add(edge.to); if (edge.to === activeId) neighborIds.add(edge.from); });
-    const svg = `<svg viewBox="0 0 1060 700" role="img" aria-label="AI 供應鏈公司競合關係圖">
+    const svg = `<svg viewBox="0 0 1060 880" role="img" aria-label="AI 供應鏈公司競合關係圖">
       <defs><marker id="arrow-supply" markerWidth="7" markerHeight="7" refX="6" refY="3.5" orient="auto"><path d="M0,0 L7,3.5 L0,7 Z" fill="#67c8d1"/></marker><marker id="arrow-cooperate" markerWidth="7" markerHeight="7" refX="6" refY="3.5" orient="auto"><path d="M0,0 L7,3.5 L0,7 Z" fill="#927be3"/></marker></defs>
-      <text class="relation-label" x="45" y="28">設備</text><text class="relation-label" x="220" y="28">製造／記憶體</text><text class="relation-label" x="410" y="28">晶片平台</text><text class="relation-label" x="590" y="28">封裝／零組件</text><text class="relation-label" x="770" y="28">系統／網路</text><text class="relation-label" x="945" y="28">雲端</text><text class="relation-label" x="45" y="550">資安平台競爭帶</text>
+      <text class="relation-label" x="45" y="28">設備</text><text class="relation-label" x="220" y="28">製造／記憶體</text><text class="relation-label" x="410" y="28">晶片平台</text><text class="relation-label" x="590" y="28">封裝／零組件</text><text class="relation-label" x="770" y="28">系統／網路</text><text class="relation-label" x="945" y="28">雲端</text><text class="relation-label" x="45" y="550">資安平台競爭帶</text><text class="relation-label" x="45" y="720">AI 軟體與應用競合帶</text>
       ${visibleEdges.map(edge => { const a=nodeMap.get(edge.from),b=nodeMap.get(edge.to); if(!a||!b)return""; const dim=activeId&&!neighborIds.has(edge.from)&&!neighborIds.has(edge.to); return `<path class="relation-edge ${edge.type}${dim?" dim":""}" d="${curve(a,b)}" ${edge.type!=="compete"?`marker-end="url(#arrow-${edge.type})"`:""}><title>${esc(edge.label)}</title></path>`; }).join("")}
       ${relationNodes.map(node => { const company=companyById.get(node.id); if(!company)return""; const dim=activeId&&!neighborIds.has(node.id); return `<g class="relation-node${node.id===activeId?" active":""}${dim?" dim":""}" data-relation-node="${node.id}" tabindex="0" role="button" aria-label="${esc(company.name)}"><circle cx="${node.x}" cy="${node.y}" r="34"></circle><text x="${node.x}" y="${node.y-2}">${esc(company.name.length>9?company.name.slice(0,9):company.name)}</text><text x="${node.x}" y="${node.y+13}" fill="#7895a3">${esc(company.symbol)}</text></g>`; }).join("")}
     </svg>`;
@@ -434,7 +471,7 @@
   function init() {
     $("heroCompanyCount").textContent = companies.length;
     renderFlow(); renderStages(); renderStageDetail();
-    setupCompanyFilters(); renderCompanies(); renderSecuritySpotlight();
+    setupCompanyFilters(); renderCompanies(); renderSecuritySpotlight(); renderSoftwareSpotlight();
     setupServer(); setupRelations();
   }
 

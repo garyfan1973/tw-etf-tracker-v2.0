@@ -38,7 +38,7 @@ class PriceHistoryTests(unittest.TestCase):
             "volume": 123456,
         }])
 
-    def test_keeps_featured_cybersecurity_symbols_in_refresh_scope(self):
+    def test_keeps_featured_ai_theme_symbols_in_refresh_scope(self):
         symbols = {(item["market"], item["symbol"]) for item in collect_symbols()}
 
         self.assertTrue(set(FEATURED_PRICE_SYMBOLS).issubset(symbols))
