@@ -1829,6 +1829,14 @@
     "business": "無代號海外成分股，暫無可用公開摘要。",
     "source": ""
   },
+  "FIVN": {
+    "name": "Five9",
+    "market": "US",
+    "industry": "Software - Infrastructure",
+    "business": "Five9, Inc., together with its subsidiaries, provides intelligent cloud software for contact centers in the United States and internationally. It offers CX platform that delivers a suite of applications, which enables the breadth of customer service, sales, and marketing functions. The company’s platform comprises AI agents, agent assist, workflow automation, AI insights, AI summaries, workforce engagement management, and revenue execution, as well as allows simultaneous management and optimization of customer interactions across voice, chat, email, web, social media and mobile channels, through our application programming interfaces. It also matches each customer interaction with an agent resource and delivers customer data to the agent in real-time through integrations with adjacent enterprise applications, such as CRM software, to optimize customer experience and enhance agent productivity, as well as offers software-as-a-service business model. The company serves customers in various industries, such as banking and financial services, business process outsourcers, retail, healthcare, technology, and education. Five9, Inc. was incorporated in 2001 and is headquartered in San Ramon, California.",
+    "source": "Stock Analysis",
+    "sector": "Technology"
+  },
   "FORM": {
     "name": "FormFactor",
     "market": "US",
@@ -1928,6 +1936,14 @@
     "market": "US",
     "industry": "Semiconductor Equipment & Materials",
     "business": "Lam Research Corporation designs, manufactures, markets, refurbishes, and services semiconductor processing equipment used in the fabrication of integrated circuits in the United States, China, Korea, Taiwan, Japan, Southeast Asia, and Europe. The company offers ALTUS systems to deposit conformal or selective films for tungsten or molybdenum metallization applications; SABRE electrochemical deposition products for copper interconnect transition, which support copper damascene manufacturing; Striker single-wafer atomic layer deposition products for dielectric film solutions; and VECTOR plasma-enhanced chemical vapor deposition (CVD) products. It also provides Akara, a conductor etch system designed to enhance etch precision, selectivity, and defect control; Argos, Prevos, and Selis, which are selective etch systems used in the fabrication of advanced logic and memory devices that require precise control at nanoscale dimensions; Flex for dielectric etch applications; Vantex, a dielectric etch system that provides RF technology and repeatable wafer-to-wafer performance enabled by Equipment Intelligence solutions; Kiyo for conductor etch applications; Syndion for deep silicon etch; and Versys metal products for metal etch processes. In addition, the company offers Coronus bevel clean products to enhance die yield and Da Vinci, DV-Prime, EOS, and SP series products to address various wafer cleaning applications. Further, it provides Reliant deposition, etch, and clean products; Sense.i platform products; and customer service, spares, and upgrades. Lam Research Corporation was incorporated in 1980 and is headquartered in Fremont, California.",
+    "source": "Stock Analysis",
+    "sector": "Technology"
+  },
+  "LSCC": {
+    "name": "Lattice Semiconductor",
+    "market": "US",
+    "industry": "Semiconductors",
+    "business": "Lattice Semiconductor Corporation, together with its subsidiaries, develops and sells semiconductor, silicon-based and silicon-enabling, evaluation boards, and development hardware products in Asia, Europe, and the Americas. It offers field programmable gate arrays (FPGA), which are regular arrays of logic that can be custom-configured by the user through software. The company’s products include small FPGA platforms, including Lattice Nexus and Lattice Nexus 2; Lattice Avant, a mid-range FPGA platform; general purpose FPGA, such as Lattice Avant-G, Certus-NX, CertusPro, and Certus-N2; and specialized FPGAs, which includes Lattice Avant-E, Avant-X, SCP, MachXO, iCE, CrossLink,and CrossLinkPlus. It also provides design software that includes Lattice Radiant to deliver tools that enable predictable design convergence; Lattice Propel for creating embedded processor-based designs; develops Lattice Automate for industrial automation and robotics; Lattice mVision forlow power embedded vision; Lattice ORAN for control data security, fronthaul synchronization, and low power hardware acceleration; Lattice sensAI for Edge AI applications; Lattice Sentry for hardware security implementation; and Lattice Drive for automotive system designs and applications. In addition, the company offers Glance, an edge AI application software that allows users to control the AI and computer vision experiences for various edge applications, including client computing, industrial, and automotive applications; and sells video connectivity application specific standard products. Further, it provides standard IP and IP core licensing, patent monetization, and IP services. The company serves communications and computing, industrial and automotive, and consumer markets. Lattice Semiconductor Corporation was incorporated in 1983 and is headquartered in Hillsboro, Oregon.",
     "source": "Stock Analysis",
     "sector": "Technology"
   },
@@ -2151,6 +2167,14 @@
     "market": "US",
     "industry": "Software - Application",
     "business": "Shopify Inc., a commerce technology company, provides tools to start, scale, market, and run a business of various sizes in Canada, the United States, Europe, the Middle East, Africa, the Asia Pacific, and Latin America. The Company offers Shopify platform that enables merchants to manage products and inventory, process orders and payments, fulfill and ship orders, build customer relationships, source products, leverage analytics, and reporting and access financing for running their business across all of their sales channels, including web and mobile storefronts, physical retail locations, social media storefronts, and marketplaces. It also provides Shopify Payments, a fully integrated payment processing service that allows merchants to accept and process payment cards online and offline. In addition, the company engages in the sale of themes and apps; shipping labels through Shopify Shipping; point-of-sale hardware; advertising on the Shopify App Store; and Shop Campaigns for buyer acquisitions, as well as registration of domain names. The company was formerly known as Jaded Pixel Technologies Inc. and changed its name to Shopify Inc. in November 2011. Shopify Inc. was incorporated in 2004 and is based in Ottawa, Canada.",
+    "source": "Stock Analysis",
+    "sector": "Technology"
+  },
+  "SITM": {
+    "name": "SiTime",
+    "market": "US",
+    "industry": "Semiconductors",
+    "business": "SiTime Corporation engages in the design, development, and sale of silicon timing systems solutions in Hong Kong, Taiwan, the United States, Singapore, and internationally. It offers various types of oscillators, as well as clock integrated circuits, resonators, and synchronization software for use in artificial intelligence systems, data center, communications, enterprise, automotive, industrial, aerospace, defense, mobile, Internet of Things, and consumer markets. The company was incorporated in 2003 and is based in Santa Clara, California.",
     "source": "Stock Analysis",
     "sector": "Technology"
   },
