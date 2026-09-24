@@ -1198,15 +1198,15 @@
         "offsetting": 0,
         "date": "2026-09-04"
       },
-      "open": 20385.0,
-      "high": 20620.0,
-      "low": 19780.0,
-      "close": 20280.0,
-      "prevClose": 20905.0,
-      "change": -625.0,
-      "changePct": -2.99,
-      "amplitude": 4.02,
-      "volume": 256661.0,
+      "open": 20485.0,
+      "high": 20505.0,
+      "low": 19705.0,
+      "close": 19835.0,
+      "prevClose": 20280.0,
+      "change": -445.0,
+      "changePct": -2.19,
+      "amplitude": 3.94,
+      "volume": 192578.0,
       "quoteDate": "2026-09-04"
     },
     {
@@ -1932,15 +1932,15 @@
         "offsetting": 1,
         "date": "2026-09-04"
       },
-      "open": 5445.0,
+      "open": 5555.0,
       "high": 5625.0,
-      "low": 5335.0,
-      "close": 5620.0,
-      "prevClose": 5345.0,
-      "change": 275.0,
-      "changePct": 5.14,
-      "amplitude": 5.43,
-      "volume": 1067674.0,
+      "low": 5370.0,
+      "close": 5415.0,
+      "prevClose": 5620.0,
+      "change": -205.0,
+      "changePct": -3.65,
+      "amplitude": 4.54,
+      "volume": 585343.0,
       "quoteDate": "2026-09-04"
     }
   ]
