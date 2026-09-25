@@ -243,6 +243,52 @@
     .financial-atlas-loading,.financial-atlas-empty { display:grid; gap:6px; padding:20px 4px; color:var(--muted); }
     .financial-atlas-loading strong,.financial-atlas-empty strong { color:var(--text); font-size:16px; }
     .financial-atlas-loading .financial-atlas-kicker { color:#258f7b; }
+    .ownership-pulse { margin-top:18px; padding-top:16px; border-top:1px solid var(--border); }
+    .ownership-pulse-head { display:flex; justify-content:space-between; align-items:flex-start; gap:18px; padding:2px 2px 14px; border-bottom:1px solid color-mix(in srgb,#d97706 24%,var(--border)); }
+    .ownership-pulse-kicker { color:#b45309; font-size:10px; font-weight:800; letter-spacing:.16em; }
+    .ownership-pulse-head h3 { margin:3px 0 3px; color:var(--text); font-size:24px; letter-spacing:-.03em; }
+    .ownership-pulse-head p { margin:0; color:var(--muted); font-size:12px; }
+    .ownership-pulse-badge { padding:8px 11px; border-radius:10px; color:#fff7ed; background:#9a3412; font-size:13px; font-weight:800; white-space:nowrap; }
+    .ownership-pulse-badge span { margin-left:5px; color:#fed7aa; font-size:11px; }
+    .ownership-pulse-toolbar { display:flex; align-items:center; gap:10px; flex-wrap:wrap; padding:13px 0 15px; }
+    .ownership-pulse-segment { display:flex; align-items:center; gap:3px; padding:3px; border:1px solid color-mix(in srgb,#9a3412 18%,var(--border)); border-radius:11px; background:color-mix(in srgb,#ffedd5 42%,var(--card)); }
+    .ownership-pulse-segment > span { padding:0 7px; color:var(--muted); font-size:11px; }
+    .ownership-pulse-segment button { min-width:48px; padding:6px 9px; border:0; border-radius:8px; background:transparent; color:var(--muted); font:inherit; font-size:12px; cursor:pointer; }
+    .ownership-pulse-segment button.active { color:#fff; background:#9a3412; box-shadow:0 3px 8px rgba(154,52,18,.22); }
+    .ownership-pulse-asof { margin-left:auto; color:var(--muted); font-size:11px; font-variant-numeric:tabular-nums; }
+    .ownership-pulse-grid { display:grid; grid-template-columns:minmax(0,1.35fr) minmax(270px,.85fr); gap:13px; }
+    .ownership-pulse-card { min-width:0; padding:14px; border:1px solid color-mix(in srgb,#d97706 24%,var(--border)); border-top:4px solid #d97706; border-radius:14px; background:linear-gradient(145deg,color-mix(in srgb,#fed7aa 10%,var(--card)),var(--card) 58%); box-shadow:0 7px 18px rgba(22,50,79,.05); }
+    .ownership-pulse-card h4 { margin:0; color:var(--text); font-size:15px; }
+    .ownership-pulse-chart { margin-top:3px; overflow:hidden; }
+    .ownership-pulse-chart svg { display:block; width:100%; height:auto; min-height:260px; }
+    .ownership-grid-line { stroke:color-mix(in srgb,var(--border) 76%,transparent); stroke-width:1; stroke-dasharray:2 4; }
+    .ownership-axis { fill:var(--muted); font-size:10px; font-variant-numeric:tabular-nums; }
+    .ownership-legend { display:flex; gap:11px; flex-wrap:wrap; margin-top:5px; color:var(--muted); font-size:11px; }
+    .ownership-legend span { display:inline-flex; align-items:center; gap:5px; }
+    .ownership-dot { display:inline-block; width:9px; height:9px; border-radius:50%; }
+    .ownership-line { display:inline-block; width:15px; height:3px; border-radius:4px; }
+    .ownership-summary { display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:9px; }
+    .ownership-summary-card { min-width:0; padding:12px; border:1px solid var(--border); border-radius:11px; background:var(--bg); }
+    .ownership-summary-card .label { color:var(--muted); font-size:11px; }
+    .ownership-summary-card strong { display:block; margin-top:4px; color:#9a3412; font-size:23px; font-variant-numeric:tabular-nums; }
+    .ownership-summary-card small { display:block; margin-top:3px; color:var(--muted); font-size:10px; line-height:1.5; }
+    .ownership-table-wrap { margin-top:13px; overflow-x:auto; }
+    .ownership-table { width:100%; min-width:600px; border-collapse:collapse; font-size:11px; }
+    .ownership-table th,.ownership-table td { padding:8px 9px; border-bottom:1px solid var(--border); text-align:right; font-variant-numeric:tabular-nums; white-space:nowrap; }
+    .ownership-table th { color:var(--muted); font-weight:700; }
+    .ownership-table th:first-child,.ownership-table td:first-child { text-align:left; }
+    .ownership-table td { color:var(--text); }
+    .ownership-table .positive { color:var(--up); }
+    .ownership-table .negative { color:var(--down); }
+    .ownership-pulse-note { margin:12px 2px 0; color:var(--muted); font-size:11px; line-height:1.6; }
+    .ownership-pulse-note a { color:#b45309; }
+    .ownership-pulse-loading,.ownership-pulse-empty { display:grid; gap:6px; padding:20px 4px; color:var(--muted); }
+    .ownership-pulse-loading strong,.ownership-pulse-empty strong { color:var(--text); font-size:16px; }
+    .ownership-pulse-loading .ownership-pulse-kicker { color:#b45309; }
+    :root:not([data-theme="light"]) .ownership-pulse-badge,:root[data-theme="dark"] .ownership-pulse-badge { color:#ffedd5; background:#7c2d12; }
+    :root:not([data-theme="light"]) .ownership-pulse-segment,:root[data-theme="dark"] .ownership-pulse-segment { background:color-mix(in srgb,#7c2d12 28%,var(--card)); }
+    @media (max-width:900px) { .ownership-pulse-grid { grid-template-columns:1fr; } }
+    @media (max-width:560px) { .ownership-pulse-head { display:block; } .ownership-pulse-badge { display:inline-block; margin-top:10px; } .ownership-pulse-asof { flex-basis:100%; margin-left:0; } .ownership-summary-card strong { font-size:19px; } .ownership-pulse-chart svg { min-height:220px; } }
     @media (prefers-color-scheme: dark) {
       :root:not([data-theme="light"]) .financial-atlas-badge { color:#d8fff2; background:#1d4b4a; }
       :root:not([data-theme="light"]) .financial-atlas-segment { background:color-mix(in srgb,#1d4b4a 28%,var(--card)); }
@@ -691,6 +737,7 @@
       </div>
       <div id="signalPanel" class="signal-panel"></div>
       <div id="financialPanel" class="financial-panel"></div>
+      <div id="ownershipPanel" class="ownership-pulse"></div>
       <div id="newsPanel" class="news-panel"></div>
     </section>
 

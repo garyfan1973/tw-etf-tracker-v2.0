@@ -8,6 +8,7 @@
   let renderRequestKey = "", viewport = { key:"", start:0, end:0 }, dragState = null, pinchState = null;
   let personalTrades = { key:"", markers:[], openShares:0, averageCost:null, currency:"" };
   let financialRequestKey = "";
+  let ownershipRequestKey = "", ownershipPayload = null, ownershipAsset = null, ownershipName = "";
   let financialChartMode = ["both", "bar", "line"].includes(localStorage.getItem("financial-chart-mode")) ? localStorage.getItem("financial-chart-mode") : "both";
   let financialPeriod = localStorage.getItem("financial-period") === "quarterly" ? "quarterly" : "annual";
   const maPeriods = [5, 10, 20, 60, 120, 240];
@@ -665,6 +666,53 @@
       if (financialRequestKey === key) box.innerHTML = `<div class="financial-atlas-empty"><strong>財務脈動暫時無法載入</strong><span>${esc(error.message || "財務資料暫時無法取得")}</span></div>`;
     }
   }
+  function ownershipThresholdState() {
+    const read = (key, fallback, values) => { const value = Number(localStorage.getItem(key)); return values.includes(value) ? value : fallback; };
+    return { big:read("ownership-big-threshold",600,[100,200,400,600,800,1000]), small:read("ownership-small-threshold",30,[10,20,30,40,50,100]), weeks:read("ownership-weeks",10,[4,8,10,20]) };
+  }
+  function ownershipBucketBounds(label) {
+    const values=[...String(label||"").matchAll(/[\d,]+/g)].map(match=>Number(match[0].replace(/,/g,""))).filter(Number.isFinite);
+    return { min:values[0]||0, max:String(label||"").includes("以上")?Infinity:(values[1]||values[0]||0) };
+  }
+  function ownershipMetrics(week,bigThreshold,smallThreshold) {
+    const bigLimit=bigThreshold*1000, smallLimit=smallThreshold*1000, buckets=week.buckets||[];
+    const big=buckets.filter(bucket=>ownershipBucketBounds(bucket.label).min>bigLimit), small=buckets.filter(bucket=>ownershipBucketBounds(bucket.label).max<=smallLimit);
+    const sum=(rows,key)=>rows.reduce((total,row)=>total+(Number(row[key])||0),0);
+    return { bigHolding:sum(big,"holdingPct"), smallHolding:sum(small,"holdingPct"), bigPeople:sum(big,"peoplePct"), smallPeople:sum(small,"peoplePct") };
+  }
+  function ownershipDelta(value) { return Number.isFinite(value)?`${value>=0?"+":""}${value.toFixed(2)}%`:"—"; }
+  function ownershipPriceForDate(date,rows) { let latest=null; (rows||[]).forEach(row=>{if(row.date<=date&&Number.isFinite(Number(row.close)))latest=row;}); return latest?Number(latest.close):null; }
+  function ownershipLinePath(values,x,y) { let path="",open=false; values.forEach((value,index)=>{if(!Number.isFinite(value)){open=false;return;} path+=`${open?"L":"M"}${x(index)} ${y(value)} `;open=true;}); return path.trim(); }
+  function renderOwnershipPanel(payload,name,priceRows) {
+    const box=$("ownershipPanel"); if(!box)return;
+    const weeks=(payload.weeks||[]).slice().sort((a,b)=>a.date.localeCompare(b.date));
+    if(weeks.length<2){box.innerHTML=`<div class="ownership-pulse-empty"><strong>${esc(name)} 的股權分散資料不足</strong><span>TDCC 目前沒有足夠的每週資料可繪製趨勢。</span></div>`;return;}
+    const state=ownershipThresholdState(), metrics=weeks.map(week=>({...ownershipMetrics(week,state.big,state.small),date:week.date,price:ownershipPriceForDate(week.date,priceRows)})), latest=metrics.at(-1), previous=metrics.at(-2);
+    const bigChange=latest.bigHolding-previous.bigHolding, smallChange=latest.smallHolding-previous.smallHolding, bigUp=metrics.slice(1).filter((row,index)=>row.bigHolding>metrics[index].bigHolding).length, smallDown=metrics.slice(1).filter((row,index)=>row.smallHolding<metrics[index].smallHolding).length;
+    const W=900,H=270,p={l:48,r:58,t:20,b:42},plotH=H-p.t-p.b,x=index=>p.l+index*(W-p.l-p.r)/Math.max(1,metrics.length-1),pctY=value=>p.t+(100-value)/100*plotH,prices=metrics.map(row=>row.price).filter(Number.isFinite),priceMin=prices.length?Math.min(...prices):0,priceMax=prices.length?Math.max(...prices):1,priceSpan=priceMax-priceMin||1,priceY=value=>p.t+(priceMax-value)/priceSpan*plotH;
+    const grid=[0,25,50,75,100].map(value=>{const y=pctY(value),price=value===0?priceMin:value===100?priceMax:priceMin+(priceMax-priceMin)*value/100;return `<line x1="${p.l}" x2="${W-p.r}" y1="${y}" y2="${y}" class="ownership-grid-line"/><text x="${p.l-9}" y="${y+4}" text-anchor="end" class="ownership-axis">${value}%</text><text x="${W-p.r+9}" y="${y+4}" class="ownership-axis">${Number.isFinite(price)?price.toFixed(0):"—"}</text>`;}).join("");
+    const bigValues=metrics.map(row=>row.bigHolding),smallValues=metrics.map(row=>row.smallHolding),priceValues=metrics.map(row=>row.price),labels=metrics.map((row,index)=>index===0||index===metrics.length-1||index%Math.max(1,Math.ceil(metrics.length/5))===0?`<text x="${x(index)}" y="${H-p.b+23}" text-anchor="middle" class="ownership-axis">${esc(dateLabel(row.date))}</text>`:"").join("");
+    const svg=`<svg viewBox="0 0 ${W} ${H}" role="img" aria-label="${esc(name)}大戶、散戶持股與股價趨勢">${grid}<path d="${ownershipLinePath(bigValues,x,pctY)}" fill="none" stroke="#c2410c" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/><path d="${ownershipLinePath(smallValues,x,pctY)}" fill="none" stroke="#f59e0b" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/><path d="${ownershipLinePath(priceValues,x,priceY)}" fill="none" stroke="#2563eb" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>${metrics.map((row,index)=>`<circle cx="${x(index)}" cy="${pctY(row.bigHolding)}" r="3.5" fill="#c2410c"/><circle cx="${x(index)}" cy="${pctY(row.smallHolding)}" r="3.5" fill="#f59e0b"/>${Number.isFinite(row.price)?`<circle cx="${x(index)}" cy="${priceY(row.price)}" r="3.5" fill="#2563eb"/>`:""}`).join("")}${labels}</svg>`;
+    const tableRows=metrics.slice().reverse().map((row,index)=>{const prior=metrics[metrics.length-index-2],bigDelta=prior?row.bigHolding-prior.bigHolding:null,smallDelta=prior?row.smallHolding-prior.smallHolding:null;return `<tr><td>${esc(row.date)}</td><td>${row.bigHolding.toFixed(2)}%</td><td class="${bigDelta>0?"positive":bigDelta<0?"negative":""}">${ownershipDelta(bigDelta)}</td><td>${row.smallHolding.toFixed(2)}%</td><td class="${smallDelta>0?"positive":smallDelta<0?"negative":""}">${ownershipDelta(smallDelta)}</td></tr>`;}).join("");
+    const thresholdButtons=(key,values,current,suffix)=>values.map(value=>`<button type="button" data-ownership-${key}="${value}" class="${value===current?"active":""}" aria-pressed="${value===current}">${value}${suffix}</button>`).join("");
+    box.innerHTML=`<div class="ownership-pulse-head"><div><span class="ownership-pulse-kicker">OWNERSHIP PULSE</span><h3>籌碼脈動</h3><p>${esc(name)}・看大戶與散戶持股變化，不只看單週籌碼。</p></div><div class="ownership-pulse-badge">${esc(payload.code)} <span>● 週資料</span></div></div><div class="ownership-pulse-toolbar"><div class="ownership-pulse-segment" role="group" aria-label="大戶門檻"><span>大戶</span>${thresholdButtons("big",[100,200,400,600,800,1000],state.big,"張")}</div><div class="ownership-pulse-segment" role="group" aria-label="散戶門檻"><span>散戶</span>${thresholdButtons("small",[10,20,30,40,50,100],state.small,"張")}</div><div class="ownership-pulse-segment" role="group" aria-label="股權分散週期"><span>週期</span>${thresholdButtons("weeks",[4,8,10,20],state.weeks,"週")}</div><span class="ownership-pulse-asof">${esc(weeks[0].date)} → ${esc(weeks.at(-1).date)}</span></div><div class="ownership-pulse-grid"><article class="ownership-pulse-card"><h4>持股結構與股價</h4><div class="ownership-legend"><span><i class="ownership-line" style="background:#c2410c"></i>大戶持股</span><span><i class="ownership-line" style="background:#f59e0b"></i>散戶持股</span><span><i class="ownership-line" style="background:#2563eb"></i>股價</span></div><div class="ownership-pulse-chart">${svg}</div></article><aside class="ownership-pulse-card"><h4>最新籌碼摘要</h4><div class="ownership-summary"><div class="ownership-summary-card"><span class="label">大戶持股</span><strong>${latest.bigHolding.toFixed(2)}%</strong><small>週變化 ${ownershipDelta(bigChange)}・近 ${metrics.length-1} 週增加 ${bigUp} 週</small></div><div class="ownership-summary-card"><span class="label">散戶持股</span><strong>${latest.smallHolding.toFixed(2)}%</strong><small>週變化 ${ownershipDelta(smallChange)}・近 ${metrics.length-1} 週減少 ${smallDown} 週</small></div><div class="ownership-summary-card"><span class="label">大戶人數占比</span><strong>${latest.bigPeople.toFixed(2)}%</strong><small>門檻以上帳戶占比</small></div><div class="ownership-summary-card"><span class="label">散戶人數占比</span><strong>${latest.smallPeople.toFixed(2)}%</strong><small>門檻以下帳戶占比</small></div></div></aside></div><div class="ownership-table-wrap"><table class="ownership-table"><thead><tr><th>日期</th><th>大戶持股</th><th>週變化</th><th>散戶持股</th><th>週變化</th></tr></thead><tbody>${tableRows}</tbody></table></div><p class="ownership-pulse-note">大戶／散戶以持股張數門檻切分；持股比例為 TDCC 每週最後營業日的集保庫存比例。資料來源：<a href="${esc(payload.source?.url||"https://www.tdcc.com.tw/portal/zh/smWeb/qryStock")}" target="_blank" rel="noopener noreferrer">${esc(payload.source?.name||"TDCC 集保戶股權分散表")}</a>${Number.isFinite(latest.price)?`・股價線為同日或前一交易日收盤價（${latest.price.toFixed(2)}）`:""}</p>`;
+    box.querySelectorAll("[data-ownership-big]").forEach(button=>button.addEventListener("click",()=>{localStorage.setItem("ownership-big-threshold",button.dataset.ownershipBig);renderOwnershipPanel(payload,name,priceRows);}));
+    box.querySelectorAll("[data-ownership-small]").forEach(button=>button.addEventListener("click",()=>{localStorage.setItem("ownership-small-threshold",button.dataset.ownershipSmall);renderOwnershipPanel(payload,name,priceRows);}));
+    box.querySelectorAll("[data-ownership-weeks]").forEach(button=>button.addEventListener("click",()=>{localStorage.setItem("ownership-weeks",button.dataset.ownershipWeeks);if(ownershipAsset)renderOwnership(ownershipAsset,ownershipName,priceRows);}));
+  }
+  async function renderOwnership(info,name,priceRows) {
+    const box=$("ownershipPanel"); if(!box)return;
+    const key=`${info.symbol}|${info.market}|${info.assetType}`; ownershipRequestKey=key; ownershipPayload=null;
+    ownershipAsset={...info}; ownershipName=name;
+    if(info.market!=="TW"||info.assetType!=="stock"){box.innerHTML="";box.style.display="none";return;}
+    box.style.display="block";box.innerHTML=`<div class="ownership-pulse-loading"><span class="ownership-pulse-kicker">OWNERSHIP PULSE</span><strong>正在整理 ${esc(name)} 的籌碼節奏…</strong><span>同步讀取 TDCC 每週股權分散資料。</span></div>`;
+    try{
+      const state=ownershipThresholdState(),response=await fetch(`/api/shareholder-distribution?code=${encodeURIComponent(info.symbol)}&market=${encodeURIComponent(info.market)}&weeks=${state.weeks}`,{cache:"no-store"}),payload=await response.json().catch(()=>({ok:false,error:"股權分散資料暫時無法取得"}));
+      if(ownershipRequestKey!==key)return;
+      if(!response.ok||!payload.ok)throw new Error(payload.error||"股權分散資料暫時無法取得");
+      ownershipPayload=payload;renderOwnershipPanel(payload,name,priceRows);
+    }catch(error){if(ownershipRequestKey===key)box.innerHTML=`<div class="ownership-pulse-empty"><strong>籌碼脈動暫時無法載入</strong><span>${esc(error.message||"TDCC 股權分散資料暫時無法取得")}</span></div>`;}
+  }
   async function render() {
     const code = directAsset?.symbol || $("etfSelect")?.value || "", security = directAsset ? "__DIRECT__" : $("securitySelect")?.value || "__ETF__";
     const snapshotRows = rowsFor(code, security), info = securityInfo(code, security), key = `${info.market}|${info.symbol}`;
@@ -674,11 +722,12 @@
     if ($("chartQuote")) $("chartQuote").innerHTML = "";
     $("status").textContent = "載入兩年歷史行情…";
     renderPremium(code, security);
-    loadPersonalTrades(code, security); renderFinancials(code, security, name);
+    loadPersonalTrades(code, security); renderFinancials(code, security, name); renderOwnership(info, name, []);
     try { currentRows = await loadHistory(info, snapshotRows); }
     catch (error) { currentRows = snapshotRows; if (!currentRows.length) $("status").textContent = error.message || "行情資料暫時無法取得"; }
     if (renderRequestKey !== key) return;
     if (window.MarketChart) { window.MarketChart.currentAsset = { ...info }; window.MarketChart.currentRows = currentRows.slice(); }
+    if (ownershipPayload && ownershipRequestKey === `${info.symbol}|${info.market}|${info.assetType}`) renderOwnershipPanel(ownershipPayload,name,currentRows);
     if ($("chartQuote") && currentRows.length) {
       const latest = currentRows.at(-1), previous = currentRows.at(-2), reference = Number.isFinite(Number(latest.prevClose)) ? Number(latest.prevClose) : Number(previous?.close);
       const change = Number.isFinite(Number(latest.change)) ? Number(latest.change) : Number.isFinite(reference) ? Number(latest.close) - reference : null;
