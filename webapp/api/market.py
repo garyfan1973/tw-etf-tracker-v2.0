@@ -1,15 +1,115 @@
 """Unified market quote and daily history endpoint backed by Yahoo Finance."""
+from concurrent.futures import ThreadPoolExecutor, as_completed
+from html.parser import HTMLParser
 from http.server import BaseHTTPRequestHandler
-from urllib.parse import parse_qs, quote, urlparse
+from urllib.parse import parse_qs, quote, urlencode, urlparse
 import datetime
 import json
 import re
 import urllib.request
-from _shareholder_distribution import build_payload as build_shareholder_payload
 
 UA = "Mozilla/5.0 (compatible; InvestmentResearchWorkspace/1.0)"
 YAHOO_CHART = "https://query1.finance.yahoo.com/v8/finance/chart/{}?interval=1d&range=2y"
 TWSE_MONTH = "https://www.twse.com.tw/rwd/zh/afterTrading/STOCK_DAY?date={}&stockNo={}&response=json"
+TDCC_URL = "https://www.tdcc.com.tw/portal/zh/smWeb/qryStock"
+TDCC_SOURCE = "https://www.tdcc.com.tw/portal/zh/smWeb/qryStock"
+
+
+class ShareholderTableParser(HTMLParser):
+    def __init__(self):
+        super().__init__()
+        self.rows, self.row, self.cell = [], None, None
+
+    def handle_starttag(self, tag, attrs):
+        if tag == "tr":
+            self.row = []
+        elif tag in {"td", "th"} and self.row is not None:
+            self.cell = []
+
+    def handle_data(self, data):
+        if self.cell is not None:
+            self.cell.append(data)
+
+    def handle_endtag(self, tag):
+        if tag in {"td", "th"} and self.row is not None and self.cell is not None:
+            self.row.append(" ".join("".join(self.cell).split()))
+            self.cell = None
+        elif tag == "tr" and self.row:
+            self.rows.append(self.row)
+            self.row = None
+
+
+def shareholder_fetch_page(url, data=None, cookie="", timeout=12):
+    headers = {"User-Agent": "Mozilla/5.0 (compatible; ETFTracker/1.0)"}
+    if data is not None:
+        headers["Content-Type"] = "application/x-www-form-urlencoded"
+    if cookie:
+        headers["Cookie"] = cookie
+    request = urllib.request.Request(url, data=data, headers=headers)
+    with urllib.request.urlopen(request, timeout=timeout) as response:
+        return response.read().decode("utf-8", errors="ignore"), response.headers
+
+
+def shareholder_number(value):
+    text = re.sub(r"[^0-9.\-]", "", str(value or ""))
+    try:
+        return float(text) if text else None
+    except ValueError:
+        return None
+
+
+def shareholder_iso_date(value):
+    digits = re.sub(r"\D", "", str(value or ""))
+    return f"{digits[:4]}-{digits[4:6]}-{digits[6:]}" if len(digits) == 8 else ""
+
+
+def shareholder_parse_rows(page, code, date):
+    parser = ShareholderTableParser()
+    parser.feed(page)
+    buckets = []
+    for row in parser.rows:
+        if len(row) < 5 or not row[0].isdigit() or "合計" in row[1].replace(" ", ""):
+            continue
+        holders, shares, holding_pct = shareholder_number(row[2]), shareholder_number(row[3]), shareholder_number(row[4])
+        if holders is None or shares is None or holding_pct is None:
+            continue
+        buckets.append({"level": int(row[0]), "label": row[1], "holders": int(holders), "shares": int(shares), "holdingPct": holding_pct})
+    if not buckets:
+        return None
+    total_holders, total_shares = sum(row["holders"] for row in buckets), sum(row["shares"] for row in buckets)
+    for row in buckets:
+        row["peoplePct"] = round(row["holders"] / total_holders * 100, 4) if total_holders else 0
+    return {"date": shareholder_iso_date(date), "code": code, "totalHolders": total_holders, "totalShares": total_shares, "buckets": buckets}
+
+
+def shareholder_fetch_distribution(code, date):
+    page, headers = shareholder_fetch_page(TDCC_URL)
+    token = re.search(r'name="SYNCHRONIZER_TOKEN" value="([^"]+)', page)
+    cookie = headers.get("Set-Cookie", "").split(";", 1)[0]
+    if not token or not cookie:
+        return None
+    body = urlencode({"SYNCHRONIZER_TOKEN": token.group(1), "SYNCHRONIZER_URI": "/portal/zh/smWeb/qryStock", "method": "submit", "firDate": date, "scaDate": date, "sqlMethod": "StockNo", "stockNo": code, "stockName": ""}).encode("utf-8")
+    page, _ = shareholder_fetch_page(TDCC_URL, data=body, cookie=cookie)
+    return shareholder_parse_rows(page, code, date)
+
+
+def build_shareholder_payload(code, requested_weeks):
+    page, _ = shareholder_fetch_page(TDCC_URL)
+    dates = list(dict.fromkeys(re.findall(r'<option value="(\d{8})"', page)))[:requested_weeks]
+    if not dates:
+        raise RuntimeError("TDCC 查詢頁面暫時無法使用")
+    results = []
+    with ThreadPoolExecutor(max_workers=4) as executor:
+        futures = {executor.submit(shareholder_fetch_distribution, code, date): date for date in dates}
+        for future in as_completed(futures):
+            try:
+                result = future.result()
+            except Exception:
+                result = None
+            if result:
+                results.append(result)
+    results.sort(key=lambda item: item["date"])
+    return {"ok": True, "code": code, "weeks": results, "source": {"name": "TDCC 集保戶股權分散表", "url": TDCC_SOURCE}, "fetchedAt": datetime.datetime.now(datetime.timezone(datetime.timedelta(hours=8))).isoformat(timespec="seconds")}
 
 
 def fetch_json(url):
