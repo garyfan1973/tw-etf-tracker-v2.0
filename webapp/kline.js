@@ -527,115 +527,129 @@
       if (personalTrades.key === key) renderTradeBox("個人進出明細暫時無法讀取，請稍後重試。");
     }
   }
-  const financialMetrics = {
-    revenue:{ label:"營收" }, grossMargin:{ label:"毛利率", ratio:true }, operatingIncome:{ label:"營業利益" },
-    netIncome:{ label:"淨利" }, eps:{ label:"EPS" },
-    operatingCashFlow:{ label:"營業現金流" }, investingCashFlow:{ label:"投資現金流" },
-    financingCashFlow:{ label:"融資現金流" }, freeCashFlow:{ label:"自由現金流" }
-  };
-  const cashFlowMetrics = new Set(["operatingCashFlow", "investingCashFlow", "financingCashFlow", "freeCashFlow"]);
+  let financialRange = [3, 5, 10].includes(Number(localStorage.getItem("financial-range"))) ? Number(localStorage.getItem("financial-range")) : 5;
   function compactMoney(value, currency) {
     const absolute = Math.abs(Number(value));
     const matched = [[1e12,"兆"],[1e8,"億"],[1e6,"百萬"],[1e3,"千"]].find(([threshold]) => absolute >= threshold);
     if (!matched) return `${num(value)} ${currency || ""}`.trim();
     return `${(Number(value) / matched[0]).toLocaleString("zh-TW", { maximumFractionDigits:2 })} ${matched[1]}${currency || ""}`;
   }
-  function growthText(current, previous) {
-    if (!Number.isFinite(current) || !Number.isFinite(previous) || previous === 0) return "—";
-    const value = (current - previous) / Math.abs(previous) * 100;
-    return `${value >= 0 ? "+" : ""}${value.toFixed(1)}%`;
-  }
-  const isLowGrowthBase = (metric, previous) => metric === "eps" && Number.isFinite(previous) && Math.abs(previous) <= .05;
   function financialMetricValue(row, metric) {
     if (metric !== "grossMargin") return Number(row?.[metric]);
     const revenue = Number(row?.revenue), grossProfit = Number(row?.grossProfit);
     return Number.isFinite(revenue) && revenue !== 0 && Number.isFinite(grossProfit) ? grossProfit / revenue * 100 : NaN;
   }
-  function renderFinancialChart(payload, metric) {
-    const box = $("financialPanel"), allRows = (financialPeriod === "quarterly" ? payload.quarters : payload.years) || [], rows = financialPeriod === "annual" ? allRows.slice(-5) : allRows, meta = financialMetrics[metric];
-    const isRatio = Boolean(meta.ratio), plotRows = rows.filter(row => Number.isFinite(financialMetricValue(row, metric))), values = plotRows.map(row => financialMetricValue(row, metric));
-    if (plotRows.length < 2) { box.querySelector(".financial-content").innerHTML = `<div class="financial-empty">這項指標的${financialPeriod === "quarterly" ? "季度" : "年度"}資料不足，無法繪圖。</div>`; return; }
-    const yoyOffset = financialPeriod === "quarterly" ? 4 : 1;
-    const yoyValues = plotRows.map((row, index) => {
-      const sourceIndex = rows.indexOf(row), previous = rows[sourceIndex - yoyOffset];
-      const currentValue = financialMetricValue(row, metric), previousValue = financialMetricValue(previous, metric);
-      if (!previous || !Number.isFinite(previousValue)) return null;
-      return isRatio ? currentValue - previousValue : Number(growthText(currentValue, previousValue).replace("%", ""));
-    });
-    const yoyLowBases = plotRows.map(row => {
-      const sourceIndex = rows.indexOf(row), previous = rows[sourceIndex - yoyOffset];
-      return Boolean(previous && isLowGrowthBase(metric, financialMetricValue(previous, metric)));
-    });
-    const finiteValues = values.filter(Number.isFinite), finiteYoy = yoyValues.filter(Number.isFinite);
-    const width = 900, height = 300, padL = 62, padR = 62, padT = 28, padB = 48;
-    const floor = Math.min(0, ...finiteValues), ceiling = Math.max(0, ...finiteValues), span = ceiling - floor || 1;
-    const yoyFloor = Math.min(0, ...finiteYoy), yoyCeiling = Math.max(0, ...finiteYoy), yoySpan = yoyCeiling - yoyFloor || 1;
-    const plotWidth = width - padL - padR, plotHeight = height - padT - padB;
-    const bandWidth = Math.min(financialPeriod === "annual" ? 118 : 82, plotWidth / Math.max(plotRows.length, 1));
-    const contentWidth = bandWidth * plotRows.length;
-    const barWidth = Math.min(78, bandWidth * .68);
-    const plotLeft = (width - contentWidth) / 2 + bandWidth / 2, plotRight = plotLeft + bandWidth * Math.max(plotRows.length - 1, 0);
-    const x = index => plotLeft + index * (plotRight - plotLeft) / Math.max(plotRows.length - 1, 1);
-    const y = value => padT + (ceiling - value) * plotHeight / span;
-    const yoyY = value => padT + (yoyCeiling - value) * plotHeight / yoySpan;
-    const points = yoyValues.map((value, index) => Number.isFinite(value) ? `${x(index)},${yoyY(value)}` : null).filter(Boolean).join(" ");
-    const baseline = y(0);
-    const showBar = financialChartMode === "both" || financialChartMode === "bar", showLine = financialChartMode === "both" || financialChartMode === "line";
-    const bars = showBar ? values.map((value, index) => {
-      if (!Number.isFinite(value)) return "";
-      const valueY = y(value), rectY = Math.min(valueY, baseline), rectHeight = Math.max(1, Math.abs(baseline - valueY));
-      return `<rect x="${x(index) - barWidth / 2}" y="${rectY}" width="${barWidth}" height="${rectHeight}" rx="6" class="financial-bar${value < 0 ? " negative" : ""}"/>`;
-    }).join("") : "";
-    const trend = showLine ? `<polyline points="${points}" class="financial-line"/>${yoyValues.map((value, index) => Number.isFinite(value) ? `<g data-financial-yoy="${value.toFixed(2)}" data-low-base="${yoyLowBases[index]}" data-period="${esc(plotRows[index].year)}"><circle cx="${x(index)}" cy="${yoyY(value)}" r="4" class="financial-dot"/><circle cx="${x(index)}" cy="${yoyY(value)}" r="13" class="financial-dot-hit"/></g>` : "").join("")}` : "";
-    const grid = [0, .25, .5, .75, 1].map(ratio => {
-      const leftValue = ceiling - ratio * span, rightValue = yoyCeiling - ratio * yoySpan, yy = padT + ratio * plotHeight;
-      const leftLabel = isRatio ? `${leftValue.toFixed(1)}%` : metric === "eps" ? price(leftValue) : compactMoney(leftValue, "");
-      const rightLabel = isRatio ? `${rightValue >= 0 ? "+" : ""}${rightValue.toFixed(1)}pp` : `${rightValue.toFixed(0)}%`;
-      return `<line x1="${padL}" x2="${width-padR}" y1="${yy}" y2="${yy}" class="grid"/><text x="${padL-12}" y="${yy+4}" text-anchor="end" class="axis">${esc(leftLabel)}</text><text x="${width-padR+12}" y="${yy+4}" class="axis">${esc(rightLabel)}</text>`;
+  function financialRows(payload) {
+    const allRows = (financialPeriod === "quarterly" ? payload.quarters : payload.years) || [];
+    const count = financialPeriod === "quarterly" ? financialRange * 4 : financialRange;
+    return allRows.filter(row => row && row.year).slice(-count);
+  }
+  function financialGrowth(rows, index, metric) {
+    const offset = financialPeriod === "quarterly" ? 4 : 1, current = financialMetricValue(rows[index], metric), previous = financialMetricValue(rows[index - offset], metric);
+    if (!Number.isFinite(current) || !Number.isFinite(previous) || previous === 0) return null;
+    return (current - previous) / Math.abs(previous) * 100;
+  }
+  function financialScale(values) {
+    const finite = values.filter(Number.isFinite), low = Math.min(0, ...(finite.length ? finite : [0])), high = Math.max(0, ...(finite.length ? finite : [1]));
+    const span = high - low || 1, padding = span * .12;
+    return {low:low - padding, high:high + padding};
+  }
+  function financialY(value, scale, top, height) {
+    return top + (scale.high - value) / Math.max(scale.high - scale.low, 1e-9) * height;
+  }
+  function financialLabel(row, index, rows) {
+    if (financialPeriod === "annual") return String(row.year);
+    if (rows.length > 12 && index % 4 !== 3 && index !== rows.length - 1) return "";
+    return String(row.year).replace(/^(\d{4})Q(\d)$/, (_, year, quarter) => rows.length > 12 ? `${year.slice(2)} Q${quarter}` : `${year} Q${quarter}`);
+  }
+  function financialValueText(value, metric, currency = "") {
+    if (!Number.isFinite(value)) return "—";
+    if (["grossMargin", "operatingMargin", "netMargin"].includes(metric)) return `${value.toFixed(1)}%`;
+    if (metric === "eps") return `${price(value)} ${currency}`.trim();
+    return compactMoney(value, currency);
+  }
+  function financialDeltaText(value, ratio = false) {
+    if (!Number.isFinite(value)) return "無同比資料";
+    return `${value >= 0 ? "+" : ""}${value.toFixed(1)}${ratio ? " 個百分點" : "%"}`;
+  }
+  function financialChartGrid({width, height, padL, padR, padT, padB, scale, format}) {
+    const plotHeight = height - padT - padB;
+    return [0, .25, .5, .75, 1].map(ratio => {
+      const value = scale.high - ratio * (scale.high - scale.low), y = padT + ratio * plotHeight;
+      return `<line x1="${padL}" x2="${width - padR}" y1="${y}" y2="${y}" class="financial-atlas-grid-line"/><text x="${padL - 9}" y="${y + 4}" text-anchor="end" class="financial-atlas-axis">${esc(format(value))}</text>`;
     }).join("");
-    const labels = plotRows.map((row, index) => `<g><text x="${x(index)}" y="${Math.max(16, y(values[index]) - 9)}" text-anchor="middle" class="financial-value${values[index] < 0 ? " negative" : ""}">${esc(isRatio ? `${values[index].toFixed(1)}%` : metric === "eps" ? price(values[index]) : compactMoney(values[index], ""))}</text><text x="${x(index)}" y="${height - 14}" text-anchor="middle" class="axis">${esc(row.year)}</text></g>`).join("");
-    const latest = plotRows.at(-1), latestIndex = rows.indexOf(latest), previousIndex = latestIndex - yoyOffset, currency = latest.currency || "";
-    const latestMetricValue = financialMetricValue(latest, metric), previousMetricValue = previousIndex >= 0 ? financialMetricValue(rows[previousIndex], metric) : NaN;
-    const latestValue = isRatio ? `${latestMetricValue.toFixed(1)}%` : metric === "eps" ? `${price(latestMetricValue)} ${currency}` : compactMoney(latestMetricValue, currency);
-    const yoy = previousIndex < 0 || !Number.isFinite(previousMetricValue) ? "—" : isRatio ? `${latestMetricValue - previousMetricValue >= 0 ? "+" : ""}${(latestMetricValue - previousMetricValue).toFixed(1)} 個百分點` : growthText(latestMetricValue, previousMetricValue);
-    const latestLowBase = previousIndex >= 0 && isLowGrowthBase(metric, previousMetricValue);
-    const operatingMargin = Number.isFinite(Number(latest.revenue)) && Number.isFinite(Number(latest.operatingIncome)) && Number(latest.revenue) !== 0 ? Number(latest.operatingIncome) / Number(latest.revenue) * 100 : null;
-    const netMargin = Number.isFinite(Number(latest.revenue)) && Number.isFinite(Number(latest.netIncome)) && Number(latest.revenue) !== 0 ? Number(latest.netIncome) / Number(latest.revenue) * 100 : null;
-    const isCashFlow = cashFlowMetrics.has(metric);
-    const secondaryOne = isCashFlow ? (latest.freeCashFlow == null ? "—" : compactMoney(latest.freeCashFlow, currency)) : (operatingMargin == null ? "—" : operatingMargin.toFixed(1) + "%");
-    const secondaryTwo = isCashFlow ? (latest.endingCash == null ? "—" : compactMoney(latest.endingCash, currency)) : (netMargin == null ? "—" : netMargin.toFixed(1) + "%");
-    const secondaryOneLabel = isCashFlow ? "自由現金流" : "營業利益率";
-    const secondaryTwoLabel = isCashFlow ? "期末現金" : "淨利率";
-    const source = payload.source || { name:"Yahoo Finance", url:`https://finance.yahoo.com/quote/${encodeURIComponent(payload.symbol)}/financials/` };
-    const quarterNote = financialPeriod === "quarterly" && payload.quarterlyMethod ? `；${esc(payload.quarterlyMethod)}` : "";
-    const comparisonLabel = isRatio ? "年增減" : `年增率${latestLowBase ? "（低基期）" : ""}`;
-    const trendLabel = isRatio ? "較去年同期增減（百分點）" : "YoY 成長率";
-    box.querySelector(".financial-content").innerHTML = `<div class="financial-summary"><div><span>${esc(latest.year)} ${esc(meta.label)}</span><strong>${esc(latestValue)}</strong></div><div><span>${comparisonLabel}</span><strong class="${yoy.startsWith("+") ? "up" : yoy.startsWith("-") ? "down" : ""}">${esc(yoy)}</strong></div><div><span>${secondaryOneLabel}</span><strong>${esc(secondaryOne)}</strong></div><div><span>${secondaryTwoLabel}</span><strong>${esc(secondaryTwo)}</strong></div></div><div class="financial-chart"><svg viewBox="0 0 ${width} ${height}" role="img" aria-label="${esc(meta.label)}${financialPeriod === "quarterly" ? "季度" : "年度"}長條與趨勢折線圖">${grid}<line x1="${padL}" x2="${width-padR}" y1="${baseline}" y2="${baseline}" class="grid financial-zero"/>${bars}${trend}${labels}</svg><div class="financial-tooltip" hidden></div></div><div class="financial-note">${financialPeriod === "quarterly" ? "季度財報" : "年度合併財報"}・幣別 ${esc(currency || "未標示")}；長條為 ${esc(meta.label)}，折線為 ${trendLabel}${quarterNote}。不同幣別公司不宜直接比較金額。資料來源：<a href="${esc(source.url)}" target="_blank" rel="noopener noreferrer">${esc(source.name)}</a></div>`;
-    const chart = box.querySelector(".financial-chart"), tooltip = chart.querySelector(".financial-tooltip");
-    const showFinancialTooltip = (event, point) => {
-      const chartRect = chart.getBoundingClientRect();
-      tooltip.innerHTML = `<strong>${esc(point.dataset.period)}</strong><span>${isRatio ? "年增減 " : "YoY "}${Number(point.dataset.financialYoy) >= 0 ? "+" : ""}${Number(point.dataset.financialYoy).toFixed(2)}${isRatio ? " 個百分點" : "%"}${point.dataset.lowBase === "true" ? "（低基期）" : ""}</span>`;
-      tooltip.hidden = false;
-      const tipWidth = tooltip.offsetWidth, tipHeight = tooltip.offsetHeight;
-      const visibleLeft = chart.scrollLeft + 6;
-      const leftPos = Math.max(visibleLeft, Math.min(visibleLeft + chartRect.width - tipWidth - 12, chart.scrollLeft + event.clientX - chartRect.left + 12));
-      const topPos = Math.max(6, event.clientY - chartRect.top - tipHeight - 12);
-      tooltip.style.left = `${leftPos}px`; tooltip.style.top = `${topPos}px`;
-    };
-    chart.querySelectorAll("[data-financial-yoy]").forEach(point => {
-      point.addEventListener("pointerenter", event => showFinancialTooltip(event, point));
-      point.addEventListener("pointermove", event => showFinancialTooltip(event, point));
-      point.addEventListener("pointerdown", event => showFinancialTooltip(event, point));
-      point.addEventListener("pointerleave", () => { tooltip.hidden = true; });
+  }
+  function financialX(index, count, width, padL, padR) {
+    return padL + index * (width - padL - padR) / Math.max(count - 1, 1);
+  }
+  function financialAxisLabels(rows, width, height, padL, padR, padB) {
+    return rows.map((row, index) => {
+      const label = financialLabel(row, index, rows); if (!label) return "";
+      return `<text x="${financialX(index, rows.length, width, padL, padR)}" y="${height - padB + 23}" text-anchor="middle" class="financial-atlas-axis">${esc(label)}</text>`;
+    }).join("");
+  }
+  function financialCardShell({eyebrow, title, summary, legend, svg, tone = "mint", note = ""}) {
+    return `<article class="financial-atlas-card tone-${tone}"><div class="financial-atlas-card-head"><div><span class="financial-atlas-eyebrow">${esc(eyebrow)}</span><h4>${esc(title)}</h4></div><div class="financial-atlas-card-stat">${summary}</div></div><div class="financial-atlas-legend">${legend}</div><div class="financial-atlas-chart">${svg}</div>${note ? `<p class="financial-atlas-card-note">${esc(note)}</p>` : ""}</article>`;
+  }
+  function renderFinancialComboCard(rows, {metric, title, eyebrow, tone, barColor, lineColor, currency}) {
+    const values = rows.map(row => financialMetricValue(row, metric)), yoy = rows.map((_, index) => financialGrowth(rows, index, metric)), latestIndex = values.length - 1;
+    const scale = financialScale(values), yoyScale = financialScale(yoy.filter(Number.isFinite)), width = 560, height = 248, padL = 52, padR = 42, padT = 22, padB = 40, plotHeight = height - padT - padB, barWidth = Math.min(32, (width - padL - padR) / Math.max(rows.length, 1) * .55);
+    const x = index => financialX(index, rows.length, width, padL, padR), y = value => financialY(value, scale, padT, plotHeight), yoyY = value => financialY(value, yoyScale, padT, plotHeight), baseline = y(0);
+    const bars = values.map((value, index) => {
+      if (!Number.isFinite(value)) return "";
+      const valueY = y(value), top = Math.min(valueY, baseline), heightValue = Math.max(1, Math.abs(baseline - valueY));
+      return `<rect x="${x(index) - barWidth / 2}" y="${top}" width="${barWidth}" height="${heightValue}" rx="5" fill="${barColor}" opacity=".82"><title>${esc(rows[index].year)}・${esc(financialValueText(value, metric, currency))}</title></rect>`;
+    }).join("");
+    const linePoints = yoy.map((value, index) => Number.isFinite(value) ? `${x(index)},${yoyY(value)}` : null).filter(Boolean).join(" ");
+    const line = linePoints ? `<polyline points="${linePoints}" fill="none" stroke="${lineColor}" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>${yoy.map((value, index) => Number.isFinite(value) ? `<circle cx="${x(index)}" cy="${yoyY(value)}" r="4" fill="${lineColor}" stroke="var(--card)" stroke-width="2"><title>${esc(rows[index].year)}・年增率 ${esc(financialDeltaText(value))}</title></circle>` : "").join("")}` : "";
+    const svg = `<svg viewBox="0 0 ${width} ${height}" role="img" aria-label="${esc(title)}${financialPeriod === "annual" ? "年度" : "季度"}趨勢圖">${financialChartGrid({width,height,padL,padR,padT,padB,scale,format:value => financialValueText(value, metric)})}<line x1="${padL}" x2="${width-padR}" y1="${baseline}" y2="${baseline}" class="financial-atlas-zero"/>${bars}${line}${financialAxisLabels(rows,width,height,padL,padR,padB)}</svg>`;
+    const latest = values[latestIndex], latestGrowth = yoy[latestIndex], summary = `<strong>${esc(financialValueText(latest, metric, currency))}</strong><span>${esc(financialDeltaText(latestGrowth))}</span>`;
+    return financialCardShell({eyebrow, title, summary, tone, svg, barColor, legend:`<span><i class="financial-atlas-dot" style="background:${barColor}"></i>${esc(title)}</span><span><i class="financial-atlas-line" style="background:${lineColor}"></i>年增率</span>`, note:financialPeriod === "quarterly" ? "折線為年對年同期成長率" : "折線為年度成長率"});
+  }
+  function renderFinancialCashCard(rows, currency) {
+    const metric = rows.some(row => Number.isFinite(Number(row.freeCashFlow))) ? "freeCashFlow" : "operatingCashFlow", title = metric === "freeCashFlow" ? "自由現金流" : "營業現金流", values = rows.map(row => financialMetricValue(row, metric)), scale = financialScale(values), width = 560, height = 248, padL = 52, padR = 24, padT = 22, padB = 40, plotHeight = height - padT - padB, barWidth = Math.min(34, (width - padL - padR) / Math.max(rows.length, 1) * .58), x = index => financialX(index, rows.length, width, padL, padR), y = value => financialY(value, scale, padT, plotHeight), baseline = y(0);
+    const bars = values.map((value, index) => {
+      if (!Number.isFinite(value)) return "";
+      const valueY = y(value), top = Math.min(valueY, baseline), heightValue = Math.max(1, Math.abs(baseline - valueY)), color = value < 0 ? "#df6b62" : "#37b89a";
+      return `<rect x="${x(index) - barWidth / 2}" y="${top}" width="${barWidth}" height="${heightValue}" rx="5" fill="${color}" opacity=".86"><title>${esc(rows[index].year)}・${esc(financialValueText(value, metric, currency))}</title></rect>`;
+    }).join("");
+    const latest = values.at(-1), svg = `<svg viewBox="0 0 ${width} ${height}" role="img" aria-label="${esc(title)}${financialPeriod === "annual" ? "年度" : "季度"}趨勢圖">${financialChartGrid({width,height,padL,padR,padT,padB,scale,format:value => financialValueText(value, metric)})}<line x1="${padL}" x2="${width-padR}" y1="${baseline}" y2="${baseline}" class="financial-atlas-zero"/>${bars}${financialAxisLabels(rows,width,height,padL,padR,padB)}</svg>`;
+    return financialCardShell({eyebrow:"CASH ENGINE",title,summary:`<strong>${esc(financialValueText(latest, metric, currency))}</strong><span>最新${financialPeriod === "annual" ? "年度" : "季度"}</span>`,tone:"coral",svg,legend:`<span><i class="financial-atlas-dot" style="background:#37b89a"></i>正數</span><span><i class="financial-atlas-dot" style="background:#df6b62"></i>負數</span>`,note:"現金流為負不一定代表衰退，需搭配資本支出與營運週期判讀。"});
+  }
+  function renderFinancialMarginCard(rows) {
+    const series = [{metric:"grossMargin",label:"毛利率",color:"#e8a331"},{metric:"operatingMargin",label:"營業利益率",color:"#e17055"},{metric:"netMargin",label:"淨利率",color:"#4b7bec"}], valuesBySeries = series.map(item => rows.map(row => {
+      if (item.metric === "operatingMargin") { const revenue = Number(row.revenue), operating = Number(row.operatingIncome); return revenue ? operating / revenue * 100 : NaN; }
+      if (item.metric === "netMargin") { const revenue = Number(row.revenue), net = Number(row.netIncome); return revenue ? net / revenue * 100 : NaN; }
+      return financialMetricValue(row, item.metric);
+    })), scale = financialScale(valuesBySeries.flat()), width = 560, height = 248, padL = 48, padR = 24, padT = 22, padB = 40, plotHeight = height - padT - padB, x = index => financialX(index, rows.length, width, padL, padR), y = value => financialY(value, scale, padT, plotHeight);
+    const lines = valuesBySeries.map((values, seriesIndex) => {
+      const item = series[seriesIndex], points = values.map((value,index) => Number.isFinite(value) ? `${x(index)},${y(value)}` : null).filter(Boolean).join(" ");
+      return points ? `<polyline points="${points}" fill="none" stroke="${item.color}" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>${values.map((value,index) => Number.isFinite(value) ? `<circle cx="${x(index)}" cy="${y(value)}" r="3.5" fill="${item.color}" stroke="var(--card)" stroke-width="2"><title>${esc(rows[index].year)}・${esc(item.label)} ${value.toFixed(1)}%</title></circle>` : "").join("")}` : "";
+    }).join("");
+    const latestSummary = series.map((item,index) => `${item.label} ${Number.isFinite(valuesBySeries[index].at(-1)) ? valuesBySeries[index].at(-1).toFixed(1) + "%" : "—"}`).join("　");
+    const svg = `<svg viewBox="0 0 ${width} ${height}" role="img" aria-label="毛利率、營業利益率與淨利率${financialPeriod === "annual" ? "年度" : "季度"}趨勢圖">${financialChartGrid({width,height,padL,padR,padT,padB,scale,format:value => `${value.toFixed(0)}%`})}<line x1="${padL}" x2="${width-padR}" y1="${y(0)}" y2="${y(0)}" class="financial-atlas-zero"/>${lines}${financialAxisLabels(rows,width,height,padL,padR,padB)}</svg>`;
+    return financialCardShell({eyebrow:"MARGIN PROFILE",title:"利潤結構",summary:`<strong>${esc(latestSummary)}</strong><span>最新${financialPeriod === "annual" ? "年度" : "季度"}</span>`,tone:"violet",svg,legend:series.map(item => `<span><i class="financial-atlas-line" style="background:${item.color}"></i>${item.label}</span>`).join(""),note:"三條線放在同一尺度，觀察產品組合、費用控制與最終獲利的傳導。"});
+  }
+  function renderFinancialAtlas(payload, name) {
+    const box = $("financialPanel"), rows = financialRows(payload), source = payload.source || {name:"Yahoo Finance",url:`https://finance.yahoo.com/quote/${encodeURIComponent(payload.symbol)}/financials/`};
+    if (rows.length < 2) { box.innerHTML = `<div class="financial-atlas-empty">${esc(name)} 的${financialPeriod === "annual" ? "年度" : "季度"}財務資料不足，暫時無法建立趨勢圖。</div>`; return; }
+    const periodLabel = financialPeriod === "annual" ? "年度" : "季度", availableAnnual = (payload.years || []).length > 1, availableQuarterly = (payload.quarters || []).length > 1;
+    box.innerHTML = `<div class="financial-atlas-head"><div><span class="financial-atlas-kicker">FINANCIAL PULSE</span><h3>財務脈動</h3><p>${esc(name)}・把成長、獲利與現金放在同一個視窗。</p></div><div class="financial-atlas-badge">${esc(payload.symbol)} <span>● ${periodLabel}</span></div></div><div class="financial-atlas-toolbar"><div class="financial-atlas-segment" role="group" aria-label="財報頻率"><span>頻率</span><button type="button" data-financial-period="annual" ${availableAnnual ? "" : "disabled"}>年度</button><button type="button" data-financial-period="quarterly" ${availableQuarterly ? "" : "disabled"}>季度</button></div><div class="financial-atlas-segment" role="group" aria-label="財報期間"><span>視窗</span>${[3,5,10].map(value => `<button type="button" data-financial-range="${value}">${value}Y</button>`).join("")}</div><span class="financial-atlas-asof">${esc(rows[0].year)} → ${esc(rows.at(-1).year)} · ${esc(payload.currency || rows.at(-1).currency || "幣別依來源")}</span></div><div class="financial-atlas-grid">${renderFinancialComboCard(rows,{metric:"revenue",title:"營收",eyebrow:"TOP LINE",tone:"mint",barColor:"#37b89a",lineColor:"#e17055",currency:rows.at(-1).currency})}${renderFinancialComboCard(rows,{metric:"netIncome",title:"淨利",eyebrow:"BOTTOM LINE",tone:"blue",barColor:"#4b7bec",lineColor:"#e8a331",currency:rows.at(-1).currency})}${renderFinancialCashCard(rows,rows.at(-1).currency)}${renderFinancialMarginCard(rows)}</div><p class="financial-atlas-note">${periodLabel}資料・長條顯示金額，折線顯示成長率；不同市場的幣別與會計期間不同，不宜直接比較絕對金額。資料來源：<a href="${esc(source.url)}" target="_blank" rel="noopener noreferrer">${esc(source.name)}</a>${financialPeriod === "quarterly" && payload.quarterlyMethod ? `・${esc(payload.quarterlyMethod)}` : ""}</p>`;
+    box.querySelectorAll("[data-financial-period]").forEach(button => {
+      const active = button.dataset.financialPeriod === financialPeriod; button.classList.toggle("active",active); button.setAttribute("aria-pressed",String(active));
+      button.addEventListener("click", () => { financialPeriod = button.dataset.financialPeriod; localStorage.setItem("financial-period",financialPeriod); renderFinancialAtlas(payload,name); });
     });
-    chart.addEventListener("pointerleave", () => { tooltip.hidden = true; });
+    box.querySelectorAll("[data-financial-range]").forEach(button => {
+      const active = Number(button.dataset.financialRange) === financialRange; button.classList.toggle("active",active); button.setAttribute("aria-pressed",String(active));
+      button.addEventListener("click", () => { financialRange = Number(button.dataset.financialRange); localStorage.setItem("financial-range",String(financialRange)); renderFinancialAtlas(payload,name); });
+    });
   }
   async function renderFinancials(code, security, name) {
     const box = $("financialPanel"); if (!box) return;
     const info = securityInfo(code, security), key = `${info.symbol}|${info.market}`; financialRequestKey = key;
     if (info.assetType === "etf") { box.style.display = "none"; box.innerHTML = ""; return; }
     box.style.display = "block";
-    box.innerHTML = `<div class="financial-heading"><div><h3>財報趨勢</h3><p>${esc(name)}・年度／季度財務表現</p></div><span>載入中…</span></div><div class="financial-empty">正在取得財務資料…</div>`;
+    box.innerHTML = `<div class="financial-atlas-loading"><span class="financial-atlas-kicker">FINANCIAL PULSE</span><strong>正在整理 ${esc(name)} 的財務節奏…</strong><span>同步讀取營收、獲利、現金流與利潤率。</span></div>`;
     try {
       const response = await fetch(`/api/financials?code=${encodeURIComponent(info.symbol)}&market=${encodeURIComponent(info.market)}&v=20260829-1`, { cache:"default" });
       const payload = await response.json().catch(() => ({ ok:false, error:"財務資料暫時無法取得" }));
@@ -646,34 +660,9 @@
       document.dispatchEvent(new CustomEvent("marketchart:financials", { detail:{ asset:{ ...info }, payload } }));
       if (financialPeriod === "quarterly" && !(payload.quarters || []).length) financialPeriod = "annual";
       if (!(payload.years || []).length && (payload.quarters || []).length) financialPeriod = "quarterly";
-      box.innerHTML = `<div class="financial-heading"><div><h3>財報趨勢</h3><p>${esc(name)}・年度／季度財務表現</p></div><span>${esc(payload.symbol)}</span></div><div class="financial-controls"><div class="financial-tabs" role="group" aria-label="選擇財務指標">${Object.entries(financialMetrics).map(([metric, item], index) => `<button type="button" data-financial-metric="${metric}" class="${index === 0 ? "active" : ""}">${item.label}</button>`).join("")}</div><div class="financial-period" role="group" aria-label="選擇財報期間"><span>期間</span><button type="button" data-financial-period="annual">年度</button><button type="button" data-financial-period="quarterly">季度</button></div><div class="financial-view" role="group" aria-label="選擇財報圖表類型"><span>圖型</span><button type="button" data-financial-mode="both">長條＋折線</button><button type="button" data-financial-mode="bar">長條</button><button type="button" data-financial-mode="line">折線</button></div></div><div class="financial-content"></div>`;
-      box.querySelectorAll("[data-financial-period]").forEach(button => {
-        const active = button.dataset.financialPeriod === financialPeriod, available = button.dataset.financialPeriod === "annual" ? payload.years?.length : payload.quarters?.length;
-        button.classList.toggle("active", active); button.setAttribute("aria-pressed", String(active)); button.disabled = !available;
-        button.addEventListener("click", () => {
-          financialPeriod = button.dataset.financialPeriod; localStorage.setItem("financial-period", financialPeriod);
-          box.querySelectorAll("[data-financial-period]").forEach(item => { const selected = item === button; item.classList.toggle("active", selected); item.setAttribute("aria-pressed", String(selected)); });
-          const activeMetric = box.querySelector("[data-financial-metric].active")?.dataset.financialMetric || "revenue";
-          renderFinancialChart(payload, activeMetric);
-        });
-      });
-      box.querySelectorAll("[data-financial-mode]").forEach(button => {
-        const active = button.dataset.financialMode === financialChartMode;
-        button.classList.toggle("active", active); button.setAttribute("aria-pressed", String(active));
-        button.addEventListener("click", () => {
-          financialChartMode = button.dataset.financialMode; localStorage.setItem("financial-chart-mode", financialChartMode);
-          box.querySelectorAll("[data-financial-mode]").forEach(item => { const selected = item === button; item.classList.toggle("active", selected); item.setAttribute("aria-pressed", String(selected)); });
-          const activeMetric = box.querySelector("[data-financial-metric].active")?.dataset.financialMetric || "revenue";
-          renderFinancialChart(payload, activeMetric);
-        });
-      });
-      box.querySelectorAll("[data-financial-metric]").forEach(button => button.addEventListener("click", () => {
-        box.querySelectorAll("[data-financial-metric]").forEach(item => item.classList.toggle("active", item === button));
-        renderFinancialChart(payload, button.dataset.financialMetric);
-      }));
-      renderFinancialChart(payload, "revenue");
+      renderFinancialAtlas(payload,name);
     } catch (error) {
-      if (financialRequestKey === key) box.innerHTML = `<div class="financial-heading"><div><h3>財報趨勢</h3><p>${esc(name)}・年度／季度財務表現</p></div></div><div class="financial-empty">${esc(error.message || "財務資料暫時無法取得")}</div>`;
+      if (financialRequestKey === key) box.innerHTML = `<div class="financial-atlas-empty"><strong>財務脈動暫時無法載入</strong><span>${esc(error.message || "財務資料暫時無法取得")}</span></div>`;
     }
   }
   async function render() {
