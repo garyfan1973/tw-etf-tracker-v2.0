@@ -5,6 +5,7 @@ import datetime
 import json
 import re
 import urllib.request
+from _shareholder_distribution import build_payload as build_shareholder_payload
 
 UA = "Mozilla/5.0 (compatible; InvestmentResearchWorkspace/1.0)"
 YAHOO_CHART = "https://query1.finance.yahoo.com/v8/finance/chart/{}?interval=1d&range=2y"
@@ -103,6 +104,17 @@ class handler(BaseHTTPRequestHandler):
         query = parse_qs(urlparse(self.path).query)
         code = (query.get("code", [""])[0] or "").strip().upper()
         market = (query.get("market", ["US"])[0] or "US").strip().upper()
+        if (query.get("view", [""])[0] or "").strip().lower() == "shareholder":
+            try:
+                weeks = max(4, min(20, int(query.get("weeks", ["10"])[0])))
+            except ValueError:
+                weeks = 10
+            if market != "TW" or not re.fullmatch(r"\d{4,6}", code):
+                return self.send_json({"ok": False, "error": "股權分散資料目前僅支援台股代號"}, 400)
+            try:
+                return self.send_json(build_shareholder_payload(code, weeks), 200)
+            except Exception as exc:
+                return self.send_json({"ok": False, "error": "TDCC 股權分散資料暫時無法取得：{}".format(exc)}, 502)
         if not re.fullmatch(r"[0-9A-Z.\-]{1,12}", code) or market not in {"TW", "US"}:
             return self.send_json({"ok": False, "error": "標的代號或市場格式不正確"}, 400)
         try:

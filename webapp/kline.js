@@ -707,7 +707,7 @@
     if(info.market!=="TW"||info.assetType!=="stock"){box.innerHTML="";box.style.display="none";return;}
     box.style.display="block";box.innerHTML=`<div class="ownership-pulse-loading"><span class="ownership-pulse-kicker">OWNERSHIP PULSE</span><strong>正在整理 ${esc(name)} 的籌碼節奏…</strong><span>同步讀取 TDCC 每週股權分散資料。</span></div>`;
     try{
-      const state=ownershipThresholdState(),response=await fetch(`/api/shareholder-distribution?code=${encodeURIComponent(info.symbol)}&market=${encodeURIComponent(info.market)}&weeks=${state.weeks}`,{cache:"no-store"}),payload=await response.json().catch(()=>({ok:false,error:"股權分散資料暫時無法取得"}));
+      const state=ownershipThresholdState(),response=await fetch(`/api/market?view=shareholder&code=${encodeURIComponent(info.symbol)}&market=${encodeURIComponent(info.market)}&weeks=${state.weeks}`,{cache:"no-store"}),payload=await response.json().catch(()=>({ok:false,error:"股權分散資料暫時無法取得"}));
       if(ownershipRequestKey!==key)return;
       if(!response.ok||!payload.ok)throw new Error(payload.error||"股權分散資料暫時無法取得");
       ownershipPayload=payload;renderOwnershipPanel(payload,name,priceRows);
