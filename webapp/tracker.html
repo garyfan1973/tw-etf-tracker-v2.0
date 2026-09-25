@@ -633,11 +633,28 @@
     #marketViewSwitch button { min-width:92px; border:0; border-radius:9px; padding:9px 15px; background:transparent; font-weight:700; }
     #marketViewSwitch button.active { background:var(--accent); border-color:var(--accent); color:var(--card); box-shadow:0 4px 12px color-mix(in srgb,var(--accent) 22%,transparent); }
     .market-financial-panel,.market-message-panel { margin-top:12px; padding:14px; background:var(--card); border:1px solid var(--border); border-radius:14px; box-shadow:var(--shadow); }
+    .market-financial-panel .data-accordion { border:0; background:transparent; box-shadow:none; }
+    .market-financial-panel .data-accordion > summary { padding:4px 0 12px; font-size:16px; }
     .market-financial-panel .financial-panel { margin-top:0; border:0; padding:0; background:transparent; }
     .market-message-accordion + .market-message-accordion { margin-top:10px; }
     .market-message-accordion .news-panel { margin-top:0; padding-top:0; border-top:0; }
     .market-message-accordion .accordion-body { padding-bottom:16px; }
     .market-content-loading { padding:22px 4px; color:var(--muted); text-align:center; }
+    .market-video-channel + .market-video-channel { margin-top:10px; }
+    .market-video-channel { overflow:hidden; border:1px solid var(--border); border-radius:12px; background:var(--bg); }
+    .market-video-channel > summary { display:flex; align-items:center; justify-content:space-between; gap:12px; padding:12px 14px; color:var(--text); font-weight:700; cursor:pointer; list-style:none; }
+    .market-video-channel > summary::-webkit-details-marker { display:none; }
+    .market-video-channel > summary:before { content:"＋"; display:inline-grid; place-items:center; width:20px; height:20px; margin-right:7px; border:1px solid var(--border); border-radius:50%; color:var(--muted); font-size:14px; line-height:1; }
+    .market-video-channel[open] > summary:before { content:"−"; }
+    .market-video-channel-title { display:flex; align-items:center; min-width:0; }
+    .market-video-channel-title > span { display:grid; gap:2px; min-width:0; }
+    .market-video-channel-title small { color:var(--accent); font-size:10px; letter-spacing:.08em; text-transform:uppercase; }
+    .market-video-channel-title strong { overflow:hidden; text-overflow:ellipsis; white-space:nowrap; }
+    .market-video-channel-count { flex:0 0 auto; color:var(--muted); font-size:11px; font-weight:500; }
+    .market-video-channel-body { padding:0 12px 12px; }
+    .market-video-channel-actions { display:flex; justify-content:flex-end; padding:0 2px 9px; }
+    .market-video-channel-actions a { color:var(--accent); font-size:11px; text-decoration:none; }
+    .market-video-channel-actions a:hover { text-decoration:underline; }
     .market-video-grid { display:grid; grid-template-columns:repeat(3,minmax(0,1fr)); gap:10px; }
     .market-video-card { display:block; overflow:hidden; border:1px solid var(--border); border-radius:11px; background:var(--bg); color:var(--text); text-decoration:none; transition:transform .15s,border-color .15s,box-shadow .15s; }
     .market-video-card:hover { transform:translateY(-2px); border-color:var(--accent); box-shadow:var(--shadow); }
@@ -648,6 +665,18 @@
     .market-video-body small,.market-video-body time { color:var(--muted); font-size:10px; }
     .market-video-body strong { display:-webkit-box; min-height:38px; overflow:hidden; -webkit-line-clamp:2; -webkit-box-orient:vertical; font-size:12px; line-height:1.55; }
     .market-video-empty { grid-column:1/-1; padding:22px; border:1px dashed var(--border); border-radius:10px; color:var(--muted); text-align:center; }
+    .market-media-updated { margin:0 0 10px; color:var(--muted); font-size:11px; }
+    .market-media-news { margin-bottom:10px; border:1px solid var(--border); border-radius:12px; background:var(--bg); }
+    .market-media-news > summary { display:flex; align-items:center; justify-content:space-between; padding:12px 14px; color:var(--text); font-weight:700; cursor:pointer; list-style:none; }
+    .market-media-news > summary::-webkit-details-marker { display:none; }
+    .market-media-news > summary:before { content:"＋"; display:inline-grid; place-items:center; width:20px; height:20px; margin-right:7px; border:1px solid var(--border); border-radius:50%; color:var(--muted); font-size:14px; line-height:1; }
+    .market-media-news[open] > summary:before { content:"−"; }
+    .market-media-news-body { padding:0 12px 12px; }
+    .market-media-news-list { display:grid; gap:8px; }
+    .market-media-news-list a { display:grid; gap:3px; padding:10px 11px; border:1px solid var(--border); border-radius:9px; color:var(--text); text-decoration:none; }
+    .market-media-news-list a:hover { border-color:var(--accent); background:color-mix(in srgb,var(--accent) 5%,var(--bg)); }
+    .market-media-news-list span,.market-media-news-list small { color:var(--muted); font-size:10px; }
+    .market-media-news-list strong { font-size:12px; line-height:1.5; }
     .financial-atlas-card.tone-mint,.financial-atlas-card.tone-blue,.financial-atlas-card.tone-coral,.financial-atlas-card.tone-violet { --atlas:var(--accent); }
     .financial-atlas-head { border-bottom-color:color-mix(in srgb,var(--accent) 24%,var(--border)); }
     .financial-atlas-kicker,.financial-atlas-eyebrow,.financial-atlas-note a { color:var(--accent); }
@@ -758,7 +787,12 @@
     </div>
     <div id="selectedEtfSummary" class="selected-etf-summary"></div>
     <section id="marketOverviewPanel" class="market-overview-panel" style="display:none;"></section>
-    <section id="marketFinancialPanel" class="market-financial-panel" style="display:none;"><div id="financialPanel" class="financial-panel"></div></section>
+    <section id="marketFinancialPanel" class="market-financial-panel" style="display:none;">
+      <details class="data-accordion" open>
+        <summary>營收、獲利、現金流與利潤結構</summary>
+        <div class="accordion-body"><div id="financialPanel" class="financial-panel"></div></div>
+      </details>
+    </section>
     <section id="marketMessagePanel" class="market-message-panel" style="display:none;">
       <details class="data-accordion market-message-accordion" open>
         <summary>最新消息</summary>
@@ -841,7 +875,7 @@
         <summary>融資融券</summary>
         <div class="accordion-body"><div class="margin-note">資為融資餘額，券為融券餘額，單位為張。</div><div id="marketMarginTrend" class="margin-trend"></div><div id="marketMarginTable"></div></div>
       </details>
-      <details class="data-accordion market-chip-accordion" open>
+      <details id="marketOwnershipAccordion" class="data-accordion market-chip-accordion" open>
         <summary>大戶／散戶籌碼脈動</summary>
         <div class="accordion-body"><div id="ownershipPanel" class="ownership-pulse"></div></div>
       </details>
@@ -1217,10 +1251,12 @@
         const pageUrl = new URL(location.href); pageUrl.searchParams.set("view", mode); history.replaceState(null, "", pageUrl);
         ["overviewPanel","changeChartPanel","changeTablePanel","institutionalMarginPanel","marketFinancialPanel","marketMessagePanel","marketOverviewPanel","klinePanel","marketInstitutionalMarginPanel"].forEach(id => document.getElementById(id).style.display = "none");
         document.getElementById("marketOverviewPanel").style.display = mode === "overview" ? "block" : "none";
-        document.getElementById("marketFinancialPanel").style.display = mode === "overview" ? "block" : "none";
+        const isStock = marketAsset?.assetType === "stock";
+        document.getElementById("marketFinancialPanel").style.display = mode === "overview" && isStock ? "block" : "none";
         document.getElementById("klinePanel").style.display = mode === "kline" ? "block" : "none";
         document.getElementById("marketInstitutionalMarginPanel").style.display = mode === "institutional" ? "block" : "none";
         document.getElementById("marketMessagePanel").style.display = mode === "message" ? "block" : "none";
+        document.getElementById("marketOwnershipAccordion").style.display = isStock ? "" : "none";
         document.getElementById("holdingsDataPanel").style.display = "none";
         document.getElementById("etfControls").style.display = "none";
         document.getElementById("etfCompareLauncher").style.display = "none";
