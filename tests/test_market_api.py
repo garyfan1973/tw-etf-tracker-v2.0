@@ -55,6 +55,32 @@ class MarketApiTests(unittest.TestCase):
             "low": 28.62, "close": 28.72, "volume": 134555990.0,
         }])
 
+    def test_tw_market_drops_non_trading_dates_from_latest_month(self):
+        def timestamp(date):
+            return int(market_api.datetime.datetime.fromisoformat(
+                f"{date}T00:00:00+00:00"
+            ).timestamp())
+
+        yahoo_payload = {
+            "chart": {"result": [{
+                "timestamp": [timestamp("2026-09-20"), timestamp("2026-09-21")],
+                "indicators": {"quote": [{
+                    "open": [2460, 2445], "high": [2705, 2485],
+                    "low": [2435, 2445], "close": [2460, 2480],
+                    "volume": [5242511, 16086510],
+                }]},
+                "meta": {"currency": "TWD"},
+            }]}}
+        twse_payload = {
+            "fields": ["日期", "成交股數", "成交金額", "開盤價", "最高價", "最低價", "收盤價"],
+            "data": [["115/09/18", "35,352,856", "", "2460", "2460", "2435", "2460"],
+                     ["115/09/21", "16,086,510", "", "2445", "2485", "2445", "2480"]],
+        }
+        with mock.patch.object(market_api, "fetch_json", side_effect=[yahoo_payload, twse_payload]):
+            result = market_api.load_chart("2330", "TW")
+
+        self.assertEqual([row["date"] for row in result["rows"]], ["2026-09-18", "2026-09-21"])
+
 
 if __name__ == "__main__":
     unittest.main()

@@ -1,7 +1,14 @@
 import datetime
 import unittest
+from unittest import mock
 
-from fetch_price_history import FEATURED_PRICE_SYMBOLS, collect_symbols, parse_rows, yahoo_symbol
+from fetch_price_history import (
+    FEATURED_PRICE_SYMBOLS,
+    collect_symbols,
+    parse_rows,
+    remove_non_trading_rows,
+    yahoo_symbol,
+)
 
 
 class PriceHistoryTests(unittest.TestCase):
@@ -42,6 +49,14 @@ class PriceHistoryTests(unittest.TestCase):
         symbols = {(item["market"], item["symbol"]) for item in collect_symbols()}
 
         self.assertTrue(set(FEATURED_PRICE_SYMBOLS).issubset(symbols))
+
+    def test_removes_latest_month_rows_outside_official_calendar(self):
+        rows = [
+            {"date": "2026-09-20", "open": 1, "high": 2, "low": 1, "close": 1, "volume": 1},
+            {"date": "2026-09-21", "open": 1, "high": 2, "low": 1, "close": 1, "volume": 1},
+        ]
+        with mock.patch("fetch_price_history.twse_trading_dates", return_value={"2026-09-21"}):
+            self.assertEqual([row["date"] for row in remove_non_trading_rows(rows, "TW")], ["2026-09-21"])
 
 
 if __name__ == "__main__":

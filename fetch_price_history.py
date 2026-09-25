@@ -4,6 +4,7 @@
 import argparse
 import concurrent.futures
 import datetime
+import functools
 import glob
 import json
 import os
@@ -18,6 +19,7 @@ WEBAPP_DIR = os.path.join(BASE_DIR, "webapp")
 OUT_DIR = os.path.join(WEBAPP_DIR, "price-history")
 ASSET_FILE = os.path.join(WEBAPP_DIR, "trade_assets.json")
 YAHOO_CHART = "https://query1.finance.yahoo.com/v8/finance/chart/{}?interval=1d&range={}"
+TWSE_MONTH = "https://www.twse.com.tw/rwd/zh/afterTrading/STOCK_DAY?date={}&stockNo=2330&response=json"
 YAHOO_SUFFIX = {"US": "", "JP": ".T", "KS": ".KS", "HK": ".HK"}
 USER_AGENT = "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36"
 FEATURED_PRICE_SYMBOLS = (
@@ -134,6 +136,46 @@ def parse_rows(result):
     return rows
 
 
+@functools.lru_cache(maxsize=8)
+def twse_trading_dates(month):
+    """Return the official TWSE trading dates for a YYYY-MM month."""
+    date_key = month.replace("-", "") + "01"
+    url = TWSE_MONTH.format(date_key)
+    request = urllib.request.Request(url, headers={"User-Agent": USER_AGENT})
+    try:
+        with urllib.request.urlopen(request, timeout=25) as response:
+            payload = json.load(response)
+    except Exception:
+        return set()
+    fields = payload.get("fields") or []
+    try:
+        date_index = fields.index("日期")
+    except ValueError:
+        return set()
+    dates = set()
+    for values in payload.get("data") or []:
+        try:
+            year, day_month, day = str(values[date_index]).split("/")
+            dates.add(f"{int(year) + 1911:04d}-{int(day_month):02d}-{int(day):02d}")
+        except (ValueError, IndexError):
+            continue
+    return dates
+
+
+def remove_non_trading_rows(rows, market):
+    """Remove current-month rows that are not on the official TWSE calendar."""
+    if market != "TW" or not rows:
+        return rows
+    latest_month = max(row["date"] for row in rows)[:7]
+    official_dates = twse_trading_dates(latest_month)
+    if not official_dates:
+        return rows
+    return [
+        row for row in rows
+        if row["date"][:7] != latest_month or row["date"] in official_dates
+    ]
+
+
 def update_symbol(item, exchanges, full=False):
     existing = load_existing(item)
     existing_rows = existing.get("rows", []) if existing else []
@@ -141,7 +183,8 @@ def update_symbol(item, exchanges, full=False):
     if not symbol:
         return "unsupported", item, 0
     result = fetch_chart(symbol, "2y" if full or not existing_rows else "1mo")
-    fetched_rows = parse_rows(result)
+    fetched_rows = remove_non_trading_rows(parse_rows(result), item["market"])
+    existing_rows = remove_non_trading_rows(existing_rows, item["market"])
     merged = {row["date"]: row for row in existing_rows}
     merged.update({row["date"]: row for row in fetched_rows})
     rows = [merged[key] for key in sorted(merged)][-520:]

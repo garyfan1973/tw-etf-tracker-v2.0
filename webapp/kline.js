@@ -125,7 +125,7 @@
       const response = await fetch(`/api/market?market=${encodeURIComponent(info.market)}&code=${encodeURIComponent(info.symbol)}`, { cache:"no-store" });
       const payload = await response.json().catch(() => ({ ok:false }));
       if (!response.ok || !payload.ok) throw new Error(payload.error || "行情資料暫時無法取得");
-      return mergePriceRows(cachedRows, payload.rows);
+      return mergePriceRows(payload.rows, snapshotRows);
     } catch (error) {
       if (cachedRows.length) return cachedRows;
       throw error;

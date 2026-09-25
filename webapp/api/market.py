@@ -188,7 +188,13 @@ def load_chart(code, market):
                 try:
                     official_rows = load_twse_month(code, rows[-1]["date"])
                     if official_rows:
-                        merged = {row["date"]: row for row in rows}
+                        official_dates = {row["date"] for row in official_rows}
+                        latest_month = rows[-1]["date"][:7]
+                        merged = {
+                            row["date"]: row
+                            for row in rows
+                            if row["date"][:7] != latest_month or row["date"] in official_dates
+                        }
                         merged.update({row["date"]: row for row in official_rows})
                         rows = [merged[key] for key in sorted(merged)][-520:]
                         source = "Yahoo Finance／臺灣證券交易所"
