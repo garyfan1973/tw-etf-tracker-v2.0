@@ -7,25 +7,25 @@
   <style>
     /* 淺色（預設）；--detail 為展開明細的底色，刻意跟 --card 區隔 */
     :root, :root[data-theme="light"] {
-      --bg: #f5f6f8; --card: #ffffff; --text: #1c2430; --muted: #6b7684;
-      --border: #e3e7ec; --up: #d64545; --down: #1f9d55; --new: #2563eb;
-      --removed: #8a8f98; --accent: #3b5bdb; --detail: #eaeefb; --chip: #eef1f6;
-      --ma5: #e9a23b; --ma10: #258fca; --ma20: #a78bca; --ma60:#16a085; --ma120:#e8590c; --ma240:#868e96; --vol5:#4c9ffe; --vol10:#f06595; --kd-k: #19a7a0; --kd-d: #e06b8b; --bb:#d97706; --bb-mid:#b45309; --macd:#7c3aed; --macd-signal:#db2777; --rsi5:#64b5f6; --rsi10:#6c5ce7; --williams:#f59f00; --trade-buy:#3977f6; --trade-sell:#ef405f; --trade-cost:#8a63d2;
+      --bg: #f1f0ed; --card: #fbfaf7; --text: #3f474d; --muted: #7d8589;
+      --border: #d9d9d4; --up: #a97878; --down: #7c9a88; --new: #8296aa;
+      --removed: #969797; --accent: #7f93a8; --detail: #e7ebeb; --chip: #e9eceb; --chip-big:#a58d8b; --chip-small:#98a99c; --chip-price:#7f93a8;
+      --ma5: #b59b7b; --ma10: #8ba1a8; --ma20: #9e91a5; --ma60:#7fa095; --ma120:#b17f77; --ma240:#8c8d8b; --vol5:#91aab5; --vol10:#b58e9f; --kd-k: #8baaa5; --kd-d: #b58f99; --bb:#ad916f; --bb-mid:#987e68; --macd:#9887a8; --macd-signal:#b4839b; --rsi5:#8fa9bd; --rsi10:#9a8ca9; --williams:#b59a73; --trade-buy:#8aa2bb; --trade-sell:#b5868b; --trade-cost:#9b8daf;
     }
     /* 深色變數（供系統偏好與手動切換共用） */
     @media (prefers-color-scheme: dark) {
       :root:not([data-theme="light"]) {
-        --bg: #14181d; --card: #1c2229; --text: #e6e9ed; --muted: #98a2b0;
-        --border: #2a323b; --up: #ff6b6b; --down: #51cf82; --new: #4d8dff;
-        --removed: #7a828c; --accent: #6c8cff; --detail: #222c3b; --chip: #262d36;
-        --ma5: #e8b66d; --ma10: #69bde8; --ma20: #bca8dc; --vol5:#78b7ff; --vol10:#ff9fc0; --kd-k: #5fd1ca; --kd-d: #f09ab1; --bb:#f0a94b; --bb-mid:#f2c078; --macd:#c4a7ff; --macd-signal:#ff9ac4; --rsi5:#79c2ff; --rsi10:#a590ff; --williams:#ffc857; --trade-buy:#6c9cff; --trade-sell:#ff6b8b; --trade-cost:#ba9cff;
+        --bg: #202426; --card: #2a2e2f; --text: #e4e3df; --muted: #a8aaa5;
+        --border: #424746; --up: #d39c9a; --down: #a9c0ad; --new: #a6b9c8;
+        --removed: #969b99; --accent: #a9bdc6; --detail: #343a3a; --chip: #373d3d; --chip-big:#c19d9c; --chip-small:#a9c0ad; --chip-price:#a9bdc6;
+        --ma5: #c7ad8d; --ma10: #9db7be; --ma20: #b9a9bd; --vol5:#a6c1cb; --vol10:#c6a7b7; --kd-k: #9bc0ba; --kd-d: #caa4ae; --bb:#c4a57e; --bb-mid:#b99476; --macd:#b6a5c6; --macd-signal:#c7a2b5; --rsi5:#a6c4d8; --rsi10:#b7a8c7; --williams:#cdb07e; --trade-buy:#a9bfd4; --trade-sell:#c8a0a6; --trade-cost:#c0afd0;
       }
     }
     :root[data-theme="dark"] {
-      --bg: #14181d; --card: #1c2229; --text: #e6e9ed; --muted: #98a2b0;
-      --border: #2a323b; --up: #ff6b6b; --down: #51cf82; --new: #4d8dff;
-      --removed: #7a828c; --accent: #6c8cff; --detail: #222c3b; --chip: #262d36;
-      --ma5: #e8b66d; --ma10: #69bde8; --ma20: #bca8dc; --vol5:#78b7ff; --vol10:#ff9fc0; --kd-k: #5fd1ca; --kd-d: #f09ab1; --bb:#f0a94b; --bb-mid:#f2c078; --macd:#c4a7ff; --macd-signal:#ff9ac4; --rsi5:#79c2ff; --rsi10:#a590ff; --williams:#ffc857; --trade-buy:#6c9cff; --trade-sell:#ff6b8b; --trade-cost:#ba9cff;
+      --bg: #202426; --card: #2a2e2f; --text: #e4e3df; --muted: #a8aaa5;
+      --border: #424746; --up: #d39c9a; --down: #a9c0ad; --new: #a6b9c8;
+      --removed: #969b99; --accent: #a9bdc6; --detail: #343a3a; --chip: #373d3d; --chip-big:#c19d9c; --chip-small:#a9c0ad; --chip-price:#a9bdc6;
+      --ma5: #c7ad8d; --ma10: #9db7be; --ma20: #b9a9bd; --vol5:#a6c1cb; --vol10:#c6a7b7; --kd-k: #9bc0ba; --kd-d: #caa4ae; --bb:#c4a57e; --bb-mid:#b99476; --macd:#b6a5c6; --macd-signal:#c7a2b5; --rsi5:#a6c4d8; --rsi10:#b7a8c7; --williams:#cdb07e; --trade-buy:#a9bfd4; --trade-sell:#c8a0a6; --trade-cost:#c0afd0;
     }
     * { box-sizing: border-box; }
     body {
@@ -608,10 +608,64 @@
     .market-event small { display:block; margin-top:2px; color:var(--muted); font-size:10px; }
     @media(max-width:900px){.market-metric-grid,.market-financial-summary{grid-template-columns:repeat(3,minmax(0,1fr))}.market-performance-grid{grid-template-columns:repeat(2,minmax(0,1fr))}.market-performance-card:first-child{grid-column:1/-1}}
     @media(max-width:700px){.market-overview-layout,.market-allocation-grid{grid-template-columns:1fr}.market-mini-trends,.market-event-list{grid-template-columns:1fr}.market-profile-facts{grid-template-columns:1fr}.market-bar-row{grid-template-columns:minmax(90px,1fr) minmax(90px,1.2fr) 44px}}
+
+    /* 個股資訊的莫蘭迪色盤：同一套語意色會貫穿四個資訊面向。 */
+    :root[data-palette="sage"] { --bg:#f0f1ec; --card:#fbfbf7; --text:#48504c; --muted:#818a82; --border:#d8ddd5; --accent:#8a9b8e; --detail:#e8eee8; --chip:#e9eee9; --up:#a77779; --down:#78927f; --new:#8fa5ae; --chip-big:#a88f8b; --chip-small:#98a99c; --chip-price:#8a9b8e; }
+    :root[data-palette="lilac"] { --bg:#f1eff2; --card:#fcfafc; --text:#4d4a51; --muted:#89838b; --border:#ddd8df; --accent:#9a91a5; --detail:#ece8ef; --chip:#eeeaf0; --up:#ad7d82; --down:#819887; --new:#929bae; --chip-big:#a995a5; --chip-small:#9eaa9e; --chip-price:#9a91a5; }
+    :root[data-palette="sand"] { --bg:#f3f0eb; --card:#fcfaf6; --text:#514b45; --muted:#8d857d; --border:#ded8d0; --accent:#b19a84; --detail:#eee9e2; --chip:#f0ebe5; --up:#ad7d78; --down:#829584; --new:#9ba5ab; --chip-big:#ad9187; --chip-small:#99a08f; --chip-price:#b19a84; }
+    :root[data-theme="dark"][data-palette="sage"] { --bg:#232725; --card:#2d3230; --text:#e5e8e2; --muted:#a8aea7; --border:#454c48; --accent:#a5b8a8; --detail:#38403b; --chip:#3a423d; --chip-big:#c1a09d; --chip-small:#a9c0ad; --chip-price:#a5b8a8; }
+    :root[data-theme="dark"][data-palette="lilac"] { --bg:#252427; --card:#302e32; --text:#e8e3e9; --muted:#b0a9b2; --border:#48434a; --accent:#b9adbf; --detail:#3d3940; --chip:#403b42; --chip-big:#c0a7b5; --chip-small:#aab9ad; --chip-price:#b9adbf; }
+    :root[data-theme="dark"][data-palette="sand"] { --bg:#282624; --card:#34302c; --text:#ede6df; --muted:#b5aaa0; --border:#4b443d; --accent:#c6ae95; --detail:#423c35; --chip:#463f38; --chip-big:#c6a19a; --chip-small:#afbaa4; --chip-price:#c6ae95; }
+    .palette-picker { position:relative; margin-left:8px; color:var(--text); }
+    .palette-picker summary { list-style:none; padding:6px 10px; border:1px solid var(--border); border-radius:8px; background:var(--card); color:var(--muted); cursor:pointer; font-size:12px; }
+    .palette-picker summary::-webkit-details-marker { display:none; }
+    .palette-picker summary:before { content:"◐"; margin-right:5px; color:var(--accent); }
+    .palette-menu { position:absolute; z-index:35; top:calc(100% + 6px); right:0; display:grid; gap:4px; min-width:112px; padding:6px; border:1px solid var(--border); border-radius:10px; background:var(--card); box-shadow:0 12px 28px rgba(43,48,48,.16); }
+    .palette-menu button { display:flex; align-items:center; gap:7px; padding:7px 8px; border:0; border-radius:7px; background:transparent; color:var(--text); text-align:left; font:inherit; font-size:12px; cursor:pointer; }
+    .palette-menu button:hover,.palette-menu button.active { background:var(--detail); color:var(--accent); }
+    .palette-menu i { width:14px; height:14px; border-radius:50%; background:#91a5b4; box-shadow:inset 4px 0 #d0c8bc; }
+    .palette-menu button[data-palette="sage"] i { background:#9cad9a; box-shadow:inset 4px 0 #d8d7c7; }
+    .palette-menu button[data-palette="lilac"] i { background:#aa9fb1; box-shadow:inset 4px 0 #ddd2d8; }
+    .palette-menu button[data-palette="sand"] i { background:#b8a087; box-shadow:inset 4px 0 #e1d4c3; }
+    .market-asset-controls { margin:16px 0 8px; padding:10px 12px; border-radius:12px; background:color-mix(in srgb,var(--accent) 5%,var(--card)); border-color:color-mix(in srgb,var(--accent) 24%,var(--border)); }
+    .market-asset-controls + .view-switch { margin-top:8px; }
+    #marketViewSwitch { padding:4px; gap:4px; border:1px solid var(--border); border-radius:12px; background:var(--card); }
+    #marketViewSwitch button { min-width:92px; border:0; border-radius:9px; padding:9px 15px; background:transparent; font-weight:700; }
+    #marketViewSwitch button.active { background:var(--accent); border-color:var(--accent); color:var(--card); box-shadow:0 4px 12px color-mix(in srgb,var(--accent) 22%,transparent); }
+    .market-financial-panel,.market-message-panel { margin-top:12px; padding:14px; background:var(--card); border:1px solid var(--border); border-radius:14px; box-shadow:var(--shadow); }
+    .market-financial-panel .financial-panel { margin-top:0; border:0; padding:0; background:transparent; }
+    .market-message-accordion + .market-message-accordion { margin-top:10px; }
+    .market-message-accordion .news-panel { margin-top:0; padding-top:0; border-top:0; }
+    .market-message-accordion .accordion-body { padding-bottom:16px; }
+    .market-content-loading { padding:22px 4px; color:var(--muted); text-align:center; }
+    .market-video-grid { display:grid; grid-template-columns:repeat(3,minmax(0,1fr)); gap:10px; }
+    .market-video-card { display:block; overflow:hidden; border:1px solid var(--border); border-radius:11px; background:var(--bg); color:var(--text); text-decoration:none; transition:transform .15s,border-color .15s,box-shadow .15s; }
+    .market-video-card:hover { transform:translateY(-2px); border-color:var(--accent); box-shadow:var(--shadow); }
+    .market-video-thumb { position:relative; display:block; aspect-ratio:16/9; overflow:hidden; background:var(--detail); }
+    .market-video-thumb img { display:block; width:100%; height:100%; object-fit:cover; }
+    .market-video-thumb i { position:absolute; left:50%; top:50%; display:grid; place-items:center; width:34px; height:34px; border-radius:50%; background:color-mix(in srgb,var(--text) 78%,transparent); color:var(--card); font-style:normal; transform:translate(-50%,-50%); }
+    .market-video-body { display:grid; gap:3px; padding:9px 10px 11px; }
+    .market-video-body small,.market-video-body time { color:var(--muted); font-size:10px; }
+    .market-video-body strong { display:-webkit-box; min-height:38px; overflow:hidden; -webkit-line-clamp:2; -webkit-box-orient:vertical; font-size:12px; line-height:1.55; }
+    .market-video-empty { grid-column:1/-1; padding:22px; border:1px dashed var(--border); border-radius:10px; color:var(--muted); text-align:center; }
+    .financial-atlas-card.tone-mint,.financial-atlas-card.tone-blue,.financial-atlas-card.tone-coral,.financial-atlas-card.tone-violet { --atlas:var(--accent); }
+    .financial-atlas-head { border-bottom-color:color-mix(in srgb,var(--accent) 24%,var(--border)); }
+    .financial-atlas-kicker,.financial-atlas-eyebrow,.financial-atlas-note a { color:var(--accent); }
+    .financial-atlas-badge { color:var(--card); background:color-mix(in srgb,var(--accent) 82%,var(--text)); }
+    .financial-atlas-segment { border-color:color-mix(in srgb,var(--accent) 25%,var(--border)); background:color-mix(in srgb,var(--accent) 8%,var(--card)); }
+    .financial-atlas-segment button.active { background:var(--accent); box-shadow:0 3px 8px color-mix(in srgb,var(--accent) 22%,transparent); }
+    .ownership-pulse-kicker,.ownership-pulse-note a { color:var(--accent); }
+    .ownership-pulse-head { border-bottom-color:color-mix(in srgb,var(--accent) 26%,var(--border)); }
+    .ownership-pulse-badge { color:var(--card); background:var(--accent); }
+    .ownership-pulse-segment { border-color:color-mix(in srgb,var(--accent) 22%,var(--border)); background:color-mix(in srgb,var(--accent) 9%,var(--card)); }
+    .ownership-pulse-segment button.active { background:var(--accent); box-shadow:0 3px 8px color-mix(in srgb,var(--accent) 22%,transparent); }
+    .ownership-pulse-card { border-color:color-mix(in srgb,var(--accent) 26%,var(--border)); border-top-color:var(--accent); background:linear-gradient(145deg,color-mix(in srgb,var(--accent) 8%,var(--card)),var(--card) 58%); }
+    @media(max-width:700px){ .market-video-grid{grid-template-columns:repeat(2,minmax(0,1fr));} }
+    @media(max-width:480px){ .palette-picker summary{font-size:0;padding:6px 8px}.palette-picker summary:before{font-size:14px;margin:0}.market-video-grid{grid-template-columns:1fr}.market-asset-controls{align-items:stretch}.asset-selected-meta{width:100%} }
   </style>
   <script>
     // 進頁前先套用已存的主題，避免閃爍
-    (function () { var t = localStorage.getItem("etf-theme"); if (t) document.documentElement.dataset.theme = t; })();
+    (function () { var root = document.documentElement, t = localStorage.getItem("etf-theme"), p = localStorage.getItem("etf-palette"); if (t) root.dataset.theme = t; root.dataset.palette = p || "mist"; })();
   </script>
   <script src="market-nav.js" defer></script>
 </head>
@@ -628,6 +682,15 @@
       <a href="performance.html" style="text-decoration:none;font-size:14px;padding:6px 12px;border-radius:8px;color:var(--muted);border:1px solid var(--border);">績效走勢</a>
       <span id="authBox" style="margin-left:auto;display:flex;align-items:center;gap:6px;"></span>
       <button id="watchOpen" class="watch-open" style="display:none;">⭐ 我的關注</button>
+      <details class="palette-picker" id="palettePicker">
+        <summary aria-label="切換莫蘭迪色調">色調</summary>
+        <div class="palette-menu" role="group" aria-label="莫蘭迪色調">
+          <button type="button" data-palette="mist"><i></i>霧藍</button>
+          <button type="button" data-palette="sage"><i></i>灰綠</button>
+          <button type="button" data-palette="lilac"><i></i>藕紫</button>
+          <button type="button" data-palette="sand"><i></i>暖沙</button>
+        </div>
+      </details>
       <button id="themeToggle" class="theme-toggle" style="margin-left:8px;" aria-label="切換主題">🌙</button>
     </nav>
     <h1 id="workspaceTitle">ETF 持股研究</h1>
@@ -682,18 +745,30 @@
       <button id="klineViewBtn" type="button" role="tab" aria-selected="false">技術分析</button>
       <button id="institutionalViewBtn" type="button" role="tab" aria-selected="false">法人/資券</button>
     </div>
-    <div id="marketViewSwitch" class="view-switch" role="tablist" aria-label="市場研究檢視方式" style="display:none;">
-      <button id="marketOverviewViewBtn" type="button" role="tab" aria-selected="false">基本資料</button>
-      <button id="marketKlineViewBtn" type="button" role="tab" aria-selected="false">技術分析</button>
-      <button id="marketInstitutionalViewBtn" type="button" role="tab" aria-selected="false">法人/資券</button>
-    </div>
-    <div id="marketAssetControls" class="kline-controls" style="display:none;">
+    <div id="marketAssetControls" class="kline-controls market-asset-controls" style="display:none;">
       <label class="asset-picker">搜尋標的<input id="assetSearch" type="search" autocomplete="off" placeholder="輸入代號或名稱，例如 2330、AAPL、VOO"><div id="assetResults" class="asset-results" role="listbox"></div></label>
       <a id="strategyLauncher" class="strategy-launcher" href="#" target="_blank" rel="noopener noreferrer" hidden>✦ 投資策略建議 ↗</a>
       <span id="assetSelectedMeta" class="asset-selected-meta">台股・台灣 ETF・美股・美國 ETF</span>
     </div>
+    <div id="marketViewSwitch" class="view-switch" role="tablist" aria-label="市場研究檢視方式" style="display:none;">
+      <button id="marketOverviewViewBtn" type="button" role="tab" aria-selected="false">基本面</button>
+      <button id="marketKlineViewBtn" type="button" role="tab" aria-selected="false">技術面</button>
+      <button id="marketInstitutionalViewBtn" type="button" role="tab" aria-selected="false">籌碼面</button>
+      <button id="marketMessageViewBtn" type="button" role="tab" aria-selected="false">消息面</button>
+    </div>
     <div id="selectedEtfSummary" class="selected-etf-summary"></div>
     <section id="marketOverviewPanel" class="market-overview-panel" style="display:none;"></section>
+    <section id="marketFinancialPanel" class="market-financial-panel" style="display:none;"><div id="financialPanel" class="financial-panel"></div></section>
+    <section id="marketMessagePanel" class="market-message-panel" style="display:none;">
+      <details class="data-accordion market-message-accordion" open>
+        <summary>最新消息</summary>
+        <div class="accordion-body"><div id="newsPanel" class="news-panel"></div></div>
+      </details>
+      <details class="data-accordion market-message-accordion">
+        <summary>財經影音</summary>
+        <div class="accordion-body"><div id="marketVideosPanel" class="market-videos-panel"><div class="market-content-loading">正在載入本週財經影音…</div></div></div>
+      </details>
+    </section>
     <section id="overviewPanel" class="overview-panel" style="display:none;"></section>
     <section id="changeChartPanel" class="treemap-panel">
       <div class="treemap-head"><h2>加減碼圖</h2><span id="treemapMeta" class="treemap-meta"></span></div>
@@ -736,9 +811,6 @@
       <div class="kline-chart-wrap"><div id="chartBox"></div><div id="tip" aria-live="polite">滾輪縮放、拖曳平移；移到 K 線可查看數值。</div></div>
       </div>
       <div id="signalPanel" class="signal-panel"></div>
-      <div id="financialPanel" class="financial-panel"></div>
-      <div id="ownershipPanel" class="ownership-pulse"></div>
-      <div id="newsPanel" class="news-panel"></div>
     </section>
 
     <section id="institutionalMarginPanel" class="institutional-margin-panel" style="display:none;">
@@ -769,6 +841,10 @@
         <summary>融資融券</summary>
         <div class="accordion-body"><div class="margin-note">資為融資餘額，券為融券餘額，單位為張。</div><div id="marketMarginTrend" class="margin-trend"></div><div id="marketMarginTable"></div></div>
       </details>
+      <details class="data-accordion market-chip-accordion" open>
+        <summary>大戶／散戶籌碼脈動</summary>
+        <div class="accordion-body"><div id="ownershipPanel" class="ownership-pulse"></div></div>
+      </details>
     </section>
 
     <div id="holdingsDataPanel">
@@ -793,12 +869,13 @@
   </div>
   <div id="treemapTooltip" role="status" aria-live="polite"></div>
 
-  <script src="theme.js"></script>
+  <script src="theme.js?v=20260925-morandi-tabs"></script>
   <script src="config.js"></script>
   <script src="data.js"></script>
   <script src="etf-holdings-index.js?v=20260829"></script>
   <script src="technical-chart-core.js?v=20260901"></script>
-  <script src="kline.js?v=20260925-ownership-pulse"></script>
+  <script src="kline.js?v=20260925-morandi-tabs"></script>
+  <script src="market-message.js?v=20260925-morandi-tabs"></script>
   <script src="investment-strategy-launcher.js?v=20260914-1"></script>
   <script src="https://cdn.jsdelivr.net/npm/html2canvas@1.4.1/dist/html2canvas.min.js" integrity="sha512-BNaRQnYJYiPSqHHDb58B0yaPfCu+Wgds8Gp/gU33kqBtgNS4tSPHuGibyoeqMV/TJlSKda6FXzoEyYGjTe+vXA==" crossorigin="anonymous"></script>
   <script src="chart-analysis-transfer.js?v=20260902"></script>
@@ -861,7 +938,7 @@
 
       let sortState = { diff: { k: "sharesDelta", asc: false }, full: { k: "weight", asc: false } };
       const initialView = new URLSearchParams(location.search).get("view") || "";
-      let marketWorkspace = ["overview", "kline", "institutional"].includes(initialView);
+      let marketWorkspace = ["overview", "kline", "institutional", "message"].includes(initialView);
       let marketViewMode = marketWorkspace ? initialView : "overview";
       let viewMode = "change", marketAsset = null, marketRows = [], marketFinancialPayload = null;
       marketAsset = window.MarketChart?.currentAsset || null;
@@ -1095,6 +1172,8 @@
       function setViewMode(mode) {
         marketWorkspace = false;
         viewMode = mode;
+        document.body.dataset.marketWorkspace = "false";
+        document.body.dataset.marketView = "";
         const pageUrl = new URL(location.href);
         pageUrl.searchParams.delete("view"); pageUrl.searchParams.delete("market"); pageUrl.searchParams.delete("symbol");
         history.replaceState(null, "", pageUrl);
@@ -1105,11 +1184,12 @@
         Object.entries(panels).forEach(([name, ids]) => {
           ids.forEach(id => { document.getElementById(id).style.display = name === mode ? "block" : "none"; });
         });
-        ["marketOverviewPanel","marketInstitutionalMarginPanel"].forEach(id => document.getElementById(id).style.display = "none");
+        ["marketOverviewPanel","marketFinancialPanel","marketMessagePanel","marketInstitutionalMarginPanel"].forEach(id => document.getElementById(id).style.display = "none");
         document.getElementById("etfViewSwitch").style.display = "flex";
         document.getElementById("marketViewSwitch").style.display = "none";
         document.getElementById("marketAssetControls").style.display = "none";
         document.getElementById("etfKlineAssetControls").style.display = mode === "kline" ? "flex" : "none";
+        document.getElementById("marketFinancialPanel").style.display = mode === "kline" ? "block" : "none";
         document.getElementById("holdingsDataPanel").style.display = mode === "change" ? "block" : "none";
         document.getElementById("etfControls").style.display = "flex";
         document.getElementById("etfCompareLauncher").style.display = "flex";
@@ -1132,11 +1212,15 @@
         marketWorkspace = true;
         if (mode === "institutional" && marketAsset?.market !== "TW") mode = "overview";
         marketViewMode = mode;
+        document.body.dataset.marketWorkspace = "true";
+        document.body.dataset.marketView = mode;
         const pageUrl = new URL(location.href); pageUrl.searchParams.set("view", mode); history.replaceState(null, "", pageUrl);
-        ["overviewPanel","changeChartPanel","changeTablePanel","institutionalMarginPanel"].forEach(id => document.getElementById(id).style.display = "none");
+        ["overviewPanel","changeChartPanel","changeTablePanel","institutionalMarginPanel","marketFinancialPanel","marketMessagePanel","marketOverviewPanel","klinePanel","marketInstitutionalMarginPanel"].forEach(id => document.getElementById(id).style.display = "none");
         document.getElementById("marketOverviewPanel").style.display = mode === "overview" ? "block" : "none";
+        document.getElementById("marketFinancialPanel").style.display = mode === "overview" ? "block" : "none";
         document.getElementById("klinePanel").style.display = mode === "kline" ? "block" : "none";
         document.getElementById("marketInstitutionalMarginPanel").style.display = mode === "institutional" ? "block" : "none";
+        document.getElementById("marketMessagePanel").style.display = mode === "message" ? "block" : "none";
         document.getElementById("holdingsDataPanel").style.display = "none";
         document.getElementById("etfControls").style.display = "none";
         document.getElementById("etfCompareLauncher").style.display = "none";
@@ -1146,17 +1230,18 @@
         document.getElementById("marketAssetControls").style.display = "flex";
         document.getElementById("etfKlineAssetControls").style.display = "none";
         document.getElementById("workspaceTitle").textContent = "個股資訊";
-        document.getElementById("sub").textContent = "搜尋台股、台灣 ETF、美股、日股或韓股，查看基本資料與技術分析。";
+        document.getElementById("sub").textContent = "搜尋標的，從基本面、技術面、籌碼面與消息面掌握完整資訊。";
         const marketNav = document.getElementById("marketResearchNav"), etfNav = document.getElementById("etfResearchNav");
         marketNav.style.color="#fff"; marketNav.style.background="var(--accent)"; marketNav.style.borderColor="var(--accent)";
         etfNav.style.color="var(--muted)"; etfNav.style.background="transparent"; etfNav.style.borderColor="var(--border)";
         const institutionButton = document.getElementById("marketInstitutionalViewBtn");
         institutionButton.style.display = marketAsset?.market && marketAsset.market !== "TW" ? "none" : "inline-block";
-        [["marketOverviewViewBtn","overview"],["marketKlineViewBtn","kline"],["marketInstitutionalViewBtn","institutional"]].forEach(([id,name]) => { const btn=document.getElementById(id), active=name===mode; btn.classList.toggle("active",active); btn.setAttribute("aria-selected",String(active)); });
+        [["marketOverviewViewBtn","overview"],["marketKlineViewBtn","kline"],["marketInstitutionalViewBtn","institutional"],["marketMessageViewBtn","message"]].forEach(([id,name]) => { const btn=document.getElementById(id), active=name===mode; btn.classList.toggle("active",active); btn.setAttribute("aria-selected",String(active)); });
         const changeSummary = document.querySelector(".change-summary-inline"); if (changeSummary) changeSummary.style.display = "none";
         if (selectCurrentEtf) syncKlineEtf();
         if (mode === "overview") renderMarketOverview();
         if (mode === "institutional") renderMarketInstitutional();
+        if (mode === "message") window.MarketMessages?.renderVideos(document.getElementById("marketVideosPanel"));
       }
 
       function syncKlineEtf(updateUrl = true) {
@@ -1741,6 +1826,7 @@
       document.getElementById("marketOverviewViewBtn").addEventListener("click", () => setMarketView("overview"));
       document.getElementById("marketKlineViewBtn").addEventListener("click", () => setMarketView("kline"));
       document.getElementById("marketInstitutionalViewBtn").addEventListener("click", () => setMarketView("institutional"));
+      document.getElementById("marketMessageViewBtn").addEventListener("click", () => setMarketView("message"));
       document.addEventListener("marketchart:assetchange", event => {
         marketAsset = event.detail.asset; marketRows = []; marketFinancialPayload = null;
         if (marketViewMode === "institutional" && marketAsset.market !== "TW") marketViewMode = "overview";

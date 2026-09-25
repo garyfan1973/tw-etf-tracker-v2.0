@@ -1,6 +1,8 @@
 // 主題切換（淺色/深色）：預設跟隨系統，手動切換後記住選擇
 (function () {
   const KEY = "etf-theme";
+  const PALETTE_KEY = "etf-palette";
+  const PALETTES = ["mist", "sage", "lilac", "sand"];
   const root = document.documentElement;
 
   function system() {
@@ -13,6 +15,8 @@
   // 進頁時套用已存主題（head 也做過，這裡保險）
   const saved = localStorage.getItem(KEY);
   if (saved) root.dataset.theme = saved;
+  const savedPalette = localStorage.getItem(PALETTE_KEY);
+  root.dataset.palette = PALETTES.includes(savedPalette) ? savedPalette : (root.dataset.palette || "mist");
 
   function wire() {
     const btn = document.getElementById("themeToggle");
@@ -31,6 +35,26 @@
     refresh();
   }
 
-  if (document.readyState !== "loading") wire();
-  else document.addEventListener("DOMContentLoaded", wire);
+  function wirePalette() {
+    const buttons = document.querySelectorAll("[data-palette]");
+    if (!buttons.length) return;
+    function refresh() {
+      buttons.forEach(button => {
+        const active = button.dataset.palette === (root.dataset.palette || "mist");
+        button.classList.toggle("active", active);
+        button.setAttribute("aria-pressed", String(active));
+      });
+    }
+    buttons.forEach(button => button.addEventListener("click", () => {
+      const next = button.dataset.palette;
+      if (!PALETTES.includes(next)) return;
+      root.dataset.palette = next;
+      localStorage.setItem(PALETTE_KEY, next);
+      refresh();
+    }));
+    refresh();
+  }
+
+  if (document.readyState !== "loading") { wire(); wirePalette(); }
+  else document.addEventListener("DOMContentLoaded", () => { wire(); wirePalette(); });
 })();
