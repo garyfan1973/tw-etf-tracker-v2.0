@@ -613,9 +613,11 @@
     :root[data-palette="sage"] { --bg:#f0f1ec; --card:#fbfbf7; --text:#48504c; --muted:#818a82; --border:#d8ddd5; --accent:#8a9b8e; --detail:#e8eee8; --chip:#e9eee9; --up:#a77779; --down:#78927f; --new:#8fa5ae; --chip-big:#a88f8b; --chip-small:#98a99c; --chip-price:#8a9b8e; }
     :root[data-palette="lilac"] { --bg:#f1eff2; --card:#fcfafc; --text:#4d4a51; --muted:#89838b; --border:#ddd8df; --accent:#9a91a5; --detail:#ece8ef; --chip:#eeeaf0; --up:#ad7d82; --down:#819887; --new:#929bae; --chip-big:#a995a5; --chip-small:#9eaa9e; --chip-price:#9a91a5; }
     :root[data-palette="sand"] { --bg:#f3f0eb; --card:#fcfaf6; --text:#514b45; --muted:#8d857d; --border:#ded8d0; --accent:#b19a84; --detail:#eee9e2; --chip:#f0ebe5; --up:#ad7d78; --down:#829584; --new:#9ba5ab; --chip-big:#ad9187; --chip-small:#99a08f; --chip-price:#b19a84; }
+    :root[data-palette="rose"] { --bg:#f3eeed; --card:#fcf9f8; --text:#554346; --muted:#978384; --border:#e3d6d8; --accent:#b65c6c; --detail:#f0e2e4; --chip:#f1e5e6; --up:#b45a63; --down:#829487; --new:#9a8087; --chip-big:#b77278; --chip-small:#a18d8f; --chip-price:#b65c6c; }
     :root[data-theme="dark"][data-palette="sage"] { --bg:#232725; --card:#2d3230; --text:#e5e8e2; --muted:#a8aea7; --border:#454c48; --accent:#a5b8a8; --detail:#38403b; --chip:#3a423d; --chip-big:#c1a09d; --chip-small:#a9c0ad; --chip-price:#a5b8a8; }
     :root[data-theme="dark"][data-palette="lilac"] { --bg:#252427; --card:#302e32; --text:#e8e3e9; --muted:#b0a9b2; --border:#48434a; --accent:#b9adbf; --detail:#3d3940; --chip:#403b42; --chip-big:#c0a7b5; --chip-small:#aab9ad; --chip-price:#b9adbf; }
     :root[data-theme="dark"][data-palette="sand"] { --bg:#282624; --card:#34302c; --text:#ede6df; --muted:#b5aaa0; --border:#4b443d; --accent:#c6ae95; --detail:#423c35; --chip:#463f38; --chip-big:#c6a19a; --chip-small:#afbaa4; --chip-price:#c6ae95; }
+    :root[data-theme="dark"][data-palette="rose"] { --bg:#2a2426; --card:#362d30; --text:#f0e7e7; --muted:#b9a6aa; --border:#514146; --accent:#d36b7c; --detail:#45363a; --chip:#49383d; --chip-big:#d78b8f; --chip-small:#bba4a8; --chip-price:#d36b7c; }
     .palette-picker { position:relative; margin-left:8px; color:var(--text); }
     .palette-picker summary { list-style:none; padding:6px 10px; border:1px solid var(--border); border-radius:8px; background:var(--card); color:var(--muted); cursor:pointer; font-size:12px; }
     .palette-picker summary::-webkit-details-marker { display:none; }
@@ -627,6 +629,7 @@
     .palette-menu button[data-palette="sage"] i { background:#9cad9a; box-shadow:inset 4px 0 #d8d7c7; }
     .palette-menu button[data-palette="lilac"] i { background:#aa9fb1; box-shadow:inset 4px 0 #ddd2d8; }
     .palette-menu button[data-palette="sand"] i { background:#b8a087; box-shadow:inset 4px 0 #e1d4c3; }
+    .palette-menu button[data-palette="rose"] i { background:#db4055; box-shadow:inset 7px 0 #ab142a; }
     .market-asset-controls { margin:16px 0 8px; padding:10px 12px; border-radius:12px; background:color-mix(in srgb,var(--accent) 5%,var(--card)); border-color:color-mix(in srgb,var(--accent) 24%,var(--border)); }
     .market-asset-controls + .view-switch { margin-top:8px; }
     #marketViewSwitch { padding:4px; gap:4px; border:1px solid var(--border); border-radius:12px; background:var(--card); }
@@ -733,6 +736,7 @@
           <button type="button" data-palette="sage"><i></i>灰綠</button>
           <button type="button" data-palette="lilac"><i></i>藕紫</button>
           <button type="button" data-palette="sand"><i></i>暖沙</button>
+          <button type="button" data-palette="rose"><i></i>莓紅</button>
         </div>
       </details>
       <button id="themeToggle" class="theme-toggle" style="margin-left:8px;" aria-label="切換主題">🌙</button>
