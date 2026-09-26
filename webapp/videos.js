@@ -27,9 +27,8 @@
 
   async function init() {
     try {
-      const [videoResponse,newsResponse]=await Promise.all([fetch("financial_videos.json",{cache:"no-cache"}),fetch("macro_news.json",{cache:"no-cache"})]);if(!videoResponse.ok)throw new Error("財經影音資料暫時無法載入");const data=await videoResponse.json();
+      const videoResponse=await fetch("financial_videos.json",{cache:"no-cache"});if(!videoResponse.ok)throw new Error("財經影音資料暫時無法載入");const data=await videoResponse.json();
       $("videosUpdated").textContent=`資料更新：${new Intl.DateTimeFormat("zh-TW",{year:"numeric",month:"short",day:"numeric",hour:"2-digit",minute:"2-digit",timeZone:"Asia/Taipei"}).format(new Date(data.updatedAt))}`;
-      if(newsResponse.ok){const news=await newsResponse.json();renderMacroNews(news);if(news.updatedAt)$('newsUpdated').textContent=`更新：${formatDate(news.updatedAt)}・保留五天`;}else renderMacroNews({sections:[]});
       const channels=(data.channels||[]).slice().sort((a,b)=>Number(Boolean(b.pinned))-Number(Boolean(a.pinned)));
       $("channelSections").innerHTML=channels.map(channel=>`<details class="panel video-channel-section${channel.pinned?" is-pinned":""}"><summary class="video-section-head"><div><span class="video-kicker">${channel.pinned?"Pinned morning program":"Curated channel"}</span><h2>${esc(channel.name)}${channel.pinned?'<span class="video-pin">置頂</span>':""}</h2></div><span class="video-count">${(channel.videos||[]).filter(isFresh).length} 部・展開</span></summary><div class="video-channel-actions"><a href="${esc(channel.url)}" target="_blank" rel="noopener">前往 YouTube 頻道 ↗</a></div><div class="video-grid" data-channel-grid="${esc(channel.id)}"></div></details>`).join("");
       channels.forEach(channel=>renderGrid(document.querySelector(`[data-channel-grid="${CSS.escape(channel.id)}"]`),channel.videos||[]));

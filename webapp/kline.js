@@ -403,7 +403,8 @@
       box.innerHTML = '<div class="news-empty">請先在上方搜尋並選擇標的，再查詢相關消息。</div>';
       return;
     }
-    const requestKey = `${symbol}|${name}|${market}`; box.dataset.requestKey = requestKey;
+    const requestKey = `${symbol}|${name}|${market}`; box.dataset.requestKey = requestKey; delete box.dataset.macroNewsKey;
+    box.querySelector("[data-market-macro-news]")?.remove();
     box.innerHTML = `<div class="news-heading"><div><h3>最新消息</h3></div><span class="news-status">載入中…</span></div><div class="news-loading">正在查詢 ${esc(name || symbol)} 的相關消息…</div>`;
     try {
       const response = await fetch(`/api/news?code=${encodeURIComponent(symbol)}&name=${encodeURIComponent(name || symbol)}&market=${encodeURIComponent(market)}`, { cache:"no-store" });
@@ -413,9 +414,11 @@
       const items = Array.isArray(payload.items) ? payload.items : [];
       const cards = items.map(item => `<article class="news-item ${item.type === "official" ? "official" : ""}"><div class="news-meta"><span class="news-type">${item.type === "official" ? "官方公告" : "媒體報導"}</span><span>${esc(item.category || "最新消息")}</span><time>${esc(newsDate(item.publishedAt))}</time></div><h4><a href="${esc(item.url)}" target="_blank" rel="noopener noreferrer">${esc(item.title)}</a></h4><div class="news-source">來源：${esc(item.source || "未標示")}${item.factDate ? `　事件日：${esc(item.factDate)}` : ""}</div></article>`).join("");
       box.innerHTML = `<div class="news-heading"><div><h3>最新消息</h3></div><span class="news-status">官方 ${payload.officialCount || 0} 則・新聞 ${payload.newsCount || 0} 則</span></div>${cards ? `<div class="news-list">${cards}</div>` : `<div class="news-empty">近 7 日未找到 ${esc(name || symbol)} 的相關消息。</div>`}<div class="news-footnote">媒體標題由 Google News RSS 彙整，著作權屬原媒體；點擊後前往原始來源。消息不直接計入技術面操作訊號，請自行判讀事件影響。</div>`;
+      window.MarketMessages?.renderMacroNews(box, requestKey);
     } catch (error) {
       if (box.dataset.requestKey !== requestKey) return;
       box.innerHTML = `<div class="news-heading"><div><h3>最新消息</h3></div></div><div class="news-empty">${esc(error.message || "消息來源暫時無法連線，請稍後重試。")}</div>`;
+      window.MarketMessages?.renderMacroNews(box, requestKey);
     }
   }
   function updateChartType() {

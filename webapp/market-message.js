@@ -27,14 +27,31 @@
       })
     } : section).filter(section => section.id !== "cnbc-top" || section.items.length);
     if (!sections.length) return "";
-    return `<div class="market-media-news-list">${sections.map(section => {
+    return `<section class="market-latest-news-block" data-market-macro-news><div class="news-heading"><div><h3>市場焦點</h3><p>總經與財經新聞</p></div><span class="news-status">最近 ${Math.max(1, Number(data.windowDays) || 5)} 天</span></div><div class="market-latest-news-list">${sections.map(section => {
       const items = (section.items || []).slice(0, 12).map(item => {
         const title = item.titleZh || item.title || item.titleEn || "未命名消息";
         const detail = item.summaryZh || item.summaryEn || "點擊前往原始來源";
         return `<a href="${esc(item.url)}" target="_blank" rel="noopener noreferrer"><span>${esc(section.name || "財經新聞")}・${esc(item.source || item.captureDate || formatDate(item.publishedAt))}</span><strong>${esc(title)}</strong><small>${esc(detail)}</small></a>`;
       }).join("");
-      return `<details class="market-media-news"${section.id === "cnbc-top" ? " open" : ""}><summary><span>${esc(section.name || "財經新聞")}</span><span class="market-video-channel-count">${section.items.length} 則</span></summary><div class="market-media-news-body">${items || '<div class="market-video-empty">目前沒有可顯示的新聞。</div>'}</div></details>`;
-    }).join("")}</div>`;
+      return `<details class="market-latest-news-section"${section.id === "cnbc-top" ? " open" : ""}><summary><span>${esc(section.name || "財經新聞")}</span><span class="market-video-channel-count">${section.items.length} 則</span></summary><div class="market-latest-news-body">${items || '<div class="market-video-empty">目前沒有可顯示的新聞。</div>'}</div></details>`;
+    }).join("")}</div></section>`;
+  }
+
+  async function renderMacroNews(target, requestKey = "") {
+    if (!target) return;
+    const key = String(requestKey || target.dataset.requestKey || "");
+    if (target.dataset.macroNewsKey === key) return;
+    target.dataset.macroNewsKey = key;
+    try {
+      const response = await fetch("macro_news.json", { cache:"no-cache" });
+      const news = response.ok ? await response.json() : { sections:[] };
+      if (target.dataset.requestKey !== key || target.dataset.macroNewsKey !== key) return;
+      target.querySelector("[data-market-macro-news]")?.remove();
+      const html = renderMacroNewsSection(news);
+      if (html) target.insertAdjacentHTML("beforeend", html);
+    } catch (_) {
+      // 標的新聞仍可正常顯示；總經新聞失敗時不額外打斷最新消息區塊。
+    }
   }
 
   async function renderVideos(target) {
@@ -44,14 +61,12 @@
       const response = await fetch("financial_videos.json", { cache:"no-cache" });
       if (!response.ok) throw new Error("財經影音資料暫時無法載入");
       const data = await response.json();
-      const newsResponse = await fetch("macro_news.json", { cache:"no-cache" });
-      const news = newsResponse.ok ? await newsResponse.json() : { sections:[] };
       const channels = (data.channels || []).slice().sort((a, b) => Number(Boolean(b.pinned)) - Number(Boolean(a.pinned)));
       const channelSections = channels.map(channel => {
         const videos = (channel.videos || []).filter(video => isFresh(video.publishedAt)).sort((a, b) => new Date(b.publishedAt) - new Date(a.publishedAt));
         return `<details class="market-video-channel"${channel.pinned ? " open" : ""}><summary><span class="market-video-channel-title"><span><small>${channel.pinned ? "Pinned morning program" : "Curated channel"}</small><strong>${esc(channel.name)}</strong></span></span><span class="market-video-channel-count">${videos.length} 部・展開</span></summary><div class="market-video-channel-body"><div class="market-video-channel-actions"><a href="${esc(channel.url)}" target="_blank" rel="noopener noreferrer">前往 YouTube 頻道 ↗</a></div>${videos.length ? `<div class="market-video-grid">${videos.map(video => card({ ...video, channelName: video.channelName || channel.name })).join("")}</div>` : '<div class="market-video-empty">本週暫無新片。</div>'}</div></details>`;
       }).join("");
-      target.innerHTML = `<p class="market-media-updated">影片資料更新：${esc(formatDateTime(data.updatedAt))}・保留最近七天公開內容</p>${renderMacroNewsSection(news)}${channelSections || '<div class="market-video-empty">本週暫無新的財經影音。</div>'}<p class="market-source">影片由 YouTube 官方頻道提供，點擊後前往原始來源；本站不下載或重新託管影片。</p>`;
+      target.innerHTML = `<p class="market-media-updated">影片資料更新：${esc(formatDateTime(data.updatedAt))}・保留最近七天公開內容</p>${channelSections || '<div class="market-video-empty">本週暫無新的財經影音。</div>'}<p class="market-source">影片由 YouTube 官方頻道提供，點擊後前往原始來源；本站不下載或重新託管影片。</p>`;
       target.dataset.loaded = "true";
     } catch (error) {
       target.dataset.loaded = "error";
@@ -59,5 +74,5 @@
     }
   }
 
-  window.MarketMessages = { renderVideos };
+  window.MarketMessages = { renderVideos, renderMacroNews };
 })();

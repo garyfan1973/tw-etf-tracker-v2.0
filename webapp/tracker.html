@@ -677,6 +677,20 @@
     .market-media-news-list a:hover { border-color:var(--accent); background:color-mix(in srgb,var(--accent) 5%,var(--bg)); }
     .market-media-news-list span,.market-media-news-list small { color:var(--muted); font-size:10px; }
     .market-media-news-list strong { font-size:12px; line-height:1.5; }
+    .market-latest-news-block { margin-top:16px; padding-top:14px; border-top:1px solid var(--border); }
+    .market-latest-news-block .news-heading { margin-bottom:10px; }
+    .market-latest-news-block .news-heading p { margin:0; color:var(--muted); font-size:12px; }
+    .market-latest-news-list { display:grid; gap:8px; }
+    .market-latest-news-section { border:1px solid var(--border); border-radius:10px; background:var(--bg); overflow:hidden; }
+    .market-latest-news-section > summary { display:flex; align-items:center; justify-content:space-between; padding:10px 12px; color:var(--text); font-size:13px; font-weight:700; cursor:pointer; list-style:none; }
+    .market-latest-news-section > summary::-webkit-details-marker { display:none; }
+    .market-latest-news-section > summary:before { content:"＋"; display:inline-grid; place-items:center; width:19px; height:19px; margin-right:7px; border:1px solid var(--border); border-radius:50%; color:var(--muted); font-size:13px; line-height:1; }
+    .market-latest-news-section[open] > summary:before { content:"−"; }
+    .market-latest-news-body { padding:0 10px 10px; }
+    .market-latest-news-body a { display:grid; gap:3px; padding:9px 10px; border-top:1px solid var(--border); color:var(--text); text-decoration:none; }
+    .market-latest-news-body a:hover { background:color-mix(in srgb,var(--accent) 5%,var(--bg)); }
+    .market-latest-news-body span,.market-latest-news-body small { color:var(--muted); font-size:10px; }
+    .market-latest-news-body strong { font-size:12px; line-height:1.5; }
     .financial-atlas-card.tone-mint,.financial-atlas-card.tone-blue,.financial-atlas-card.tone-coral,.financial-atlas-card.tone-violet { --atlas:var(--accent); }
     .financial-atlas-head { border-bottom-color:color-mix(in srgb,var(--accent) 24%,var(--border)); }
     .financial-atlas-kicker,.financial-atlas-eyebrow,.financial-atlas-note a { color:var(--accent); }
@@ -908,8 +922,8 @@
   <script src="data.js"></script>
   <script src="etf-holdings-index.js?v=20260829"></script>
   <script src="technical-chart-core.js?v=20260901"></script>
-  <script src="kline.js?v=20260925-morandi-tabs"></script>
-  <script src="market-message.js?v=20260925-morandi-tabs"></script>
+  <script src="kline.js?v=20260926-latest-news"></script>
+  <script src="market-message.js?v=20260926-latest-news"></script>
   <script src="investment-strategy-launcher.js?v=20260914-1"></script>
   <script src="https://cdn.jsdelivr.net/npm/html2canvas@1.4.1/dist/html2canvas.min.js" integrity="sha512-BNaRQnYJYiPSqHHDb58B0yaPfCu+Wgds8Gp/gU33kqBtgNS4tSPHuGibyoeqMV/TJlSKda6FXzoEyYGjTe+vXA==" crossorigin="anonymous"></script>
   <script src="chart-analysis-transfer.js?v=20260902"></script>
