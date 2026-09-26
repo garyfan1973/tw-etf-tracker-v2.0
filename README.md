@@ -175,6 +175,7 @@ http://localhost:8002/morning-report-settings.html
 | `GMAIL_USER` | 寄送分析 PDF 與晨報的 Gmail 帳號 |
 | `GMAIL_APP_PASSWORD` | Gmail App Password，不是一般登入密碼 |
 | `GMAIL_FROM_NAME` | 寄件者顯示名稱 |
+| `MEMBERSHIP_REVIEW_EMAIL` | 新會員人工審核通知收件人；未設定時使用 `GMAIL_USER` |
 | `SUPABASE_URL` | 晨報批次與伺服器端授權使用的 Supabase URL |
 | `SUPABASE_SERVICE_ROLE_KEY` | 晨報批次與每日績效快照使用，僅限伺服器端／GitHub Secrets |
 
@@ -182,16 +183,40 @@ http://localhost:8002/morning-report-settings.html
 
 首次啟用 AI 功能時，請依功能套用下列 Supabase migration：
 
-1. `supabase_chart_analysis.sql`：會員權限、每日額度與分析紀錄。
-2. `supabase_chart_analysis_history.sql`：線圖歷史與五天保存期限。
-3. `supabase_chart_analysis_email.sql`：PDF Email 寄送紀錄與每日限制。
-4. `supabase_morning_reports.sql`：晨報設定、分析結果與寄送狀態。
+1. `supabase_member_access.sql`：會員註冊後待審核、一般／全功能分級與資料庫 RLS。
+2. `supabase_chart_analysis.sql`：會員權限、每日額度與分析紀錄。
+3. `supabase_chart_analysis_history.sql`：線圖歷史與五天保存期限。
+4. `supabase_chart_analysis_email.sql`：PDF Email 寄送紀錄與每日限制。
+5. `supabase_morning_reports.sql`：晨報設定、分析結果與寄送狀態。
 
-以 Email 開通會員與設定每日額度的範例：
+會員註冊後會先停在 `pending`，網站會透過 CAPTCHA 防止機器人註冊，並寄送人工審核通知。請在 Supabase Dashboard → Authentication → Bot and Abuse Protection 啟用 Cloudflare Turnstile，將公開 site key 填入 `webapp/config.js` 的 `SUPABASE_CAPTCHA_SITE_KEY`；secret key 只放在 Supabase Dashboard，不可提交到 Git。
+
+人工審核方式：收到通知後，在 Supabase SQL Editor 執行下列其中一種。`general` 可使用一般網站功能；`full` 另可使用 AI 與晨報。執行後會員重新整理或重新登入即可生效：
 
 ```sql
+insert into public.member_access (user_id, access_level, note, reviewed_at)
+select id, 'general', '人工審核通過', now()
+from auth.users
+where lower(email) = lower('member@example.com')
+on conflict (user_id) do update
+set access_level = excluded.access_level,
+    note = excluded.note,
+    reviewed_at = excluded.reviewed_at,
+    updated_at = now();
+
+-- 全功能會員（含 AI）另外保留／設定 AI 額度：
+insert into public.member_access (user_id, access_level, note, reviewed_at)
+select id, 'full', '人工審核通過（含 AI）', now()
+from auth.users
+where lower(email) = lower('member@example.com')
+on conflict (user_id) do update
+set access_level = excluded.access_level,
+    note = excluded.note,
+    reviewed_at = excluded.reviewed_at,
+    updated_at = now();
+
 insert into public.ai_feature_access (user_id, enabled, daily_limit, note)
-select id, true, 5, 'AI 線圖分析會員'
+select id, true, 5, 'AI 會員'
 from auth.users
 where lower(email) = lower('member@example.com')
 on conflict (user_id) do update
@@ -201,7 +226,7 @@ set enabled = excluded.enabled,
     updated_at = now();
 ```
 
-停用時將該會員的 `enabled` 改為 `false`；也可設定 `expires_at` 控制到期日。
+停用一般功能時將 `member_access.access_level` 改為 `rejected`；只停用 AI 時可將 `ai_feature_access.enabled` 改為 `false`，或設定 `expires_at` 控制 AI 到期日。`garyfan1973@gmail.com` 已在正式資料庫設定為永久 `full`，既有 AI 額度 50 不變。
 
 執行全部單元測試：
 
@@ -331,6 +356,7 @@ git pull origin main
 - `portfolio_transactions`：台灣／美國股票與 ETF 的個人買入／賣出交易；多市場欄位需套用 `supabase_portfolio_multi_market.sql`。
 - `trade_journal_entries`／`trade_journal_fills`：個人短線操作計畫與多筆進出明細（需執行 `supabase_trade_journal.sql`；既有舊版資料表請依序執行 `supabase_trade_journal_v2.sql`、`supabase_trade_journal_v3.sql`、`supabase_trade_journal_v4.sql`、`supabase_trade_journal_v5.sql`、`supabase_trade_journal_v6.sql`）。標的可獨立記錄台灣／美國 ETF 與股票，不依賴公開 ETF 清單，並以 FIFO 保存分批進出、交易成本與淨損益。
 - `portfolio_daily_snapshots`：每日績效快照。
+- `member_access`：會員人工審核狀態與 `general`／`full` 功能分級。
 - `ai_feature_access`／`chart_analysis_requests`／`chart_analysis_email_log`：AI 會員權限、每日用量、分析歷史與 Email 紀錄。
 - `morning_report_settings`／`morning_report_symbols`：會員晨報開關與最多 20 檔標的設定。
 - `morning_report_runs`／`morning_report_results`／`morning_report_deliveries`：每日晨報批次、逐檔分析結果與寄送狀態；資料庫不保存收件 Email 地址。

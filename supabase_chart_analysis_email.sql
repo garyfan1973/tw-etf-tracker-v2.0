@@ -31,6 +31,7 @@ declare
   v_id uuid;
 begin
   if v_user is null then raise exception 'AUTH_REQUIRED'; end if;
+  if not public.is_full_member() then raise exception 'FEATURE_NOT_ENABLED'; end if;
   select * into v_access from public.ai_feature_access where user_id = v_user;
   if not found or not v_access.enabled then raise exception 'FEATURE_NOT_ENABLED'; end if;
   if v_access.expires_at is not null and v_access.expires_at <= now() then

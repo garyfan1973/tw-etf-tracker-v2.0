@@ -141,12 +141,14 @@ def eligible_subscriptions(db: SupabaseAdmin):
     in_filter = urllib.parse.quote(",".join(user_ids), safe="-,")
     symbols = db.select("morning_report_symbols", f"select=user_id,market,asset_type,symbol,asset_name,sort_order&user_id=in.({in_filter})&order=sort_order.asc")
     access = db.select("ai_feature_access", f"select=user_id,enabled,expires_at&user_id=in.({in_filter})")
+    member_access = db.select("member_access", f"select=user_id,access_level&user_id=in.({in_filter})")
     now = dt.datetime.now(dt.timezone.utc)
     allowed = set()
+    full_members = {row["user_id"] for row in member_access if row.get("access_level") == "full"}
     for row in access:
         expires = row.get("expires_at")
         expiry = dt.datetime.fromisoformat(expires.replace("Z", "+00:00")) if expires else None
-        if row.get("enabled") and (expiry is None or expiry > now):
+        if row.get("user_id") in full_members and row.get("enabled") and (expiry is None or expiry > now):
             allowed.add(row["user_id"])
     emails = db.account_emails()
     by_asset, by_user = {}, {}

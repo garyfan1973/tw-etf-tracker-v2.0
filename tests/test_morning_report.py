@@ -21,6 +21,8 @@ class FakeDb:
             return [{"user_id":"member-1", "market":"TW", "asset_type":"stock", "symbol":"2330", "asset_name":"台積電", "sort_order":0}]
         if table == "ai_feature_access":
             return [{"user_id":"member-1", "enabled":True, "expires_at":(dt.datetime.now(dt.timezone.utc) + dt.timedelta(days=2)).isoformat()}]
+        if table == "member_access":
+            return [{"user_id":"member-1", "access_level":"full"}]
         return []
 
     def account_emails(self):

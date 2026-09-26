@@ -64,6 +64,13 @@ class ChartAnalysisEmailValidationTests(unittest.TestCase):
         API.verify_service_token("sb_secret_example")
         self.assertNotIn("Authorization", request.call_args.kwargs["headers"])
 
+    @mock.patch.object(API, "call_rpc")
+    def test_investment_strategy_email_requires_ai_access(self, call_rpc):
+        call_rpc.return_value = {"enabled": False}
+        with self.assertRaises(API.ApiError):
+            API.verify_ai_access("member-token")
+        self.assertEqual(call_rpc.call_args.args[:2], ("get_chart_analysis_quota", "member-token"))
+
 
 if __name__ == "__main__":
     unittest.main()

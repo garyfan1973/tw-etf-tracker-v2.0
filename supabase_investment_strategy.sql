@@ -16,10 +16,12 @@ create index if not exists strategy_requests_user_day_idx
 
 alter table strategy_private.requests enable row level security;
 
+drop policy if exists strategy_requests_own_select on strategy_private.requests;
 create policy strategy_requests_own_select on strategy_private.requests
   for select to authenticated
   using ((select auth.uid()) = user_id);
 
+drop policy if exists strategy_requests_own_insert on strategy_private.requests;
 create policy strategy_requests_own_insert on strategy_private.requests
   for insert to authenticated
   with check ((select auth.uid()) = user_id);
@@ -38,6 +40,7 @@ set search_path = ''
 as $$
 declare
   v_user uuid := auth.uid();
+  v_access boolean;
   v_used integer;
   v_request_id uuid;
   v_limit constant integer := 30;
@@ -45,8 +48,24 @@ begin
   if v_user is null then
     raise exception 'AUTH_REQUIRED';
   end if;
+  if not public.is_full_member() then
+    raise exception 'FEATURE_NOT_ENABLED';
+  end if;
   if p_market not in ('TW', 'US') or p_symbol !~ '^[0-9A-Z.^_-]{1,20}$' then
     raise exception 'INVALID_SYMBOL';
+  end if;
+
+  -- Investment strategy is a paid-key feature too: authentication alone is
+  -- not sufficient. Reuse the manually managed AI allowlist and expiry.
+  select exists (
+    select 1
+    from public.ai_feature_access
+    where user_id = v_user
+      and enabled
+      and (expires_at is null or expires_at > pg_catalog.now())
+  ) into v_access;
+  if not v_access then
+    raise exception 'FEATURE_NOT_ENABLED';
   end if;
 
   perform pg_catalog.pg_advisory_xact_lock(pg_catalog.hashtextextended(v_user::text, 8145));

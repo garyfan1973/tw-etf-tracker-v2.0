@@ -8,7 +8,8 @@ import { createClient } from "https://cdn.jsdelivr.net/npm/@supabase/supabase-js
   const configured = !!(URL_ && KEY_ && !/YOUR_/.test(URL_) && !/YOUR_/.test(KEY_));
   const sb = configured ? createClient(URL_, KEY_) : null;
 
-  const state = { user: null, watch: new Set(), chartAnalysisAccess: null };
+  const state = { user: null, watch: new Set(), memberAccess: null, chartAnalysisAccess: null };
+  let memberAccessGeneration = 0;
   let chartAccessGeneration = 0;
 
   // 對外 API：給各頁面（index / dividends）讀取個人關注清單用
@@ -24,8 +25,12 @@ import { createClient } from "https://cdn.jsdelivr.net/npm/@supabase/supabase-js
     isConfigured: () => configured,
     client: () => sb,
     user: () => state.user,
+    memberAccess: () => state.memberAccess,
+    canUseSite: () => ["general", "full"].includes(state.memberAccess?.accessLevel),
+    canUseAI: () => state.memberAccess?.accessLevel === "full",
     chartAnalysisAccess: () => state.chartAnalysisAccess,
-    canUseChartAnalysis: () => !!state.chartAnalysisAccess?.enabled,
+    canUseChartAnalysis: () => state.memberAccess?.accessLevel === "full" && !!state.chartAnalysisAccess?.enabled,
+    refreshMemberAccess: loadMemberAccess,
     refreshChartAnalysisAccess: loadChartAnalysisAccess,
     openLogin: openModal,
   };
@@ -36,8 +41,41 @@ import { createClient } from "https://cdn.jsdelivr.net/npm/@supabase/supabase-js
 
   function emitAuth() {
     document.dispatchEvent(new CustomEvent("etfauth:change", {
-      detail: { user: state.user, chartAnalysisAccess: state.chartAnalysisAccess },
+      detail: { user: state.user, memberAccess: state.memberAccess, chartAnalysisAccess: state.chartAnalysisAccess },
     }));
+  }
+
+  async function requestMembershipReview() {
+    if (!sb || !state.user) return null;
+    try {
+      const { data: sessionData } = await sb.auth.getSession();
+      const response = await fetch("/api/membership-request", {
+        method: "POST",
+        headers: { Authorization: "Bearer " + (sessionData.session?.access_token || "") },
+      });
+      if (!response.ok) console.warn("會員審核通知暫時無法寄送：", response.status);
+      return await response.json();
+    } catch (notifyError) {
+      console.warn("會員審核通知暫時無法寄送：", notifyError);
+      return null;
+    }
+  }
+
+  async function loadMemberAccess() {
+    const generation = ++memberAccessGeneration;
+    const requestUserId = state.user?.id || null;
+    state.memberAccess = null;
+    if (sb && state.user) {
+      const { data, error } = await sb.rpc("get_member_access");
+      if (generation !== memberAccessGeneration || state.user?.id !== requestUserId) return state.memberAccess;
+      if (!error && data) {
+        state.memberAccess = data;
+        if (data.accessLevel === "pending") requestMembershipReview();
+      } else if (error) console.warn("讀取會員審核狀態失敗：", error.message);
+    }
+    renderChartAnalysisNav();
+    emitAuth();
+    return state.memberAccess;
   }
 
   async function loadChartAnalysisAccess() {
@@ -57,7 +95,7 @@ import { createClient } from "https://cdn.jsdelivr.net/npm/@supabase/supabase-js
 
   function renderChartAnalysisNav() {
     document.querySelectorAll("[data-chart-analysis-nav]").forEach((link) => {
-      link.hidden = !state.chartAnalysisAccess?.enabled;
+      link.hidden = !(state.memberAccess?.accessLevel === "full" && state.chartAnalysisAccess?.enabled);
     });
   }
 
@@ -193,6 +231,7 @@ import { createClient } from "https://cdn.jsdelivr.net/npm/@supabase/supabase-js
       '<div style="font-size:16px;font-weight:700;margin-bottom:12px;">會員登入 / 註冊</div>' +
       '<input id="authEmail" type="email" autocomplete="email" placeholder="Email" style="width:100%;margin-bottom:8px;padding:9px 10px;border:1px solid var(--border);border-radius:8px;background:var(--bg);color:var(--text);">' +
       '<input id="authPass" type="password" autocomplete="current-password" placeholder="密碼（至少 6 碼）" style="width:100%;margin-bottom:10px;padding:9px 10px;border:1px solid var(--border);border-radius:8px;background:var(--bg);color:var(--text);">' +
+      '<div id="authCaptcha" style="min-height:65px;margin:4px 0 8px;"></div>' +
       '<div id="authMsg" style="font-size:12px;color:var(--muted);min-height:16px;margin-bottom:8px;"></div>' +
       '<div style="display:flex;gap:8px;">' +
       '<button id="authLogin" style="flex:1;padding:9px;border:none;border-radius:8px;background:var(--accent);color:#fff;cursor:pointer;">登入</button>' +
@@ -205,6 +244,9 @@ import { createClient } from "https://cdn.jsdelivr.net/npm/@supabase/supabase-js
     const msg = m.querySelector("#authMsg");
     const email = m.querySelector("#authEmail");
     const pass = m.querySelector("#authPass");
+    const captcha = m.querySelector("#authCaptcha");
+    let captchaWidget = null;
+    let captchaToken = "";
     const close = () => (m.style.display = "none");
     m.querySelector("#authClose").onclick = close;
     m.onclick = (e) => { if (e.target === m) close(); };
@@ -218,19 +260,62 @@ import { createClient } from "https://cdn.jsdelivr.net/npm/@supabase/supabase-js
       else close();
     };
     m.querySelector("#authSignup").onclick = async () => {
+      if (!window.SUPABASE_CAPTCHA_SITE_KEY) {
+        msg.style.color = "var(--up)"; msg.textContent = "管理者尚未設定 CAPTCHA，暫時無法註冊。"; return;
+      }
+      if (!captchaToken) {
+        msg.style.color = "var(--up)"; msg.textContent = "請先完成 CAPTCHA 驗證。"; return;
+      }
       msg.style.color = "var(--muted)"; msg.textContent = "註冊中…";
       const { data, error } = await sb.auth.signUp({
         email: email.value.trim(), password: pass.value,
+        options: { captchaToken },
       });
-      if (error) { msg.style.color = "var(--up)"; msg.textContent = "註冊失敗：" + error.message; }
+      if (error) {
+        msg.style.color = "var(--up)"; msg.textContent = "註冊失敗：" + error.message;
+        if (captchaWidget !== null && window.turnstile) window.turnstile.reset(captchaWidget);
+        captchaToken = "";
+      }
       else if (data.session) close();  // 未開驗證信 → 直接登入
       else { msg.style.color = "var(--down)"; msg.textContent = "註冊成功，請至信箱收驗證信後再登入。"; }
     };
+
+    async function renderCaptcha() {
+      if (!window.SUPABASE_CAPTCHA_SITE_KEY || captchaWidget !== null) return;
+      try {
+        await loadCaptchaScript();
+        if (!window.turnstile || captchaWidget !== null) return;
+        captchaWidget = window.turnstile.render(captcha, {
+          sitekey: window.SUPABASE_CAPTCHA_SITE_KEY,
+          callback: (token) => { captchaToken = token || ""; },
+          "expired-callback": () => { captchaToken = ""; },
+          "error-callback": () => { captchaToken = ""; },
+        });
+      } catch (error) {
+        msg.style.color = "var(--up)"; msg.textContent = "CAPTCHA 載入失敗，請稍後再試。";
+      }
+    }
+    m.renderCaptcha = renderCaptcha;
+  }
+
+  function loadCaptchaScript() {
+    if (window.turnstile) return Promise.resolve();
+    if (window.__etfCaptchaPromise) return window.__etfCaptchaPromise;
+    window.__etfCaptchaPromise = new Promise((resolve, reject) => {
+      const script = document.createElement("script");
+      script.src = "https://challenges.cloudflare.com/turnstile/v0/api.js?render=explicit";
+      script.async = true; script.defer = true;
+      script.onload = resolve; script.onerror = reject;
+      document.head.appendChild(script);
+    });
+    return window.__etfCaptchaPromise;
   }
 
   function openModal() {
     ensureModal();
-    document.getElementById("authModal").style.display = "flex";
+    const modal = document.getElementById("authModal");
+    if (modal.renderCaptcha) modal.renderCaptcha();
+    modal.style.display = "flex";
   }
 
   // ---- nav 內的登入狀態 ----
@@ -260,6 +345,12 @@ import { createClient } from "https://cdn.jsdelivr.net/npm/@supabase/supabase-js
       btn.onclick = () => sb.auth.signOut();
       box.appendChild(span);
       box.appendChild(btn);
+      if (state.memberAccess?.accessLevel === "pending") {
+        const pending = document.createElement("span");
+        pending.textContent = "待審核";
+        pending.style.cssText = "font-size:12px;color:var(--muted);margin-right:6px;";
+        box.insertBefore(pending, span);
+      }
     } else {
       const btn = document.createElement("button");
       btn.textContent = "登入 / 註冊";
@@ -355,12 +446,14 @@ import { createClient } from "https://cdn.jsdelivr.net/npm/@supabase/supabase-js
       state.user = data.session ? data.session.user : null;
       renderAll();
       loadWatch();
+      loadMemberAccess();
       loadChartAnalysisAccess();
     });
     sb.auth.onAuthStateChange((_event, session) => {
       state.user = session ? session.user : null;
       renderAll();
       loadWatch();
+      loadMemberAccess();
       loadChartAnalysisAccess();
     });
   }

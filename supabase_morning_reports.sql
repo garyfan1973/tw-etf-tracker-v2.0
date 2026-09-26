@@ -149,6 +149,7 @@ declare
   v_order integer := 0;
 begin
   if v_user is null then raise exception 'AUTH_REQUIRED'; end if;
+  if not public.is_full_member() then raise exception 'FEATURE_NOT_ENABLED'; end if;
   if not exists (
     select 1 from public.ai_feature_access
     where user_id = v_user

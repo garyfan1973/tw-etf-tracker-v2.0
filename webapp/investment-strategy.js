@@ -391,10 +391,12 @@
     if (!valid) return;
     if (!window.ETFAuth) return;
     if (started) return;
+    if (!window.ETFAuth.memberAccess?.()) return;
     started = true;
     const client = window.ETFAuth.client();
     const { data: { session } } = await client.auth.getSession();
     if (!session) return gate("登入後開始分析", "登入即可取得這檔股票的完整投資策略建議。", () => window.ETFAuth.openLogin(), "登入 / 註冊");
+    if (!window.ETFAuth.canUseAI?.()) return gate("需要全功能會員權限", "投資策略建議會使用 AI，請等管理員人工開通全功能後再試。", null);
     try {
       const saved = JSON.parse(sessionStorage.getItem(cacheKey) || "null");
       if (saved?.report && saved.userId === session.user.id && Date.now() - saved.savedAt < 30 * 60 * 1000) {
@@ -441,7 +443,7 @@
       if (!started) onAuthReady();
       else if (!busy && !window.ETFAuth?.user())
         gate("登入後開始分析", "登入即可取得這檔股票的完整投資策略建議。", () => window.ETFAuth.openLogin(), "登入 / 註冊");
-      else if (!busy && window.ETFAuth?.user() && $("gateTitle").textContent === "登入後開始分析") showSettings();
+      else if (!busy && window.ETFAuth?.user() && window.ETFAuth.canUseAI?.() && ["登入後開始分析", "需要全功能會員權限"].includes($("gateTitle").textContent)) showSettings();
     });
     const check = window.setInterval(() => {
       if (window.ETFAuth) { window.clearInterval(check); onAuthReady(); }

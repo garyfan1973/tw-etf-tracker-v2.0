@@ -111,6 +111,20 @@ class InvestmentStrategyTests(unittest.TestCase):
         self.assertEqual(request_json.call_count, 2)
         sleep.assert_called_once()
 
+    def test_quota_errors_preserve_feature_gate_semantics(self):
+        self.assertEqual(
+            API.quota_error_response(API.UpstreamError(400, "FEATURE_NOT_ENABLED")),
+            (403, "此會員尚未開通投資策略功能"),
+        )
+        self.assertEqual(
+            API.quota_error_response(API.UpstreamError(400, "FEATURE_ACCESS_EXPIRED")),
+            (403, "投資策略功能權限已到期"),
+        )
+        self.assertEqual(
+            API.quota_error_response(API.UpstreamError(400, "DAILY_LIMIT_REACHED")),
+            (429, "今日投資策略分析次數已用完，請明天再試"),
+        )
+
 
 if __name__ == "__main__":
     unittest.main()

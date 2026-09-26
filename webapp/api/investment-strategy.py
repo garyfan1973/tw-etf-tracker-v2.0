@@ -105,6 +105,17 @@ def verify_member(headers):
             time.sleep(0.35)
 
 
+def quota_error_response(error):
+    detail = error.detail if isinstance(error, UpstreamError) else str(error)
+    if "FEATURE_ACCESS_EXPIRED" in detail:
+        return 403, "投資策略功能權限已到期"
+    if "FEATURE_NOT_ENABLED" in detail:
+        return 403, "此會員尚未開通投資策略功能"
+    if "DAILY_LIMIT_REACHED" in detail:
+        return 429, "今日投資策略分析次數已用完，請明天再試"
+    return None
+
+
 def extract_text(response):
     if response.get("status") not in (None, "completed"):
         raise RuntimeError("模型回覆尚未完成")
@@ -300,8 +311,10 @@ class handler(BaseHTTPRequestHandler):
                               "stage": stage, "seconds": round(time.monotonic() - started, 1),
                               "detailCode": "DAILY_LIMIT_REACHED" if "DAILY_LIMIT_REACHED" in error.detail else "other"}),
                   file=sys.stderr, flush=True)
-            if "DAILY_LIMIT_REACHED" in error.detail:
-                return self.send_json({"ok": False, "error": "今日投資策略分析次數已用完，請明天再試"}, 429)
+            quota_response = quota_error_response(error)
+            if quota_response:
+                status, message = quota_response
+                return self.send_json({"ok": False, "error": message}, status)
             if stage == "auth" and error.status in (401, 403):
                 return self.send_json({"ok": False, "error": "登入狀態已失效，請重新登入"}, 401)
             self.send_json({"ok": False, "error": "投資策略服務暫時無法完成，請稍後再試"}, 502)

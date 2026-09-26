@@ -60,6 +60,13 @@ def call_rpc(name, token, payload):
                         headers=supabase_headers(token), payload=payload)
 
 
+def verify_ai_access(token):
+    quota = call_rpc("get_chart_analysis_quota", token, {}) or {}
+    if not quota.get("enabled"):
+        raise ApiError(403, {"message": "FEATURE_NOT_ENABLED"})
+    return quota
+
+
 def verify_service_token(token):
     headers = {"apikey": token}
     if not token.startswith("sb_secret_"):
@@ -168,6 +175,7 @@ class handler(BaseHTTPRequestHandler):
             if service_request:
                 verify_service_token(token)
             elif data["reportType"] == "investment-strategy":
+                verify_ai_access(token)
                 json_request(SUPABASE_URL + "/auth/v1/user", headers=supabase_headers(token), timeout=15)
             else:
                 log_id = call_rpc("authorize_chart_analysis_email", token, {

@@ -63,6 +63,10 @@ begin
     raise exception 'AUTH_REQUIRED';
   end if;
 
+  if not public.is_full_member() then
+    return jsonb_build_object('enabled', false, 'dailyLimit', 0, 'used', 0, 'remaining', 0);
+  end if;
+
   select * into v_access
   from public.ai_feature_access
   where user_id = v_user;
@@ -106,6 +110,9 @@ declare
 begin
   if v_user is null then
     raise exception 'AUTH_REQUIRED';
+  end if;
+  if not public.is_full_member() then
+    raise exception 'FEATURE_NOT_ENABLED';
   end if;
   if p_mode not in ('general', 'fast', 'overnight', 'low-entry') then
     raise exception 'INVALID_MODE';

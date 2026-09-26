@@ -3,3 +3,5 @@
 // 這把是「publishable / anon」公開金鑰，可安全放前端；請勿改成 service_role/secret key。
 window.SUPABASE_URL = "https://amoaxayfsmaxqwecceso.supabase.co";
 window.SUPABASE_ANON_KEY = "sb_publishable_3tk0vmHcqmrWAqCvUWCNzw_TfdcS9wb";
+// Cloudflare Turnstile site key；secret key 只設定在 Supabase Dashboard，不放入前端。
+window.SUPABASE_CAPTCHA_SITE_KEY = "0x4AAAAAAFD4dh4AzYaFkUwP";
