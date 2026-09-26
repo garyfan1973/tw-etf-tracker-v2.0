@@ -49,9 +49,12 @@ import { createClient } from "https://cdn.jsdelivr.net/npm/@supabase/supabase-js
     if (!sb || !state.user) return null;
     try {
       const { data: sessionData } = await sb.auth.getSession();
-      const response = await fetch("/api/membership-request", {
+      const response = await fetch("/api/chart-analysis-email", {
         method: "POST",
-        headers: { Authorization: "Bearer " + (sessionData.session?.access_token || "") },
+        headers: {
+          Authorization: "Bearer " + (sessionData.session?.access_token || ""),
+          "X-Membership-Review": "1",
+        },
       });
       if (!response.ok) console.warn("會員審核通知暫時無法寄送：", response.status);
       return await response.json();

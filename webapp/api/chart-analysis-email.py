@@ -150,6 +150,32 @@ def send_gmail(data):
         smtp.send_message(message)
 
 
+def send_membership_notification(user):
+    recipient = os.getenv("MEMBERSHIP_REVIEW_EMAIL", os.getenv("GMAIL_USER", "")).strip()
+    gmail_user = os.getenv("GMAIL_USER", "").strip()
+    app_password = os.getenv("GMAIL_APP_PASSWORD", "").replace(" ", "").strip()
+    from_name = os.getenv("GMAIL_FROM_NAME", "投資研究工作台").strip() or "投資研究工作台"
+    if not recipient or not gmail_user or not app_password:
+        raise RuntimeError("會員審核通知服務尚未完成設定")
+
+    email = EmailMessage()
+    email["Subject"] = "投資研究工作台：新會員申請審核"
+    email["From"] = formataddr((from_name, gmail_user))
+    email["To"] = recipient
+    email.set_content(
+        "有一位新會員完成註冊並等待人工審核。\n\n"
+        "Email：{email}\n"
+        "User ID：{user_id}\n\n"
+        "請在 Supabase SQL Editor 依 README 的會員開通範例設定 access_level：\n"
+        "general = 一般功能；full = 全功能（含 AI）。\n"
+        "審核完成後，請通知對方重新整理網站或重新登入。"
+        .format(email=user.get("email", ""), user_id=user.get("id", ""))
+    )
+    with smtplib.SMTP_SSL("smtp.gmail.com", 465, context=ssl.create_default_context(), timeout=20) as smtp:
+        smtp.login(gmail_user, app_password)
+        smtp.send_message(email)
+
+
 def public_api_error(error):
     detail = error.detail if isinstance(error, ApiError) else {}
     message = detail.get("message", "") if isinstance(detail, dict) else str(detail)
@@ -162,6 +188,8 @@ def public_api_error(error):
 
 class handler(BaseHTTPRequestHandler):
     def do_POST(self):
+        if self.headers.get("X-Membership-Review") == "1":
+            return self.handle_membership_review()
         token = bearer_token(self.headers.get("Authorization"))
         service_request = self.headers.get("X-Morning-Report") == "1"
         log_id = None
@@ -198,6 +226,29 @@ class handler(BaseHTTPRequestHandler):
             if log_id:
                 self.finish_error(token, log_id)
             self.send_json({"ok": False, "error": "Email 暫時無法寄出，請稍後再試"}, 500)
+
+    def handle_membership_review(self):
+        token = bearer_token(self.headers.get("Authorization"))
+        if not token:
+            return self.send_json({"ok": False, "error": "請先登入會員"}, 401)
+        try:
+            user = json_request(SUPABASE_URL + "/auth/v1/user", headers=supabase_headers(token))
+            review = call_rpc("request_membership_review", token, {}) or {}
+            if review.get("accessLevel") != "pending":
+                return self.send_json({"ok": True, "accessLevel": review.get("accessLevel")})
+            if not review.get("shouldNotify"):
+                return self.send_json({"ok": True, "pending": True, "notified": False})
+            send_membership_notification(user or {})
+            call_rpc("mark_membership_request_notified", token, {})
+            self.send_json({"ok": True, "pending": True, "notified": True})
+        except ApiError as error:
+            if error.status in (401, 403):
+                return self.send_json({"ok": False, "error": "登入狀態已失效，請重新登入"}, 401)
+            self.send_json({"ok": False, "error": "會員審核通知暫時無法送出"}, 502)
+        except RuntimeError as error:
+            self.send_json({"ok": False, "error": str(error)}, 503)
+        except Exception:
+            self.send_json({"ok": False, "error": "會員審核通知暫時無法送出"}, 500)
 
     def finish_error(self, token, log_id):
         try:
