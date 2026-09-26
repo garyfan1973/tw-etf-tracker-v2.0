@@ -2,7 +2,7 @@
 (function () {
   const KEY = "etf-theme";
   const PALETTE_KEY = "etf-palette";
-  const PALETTES = ["mist", "sage", "lilac", "sand", "rose"];
+  const PALETTES = ["mist", "sage", "lilac", "sand", "rose", "slate", "olive", "apricot", "cocoa"];
   const root = document.documentElement;
 
   function system() {

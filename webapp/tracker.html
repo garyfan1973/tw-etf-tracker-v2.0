@@ -614,10 +614,18 @@
     :root[data-palette="lilac"] { --bg:#f1eff2; --card:#fcfafc; --text:#4d4a51; --muted:#89838b; --border:#ddd8df; --accent:#9a91a5; --detail:#ece8ef; --chip:#eeeaf0; --up:#ad7d82; --down:#819887; --new:#929bae; --chip-big:#a995a5; --chip-small:#9eaa9e; --chip-price:#9a91a5; }
     :root[data-palette="sand"] { --bg:#f3f0eb; --card:#fcfaf6; --text:#514b45; --muted:#8d857d; --border:#ded8d0; --accent:#b19a84; --detail:#eee9e2; --chip:#f0ebe5; --up:#ad7d78; --down:#829584; --new:#9ba5ab; --chip-big:#ad9187; --chip-small:#99a08f; --chip-price:#b19a84; }
     :root[data-palette="rose"] { --bg:#f3eeed; --card:#fcf9f8; --text:#554346; --muted:#978384; --border:#e3d6d8; --accent:#b65c6c; --detail:#f0e2e4; --chip:#f1e5e6; --up:#b45a63; --down:#829487; --new:#9a8087; --chip-big:#b77278; --chip-small:#a18d8f; --chip-price:#b65c6c; }
+    :root[data-palette="slate"] { --bg:#eef1f4; --card:#fbfcfd; --text:#46515b; --muted:#7f8a94; --border:#d6dde3; --accent:#8296a7; --detail:#e5ebef; --chip:#e8eef2; --up:#a8787e; --down:#7f988e; --new:#829bab; --chip-big:#9d8c90; --chip-small:#8ba39c; --chip-price:#8296a7; }
+    :root[data-palette="olive"] { --bg:#eff0e7; --card:#fbfbf4; --text:#505245; --muted:#858a76; --border:#dadccf; --accent:#969b75; --detail:#e9eadc; --chip:#eaecdf; --up:#a87878; --down:#7c927e; --new:#8d9e9a; --chip-big:#ab9685; --chip-small:#98a78c; --chip-price:#969b75; }
+    :root[data-palette="apricot"] { --bg:#f3eee9; --card:#fcfaf7; --text:#574b45; --muted:#91847a; --border:#e2d8d0; --accent:#bd957c; --detail:#f0e5dc; --chip:#f1e7de; --up:#b26f6b; --down:#829183; --new:#9ba3a7; --chip-big:#b38f84; --chip-small:#9aa28d; --chip-price:#bd957c; }
+    :root[data-palette="cocoa"] { --bg:#f1edeb; --card:#fcfaf8; --text:#514846; --muted:#8f8280; --border:#ded5d2; --accent:#9e7d77; --detail:#eee3e0; --chip:#f0e7e4; --up:#aa7477; --down:#7f9485; --new:#9aa4a9; --chip-big:#ae8e86; --chip-small:#99a49a; --chip-price:#9e7d77; }
     :root[data-theme="dark"][data-palette="sage"] { --bg:#232725; --card:#2d3230; --text:#e5e8e2; --muted:#a8aea7; --border:#454c48; --accent:#a5b8a8; --detail:#38403b; --chip:#3a423d; --chip-big:#c1a09d; --chip-small:#a9c0ad; --chip-price:#a5b8a8; }
     :root[data-theme="dark"][data-palette="lilac"] { --bg:#252427; --card:#302e32; --text:#e8e3e9; --muted:#b0a9b2; --border:#48434a; --accent:#b9adbf; --detail:#3d3940; --chip:#403b42; --chip-big:#c0a7b5; --chip-small:#aab9ad; --chip-price:#b9adbf; }
     :root[data-theme="dark"][data-palette="sand"] { --bg:#282624; --card:#34302c; --text:#ede6df; --muted:#b5aaa0; --border:#4b443d; --accent:#c6ae95; --detail:#423c35; --chip:#463f38; --chip-big:#c6a19a; --chip-small:#afbaa4; --chip-price:#c6ae95; }
     :root[data-theme="dark"][data-palette="rose"] { --bg:#2a2426; --card:#362d30; --text:#f0e7e7; --muted:#b9a6aa; --border:#514146; --accent:#d36b7c; --detail:#45363a; --chip:#49383d; --chip-big:#d78b8f; --chip-small:#bba4a8; --chip-price:#d36b7c; }
+    :root[data-theme="dark"][data-palette="slate"] { --bg:#23282d; --card:#2d343a; --text:#e6ebef; --muted:#a8b3bb; --border:#46505a; --accent:#a6b7c4; --detail:#39434b; --chip:#3b464e; --chip-big:#c2a6a9; --chip-small:#a9c0b7; --chip-price:#a6b7c4; }
+    :root[data-theme="dark"][data-palette="olive"] { --bg:#272924; --card:#32352b; --text:#e6e8db; --muted:#b1b69f; --border:#4c5142; --accent:#b1b78f; --detail:#3e4335; --chip:#424835; --chip-big:#c3a79c; --chip-small:#b0c0a4; --chip-price:#b1b78f; }
+    :root[data-theme="dark"][data-palette="apricot"] { --bg:#2b2724; --card:#37312d; --text:#f0e7df; --muted:#b9aba0; --border:#514842; --accent:#d0a98e; --detail:#463d36; --chip:#4a4038; --chip-big:#d3aaa0; --chip-small:#b5bea6; --chip-price:#d0a98e; }
+    :root[data-theme="dark"][data-palette="cocoa"] { --bg:#292526; --card:#352e2d; --text:#eee6e2; --muted:#b7a7a2; --border:#4d4341; --accent:#bd9991; --detail:#443937; --chip:#493d3b; --chip-big:#d0aaa0; --chip-small:#afbbad; --chip-price:#bd9991; }
     .palette-picker { position:relative; margin-left:8px; color:var(--text); }
     .palette-picker summary { list-style:none; padding:6px 10px; border:1px solid var(--border); border-radius:8px; background:var(--card); color:var(--muted); cursor:pointer; font-size:12px; }
     .palette-picker summary::-webkit-details-marker { display:none; }
@@ -630,6 +638,10 @@
     .palette-menu button[data-palette="lilac"] i { background:#aa9fb1; box-shadow:inset 4px 0 #ddd2d8; }
     .palette-menu button[data-palette="sand"] i { background:#b8a087; box-shadow:inset 4px 0 #e1d4c3; }
     .palette-menu button[data-palette="rose"] i { background:#db4055; box-shadow:inset 7px 0 #ab142a; }
+    .palette-menu button[data-palette="slate"] i { background:#91a5b4; box-shadow:inset 7px 0 #d0d8de; }
+    .palette-menu button[data-palette="olive"] i { background:#9aa07a; box-shadow:inset 7px 0 #d6d9c8; }
+    .palette-menu button[data-palette="apricot"] i { background:#c59b83; box-shadow:inset 7px 0 #e4d4c7; }
+    .palette-menu button[data-palette="cocoa"] i { background:#a3827b; box-shadow:inset 7px 0 #d8c9c3; }
     .market-asset-controls { margin:16px 0 8px; padding:10px 12px; border-radius:12px; background:color-mix(in srgb,var(--accent) 5%,var(--card)); border-color:color-mix(in srgb,var(--accent) 24%,var(--border)); }
     .market-asset-controls + .view-switch { margin-top:8px; }
     #marketViewSwitch { padding:4px; gap:4px; border:1px solid var(--border); border-radius:12px; background:var(--card); }
@@ -737,6 +749,10 @@
           <button type="button" data-palette="lilac"><i></i>藕紫</button>
           <button type="button" data-palette="sand"><i></i>暖沙</button>
           <button type="button" data-palette="rose"><i></i>莓紅</button>
+          <button type="button" data-palette="slate"><i></i>灰藍</button>
+          <button type="button" data-palette="olive"><i></i>橄欖</button>
+          <button type="button" data-palette="apricot"><i></i>杏茶</button>
+          <button type="button" data-palette="cocoa"><i></i>可可</button>
         </div>
       </details>
       <button id="themeToggle" class="theme-toggle" style="margin-left:8px;" aria-label="切換主題">🌙</button>
