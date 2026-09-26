@@ -8,7 +8,7 @@ import { createClient } from "https://cdn.jsdelivr.net/npm/@supabase/supabase-js
   const configured = !!(URL_ && KEY_ && !/YOUR_/.test(URL_) && !/YOUR_/.test(KEY_));
   const sb = configured ? createClient(URL_, KEY_) : null;
 
-  const state = { user: null, watch: new Set(), memberAccess: null, chartAnalysisAccess: null };
+  const state = { user: null, watch: new Set(), memberAccess: null, chartAnalysisAccess: null, sessionReady: false, memberAccessReady: false };
   let memberAccessGeneration = 0;
   let chartAccessGeneration = 0;
 
@@ -26,6 +26,7 @@ import { createClient } from "https://cdn.jsdelivr.net/npm/@supabase/supabase-js
     client: () => sb,
     user: () => state.user,
     memberAccess: () => state.memberAccess,
+    isMembershipReady: () => state.sessionReady && (!state.user || state.memberAccessReady),
     canUseSite: () => ["general", "full"].includes(state.memberAccess?.accessLevel),
     canUseAI: () => state.memberAccess?.accessLevel === "full",
     chartAnalysisAccess: () => state.chartAnalysisAccess,
@@ -68,6 +69,13 @@ import { createClient } from "https://cdn.jsdelivr.net/npm/@supabase/supabase-js
     const generation = ++memberAccessGeneration;
     const requestUserId = state.user?.id || null;
     state.memberAccess = null;
+    state.memberAccessReady = false;
+    if (!state.user) {
+      state.memberAccessReady = true;
+      renderChartAnalysisNav();
+      emitAuth();
+      return state.memberAccess;
+    }
     if (sb && state.user) {
       const { data, error } = await sb.rpc("get_member_access");
       if (generation !== memberAccessGeneration || state.user?.id !== requestUserId) return state.memberAccess;
@@ -76,6 +84,7 @@ import { createClient } from "https://cdn.jsdelivr.net/npm/@supabase/supabase-js
         if (data.accessLevel === "pending") requestMembershipReview();
       } else if (error) console.warn("讀取會員審核狀態失敗：", error.message);
     }
+    state.memberAccessReady = true;
     renderChartAnalysisNav();
     emitAuth();
     return state.memberAccess;
@@ -447,6 +456,8 @@ import { createClient } from "https://cdn.jsdelivr.net/npm/@supabase/supabase-js
     if (!sb) return;
     sb.auth.getSession().then(({ data }) => {
       state.user = data.session ? data.session.user : null;
+      state.sessionReady = true;
+      state.memberAccessReady = !state.user;
       renderAll();
       loadWatch();
       loadMemberAccess();
@@ -454,6 +465,8 @@ import { createClient } from "https://cdn.jsdelivr.net/npm/@supabase/supabase-js
     });
     sb.auth.onAuthStateChange((_event, session) => {
       state.user = session ? session.user : null;
+      state.sessionReady = true;
+      state.memberAccessReady = !state.user;
       renderAll();
       loadWatch();
       loadMemberAccess();

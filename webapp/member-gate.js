@@ -43,6 +43,10 @@
   function render() {
     const auth = window.ETFAuth;
     if (!auth || !auth.isConfigured()) return;
+    if (auth.isMembershipReady && !auth.isMembershipReady()) {
+      hide();
+      return;
+    }
     const user = auth.user();
     const access = auth.memberAccess();
     if (!user) {
@@ -76,7 +80,7 @@
       if (window.ETFAuth || hasAuthTag) return;
       const script = document.createElement("script");
       script.type = "module";
-      script.src = "auth.js?v=20260926-member-access";
+      script.src = "auth.js?v=20260926-member-access2";
       document.body.appendChild(script);
     };
     if (!window.SUPABASE_URL && !hasConfigTag) {
