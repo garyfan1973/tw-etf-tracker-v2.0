@@ -77,13 +77,14 @@
   }
   function fillEtfs() {
     const select = $("etfSelect"); select.innerHTML = etfCodes().map(code => `<option value="${esc(code)}">${esc(code)} ${esc(data.etfs[code].name)}</option>`).join("");
-    select.value = select.querySelector('option[value="0050"]') ? "0050" : select.options[0]?.value || "";
+    // 市場研究頁使用上方的通用搜尋器，不能因為隱藏的 ETF 選單而自動查詢 0050。
+    select.value = universalPicker ? "" : (select.querySelector('option[value="0050"]') ? "0050" : select.options[0]?.value || "");
   }
   function fillSecurities() {
     const code = $("etfSelect").value, etf = data.etfs[code], select = $("securitySelect");
     const options = [`<option value="__ETF__">${esc(code)}（ETF 本身）</option>`].concat(holdingsFor(code).map(([c, n]) => `<option value="${esc(c)}">${esc(c)} ${esc(n)}</option>`));
     select.innerHTML = options.join("");
-    render();
+    if (!universalPicker || directAsset || code) render();
   }
   function rowsFor(code, security) {
     if (directAsset?.market === "TW") {
@@ -398,6 +399,10 @@
   async function renderNews(code, security, name) {
     const box = $("newsPanel"); if (!box) return;
     const info = securityInfo(code, security), market = info.market, symbol = info.symbol;
+    if (!symbol) {
+      box.innerHTML = '<div class="news-empty">請先在上方搜尋並選擇標的，再查詢相關消息。</div>';
+      return;
+    }
     const requestKey = `${symbol}|${name}|${market}`; box.dataset.requestKey = requestKey;
     box.innerHTML = `<div class="news-heading"><div><h3>最新消息</h3></div><span class="news-status">載入中…</span></div><div class="news-loading">正在查詢 ${esc(name || symbol)} 的相關消息…</div>`;
     try {
@@ -716,6 +721,15 @@
   async function render() {
     const code = directAsset?.symbol || $("etfSelect")?.value || "", security = directAsset ? "__DIRECT__" : $("securitySelect")?.value || "__ETF__";
     const snapshotRows = rowsFor(code, security), info = securityInfo(code, security), key = `${info.market}|${info.symbol}`;
+    if (!info.symbol) {
+      currentRows = []; candlePoints = []; renderRequestKey = "";
+      if ($("chartTitle")) $("chartTitle").textContent = "等待選擇標的";
+      if ($("chartQuote")) $("chartQuote").innerHTML = "";
+      if ($("status")) $("status").textContent = "請先輸入代號或名稱，再查詢技術面。";
+      if ($("chartBox")) $("chartBox").innerHTML = '<div class="empty">請先在上方搜尋並選擇標的，再載入技術面。</div>';
+      if ($("newsPanel")) $("newsPanel").innerHTML = '<div class="news-empty">請先在上方搜尋並選擇標的，再查詢相關消息。</div>';
+      return;
+    }
     renderRequestKey = key; currentRows = snapshotRows; candlePoints = [];
     const name = info.name;
     $("chartTitle").textContent = `${name} ${info.symbol}`;
@@ -1055,7 +1069,7 @@
     document.dispatchEvent(new CustomEvent("marketchart:assetchange", { detail:{ asset:{ ...directAsset } } }));
     if (updateUrl) {
       const url = new URL(location.href), currentView = url.searchParams.get("view");
-      if (!["overview", "kline", "institutional"].includes(currentView)) url.searchParams.set("view", "kline");
+      if (!["overview", "kline", "institutional", "message"].includes(currentView)) url.searchParams.set("view", "kline");
       url.searchParams.set("market", directAsset.market); url.searchParams.set("symbol", directAsset.symbol); history.replaceState(null, "", url);
     }
     render();

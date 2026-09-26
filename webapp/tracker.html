@@ -777,7 +777,7 @@
     <div id="marketAssetControls" class="kline-controls market-asset-controls" style="display:none;">
       <label class="asset-picker">搜尋標的<input id="assetSearch" type="search" autocomplete="off" placeholder="輸入代號或名稱，例如 2330、AAPL、VOO"><div id="assetResults" class="asset-results" role="listbox"></div></label>
       <a id="strategyLauncher" class="strategy-launcher" href="#" target="_blank" rel="noopener noreferrer" hidden>✦ 投資策略建議 ↗</a>
-      <span id="assetSelectedMeta" class="asset-selected-meta">台股・台灣 ETF・美股・美國 ETF</span>
+      <span id="assetSelectedMeta" class="asset-selected-meta">請先輸入代號或名稱，再查詢各面向資料</span>
     </div>
     <div id="marketViewSwitch" class="view-switch" role="tablist" aria-label="市場研究檢視方式" style="display:none;">
       <button id="marketOverviewViewBtn" type="button" role="tab" aria-selected="false">基本面</button>
@@ -1278,7 +1278,10 @@
         if (selectCurrentEtf) syncKlineEtf();
         if (mode === "overview") renderMarketOverview();
         if (mode === "institutional") renderMarketInstitutional();
-        if (mode === "message") window.MarketMessages?.renderVideos(document.getElementById("marketVideosPanel"));
+        if (mode === "message") {
+          window.MarketMessages?.renderVideos(document.getElementById("marketVideosPanel"));
+          if (!marketAsset) document.getElementById("newsPanel").innerHTML = '<div class="news-empty">請先在上方搜尋並選擇標的，再查詢相關消息。</div>';
+        }
       }
 
       function syncKlineEtf(updateUrl = true) {
@@ -1879,7 +1882,8 @@
       });
       document.addEventListener("marketchart:ready", () => {
         marketAsset = window.MarketChart?.currentAsset || marketAsset;
-        if (marketWorkspace && !new URLSearchParams(location.search).get("symbol")) syncKlineEtf();
+        // 市場研究頁必須先由通用搜尋器選擇標的，不使用隱藏 ETF 選單的預設值。
+        if (marketWorkspace && !new URLSearchParams(location.search).get("symbol") && !document.getElementById("assetSearch")) syncKlineEtf();
         if (!marketWorkspace && viewMode === "kline") syncEtfHoldingChart();
         if (marketWorkspace) setMarketView(marketViewMode);
       });
