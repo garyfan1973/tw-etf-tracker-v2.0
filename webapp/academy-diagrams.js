@@ -9,15 +9,16 @@
     context:{nodes:[90,104,95,110,102,115,109,120],labels:['辨認大方向','標出所在位置','再看區域性 K 棒','寫下尚缺的證據'],notes:['同樣的十字不會在所有位置有相同意義。','目前在前高、前低或區間中段？','影線與實體提供區域性資訊，不能取代背景。','用變體按鈕比較相同區域性形狀在不同走勢中。']},
     trend:{nodes:[80,100,90,115,103,129,117,140],labels:['第一組高低點','高點抬高 HH','低點抬高 HL','結構仍可能改變'],notes:['一個區域性低點需要後續 K 棒才能確認。','新高只是一部分，下一次回檔同樣重要。','回檔低點高於前低，支援上升結構。','切換失敗分支，觀察重要 HL 失守後如何更新。']},
     downtrend:{nodes:[140,120,132,108,119,95,108,82],labels:['先辨認下降背景','反彈未過前高 LH','再破前低 LL','反彈與反轉分開'],notes:['下降結構同時檢查高點與低點。','反彈幅度大，仍可能低於重要前高。','新低支援下降延續，不是因為 K 棒顏色。','若收復前高並守出更高低點，就需重新評估。']},
-    bottom:{nodes:[140,122,132,90,114,93,118,137],labels:['前下降與第一低點','中間反彈形成參考','第二次測底只是候選','突破中間高點再檢驗'],notes:['第一支腳之前，要有需要反轉的下降結構。','反彈高點提供候選頸線；此時還沒有第二支腳。','比較兩低點、量能與間隔，不要求完全等高。','站上頸線符合突破條件，仍不保證後續延續。'],points:[3,4,5],level:114},
-    secondleg:{nodes:[138,125,130,90,114,94,115,135],labels:['第一支腳','中間反彈高點','第二支腳的三種版本','頸線與失效分開看'],notes:['第一次低點只代表區域性止跌。','沒有中間反彈，就沒有清楚的雙低結構。','使用「第二腳高度」滑桿；較高、等高、較低後收回都需後續確認。','第二腳形成與頸線突破是兩個事件。'],points:[3,4,5],level:114},
-    neckline:{nodes:[140,126,130,90,116,94,122,139],labels:['取第一低點','取中間高點','標第二低點與頸線','量度是投射，不是承諾'],notes:['W 底先確認前趨勢與第一低點。','水平頸線以兩低間的反彈高點作參考。','尚在頸線下方，只能稱底部候選。','高度＝頸線減底部；向上投射只是粗略參考，仍看實際阻力。'],points:[3,4,5],level:116},
-    hsb:{nodes:[145,126,106,124,88,122,105,133,147],labels:['前下降與左肩','頭部更深','右肩與傾斜頸線','突破才是新增證據'],notes:['左肩只是下降中的區域性低點。','中間低點比兩側深，形成頭部候選。','連線頭部兩側的反彈高點；頸線不一定水平。','右肩確認不等於頸線突破；失敗分支會再度破壞底部。'],points:[2,4,6],level:123},
-    failedbottom:{nodes:[140,120,130,90,114,93,121,109,88],labels:['雙低結構','中間高點為頸線','一度站上頸線','收回與破底推翻假設'],notes:['先按一致規則辨認候選。','先畫線再看結果，不事後移動頸線。','這一天只能記突破，不知道之後是否失敗。','收回頸線先削弱突破，破底再破壞原底部結構。'],points:[3,4,5],level:114},
-    top:{nodes:[80,105,96,130,108,128,103,86],labels:['前上升與第一高點','中間回落形成支撐','第二高點是候選','跌破中間低點才確認'],notes:['沒有先前上升，就不能直接稱經典頂部反轉。','頸線參考兩高之間的回落低點。','未跌破前也可能只是高檔整理。','若反向越過雙高，需轉向評估延續。'],points:[3,4,5],level:108},
-    hst:{nodes:[80,98,120,103,140,105,121,96,80],labels:['前上升與左肩','頭部創高','右肩較低','跌破兩谷連成頸線'],notes:['左肩之前先有上升背景。','頭部創高，但後續推進需要持續檢驗。','連線頭部兩側回落低點；不是連左右肩。','跌破確認後還要看反抽；重新站回則降低原假設。'],points:[2,4,6],level:104},
+    bottom:{nodes:[140,122,132,90,114,93,118,137],labels:['前下降與第一低點','中間反彈形成參考','第二次測底只是候選','突破中間高點再檢驗'],notes:['第一支腳之前，要有需要反轉的下降結構。','反彈高點提供候選頸線；此時還沒有第二支腳。','比較兩低點、量能與間隔，不要求完全等高。','站上頸線符合突破條件，仍不保證後續延續。'],points:[3,4,5],pointLabels:['第一腳','中間高','第二腳'],level:114},
+    secondleg:{nodes:[138,125,130,90,114,94,115,135],labels:['第一支腳','中間反彈高點','第二支腳的三種版本','頸線與失效分開看'],notes:['第一次低點只代表區域性止跌。','沒有中間反彈，就沒有清楚的雙低結構。','使用「第二腳高度」滑桿；較高、等高、較低後收回都需後續確認。','第二腳形成與頸線突破是兩個事件。'],points:[3,4,5],pointLabels:['第一腳','中間高','第二腳'],level:114},
+    neckline:{nodes:[140,126,130,90,116,94,122,139],labels:['取第一低點','取中間高點','標第二低點與頸線','量度是投射，不是承諾'],notes:['W 底先確認前趨勢與第一低點。','水平頸線以兩低間的反彈高點作參考。','尚在頸線下方，只能稱底部候選。','高度＝頸線減底部；向上投射只是粗略參考，仍看實際阻力。'],points:[3,4,5],pointLabels:['第一低','中間高','第二低'],level:116},
+    hsb:{nodes:[145,126,106,124,88,122,105,133,147],labels:['前下降與左肩','頭部更深','右肩與傾斜頸線','突破才是新增證據'],notes:['左肩只是下降中的區域性低點。','中間低點比兩側深，形成頭部候選。','連線頭部兩側的反彈高點；頸線不一定水平。','右肩確認不等於頸線突破；失敗分支會再度破壞底部。'],points:[2,4,6],pointLabels:['左肩','頭','右肩'],level:123},
+    failedbottom:{nodes:[140,120,130,90,114,93,121,109,88],labels:['雙低結構','中間高點為頸線','一度站上頸線','收回與破底推翻假設'],notes:['先按一致規則辨認候選。','先畫線再看結果，不事後移動頸線。','這一天只能記突破，不知道之後是否失敗。','收回頸線先削弱突破，破底再破壞原底部結構。'],points:[3,4,5],pointLabels:['第一腳','中間高','第二腳'],level:114},
+    top:{nodes:[80,105,96,130,108,128,103,86],labels:['前上升與第一高點','中間回落形成支撐','第二高點是候選','跌破中間低點才確認'],notes:['沒有先前上升，就不能直接稱經典頂部反轉。','頸線參考兩高之間的回落低點。','未跌破前也可能只是高檔整理。','若反向越過雙高，需轉向評估延續。'],points:[3,4,5],pointLabels:['第一高','中間低','第二高'],level:108},
+    hst:{nodes:[80,98,120,103,140,105,121,96,80],labels:['前上升與左肩','頭部創高','右肩較低','跌破兩谷連成頸線'],notes:['左肩之前先有上升背景。','頭部創高，但後續推進需要持續檢驗。','連線頭部兩側回落低點；不是連左右肩。','跌破確認後還要看反抽；重新站回則降低原假設。'],points:[2,4,6],pointLabels:['左肩','頭','右肩'],level:104},
     roundtop:{nodes:[80,99,116,128,134,133,123,105,90],labels:['前段加速','推進逐漸變慢','高位反覆測試','支撐破位才轉弱'],notes:['圓弧是較長尺度的變化，不能只畫弧線命名。','上漲斜率減慢還不是空頭。','多次碰壓力可能被壓制，也可能逐步消耗供給。','配合回落低點與反抽行為，不以測試次數保證方向。']},
-    failedtop:{nodes:[80,98,120,104,140,105,121,101,145],labels:['上升後三峰','頸線待檢驗','一度轉弱','收復後否定原頭部'],notes:['候選頭部不代表已完成。','固定頸線及右肩，列出否證位置。','跌破後若缺乏延續，要追蹤收復。','重新越過頭部並保持，不能繼續說必然下跌。'],points:[2,4,6],level:104},
+    failedtop:{nodes:[80,98,120,104,140,105,121,101,145],labels:['上升後三峰','頸線待檢驗','一度轉弱','收復後否定原頭部'],notes:['候選頭部不代表已完成。','固定頸線及右肩，列出否證位置。','跌破後若缺乏延續，要追蹤收復。','重新越過頭部並保持，不能繼續說必然下跌。'],points:[2,4,6],pointLabels:['左肩','頭','右肩'],level:104},
+    support:{nodes:[118,101,114,99,116,97,111,124],labels:['找第一次價格反應','第二次反應形成區帶','分開收盤與影線','區帶外保持才改判'],notes:['第一次反彈只能提供候選位置。','第二次在相近區域收回，才增加支撐參考。','收盤密集區可作核心，影線極值作容忍範圍。','若價格持續收在區帶外並形成新結構，原支撐需要重評。'],level:100},
     range:{nodes:[100,120,101,119,102,120,104,118],labels:['上緣反應','下緣反應','區間反覆交易','方向需等待脫離'],notes:['標出多次獨立高點附近的區帶。','低點附近同樣需要反應證據。','中段到上下邊界空間相近，方向往往不清楚。','分別制定上破、下破與繼續整理三個條件。'],level:120},
     triangle:{nodes:[94,136,100,129,107,123,112,118,139],labels:['波段逐步收斂','高點下降','低點抬升','突破方向尚非保證'],notes:['兩個邊界需要多個獨立波段支援。','上方反彈高度降低。','下方回撤深度也縮小，並不保證向上。','在變體切換反向突破，檢查你是否仍因名稱而固執。']},
     flag:{nodes:[75,110,143,134,139,128,133,126,151],labels:['先有旗桿推進','較短整理','整理邊界','脫離後仍需延續'],notes:['沒有清楚的前推進，就不要硬命名旗形。','回撤深度與持續時間要相對旗桿比較。','用上、下邊界定義候選區。','投射旗桿高度是參考，不代表必然到價。']},
@@ -29,6 +30,7 @@
     breakdown:{nodes:[135,116,130,115,126,104,115,91],labels:['原支撐','收盤跌破','反抽原支撐','受阻或收復要分清'],notes:['原支撐是後續參考，不任意挪線。','跌破是事件，不保證繼續下跌。','反彈回原區帶，檢驗是否轉為壓力。','若能站回並守住，需改評估假跌破。'],level:115},
     gap:{nodes:[90,101,97,112,105,125,96,90],labels:['隔夜前的價格','跳空改變可成交價','原停損不保證成交','檢查事件與成本'],notes:['收盤後的新訊息可能改變下一個開盤。','缺口內不一定有任何成交。','停損價格不等於保證成交價格。','日線同日碰到停損與目標時，順序可能未知。']},
     volume:{nodes:[90,102,95,108,101,122,113,130],labels:['比較同標的過去量','量比不含當日分母','搭配價格推進','爆量也可能失敗'],notes:['先確認成交量單位一致、不是缺值。','當日量除以前 20 日平均量。','成交很多，但價格收在哪裡才是方向證據。','放量不證明特定人買進；失敗分支示範量大但收回。']},
+    climax:{nodes:[90,103,96,112,104,126,124,118],labels:['先找相對極端量','框出爆量日高低','觀察推進是否停住','後續離開方向才是證據'],notes:['極端量必須相對同標的歷史比較。','把事件日最高與最低固定為觀察區。','量大但收盤未推進，稱滯漲候選而非確定頭部。','站上事件高點或跌破事件低點，才提供後續方向資訊。'],level:124},
     pullback:{nodes:[80,108,98,123,114,135,125,146],labels:['推進段','回檔段','結構是否守住','是否恢復上攻'],notes:['先看價格是否有明顯推進。','量縮只能說參與減少，不能保證賣壓結束。','回檔仍守在重要低點上才有較完整脈絡。','持續破低不能因為量小就稱健康回檔。']},
     volatility:{nodes:[100,104,101,106,99,120,92,130],labels:['較窄波動','波動尺度改變','TR 納入跳空','ATR 只描述波動'],notes:['相同價差在不同階段有不同意義。','高低幅與相對前收距離共同形成 TR。','ATR14 採 Wilder 平滑，需要暖機。','波動增加不保證方向，部位也需要相應調整。']},
     compression:{nodes:[85,140,96,132,106,124,112,117,139],labels:['原先較寬區間','高低幅縮小','波動收斂','擴張可向兩邊'],notes:['用前段範圍提供尺度。','不要只看一兩根小 K 棒。','量能與 ATR 可輔助確認變窄。','先寫雙向劇本，再看實際離開的方向。']},
@@ -37,7 +39,7 @@
     ma:{nodes:[80,102,92,116,106,132,123,140],labels:['價格先發生','均線平均過去','斜率與排列','交叉不是未來保證'],notes:['均線來自價格，不是新的獨立資料。','MA20、MA60有不同視窗與延遲。','價格趨勢與均線可以互相核對。','整理期容易反覆交叉，需先辨識環境。']},
     rsi:{nodes:[80,108,100,130,125,150,145,166],labels:['動能逐步增加','RSI 進入高區','高區可能鈍化','反轉仍需價格確認'],notes:['RSI14衡量近期漲跌動能。','固定門檻只是參考，不等於買賣指令。','強趨勢可以長期維持超買。','觀察價格何時破壞結構，再評估指標降溫。']},
     divergence:{nodes:[80,112,96,126,113,132,118,108],labels:['第一個價格高點','對齊相同日期的動能','價格與動能分歧','等待價格結構確認'],notes:['比較同尺度而不是任意兩根。','下方 RSI 與上方價格要用同一日期。','背離提示推進改變，並不保證反轉。','失效條件與價格破位比持續猜頂更重要。']},
-    scale:{nodes:[12,20,16,35,28,63,48,105],labels:['相同價差','比例其實不同','切換對數座標','尺度會影響斜線'],notes:['10 到 20 與 100 到 110 都差 10。','前者翻倍、後者僅增加一成。','對數軸等距對應相同比例。','長期比較時明確註明尺度，水平價位本身不變。']},
+    scale:{nodes:[10,20,15,25,100,110,105,115],labels:['相同價差','比例其實不同','切換對數座標','尺度會影響斜線'],notes:['10 到 20 與 100 到 110 都差 10。','前者翻倍、後者僅增加一成。','對數軸等距對應相同比例。','長期比較時明確註明尺度，水平價位本身不變。'],staticStages:true},
     adjust:{nodes:[90,103,98,116,108,130,121,145],labels:['先辨識價格單位','核對公司行動','整組 OHLC 一致調整','價格與含息報酬分開'],notes:['分割後每股單位可能改變。','異常斷點先核對來源與事件。','不能只調收盤，卻留下未調高低價。','示意圖不對應真實除權息事件；歷史圖示明來源口徑。']},
     relative:{nodes:[100,108,103,117,112,126,120,131],labels:['取共同起點','比較同一期間','絕對漲不等於領先','結合市場環境'],notes:['基準與標的都從同一共同交易日起算。','不同市場休市不同，先對齊日期。','上漲 3% 對照基準 8% 屬相對落後。','跨幣別要說明有無計入匯率。']},
     risk:{nodes:[90,105,98,116,108,126,113,137],labels:['背景與關鍵位','事前觸發條件','失效與部位','結果與過程分開'],notes:['先看價格在測試什麼。','用如果／則寫出可驗證的進場。','在下方計算器調整停損距離與股數。','最終上漲不代表途中沒有觸發停損；檢查整條路徑。']},
@@ -45,7 +47,7 @@
   };
   specs.trendline={...specs.trend,labels:['選同尺度低點','連線兩個錨點','第三次反應檢驗','跌破斜線再看結構']};
   specs.channel={...specs.trend,labels:['主趨勢線','平行通道','碰上緣不必然反轉','加速或回歸需確認']};
-  function build(type,stage=3,variant='base',leg=94){
+  function build(type,stage=3,variant='base',leg=94,lessonId=''){
     const spec=specs[type]||specs.trend,nodes=[...spec.nodes];
     if(type==='secondleg')nodes[5]=Number(leg);
     if(variant==='fail'){const last=nodes.length-1;nodes[last]=Math.max(nodes[0]*.5,nodes[0]+(nodes[0]-nodes[last])*.3);}
@@ -59,10 +61,20 @@
       const d=new Date(Date.UTC(2000,0,3+i));
       rows.push({date:d.toISOString().slice(0,10),open,high,low,close,volume:Math.round(1000+(i%7)*120+(i>=30?800:0)+(Math.cos(i)*300))});
     }
-    const cut=stage===3?rows.length:spec.points?Math.min(rows.length,spec.points[stage]*steps+4):Math.min(rows.length,Math.round(rows.length*[.40,.61,.80,1][stage]));
-    const points=(spec.points||[2,4,6]).map((n,i)=>({date:rows[Math.min(n*steps,rows.length-1)].date,price:nodes[n],label:String(i+1),knownDate:rows[Math.min(n*steps+3,rows.length-1)].date}));
-    if(spec.level){const isHead=['hsb','hst','failedtop'].includes(type);const a=isHead?3*steps:Math.min(4*steps,rows.length-1),b=cut-1;points.push({a:{date:rows[a].date,price:isHead?nodes[3]:spec.level},b:{date:rows[b].date,price:isHead?nodes[3]+(nodes[5]-nodes[3])*(b-a)/(2*steps):spec.level},label:isHead?'頸線：連接兩個反應點':'關鍵參考位',knownDate:rows[Math.min((isHead?5:4)*steps+3,rows.length-1)].date});}
-    return {rows:rows.slice(0,cut),annotations:points,spec,total:rows.length};
+    const cut=spec.staticStages||stage===3?rows.length:spec.points?Math.min(rows.length,spec.points[stage]*steps+4):Math.min(rows.length,Math.round(rows.length*[.40,.61,.80,1][stage]));
+    const annotations=(spec.points||[]).map((n,i)=>({date:rows[Math.min(n*steps,rows.length-1)].date,price:nodes[n],label:spec.pointLabels?.[i]||`轉折 ${i+1}`,knownDate:rows[Math.min(n*steps+3,rows.length-1)].date}));
+    if(spec.level){const isHead=['hsb','hst','failedtop'].includes(type);const a=isHead?3*steps:Math.min(4*steps,rows.length-1),b=cut-1;annotations.push({a:{date:rows[a].date,price:isHead?nodes[3]:spec.level},b:{date:rows[b].date,price:isHead?nodes[3]+(nodes[5]-nodes[3])*(b-a)/(2*steps):spec.level},label:isHead?'頸線：連接兩個反應點':'關鍵參考位',knownDate:rows[Math.min((isHead?5:4)*steps+3,rows.length-1)].date});}
+    if(type==='scale'){
+      const labels=stage===0?['低價區：+10','高價區：+10']:['10→20：+100%','100→110：+10%'];
+      for(const [i,[a,b]] of [[0,[0,1]],[1,[4,5]]])annotations.push({a:{date:rows[a*steps].date,price:nodes[a]},b:{date:rows[b*steps].date,price:nodes[b]},label:labels[i],knownDate:rows[b*steps].date});
+    }
+    if(lessonId==='lesson-01'){
+      annotations.length=0;const target=rows[cut-1],prev=rows[Math.max(0,cut-2)];
+      annotations.push({date:target.date,price:target.open,label:'開',knownDate:target.date},{date:target.date,price:target.close,label:'收',knownDate:target.date});
+      if(stage>=1)annotations.push({date:target.date,price:target.high,label:'高',knownDate:target.date},{date:target.date,price:target.low,label:'低',knownDate:target.date});
+      if(stage>=2)annotations.push({a:{date:prev.date,price:prev.close},b:{date:target.date,price:prev.close},label:'前一根收盤',knownDate:target.date});
+    }
+    return {rows:rows.slice(0,cut),annotations,spec,total:rows.length};
   }
   root.AcademyDiagrams={specs,build};if(typeof module!=='undefined')module.exports={specs,build};
 })(typeof window==='undefined'?globalThis:window);

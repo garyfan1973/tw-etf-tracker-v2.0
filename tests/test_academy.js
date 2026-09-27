@@ -1,16 +1,20 @@
 'use strict';
 const assert=require('node:assert/strict'),fs=require('node:fs'),path=require('node:path'),crypto=require('node:crypto');
-const C=require('../webapp/academy-content.js'),G=require('../webapp/academy-chart.js'),D=require('../webapp/academy-diagrams.js');
+const C=require('../webapp/academy-content.js'),B=require('../webapp/academy-beginner-content.js'),G=require('../webapp/academy-chart.js'),D=require('../webapp/academy-diagrams.js');
 assert.equal(C.lessons.length,60);assert.equal(C.modules.length,12);assert.equal(new Set(C.lessons.map(l=>l.id)).size,60);
+assert.equal(B.plans.length,60);assert.ok(D.specs.support);assert.ok(D.specs.climax);
 for(const m of C.modules)assert.equal(C.lessons.filter(l=>l.module===m.id).length,5);
 for(const l of C.lessons){
   for(const field of ['title','explain','method','confirm','invalid','practice'])assert.ok(l[field]?.length>4,`${l.id} ${field}`);
+  const beginner=B.forLesson(l.id);assert.equal(beginner.id,l.id);assert.equal(beginner.stepLabels.length,4);assert.ok(beginner.plain.length>20&&beginner.example.length>30&&beginner.observe.length>15);for(const term of beginner.terms)assert.ok(B.glossary[term]?.length>15,`${l.id} glossary ${term}`);
   assert.equal(l.quiz.wrong.length,2);assert.equal(new Set([l.quiz.answer,...l.quiz.wrong]).size,3);
   let count=0;for(let s=0;s<4;s++)for(const v of ['base','fail','range']){
-    const d=D.build(l.diagram,s,v);assert.ok(d.rows.length>=10);for(const r of d.rows)assert.ok(r.low<=Math.min(r.open,r.close)&&r.high>=Math.max(r.open,r.close)&&r.low>0);
+    const d=D.build(l.diagram,s,v,94,l.id);assert.ok(d.rows.length>=10);for(const r of d.rows)assert.ok(r.low<=Math.min(r.open,r.close)&&r.high>=Math.max(r.open,r.close)&&r.low>0);
     if(v==='base'){assert.ok(d.rows.length>=count);count=d.rows.length;}
   }
 }
+const scale=D.build('scale',2,'base',94,'lesson-05');assert.ok(scale.annotations.some(a=>a.label.includes('+100%'))&&scale.annotations.some(a=>a.label.includes('+10%')));
+const candle=D.build('candle',3,'base',94,'lesson-01');assert.deepEqual(candle.annotations.filter(a=>!a.a).map(a=>a.label),['開','收','高','低']);
 const sample=Array.from({length:80},(_,i)=>({date:new Date(Date.UTC(2020,0,1+i)).toISOString().slice(0,10),open:100+i,high:103+i,low:99+i,close:102+i,volume:1000+i}));
 const tech=G.indicators(sample);assert.equal(tech.ma20[18],null);assert.equal(tech.ma20[19],111.5);assert.equal(tech.rsi[14],100);assert.ok(Math.abs(tech.atr[14]-4)<1e-10);
 const flat=G.indicators(sample.map(r=>({...r,open:100,close:100,high:100,low:100})));assert.equal(flat.rsi[14],50);assert.equal(flat.atr[14],0);
