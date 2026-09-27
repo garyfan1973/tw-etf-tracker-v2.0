@@ -1,6 +1,6 @@
 {
   "date": "2026-09-24",
-  "fetched_at": "2026-09-27T23:30:59+08:00",
+  "fetched_at": "2026-09-28T05:20:45+08:00",
   "count": 49,
   "self": {
     "open": 15.55,
@@ -1502,6 +1502,16 @@
       }
     },
     {
+      "code": "",
+      "name": "台指選擇權 2026/10",
+      "market": "",
+      "assetType": "option",
+      "weight": 0.3,
+      "quantity": -71.0,
+      "unit": "口",
+      "amount": null
+    },
+    {
       "code": "6442",
       "name": "光聖",
       "market": "TW",
@@ -1539,16 +1549,6 @@
         "offsetting": 0,
         "date": "2026-09-24"
       }
-    },
-    {
-      "code": "",
-      "name": "台指選擇權 2026/10",
-      "market": "",
-      "assetType": "option",
-      "weight": 0.3,
-      "quantity": -71.0,
-      "unit": "口",
-      "amount": null
     },
     {
       "code": "2637",
