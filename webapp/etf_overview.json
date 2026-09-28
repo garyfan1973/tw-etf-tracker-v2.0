@@ -10,13 +10,8 @@
       "大型權值"
     ],
     "source": "TWSE ETF e添富",
-    "fetchedAt": "2026-09-28T23:33:03+08:00",
+    "fetchedAt": "2026-09-29T05:22:26+08:00",
     "navHistory": [
-      {
-        "date": "2026-08-14",
-        "nav": 30.42,
-        "premiumPct": -0.66
-      },
       {
         "date": "2026-08-17",
         "nav": 30.47,
@@ -172,17 +167,12 @@
     "fundSizeHundredMillion": 506.25,
     "beneficiaryTenThousands": 17.72,
     "tags": [
-      "中小型權值",
-      "大型權值"
+      "大型權值",
+      "中小型權值"
     ],
     "source": "TWSE ETF e添富",
-    "fetchedAt": "2026-09-28T23:33:04+08:00",
+    "fetchedAt": "2026-09-29T05:22:27+08:00",
     "navHistory": [
-      {
-        "date": "2026-08-14",
-        "nav": 23.34,
-        "premiumPct": -0.26
-      },
       {
         "date": "2026-08-17",
         "nav": 23.36,
@@ -341,13 +331,8 @@
       "科技主題型"
     ],
     "source": "TWSE ETF e添富",
-    "fetchedAt": "2026-09-28T23:33:04+08:00",
+    "fetchedAt": "2026-09-29T05:22:27+08:00",
     "navHistory": [
-      {
-        "date": "2026-08-14",
-        "nav": 16.69,
-        "premiumPct": -1.2
-      },
       {
         "date": "2026-08-17",
         "nav": 17.08,
@@ -501,13 +486,8 @@
       "科技主題型"
     ],
     "source": "TWSE ETF e添富",
-    "fetchedAt": "2026-09-28T23:33:04+08:00",
+    "fetchedAt": "2026-09-29T05:22:28+08:00",
     "navHistory": [
-      {
-        "date": "2026-08-14",
-        "nav": 18.02,
-        "premiumPct": -0.61
-      },
       {
         "date": "2026-08-17",
         "nav": 18.23,
@@ -666,13 +646,8 @@
       "高股息"
     ],
     "source": "TWSE ETF e添富",
-    "fetchedAt": "2026-09-28T23:33:05+08:00",
+    "fetchedAt": "2026-09-29T05:22:28+08:00",
     "navHistory": [
-      {
-        "date": "2026-08-14",
-        "nav": 14.9,
-        "premiumPct": -0.74
-      },
       {
         "date": "2026-08-17",
         "nav": 15.07,
@@ -831,13 +806,8 @@
       "大型權值"
     ],
     "source": "TWSE ETF e添富",
-    "fetchedAt": "2026-09-28T23:33:05+08:00",
+    "fetchedAt": "2026-09-29T05:22:29+08:00",
     "navHistory": [
-      {
-        "date": "2026-08-14",
-        "nav": 106.32,
-        "premiumPct": 0.08
-      },
       {
         "date": "2026-08-17",
         "nav": 106.33,
@@ -996,13 +966,8 @@
       "科技主題型"
     ],
     "source": "TWSE ETF e添富",
-    "fetchedAt": "2026-09-28T23:33:06+08:00",
+    "fetchedAt": "2026-09-29T05:22:29+08:00",
     "navHistory": [
-      {
-        "date": "2026-08-14",
-        "nav": 62.1,
-        "premiumPct": -0.24
-      },
       {
         "date": "2026-08-17",
         "nav": 62.09,
@@ -1161,13 +1126,8 @@
       "高股息"
     ],
     "source": "TWSE ETF e添富",
-    "fetchedAt": "2026-09-28T23:33:06+08:00",
+    "fetchedAt": "2026-09-29T05:22:29+08:00",
     "navHistory": [
-      {
-        "date": "2026-08-14",
-        "nav": 53.66,
-        "premiumPct": -0.48
-      },
       {
         "date": "2026-08-17",
         "nav": 53.06,
@@ -1323,17 +1283,12 @@
     "fundSizeHundredMillion": 6556.45,
     "beneficiaryTenThousands": 167.15,
     "tags": [
-      "公司治理及ESG",
-      "高股息"
+      "高股息",
+      "公司治理及ESG"
     ],
     "source": "TWSE ETF e添富",
-    "fetchedAt": "2026-09-28T23:33:07+08:00",
+    "fetchedAt": "2026-09-29T05:22:30+08:00",
     "navHistory": [
-      {
-        "date": "2026-08-14",
-        "nav": 33.85,
-        "premiumPct": 0.06
-      },
       {
         "date": "2026-08-17",
         "nav": 33.56,
@@ -1492,13 +1447,8 @@
       "科技主題型"
     ],
     "source": "TWSE ETF e添富",
-    "fetchedAt": "2026-09-28T23:33:07+08:00",
+    "fetchedAt": "2026-09-29T05:22:30+08:00",
     "navHistory": [
-      {
-        "date": "2026-08-14",
-        "nav": 54.59,
-        "premiumPct": 0.38
-      },
       {
         "date": "2026-08-17",
         "nav": 54.66,
@@ -1657,13 +1607,8 @@
       "高股息"
     ],
     "source": "TWSE ETF e添富",
-    "fetchedAt": "2026-09-28T23:33:09+08:00",
+    "fetchedAt": "2026-09-29T05:22:30+08:00",
     "navHistory": [
-      {
-        "date": "2026-08-14",
-        "nav": 30.76,
-        "premiumPct": -0.62
-      },
       {
         "date": "2026-08-17",
         "nav": 30.4,
@@ -1822,13 +1767,8 @@
       "大型權值"
     ],
     "source": "TWSE ETF e添富",
-    "fetchedAt": "2026-09-28T23:33:11+08:00",
+    "fetchedAt": "2026-09-29T05:22:31+08:00",
     "navHistory": [
-      {
-        "date": "2026-08-14",
-        "nav": 41.32,
-        "premiumPct": -0.12
-      },
       {
         "date": "2026-08-17",
         "nav": 41.23,
@@ -1988,13 +1928,8 @@
       "科技主題型"
     ],
     "source": "TWSE ETF e添富",
-    "fetchedAt": "2026-09-28T23:33:11+08:00",
+    "fetchedAt": "2026-09-29T05:22:31+08:00",
     "navHistory": [
-      {
-        "date": "2026-08-14",
-        "nav": 88.12,
-        "premiumPct": -0.48
-      },
       {
         "date": "2026-08-17",
         "nav": 89.07,
@@ -2148,13 +2083,8 @@
       "大型權值"
     ],
     "source": "TWSE ETF e添富",
-    "fetchedAt": "2026-09-28T23:33:11+08:00",
+    "fetchedAt": "2026-09-29T05:22:32+08:00",
     "navHistory": [
-      {
-        "date": "2026-08-14",
-        "nav": 243.58,
-        "premiumPct": -0.05
-      },
       {
         "date": "2026-08-17",
         "nav": 243.61,
@@ -2313,13 +2243,8 @@
       "大型權值"
     ],
     "source": "TWSE ETF e添富",
-    "fetchedAt": "2026-09-28T23:33:12+08:00",
+    "fetchedAt": "2026-09-29T05:22:32+08:00",
     "navHistory": [
-      {
-        "date": "2026-08-14",
-        "nav": 35.76,
-        "premiumPct": -0.2
-      },
       {
         "date": "2026-08-17",
         "nav": 35.85,
