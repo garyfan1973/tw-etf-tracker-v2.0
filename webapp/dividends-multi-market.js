@@ -7,8 +7,26 @@
   const today = `${todayObj.getFullYear()}-${pad(todayObj.getMonth()+1)}-${pad(todayObj.getDate())}`;
   let viewY=todayObj.getFullYear(), viewM=todayObj.getMonth(), selected=null;
   let holidays=[], assets=[], events=[], active=new Set(), holdings=new Set(), initialized=false;
+  const assetIndex=new Map();
 
-  const keyOf=(a)=>`${a.market}:${a.symbol}`;
+  // 資料來源可能回傳不同大小寫或帶有空白；先正規化再建立識別鍵，
+  // 才不會讓同一標的在內建資料與會員持股資料中各出現一次。
+  const normalizeMarket=(market)=>String(market||"tw").trim().toLowerCase()==="us"?"us":"tw";
+  const normalizeAssetType=(type)=>String(type||"etf").trim().toLowerCase()==="stock"?"stock":"etf";
+  const normalizeSymbol=(symbol)=>String(symbol||"").trim().toUpperCase();
+  const normalizeAsset=(asset)=>({...asset,market:normalizeMarket(asset.market),asset_type:normalizeAssetType(asset.asset_type),symbol:normalizeSymbol(asset.symbol)});
+  const keyOf=(a)=>`${normalizeMarket(a.market)}:${normalizeSymbol(a.symbol)}`;
+  function upsertAsset(raw) {
+    const asset=normalizeAsset(raw), key=keyOf(asset), existing=assetIndex.get(key);
+    if(existing){
+      // 會員交易資料有較完整名稱時補上，但保留內建 ETF 的既有名稱。
+      if((!existing.name||existing.name===existing.symbol)&&asset.name)existing.name=asset.name;
+      if(asset.exchange&&!existing.exchange)existing.exchange=asset.exchange;
+      if(asset.currency&&!existing.currency)existing.currency=asset.currency;
+      return existing;
+    }
+    assetIndex.set(key,asset); assets.push(asset); return asset;
+  }
   const marketText=(m)=>m==="us"?"美國":"台灣";
   const typeText=(t)=>t==="stock"?"股票":"ETF";
   const moneyMark=(c)=>c==="USD"?"US$":"NT$";
@@ -17,10 +35,11 @@
     try { const r=await fetch("holidays.json",{cache:"no-store"}); if(r.ok)holidays=await r.json(); } catch(_){ }
     const legacy=window.DATA&&window.DATA.etfs||{};
     Object.entries(legacy).forEach(([symbol,data])=>{
-      const asset={market:"tw",asset_type:"etf",symbol,name:data.name||symbol,currency:"TWD",source:"MoneyDJ"};
-      assets.push(asset); active.add(keyOf(asset));
+      const asset=upsertAsset({market:"tw",asset_type:"etf",symbol,name:data.name||symbol,currency:"TWD",source:"MoneyDJ"});
+      active.add(keyOf(asset));
       (data.dividends||[]).forEach((d)=>addDividend(asset,{exDate:d.ex,payDate:d.pay,amount:d.amount,yield:d.yield,source:"MoneyDJ"}));
     });
+    dedupeEvents();
     initialized=true; renderAll();
   }
 
@@ -37,27 +56,27 @@
     if(result.error)return;
     const unique=new Map(), balances=new Map();
     (result.data||[]).forEach((row)=>{
-      const market=row.market||"tw",symbol=String(row.symbol||row.etf_code||"").toUpperCase();
+      const market=normalizeMarket(row.market),symbol=normalizeSymbol(row.symbol||row.etf_code||"");
       if(!symbol)return;
-      const asset={market,symbol,asset_type:row.asset_type||"etf",name:row.asset_name||symbol,exchange:row.exchange||"",currency:row.currency||(market==="us"?"USD":"TWD")};
+      const asset=normalizeAsset({market,symbol,asset_type:row.asset_type,name:row.asset_name||symbol,exchange:row.exchange||"",currency:row.currency||(market==="us"?"USD":"TWD")});
       const key=keyOf(asset); unique.set(key,asset);
       balances.set(key,(balances.get(key)||0)+(row.side==="sell"?-1:1)*Number(row.shares||0));
     });
     holdings=new Set([...balances].filter(([,shares])=>shares>0.00000001).map(([key])=>key));
-    const legacyKeys=new Set(assets.map(keyOf));
     for(const asset of unique.values()){
-      if(!legacyKeys.has(keyOf(asset)))assets.push(asset);
-      if(holdings.has(keyOf(asset)))active.add(keyOf(asset));
+      const canonical=upsertAsset(asset), key=keyOf(canonical);
+      if(holdings.has(key))active.add(key);
       try{
-        const response=await fetch(`/api/dividends?market=${asset.market.toUpperCase()}&type=${asset.asset_type}&code=${encodeURIComponent(asset.symbol)}`,{cache:"no-store"});
+        const response=await fetch(`/api/dividends?market=${canonical.market.toUpperCase()}&type=${canonical.asset_type}&code=${encodeURIComponent(canonical.symbol)}`,{cache:"no-store"});
         const data=await response.json();
-        if(data.ok)(data.events||[]).forEach((d)=>addDividend(asset,d));
+        if(data.ok)(data.events||[]).forEach((d)=>addDividend(canonical,d));
       }catch(_){ }
     }
     dedupeEvents();renderAll();
   }
 
-  function dedupeEvents(){const map=new Map();events.forEach((e)=>map.set(`${e.key}:${e.type}:${e.date}:${e.amount}`,e));events=[...map.values()];}
+  // 同一標的同一日期同一事件只保留一筆；不同來源的金額格式不可造成重複列。
+  function dedupeEvents(){const map=new Map();events.forEach((e)=>map.set(`${e.key}:${e.type}:${e.date}`,e));events=[...map.values()];}
   function shownEvents(){return events.filter((e)=>active.has(e.key));}
 
   function renderChips(){const mine=$("onlyMineDiv").checked;$("chips").innerHTML=assets.filter((a)=>!mine||holdings.has(keyOf(a))).sort((a,b)=>a.market.localeCompare(b.market)||a.symbol.localeCompare(b.symbol)).map((a)=>`<span class="chip ${active.has(keyOf(a))?"on":""}" data-key="${esc(keyOf(a))}">${a.market==="us"?"🇺🇸":"🇹🇼"} ${esc(a.symbol)} ${esc(a.name)}</span>`).join("");$("chips").querySelectorAll("[data-key]").forEach((chip)=>chip.onclick=()=>{active.has(chip.dataset.key)?active.delete(chip.dataset.key):active.add(chip.dataset.key);renderChips();renderCalendar();renderUpcoming();});}
