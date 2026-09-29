@@ -1,6 +1,6 @@
 {
   "date": "2026-09-29",
-  "fetched_at": "2026-09-29T23:30:44+08:00",
+  "fetched_at": "2026-09-30T05:20:44+08:00",
   "count": 49,
   "self": {
     "open": 15.63,
@@ -1541,6 +1541,16 @@
       }
     },
     {
+      "code": "",
+      "name": "台指選擇權 2026/10",
+      "market": "",
+      "assetType": "option",
+      "weight": 0.28,
+      "quantity": -71.0,
+      "unit": "口",
+      "amount": null
+    },
+    {
       "code": "2637",
       "name": "慧洋-KY",
       "market": "TW",
@@ -1811,17 +1821,7 @@
       "name": "台指選擇權 2026/10",
       "market": "",
       "assetType": "option",
-      "weight": 0.0,
-      "quantity": -71.0,
-      "unit": "口",
-      "amount": null
-    },
-    {
-      "code": "",
-      "name": "台指選擇權 2026/10",
-      "market": "",
-      "assetType": "option",
-      "weight": 0.0,
+      "weight": 0.05,
       "quantity": -25.0,
       "unit": "口",
       "amount": null
