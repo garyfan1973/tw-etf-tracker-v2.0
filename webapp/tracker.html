@@ -105,6 +105,8 @@
     .kline-controls select { min-width:190px; }
     .asset-picker { position:relative; flex:1; min-width:300px; }
     .asset-picker input { width:100%; min-width:280px; }
+    .etf-search-picker { position:relative; flex:1; min-width:220px; }
+    .etf-search-picker input { width:100%; min-width:220px; }
     .asset-results { display:none; position:absolute; z-index:20; top:calc(100% + 5px); left:0; right:0; max-height:330px; overflow:auto; padding:5px; border:1px solid var(--border); border-radius:9px; background:var(--card); box-shadow:0 12px 30px rgba(0,0,0,.18); }
     .asset-results.open { display:block; }
     .asset-result { display:grid; grid-template-columns:75px minmax(0,1fr) auto; gap:8px; align-items:center; width:100%; padding:8px 9px; border:0; border-radius:7px; background:transparent; color:var(--text); text-align:left; cursor:pointer; }
@@ -761,10 +763,11 @@
     <div class="sub" id="sub">載入中…</div>
 
     <div id="etfControls" class="controls">
-      <div>
-        <label>ETF</label>
-        <select id="etf"></select>
-      </div>
+      <label class="etf-search-picker">ETF
+        <input id="etfSearch" type="search" role="combobox" aria-autocomplete="list" aria-haspopup="listbox" aria-controls="etfSearchResults" aria-expanded="false" autocomplete="off" placeholder="輸入代號或名稱，例如 0050、VOO">
+        <div id="etfSearchResults" class="asset-results" role="listbox"></div>
+      </label>
+      <select id="etf" hidden aria-hidden="true" tabindex="-1"></select>
       <div>
         <label>比較基準日（前）</label>
         <select id="from"></select>
@@ -970,6 +973,8 @@
     function init() {
       const D = window.DATA;
       const etfSel = document.getElementById("etf");
+      const etfSearch = document.getElementById("etfSearch");
+      const etfSearchResults = document.getElementById("etfSearchResults");
       const fromSel = document.getElementById("from");
       const toSel = document.getElementById("to");
       const q = document.getElementById("q");
@@ -978,6 +983,49 @@
       let etfDirectory = Object.keys(D.etfs).map(symbol => ({ symbol, name:D.etfs[symbol].name || symbol, market:"TW", exchange:"TWSE" }));
       let etfDirectoryPromise = null, externalEtfRequest = 0, selectedEtfStatus = "";
       const etfMarket = new Map(etfDirectory.map(asset => [asset.symbol, asset.market]));
+
+      function etfSearchMatches(term) {
+        const query = term.trim().toLowerCase();
+        const available = new Set([...etfSel.options].map(option => option.value).filter(Boolean));
+        return etfDirectory.map(asset => {
+          const symbol = asset.symbol.toLowerCase(), name = asset.name.toLowerCase();
+          const score = query ? (symbol === query ? 0 : symbol.startsWith(query) ? 1 : name.startsWith(query) ? 2 : `${symbol} ${name}`.includes(query) ? 3 : 99) : 4;
+          return { asset, score };
+        }).filter(item => item.score < 99 && available.has(item.asset.symbol))
+          .sort((a,b) => a.score - b.score || a.asset.symbol.localeCompare(b.asset.symbol)).slice(0, 30).map(item => item.asset);
+      }
+      function renderEtfSearchResults() {
+        const rows = etfSearchMatches(etfSearch.value);
+        etfSearchResults.innerHTML = rows.length ? rows.map(asset => `<button type="button" class="asset-result" role="option" aria-selected="false" data-symbol="${esc(asset.symbol)}"><strong>${esc(asset.symbol)}</strong><span>${esc(asset.name)}</span><small>${asset.market === "US" ? "美國 ETF" : "台灣 ETF"}</small></button>`).join("") : '<div class="empty">找不到符合條件的 ETF。</div>';
+        etfSearchResults.classList.add("open");
+        etfSearch.setAttribute("aria-expanded", "true");
+        etfSearchResults.querySelectorAll(".asset-result").forEach(button => button.addEventListener("click", () => selectEtfFromSearch(button.dataset.symbol)));
+      }
+      function syncEtfSearch() {
+        const asset = etfDirectory.find(item => item.symbol === etfSel.value);
+        etfSearch.value = asset ? `${asset.symbol} ${asset.name}` : "";
+      }
+      function selectEtfFromSearch(symbol) {
+        if (![...etfSel.options].some(option => option.value === symbol)) return;
+        etfSel.value = symbol;
+        syncEtfSearch();
+        etfSearchResults.classList.remove("open");
+        etfSearch.setAttribute("aria-expanded", "false");
+        etfSel.dispatchEvent(new Event("change", { bubbles:true }));
+      }
+      etfSearch.addEventListener("focus", () => { etfSearch.select(); renderEtfSearchResults(); });
+      etfSearch.addEventListener("click", () => etfSearch.select());
+      etfSearch.addEventListener("input", renderEtfSearchResults);
+      etfSearch.addEventListener("keydown", event => {
+        if (event.key === "Escape") { etfSearchResults.classList.remove("open"); etfSearch.setAttribute("aria-expanded", "false"); }
+        if (event.key === "Enter") { event.preventDefault(); const first = etfSearchMatches(etfSearch.value)[0]; if (first) selectEtfFromSearch(first.symbol); }
+      });
+      document.addEventListener("pointerdown", event => {
+        if (!event.target.closest?.(".etf-search-picker")) {
+          etfSearchResults.classList.remove("open");
+          etfSearch.setAttribute("aria-expanded", "false");
+        }
+      });
 
       document.getElementById("sub").textContent =
         "資料更新時間：" + D.generated_at + "　來源：MoneyDJ 每日持股揭露";
@@ -1016,6 +1064,7 @@
         });
         const vals = [...etfSel.options].map(o => o.value);
         etfSel.value = vals.includes(prev) ? prev : "";
+        syncEtfSearch();
       }
 
       async function loadExternalEtf(symbol) {
@@ -1890,6 +1939,7 @@
           fillEtfOptions();
         }
         etfSel.value = symbol;
+        syncEtfSearch();
         fillDates();
         const latest = currentSnapshots().at(-1);
         const matching = (latest?.holdings || []).find(item => window.EtfHoldingsIndex.holdingKey(item) === holdingKey);
@@ -1983,10 +2033,11 @@
 
       document.addEventListener("marketchart:etfchange", event => {
         if (marketWorkspace || !D.etfs[event.detail.symbol] || etfSel.value === event.detail.symbol) return;
-        etfSel.value = event.detail.symbol; expandedInstitutional = ""; marginTrendAsset = "__etf__"; fillDates(); render();
+        etfSel.value = event.detail.symbol; syncEtfSearch(); expandedInstitutional = ""; marginTrendAsset = "__etf__"; fillDates(); render();
       });
 
       etfSel.addEventListener("change", () => {
+        syncEtfSearch();
         expandedInstitutional = ""; marginTrendAsset = "__etf__";
         if (!etfSel.value) { selectedEtfStatus = ""; fillDates(); render(); return; }
         const request = ++externalEtfRequest, symbol = etfSel.value;
@@ -2025,7 +2076,7 @@
         if (!code || !D.etfs[code]) return;
         fillEtfOptions().then(() => {
           if ([...etfSel.options].some(o => o.value === code)) {
-            etfSel.value = code; fillDates(); render();
+            etfSel.value = code; syncEtfSearch(); fillDates(); render();
           }
         });
       });
