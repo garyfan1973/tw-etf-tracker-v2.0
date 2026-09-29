@@ -976,7 +976,7 @@
       const compareEtfA = document.getElementById("compareEtfA");
       const compareEtfB = document.getElementById("compareEtfB");
       let etfDirectory = Object.keys(D.etfs).map(symbol => ({ symbol, name:D.etfs[symbol].name || symbol, market:"TW", exchange:"TWSE" }));
-      let etfDirectoryPromise = null, externalEtfRequest = 0;
+      let etfDirectoryPromise = null, externalEtfRequest = 0, selectedEtfStatus = "";
       const etfMarket = new Map(etfDirectory.map(asset => [asset.symbol, asset.market]));
 
       document.getElementById("sub").textContent =
@@ -1042,6 +1042,12 @@
         const etf = { ...payload, name:payload.name || asset.name, snapshots, market, source:payload.source || (market === "US" ? { name:"SEC Form N-PORT" } : { name:"MoneyDJ" }) };
         D.etfs[symbol] = etf;
         return etf;
+      }
+
+      function externalEtfStatus(etf) {
+        const snapshot = etf.snapshots.at(-1);
+        const source = typeof etf.source === "string" ? etf.source : etf.source?.name || (etf.market === "US" ? "SEC Form N-PORT" : "MoneyDJ");
+        return `${etf.market === "US" ? "美國 ETF" : "台灣 ETF"} ${snapshot?.date ? `・持股資料日 ${snapshot.date}` : ""}・來源：${source}；本站總目錄共 ${etfDirectory.length.toLocaleString("zh-TW")} 檔 ETF。`;
       }
 
       function fillCompareOptions() {
@@ -1310,7 +1316,7 @@
         document.getElementById("etfControls").style.display = "flex";
         document.getElementById("etfCompareLauncher").style.display = "flex";
         document.getElementById("workspaceTitle").textContent = "ETF 持股研究";
-        document.getElementById("sub").textContent = "追蹤 ETF 持股、加減碼、法人與資券資訊。";
+        document.getElementById("sub").textContent = selectedEtfStatus || "追蹤 ETF 持股、加減碼、法人與資券資訊。";
         document.getElementById("selectedEtfSummary").style.display = "flex";
         const marketNav = document.getElementById("marketResearchNav"), etfNav = document.getElementById("etfResearchNav");
         marketNav.style.color = "var(--muted)"; marketNav.style.background = "transparent"; marketNav.style.borderColor = "var(--border)";
@@ -1982,26 +1988,27 @@
 
       etfSel.addEventListener("change", () => {
         expandedInstitutional = ""; marginTrendAsset = "__etf__";
-        if (!etfSel.value) { fillDates(); render(); return; }
+        if (!etfSel.value) { selectedEtfStatus = ""; fillDates(); render(); return; }
         const request = ++externalEtfRequest, symbol = etfSel.value;
         if (!compareEtfA.value && D.etfs[symbol]) compareEtfA.value = symbol;
         if (!D.etfs[symbol]) {
+          selectedEtfStatus = `正在載入 ${symbol} 持股與基金資料…`;
           fillDates(); render();
-          document.getElementById("sub").textContent = `正在載入 ${symbol} 持股與基金資料…`;
           loadExternalEtf(symbol).then(etf => {
             if (request !== externalEtfRequest || etfSel.value !== symbol) return;
-            const snapshot = etf.snapshots.at(-1);
-            const source = typeof etf.source === "string" ? etf.source : etf.source?.name || (etf.market === "US" ? "SEC Form N-PORT" : "MoneyDJ");
-            document.getElementById("sub").textContent = `${etf.market === "US" ? "美國 ETF" : "台灣 ETF"} ${snapshot?.date ? `・持股資料日 ${snapshot.date}` : ""}・來源：${source}；本站總目錄共 ${etfDirectory.length.toLocaleString("zh-TW")} 檔 ETF。`;
+            selectedEtfStatus = externalEtfStatus(etf);
             fillDates(); render();
             if (!marketWorkspace && viewMode === "kline") syncEtfHoldingChart();
           }).catch(error => {
             if (request !== externalEtfRequest || etfSel.value !== symbol) return;
+            selectedEtfStatus = `${symbol}：${error.message || "持股資料暫時無法取得"}。可先切換至技術分析查看行情。`;
             fillDates(); render();
-            document.getElementById("sub").textContent = `${symbol}：${error.message || "持股資料暫時無法取得"}。可先切換至技術分析查看行情。`;
           });
+        } else if (D.etfs[symbol].market) {
+          selectedEtfStatus = externalEtfStatus(D.etfs[symbol]);
+          fillDates(); render(); if (!marketWorkspace && viewMode === "kline") syncEtfHoldingChart();
         } else {
-          document.getElementById("sub").textContent = "資料更新時間：" + D.generated_at + "　來源：MoneyDJ 每日持股揭露";
+          selectedEtfStatus = "";
           fillDates(); render(); if (!marketWorkspace && viewMode === "kline") syncEtfHoldingChart();
         }
       });
