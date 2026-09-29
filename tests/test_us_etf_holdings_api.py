@@ -11,6 +11,8 @@ class UsEtfHoldingsTest(unittest.TestCase):
     def test_fund_record_and_latest_filing(self):
         record = MODULE.fund_record({"fields":["cik","seriesId","classId","symbol"], "data":{"0":[123,"S1","C1","VOO"]}}, "voo")
         self.assertEqual(record["seriesId"], "S1")
+        sec_schema = MODULE.fund_record({"fields":["cik","seriesId","classId","ticker"], "data":[[123,"S2","C2","SPY"]]}, "spy")
+        self.assertEqual(sec_schema["seriesId"], "S2")
         filing = MODULE.latest_filing({"hits":{"hits":[
             {"_source":{"form":"NPORT-P","ciks":["0000123"],"adsh":"old","period_ending":"2026-03-31","file_date":"2026-05-01"}},
             {"_source":{"form":"NPORT-P","ciks":["123"],"adsh":"new","period_ending":"2026-06-30","file_date":"2026-08-01"}},

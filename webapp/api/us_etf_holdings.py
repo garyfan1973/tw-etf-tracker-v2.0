@@ -27,7 +27,10 @@ def fund_record(payload, symbol):
     data = payload.get("data") or []
     for values in (data.values() if isinstance(data, dict) else data):
         row = dict(zip(fields, values))
-        if str(row.get("symbol") or "").upper() == symbol.upper():
+        # The SEC company_tickers_mf.json schema calls this field "ticker".
+        # Accept "symbol" too for older cached payloads and existing callers.
+        ticker = row.get("ticker") or row.get("symbol")
+        if str(ticker or "").upper() == symbol.upper():
             return row
     raise ValueError("SEC 基金代號表找不到此 ETF")
 
