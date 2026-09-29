@@ -37,6 +37,31 @@
     }
     return out;
   }
+  function dmi(rows, period = 14) {
+    const result = rows.map(() => ({plusDI: null, minusDI: null, adx: null})), dx = Array(rows.length).fill(null);
+    let trSum = 0, plusSum = 0, minusSum = 0, trSmoothed = null, plusSmoothed = null, minusSmoothed = null;
+    for (let i = 1; i < rows.length; i += 1) {
+      const row = rows[i], previous = rows[i - 1], high = Number(row.high ?? row.close), low = Number(row.low ?? row.close), previousHigh = Number(previous.high ?? previous.close), previousLow = Number(previous.low ?? previous.close), previousClose = Number(previous.close);
+      if (![high, low, previousHigh, previousLow, previousClose].every(Number.isFinite)) continue;
+      const tr = Math.max(high - low, Math.abs(high - previousClose), Math.abs(low - previousClose)), up = high - previousHigh, down = previousLow - low, plus = up > down && up > 0 ? up : 0, minus = down > up && down > 0 ? down : 0;
+      if (i <= period) { trSum += tr; plusSum += plus; minusSum += minus; }
+      else { trSmoothed -= trSmoothed / period; trSmoothed += tr; plusSmoothed -= plusSmoothed / period; plusSmoothed += plus; minusSmoothed -= minusSmoothed / period; minusSmoothed += minus; }
+      if (i === period) { trSmoothed = trSum; plusSmoothed = plusSum; minusSmoothed = minusSum; }
+      if (i >= period && trSmoothed > 0) {
+        const plusDI = 100 * plusSmoothed / trSmoothed, minusDI = 100 * minusSmoothed / trSmoothed;
+        result[i].plusDI = plusDI; result[i].minusDI = minusDI;
+        const total = plusDI + minusDI; dx[i] = total ? 100 * Math.abs(plusDI - minusDI) / total : 0;
+      }
+    }
+    let count = 0, sum = 0;
+    for (let i = period; i < rows.length; i += 1) {
+      if (!finite(dx[i])) continue;
+      count += 1;
+      if (count <= period) { sum += dx[i]; if (count === period) result[i].adx = sum / period; }
+      else result[i].adx = (result[i - 1].adx * (period - 1) + dx[i]) / period;
+    }
+    return result;
+  }
   function indicators(rows) {
     const closes = rows.map(r => r.close), ma20 = sma(closes, 20), fast = ema(closes, 12), slow = ema(closes, 26);
     const dif = closes.map((_, i) => finite(fast[i]) && finite(slow[i]) ? fast[i] - slow[i] : null);
@@ -45,7 +70,7 @@
     return {ma20, ma60: sma(closes, 60), rsi: rsi(closes), dif, signal,
       histogram: dif.map((v, i) => finite(v) && finite(signal[i]) ? v - signal[i] : null),
       bands: closes.map((_, i) => { if (i < 19) return null; const std = Math.sqrt(mean(closes.slice(i - 19, i + 1).map(v => (v - ma20[i]) ** 2))); return {upper: ma20[i] + 2 * std, lower: ma20[i] - 2 * std}; }),
-      kd: rows.map((r, i) => { if (i < 8) return null; const range = rows.slice(i - 8, i + 1); if (!range.every(v => finite(v.high) && finite(v.low))) return null; const high = Math.max(...range.map(v => v.high)), low = Math.min(...range.map(v => v.low)); const rsv = high === low ? 50 : (r.close - low) / (high - low) * 100; k = k * 2 / 3 + rsv / 3; d = d * 2 / 3 + k / 3; return {k, d}; })};
+      kd: rows.map((r, i) => { if (i < 8) return null; const range = rows.slice(i - 8, i + 1); if (!range.every(v => finite(v.high) && finite(v.low))) return null; const high = Math.max(...range.map(v => v.high)), low = Math.min(...range.map(v => v.low)); const rsv = high === low ? 50 : (r.close - low) / (high - low) * 100; k = k * 2 / 3 + rsv / 3; d = d * 2 / 3 + k / 3; return {k, d}; }), dmi: dmi(rows)};
   }
   function metrics(rows) {
     if (!rows.length) return {returnPct: null, maxDrawdown: null, volatility: null, positiveDays: null, drawdown: []};
@@ -70,7 +95,7 @@
     let previous = null;
     return [...groups].map(([month, row]) => { const priorMonth = previous?.date.slice(0, 7), expected = new Date(`${month}-01T00:00:00Z`); expected.setUTCMonth(expected.getUTCMonth() - 1); const value = priorMonth === expected.toISOString().slice(0, 7) ? (row.close / previous.close - 1) * 100 : null; previous = row; return {month, value}; });
   }
-  const api = {finite, mean, clean, sma, ema, rsi, indicators, metrics, compare, monthly};
+  const api = {finite, mean, clean, sma, ema, rsi, dmi, indicators, metrics, compare, monthly};
   if (typeof module !== 'undefined' && module.exports) module.exports = api;
   else root.AnalysisCore = api;
 })(typeof window === 'undefined' ? globalThis : window);

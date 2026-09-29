@@ -74,12 +74,14 @@
       svg += `<text x="${left}" y="${volumeTop-4}">VOLUME · 股</text>`;
       if (!vols.some(C.finite)) svg += `<text x="${left+85}" y="${volumeTop-4}">無成交量資料</text>`;
       actualRows.forEach((r,i) => {if (!C.finite(r.volume))return; const height = r.volume/vmax*(volumeBottom-volumeTop); svg += `<rect x="${x(i)-Math.max(1,plotW/display.length*.58)/2}" y="${volumeBottom-height}" width="${Math.max(1,plotW/display.length*.58)}" height="${height}" fill="${color(r)}" opacity=".38"/>`;});
-      svg += `<line class="grid" x1="${left}" y1="${volumeBottom+8}" x2="${W-right}" y2="${volumeBottom+8}"/><text x="${left}" y="${subTop-7}">${this.sub === 'rsi' ? 'RSI 14' : this.sub === 'kd' ? 'KD 9 · K / D' : 'MACD 12, 26, 9'}</text>`;
+      svg += `<line class="grid" x1="${left}" y1="${volumeBottom+8}" x2="${W-right}" y2="${volumeBottom+8}"/><text x="${left}" y="${subTop-7}">${this.sub === 'rsi' ? 'RSI 14' : this.sub === 'kd' ? 'KD 9 · K / D' : this.sub === 'dmi' ? 'DMI 14 · +DI / −DI / ADX' : 'MACD 12, 26, 9'}</text>`;
       const subY = v => subBottom - v/100*(subBottom-subTop);
-      if (this.sub === 'rsi' || this.sub === 'kd') {
-        [this.sub === 'rsi' ? 30 : 20, this.sub === 'rsi' ? 70 : 80].forEach(v => {svg += `<line class="grid" x1="${left}" y1="${subY(v)}" x2="${W-right}" y2="${subY(v)}" stroke-dasharray="3 4"/><text x="${W-right+8}" y="${subY(v)+3}">${v}</text>`;});
+      if (this.sub === 'rsi' || this.sub === 'kd' || this.sub === 'dmi') {
+        const levels = this.sub === 'rsi' ? [30, 70] : this.sub === 'kd' ? [20, 80] : [20, 25];
+        levels.forEach(v => {svg += `<line class="grid" x1="${left}" y1="${subY(v)}" x2="${W-right}" y2="${subY(v)}" stroke-dasharray="3 4"/><text x="${W-right+8}" y="${subY(v)+3}">${v}</text>`;});
         if(this.sub === 'rsi') svg += `<path class="line" d="${path(indexes.map(i=>this.tech.rsi[i]),x,subY)}" stroke="var(--purple)"/>`;
-        else ['k','d'].forEach((key,j) => {svg += `<path class="line" d="${path(indexes.map(i=>this.tech.kd[i]?.[key]),x,subY)}" stroke="${j ? 'var(--amber)' : 'var(--purple)'}"/>`;});
+        else if(this.sub === 'kd') ['k','d'].forEach((key,j) => {svg += `<path class="line" d="${path(indexes.map(i=>this.tech.kd[i]?.[key]),x,subY)}" stroke="${j ? 'var(--amber)' : 'var(--purple)'}"/>`;});
+        else [['plusDI','var(--down)'],['minusDI','var(--up)'],['adx','var(--purple)']].forEach(([key,color]) => {svg += `<path class="line" d="${path(indexes.map(i=>this.tech.dmi[i]?.[key]),x,subY)}" stroke="${color}"/>`;});
       } else {
         const max = Math.max(.001,...indexes.flatMap(i => [this.tech.dif[i],this.tech.signal[i],this.tech.histogram[i]]).filter(C.finite).map(Math.abs));
         const my = v => (subTop+subBottom)/2 - v/max*(subBottom-subTop)*.45;
@@ -99,7 +101,7 @@
       const dot=this.target.querySelector('#crossDot');dot.setAttribute('cx',xx);dot.setAttribute('cy',yy);
       const labelX=Math.max(40,Math.min(g.W-40,xx));this.target.querySelector('#crossLabelBg').setAttribute('x',labelX-39);this.target.querySelector('#crossLabel').setAttribute('x',labelX);this.target.querySelector('#crossLabel').textContent=row.date;
       const tip=this.target.querySelector('.chart-tooltip');tip.hidden=false;tip.style.left=xx>g.W*.55?'16px':'auto';tip.style.right=xx>g.W*.55?'auto':`${g.W-g.left-g.plotW+8}px`;
-      const r=this.rows[global]; tip.innerHTML=`<b>${esc(row.date)}</b><br>${g.comparing ? `標的 ${fmt(row.a)}% · 基準 ${fmt(row.b)}%` : `收 ${fmt(r.close)} · 量 ${fmt(r.volume)}`}<br>${this.sub==='rsi'?`RSI14 ${fmt(this.tech.rsi[global])}`:this.sub==='macd'?`DIF ${fmt(this.tech.dif[global])} / DEA ${fmt(this.tech.signal[global])}`:`K ${fmt(this.tech.kd[global]?.k)} / D ${fmt(this.tech.kd[global]?.d)}`}`;
+      const r=this.rows[global]; tip.innerHTML=`<b>${esc(row.date)}</b><br>${g.comparing ? `標的 ${fmt(row.a)}% · 基準 ${fmt(row.b)}%` : `收 ${fmt(r.close)} · 量 ${fmt(r.volume)}`}<br>${this.sub==='rsi'?`RSI14 ${fmt(this.tech.rsi[global])}`:this.sub==='macd'?`DIF ${fmt(this.tech.dif[global])} / DEA ${fmt(this.tech.signal[global])}`:this.sub==='dmi'?`+DI ${fmt(this.tech.dmi[global]?.plusDI)} / −DI ${fmt(this.tech.dmi[global]?.minusDI)} / ADX ${fmt(this.tech.dmi[global]?.adx)}`:`K ${fmt(this.tech.kd[global]?.k)} / D ${fmt(this.tech.kd[global]?.d)}`}`;
       this.onHover(r);
     }
     clearHover() {this.target.querySelector('#crosshair')?.setAttribute('visibility','hidden'); const tip=this.target.querySelector('.chart-tooltip');if(tip)tip.hidden=true;this.onHover(null);}
