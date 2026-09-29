@@ -975,27 +975,73 @@
       const q = document.getElementById("q");
       const compareEtfA = document.getElementById("compareEtfA");
       const compareEtfB = document.getElementById("compareEtfB");
+      let etfDirectory = Object.keys(D.etfs).map(symbol => ({ symbol, name:D.etfs[symbol].name || symbol, market:"TW", exchange:"TWSE" }));
+      let etfDirectoryPromise = null, externalEtfRequest = 0;
+      const etfMarket = new Map(etfDirectory.map(asset => [asset.symbol, asset.market]));
 
       document.getElementById("sub").textContent =
         "資料更新時間：" + D.generated_at + "　來源：MoneyDJ 每日持股揭露";
 
-      // 填入 ETF 下拉（勾「只看我的」且有登入關注清單時，只列關注的）
-      function fillEtfOptions() {
+      // 載入全市場 ETF 目錄；個人關注篩選仍可由「只看我的」切換。
+      async function fillEtfOptions() {
+        if (!etfDirectoryPromise) etfDirectoryPromise = fetch("trade_assets.json", { cache:"force-cache" }).then(response => {
+          if (!response.ok) throw new Error("ETF 目錄載入失敗");
+          return response.json();
+        }).then(payload => {
+          const rows = (payload.assets || []).filter(asset => asset.asset_type === "etf" && ["tw", "us"].includes(String(asset.market).toLowerCase()) && asset.symbol)
+            .map(asset => ({ symbol:String(asset.symbol).toUpperCase(), name:asset.name || asset.symbol, market:String(asset.market).toUpperCase(), exchange:asset.exchange || "" }));
+          const merged = new Map(etfDirectory.map(asset => [asset.symbol, asset]));
+          rows.forEach(asset => { if (!merged.has(asset.symbol)) merged.set(asset.symbol, asset); });
+          etfDirectory = [...merged.values()];
+          etfDirectory.forEach(asset => etfMarket.set(asset.symbol, asset.market));
+        }).catch(() => {});
+        await etfDirectoryPromise;
         const onlyMine = document.getElementById("onlyMine");
         const mine = (onlyMine && onlyMine.checked && window.ETFWatch && window.ETFWatch.user())
           ? window.ETFWatch.list() : [];
-        const allow = mine.length ? new Set(mine) : null;  // 空清單視為不篩選
+        const allow = mine.length ? new Set(mine) : null; // 空關注清單沿用既有行為：顯示完整目錄。
         const prev = etfSel.value;
         etfSel.innerHTML = "";
         etfSel.appendChild(new Option("請選擇 ETF", ""));
-        Object.keys(D.etfs).forEach(id => {
-          if (allow && !allow.has(id)) return;
-          const o = document.createElement("option");
-          o.value = id; o.textContent = id + " " + D.etfs[id].name;
-          etfSel.appendChild(o);
+        [["台灣 ETF", "TW"], ["美國 ETF", "US"]].forEach(([label, market]) => {
+          const rows = etfDirectory.filter(asset => asset.market === market && (!allow || allow.has(asset.symbol))).sort((a,b) => a.symbol.localeCompare(b.symbol));
+          if (!rows.length) return;
+          const group = document.createElement("optgroup"); group.label = label;
+          rows.forEach(asset => {
+            const option = document.createElement("option");
+            option.value = asset.symbol; option.textContent = asset.symbol + " " + asset.name;
+            group.appendChild(option);
+          });
+          etfSel.appendChild(group);
         });
         const vals = [...etfSel.options].map(o => o.value);
         etfSel.value = vals.includes(prev) ? prev : "";
+      }
+
+      async function loadExternalEtf(symbol) {
+        if (D.etfs[symbol]) return D.etfs[symbol];
+        const asset = etfDirectory.find(row => row.symbol === symbol);
+        if (!asset) throw new Error("找不到這檔 ETF 的市場資料");
+        const market = asset.market, endpoint = market === "US" ? `/api/us_etf_holdings?code=${encodeURIComponent(symbol)}` : `/api/etf?code=${encodeURIComponent(symbol)}`;
+        const quoteRequest = market === "US" ? fetch(`/api/market?market=US&code=${encodeURIComponent(symbol)}`, { cache:"no-store" })
+          .then(response => response.ok ? response.json() : null).then(payload => payload?.ok ? payload.rows?.at(-1) || {} : {}).catch(() => ({})) : Promise.resolve(null);
+        const [response, quote] = await Promise.all([fetch(endpoint, { cache:"no-store" }), quoteRequest]);
+        const payload = await response.json().catch(() => ({}));
+        if (!response.ok || payload.ok === false) throw new Error(payload.error || "ETF 持股資料暫時無法取得");
+        let snapshots = payload.snapshots || [];
+        if (market === "US") {
+          const date = payload.date || payload.filedAt || "";
+          const holdings = (payload.holdings || []).map(holding => ({
+            ...holding, code:holding.cusip || holding.isin || holding.code || "", market:"US", assetType:"stock",
+            shares:Number(holding.shares) || 0, weight:Number(holding.weight) || 0, currency:holding.currency || "USD"
+          }));
+          snapshots = [{ date, count:holdings.length, self:quote || {}, holdings }];
+          payload.name = payload.name || payload.seriesName || symbol;
+        }
+        if (!snapshots.length) throw new Error(`${symbol} 尚無可顯示的持股快照`);
+        const etf = { ...payload, name:payload.name || asset.name, snapshots, market, source:payload.source || (market === "US" ? { name:"SEC Form N-PORT" } : { name:"MoneyDJ" }) };
+        D.etfs[symbol] = etf;
+        return etf;
       }
 
       function fillCompareOptions() {
@@ -1321,11 +1367,15 @@
 
       function syncKlineEtf(updateUrl = true) {
         if (!etfSel.value || !window.MarketChart?.selectAsset) return;
-        window.MarketChart.selectAsset({ market:"TW", symbol:etfSel.value, assetType:"etf", name:D.etfs[etfSel.value]?.name || etfSel.value }, { updateUrl });
+        window.MarketChart.selectAsset({ market:etfMarket.get(etfSel.value) || "TW", symbol:etfSel.value, assetType:"etf", name:D.etfs[etfSel.value]?.name || etfDirectory.find(asset => asset.symbol === etfSel.value)?.name || etfSel.value }, { updateUrl });
       }
 
       function syncEtfHoldingChart() {
         if (!etfSel.value || !window.MarketChart?.selectEtfHolding) return;
+        if (etfMarket.get(etfSel.value) !== "TW" || !Object.prototype.hasOwnProperty.call(window.DATA?.etfs || {}, etfSel.value)) {
+          syncKlineEtf();
+          return;
+        }
         window.MarketChart.selectEtfHolding(etfSel.value, "__ETF__");
       }
 
@@ -1673,6 +1723,8 @@
         const prevSnap = snapByDate(fromSel.value);
         if (!currSnap) {
           renderEtfSummary();
+          document.querySelector("#diff tbody")?.replaceChildren();
+          document.querySelector("#full tbody")?.replaceChildren();
           marketWorkspace ? setMarketView(marketViewMode) : setViewMode(viewMode);
           return;
         }
@@ -1928,22 +1980,47 @@
         etfSel.value = event.detail.symbol; expandedInstitutional = ""; marginTrendAsset = "__etf__"; fillDates(); render();
       });
 
-      etfSel.addEventListener("change", () => { expandedInstitutional = ""; marginTrendAsset = "__etf__"; if (etfSel.value && !compareEtfA.value) compareEtfA.value = etfSel.value; fillDates(); render(); if (!marketWorkspace && viewMode === "kline") syncEtfHoldingChart(); });
+      etfSel.addEventListener("change", () => {
+        expandedInstitutional = ""; marginTrendAsset = "__etf__";
+        if (!etfSel.value) { fillDates(); render(); return; }
+        const request = ++externalEtfRequest, symbol = etfSel.value;
+        if (!compareEtfA.value && D.etfs[symbol]) compareEtfA.value = symbol;
+        if (!D.etfs[symbol]) {
+          fillDates(); render();
+          document.getElementById("sub").textContent = `正在載入 ${symbol} 持股與基金資料…`;
+          loadExternalEtf(symbol).then(etf => {
+            if (request !== externalEtfRequest || etfSel.value !== symbol) return;
+            const snapshot = etf.snapshots.at(-1);
+            const source = typeof etf.source === "string" ? etf.source : etf.source?.name || (etf.market === "US" ? "SEC Form N-PORT" : "MoneyDJ");
+            document.getElementById("sub").textContent = `${etf.market === "US" ? "美國 ETF" : "台灣 ETF"} ${snapshot?.date ? `・持股資料日 ${snapshot.date}` : ""}・來源：${source}；本站總目錄共 ${etfDirectory.length.toLocaleString("zh-TW")} 檔 ETF。`;
+            fillDates(); render();
+            if (!marketWorkspace && viewMode === "kline") syncEtfHoldingChart();
+          }).catch(error => {
+            if (request !== externalEtfRequest || etfSel.value !== symbol) return;
+            fillDates(); render();
+            document.getElementById("sub").textContent = `${symbol}：${error.message || "持股資料暫時無法取得"}。可先切換至技術分析查看行情。`;
+          });
+        } else {
+          document.getElementById("sub").textContent = "資料更新時間：" + D.generated_at + "　來源：MoneyDJ 每日持股揭露";
+          fillDates(); render(); if (!marketWorkspace && viewMode === "kline") syncEtfHoldingChart();
+        }
+      });
       fromSel.addEventListener("change", render);
       toSel.addEventListener("change", render);
       q.addEventListener("input", render);
 
       // 「只看我的」切換、或關注清單有變動時，重建 ETF 選單
-      document.getElementById("onlyMine").addEventListener("change", () => { fillEtfOptions(); fillDates(); render(); });
-      document.addEventListener("etfwatch:change", () => { fillEtfOptions(); fillDates(); render(); });
+      document.getElementById("onlyMine").addEventListener("change", () => { fillEtfOptions().then(() => { fillDates(); render(); }); });
+      document.addEventListener("etfwatch:change", () => { fillEtfOptions().then(() => { fillDates(); render(); }); });
       // 剛新增的代號：即時切換到它並顯示資料
       document.addEventListener("etf-added", (e) => {
         const code = e.detail && e.detail.code;
         if (!code || !D.etfs[code]) return;
-        fillEtfOptions();
-        if ([...etfSel.options].some(o => o.value === code)) {
-          etfSel.value = code; fillDates(); render();
-        }
+        fillEtfOptions().then(() => {
+          if ([...etfSel.options].some(o => o.value === code)) {
+            etfSel.value = code; fillDates(); render();
+          }
+        });
       });
 
       document.getElementById("openEtfCompare").addEventListener("click", () => {
