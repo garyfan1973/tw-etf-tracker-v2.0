@@ -44,12 +44,12 @@ MAX_INDICATOR_ROWS = 20
 CHART_MARKETS = {"TW", "US", "FX", "INDEX"}
 CHART_ASSET_TYPES = {"stock", "etf", "index", "fx"}
 CHART_TYPES = {"candle", "line"}
-CHART_INDICATORS = {"bollinger", "kd", "macd", "rsi", "williams", "dmi"}
+CHART_INDICATORS = {"bollinger", "kd", "macd", "rsi", "williams", "dmi", "adl"}
 CHART_MA_PERIODS = {5, 10, 20, 60, 120, 240}
 CHART_VOLUME_MA_PERIODS = {5, 10}
 INDICATOR_FIELDS = {
     "ma5", "ma10", "ma20", "ma60", "ma120", "ma240", "vol5", "vol10",
-    "bbUpper", "bbMid", "bbLower", "k", "d", "dif", "macd", "dm", "rsi5", "rsi10", "williams14", "dmiPlus", "dmiMinus", "adx"
+    "bbUpper", "bbMid", "bbLower", "k", "d", "dif", "macd", "dm", "rsi5", "rsi10", "williams14", "dmiPlus", "dmiMinus", "adx", "twseAdl", "twseAdvances", "twseDeclines"
 }
 
 
@@ -178,7 +178,7 @@ def validate_chart_data(value):
         raise ValueError("線圖行情快照的圖表設定不正確")
     visible_mas = chart_enum_list(chart.get("visibleMas"), CHART_MA_PERIODS, "visibleMas", 6)
     visible_volume_mas = chart_enum_list(chart.get("visibleVolumeMas"), CHART_VOLUME_MA_PERIODS, "visibleVolumeMas", 2)
-    visible_indicators = chart_enum_list(chart.get("visibleIndicators"), CHART_INDICATORS, "visibleIndicators", 6)
+    visible_indicators = chart_enum_list(chart.get("visibleIndicators"), CHART_INDICATORS, "visibleIndicators", 7)
     if not isinstance(price_rows, list) or not 1 <= len(price_rows) <= MAX_PRICE_ROWS:
         raise ValueError("線圖價格資料筆數不正確")
     normalized_prices, previous_date = [], ""
@@ -208,7 +208,7 @@ def validate_chart_data(value):
         previous_date = date
         normalized = {"date": date}
         for field in INDICATOR_FIELDS:
-            normalized[field] = chart_number(row.get(field), field, nonnegative=field in {"vol5", "vol10"})
+            normalized[field] = chart_number(row.get(field), field, nonnegative=field in {"vol5", "vol10", "twseAdvances", "twseDeclines"})
         for field in ("k", "d", "rsi5", "rsi10"):
             if normalized[field] is not None and not 0 <= normalized[field] <= 100:
                 raise ValueError("線圖指標超出合理範圍：{}".format(field))

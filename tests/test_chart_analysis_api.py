@@ -476,6 +476,19 @@ class ChartAnalysisApiTests(unittest.TestCase):
         self.assertIn("必須先使用 web_search", API.SYSTEM_PROMPT)
         self.assertIn("快閃、隔日沖、低接模式仍給完整三部分報告", API.SYSTEM_PROMPT)
 
+    def test_accepts_adl_snapshot_and_all_seven_indicators(self):
+        data = self.chart_data()
+        data["chart"]["visibleIndicators"] = ["bollinger", "kd", "macd", "rsi", "williams", "dmi", "adl"]
+        data["indicatorRows"][0].update(twseAdl=-321, twseAdvances=200, twseDeclines=500)
+        result = API.validate_payload({"imageData": self.image_data(), "chartData": data})
+        self.assertEqual(result["chartData"]["indicatorRows"][0]["twseAdl"], -321)
+        data["indicatorRows"][0]["twseAdl"] = None
+        result = API.validate_payload({"imageData": self.image_data(), "chartData": data})
+        self.assertIsNone(result["chartData"]["indicatorRows"][0]["twseAdl"])
+        data["indicatorRows"][0]["twseAdvances"] = -1
+        with self.assertRaises(ValueError):
+            API.validate_payload({"imageData": self.image_data(), "chartData": data})
+
     def test_rejects_invalid_williams_and_operation_signal(self):
         invalid = self.chart_data()
         invalid["indicatorRows"][0]["williams14"] = 12

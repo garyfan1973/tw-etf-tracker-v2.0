@@ -6,6 +6,7 @@ import datetime as dt
 import io
 import json
 import os
+import re
 import time
 import urllib.parse
 import urllib.request
@@ -18,6 +19,7 @@ YAHOO_CHART = "https://query1.finance.yahoo.com/v8/finance/chart/{}?interval={}&
 TREASURY_CSV = "https://home.treasury.gov/resource-center/data-chart-center/interest-rates/daily-treasury-rates.csv/{year}/all?type=daily_treasury_yield_curve&field_tdr_date_value={year}&page&_format=csv"
 TWSE_MARKET_STATISTICS = "https://www.twse.com.tw/rwd/zh/afterTrading/FMTQIK?date={date}&response=json"
 TWSE_INDEX_SNAPSHOT = "https://openapi.twse.com.tw/v1/exchangeReport/MI_INDEX"
+TWSE_BREADTH = "https://www.twse.com.tw/rwd/zh/afterTrading/MI_INDEX?date={date}&type=MS&response=json"
 TPEX_INDEX_SNAPSHOT = "https://www.tpex.org.tw/www/zh-tw/afterTrading/indexSummary?date=&response=json"
 USER_AGENT = "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36"
 US_MARKET_TIMEZONE = ZoneInfo("America/New_York")
@@ -428,6 +430,78 @@ def by_key(rows, key):
     return {row.get(key): row for row in rows or []}
 
 
+def parse_twse_breadth(payload, date):
+    """Use the stock column, excluding warrants, ETFs and other securities."""
+    if payload.get("stat") != "OK" or payload.get("date") != date.replace("-", ""):
+        raise ValueError("TWSE breadth date mismatch or unavailable")
+    for table in payload.get("tables", []):
+        fields = table.get("fields") or []
+        if "股票" not in fields or "類型" not in fields:
+            continue
+        column, label_column = fields.index("股票"), fields.index("類型")
+        counts = {}
+        for row in table.get("data", []):
+            if len(row) <= max(column, label_column):
+                continue
+            for label, key in (("上漲", "advances"), ("下跌", "declines"), ("持平", "unchanged")):
+                if str(row[label_column]).startswith(label):
+                    value = str(row[column]).replace(",", "").strip()
+                    match = re.fullmatch(r"(\d+)(?:\(\d+\))?", value)
+                    if match:
+                        counts[key] = int(match[1])
+        if len(counts) == 3 and sum(counts.values()) > 0:
+            return {"date": date, **counts}
+    raise ValueError("TWSE stock breadth counts missing")
+
+
+def update_twse_breadth(previous, trading_dates):
+    """Keep a fixed origin. Missing sessions break ADL until backfilled."""
+    previous = previous or {}
+    saved = by_key(previous.get("rows"), "date")
+    # Never move an established origin when the price-history window expands.
+    origin = previous.get("baseDate") or min(set(trading_dates) | set(saved), default="")
+    dates = sorted(date for date in set(trading_dates) | set(saved) if date >= origin)
+    if not dates:
+        return previous
+    refresh = set(dates[-3:])
+    failures = []
+    fetched = 0
+    for date in dates:
+        if date in saved and saved[date].get("advances") is not None and date not in refresh:
+            continue
+        try:
+            url = TWSE_BREADTH.format(date=date.replace("-", ""))
+            try:
+                raw = read_url(url, retries=1)
+            except Exception:
+                # Some historical MS reports redirect; the full official daily
+                # report contains the identical stock breadth table.
+                raw = read_url(url.replace("type=MS", "type=ALLBUT0999"), retries=1)
+            saved[date] = parse_twse_breadth(json.loads(raw), date)
+        except Exception as error:
+            failures.append(f"{date}: {error}")
+        fetched += 1
+        if fetched % 25 == 0:
+            print(f"TWSE breadth fetched {fetched} sessions (through {date})", flush=True)
+        time.sleep(.15)
+    cumulative, complete, rows = 0, True, []
+    for date in dates:
+        row = saved.get(date, {"date": date, "advances": None, "declines": None, "unchanged": None}).copy()
+        valid = all(type(row.get(key)) is int and row[key] >= 0 for key in ("advances", "declines", "unchanged"))
+        complete = complete and valid
+        row["netAdvances"] = row["advances"] - row["declines"] if valid else None
+        if complete:
+            cumulative += row["netAdvances"]
+        row["adl"] = cumulative if complete else None
+        rows.append(row)
+    if failures:
+        print("TWSE breadth warnings: " + "; ".join(failures))
+    return {"market": "TWSE", "name": "台灣上市大盤", "source": "臺灣證券交易所・漲跌證券數合計（股票）",
+            "sourceUrl": "https://www.twse.com.tw/zh/trading/historical/mi-index.html",
+            "baseDate": dates[0], "asOf": next((row["date"] for row in reversed(rows) if row["advances"] is not None), None),
+            "rows": rows}
+
+
 def main(backfill_twse_turnover=False):
     existing = load_existing()
     old_indices = by_key(existing.get("indices"), "id")
@@ -498,7 +572,10 @@ def main(backfill_twse_turnover=False):
         failures.append("Treasury: {}".format(error))
     if not indices or len(currencies) < 2 or not treasuries or not dollar_index:
         raise SystemExit("macro market data is incomplete: {}".format("; ".join(failures)))
+    twii = next((item for item in indices if item["id"] == "twii"), {})
+    breadth = update_twse_breadth(existing.get("marketBreadth"), [row["date"] for row in twii.get("rows", [])])
     payload = {
+        "marketBreadth": breadth,
         "updatedAt": dt.datetime.now(dt.timezone.utc).replace(microsecond=0).isoformat().replace("+00:00", "Z"),
         "indices": indices, "currencies": currencies,
         "taiwanHighlights": taiwan_highlights,

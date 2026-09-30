@@ -14,7 +14,22 @@
   const maPeriods = [5, 10, 20, 60, 120, 240];
   const volumeMaPeriods = [5, 10];
   const defaultRangeDays = Number(localStorage.getItem("etf-chart-range")) || 60;
-  const indicatorNames = ["bollinger", "kd", "macd", "rsi", "williams", "dmi"];
+  const indicatorNames = ["bollinger", "kd", "macd", "rsi", "williams", "dmi", "adl"];
+  let marketBreadth = null, breadthPromise = null, breadthState = "loading";
+  const breadthSupported = () => renderRequestKey.startsWith("TW|");
+  function breadthByDate() {
+    return new Map(breadthSupported() ? (marketBreadth?.rows || []).map(row => [row.date, row]) : []);
+  }
+  async function loadMarketBreadth() {
+    if (!breadthPromise) breadthPromise = fetch("market_data.json", { cache:"no-cache" }).then(async response => {
+      if (!response.ok) throw new Error("breadth unavailable");
+      const payload = await response.json();
+      if (payload.marketBreadth?.market !== "TWSE" || !Array.isArray(payload.marketBreadth.rows)) throw new Error("breadth missing");
+      marketBreadth = payload.marketBreadth; breadthState = "ready";
+    }).catch(() => { breadthState = "error"; breadthPromise = null; });
+    await breadthPromise;
+    if (breadthSupported()) drawChart();
+  }
   let visibleIndicators;
   try {
     const savedKey = localStorage.getItem("etf-visible-indicators-v2"), saved = JSON.parse(savedKey || localStorage.getItem("etf-visible-indicators"));
@@ -278,7 +293,7 @@
       low:snapshotNumber(row.low), close:snapshotNumber(row.close), volume:snapshotNumber(row.volume)
     }));
     const kd = kdValues(currentRows), macd = macdValues(currentRows), rsi5 = rsiValues(currentRows, 5), rsi10 = rsiValues(currentRows, 10), williams14 = williamsValues(currentRows, 14), dmi = dmiValues(currentRows, 14);
-    const indicatorStart = Math.max(start, end - 20), indicatorRows = [];
+    const indicatorStart = Math.max(start, end - 20), indicatorRows = [], breadth = breadthByDate();
     for (let index = indicatorStart; index < end; index += 1) {
       const bollinger = visibleIndicators.has("bollinger") ? bollingerValues(currentRows, index) : null;
       const kdRow = visibleIndicators.has("kd") ? kd[index] : null;
@@ -301,7 +316,10 @@
         williams14:visibleIndicators.has("williams") ? snapshotNumber(williams14[index]) : null,
         dmiPlus:visibleIndicators.has("dmi") ? snapshotNumber(dmi[index]?.plusDI) : null,
         dmiMinus:visibleIndicators.has("dmi") ? snapshotNumber(dmi[index]?.minusDI) : null,
-        adx:visibleIndicators.has("dmi") ? snapshotNumber(dmi[index]?.adx) : null
+        adx:visibleIndicators.has("dmi") ? snapshotNumber(dmi[index]?.adx) : null,
+        twseAdl:visibleIndicators.has("adl") ? breadth.get(currentRows[index].date)?.adl ?? null : null,
+        twseAdvances:visibleIndicators.has("adl") ? breadth.get(currentRows[index].date)?.advances ?? null : null,
+        twseDeclines:visibleIndicators.has("adl") ? breadth.get(currentRows[index].date)?.declines ?? null : null
       });
     }
     const validHighs = visibleRows.filter(row => Number.isFinite(Number(row.high)));
@@ -769,9 +787,11 @@
     $("status").textContent = "載入兩年歷史行情…";
     renderPremium(code, security);
     loadPersonalTrades(code, security); renderFinancials(code, security, name); renderOwnership(info, name, []);
-    try { currentRows = await loadHistory(info, snapshotRows); }
-    catch (error) { currentRows = snapshotRows; if (!currentRows.length) $("status").textContent = error.message || "行情資料暫時無法取得"; }
+    let loadedRows;
+    try { loadedRows = await loadHistory(info, snapshotRows); }
+    catch (error) { loadedRows = snapshotRows; if (renderRequestKey === key && !loadedRows.length) $("status").textContent = error.message || "行情資料暫時無法取得"; }
     if (renderRequestKey !== key) return;
+    currentRows = loadedRows;
     if (window.MarketChart) { window.MarketChart.currentAsset = { ...info }; window.MarketChart.currentRows = currentRows.slice(); }
     if (ownershipPayload && ownershipRequestKey === `${info.symbol}|${info.market}|${info.assetType}`) renderOwnershipPanel(ownershipPayload,name,currentRows);
     if ($("chartQuote") && currentRows.length) {
@@ -787,6 +807,7 @@
     if (!currentRows.length) { $("chartBox").innerHTML = '<div class="empty">目前尚無可繪製的完整開高低收資料。</div>'; renderSignal([]); return; }
     if (viewport.key !== key) resetViewport(key); else setViewport(viewport.start, viewport.end);
     drawChart(); renderSignal(currentRows); renderNews(code, security, name);
+    if (breadthSupported()) loadMarketBreadth();
   }
   function drawChart() {
     if (!currentRows.length) return;
@@ -840,7 +861,9 @@
     if (visibleIndicators.has("rsi")) { const previous = panels.at(-1); panels.push({ name:"RSI", top:previous ? previous.top + previous.height + 28 : 440, height:100 }); }
     if (visibleIndicators.has("williams")) { const previous = panels.at(-1); panels.push({ name:"W%R", top:previous ? previous.top + previous.height + 28 : 440, height:100 }); }
     if (visibleIndicators.has("dmi")) { const previous = panels.at(-1); panels.push({ name:"DMI", top:previous ? previous.top + previous.height + 28 : 440, height:100 }); }
-    const panel = name => panels.find(item => item.name === name), kdPanel = panel("KD"), macdPanel = panel("MACD"), rsiPanel = panel("RSI"), williamsPanel = panel("W%R"), dmiPanel = panel("DMI");
+    if (visibleIndicators.has("adl")) { const previous = panels.at(-1); panels.push({ name:"ADL", top:previous ? previous.top + previous.height + 28 : 440, height:130 }); }
+    const panel = name => panels.find(item => item.name === name), kdPanel = panel("KD"), macdPanel = panel("MACD"), rsiPanel = panel("RSI"), williamsPanel = panel("W%R"), dmiPanel = panel("DMI"), adlPanel = panel("ADL");
+    const breadth = breadthByDate(), adlRows = rows.map(row => breadth.get(row.date)), adlValues = adlRows.map(row => row?.adl).filter(Number.isFinite);
     const lastPanel = panels.at(-1), chartBottom = lastPanel ? lastPanel.top + lastPanel.height : volumeBottom + 32, chartHeight = chartBottom + 42;
     // X 軸使用交易日序號，不把週末／休市日當成空白時間。資料很少時，
     // 讓 K 棒集中在圖中央並保持固定間距；資料變多後才逐步填滿圖寬。
@@ -916,6 +939,27 @@
       svg += screenLine(rsi10.map(v => Number.isFinite(v) ? rsiY(v) : null), chartColors.rsi10, 1.8);
     }
     if (williamsPanel) svg += screenLine(williams14.map(value => Number.isFinite(value) ? williamsY(value) : null), chartColors.williams, 1.9);
+    if (adlPanel) {
+      svg += `<text x="${left}" y="${adlPanel.top + 12}" class="axis">騰落線 ADL・台灣上市大盤</text>`;
+      if (!adlValues.length) {
+        const message = !breadthSupported() ? "此市場尚無騰落家數資料（目前提供台灣上市大盤）" : breadthState === "loading" ? "載入騰落家數…" : breadthState === "error" ? "騰落資料暫時無法取得" : "此區間無完整騰落資料";
+        svg += `<text x="${left}" y="${adlPanel.top+70}" class="axis">${message}</text>`;
+      } else {
+        const low = Math.min(...adlValues), high = Math.max(...adlValues), pad = Math.max(1, (high-low)*.12);
+        const scale = { top:adlPanel.top+30, height:adlPanel.height-48 }, adlY = value => extentY(value, low-pad, high+pad, scale);
+        [low, (low+high)/2, high].filter((value, index, list) => list.indexOf(value) === index).forEach(value => {
+          svg += `<line x1="${left}" x2="${W-right}" y1="${adlY(value)}" y2="${adlY(value)}" class="grid"/><text x="4" y="${adlY(value)+4}" class="axis">${num(value)}</text>`;
+        });
+        let path = "", drawing = false;
+        adlRows.forEach((row, index) => {
+          if (!Number.isFinite(row?.adl)) { drawing = false; return; }
+          path += `${drawing ? "L" : "M"}${x(index)},${adlY(row.adl)} `; drawing = true;
+          svg += `<circle data-adl-point="${esc(row.date)}" cx="${x(index)}" cy="${adlY(row.adl)}" r="1.8" fill="var(--accent)"/>`;
+        });
+        svg += `<path data-series="adl" d="${path}" fill="none" stroke="var(--accent)" stroke-width="2"/>`;
+      }
+      if (breadthSupported() && marketBreadth) svg += `<text x="${left}" y="${adlPanel.top+adlPanel.height}" class="axis">證交所股票家數・${esc(marketBreadth.baseDate)} 起累計・資料至 ${esc(marketBreadth.asOf || "—")}・缺值不補零</text>`;
+    }
     if (dmiPanel) {
       svg += screenLine(dmi.map(value => Number.isFinite(value?.plusDI) ? dmiY(value.plusDI) : null), chartColors.dmiPlus, 1.8);
       svg += screenLine(dmi.map(value => Number.isFinite(value?.minusDI) ? dmiY(value.minusDI) : null), chartColors.dmiMinus, 1.8);
@@ -966,7 +1010,8 @@
       const pointerY = top + ((event.clientY - rect.top) / rect.height) * (chartBottom - top);
       const horizontalLine = $("hoverHorizontalLine");
       horizontalLine.setAttribute("y1", pointerY); horizontalLine.setAttribute("y2", pointerY); horizontalLine.setAttribute("visibility", "visible");
-      const zone = dmiPanel && pointerY >= dmiPanel.top ? "dmi"
+      const zone = adlPanel && pointerY >= adlPanel.top ? "adl"
+        : dmiPanel && pointerY >= dmiPanel.top ? "dmi"
         : williamsPanel && pointerY >= williamsPanel.top ? "williams"
         : rsiPanel && pointerY >= rsiPanel.top ? "rsi"
         : macdPanel && pointerY >= macdPanel.top ? "macd"
@@ -982,11 +1027,13 @@
       const rsiHtml = `<div class="tip-extra">RSI5 ${price(rsi5[index])}　RSI10 ${price(rsi10[index])}</div>`;
       const williamsHtml = `<div class="tip-extra">Williams %R(14) ${price(williams14[index])}</div>`;
       const dmiHtml = `<div class="tip-extra">+DI ${price(dmi[index]?.plusDI)}　−DI ${price(dmi[index]?.minusDI)}　ADX ${price(dmi[index]?.adx)}</div>`;
+      const adlRow = adlRows[index], adlHtml = `<div class="tip-extra">台灣上市大盤 ADL ${num(adlRow?.adl)}</div><div class="tip-extra">上漲 ${num(adlRow?.advances)}　下跌 ${num(adlRow?.declines)}　持平 ${num(adlRow?.unchanged)}</div><div class="tip-extra">當日淨騰落 ${num(adlRow?.netAdvances)}</div>`;
       tip.innerHTML = zone === "kd" ? dateHtml + kdHtml
         : zone === "macd" ? dateHtml + macdHtml
         : zone === "rsi" ? dateHtml + rsiHtml
         : zone === "williams" ? dateHtml + williamsHtml
         : zone === "dmi" ? dateHtml + dmiHtml
+        : zone === "adl" ? dateHtml + adlHtml
         : dateHtml + priceHtml + bbHtml;
       tip.style.visibility = "hidden";
       tip.style.left = "0px";
