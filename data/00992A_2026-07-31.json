@@ -139,17 +139,7 @@
       "name": "旺矽",
       "market": "TW",
       "weight": 4.54,
-      "shares": 326000,
-      "open": 5130.0,
-      "high": 5185.0,
-      "low": 4995.0,
-      "close": 5030.0,
-      "prevClose": 5125.0,
-      "change": -95.0,
-      "changePct": -1.85,
-      "amplitude": 3.71,
-      "volume": 1122181.0,
-      "quoteDate": "2026-07-31"
+      "shares": 326000
     },
     {
       "code": "3037",
@@ -224,34 +214,14 @@
       "name": "萬潤",
       "market": "TW",
       "weight": 2.99,
-      "shares": 1220000,
-      "open": 1300.0,
-      "high": 1325.0,
-      "low": 1260.0,
-      "close": 1275.0,
-      "prevClose": 1310.0,
-      "change": -35.0,
-      "changePct": -2.67,
-      "amplitude": 4.96,
-      "volume": 1700270.0,
-      "quoteDate": "2026-07-31"
+      "shares": 1220000
     },
     {
       "code": "6584",
       "name": "南俊國際",
       "market": "TW",
       "weight": 2.5,
-      "shares": 2231000,
-      "open": 540.0,
-      "high": 542.0,
-      "low": 529.0,
-      "close": 531.0,
-      "prevClose": 540.0,
-      "change": -9.0,
-      "changePct": -1.67,
-      "amplitude": 2.41,
-      "volume": 287527.0,
-      "quoteDate": "2026-07-31"
+      "shares": 2231000
     },
     {
       "code": "3711",
@@ -343,17 +313,7 @@
       "name": "群聯",
       "market": "TW",
       "weight": 1.58,
-      "shares": 366000,
-      "open": 2165.0,
-      "high": 2165.0,
-      "low": 2105.0,
-      "close": 2110.0,
-      "prevClose": 2150.0,
-      "change": -40.0,
-      "changePct": -1.86,
-      "amplitude": 2.79,
-      "volume": 1963298.0,
-      "quoteDate": "2026-07-31"
+      "shares": 366000
     },
     {
       "code": "2308",
@@ -394,34 +354,14 @@
       "name": "竑騰",
       "market": "TW",
       "weight": 1.01,
-      "shares": 310000,
-      "open": 1615.0,
-      "high": 1650.0,
-      "low": 1570.0,
-      "close": 1630.0,
-      "prevClose": 1625.0,
-      "change": 5.0,
-      "changePct": 0.31,
-      "amplitude": 4.92,
-      "volume": 111238.0,
-      "quoteDate": "2026-07-31"
+      "shares": 310000
     },
     {
       "code": "6488",
       "name": "環球晶",
       "market": "TW",
       "weight": 0.89,
-      "shares": 394000,
-      "open": 1055.0,
-      "high": 1135.0,
-      "low": 1045.0,
-      "close": 1085.0,
-      "prevClose": 1035.0,
-      "change": 50.0,
-      "changePct": 4.83,
-      "amplitude": 8.7,
-      "volume": 24330441.0,
-      "quoteDate": "2026-07-31"
+      "shares": 394000
     },
     {
       "code": "3189",
@@ -479,17 +419,7 @@
       "name": "印能科技",
       "market": "TW",
       "weight": 0.5,
-      "shares": 56000,
-      "open": 2705.0,
-      "high": 2900.0,
-      "low": 2680.0,
-      "close": 2795.0,
-      "prevClose": 2665.0,
-      "change": 130.0,
-      "changePct": 4.88,
-      "amplitude": 8.26,
-      "volume": 413356.0,
-      "quoteDate": "2026-07-31"
+      "shares": 56000
     },
     {
       "code": "6139",
@@ -530,17 +460,7 @@
       "name": "威剛",
       "market": "TW",
       "weight": 0.38,
-      "shares": 358000,
-      "open": 378.5,
-      "high": 382.0,
-      "low": 376.5,
-      "close": 380.0,
-      "prevClose": 377.5,
-      "change": 2.5,
-      "changePct": 0.66,
-      "amplitude": 1.46,
-      "volume": 2640284.0,
-      "quoteDate": "2026-07-31"
+      "shares": 358000
     },
     {
       "code": "2337",
@@ -564,34 +484,14 @@
       "name": "宜鼎",
       "market": "TW",
       "weight": 0.33,
-      "shares": 98000,
-      "open": 1295.0,
-      "high": 1295.0,
-      "low": 1280.0,
-      "close": 1290.0,
-      "prevClose": 1290.0,
-      "change": 0.0,
-      "changePct": 0.0,
-      "amplitude": 1.16,
-      "volume": 487689.0,
-      "quoteDate": "2026-07-31"
+      "shares": 98000
     },
     {
       "code": "5347",
       "name": "世界",
       "market": "TW",
       "weight": 0.25,
-      "shares": 629000,
-      "open": 180.5,
-      "high": 188.5,
-      "low": 178.5,
-      "close": 184.5,
-      "prevClose": 181.0,
-      "change": 3.5,
-      "changePct": 1.93,
-      "amplitude": 5.52,
-      "volume": 23765668.0,
-      "quoteDate": "2026-07-31"
+      "shares": 629000
     },
     {
       "code": "3583",
@@ -615,34 +515,14 @@
       "name": "上詮",
       "market": "TW",
       "weight": 0.13,
-      "shares": 100000,
-      "open": 647.0,
-      "high": 655.0,
-      "low": 641.0,
-      "close": 641.0,
-      "prevClose": 649.0,
-      "change": -8.0,
-      "changePct": -1.23,
-      "amplitude": 2.16,
-      "volume": 1137038.0,
-      "quoteDate": "2026-07-31"
+      "shares": 100000
     },
     {
       "code": "3264",
       "name": "欣銓",
       "market": "TW",
       "weight": 0.03,
-      "shares": 72000,
-      "open": 243.5,
-      "high": 245.5,
-      "low": 238.5,
-      "close": 245.5,
-      "prevClose": 243.5,
-      "change": 2.0,
-      "changePct": 0.82,
-      "amplitude": 2.87,
-      "volume": 14994071.0,
-      "quoteDate": "2026-07-31"
+      "shares": 72000
     }
   ]
 }
