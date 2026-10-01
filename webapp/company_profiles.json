@@ -1773,6 +1773,14 @@
     "business": "無代號海外成分股，暫無可用公開摘要。",
     "source": ""
   },
+  "CLS": {
+    "name": "Celestica",
+    "market": "US",
+    "industry": "Electronic Components",
+    "business": "Celestica Inc., together with its subsidiaries, provides supply chain solutions in Asia, North America, and internationally. It operates through two segments, Advanced Technology Solutions, and Connectivity and Cloud Solutions. The company offers a range of product manufacturing and related supply chain services, including design and development, new product introduction, engineering services, component sourcing, electronics manufacturing and assembly, testing, mechanical assembly, systems integration, precision machining, logistics, asset management, product licensing, and after-market repair and return services. It also provides hardware platform solutions, which includes development of infrastructure platforms, and hardware and software design solutions and services, including open-source software that can be used as-is or customized for specific applications; and management of program, including design and supply chain, manufacturing, and after-market support, including IT asset disposition and asset management services. The company offers its products and services to original equipment manufacturers, and cloud-based and other service providers, including hyperscalers, and other companies in aerospace and defense, industrial, HealthTech, capital equipment, communications, and enterprise markets. The company has a strategic collaboration with Advanced Micro Devices, Inc. for the development of Helios, a rack-scale AI platform. The company was incorporated in 1994 and is headquartered in Toronto, Canada.",
+    "source": "Stock Analysis",
+    "sector": "Technology"
+  },
   "COHR": {
     "name": "Coherent",
     "market": "US",
@@ -1977,6 +1985,14 @@
     "business": "Monolithic Power Systems, Inc. provides semiconductor-based power electronics solutions in China, Taiwan, South Korea, Southeast Asia, Europe, the United States, Japan, and internationally. The company offers direct current (DC) to DC solutions to convert and control voltages within a range of electronic systems, such as cloud-based and on-premises CPU servers and workstations, AI systems, memory, storage solutions, notebooks, infotainment, power sources, home appliances, network infrastructure, and satellite communications. It also provides alternating current (AC) to DC; driver metal-oxide-semiconductor field-effect transistors; power management integrated circuits (ICs); and current limit switch and lighting control products. The company serves storage and computing, enterprise data, automotive, communications, consumer, and industrial end markets through third-party distributors and value-added resellers. Monolithic Power Systems, Inc. was incorporated in 1997 and is based in West Palm Beach, Florida.",
     "source": "Stock Analysis",
     "sector": "Technology"
+  },
+  "MRNA": {
+    "name": "Moderna",
+    "market": "US",
+    "industry": "Biotechnology",
+    "business": "Moderna, Inc., a biotechnology company, provides messenger RNA medicines in the United States, Europe, and internationally. The company’s respiratory vaccines include spikevax, mNEXSPIKE, mRESVIA, COVID, RSV, seasonal influenza, combination, and pandemic influenza vaccine; latent vaccines comprise cytomegalovirus, epstein-barr virus, and human immunodeficiency virus vaccines; enteric viruses include norovirus; public health vaccines consist of Zika, Nipah, and Mpox vaccines; and bacterial diseases vaccines, such as lyme vaccines. It also provides oncology therapeutics, such as intismeran autogene, cancer antigen therapy, t-cell engager, and cell therapy enhancer; and rare disease products, including propionic and methylmalonic acidemia, and cystic fibrosis. It has strategic alliances and collaborations with Merck & Co., Inc; Vertex Pharmaceuticals Incorporated; Vertex Pharmaceuticals (Europe) Limited; immatics N.V.; Defense Advanced Research Projects Agency; Biomedical Advanced Research and Development Authority; Institute for Life Changing Medicines; The Bill & Melinda Gates Foundation; and OpenAI. The company was formerly known as Moderna Therapeutics, Inc. and changed its name to Moderna, Inc. in August 2018. Moderna, Inc. was founded in 2010 and is headquartered in Cambridge, Massachusetts.",
+    "source": "Stock Analysis",
+    "sector": "Healthcare"
   },
   "MRVL": {
     "name": "Marvell",
