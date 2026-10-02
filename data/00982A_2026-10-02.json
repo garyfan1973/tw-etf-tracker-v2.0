@@ -1,6 +1,6 @@
 {
   "date": "2026-10-02",
-  "fetched_at": "2026-10-03T06:20:27+08:00",
+  "fetched_at": "2026-10-03T07:20:34+08:00",
   "count": 57,
   "self": {
     "open": 23.37,
@@ -121,16 +121,6 @@
       "assetType": "stock",
       "weight": 6.51,
       "shares": 5709000,
-      "open": 574.0,
-      "high": 591.0,
-      "low": 572.0,
-      "close": 591.0,
-      "prevClose": 538.0,
-      "change": 53.0,
-      "changePct": 9.85,
-      "amplitude": 3.53,
-      "volume": 28497984.0,
-      "quoteDate": "2026-10-02",
       "margin": {
         "marginBuy": 1878,
         "marginSell": 2528,
@@ -143,7 +133,7 @@
         "shortPrevBalance": 1364,
         "shortBalance": 1842,
         "offsetting": 5,
-        "date": "2026-10-02"
+        "date": "2026-10-01"
       }
     },
     {
@@ -387,16 +377,6 @@
       "assetType": "stock",
       "weight": 3.38,
       "shares": 1180000,
-      "open": 1480.0,
-      "high": 1510.0,
-      "low": 1475.0,
-      "close": 1485.0,
-      "prevClose": 1490.0,
-      "change": -5.0,
-      "changePct": -0.34,
-      "amplitude": 2.35,
-      "volume": 609364.0,
-      "quoteDate": "2026-10-02",
       "margin": {
         "marginBuy": 93,
         "marginSell": 140,
@@ -409,7 +389,7 @@
         "shortPrevBalance": 26,
         "shortBalance": 22,
         "offsetting": 0,
-        "date": "2026-10-02"
+        "date": "2026-10-01"
       }
     },
     {
@@ -458,16 +438,6 @@
       "assetType": "stock",
       "weight": 3.08,
       "shares": 301000,
-      "open": 5055.0,
-      "high": 5310.0,
-      "low": 5055.0,
-      "close": 5310.0,
-      "prevClose": 5030.0,
-      "change": 280.0,
-      "changePct": 5.57,
-      "amplitude": 5.07,
-      "volume": 1107690.0,
-      "quoteDate": "2026-10-02",
       "margin": {
         "marginBuy": 55,
         "marginSell": 72,
@@ -480,7 +450,7 @@
         "shortPrevBalance": 2,
         "shortBalance": 5,
         "offsetting": 2,
-        "date": "2026-10-02"
+        "date": "2026-10-01"
       }
     },
     {
@@ -529,16 +499,6 @@
       "assetType": "stock",
       "weight": 2.49,
       "shares": 1082000,
-      "open": 1090.0,
-      "high": 1190.0,
-      "low": 1075.0,
-      "close": 1190.0,
-      "prevClose": 1085.0,
-      "change": 105.0,
-      "changePct": 9.68,
-      "amplitude": 10.6,
-      "volume": 16255922.0,
-      "quoteDate": "2026-10-02",
       "margin": {
         "marginBuy": 1668,
         "marginSell": 1284,
@@ -551,7 +511,7 @@
         "shortPrevBalance": 535,
         "shortBalance": 714,
         "offsetting": 11,
-        "date": "2026-10-02"
+        "date": "2026-10-01"
       }
     },
     {
@@ -717,16 +677,6 @@
       "assetType": "stock",
       "weight": 1.46,
       "shares": 3415000,
-      "open": 210.5,
-      "high": 229.5,
-      "low": 209.5,
-      "close": 221.5,
-      "prevClose": 211.5,
-      "change": 10.0,
-      "changePct": 4.73,
-      "amplitude": 9.46,
-      "volume": 47866889.0,
-      "quoteDate": "2026-10-02",
       "margin": {
         "marginBuy": 2113,
         "marginSell": 2363,
@@ -739,7 +689,7 @@
         "shortPrevBalance": 501,
         "shortBalance": 525,
         "offsetting": 69,
-        "date": "2026-10-02"
+        "date": "2026-10-01"
       }
     },
     {
@@ -788,16 +738,6 @@
       "assetType": "stock",
       "weight": 1.31,
       "shares": 35900,
-      "open": 18740.0,
-      "high": 18905.0,
-      "low": 18355.0,
-      "close": 18840.0,
-      "prevClose": 19040.0,
-      "change": -200.0,
-      "changePct": -1.05,
-      "amplitude": 2.89,
-      "volume": 153049.0,
-      "quoteDate": "2026-10-02",
       "margin": {
         "marginBuy": 6,
         "marginSell": 4,
@@ -810,7 +750,7 @@
         "shortPrevBalance": 0,
         "shortBalance": 0,
         "offsetting": 0,
-        "date": "2026-10-02"
+        "date": "2026-10-01"
       }
     },
     {
@@ -859,16 +799,6 @@
       "assetType": "stock",
       "weight": 1.31,
       "shares": 418000,
-      "open": 1540.0,
-      "high": 1685.0,
-      "low": 1530.0,
-      "close": 1620.0,
-      "prevClose": 1535.0,
-      "change": 85.0,
-      "changePct": 5.54,
-      "amplitude": 10.1,
-      "volume": 12357017.0,
-      "quoteDate": "2026-10-02",
       "margin": {
         "marginBuy": 2479,
         "marginSell": 1082,
@@ -881,7 +811,7 @@
         "shortPrevBalance": 76,
         "shortBalance": 97,
         "offsetting": 7,
-        "date": "2026-10-02"
+        "date": "2026-10-01"
       }
     },
     {
@@ -891,16 +821,6 @@
       "assetType": "stock",
       "weight": 1.26,
       "shares": 6382000,
-      "open": 98.3,
-      "high": 104.0,
-      "low": 96.5,
-      "close": 102.0,
-      "prevClose": 97.5,
-      "change": 4.5,
-      "changePct": 4.62,
-      "amplitude": 7.69,
-      "volume": 22022341.0,
-      "quoteDate": "2026-10-02",
       "margin": {
         "marginBuy": 1875,
         "marginSell": 1774,
@@ -913,7 +833,7 @@
         "shortPrevBalance": 318,
         "shortBalance": 333,
         "offsetting": 49,
-        "date": "2026-10-02"
+        "date": "2026-10-01"
       }
     },
     {
@@ -1079,16 +999,6 @@
       "assetType": "stock",
       "weight": 1.21,
       "shares": 3345000,
-      "open": 185.0,
-      "high": 193.0,
-      "low": 183.0,
-      "close": 188.0,
-      "prevClose": 185.0,
-      "change": 3.0,
-      "changePct": 1.62,
-      "amplitude": 5.41,
-      "volume": 1625898.0,
-      "quoteDate": "2026-10-02",
       "margin": {
         "marginBuy": 261,
         "marginSell": 346,
@@ -1101,7 +1011,7 @@
         "shortPrevBalance": 71,
         "shortBalance": 74,
         "offsetting": 0,
-        "date": "2026-10-02"
+        "date": "2026-10-01"
       }
     },
     {
@@ -1462,16 +1372,6 @@
       "assetType": "stock",
       "weight": 0.84,
       "shares": 455000,
-      "open": 964.0,
-      "high": 975.0,
-      "low": 938.0,
-      "close": 956.0,
-      "prevClose": 959.0,
-      "change": -3.0,
-      "changePct": -0.31,
-      "amplitude": 3.86,
-      "volume": 1840903.0,
-      "quoteDate": "2026-10-02",
       "margin": {
         "marginBuy": 91,
         "marginSell": 88,
@@ -1484,7 +1384,7 @@
         "shortPrevBalance": 3,
         "shortBalance": 4,
         "offsetting": 3,
-        "date": "2026-10-02"
+        "date": "2026-10-01"
       }
     },
     {
@@ -1572,16 +1472,6 @@
       "assetType": "stock",
       "weight": 0.57,
       "shares": 93000,
-      "open": 3245.0,
-      "high": 3290.0,
-      "low": 3160.0,
-      "close": 3170.0,
-      "prevClose": 3245.0,
-      "change": -75.0,
-      "changePct": -2.31,
-      "amplitude": 4.01,
-      "volume": 936184.0,
-      "quoteDate": "2026-10-02",
       "margin": {
         "marginBuy": 58,
         "marginSell": 81,
@@ -1594,7 +1484,7 @@
         "shortPrevBalance": 16,
         "shortBalance": 14,
         "offsetting": 0,
-        "date": "2026-10-02"
+        "date": "2026-10-01"
       }
     },
     {
@@ -1721,16 +1611,6 @@
       "assetType": "stock",
       "weight": 0.31,
       "shares": 143000,
-      "open": 1110.0,
-      "high": 1165.0,
-      "low": 1110.0,
-      "close": 1125.0,
-      "prevClose": 1110.0,
-      "change": 15.0,
-      "changePct": 1.35,
-      "amplitude": 4.95,
-      "volume": 302569.0,
-      "quoteDate": "2026-10-02",
       "margin": {
         "marginBuy": 45,
         "marginSell": 47,
@@ -1743,7 +1623,7 @@
         "shortPrevBalance": 6,
         "shortBalance": 6,
         "offsetting": 0,
-        "date": "2026-10-02"
+        "date": "2026-10-01"
       }
     },
     {
@@ -2143,16 +2023,6 @@
       "assetType": "stock",
       "weight": 0.0,
       "shares": 1000,
-      "open": 514.0,
-      "high": 536.0,
-      "low": 511.0,
-      "close": 519.0,
-      "prevClose": 505.0,
-      "change": 14.0,
-      "changePct": 2.77,
-      "amplitude": 4.95,
-      "volume": 20101469.0,
-      "quoteDate": "2026-10-02",
       "margin": {
         "marginBuy": 2241,
         "marginSell": 2120,
@@ -2165,7 +2035,7 @@
         "shortPrevBalance": 1131,
         "shortBalance": 596,
         "offsetting": 24,
-        "date": "2026-10-02"
+        "date": "2026-10-01"
       }
     }
   ]
