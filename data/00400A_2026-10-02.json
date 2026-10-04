@@ -1,6 +1,6 @@
 {
   "date": "2026-10-02",
-  "fetched_at": "2026-10-04T23:30:45+08:00",
+  "fetched_at": "2026-10-05T05:20:46+08:00",
   "count": 47,
   "self": {
     "open": 15.61,
@@ -1734,7 +1734,7 @@
       "market": "",
       "assetType": "option",
       "weight": 0.0,
-      "quantity": -71.0,
+      "quantity": -25.0,
       "unit": "口",
       "amount": null
     },
@@ -1744,7 +1744,7 @@
       "market": "",
       "assetType": "option",
       "weight": 0.0,
-      "quantity": -25.0,
+      "quantity": -71.0,
       "unit": "口",
       "amount": null
     }
