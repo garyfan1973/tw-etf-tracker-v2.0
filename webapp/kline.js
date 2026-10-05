@@ -1172,17 +1172,13 @@
   }
   async function initUniversalPicker() {
     const input = $("assetSearch"); if (!input) return;
-    try {
-      const response = await fetch("trade_assets.json", { cache:"force-cache" }), payload = await response.json();
-      catalogAssets = (payload.assets || []).map(asset => ({ symbol:String(asset.symbol || "").toUpperCase(), name:asset.name || asset.symbol, market:String(asset.market || "TW").toUpperCase(), assetType:String(asset.asset_type || "stock").toLowerCase(), exchange:asset.exchange || "" })).filter(asset => asset.symbol);
-    } catch (_) { catalogAssets = []; }
-    Object.entries(data.etfs || {}).forEach(([symbol, etf]) => {
-      if (!catalogAssets.some(asset => asset.market === "TW" && asset.symbol === symbol)) catalogAssets.push({ symbol, name:etf.name || symbol, market:"TW", assetType:"etf", exchange:"TWSE" });
-    });
-    const params = new URLSearchParams(location.search), wantedMarket = (params.get("market") || "TW").toUpperCase(), wantedSymbol = (params.get("symbol") || "").toUpperCase();
-    const wantedName = (params.get("name") || wantedSymbol).trim();
-    const initial = wantedSymbol ? (catalogAssets.find(asset => asset.market === wantedMarket && asset.symbol === wantedSymbol)
-      || (["TW", "US", "JP", "KS"].includes(wantedMarket) ? { symbol:wantedSymbol, name:wantedName, market:wantedMarket, assetType:"stock", exchange:"" } : null)) : null;
+    const params = new URLSearchParams(location.search);
+    const focusHomepageSearch = () => {
+      if (params.get("focus") !== "search") return;
+      const auth = window.ETFAuth;
+      if (auth?.isMembershipReady?.() && !auth.canUseSite?.()) return;
+      requestAnimationFrame(() => input.focus({ preventScroll:true }));
+    };
     input.addEventListener("focus", () => { input.select(); renderAssetResults(); });
     input.addEventListener("click", () => input.select());
     input.addEventListener("input", renderAssetResults);
@@ -1191,6 +1187,22 @@
       if (event.key === "Enter") { event.preventDefault(); const first = catalogMatches(input.value)[0]; if (first) selectDirectAsset(first); }
     });
     document.addEventListener("pointerdown", event => { if (!event.target.closest?.(".asset-picker")) $("assetResults")?.classList.remove("open"); });
+    focusHomepageSearch();
+    document.addEventListener("etfauth:change", () => {
+      if (window.ETFAuth?.canUseSite?.()) focusHomepageSearch();
+    });
+    try {
+      const response = await fetch("trade_assets.json", { cache:"force-cache" }), payload = await response.json();
+      catalogAssets = (payload.assets || []).map(asset => ({ symbol:String(asset.symbol || "").toUpperCase(), name:asset.name || asset.symbol, market:String(asset.market || "TW").toUpperCase(), assetType:String(asset.asset_type || "stock").toLowerCase(), exchange:asset.exchange || "" })).filter(asset => asset.symbol);
+    } catch (_) { catalogAssets = []; }
+    Object.entries(data.etfs || {}).forEach(([symbol, etf]) => {
+      if (!catalogAssets.some(asset => asset.market === "TW" && asset.symbol === symbol)) catalogAssets.push({ symbol, name:etf.name || symbol, market:"TW", assetType:"etf", exchange:"TWSE" });
+    });
+    const wantedMarket = (params.get("market") || "TW").toUpperCase(), wantedSymbol = (params.get("symbol") || "").toUpperCase();
+    const wantedName = (params.get("name") || wantedSymbol).trim();
+    const initial = wantedSymbol ? (catalogAssets.find(asset => asset.market === wantedMarket && asset.symbol === wantedSymbol)
+      || (["TW", "US", "JP", "KS"].includes(wantedMarket) ? { symbol:wantedSymbol, name:wantedName, market:wantedMarket, assetType:"stock", exchange:"" } : null)) : null;
+    if (document.activeElement === input) renderAssetResults();
     window.MarketChart = { currentAsset:null, currentRows:[], currentFinancials:null, getAnalysisSnapshot:buildAnalysisSnapshot, withAnalysisPreset,
       findAsset: (symbol, market = "") => catalogAssets.find(item => item.symbol === String(symbol || "").toUpperCase() && (!market || item.market === market)) || null,
       selectAsset: (asset, options = {}) => {
