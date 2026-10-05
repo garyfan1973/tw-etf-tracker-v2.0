@@ -1,5 +1,5 @@
 {
-  "updated_at": "2026-10-04T23:20:22+00:00",
+  "updated_at": "2026-10-05T09:30:32+00:00",
   "sources": [
     "https://openapi.twse.com.tw/v1/opendata/t187ap47_L",
     "https://www.tpex.org.tw/openapi/v1/tpex_mainboard_quotes"
@@ -1013,11 +1013,6 @@
     {
       "code": "00846B",
       "name": "富邦歐洲銀行債",
-      "market": "上櫃"
-    },
-    {
-      "code": "00847B",
-      "name": "中信美國市政債",
       "market": "上櫃"
     },
     {
