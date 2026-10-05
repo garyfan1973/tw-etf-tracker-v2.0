@@ -1034,7 +1034,17 @@
         "shortBalance": 14,
         "offsetting": 0,
         "date": "2026-10-01"
-      }
+      },
+      "open": 3220.0,
+      "high": 3250.0,
+      "low": 3145.0,
+      "close": 3155.0,
+      "prevClose": 3170.0,
+      "change": -15.0,
+      "changePct": -0.47,
+      "amplitude": 3.31,
+      "volume": 992246.0,
+      "quoteDate": "2026-10-01"
     },
     {
       "code": "FORM",
