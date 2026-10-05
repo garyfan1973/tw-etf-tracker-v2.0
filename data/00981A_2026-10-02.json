@@ -1,6 +1,6 @@
 {
   "date": "2026-10-02",
-  "fetched_at": "2026-10-05T17:30:46+08:00",
+  "fetched_at": "2026-10-05T18:30:59+08:00",
   "count": 51,
   "self": {
     "open": 31.05,
@@ -749,7 +749,7 @@
       "change": 680.0,
       "changePct": 3.61,
       "amplitude": 3.56,
-      "volume": 122196.0,
+      "volume": 126196.0,
       "quoteDate": "2026-10-02",
       "margin": {
         "marginBuy": 6,
