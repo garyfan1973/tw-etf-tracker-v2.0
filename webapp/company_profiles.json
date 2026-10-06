@@ -2289,6 +2289,14 @@
     "source": "Stock Analysis",
     "sector": "Technology"
   },
+  "TTMI": {
+    "name": "TTM Technologies",
+    "market": "US",
+    "industry": "Electronic Components",
+    "business": "TTM Technologies, Inc. manufactures and sells mission systems, radio frequency (RF) components, RF microwave/microelectronic assemblies, and printed circuit boards (PCBs) and substrates in the United States, Taiwan, and internationally. It operates in three segments, A&D, Commercial, and RF&S Components. The company offers various engineered systems and RF and microwave assemblies; PCBs and IC substrates, custom assemblies and integrated systems, passive and advanced ceramic RF components, hi-reliability multi-chip modules, and beamforming and switching networks; and design-for-manufacturability, PCB layout design, simulation and testing, quick turnaround (QTA) production, and specialized RF assembly and testing. It also provides multi-mode surveillance and weather avoidance radar systems for fixed- and rotary-wing aircraft, Unmanned Aerial Vehicles, and shipboard platforms; AN/APS-153 multi-mode radar; communications suite within the MH-60R/S multi-mission helicopters; and supports maritime surveillance, counter UAS, and advanced air mobility end markets under MOSAIC brand. In addition, the company offers identification friend; monopulse secondary surveillance radars, and air traffic control systems; wired and wireless communication systems; designs, produces, and tests specialized multi-chip RF modules and components; and manufactures off-the-shelf surface mount microwave components. Further, it provides thick-film ceramic substrates, custom designed application specific integrated circuits, and conventional PCBs; custom electronic assemblies; QTA services; and thermal management. The company serves original equipment manufacturers, electronic manufacturing services providers, original design manufacturers, distributors, and government agencies; and aerospace and defense, data center computing, automotive, medical, industrial, instrumentation, and networking markets. TTM Technologies, Inc. was incorporated in 1978 and is headquartered in Santa Ana, California.",
+    "source": "Stock Analysis",
+    "sector": "Technology"
+  },
   "TWST": {
     "name": "Twist Bioscience",
     "market": "US",
@@ -2310,6 +2318,14 @@
     "market": "US",
     "industry": "Software - Application",
     "business": "Unity Software Inc. operates a platform to develop, deploy, and grow games and interactive experiences for mobile phones, PCs, consoles, and extended reality devices in the United States, China, Hong Kong, Taiwan, Europe, the Middle East, Africa, the Asia Pacific, Canada, and Latin America. The company's platform offers artificial intelligence solutions that support developers through the entire development lifecycle, which includes prototyping, live service operation, user acquisition, and monetization. It also provides Create Solutions, a set of tools and services used to build, ship, and run real-time 2D and 3D content; and Grow Solutions, which allows customers to grow and engage their user base and monetize their content. In addition, the company offers enterprise support and consumption services; professional services, including consulting, platform integration, training, and custom application and workflow development services; and advertising and game publishing services. It provides its solutions directly through its online store, field sales operations, independent distributors, and resellers. The company serves enterprises, mid-market companies, government, and non-profit institutions; mid-sized, small, and independent businesses; and individuals from various industries. Unity Software Inc. was founded in 2004 and is headquartered in San Francisco, California.",
+    "source": "Stock Analysis",
+    "sector": "Technology"
+  },
+  "VSH": {
+    "name": "Vishay",
+    "market": "US",
+    "industry": "Semiconductors",
+    "business": "Vishay Intertechnology, Inc. manufactures and sells discrete semiconductors and passive electronic components in the United States, Germany, rest of Europe, Israel, and Asia. The company operates through six segments: Metal Oxide Semiconductor Field Effect Transistors (MOSFETs), Diodes, Optoelectronic Components, Resistors, Inductors, and Capacitors segments. The MOSFETs segment offers low- and medium-voltage TrenchFET MOSFETs, high-voltage planar MOSFETs, high voltage Super Junction MOSFETs, power integrated circuits, and integrated function power devices. The Diodes segment provides rectifiers, small signal diodes, protection diodes, thyristors/silicon-controlled rectifiers, and power modules. The Optoelectronic Components segment offers standard and customer specific optoelectronic components, such as infrared (IR) emitters and detectors, IR remote control receivers, optocouplers, solid-state relays, optical sensors, light-emitting diodes, 7-segment displays, and IR data transceiver modules. The Resistors segment provides resistors used in various forms of electronic circuitry to adjust and regulate levels of voltage and current. The Inductors segment provides inductors for use as an internal magnetic field to change alternating current phase and resist alternating current. The Capacitors segment offers capacitors that store energy and discharge. It sells its products under the Siliconix, Dale, Draloric, Beyschlag, Sfernice, MCB, UltraSource, Applied Thin-Film Products, IHLP, HiRel Systems, Sprague, Vitramon, Barry, Roederstein, ESTA, Ametherm, and BCcomponents brand names. The company serves automotive, industrial, computing, consumer, telecommunications, military, aerospace, and healthcare markets. Vishay Intertechnology, Inc. was incorporated in 1962 and is headquartered in Malvern, Pennsylvania.",
     "source": "Stock Analysis",
     "sector": "Technology"
   },
