@@ -784,17 +784,7 @@
         "shortBalance": 9,
         "offsetting": 0,
         "date": "2026-09-09"
-      },
-      "open": 5400.0,
-      "high": 5520.0,
-      "low": 5300.0,
-      "close": 5520.0,
-      "prevClose": 5310.0,
-      "change": 210.0,
-      "changePct": 3.95,
-      "amplitude": 4.14,
-      "volume": 897055.0,
-      "quoteDate": "2026-09-09"
+      }
     },
     {
       "code": "NTRA",
@@ -990,17 +980,7 @@
         "shortBalance": 76,
         "offsetting": 2,
         "date": "2026-09-09"
-      },
-      "open": 1695.0,
-      "high": 1780.0,
-      "low": 1680.0,
-      "close": 1780.0,
-      "prevClose": 1620.0,
-      "change": 160.0,
-      "changePct": 9.88,
-      "amplitude": 6.17,
-      "volume": 12194388.0,
-      "quoteDate": "2026-09-09"
+      }
     },
     {
       "code": "2360",
@@ -1119,17 +1099,7 @@
         "shortBalance": 13,
         "offsetting": 1,
         "date": "2026-09-09"
-      },
-      "open": 3220.0,
-      "high": 3250.0,
-      "low": 3145.0,
-      "close": 3155.0,
-      "prevClose": 3170.0,
-      "change": -15.0,
-      "changePct": -0.47,
-      "amplitude": 3.31,
-      "volume": 992246.0,
-      "quoteDate": "2026-09-09"
+      }
     },
     {
       "code": "3665",
