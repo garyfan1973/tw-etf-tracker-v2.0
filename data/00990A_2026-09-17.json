@@ -688,17 +688,7 @@
         "shortBalance": 9,
         "offsetting": 3,
         "date": "2026-09-17"
-      },
-      "open": 5590.0,
-      "high": 5725.0,
-      "low": 5480.0,
-      "close": 5530.0,
-      "prevClose": 5670.0,
-      "change": -140.0,
-      "changePct": -2.47,
-      "amplitude": 4.32,
-      "volume": 896441.0,
-      "quoteDate": "2026-09-17"
+      }
     },
     {
       "code": "NET",
@@ -1008,17 +998,7 @@
         "shortBalance": 25,
         "offsetting": 1,
         "date": "2026-09-17"
-      },
-      "open": 3130.0,
-      "high": 3150.0,
-      "low": 3000.0,
-      "close": 3015.0,
-      "prevClose": 3115.0,
-      "change": -100.0,
-      "changePct": -3.21,
-      "amplitude": 4.82,
-      "volume": 880526.0,
-      "quoteDate": "2026-09-17"
+      }
     },
     {
       "code": "GOOGL",
