@@ -1,6 +1,6 @@
 {
   "date": "2026-10-07",
-  "fetched_at": "2026-10-07T19:32:01+08:00",
+  "fetched_at": "2026-10-07T20:30:56+08:00",
   "count": 50,
   "self": {
     "open": 45.19,
@@ -42,9 +42,9 @@
       "quoteDate": "2026-10-07",
       "inst": {
         "foreign": -1163351,
-        "trust": 72763,
+        "trust": 66926,
         "dealer": 447067,
-        "total": -643521,
+        "total": -649358,
         "date": "2026-10-07"
       },
       "margin": {
@@ -120,9 +120,9 @@
       "quoteDate": "2026-10-07",
       "inst": {
         "foreign": -2067353,
-        "trust": 71833,
+        "trust": 196833,
         "dealer": -109756,
-        "total": -2105276,
+        "total": -1980276,
         "date": "2026-10-07"
       },
       "margin": {
@@ -276,9 +276,9 @@
       "quoteDate": "2026-10-07",
       "inst": {
         "foreign": -15334483,
-        "trust": -17653101,
+        "trust": -19779101,
         "dealer": -351307,
-        "total": -33338891,
+        "total": -35464891,
         "date": "2026-10-07"
       },
       "margin": {
@@ -315,9 +315,9 @@
       "quoteDate": "2026-10-07",
       "inst": {
         "foreign": 1527417,
-        "trust": 3037776,
+        "trust": 3450776,
         "dealer": 583498,
-        "total": 5148691,
+        "total": 5561691,
         "date": "2026-10-07"
       },
       "margin": {
@@ -432,9 +432,9 @@
       "quoteDate": "2026-10-07",
       "inst": {
         "foreign": -1058722,
-        "trust": 147334,
+        "trust": 54334,
         "dealer": -102172,
-        "total": -1013560,
+        "total": -1106560,
         "date": "2026-10-07"
       },
       "margin": {
@@ -744,9 +744,9 @@
       "quoteDate": "2026-10-07",
       "inst": {
         "foreign": -392817,
-        "trust": 41511,
+        "trust": 29511,
         "dealer": 106868,
-        "total": -244438,
+        "total": -256438,
         "date": "2026-10-07"
       },
       "margin": {
@@ -1371,9 +1371,9 @@
       "quoteDate": "2026-10-07",
       "inst": {
         "foreign": 929768,
-        "trust": -884130,
+        "trust": -999130,
         "dealer": 36050,
-        "total": 81688,
+        "total": -33312,
         "date": "2026-10-07"
       },
       "margin": {
