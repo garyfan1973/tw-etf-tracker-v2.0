@@ -1,6 +1,6 @@
 {
   "date": "2026-10-06",
-  "fetched_at": "2026-10-07T23:31:04+08:00",
+  "fetched_at": "2026-10-08T05:20:53+08:00",
   "count": 31,
   "self": {
     "open": 93.2,
@@ -51,7 +51,7 @@
       "change": 0.34,
       "changePct": 0.14,
       "amplitude": 1.86,
-      "volume": 100868800,
+      "volume": 101701900,
       "currency": "USD",
       "quoteDate": "2026-10-06"
     },
@@ -70,7 +70,7 @@
       "change": 13.3,
       "changePct": 3.67,
       "amplitude": 4.64,
-      "volume": 30791100,
+      "volume": 30834300,
       "currency": "USD",
       "quoteDate": "2026-10-06"
     },
@@ -89,7 +89,7 @@
       "change": -18.4,
       "changePct": -1.73,
       "amplitude": 2.73,
-      "volume": 21681800,
+      "volume": 21781200,
       "currency": "USD",
       "quoteDate": "2026-10-06"
     },
@@ -108,7 +108,7 @@
       "change": 17.67,
       "changePct": 2.8,
       "amplitude": 4.83,
-      "volume": 24200600,
+      "volume": 24245900,
       "currency": "USD",
       "quoteDate": "2026-10-06"
     },
@@ -127,7 +127,7 @@
       "change": 15.76,
       "changePct": 5.81,
       "amplitude": 12.54,
-      "volume": 51160800,
+      "volume": 51285500,
       "currency": "USD",
       "quoteDate": "2026-10-06"
     },
@@ -146,7 +146,7 @@
       "change": -3.69,
       "changePct": -3.18,
       "amplitude": 5.34,
-      "volume": 101557000,
+      "volume": 101938800,
       "currency": "USD",
       "quoteDate": "2026-10-06"
     },
@@ -184,7 +184,7 @@
       "change": -3.5,
       "changePct": -0.72,
       "amplitude": 0.93,
-      "volume": 8326000,
+      "volume": 8346200,
       "currency": "USD",
       "quoteDate": "2026-10-06"
     },
@@ -298,7 +298,7 @@
       "change": 0.24,
       "changePct": 0.13,
       "amplitude": 2.08,
-      "volume": 8217000,
+      "volume": 8227100,
       "currency": "USD",
       "quoteDate": "2026-10-06"
     },
@@ -469,7 +469,7 @@
       "change": 0.38,
       "changePct": 0.44,
       "amplitude": 1.98,
-      "volume": 8704000,
+      "volume": 8742600,
       "currency": "USD",
       "quoteDate": "2026-10-06"
     },
