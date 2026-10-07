@@ -677,7 +677,17 @@
         "shortBalance": 13,
         "offsetting": 0,
         "date": "2026-08-19"
-      }
+      },
+      "open": 5590.0,
+      "high": 5725.0,
+      "low": 5480.0,
+      "close": 5530.0,
+      "prevClose": 5670.0,
+      "change": -140.0,
+      "changePct": -2.47,
+      "amplitude": 4.32,
+      "volume": 896441.0,
+      "quoteDate": "2026-08-19"
     },
     {
       "code": "AEHR",
@@ -775,7 +785,17 @@
         "shortBalance": 124,
         "offsetting": 3,
         "date": "2026-08-19"
-      }
+      },
+      "open": 1740.0,
+      "high": 1835.0,
+      "low": 1710.0,
+      "close": 1720.0,
+      "prevClose": 1755.0,
+      "change": -35.0,
+      "changePct": -1.99,
+      "amplitude": 7.12,
+      "volume": 12221205.0,
+      "quoteDate": "2026-08-19"
     },
     {
       "code": "3711",
