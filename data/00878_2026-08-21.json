@@ -798,15 +798,15 @@
         "offsetting": 1,
         "date": "2026-08-21"
       },
-      "open": 184.5,
-      "high": 195.0,
-      "low": 184.5,
-      "close": 191.0,
-      "prevClose": 184.0,
-      "change": 7.0,
-      "changePct": 3.8,
-      "amplitude": 5.71,
-      "volume": 34637793.0,
+      "open": 189.5,
+      "high": 194.5,
+      "low": 187.5,
+      "close": 190.0,
+      "prevClose": 191.0,
+      "change": -1.0,
+      "changePct": -0.52,
+      "amplitude": 3.66,
+      "volume": 18673021.0,
       "quoteDate": "2026-08-21"
     },
     {
@@ -1191,15 +1191,15 @@
         "offsetting": 0,
         "date": "2026-08-21"
       },
-      "open": 794.0,
-      "high": 794.0,
-      "low": 772.0,
+      "open": 779.0,
+      "high": 783.0,
+      "low": 771.0,
       "close": 780.0,
-      "prevClose": 794.0,
-      "change": -14.0,
-      "changePct": -1.76,
-      "amplitude": 2.77,
-      "volume": 1495462.0,
+      "prevClose": 780.0,
+      "change": 0.0,
+      "changePct": 0.0,
+      "amplitude": 1.54,
+      "volume": 601843.0,
       "quoteDate": "2026-08-21"
     }
   ]
