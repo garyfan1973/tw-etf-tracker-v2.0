@@ -2153,6 +2153,14 @@
     "source": "Stock Analysis",
     "sector": "Technology"
   },
+  "Q": {
+    "name": "Qnity",
+    "market": "US",
+    "industry": "Semiconductor Equipment & Materials",
+    "business": "Qnity Electronics, Inc. provides materials and solutions to the semiconductor and electronics industries in the United States, rest of Americas, Europe, the Middle East, Africa, Asia Pacific, China, South Korea, Taiwan, and internationally. The company operates in two segments, Semiconductor Technologies and Interconnect Solutions. Its Semiconductor Technologies segment offers chemical mechanical planarization (CMP) pads and slurries, photoresists, functional sub-layers, advanced overcoats, post-CMP cleaners, post-etch residue removers, and emerging cleans. The Interconnect Solutions segment provides copper pillar plating, copper redistribution layer, solder bump plating, under bump metallization, photoresists, packaging dielectrics, gap fillers, phase change, specialty thermal interface materials, thermally conductive insulators, copper playing solutions, dry film photoresists, and laminates and polyimide films. The company was formerly known as Novus SpinCo 1, Inc. and changed its name to Qnity Electronics, Inc. in April 2025. The company was incorporated in 2024 and is headquartered in Wilmington, Delaware.",
+    "source": "Stock Analysis",
+    "sector": "Technology"
+  },
   "QCOM": {
     "name": "QUALCOMM",
     "market": "US",
@@ -2357,6 +2365,14 @@
     "market": "US",
     "industry": "Semiconductors",
     "business": "Wolfspeed, Inc., a semiconductor company, focuses on silicon carbide materials and devices for power applications in Europe, Hong Kong, Singapore, China, rest of Asia Pacific, Japan, the United States, and internationally. The company offers silicon carbide and gallium nitride (GaN) materials, including silicon carbide bare wafers, epitaxial wafers, and GaN epitaxial layers on silicon carbide wafers to manufacture products for RF, silicon carbide substrates, mosfets, schotky diodes, power, and other applications. It also provides power devices, such as silicon carbide Schottky diodes, metal oxide semiconductor field effect transistors (MOSFETs), and power modules for customers and distributors to use in various applications of automotive domains, including electric vehicles and fast charging, as well as existing and emerging applications in the industrial and energy domain, such as AI data centers, grid modernization, and renewable energy and storage. The company was formerly known as Cree, Inc. and changed its name to Wolfspeed, Inc. in October 2021. Wolfspeed, Inc. was founded in 1987 and is headquartered in Durham, North Carolina.",
+    "source": "Stock Analysis",
+    "sector": "Technology"
+  },
+  "ZETA": {
+    "name": "Zeta",
+    "market": "US",
+    "industry": "Software - Infrastructure",
+    "business": "Zeta Global Holdings Corp. operates an omnichannel data-driven cloud platform that provides enterprises with consumer intelligence and marketing automation software in the United States and internationally. The company operates Zeta Marketing platform, a single platform designed to enable enterprises to acquire, grow, and retain consumer relationships more efficiently and effectively than alternative solutions. It also provides Zeta Messaging, an email service provider, offering end-to-end AI-powered omnichannel messaging capabilities, as well as integrated data management, enterprise-scale delivery and support, and sophisticated omnichannel orchestration. In addition, the company offers Zeta Consumer Data platform (CDP+), a system of record for all consumer information, delivers a single, actionable view of customers and prospects that include real-time identifiers and signals, as well as other key attributes; and Zeta’s DSP helps customers to maximize the power of paid media to engage the right audiences with precision and efficiency, as well as delivers experiences via desktop, inbox, mobile, CTV and social, and others. Further, it operates Athena by Zeta, an interface to Zeta’s AI-native infrastructure layer and intends to power all intelligent decisioning, automation, and user interaction; and Zeta Answers that synthesize trillions of behavioral signals into intent-based scores tied to a unique individual. The company has a strategic partnership with Palantir Technologies Inc. for the development of enterprise AI infrastructure layer that connects operational intelligence, customer intelligence, and marketing execution. The company was incorporated in 2007 and is headquartered in New York, New York.",
     "source": "Stock Analysis",
     "sector": "Technology"
   },
