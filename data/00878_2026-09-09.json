@@ -729,7 +729,17 @@
         "shortBalance": 180,
         "offsetting": 4,
         "date": "2026-09-09"
-      }
+      },
+      "open": 189.5,
+      "high": 191.0,
+      "low": 185.0,
+      "close": 186.5,
+      "prevClose": 190.0,
+      "change": -3.5,
+      "changePct": -1.84,
+      "amplitude": 3.16,
+      "volume": 10670455.0,
+      "quoteDate": "2026-09-09"
     },
     {
       "code": "3045",

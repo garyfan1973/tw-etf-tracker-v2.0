@@ -976,7 +976,17 @@
         "shortBalance": 14,
         "offsetting": 0,
         "date": "2026-09-29"
-      }
+      },
+      "open": 3000.0,
+      "high": 3035.0,
+      "low": 2915.0,
+      "close": 2915.0,
+      "prevClose": 3015.0,
+      "change": -100.0,
+      "changePct": -3.32,
+      "amplitude": 3.98,
+      "volume": 879456.0,
+      "quoteDate": "2026-09-29"
     },
     {
       "code": "FSLY",
