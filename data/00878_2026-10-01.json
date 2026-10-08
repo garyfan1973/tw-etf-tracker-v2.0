@@ -534,17 +534,7 @@
         "shortBalance": 445,
         "offsetting": 2,
         "date": "2026-10-01"
-      },
-      "open": 189.5,
-      "high": 194.5,
-      "low": 187.5,
-      "close": 190.0,
-      "prevClose": 191.0,
-      "change": -1.0,
-      "changePct": -0.52,
-      "amplitude": 3.66,
-      "volume": 20144021.0,
-      "quoteDate": "2026-10-01"
+      }
     },
     {
       "code": "2301",

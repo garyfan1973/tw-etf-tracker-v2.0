@@ -1,5 +1,5 @@
 {
-  "updated_at": "2026-10-07T23:20:20+00:00",
+  "updated_at": "2026-10-08T09:30:26+00:00",
   "sources": [
     "https://openapi.twse.com.tw/v1/opendata/t187ap47_L",
     "https://www.tpex.org.tw/openapi/v1/tpex_mainboard_quotes"
@@ -1904,6 +1904,11 @@
       "code": "00992A",
       "name": "主動群益科技創新",
       "market": "上市"
+    },
+    {
+      "code": "00992B",
+      "name": "街口優息非投債",
+      "market": "上櫃"
     },
     {
       "code": "00993A",
