@@ -224,7 +224,17 @@
       "name": "鈊象",
       "market": "TW",
       "weight": 1.64,
-      "shares": 11430000
+      "shares": 11430000,
+      "open": 797.0,
+      "high": 799.0,
+      "low": 786.0,
+      "close": 797.0,
+      "prevClose": 797.0,
+      "change": 0.0,
+      "changePct": 0.0,
+      "amplitude": 1.63,
+      "volume": 1884487.0,
+      "quoteDate": "2026-08-03"
     },
     {
       "code": "5871",
@@ -401,7 +411,17 @@
       "name": "新普",
       "market": "TW",
       "weight": 0.57,
-      "shares": 8504000
+      "shares": 8504000,
+      "open": 364.5,
+      "high": 365.0,
+      "low": 358.0,
+      "close": 361.0,
+      "prevClose": 364.5,
+      "change": -3.5,
+      "changePct": -0.96,
+      "amplitude": 1.92,
+      "volume": 484364.0,
+      "quoteDate": "2026-08-03"
     },
     {
       "code": "8454",
