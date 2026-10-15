@@ -1,0 +1,96 @@
+{
+  "date": "2026-10-15",
+  "fetched_at": "2026-10-15T18:33:39+08:00",
+  "count": 4,
+  "self": {
+    "open": 37.77,
+    "high": 37.88,
+    "low": 37.14,
+    "close": 37.14,
+    "prevClose": 39.78,
+    "change": -2.64,
+    "changePct": -6.64,
+    "amplitude": 1.86,
+    "volume": 650509140.0,
+    "quoteDate": "2026-10-15"
+  },
+  "selfInstitutional": {
+    "foreign": -7840052,
+    "trust": 100000,
+    "dealer": -487205036,
+    "total": -494945088,
+    "date": "2026-10-15"
+  },
+  "selfMargin": null,
+  "holdings": [
+    {
+      "code": "",
+      "name": "臺股期貨 202610(FITXN*1.TF)",
+      "market": "",
+      "assetType": "future",
+      "weight": 143.03,
+      "quantity": 41000.0,
+      "unit": "口",
+      "amount": null
+    },
+    {
+      "code": "2330",
+      "name": "台積電",
+      "market": "TW",
+      "assetType": "stock",
+      "weight": 41.34,
+      "shares": 45587000,
+      "open": 2420.0,
+      "high": 2450.0,
+      "low": 2420.0,
+      "close": 2440.0,
+      "prevClose": 2490.0,
+      "change": -50.0,
+      "changePct": -2.01,
+      "amplitude": 1.2,
+      "volume": 58486711.0,
+      "quoteDate": "2026-10-15",
+      "inst": {
+        "foreign": -34111365,
+        "trust": 3222000,
+        "dealer": 7415881,
+        "total": -23473484,
+        "date": "2026-10-15"
+      },
+      "margin": {
+        "marginBuy": 1207,
+        "marginSell": 299,
+        "marginCashRedemption": 11,
+        "marginPrevBalance": 32869,
+        "marginBalance": 33766,
+        "shortBuy": 2,
+        "shortSell": 2,
+        "shortStockRedemption": 0,
+        "shortPrevBalance": 23,
+        "shortBalance": 23,
+        "offsetting": 1,
+        "date": "2026-10-14"
+      }
+    },
+    {
+      "code": "",
+      "name": "臺股期貨 202611(FITXN*1.TF)",
+      "market": "",
+      "assetType": "future",
+      "weight": 13.13,
+      "quantity": 3750.0,
+      "unit": "口",
+      "amount": null
+    },
+    {
+      "code": "",
+      "name": "台灣50ETF股票期貨 202610",
+      "market": "",
+      "assetType": "future",
+      "weight": 3.15,
+      "quantity": 7800.0,
+      "unit": "口",
+      "amount": null
+    }
+  ]
+}
