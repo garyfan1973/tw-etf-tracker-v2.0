@@ -995,17 +995,7 @@
         "shortBalance": 14,
         "offsetting": 0,
         "date": "2026-09-30"
-      },
-      "open": 2850.0,
-      "high": 2955.0,
-      "low": 2770.0,
-      "close": 2875.0,
-      "prevClose": 2810.0,
-      "change": 65.0,
-      "changePct": 2.31,
-      "amplitude": 6.58,
-      "volume": 985478.0,
-      "quoteDate": "2026-09-30"
+      }
     },
     {
       "code": "CLS",
