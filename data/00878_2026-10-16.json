@@ -1,6 +1,6 @@
 {
   "date": "2026-10-16",
-  "fetched_at": "2026-10-16T21:32:37+08:00",
+  "fetched_at": "2026-10-16T23:31:30+08:00",
   "count": 30,
   "self": {
     "open": 35.3,
@@ -727,17 +727,17 @@
       "volume": 10072451.0,
       "quoteDate": "2026-10-16",
       "margin": {
-        "marginBuy": 678,
-        "marginSell": 1748,
-        "marginCashRedemption": 3,
-        "marginPrevBalance": 10165,
-        "marginBalance": 9092,
-        "shortBuy": 21,
-        "shortSell": 100,
+        "marginBuy": 168,
+        "marginSell": 399,
+        "marginCashRedemption": 0,
+        "marginPrevBalance": 9092,
+        "marginBalance": 8861,
+        "shortBuy": 19,
+        "shortSell": 6,
         "shortStockRedemption": 0,
-        "shortPrevBalance": 206,
-        "shortBalance": 127,
-        "offsetting": 2,
+        "shortPrevBalance": 127,
+        "shortBalance": 140,
+        "offsetting": 4,
         "date": "2026-10-16"
       }
     },
