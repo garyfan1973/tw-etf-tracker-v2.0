@@ -1,5 +1,5 @@
 window.DATA = {
-  "generated_at": "2026-10-18T23:33:40+08:00",
+  "generated_at": "2026-10-19T05:22:54+08:00",
   "etfs": {
     "00981A": {
       "name": "主動統一台股增長",
@@ -96626,7 +96626,7 @@ window.DATA = {
         },
         {
           "date": "2026-10-16",
-          "fetched_at": "2026-10-18T23:30:31+08:00",
+          "fetched_at": "2026-10-19T05:20:30+08:00",
           "count": 51,
           "self": {
             "open": 29.61,
@@ -98582,13 +98582,8 @@ window.DATA = {
           "大型權值"
         ],
         "source": "TWSE ETF e添富",
-        "fetchedAt": "2026-10-18T23:33:31+08:00",
+        "fetchedAt": "2026-10-19T05:22:47+08:00",
         "navHistory": [
-          {
-            "date": "2026-09-03",
-            "nav": 29.01,
-            "premiumPct": 0.41
-          },
           {
             "date": "2026-09-04",
             "nav": 29.74,
@@ -206269,7 +206264,7 @@ window.DATA = {
         },
         {
           "date": "2026-10-16",
-          "fetched_at": "2026-10-18T23:30:31+08:00",
+          "fetched_at": "2026-10-19T05:20:31+08:00",
           "count": 56,
           "self": {
             "open": 22.45,
@@ -208446,17 +208441,12 @@ window.DATA = {
         "fundSizeHundredMillion": 474.92,
         "beneficiaryTenThousands": 17.46,
         "tags": [
-          "大型權值",
-          "中小型權值"
+          "中小型權值",
+          "大型權值"
         ],
         "source": "TWSE ETF e添富",
-        "fetchedAt": "2026-10-18T23:33:32+08:00",
+        "fetchedAt": "2026-10-19T05:22:47+08:00",
         "navHistory": [
-          {
-            "date": "2026-09-03",
-            "nav": 22.43,
-            "premiumPct": -0.09
-          },
           {
             "date": "2026-09-04",
             "nav": 23.01,
@@ -266503,7 +266493,7 @@ window.DATA = {
         },
         {
           "date": "2026-10-15",
-          "fetched_at": "2026-10-18T23:30:50+08:00",
+          "fetched_at": "2026-10-19T05:20:49+08:00",
           "count": 42,
           "self": {
             "open": 15.05,
@@ -267592,13 +267582,8 @@ window.DATA = {
           "科技主題型"
         ],
         "source": "TWSE ETF e添富",
-        "fetchedAt": "2026-10-18T23:33:32+08:00",
+        "fetchedAt": "2026-10-19T05:22:48+08:00",
         "navHistory": [
-          {
-            "date": "2026-09-03",
-            "nav": 14.87,
-            "premiumPct": -1.48
-          },
           {
             "date": "2026-09-04",
             "nav": 15.06,
@@ -344125,7 +344110,7 @@ window.DATA = {
         },
         {
           "date": "2026-10-16",
-          "fetched_at": "2026-10-18T23:30:51+08:00",
+          "fetched_at": "2026-10-19T05:20:49+08:00",
           "count": 42,
           "self": {
             "open": 18.5,
@@ -345759,13 +345744,8 @@ window.DATA = {
           "科技主題型"
         ],
         "source": "TWSE ETF e添富",
-        "fetchedAt": "2026-10-18T23:33:33+08:00",
+        "fetchedAt": "2026-10-19T05:22:48+08:00",
         "navHistory": [
-          {
-            "date": "2026-09-03",
-            "nav": 18.04,
-            "premiumPct": 0.0
-          },
           {
             "date": "2026-09-04",
             "nav": 18.49,
@@ -439617,7 +439597,7 @@ window.DATA = {
         },
         {
           "date": "2026-10-16",
-          "fetched_at": "2026-10-18T23:30:51+08:00",
+          "fetched_at": "2026-10-19T05:20:49+08:00",
           "count": 55,
           "self": {
             "open": 15.05,
@@ -441715,13 +441695,8 @@ window.DATA = {
           "高股息"
         ],
         "source": "TWSE ETF e添富",
-        "fetchedAt": "2026-10-18T23:33:33+08:00",
+        "fetchedAt": "2026-10-19T05:22:49+08:00",
         "navHistory": [
-          {
-            "date": "2026-09-03",
-            "nav": 14.84,
-            "premiumPct": 0.27
-          },
           {
             "date": "2026-09-04",
             "nav": 15.17,
@@ -542939,7 +542914,7 @@ window.DATA = {
         },
         {
           "date": "2026-10-16",
-          "fetched_at": "2026-10-18T23:30:51+08:00",
+          "fetched_at": "2026-10-19T05:20:54+08:00",
           "count": 52,
           "self": {
             "open": 109.45,
@@ -544989,13 +544964,8 @@ window.DATA = {
           "大型權值"
         ],
         "source": "TWSE ETF e添富",
-        "fetchedAt": "2026-10-18T23:33:34+08:00",
+        "fetchedAt": "2026-10-19T05:22:50+08:00",
         "navHistory": [
-          {
-            "date": "2026-09-03",
-            "nav": 106.42,
-            "premiumPct": -0.21
-          },
           {
             "date": "2026-09-04",
             "nav": 107.94,
@@ -689274,7 +689244,7 @@ window.DATA = {
         },
         {
           "date": "2026-10-16",
-          "fetched_at": "2026-10-18T23:30:51+08:00",
+          "fetched_at": "2026-10-19T05:21:00+08:00",
           "count": 74,
           "self": {
             "open": 63.5,
@@ -692168,13 +692138,8 @@ window.DATA = {
           "科技主題型"
         ],
         "source": "TWSE ETF e添富",
-        "fetchedAt": "2026-10-18T23:33:34+08:00",
+        "fetchedAt": "2026-10-19T05:22:50+08:00",
         "navHistory": [
-          {
-            "date": "2026-09-03",
-            "nav": 61.75,
-            "premiumPct": -0.24
-          },
           {
             "date": "2026-09-04",
             "nav": 62.65,
@@ -792913,7 +792878,7 @@ window.DATA = {
         },
         {
           "date": "2026-10-16",
-          "fetched_at": "2026-10-18T23:30:51+08:00",
+          "fetched_at": "2026-10-19T05:21:05+08:00",
           "count": 51,
           "self": {
             "open": 58.55,
@@ -794981,13 +794946,8 @@ window.DATA = {
           "高股息"
         ],
         "source": "TWSE ETF e添富",
-        "fetchedAt": "2026-10-18T23:33:35+08:00",
+        "fetchedAt": "2026-10-19T05:22:51+08:00",
         "navHistory": [
-          {
-            "date": "2026-09-03",
-            "nav": 54.6,
-            "premiumPct": -0.18
-          },
           {
             "date": "2026-09-04",
             "nav": 55.62,
@@ -854882,7 +854842,7 @@ window.DATA = {
         },
         {
           "date": "2026-10-16",
-          "fetched_at": "2026-10-18T23:30:57+08:00",
+          "fetched_at": "2026-10-19T05:21:10+08:00",
           "count": 30,
           "self": {
             "open": 35.3,
@@ -856121,17 +856081,12 @@ window.DATA = {
         "fundSizeHundredMillion": 6710.34,
         "beneficiaryTenThousands": 169.78,
         "tags": [
-          "高股息",
-          "公司治理及ESG"
+          "公司治理及ESG",
+          "高股息"
         ],
         "source": "TWSE ETF e添富",
-        "fetchedAt": "2026-10-18T23:33:35+08:00",
+        "fetchedAt": "2026-10-19T05:22:51+08:00",
         "navHistory": [
-          {
-            "date": "2026-09-03",
-            "nav": 33.76,
-            "premiumPct": -0.53
-          },
           {
             "date": "2026-09-04",
             "nav": 34.29,
@@ -916611,7 +916566,7 @@ window.DATA = {
         },
         {
           "date": "2026-10-16",
-          "fetched_at": "2026-10-18T23:30:57+08:00",
+          "fetched_at": "2026-10-19T05:21:15+08:00",
           "count": 31,
           "self": {
             "open": 50.15,
@@ -917850,13 +917805,8 @@ window.DATA = {
           "科技主題型"
         ],
         "source": "TWSE ETF e添富",
-        "fetchedAt": "2026-10-18T23:33:36+08:00",
+        "fetchedAt": "2026-10-19T05:22:51+08:00",
         "navHistory": [
-          {
-            "date": "2026-09-03",
-            "nav": 49.58,
-            "premiumPct": 0.44
-          },
           {
             "date": "2026-09-04",
             "nav": 50.41,
@@ -998145,7 +998095,7 @@ window.DATA = {
         },
         {
           "date": "2026-10-16",
-          "fetched_at": "2026-10-18T23:30:57+08:00",
+          "fetched_at": "2026-10-19T05:21:15+08:00",
           "count": 41,
           "self": {
             "open": 32.5,
@@ -999807,13 +999757,8 @@ window.DATA = {
           "高股息"
         ],
         "source": "TWSE ETF e添富",
-        "fetchedAt": "2026-10-18T23:33:36+08:00",
+        "fetchedAt": "2026-10-19T05:22:52+08:00",
         "navHistory": [
-          {
-            "date": "2026-09-03",
-            "nav": 32.47,
-            "premiumPct": 0.15
-          },
           {
             "date": "2026-09-04",
             "nav": 33.02,
@@ -1098533,7 +1098478,7 @@ window.DATA = {
         },
         {
           "date": "2026-10-16",
-          "fetched_at": "2026-10-18T23:31:02+08:00",
+          "fetched_at": "2026-10-19T05:21:15+08:00",
           "count": 50,
           "self": {
             "open": 42.49,
@@ -1100520,13 +1100465,8 @@ window.DATA = {
           "大型權值"
         ],
         "source": "TWSE ETF e添富",
-        "fetchedAt": "2026-10-18T23:33:37+08:00",
+        "fetchedAt": "2026-10-19T05:22:52+08:00",
         "navHistory": [
-          {
-            "date": "2026-09-03",
-            "nav": 41.52,
-            "premiumPct": -0.22
-          },
           {
             "date": "2026-09-04",
             "nav": 42.22,
@@ -1194758,7 +1194698,7 @@ window.DATA = {
         },
         {
           "date": "2026-10-16",
-          "fetched_at": "2026-10-18T23:31:14+08:00",
+          "fetched_at": "2026-10-19T05:21:23+08:00",
           "count": 51,
           "self": {
             "open": 250.8,
@@ -1196798,13 +1196738,8 @@ window.DATA = {
           "大型權值"
         ],
         "source": "TWSE ETF e添富",
-        "fetchedAt": "2026-10-18T23:33:38+08:00",
+        "fetchedAt": "2026-10-19T05:22:53+08:00",
         "navHistory": [
-          {
-            "date": "2026-09-03",
-            "nav": 243.81,
-            "premiumPct": 0.0
-          },
           {
             "date": "2026-09-04",
             "nav": 247.29,
@@ -1200344,7 +1200279,7 @@ window.DATA = {
         },
         {
           "date": "2026-10-16",
-          "fetched_at": "2026-10-18T23:31:19+08:00",
+          "fetched_at": "2026-10-19T05:21:23+08:00",
           "count": 4,
           "self": {
             "open": 37.36,
@@ -1200464,13 +1200399,8 @@ window.DATA = {
           "大型權值"
         ],
         "source": "TWSE ETF e添富",
-        "fetchedAt": "2026-10-18T23:33:39+08:00",
+        "fetchedAt": "2026-10-19T05:22:53+08:00",
         "navHistory": [
-          {
-            "date": "2026-09-03",
-            "nav": 35.46,
-            "premiumPct": -0.14
-          },
           {
             "date": "2026-09-04",
             "nav": 36.66,
@@ -1231758,7 +1231688,7 @@ window.DATA = {
         },
         {
           "date": "2026-10-15",
-          "fetched_at": "2026-10-18T23:31:09+08:00",
+          "fetched_at": "2026-10-19T05:21:22+08:00",
           "count": 31,
           "self": {
             "open": 83.0,
@@ -1232399,17 +1232329,12 @@ window.DATA = {
         "fundSizeHundredMillion": 745.94,
         "beneficiaryTenThousands": 18.85,
         "tags": [
-          "大型權值",
-          "科技主題型"
+          "科技主題型",
+          "大型權值"
         ],
         "source": "TWSE ETF e添富",
-        "fetchedAt": "2026-10-18T23:33:37+08:00",
+        "fetchedAt": "2026-10-19T05:22:53+08:00",
         "navHistory": [
-          {
-            "date": "2026-09-03",
-            "nav": 80.06,
-            "premiumPct": -0.82
-          },
           {
             "date": "2026-09-04",
             "nav": 82.35,
