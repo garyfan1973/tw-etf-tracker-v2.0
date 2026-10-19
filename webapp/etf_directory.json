@@ -1,5 +1,5 @@
 {
-  "updated_at": "2026-10-19T21:20:23+00:00",
+  "updated_at": "2026-10-19T22:20:22+00:00",
   "sources": [
     "https://openapi.twse.com.tw/v1/opendata/t187ap47_L",
     "https://www.tpex.org.tw/openapi/v1/tpex_mainboard_quotes"
@@ -68,6 +68,11 @@
     {
       "code": "00412A",
       "name": "主動安聯亞半導體",
+      "market": "上市"
+    },
+    {
+      "code": "00415A",
+      "name": "主動群益核心50",
       "market": "上市"
     },
     {
