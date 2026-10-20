@@ -1,6 +1,6 @@
 {
   "date": "2026-10-19",
-  "fetched_at": "2026-10-20T23:31:11+08:00",
+  "fetched_at": "2026-10-21T05:24:07+08:00",
   "count": 31,
   "self": {
     "open": 81.65,
@@ -51,7 +51,7 @@
       "change": 2.96,
       "changePct": 1.38,
       "amplitude": 2.3,
-      "volume": 98403300,
+      "volume": 98684700,
       "currency": "USD",
       "quoteDate": "2026-10-19"
     },
@@ -70,7 +70,7 @@
       "change": 5.84,
       "changePct": 1.78,
       "amplitude": 1.94,
-      "volume": 17402800,
+      "volume": 17457600,
       "currency": "USD",
       "quoteDate": "2026-10-19"
     },
@@ -89,7 +89,7 @@
       "change": 26.06,
       "changePct": 2.97,
       "amplitude": 2.99,
-      "volume": 25616000,
+      "volume": 25740500,
       "currency": "USD",
       "quoteDate": "2026-10-19"
     },
@@ -108,7 +108,7 @@
       "change": 9.3,
       "changePct": 1.76,
       "amplitude": 3.54,
-      "volume": 20153700,
+      "volume": 20199700,
       "currency": "USD",
       "quoteDate": "2026-10-19"
     },
@@ -127,7 +127,7 @@
       "change": 9.26,
       "changePct": 4.06,
       "amplitude": 5.16,
-      "volume": 17941100,
+      "volume": 18004500,
       "currency": "USD",
       "quoteDate": "2026-10-19"
     },
@@ -184,7 +184,7 @@
       "change": 2.18,
       "changePct": 2.43,
       "amplitude": 3.91,
-      "volume": 101310700,
+      "volume": 101608800,
       "currency": "USD",
       "quoteDate": "2026-10-19"
     },
@@ -222,7 +222,7 @@
       "change": 7.61,
       "changePct": 1.84,
       "amplitude": 2.83,
-      "volume": 12337500,
+      "volume": 12353800,
       "currency": "USD",
       "quoteDate": "2026-10-19"
     },
@@ -393,7 +393,7 @@
       "change": -0.88,
       "changePct": -0.38,
       "amplitude": 5.33,
-      "volume": 6573700,
+      "volume": 6592800,
       "currency": "USD",
       "quoteDate": "2026-10-19"
     },
@@ -431,7 +431,7 @@
       "change": 0.25,
       "changePct": 0.11,
       "amplitude": 4.14,
-      "volume": 4102000,
+      "volume": 4114300,
       "currency": "USD",
       "quoteDate": "2026-10-19"
     },
