@@ -771,17 +771,7 @@
         "shortBalance": 14,
         "offsetting": 0,
         "date": "2026-08-07"
-      },
-      "open": 5255.0,
-      "high": 5370.0,
-      "low": 4865.0,
-      "close": 4900.0,
-      "prevClose": 5235.0,
-      "change": -335.0,
-      "changePct": -6.4,
-      "amplitude": 9.65,
-      "volume": 1753772.0,
-      "quoteDate": "2026-08-07"
+      }
     },
     {
       "code": "AVGO",
@@ -907,17 +897,7 @@
         "shortBalance": 127,
         "offsetting": 190,
         "date": "2026-08-07"
-      },
-      "open": 1625.0,
-      "high": 1650.0,
-      "low": 1535.0,
-      "close": 1550.0,
-      "prevClose": 1630.0,
-      "change": -80.0,
-      "changePct": -4.91,
-      "amplitude": 7.06,
-      "volume": 9283065.0,
-      "quoteDate": "2026-08-07"
+      }
     },
     {
       "code": "ALAB",
