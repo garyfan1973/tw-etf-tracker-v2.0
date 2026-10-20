@@ -569,17 +569,7 @@
       "name": "旺矽",
       "market": "TW",
       "weight": 1.14,
-      "shares": 75000,
-      "open": 5255.0,
-      "high": 5370.0,
-      "low": 4865.0,
-      "close": 4900.0,
-      "prevClose": 5235.0,
-      "change": -335.0,
-      "changePct": -6.4,
-      "amplitude": 9.65,
-      "volume": 1725772.0,
-      "quoteDate": "2026-08-03"
+      "shares": 75000
     },
     {
       "code": "SMTC",
@@ -657,17 +647,7 @@
       "name": "世界",
       "market": "TW",
       "weight": 0.99,
-      "shares": 2498000,
-      "open": 163.5,
-      "high": 166.0,
-      "low": 160.0,
-      "close": 160.0,
-      "prevClose": 163.5,
-      "change": -3.5,
-      "changePct": -2.14,
-      "amplitude": 3.67,
-      "volume": 9678664.0,
-      "quoteDate": "2026-08-03"
+      "shares": 2498000
     },
     {
       "code": "",
