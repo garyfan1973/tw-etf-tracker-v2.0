@@ -139,7 +139,17 @@
       "name": "旺矽",
       "market": "TW",
       "weight": 3.26,
-      "shares": 171000
+      "shares": 171000,
+      "open": 5000.0,
+      "high": 5150.0,
+      "low": 4935.0,
+      "close": 5005.0,
+      "prevClose": 4900.0,
+      "change": 105.0,
+      "changePct": 2.14,
+      "amplitude": 4.39,
+      "volume": 617499.0,
+      "quoteDate": "2026-07-31"
     },
     {
       "code": "2059",
@@ -163,7 +173,17 @@
       "name": "信驊",
       "market": "TW",
       "weight": 2.75,
-      "shares": 52400
+      "shares": 52400,
+      "open": 16440.0,
+      "high": 16640.0,
+      "low": 16000.0,
+      "close": 16515.0,
+      "prevClose": 15900.0,
+      "change": 615.0,
+      "changePct": 3.87,
+      "amplitude": 4.03,
+      "volume": 278073.0,
+      "quoteDate": "2026-07-31"
     },
     {
       "code": "3665",
@@ -204,7 +224,17 @@
       "name": "環球晶",
       "market": "TW",
       "weight": 2.63,
-      "shares": 853000
+      "shares": 853000,
+      "open": 876.0,
+      "high": 903.0,
+      "low": 859.0,
+      "close": 880.0,
+      "prevClose": 844.0,
+      "change": 36.0,
+      "changePct": 4.27,
+      "amplitude": 5.21,
+      "volume": 8903488.0,
+      "quoteDate": "2026-07-31"
     },
     {
       "code": "3443",
@@ -245,7 +275,17 @@
       "name": "萬潤",
       "market": "TW",
       "weight": 2.0,
-      "shares": 596000
+      "shares": 596000,
+      "open": 1360.0,
+      "high": 1385.0,
+      "low": 1315.0,
+      "close": 1330.0,
+      "prevClose": 1320.0,
+      "change": 10.0,
+      "changePct": 0.76,
+      "amplitude": 5.3,
+      "volume": 1728355.0,
+      "quoteDate": "2026-07-31"
     },
     {
       "code": "3008",
@@ -371,7 +411,17 @@
       "name": "力旺",
       "market": "TW",
       "weight": 1.09,
-      "shares": 122000
+      "shares": 122000,
+      "open": 2750.0,
+      "high": 2760.0,
+      "low": 2580.0,
+      "close": 2590.0,
+      "prevClose": 2655.0,
+      "change": -65.0,
+      "changePct": -2.45,
+      "amplitude": 6.78,
+      "volume": 885753.0,
+      "quoteDate": "2026-07-31"
     },
     {
       "code": "3036",
@@ -531,7 +581,17 @@
       "name": "世界",
       "market": "TW",
       "weight": 0.74,
-      "shares": 1351000
+      "shares": 1351000,
+      "open": 165.0,
+      "high": 170.0,
+      "low": 164.5,
+      "close": 166.5,
+      "prevClose": 160.0,
+      "change": 6.5,
+      "changePct": 4.06,
+      "amplitude": 3.44,
+      "volume": 9313606.0,
+      "quoteDate": "2026-07-31"
     },
     {
       "code": "2382",
@@ -572,7 +632,17 @@
       "name": "順達",
       "market": "TW",
       "weight": 0.58,
-      "shares": 549000
+      "shares": 549000,
+      "open": 352.5,
+      "high": 352.5,
+      "low": 338.0,
+      "close": 338.0,
+      "prevClose": 342.5,
+      "change": -4.5,
+      "changePct": -1.31,
+      "amplitude": 4.23,
+      "volume": 1838740.0,
+      "quoteDate": "2026-07-31"
     },
     {
       "code": "6442",
@@ -613,7 +683,17 @@
       "name": "鈊象",
       "market": "TW",
       "weight": 0.37,
-      "shares": 133000
+      "shares": 133000,
+      "open": 790.0,
+      "high": 790.0,
+      "low": 774.0,
+      "close": 782.0,
+      "prevClose": 783.0,
+      "change": -1.0,
+      "changePct": -0.13,
+      "amplitude": 2.04,
+      "volume": 1167606.0,
+      "quoteDate": "2026-07-31"
     },
     {
       "code": "5434",
@@ -654,14 +734,34 @@
       "name": "精測",
       "market": "TW",
       "weight": 0.29,
-      "shares": 32000
+      "shares": 32000,
+      "open": 3145.0,
+      "high": 3255.0,
+      "low": 3145.0,
+      "close": 3230.0,
+      "prevClose": 3095.0,
+      "change": 135.0,
+      "changePct": 4.36,
+      "amplitude": 3.55,
+      "volume": 821113.0,
+      "quoteDate": "2026-07-31"
     },
     {
       "code": "3374",
       "name": "精材",
       "market": "TW",
       "weight": 0.27,
-      "shares": 271000
+      "shares": 271000,
+      "open": 445.0,
+      "high": 470.5,
+      "low": 444.5,
+      "close": 470.5,
+      "prevClose": 428.0,
+      "change": 42.5,
+      "changePct": 9.93,
+      "amplitude": 6.07,
+      "volume": 11476914.0,
+      "quoteDate": "2026-07-31"
     },
     {
       "code": "3090",
@@ -685,7 +785,17 @@
       "name": "新普",
       "market": "TW",
       "weight": 0.23,
-      "shares": 178000
+      "shares": 178000,
+      "open": 371.5,
+      "high": 373.0,
+      "low": 368.0,
+      "close": 369.5,
+      "prevClose": 366.5,
+      "change": 3.0,
+      "changePct": 0.82,
+      "amplitude": 1.36,
+      "volume": 1023983.0,
+      "quoteDate": "2026-07-31"
     },
     {
       "code": "6715",
