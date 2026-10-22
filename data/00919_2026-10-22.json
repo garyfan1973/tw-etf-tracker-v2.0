@@ -1,6 +1,6 @@
 {
   "date": "2026-10-22",
-  "fetched_at": "2026-10-23T06:20:51+08:00",
+  "fetched_at": "2026-10-23T07:20:57+08:00",
   "count": 41,
   "self": {
     "open": 32.63,
@@ -1388,6 +1388,14 @@
       }
     },
     {
+      "code": "",
+      "name": "台指期202611(FITXN*1.TF)",
+      "market": "",
+      "assetType": "stock",
+      "weight": 0.33,
+      "shares": 228
+    },
+    {
       "code": "2458",
       "name": "義隆",
       "market": "TW",
@@ -1425,14 +1433,6 @@
         "offsetting": 6,
         "date": "2026-10-22"
       }
-    },
-    {
-      "code": "",
-      "name": "台指期202611(FITXN*1.TF)",
-      "market": "",
-      "assetType": "stock",
-      "weight": 0.33,
-      "shares": 228
     },
     {
       "code": "6890",
