@@ -1,5 +1,5 @@
 window.DATA = {
-  "generated_at": "2026-10-23T07:22:00+08:00",
+  "generated_at": "2026-10-23T17:32:43+08:00",
   "etfs": {
     "00981A": {
       "name": "主動統一台股增長",
@@ -104396,7 +104396,7 @@ window.DATA = {
         },
         {
           "date": "2026-10-22",
-          "fetched_at": "2026-10-23T07:20:33+08:00",
+          "fetched_at": "2026-10-23T17:30:45+08:00",
           "count": 51,
           "self": {
             "open": 29.16,
@@ -106359,7 +106359,7 @@ window.DATA = {
           "大型權值"
         ],
         "source": "TWSE ETF e添富",
-        "fetchedAt": "2026-10-23T07:21:52+08:00",
+        "fetchedAt": "2026-10-23T17:32:34+08:00",
         "navHistory": [
           {
             "date": "2026-09-08",
@@ -106514,114 +106514,114 @@ window.DATA = {
         ]
       },
       "shareholderDistribution": {
-        "date": "2026-10-08",
-        "totalHolders": 910714,
-        "totalShares": 9031709000,
+        "date": "2026-10-22",
+        "totalHolders": 953873,
+        "totalShares": 9425709000,
         "buckets": [
           {
             "label": "<1張",
-            "holders": 190536,
-            "shares": 59260866,
-            "peoplePct": 20.92,
-            "holdingPct": 0.66
+            "holders": 192174,
+            "shares": 60600562,
+            "peoplePct": 20.15,
+            "holdingPct": 0.64
           },
           {
             "label": "1-5張",
-            "holders": 460640,
-            "shares": 1057788191,
-            "peoplePct": 50.58,
-            "holdingPct": 11.71
+            "holders": 482769,
+            "shares": 1114138809,
+            "peoplePct": 50.61,
+            "holdingPct": 11.82
           },
           {
             "label": "5-10張",
-            "holders": 114095,
-            "shares": 907110227,
-            "peoplePct": 12.53,
-            "holdingPct": 10.04
+            "holders": 122079,
+            "shares": 968846898,
+            "peoplePct": 12.8,
+            "holdingPct": 10.28
           },
           {
             "label": "10-15張",
-            "holders": 42963,
-            "shares": 550042208,
-            "peoplePct": 4.72,
-            "holdingPct": 6.09
+            "holders": 46820,
+            "shares": 599313041,
+            "peoplePct": 4.91,
+            "holdingPct": 6.36
           },
           {
             "label": "15-20張",
-            "holders": 29429,
-            "shares": 543378923,
-            "peoplePct": 3.23,
-            "holdingPct": 6.02
+            "holders": 31626,
+            "shares": 583145344,
+            "peoplePct": 3.32,
+            "holdingPct": 6.19
           },
           {
             "label": "20-30張",
-            "holders": 27445,
-            "shares": 703067493,
-            "peoplePct": 3.01,
-            "holdingPct": 7.78
+            "holders": 29475,
+            "shares": 754162101,
+            "peoplePct": 3.09,
+            "holdingPct": 8.0
           },
           {
             "label": "30-40張",
-            "holders": 13451,
-            "shares": 480341616,
-            "peoplePct": 1.48,
-            "holdingPct": 5.32
+            "holders": 14610,
+            "shares": 521386014,
+            "peoplePct": 1.53,
+            "holdingPct": 5.53
           },
           {
             "label": "40-50張",
-            "holders": 8889,
-            "shares": 414953467,
-            "peoplePct": 0.98,
-            "holdingPct": 4.59
+            "holders": 9405,
+            "shares": 438410846,
+            "peoplePct": 0.99,
+            "holdingPct": 4.65
           },
           {
             "label": "50-100張",
-            "holders": 14861,
-            "shares": 1071805289,
-            "peoplePct": 1.63,
-            "holdingPct": 11.87
+            "holders": 15972,
+            "shares": 1148561649,
+            "peoplePct": 1.67,
+            "holdingPct": 12.19
           },
           {
             "label": "100-200張",
-            "holders": 5626,
-            "shares": 780436160,
-            "peoplePct": 0.62,
-            "holdingPct": 8.64
+            "holders": 6020,
+            "shares": 836442801,
+            "peoplePct": 0.63,
+            "holdingPct": 8.87
           },
           {
             "label": "200-400張",
-            "holders": 1858,
-            "shares": 512171038,
-            "peoplePct": 0.2,
-            "holdingPct": 5.67
+            "holders": 1964,
+            "shares": 540730994,
+            "peoplePct": 0.21,
+            "holdingPct": 5.74
           },
           {
             "label": "400-600張",
-            "holders": 433,
-            "shares": 212535205,
+            "holders": 464,
+            "shares": 227045886,
             "peoplePct": 0.05,
-            "holdingPct": 2.35
+            "holdingPct": 2.41
           },
           {
             "label": "600-800張",
-            "holders": 162,
-            "shares": 114585653,
+            "holders": 166,
+            "shares": 118411632,
             "peoplePct": 0.02,
-            "holdingPct": 1.27
+            "holdingPct": 1.26
           },
           {
             "label": "800-1千張",
-            "holders": 92,
-            "shares": 84573701,
+            "holders": 97,
+            "shares": 89495673,
             "peoplePct": 0.01,
-            "holdingPct": 0.94
+            "holdingPct": 0.95
           },
           {
             "label": "1千張以上",
-            "holders": 234,
-            "shares": 1539661963,
-            "peoplePct": 0.03,
-            "holdingPct": 17.05
+            "holders": 232,
+            "shares": 1425016750,
+            "peoplePct": 0.02,
+            "holdingPct": 15.12
           }
         ],
         "source": "TDCC 集保戶股權分散表"
@@ -222647,7 +222647,7 @@ window.DATA = {
         },
         {
           "date": "2026-10-22",
-          "fetched_at": "2026-10-23T07:20:33+08:00",
+          "fetched_at": "2026-10-23T17:30:45+08:00",
           "count": 57,
           "self": {
             "open": 22.38,
@@ -224856,11 +224856,11 @@ window.DATA = {
         "fundSizeHundredMillion": 459.41,
         "beneficiaryTenThousands": 17.46,
         "tags": [
-          "大型權值",
-          "中小型權值"
+          "中小型權值",
+          "大型權值"
         ],
         "source": "TWSE ETF e添富",
-        "fetchedAt": "2026-10-23T07:21:53+08:00",
+        "fetchedAt": "2026-10-23T17:32:35+08:00",
         "navHistory": [
           {
             "date": "2026-09-08",
@@ -225015,114 +225015,114 @@ window.DATA = {
         ]
       },
       "shareholderDistribution": {
-        "date": "2026-10-08",
-        "totalHolders": 172284,
-        "totalShares": 2132436000,
+        "date": "2026-10-22",
+        "totalHolders": 175528,
+        "totalShares": 2148436000,
         "buckets": [
           {
             "label": "<1張",
-            "holders": 17286,
-            "shares": 5620742,
-            "peoplePct": 10.03,
+            "holders": 17100,
+            "shares": 5600038,
+            "peoplePct": 9.74,
             "holdingPct": 0.26
           },
           {
             "label": "1-5張",
-            "holders": 86479,
-            "shares": 213397179,
-            "peoplePct": 50.2,
-            "holdingPct": 10.01
+            "holders": 87618,
+            "shares": 217006785,
+            "peoplePct": 49.92,
+            "holdingPct": 10.1
           },
           {
             "label": "5-10張",
-            "holders": 28548,
-            "shares": 236138588,
-            "peoplePct": 16.57,
-            "holdingPct": 11.07
+            "holders": 29424,
+            "shares": 243239112,
+            "peoplePct": 16.76,
+            "holdingPct": 11.32
           },
           {
             "label": "10-15張",
-            "holders": 10780,
-            "shares": 139675856,
-            "peoplePct": 6.26,
-            "holdingPct": 6.55
+            "holders": 11256,
+            "shares": 145793971,
+            "peoplePct": 6.41,
+            "holdingPct": 6.79
           },
           {
             "label": "15-20張",
-            "holders": 8750,
-            "shares": 164360532,
-            "peoplePct": 5.08,
-            "holdingPct": 7.71
+            "holders": 9044,
+            "shares": 169766815,
+            "peoplePct": 5.15,
+            "holdingPct": 7.9
           },
           {
             "label": "20-30張",
-            "holders": 7822,
-            "shares": 204660750,
-            "peoplePct": 4.54,
-            "holdingPct": 9.6
+            "holders": 8058,
+            "shares": 210657054,
+            "peoplePct": 4.59,
+            "holdingPct": 9.81
           },
           {
             "label": "30-40張",
-            "holders": 3661,
-            "shares": 132099100,
-            "peoplePct": 2.12,
-            "holdingPct": 6.19
+            "holders": 3778,
+            "shares": 136388285,
+            "peoplePct": 2.15,
+            "holdingPct": 6.35
           },
           {
             "label": "40-50張",
-            "holders": 2867,
-            "shares": 135750839,
-            "peoplePct": 1.66,
-            "holdingPct": 6.37
+            "holders": 2981,
+            "shares": 141001790,
+            "peoplePct": 1.7,
+            "holdingPct": 6.56
           },
           {
             "label": "50-100張",
-            "holders": 4276,
-            "shares": 315811039,
-            "peoplePct": 2.48,
-            "holdingPct": 14.81
+            "holders": 4407,
+            "shares": 325117602,
+            "peoplePct": 2.51,
+            "holdingPct": 15.13
           },
           {
             "label": "100-200張",
-            "holders": 1298,
-            "shares": 182315468,
-            "peoplePct": 0.75,
-            "holdingPct": 8.55
+            "holders": 1336,
+            "shares": 187762622,
+            "peoplePct": 0.76,
+            "holdingPct": 8.74
           },
           {
             "label": "200-400張",
-            "holders": 355,
-            "shares": 97179804,
-            "peoplePct": 0.21,
-            "holdingPct": 4.56
+            "holders": 358,
+            "shares": 98173094,
+            "peoplePct": 0.2,
+            "holdingPct": 4.57
           },
           {
             "label": "400-600張",
-            "holders": 85,
-            "shares": 41203130,
+            "holders": 89,
+            "shares": 43355073,
             "peoplePct": 0.05,
-            "holdingPct": 1.93
+            "holdingPct": 2.02
           },
           {
             "label": "600-800張",
-            "holders": 22,
-            "shares": 15513000,
-            "peoplePct": 0.01,
-            "holdingPct": 0.73
-          },
-          {
-            "label": "800-1千張",
-            "holders": 19,
-            "shares": 17195025,
+            "holders": 25,
+            "shares": 17328852,
             "peoplePct": 0.01,
             "holdingPct": 0.81
           },
           {
+            "label": "800-1千張",
+            "holders": 18,
+            "shares": 16150025,
+            "peoplePct": 0.01,
+            "holdingPct": 0.75
+          },
+          {
             "label": "1千張以上",
             "holders": 36,
-            "shares": 231514948,
+            "shares": 191094882,
             "peoplePct": 0.02,
-            "holdingPct": 10.86
+            "holdingPct": 8.89
           }
         ],
         "source": "TDCC 集保戶股權分散表"
@@ -287207,7 +287207,7 @@ window.DATA = {
         },
         {
           "date": "2026-10-21",
-          "fetched_at": "2026-10-23T07:20:46+08:00",
+          "fetched_at": "2026-10-23T17:30:58+08:00",
           "count": 42,
           "self": {
             "open": 14.96,
@@ -287440,17 +287440,17 @@ window.DATA = {
               "assetType": "stock",
               "weight": 3.09,
               "shares": 101200,
-              "open": 311.48,
-              "high": 323.77,
-              "low": 309.5,
-              "close": 319.61,
-              "prevClose": 315.35,
-              "change": 4.26,
-              "changePct": 1.35,
-              "amplitude": 4.53,
-              "volume": 4185600,
+              "open": 320.1,
+              "high": 327.48,
+              "low": 318.1,
+              "close": 322.73,
+              "prevClose": 319.61,
+              "change": 3.12,
+              "changePct": 0.98,
+              "amplitude": 2.93,
+              "volume": 2595100,
               "currency": "USD",
-              "quoteDate": "2026-10-20"
+              "quoteDate": "2026-10-21"
             },
             {
               "code": "2330",
@@ -287498,17 +287498,17 @@ window.DATA = {
               "assetType": "stock",
               "weight": 2.53,
               "shares": 98000,
-              "open": 257.12,
-              "high": 259.07,
-              "low": 252.62,
-              "close": 256.43,
-              "prevClose": 260.36,
-              "change": -3.93,
-              "changePct": -1.51,
-              "amplitude": 2.48,
-              "volume": 2185800,
+              "open": 259.77,
+              "high": 277.26,
+              "low": 259.77,
+              "close": 273.09,
+              "prevClose": 256.43,
+              "change": 16.66,
+              "changePct": 6.5,
+              "amplitude": 6.82,
+              "volume": 2889000,
               "currency": "USD",
-              "quoteDate": "2026-10-20"
+              "quoteDate": "2026-10-21"
             },
             {
               "code": "ZS",
@@ -287517,17 +287517,17 @@ window.DATA = {
               "assetType": "stock",
               "weight": 2.15,
               "shares": 98300,
-              "open": 210.81,
-              "high": 215.9,
-              "low": 207.23,
-              "close": 214.51,
-              "prevClose": 212.53,
-              "change": 1.98,
-              "changePct": 0.93,
-              "amplitude": 4.08,
-              "volume": 1341500,
+              "open": 214.5,
+              "high": 232.06,
+              "low": 214.5,
+              "close": 231.33,
+              "prevClose": 214.51,
+              "change": 16.82,
+              "changePct": 7.84,
+              "amplitude": 8.19,
+              "volume": 2764900,
               "currency": "USD",
-              "quoteDate": "2026-10-20"
+              "quoteDate": "2026-10-21"
             },
             {
               "code": "3037",
@@ -287575,17 +287575,17 @@ window.DATA = {
               "assetType": "stock",
               "weight": 2.12,
               "shares": 72800,
-              "open": 291.17,
-              "high": 298.59,
-              "low": 285.05,
-              "close": 291.69,
-              "prevClose": 297.58,
-              "change": -5.89,
-              "changePct": -1.98,
-              "amplitude": 4.55,
-              "volume": 2291600,
+              "open": 298.12,
+              "high": 315.46,
+              "low": 296.98,
+              "close": 307.22,
+              "prevClose": 291.69,
+              "change": 15.53,
+              "changePct": 5.32,
+              "amplitude": 6.34,
+              "volume": 3650500,
               "currency": "USD",
-              "quoteDate": "2026-10-20"
+              "quoteDate": "2026-10-21"
             },
             {
               "code": "2454",
@@ -287672,17 +287672,17 @@ window.DATA = {
               "assetType": "stock",
               "weight": 1.98,
               "shares": 92684,
-              "open": 216.5,
-              "high": 221.98,
-              "low": 214.78,
-              "close": 221.11,
-              "prevClose": 214.75,
-              "change": 6.36,
-              "changePct": 2.96,
-              "amplitude": 3.35,
-              "volume": 2071900,
+              "open": 221.17,
+              "high": 227.36,
+              "low": 219.76,
+              "close": 225.51,
+              "prevClose": 221.11,
+              "change": 4.4,
+              "changePct": 1.99,
+              "amplitude": 3.44,
+              "volume": 2311000,
               "currency": "USD",
-              "quoteDate": "2026-10-20"
+              "quoteDate": "2026-10-21"
             },
             {
               "code": "2383",
@@ -287768,17 +287768,17 @@ window.DATA = {
               "assetType": "stock",
               "weight": 1.63,
               "shares": 82600,
-              "open": 186.64,
-              "high": 195.37,
-              "low": 183.6,
-              "close": 194.02,
-              "prevClose": 189.93,
-              "change": 4.09,
-              "changePct": 2.15,
-              "amplitude": 6.2,
-              "volume": 2360400,
+              "open": 194.1,
+              "high": 210.86,
+              "low": 192.91,
+              "close": 208.64,
+              "prevClose": 194.02,
+              "change": 14.62,
+              "changePct": 7.54,
+              "amplitude": 9.25,
+              "volume": 4040700,
               "currency": "USD",
-              "quoteDate": "2026-10-20"
+              "quoteDate": "2026-10-21"
             },
             {
               "code": "RBRK",
@@ -287787,17 +287787,17 @@ window.DATA = {
               "assetType": "stock",
               "weight": 1.6,
               "shares": 140800,
-              "open": 111.8,
-              "high": 115.73,
-              "low": 110.21,
-              "close": 114.59,
-              "prevClose": 113.41,
-              "change": 1.18,
-              "changePct": 1.04,
-              "amplitude": 4.87,
-              "volume": 2333500,
+              "open": 116.12,
+              "high": 122.01,
+              "low": 116.12,
+              "close": 120.38,
+              "prevClose": 114.59,
+              "change": 5.79,
+              "changePct": 5.05,
+              "amplitude": 5.14,
+              "volume": 2549200,
               "currency": "USD",
-              "quoteDate": "2026-10-20"
+              "quoteDate": "2026-10-21"
             },
             {
               "code": "PANW",
@@ -287806,17 +287806,17 @@ window.DATA = {
               "assetType": "stock",
               "weight": 1.58,
               "shares": 47955,
-              "open": 345.28,
-              "high": 346.06,
-              "low": 334.75,
-              "close": 340.28,
-              "prevClose": 346.95,
-              "change": -6.67,
-              "changePct": -1.92,
-              "amplitude": 3.26,
-              "volume": 4241200,
+              "open": 343.44,
+              "high": 354.42,
+              "low": 339.53,
+              "close": 347.25,
+              "prevClose": 340.28,
+              "change": 6.97,
+              "changePct": 2.05,
+              "amplitude": 4.38,
+              "volume": 5162500,
               "currency": "USD",
-              "quoteDate": "2026-10-20"
+              "quoteDate": "2026-10-21"
             },
             {
               "code": "MRK",
@@ -287825,17 +287825,17 @@ window.DATA = {
               "assetType": "stock",
               "weight": 1.56,
               "shares": 110200,
-              "open": 146.29,
-              "high": 149.36,
-              "low": 146.12,
-              "close": 148.3,
-              "prevClose": 143.63,
-              "change": 4.67,
-              "changePct": 3.25,
-              "amplitude": 2.26,
-              "volume": 9923600,
+              "open": 147.11,
+              "high": 150.0,
+              "low": 147.11,
+              "close": 149.88,
+              "prevClose": 148.3,
+              "change": 1.58,
+              "changePct": 1.07,
+              "amplitude": 1.95,
+              "volume": 9006800,
               "currency": "USD",
-              "quoteDate": "2026-10-20"
+              "quoteDate": "2026-10-21"
             },
             {
               "code": "3017",
@@ -287883,17 +287883,17 @@ window.DATA = {
               "assetType": "stock",
               "weight": 1.47,
               "shares": 103936,
-              "open": 139.77,
-              "high": 148.83,
-              "low": 134.94,
-              "close": 142.7,
-              "prevClose": 139.77,
-              "change": 2.93,
-              "changePct": 2.1,
-              "amplitude": 9.94,
-              "volume": 2019000,
+              "open": 139.34,
+              "high": 153.8,
+              "low": 138.25,
+              "close": 149.13,
+              "prevClose": 142.7,
+              "change": 6.43,
+              "changePct": 4.51,
+              "amplitude": 10.9,
+              "volume": 2634400,
               "currency": "USD",
-              "quoteDate": "2026-10-20"
+              "quoteDate": "2026-10-21"
             },
             {
               "code": "AMZN",
@@ -287921,17 +287921,17 @@ window.DATA = {
               "assetType": "stock",
               "weight": 1.43,
               "shares": 106400,
-              "open": 138.0,
-              "high": 143.66,
-              "low": 132.69,
-              "close": 136.2,
-              "prevClose": 142.22,
-              "change": -6.02,
-              "changePct": -4.23,
-              "amplitude": 7.71,
-              "volume": 2365000,
+              "open": 141.33,
+              "high": 142.7,
+              "low": 137.68,
+              "close": 141.63,
+              "prevClose": 136.2,
+              "change": 5.43,
+              "changePct": 3.99,
+              "amplitude": 3.69,
+              "volume": 2708000,
               "currency": "USD",
-              "quoteDate": "2026-10-20"
+              "quoteDate": "2026-10-21"
             },
             {
               "code": "8046",
@@ -288229,17 +288229,17 @@ window.DATA = {
               "assetType": "stock",
               "weight": 0.5,
               "shares": 31900,
-              "open": 158.29,
-              "high": 163.57,
-              "low": 155.07,
-              "close": 162.59,
-              "prevClose": 157.88,
-              "change": 4.71,
-              "changePct": 2.98,
-              "amplitude": 5.38,
-              "volume": 1308900,
+              "open": 162.29,
+              "high": 171.22,
+              "low": 162.0,
+              "close": 166.66,
+              "prevClose": 162.59,
+              "change": 4.07,
+              "changePct": 2.5,
+              "amplitude": 5.67,
+              "volume": 2535600,
               "currency": "USD",
-              "quoteDate": "2026-10-20"
+              "quoteDate": "2026-10-21"
             }
           ]
         }
@@ -288256,7 +288256,7 @@ window.DATA = {
           "科技主題型"
         ],
         "source": "TWSE ETF e添富",
-        "fetchedAt": "2026-10-23T07:21:54+08:00",
+        "fetchedAt": "2026-10-23T17:32:35+08:00",
         "navHistory": [
           {
             "date": "2026-09-08",
@@ -288406,114 +288406,114 @@ window.DATA = {
         ]
       },
       "shareholderDistribution": {
-        "date": "2026-10-08",
-        "totalHolders": 117305,
-        "totalShares": 2312522000,
+        "date": "2026-10-22",
+        "totalHolders": 116931,
+        "totalShares": 2278522000,
         "buckets": [
           {
             "label": "<1張",
-            "holders": 11505,
-            "shares": 3924666,
-            "peoplePct": 9.81,
+            "holders": 11218,
+            "shares": 3836129,
+            "peoplePct": 9.59,
             "holdingPct": 0.17
           },
           {
             "label": "1-5張",
-            "holders": 57794,
-            "shares": 144225661,
-            "peoplePct": 49.27,
-            "holdingPct": 6.24
+            "holders": 57451,
+            "shares": 143587577,
+            "peoplePct": 49.13,
+            "holdingPct": 6.3
           },
           {
             "label": "5-10張",
-            "holders": 19294,
-            "shares": 160949072,
-            "peoplePct": 16.45,
-            "holdingPct": 6.96
+            "holders": 19325,
+            "shares": 161005775,
+            "peoplePct": 16.53,
+            "holdingPct": 7.07
           },
           {
             "label": "10-15張",
-            "holders": 6714,
-            "shares": 87532886,
-            "peoplePct": 5.72,
-            "holdingPct": 3.79
+            "holders": 6800,
+            "shares": 88657554,
+            "peoplePct": 5.82,
+            "holdingPct": 3.89
           },
           {
             "label": "15-20張",
-            "holders": 5837,
-            "shares": 110155954,
-            "peoplePct": 4.98,
-            "holdingPct": 4.76
+            "holders": 5872,
+            "shares": 110800326,
+            "peoplePct": 5.02,
+            "holdingPct": 4.86
           },
           {
             "label": "20-30張",
-            "holders": 5166,
-            "shares": 136695023,
-            "peoplePct": 4.4,
-            "holdingPct": 5.91
+            "holders": 5180,
+            "shares": 136906096,
+            "peoplePct": 4.43,
+            "holdingPct": 6.01
           },
           {
             "label": "30-40張",
-            "holders": 2367,
-            "shares": 86007818,
-            "peoplePct": 2.02,
-            "holdingPct": 3.72
+            "holders": 2408,
+            "shares": 87507563,
+            "peoplePct": 2.06,
+            "holdingPct": 3.84
           },
           {
             "label": "40-50張",
-            "holders": 2477,
-            "shares": 118996809,
+            "holders": 2471,
+            "shares": 118689648,
             "peoplePct": 2.11,
-            "holdingPct": 5.15
+            "holdingPct": 5.21
           },
           {
             "label": "50-100張",
-            "holders": 3713,
-            "shares": 291240641,
-            "peoplePct": 3.17,
-            "holdingPct": 12.59
+            "holders": 3745,
+            "shares": 292577114,
+            "peoplePct": 3.2,
+            "holdingPct": 12.84
           },
           {
             "label": "100-200張",
-            "holders": 1510,
-            "shares": 224420492,
-            "peoplePct": 1.29,
-            "holdingPct": 9.7
+            "holders": 1537,
+            "shares": 228256496,
+            "peoplePct": 1.31,
+            "holdingPct": 10.02
           },
           {
             "label": "200-400張",
-            "holders": 546,
-            "shares": 156228353,
-            "peoplePct": 0.47,
-            "holdingPct": 6.76
+            "holders": 543,
+            "shares": 154666341,
+            "peoplePct": 0.46,
+            "holdingPct": 6.79
           },
           {
             "label": "400-600張",
             "holders": 184,
-            "shares": 93255473,
+            "shares": 92736593,
             "peoplePct": 0.16,
-            "holdingPct": 4.03
+            "holdingPct": 4.07
           },
           {
             "label": "600-800張",
-            "holders": 42,
-            "shares": 29945200,
-            "peoplePct": 0.04,
-            "holdingPct": 1.29
+            "holders": 40,
+            "shares": 28399200,
+            "peoplePct": 0.03,
+            "holdingPct": 1.25
           },
           {
             "label": "800-1千張",
-            "holders": 62,
-            "shares": 59004822,
+            "holders": 63,
+            "shares": 59917813,
             "peoplePct": 0.05,
-            "holdingPct": 2.55
+            "holdingPct": 2.63
           },
           {
             "label": "1千張以上",
             "holders": 94,
-            "shares": 609939130,
+            "shares": 570977775,
             "peoplePct": 0.08,
-            "holdingPct": 26.38
+            "holdingPct": 25.06
           }
         ],
         "source": "TDCC 集保戶股權分散表"
@@ -371290,7 +371290,7 @@ window.DATA = {
         },
         {
           "date": "2026-10-22",
-          "fetched_at": "2026-10-23T07:20:51+08:00",
+          "fetched_at": "2026-10-23T17:30:58+08:00",
           "count": 43,
           "self": {
             "open": 17.84,
@@ -372956,7 +372956,7 @@ window.DATA = {
           "科技主題型"
         ],
         "source": "TWSE ETF e添富",
-        "fetchedAt": "2026-10-23T07:21:54+08:00",
+        "fetchedAt": "2026-10-23T17:32:36+08:00",
         "navHistory": [
           {
             "date": "2026-09-08",
@@ -373111,114 +373111,114 @@ window.DATA = {
         ]
       },
       "shareholderDistribution": {
-        "date": "2026-10-08",
-        "totalHolders": 176284,
-        "totalShares": 2227955000,
+        "date": "2026-10-22",
+        "totalHolders": 196545,
+        "totalShares": 2631455000,
         "buckets": [
           {
             "label": "<1張",
-            "holders": 16879,
-            "shares": 5520156,
-            "peoplePct": 9.57,
-            "holdingPct": 0.25
+            "holders": 17233,
+            "shares": 5684565,
+            "peoplePct": 8.77,
+            "holdingPct": 0.22
           },
           {
             "label": "1-5張",
-            "holders": 91612,
-            "shares": 225628110,
-            "peoplePct": 51.97,
-            "holdingPct": 10.13
+            "holders": 98907,
+            "shares": 246287283,
+            "peoplePct": 50.32,
+            "holdingPct": 9.36
           },
           {
             "label": "5-10張",
-            "holders": 29255,
-            "shares": 248355459,
-            "peoplePct": 16.6,
-            "holdingPct": 11.15
+            "holders": 33575,
+            "shares": 283418106,
+            "peoplePct": 17.08,
+            "holdingPct": 10.77
           },
           {
             "label": "10-15張",
-            "holders": 9863,
-            "shares": 129160618,
-            "peoplePct": 5.59,
-            "holdingPct": 5.8
+            "holders": 12083,
+            "shares": 158026976,
+            "peoplePct": 6.15,
+            "holdingPct": 6.01
           },
           {
             "label": "15-20張",
-            "holders": 8747,
-            "shares": 166368446,
-            "peoplePct": 4.96,
-            "holdingPct": 7.47
+            "holders": 10543,
+            "shares": 199908310,
+            "peoplePct": 5.36,
+            "holdingPct": 7.6
           },
           {
             "label": "20-30張",
-            "holders": 7476,
-            "shares": 198467156,
-            "peoplePct": 4.24,
-            "holdingPct": 8.91
+            "holders": 9163,
+            "shares": 241973140,
+            "peoplePct": 4.66,
+            "holdingPct": 9.2
           },
           {
             "label": "30-40張",
-            "holders": 3362,
-            "shares": 122217628,
-            "peoplePct": 1.91,
-            "holdingPct": 5.49
+            "holders": 4108,
+            "shares": 149524415,
+            "peoplePct": 2.09,
+            "holdingPct": 5.68
           },
           {
             "label": "40-50張",
-            "holders": 2964,
-            "shares": 142407153,
-            "peoplePct": 1.68,
-            "holdingPct": 6.39
+            "holders": 3456,
+            "shares": 165441788,
+            "peoplePct": 1.76,
+            "holdingPct": 6.29
           },
           {
             "label": "50-100張",
-            "holders": 4061,
-            "shares": 308754372,
-            "peoplePct": 2.3,
-            "holdingPct": 13.86
+            "holders": 4956,
+            "shares": 372710968,
+            "peoplePct": 2.52,
+            "holdingPct": 14.16
           },
           {
             "label": "100-200張",
-            "holders": 1391,
-            "shares": 199648062,
-            "peoplePct": 0.79,
-            "holdingPct": 8.96
+            "holders": 1711,
+            "shares": 243809757,
+            "peoplePct": 0.87,
+            "holdingPct": 9.27
           },
           {
             "label": "200-400張",
-            "holders": 447,
-            "shares": 125571523,
-            "peoplePct": 0.25,
-            "holdingPct": 5.64
+            "holders": 544,
+            "shares": 150673831,
+            "peoplePct": 0.28,
+            "holdingPct": 5.73
           },
           {
             "label": "400-600張",
-            "holders": 112,
-            "shares": 56267200,
-            "peoplePct": 0.06,
-            "holdingPct": 2.53
+            "holders": 134,
+            "shares": 66966161,
+            "peoplePct": 0.07,
+            "holdingPct": 2.54
           },
           {
             "label": "600-800張",
-            "holders": 30,
-            "shares": 21884995,
+            "holders": 35,
+            "shares": 25169000,
             "peoplePct": 0.02,
-            "holdingPct": 0.98
+            "holdingPct": 0.96
           },
           {
             "label": "800-1千張",
-            "holders": 28,
-            "shares": 26612183,
-            "peoplePct": 0.02,
-            "holdingPct": 1.19
+            "holders": 29,
+            "shares": 27540132,
+            "peoplePct": 0.01,
+            "holdingPct": 1.05
           },
           {
             "label": "1千張以上",
-            "holders": 57,
-            "shares": 251091939,
+            "holders": 68,
+            "shares": 294320568,
             "peoplePct": 0.03,
-            "holdingPct": 11.27
+            "holdingPct": 11.18
           }
         ],
         "source": "TDCC 集保戶股權分散表"
@@ -474967,7 +474967,7 @@ window.DATA = {
         },
         {
           "date": "2026-10-22",
-          "fetched_at": "2026-10-23T07:20:54+08:00",
+          "fetched_at": "2026-10-23T17:30:58+08:00",
           "count": 53,
           "self": {
             "open": 15.0,
@@ -477052,7 +477052,7 @@ window.DATA = {
           "高股息"
         ],
         "source": "TWSE ETF e添富",
-        "fetchedAt": "2026-10-23T07:21:55+08:00",
+        "fetchedAt": "2026-10-23T17:32:37+08:00",
         "navHistory": [
           {
             "date": "2026-09-08",
@@ -477207,114 +477207,114 @@ window.DATA = {
         ]
       },
       "shareholderDistribution": {
-        "date": "2026-10-08",
-        "totalHolders": 133775,
-        "totalShares": 1866640000,
+        "date": "2026-10-22",
+        "totalHolders": 140922,
+        "totalShares": 2050140000,
         "buckets": [
           {
             "label": "<1張",
-            "holders": 15286,
-            "shares": 4123028,
-            "peoplePct": 11.43,
+            "holders": 15749,
+            "shares": 4430231,
+            "peoplePct": 11.18,
             "holdingPct": 0.22
           },
           {
             "label": "1-5張",
-            "holders": 67090,
-            "shares": 162296022,
-            "peoplePct": 50.15,
-            "holdingPct": 8.69
+            "holders": 69444,
+            "shares": 169257267,
+            "peoplePct": 49.28,
+            "holdingPct": 8.26
           },
           {
             "label": "5-10張",
-            "holders": 20973,
-            "shares": 180442277,
-            "peoplePct": 15.68,
-            "holdingPct": 9.67
+            "holders": 22210,
+            "shares": 190125771,
+            "peoplePct": 15.76,
+            "holdingPct": 9.27
           },
           {
             "label": "10-15張",
-            "holders": 6832,
-            "shares": 89105913,
-            "peoplePct": 5.11,
-            "holdingPct": 4.77
+            "holders": 7592,
+            "shares": 98874403,
+            "peoplePct": 5.39,
+            "holdingPct": 4.82
           },
           {
             "label": "15-20張",
-            "holders": 6553,
-            "shares": 125127702,
-            "peoplePct": 4.9,
-            "holdingPct": 6.7
+            "holders": 7192,
+            "shares": 137081040,
+            "peoplePct": 5.1,
+            "holdingPct": 6.69
           },
           {
             "label": "20-30張",
-            "holders": 5671,
-            "shares": 150897884,
-            "peoplePct": 4.24,
-            "holdingPct": 8.08
+            "holders": 6161,
+            "shares": 163547361,
+            "peoplePct": 4.37,
+            "holdingPct": 7.98
           },
           {
             "label": "30-40張",
-            "holders": 2597,
-            "shares": 94521094,
-            "peoplePct": 1.94,
-            "holdingPct": 5.06
+            "holders": 2926,
+            "shares": 106494740,
+            "peoplePct": 2.08,
+            "holdingPct": 5.19
           },
           {
             "label": "40-50張",
-            "holders": 2634,
-            "shares": 126591484,
-            "peoplePct": 1.97,
-            "holdingPct": 6.78
+            "holders": 2826,
+            "shares": 135644754,
+            "peoplePct": 2.01,
+            "holdingPct": 6.62
           },
           {
             "label": "50-100張",
-            "holders": 3909,
-            "shares": 298866103,
-            "peoplePct": 2.92,
-            "holdingPct": 16.01
+            "holders": 4337,
+            "shares": 328549405,
+            "peoplePct": 3.08,
+            "holdingPct": 16.03
           },
           {
             "label": "100-200張",
-            "holders": 1536,
-            "shares": 221100772,
-            "peoplePct": 1.15,
-            "holdingPct": 11.84
+            "holders": 1726,
+            "shares": 247578942,
+            "peoplePct": 1.22,
+            "holdingPct": 12.08
           },
           {
             "label": "200-400張",
-            "holders": 471,
-            "shares": 132902906,
-            "peoplePct": 0.35,
-            "holdingPct": 7.12
+            "holders": 521,
+            "shares": 146233067,
+            "peoplePct": 0.37,
+            "holdingPct": 7.13
           },
           {
             "label": "400-600張",
-            "holders": 117,
-            "shares": 56976288,
+            "holders": 126,
+            "shares": 61755316,
             "peoplePct": 0.09,
-            "holdingPct": 3.05
+            "holdingPct": 3.01
           },
           {
             "label": "600-800張",
-            "holders": 32,
-            "shares": 22135325,
-            "peoplePct": 0.02,
-            "holdingPct": 1.19
-          },
-          {
-            "label": "800-1千張",
-            "holders": 23,
-            "shares": 21202000,
+            "holders": 34,
+            "shares": 23443670,
             "peoplePct": 0.02,
             "holdingPct": 1.14
           },
           {
+            "label": "800-1千張",
+            "holders": 25,
+            "shares": 23163489,
+            "peoplePct": 0.02,
+            "holdingPct": 1.13
+          },
+          {
             "label": "1千張以上",
-            "holders": 51,
-            "shares": 180351202,
+            "holders": 53,
+            "shares": 213960544,
             "peoplePct": 0.04,
-            "holdingPct": 9.66
+            "holdingPct": 10.44
           }
         ],
         "source": "TDCC 集保戶股權分散表"
@@ -586331,7 +586331,7 @@ window.DATA = {
         },
         {
           "date": "2026-10-22",
-          "fetched_at": "2026-10-23T07:20:55+08:00",
+          "fetched_at": "2026-10-23T17:30:59+08:00",
           "count": 52,
           "self": {
             "open": 108.95,
@@ -588381,7 +588381,7 @@ window.DATA = {
           "大型權值"
         ],
         "source": "TWSE ETF e添富",
-        "fetchedAt": "2026-10-23T07:21:55+08:00",
+        "fetchedAt": "2026-10-23T17:32:37+08:00",
         "navHistory": [
           {
             "date": "2026-09-08",
@@ -588536,114 +588536,114 @@ window.DATA = {
         ]
       },
       "shareholderDistribution": {
-        "date": "2026-10-08",
-        "totalHolders": 3565195,
-        "totalShares": 22233000000,
+        "date": "2026-10-22",
+        "totalHolders": 3720414,
+        "totalShares": 23055000000,
         "buckets": [
           {
             "label": "<1張",
-            "holders": 1546247,
-            "shares": 450839433,
-            "peoplePct": 43.37,
-            "holdingPct": 2.03
+            "holders": 1589514,
+            "shares": 469202978,
+            "peoplePct": 42.72,
+            "holdingPct": 2.04
           },
           {
             "label": "1-5張",
-            "holders": 1320297,
-            "shares": 3007156375,
-            "peoplePct": 37.03,
-            "holdingPct": 13.53
+            "holders": 1392908,
+            "shares": 3174294693,
+            "peoplePct": 37.44,
+            "holdingPct": 13.77
           },
           {
             "label": "5-10張",
-            "holders": 330493,
-            "shares": 2425683744,
-            "peoplePct": 9.27,
-            "holdingPct": 10.91
+            "holders": 348942,
+            "shares": 2561632951,
+            "peoplePct": 9.38,
+            "holdingPct": 11.11
           },
           {
             "label": "10-15張",
-            "holders": 133634,
-            "shares": 1653212526,
-            "peoplePct": 3.75,
-            "holdingPct": 7.44
+            "holders": 141476,
+            "shares": 1750896290,
+            "peoplePct": 3.8,
+            "holdingPct": 7.59
           },
           {
             "label": "15-20張",
-            "holders": 73072,
-            "shares": 1290607774,
-            "peoplePct": 2.05,
-            "holdingPct": 5.8
+            "holders": 77190,
+            "shares": 1363344360,
+            "peoplePct": 2.07,
+            "holdingPct": 5.91
           },
           {
             "label": "20-30張",
-            "holders": 68090,
-            "shares": 1678127460,
-            "peoplePct": 1.91,
-            "holdingPct": 7.55
+            "holders": 72019,
+            "shares": 1774112554,
+            "peoplePct": 1.94,
+            "holdingPct": 7.7
           },
           {
             "label": "30-40張",
-            "holders": 32520,
-            "shares": 1136815955,
-            "peoplePct": 0.91,
-            "holdingPct": 5.11
+            "holders": 34402,
+            "shares": 1201682555,
+            "peoplePct": 0.92,
+            "holdingPct": 5.21
           },
           {
             "label": "40-50張",
-            "holders": 18019,
-            "shares": 813815342,
+            "holders": 19053,
+            "shares": 860263936,
             "peoplePct": 0.51,
-            "holdingPct": 3.66
+            "holdingPct": 3.73
           },
           {
             "label": "50-100張",
-            "holders": 29795,
-            "shares": 2045866455,
+            "holders": 31281,
+            "shares": 2145297240,
             "peoplePct": 0.84,
-            "holdingPct": 9.2
+            "holdingPct": 9.31
           },
           {
             "label": "100-200張",
-            "holders": 9579,
-            "shares": 1286222055,
+            "holders": 10059,
+            "shares": 1349682620,
             "peoplePct": 0.27,
-            "holdingPct": 5.79
+            "holdingPct": 5.85
           },
           {
             "label": "200-400張",
-            "holders": 2524,
-            "shares": 675482338,
+            "holders": 2619,
+            "shares": 701737645,
             "peoplePct": 0.07,
             "holdingPct": 3.04
           },
           {
             "label": "400-600張",
-            "holders": 454,
-            "shares": 218588168,
+            "holders": 472,
+            "shares": 227538811,
             "peoplePct": 0.01,
-            "holdingPct": 0.98
+            "holdingPct": 0.99
           },
           {
             "label": "600-800張",
-            "holders": 134,
-            "shares": 92817906,
+            "holders": 138,
+            "shares": 95698629,
             "peoplePct": 0.0,
             "holdingPct": 0.42
           },
           {
             "label": "800-1千張",
-            "holders": 64,
-            "shares": 57782301,
+            "holders": 65,
+            "shares": 58675695,
             "peoplePct": 0.0,
-            "holdingPct": 0.26
+            "holdingPct": 0.25
           },
           {
             "label": "1千張以上",
-            "holders": 273,
-            "shares": 5399984168,
+            "holders": 276,
+            "shares": 5320940727,
             "peoplePct": 0.01,
-            "holdingPct": 24.29
+            "holdingPct": 23.08
           }
         ],
         "source": "TDCC 集保戶股權分散表"
@@ -744153,7 +744153,7 @@ window.DATA = {
         },
         {
           "date": "2026-10-22",
-          "fetched_at": "2026-10-23T07:20:55+08:00",
+          "fetched_at": "2026-10-23T17:30:59+08:00",
           "count": 74,
           "self": {
             "open": 63.35,
@@ -747047,7 +747047,7 @@ window.DATA = {
           "科技主題型"
         ],
         "source": "TWSE ETF e添富",
-        "fetchedAt": "2026-10-23T07:21:55+08:00",
+        "fetchedAt": "2026-10-23T17:32:38+08:00",
         "navHistory": [
           {
             "date": "2026-09-08",
@@ -747202,114 +747202,114 @@ window.DATA = {
         ]
       },
       "shareholderDistribution": {
-        "date": "2026-10-08",
-        "totalHolders": 453974,
-        "totalShares": 2542000000,
+        "date": "2026-10-22",
+        "totalHolders": 471105,
+        "totalShares": 2626000000,
         "buckets": [
           {
             "label": "<1張",
-            "holders": 130498,
-            "shares": 37650574,
-            "peoplePct": 28.75,
-            "holdingPct": 1.48
+            "holders": 133922,
+            "shares": 39130266,
+            "peoplePct": 28.43,
+            "holdingPct": 1.49
           },
           {
             "label": "1-5張",
-            "holders": 235546,
-            "shares": 504628277,
-            "peoplePct": 51.89,
-            "holdingPct": 19.85
+            "holders": 245143,
+            "shares": 526630893,
+            "peoplePct": 52.04,
+            "holdingPct": 20.05
           },
           {
             "label": "5-10張",
-            "holders": 47014,
-            "shares": 364002843,
-            "peoplePct": 10.36,
-            "holdingPct": 14.32
+            "holders": 49159,
+            "shares": 380500453,
+            "peoplePct": 10.43,
+            "holdingPct": 14.49
           },
           {
             "label": "10-15張",
-            "holders": 15779,
-            "shares": 201132113,
-            "peoplePct": 3.48,
-            "holdingPct": 7.91
+            "holders": 16540,
+            "shares": 210754263,
+            "peoplePct": 3.51,
+            "holdingPct": 8.03
           },
           {
             "label": "15-20張",
-            "holders": 8430,
-            "shares": 153610992,
-            "peoplePct": 1.86,
-            "holdingPct": 6.04
+            "holders": 8902,
+            "shares": 162089816,
+            "peoplePct": 1.89,
+            "holdingPct": 6.17
           },
           {
             "label": "20-30張",
-            "holders": 7639,
-            "shares": 191884227,
-            "peoplePct": 1.68,
-            "holdingPct": 7.55
+            "holders": 7981,
+            "shares": 200399793,
+            "peoplePct": 1.69,
+            "holdingPct": 7.63
           },
           {
             "label": "30-40張",
-            "holders": 3158,
-            "shares": 111668898,
+            "holders": 3303,
+            "shares": 116912758,
             "peoplePct": 0.7,
-            "holdingPct": 4.39
+            "holdingPct": 4.45
           },
           {
             "label": "40-50張",
-            "holders": 1846,
-            "shares": 85036669,
-            "peoplePct": 0.41,
-            "holdingPct": 3.35
+            "holders": 1903,
+            "shares": 87661840,
+            "peoplePct": 0.4,
+            "holdingPct": 3.34
           },
           {
             "label": "50-100張",
-            "holders": 2863,
-            "shares": 201271542,
-            "peoplePct": 0.63,
-            "holdingPct": 7.92
+            "holders": 2993,
+            "shares": 209870073,
+            "peoplePct": 0.64,
+            "holdingPct": 7.99
           },
           {
             "label": "100-200張",
-            "holders": 815,
-            "shares": 111749168,
+            "holders": 852,
+            "shares": 115983560,
             "peoplePct": 0.18,
-            "holdingPct": 4.4
+            "holdingPct": 4.42
           },
           {
             "label": "200-400張",
-            "holders": 220,
-            "shares": 61355187,
+            "holders": 237,
+            "shares": 65512118,
             "peoplePct": 0.05,
-            "holdingPct": 2.41
+            "holdingPct": 2.49
           },
           {
             "label": "400-600張",
-            "holders": 54,
-            "shares": 25964365,
+            "holders": 55,
+            "shares": 26781079,
             "peoplePct": 0.01,
             "holdingPct": 1.02
           },
           {
             "label": "600-800張",
-            "holders": 23,
-            "shares": 15713145,
+            "holders": 29,
+            "shares": 20030145,
             "peoplePct": 0.01,
-            "holdingPct": 0.62
+            "holdingPct": 0.76
           },
           {
             "label": "800-1千張",
-            "holders": 15,
-            "shares": 13490147,
+            "holders": 14,
+            "shares": 12626147,
             "peoplePct": 0.0,
-            "holdingPct": 0.53
+            "holdingPct": 0.48
           },
           {
             "label": "1千張以上",
-            "holders": 74,
-            "shares": 462841853,
+            "holders": 72,
+            "shares": 451116796,
             "peoplePct": 0.02,
-            "holdingPct": 18.21
+            "holdingPct": 17.18
           }
         ],
         "source": "TDCC 集保戶股權分散表"
@@ -855787,7 +855787,7 @@ window.DATA = {
         },
         {
           "date": "2026-10-22",
-          "fetched_at": "2026-10-23T07:20:56+08:00",
+          "fetched_at": "2026-10-23T17:30:59+08:00",
           "count": 51,
           "self": {
             "open": 57.5,
@@ -857855,7 +857855,7 @@ window.DATA = {
           "高股息"
         ],
         "source": "TWSE ETF e添富",
-        "fetchedAt": "2026-10-23T07:21:56+08:00",
+        "fetchedAt": "2026-10-23T17:32:38+08:00",
         "navHistory": [
           {
             "date": "2026-09-08",
@@ -858010,114 +858010,114 @@ window.DATA = {
         ]
       },
       "shareholderDistribution": {
-        "date": "2026-10-08",
-        "totalHolders": 1683664,
-        "totalShares": 14247034000,
+        "date": "2026-10-22",
+        "totalHolders": 1741232,
+        "totalShares": 14704534000,
         "buckets": [
           {
             "label": "<1張",
-            "holders": 385855,
-            "shares": 110228758,
-            "peoplePct": 22.92,
+            "holders": 399989,
+            "shares": 113790379,
+            "peoplePct": 22.97,
             "holdingPct": 0.77
           },
           {
             "label": "1-5張",
-            "holders": 783032,
-            "shares": 1821783195,
-            "peoplePct": 46.51,
-            "holdingPct": 12.79
+            "holders": 810075,
+            "shares": 1881658247,
+            "peoplePct": 46.52,
+            "holdingPct": 12.8
           },
           {
             "label": "5-10張",
-            "holders": 225813,
-            "shares": 1745372936,
-            "peoplePct": 13.41,
-            "holdingPct": 12.25
+            "holders": 233185,
+            "shares": 1803123594,
+            "peoplePct": 13.39,
+            "holdingPct": 12.26
           },
           {
             "label": "10-15張",
-            "holders": 96134,
-            "shares": 1213307631,
-            "peoplePct": 5.71,
-            "holdingPct": 8.52
+            "holders": 99241,
+            "shares": 1251553952,
+            "peoplePct": 5.7,
+            "holdingPct": 8.51
           },
           {
             "label": "15-20張",
-            "holders": 57329,
-            "shares": 1038492080,
-            "peoplePct": 3.41,
-            "holdingPct": 7.29
+            "holders": 59229,
+            "shares": 1073343769,
+            "peoplePct": 3.4,
+            "holdingPct": 7.3
           },
           {
             "label": "20-30張",
-            "holders": 54916,
-            "shares": 1383061211,
-            "peoplePct": 3.26,
-            "holdingPct": 9.71
+            "holders": 56528,
+            "shares": 1423744007,
+            "peoplePct": 3.25,
+            "holdingPct": 9.68
           },
           {
             "label": "30-40張",
-            "holders": 26337,
-            "shares": 931400429,
+            "holders": 27117,
+            "shares": 958456505,
             "peoplePct": 1.56,
-            "holdingPct": 6.54
+            "holdingPct": 6.52
           },
           {
             "label": "40-50張",
-            "holders": 16105,
-            "shares": 742481531,
-            "peoplePct": 0.96,
-            "holdingPct": 5.21
+            "holders": 16597,
+            "shares": 764810138,
+            "peoplePct": 0.95,
+            "holdingPct": 5.2
           },
           {
             "label": "50-100張",
-            "holders": 26578,
-            "shares": 1870205095,
-            "peoplePct": 1.58,
-            "holdingPct": 13.13
+            "holders": 27329,
+            "shares": 1921927212,
+            "peoplePct": 1.57,
+            "holdingPct": 13.07
           },
           {
             "label": "100-200張",
-            "holders": 8689,
-            "shares": 1177681272,
+            "holders": 8979,
+            "shares": 1217363848,
             "peoplePct": 0.52,
-            "holdingPct": 8.27
+            "holdingPct": 8.28
           },
           {
             "label": "200-400張",
-            "holders": 2134,
-            "shares": 580612113,
+            "holders": 2194,
+            "shares": 596999697,
             "peoplePct": 0.13,
-            "holdingPct": 4.08
+            "holdingPct": 4.06
           },
           {
             "label": "400-600張",
-            "holders": 396,
-            "shares": 194727815,
+            "holders": 403,
+            "shares": 198671248,
             "peoplePct": 0.02,
-            "holdingPct": 1.37
+            "holdingPct": 1.35
           },
           {
             "label": "600-800張",
-            "holders": 131,
-            "shares": 90819226,
+            "holders": 141,
+            "shares": 98239007,
             "peoplePct": 0.01,
-            "holdingPct": 0.64
+            "holdingPct": 0.67
           },
           {
             "label": "800-1千張",
-            "holders": 54,
-            "shares": 48987711,
+            "holders": 61,
+            "shares": 55362022,
             "peoplePct": 0.0,
-            "holdingPct": 0.34
+            "holdingPct": 0.38
           },
           {
             "label": "1千張以上",
-            "holders": 161,
-            "shares": 1297877997,
+            "holders": 164,
+            "shares": 1345490375,
             "peoplePct": 0.01,
-            "holdingPct": 9.11
+            "holdingPct": 9.15
           }
         ],
         "source": "TDCC 集保戶股權分散表"
@@ -922457,7 +922457,7 @@ window.DATA = {
         },
         {
           "date": "2026-10-22",
-          "fetched_at": "2026-10-23T07:20:56+08:00",
+          "fetched_at": "2026-10-23T17:30:59+08:00",
           "count": 30,
           "self": {
             "open": 35.55,
@@ -923700,7 +923700,7 @@ window.DATA = {
           "高股息"
         ],
         "source": "TWSE ETF e添富",
-        "fetchedAt": "2026-10-23T07:21:56+08:00",
+        "fetchedAt": "2026-10-23T17:32:39+08:00",
         "navHistory": [
           {
             "date": "2026-09-08",
@@ -923855,114 +923855,114 @@ window.DATA = {
         ]
       },
       "shareholderDistribution": {
-        "date": "2026-10-08",
-        "totalHolders": 1685601,
-        "totalShares": 18857290000,
+        "date": "2026-10-22",
+        "totalHolders": 1706814,
+        "totalShares": 18973790000,
         "buckets": [
           {
             "label": "<1張",
-            "holders": 300271,
-            "shares": 89405882,
-            "peoplePct": 17.81,
-            "holdingPct": 0.47
+            "holders": 309247,
+            "shares": 91465631,
+            "peoplePct": 18.12,
+            "holdingPct": 0.48
           },
           {
             "label": "1-5張",
-            "holders": 748660,
-            "shares": 1805289878,
-            "peoplePct": 44.42,
-            "holdingPct": 9.57
+            "holders": 755759,
+            "shares": 1820812639,
+            "peoplePct": 44.28,
+            "holdingPct": 9.6
           },
           {
             "label": "5-10張",
-            "holders": 248719,
-            "shares": 1940552236,
-            "peoplePct": 14.76,
-            "holdingPct": 10.29
+            "holders": 251007,
+            "shares": 1958979229,
+            "peoplePct": 14.71,
+            "holdingPct": 10.32
           },
           {
             "label": "10-15張",
-            "holders": 110691,
-            "shares": 1399917645,
-            "peoplePct": 6.57,
-            "holdingPct": 7.42
+            "holders": 111727,
+            "shares": 1413093674,
+            "peoplePct": 6.55,
+            "holdingPct": 7.45
           },
           {
             "label": "15-20張",
-            "holders": 73803,
-            "shares": 1342948987,
-            "peoplePct": 4.38,
+            "holders": 74223,
+            "shares": 1350441929,
+            "peoplePct": 4.35,
             "holdingPct": 7.12
           },
           {
             "label": "20-30張",
-            "holders": 77798,
-            "shares": 1969841941,
-            "peoplePct": 4.62,
-            "holdingPct": 10.45
+            "holders": 78228,
+            "shares": 1980861265,
+            "peoplePct": 4.58,
+            "holdingPct": 10.44
           },
           {
             "label": "30-40張",
-            "holders": 38759,
-            "shares": 1372907534,
-            "peoplePct": 2.3,
+            "holders": 39009,
+            "shares": 1381222546,
+            "peoplePct": 2.29,
             "holdingPct": 7.28
           },
           {
             "label": "40-50張",
-            "holders": 26065,
-            "shares": 1204243326,
-            "peoplePct": 1.55,
+            "holders": 26240,
+            "shares": 1212028419,
+            "peoplePct": 1.54,
             "holdingPct": 6.39
           },
           {
             "label": "50-100張",
-            "holders": 43514,
-            "shares": 3074047081,
-            "peoplePct": 2.58,
-            "holdingPct": 16.3
+            "holders": 43949,
+            "shares": 3104973725,
+            "peoplePct": 2.57,
+            "holdingPct": 16.36
           },
           {
             "label": "100-200張",
-            "holders": 13349,
-            "shares": 1787730807,
+            "holders": 13438,
+            "shares": 1798937650,
             "peoplePct": 0.79,
             "holdingPct": 9.48
           },
           {
             "label": "200-400張",
-            "holders": 3098,
-            "shares": 832965917,
+            "holders": 3106,
+            "shares": 835888007,
             "peoplePct": 0.18,
-            "holdingPct": 4.42
+            "holdingPct": 4.41
           },
           {
             "label": "400-600張",
-            "holders": 527,
-            "shares": 255308876,
+            "holders": 529,
+            "shares": 255764537,
             "peoplePct": 0.03,
             "holdingPct": 1.35
           },
           {
             "label": "600-800張",
-            "holders": 130,
-            "shares": 92005366,
+            "holders": 129,
+            "shares": 91054223,
             "peoplePct": 0.01,
-            "holdingPct": 0.49
+            "holdingPct": 0.48
           },
           {
             "label": "800-1千張",
-            "holders": 60,
-            "shares": 55164070,
+            "holders": 62,
+            "shares": 57043950,
             "peoplePct": 0.0,
-            "holdingPct": 0.29
+            "holdingPct": 0.3
           },
           {
             "label": "1千張以上",
-            "holders": 157,
-            "shares": 1634963454,
+            "holders": 161,
+            "shares": 1621222576,
             "peoplePct": 0.01,
-            "holdingPct": 8.67
+            "holdingPct": 8.54
           }
         ],
         "source": "TDCC 集保戶股權分散表"
@@ -989285,7 +989285,7 @@ window.DATA = {
         },
         {
           "date": "2026-10-22",
-          "fetched_at": "2026-10-23T07:20:57+08:00",
+          "fetched_at": "2026-10-23T17:30:59+08:00",
           "count": 31,
           "self": {
             "open": 50.2,
@@ -990524,7 +990524,7 @@ window.DATA = {
           "科技主題型"
         ],
         "source": "TWSE ETF e添富",
-        "fetchedAt": "2026-10-23T07:21:57+08:00",
+        "fetchedAt": "2026-10-23T17:32:39+08:00",
         "navHistory": [
           {
             "date": "2026-09-08",
@@ -990679,114 +990679,114 @@ window.DATA = {
         ]
       },
       "shareholderDistribution": {
-        "date": "2026-10-08",
-        "totalHolders": 400097,
-        "totalShares": 2966903000,
+        "date": "2026-10-22",
+        "totalHolders": 409862,
+        "totalShares": 2992403000,
         "buckets": [
           {
             "label": "<1張",
-            "holders": 77967,
-            "shares": 21250101,
-            "peoplePct": 19.49,
-            "holdingPct": 0.72
+            "holders": 80219,
+            "shares": 22136518,
+            "peoplePct": 19.57,
+            "holdingPct": 0.74
           },
           {
             "label": "1-5張",
-            "holders": 217892,
-            "shares": 494748818,
-            "peoplePct": 54.46,
-            "holdingPct": 16.68
+            "holders": 222318,
+            "shares": 506204904,
+            "peoplePct": 54.24,
+            "holdingPct": 16.92
           },
           {
             "label": "5-10張",
-            "holders": 50601,
-            "shares": 398961059,
-            "peoplePct": 12.65,
-            "holdingPct": 13.45
+            "holders": 52011,
+            "shares": 409233344,
+            "peoplePct": 12.69,
+            "holdingPct": 13.68
           },
           {
             "label": "10-15張",
-            "holders": 18616,
-            "shares": 236359152,
-            "peoplePct": 4.65,
-            "holdingPct": 7.97
+            "holders": 19241,
+            "shares": 244158378,
+            "peoplePct": 4.69,
+            "holdingPct": 8.16
           },
           {
             "label": "15-20張",
-            "holders": 11505,
-            "shares": 210913791,
+            "holders": 11823,
+            "shares": 216622953,
             "peoplePct": 2.88,
-            "holdingPct": 7.11
+            "holdingPct": 7.24
           },
           {
             "label": "20-30張",
-            "holders": 10238,
-            "shares": 259411076,
-            "peoplePct": 2.56,
-            "holdingPct": 8.74
+            "holders": 10551,
+            "shares": 267239858,
+            "peoplePct": 2.57,
+            "holdingPct": 8.93
           },
           {
             "label": "30-40張",
-            "holders": 4666,
-            "shares": 165582628,
+            "holders": 4809,
+            "shares": 170534153,
             "peoplePct": 1.17,
-            "holdingPct": 5.58
+            "holdingPct": 5.7
           },
           {
             "label": "40-50張",
-            "holders": 2692,
-            "shares": 124496583,
-            "peoplePct": 0.67,
-            "holdingPct": 4.2
+            "holders": 2806,
+            "shares": 129752098,
+            "peoplePct": 0.68,
+            "holdingPct": 4.34
           },
           {
             "label": "50-100張",
-            "holders": 4228,
-            "shares": 298019422,
+            "holders": 4338,
+            "shares": 305762768,
             "peoplePct": 1.06,
-            "holdingPct": 10.04
+            "holdingPct": 10.22
           },
           {
             "label": "100-200張",
-            "holders": 1244,
-            "shares": 168621705,
+            "holders": 1291,
+            "shares": 175652075,
             "peoplePct": 0.31,
-            "holdingPct": 5.68
+            "holdingPct": 5.87
           },
           {
             "label": "200-400張",
-            "holders": 325,
-            "shares": 88313834,
+            "holders": 330,
+            "shares": 90051594,
             "peoplePct": 0.08,
-            "holdingPct": 2.98
+            "holdingPct": 3.01
           },
           {
             "label": "400-600張",
-            "holders": 50,
-            "shares": 25219689,
+            "holders": 54,
+            "shares": 27416379,
             "peoplePct": 0.01,
-            "holdingPct": 0.85
+            "holdingPct": 0.92
           },
           {
             "label": "600-800張",
-            "holders": 21,
-            "shares": 15136078,
-            "peoplePct": 0.01,
-            "holdingPct": 0.51
+            "holders": 20,
+            "shares": 14263173,
+            "peoplePct": 0.0,
+            "holdingPct": 0.48
           },
           {
             "label": "800-1千張",
-            "holders": 8,
-            "shares": 7189000,
+            "holders": 7,
+            "shares": 6354669,
             "peoplePct": 0.0,
-            "holdingPct": 0.24
+            "holdingPct": 0.21
           },
           {
             "label": "1千張以上",
             "holders": 44,
-            "shares": 452680064,
+            "shares": 407020136,
             "peoplePct": 0.01,
-            "holdingPct": 15.26
+            "holdingPct": 13.6
           }
         ],
         "source": "TDCC 集保戶股權分散表"
@@ -1077200,7 +1077200,7 @@ window.DATA = {
         },
         {
           "date": "2026-10-22",
-          "fetched_at": "2026-10-23T07:20:57+08:00",
+          "fetched_at": "2026-10-23T17:31:00+08:00",
           "count": 41,
           "self": {
             "open": 32.63,
@@ -1078862,7 +1078862,7 @@ window.DATA = {
           "高股息"
         ],
         "source": "TWSE ETF e添富",
-        "fetchedAt": "2026-10-23T07:21:57+08:00",
+        "fetchedAt": "2026-10-23T17:32:39+08:00",
         "navHistory": [
           {
             "date": "2026-09-08",
@@ -1079017,114 +1079017,114 @@ window.DATA = {
         ]
       },
       "shareholderDistribution": {
-        "date": "2026-10-08",
-        "totalHolders": 1491644,
-        "totalShares": 19352135000,
+        "date": "2026-10-22",
+        "totalHolders": 1500550,
+        "totalShares": 19396635000,
         "buckets": [
           {
             "label": "<1張",
-            "holders": 211279,
-            "shares": 63783331,
-            "peoplePct": 14.16,
-            "holdingPct": 0.33
+            "holders": 220144,
+            "shares": 65784425,
+            "peoplePct": 14.67,
+            "holdingPct": 0.34
           },
           {
             "label": "1-5張",
-            "holders": 662267,
-            "shares": 1609504152,
-            "peoplePct": 44.4,
-            "holdingPct": 8.32
+            "holders": 663018,
+            "shares": 1609015371,
+            "peoplePct": 44.18,
+            "holdingPct": 8.3
           },
           {
             "label": "5-10張",
-            "holders": 227406,
-            "shares": 1827372890,
-            "peoplePct": 15.25,
-            "holdingPct": 9.44
+            "holders": 227200,
+            "shares": 1823633525,
+            "peoplePct": 15.14,
+            "holdingPct": 9.4
           },
           {
             "label": "10-15張",
-            "holders": 103769,
-            "shares": 1332265671,
-            "peoplePct": 6.96,
+            "holders": 104015,
+            "shares": 1334426444,
+            "peoplePct": 6.93,
             "holdingPct": 6.88
           },
           {
             "label": "15-20張",
-            "holders": 76674,
-            "shares": 1413185536,
-            "peoplePct": 5.14,
-            "holdingPct": 7.3
+            "holders": 76393,
+            "shares": 1407509975,
+            "peoplePct": 5.09,
+            "holdingPct": 7.26
           },
           {
             "label": "20-30張",
-            "holders": 78100,
-            "shares": 1999349425,
-            "peoplePct": 5.24,
-            "holdingPct": 10.33
+            "holders": 78035,
+            "shares": 1997170072,
+            "peoplePct": 5.2,
+            "holdingPct": 10.3
           },
           {
             "label": "30-40張",
-            "holders": 40523,
-            "shares": 1447762285,
-            "peoplePct": 2.72,
-            "holdingPct": 7.48
+            "holders": 40364,
+            "shares": 1441376413,
+            "peoplePct": 2.69,
+            "holdingPct": 7.43
           },
           {
             "label": "40-50張",
-            "holders": 26730,
-            "shares": 1241956613,
+            "holders": 26830,
+            "shares": 1246144673,
             "peoplePct": 1.79,
             "holdingPct": 6.42
           },
           {
             "label": "50-100張",
-            "holders": 44806,
-            "shares": 3213131030,
-            "peoplePct": 3.0,
-            "holdingPct": 16.6
+            "holders": 44625,
+            "shares": 3199143092,
+            "peoplePct": 2.97,
+            "holdingPct": 16.49
           },
           {
             "label": "100-200張",
-            "holders": 15107,
-            "shares": 2066452699,
-            "peoplePct": 1.01,
-            "holdingPct": 10.68
+            "holders": 15028,
+            "shares": 2055045313,
+            "peoplePct": 1.0,
+            "holdingPct": 10.59
           },
           {
             "label": "200-400張",
-            "holders": 3886,
-            "shares": 1048567192,
-            "peoplePct": 0.26,
-            "holdingPct": 5.42
+            "holders": 3821,
+            "shares": 1029065860,
+            "peoplePct": 0.25,
+            "holdingPct": 5.31
           },
           {
             "label": "400-600張",
-            "holders": 644,
-            "shares": 313755453,
+            "holders": 638,
+            "shares": 310208103,
             "peoplePct": 0.04,
-            "holdingPct": 1.62
+            "holdingPct": 1.6
           },
           {
             "label": "600-800張",
-            "holders": 171,
-            "shares": 119011965,
+            "holders": 168,
+            "shares": 117219256,
             "peoplePct": 0.01,
-            "holdingPct": 0.61
+            "holdingPct": 0.6
           },
           {
             "label": "800-1千張",
-            "holders": 110,
-            "shares": 101443569,
+            "holders": 101,
+            "shares": 93731197,
             "peoplePct": 0.01,
-            "holdingPct": 0.52
+            "holdingPct": 0.48
           },
           {
             "label": "1千張以上",
-            "holders": 172,
-            "shares": 1554650189,
+            "holders": 170,
+            "shares": 1667361281,
             "peoplePct": 0.01,
-            "holdingPct": 8.03
+            "holdingPct": 8.6
           }
         ],
         "source": "TDCC 集保戶股權分散表"
@@ -1185381,7 +1185381,7 @@ window.DATA = {
         },
         {
           "date": "2026-10-22",
-          "fetched_at": "2026-10-23T07:20:58+08:00",
+          "fetched_at": "2026-10-23T17:31:00+08:00",
           "count": 50,
           "self": {
             "open": 40.35,
@@ -1187368,7 +1187368,7 @@ window.DATA = {
           "大型權值"
         ],
         "source": "TWSE ETF e添富",
-        "fetchedAt": "2026-10-23T07:21:58+08:00",
+        "fetchedAt": "2026-10-23T17:32:40+08:00",
         "navHistory": [
           {
             "date": "2026-09-08",
@@ -1187523,114 +1187523,114 @@ window.DATA = {
         ]
       },
       "shareholderDistribution": {
-        "date": "2026-10-08",
-        "totalHolders": 190199,
-        "totalShares": 2202186000,
+        "date": "2026-10-22",
+        "totalHolders": 201141,
+        "totalShares": 2280186000,
         "buckets": [
           {
             "label": "<1張",
-            "holders": 31695,
-            "shares": 9778985,
-            "peoplePct": 16.66,
+            "holders": 32631,
+            "shares": 10123898,
+            "peoplePct": 16.22,
             "holdingPct": 0.44
           },
           {
             "label": "1-5張",
-            "holders": 97616,
-            "shares": 228733353,
-            "peoplePct": 51.32,
-            "holdingPct": 10.39
+            "holders": 103236,
+            "shares": 242337935,
+            "peoplePct": 51.33,
+            "holdingPct": 10.63
           },
           {
             "label": "5-10張",
-            "holders": 27204,
-            "shares": 215268949,
-            "peoplePct": 14.3,
-            "holdingPct": 9.78
+            "holders": 29112,
+            "shares": 229797610,
+            "peoplePct": 14.47,
+            "holdingPct": 10.08
           },
           {
             "label": "10-15張",
-            "holders": 10916,
-            "shares": 138484697,
-            "peoplePct": 5.74,
-            "holdingPct": 6.29
+            "holders": 11758,
+            "shares": 149157310,
+            "peoplePct": 5.85,
+            "holdingPct": 6.54
           },
           {
             "label": "15-20張",
-            "holders": 6855,
-            "shares": 125427104,
-            "peoplePct": 3.6,
-            "holdingPct": 5.7
+            "holders": 7262,
+            "shares": 132649816,
+            "peoplePct": 3.61,
+            "holdingPct": 5.82
           },
           {
             "label": "20-30張",
-            "holders": 6531,
-            "shares": 165427149,
-            "peoplePct": 3.43,
-            "holdingPct": 7.51
+            "holders": 7079,
+            "shares": 178899843,
+            "peoplePct": 3.52,
+            "holdingPct": 7.85
           },
           {
             "label": "30-40張",
-            "holders": 3072,
-            "shares": 109153999,
+            "holders": 3253,
+            "shares": 115335967,
             "peoplePct": 1.62,
-            "holdingPct": 4.96
+            "holdingPct": 5.06
           },
           {
             "label": "40-50張",
-            "holders": 1975,
-            "shares": 91681930,
+            "holders": 2091,
+            "shares": 96787280,
             "peoplePct": 1.04,
-            "holdingPct": 4.16
+            "holdingPct": 4.24
           },
           {
             "label": "50-100張",
-            "holders": 3116,
-            "shares": 219791542,
-            "peoplePct": 1.64,
-            "holdingPct": 9.98
+            "holders": 3387,
+            "shares": 238313645,
+            "peoplePct": 1.68,
+            "holdingPct": 10.45
           },
           {
             "label": "100-200張",
-            "holders": 895,
-            "shares": 121286155,
-            "peoplePct": 0.47,
-            "holdingPct": 5.51
+            "holders": 993,
+            "shares": 134725094,
+            "peoplePct": 0.49,
+            "holdingPct": 5.91
           },
           {
             "label": "200-400張",
-            "holders": 217,
-            "shares": 59486993,
+            "holders": 225,
+            "shares": 60980771,
             "peoplePct": 0.11,
-            "holdingPct": 2.7
+            "holdingPct": 2.67
           },
           {
             "label": "400-600張",
-            "holders": 48,
-            "shares": 23629858,
-            "peoplePct": 0.03,
+            "holders": 50,
+            "shares": 24496595,
+            "peoplePct": 0.02,
             "holdingPct": 1.07
           },
           {
             "label": "600-800張",
-            "holders": 17,
-            "shares": 11783886,
+            "holders": 21,
+            "shares": 14595209,
             "peoplePct": 0.01,
-            "holdingPct": 0.54
+            "holdingPct": 0.64
           },
           {
             "label": "800-1千張",
             "holders": 10,
-            "shares": 9007530,
-            "peoplePct": 0.01,
-            "holdingPct": 0.41
+            "shares": 9224010,
+            "peoplePct": 0.0,
+            "holdingPct": 0.4
           },
           {
             "label": "1千張以上",
-            "holders": 32,
-            "shares": 673243870,
+            "holders": 33,
+            "shares": 642761017,
             "peoplePct": 0.02,
-            "holdingPct": 30.57
+            "holdingPct": 28.19
           }
         ],
         "source": "TDCC 集保戶股權分散表"
@@ -1289611,7 +1289611,7 @@ window.DATA = {
         },
         {
           "date": "2026-10-22",
-          "fetched_at": "2026-10-23T07:21:07+08:00",
+          "fetched_at": "2026-10-23T17:31:07+08:00",
           "count": 51,
           "self": {
             "open": 248.95,
@@ -1291651,7 +1291651,7 @@ window.DATA = {
           "大型權值"
         ],
         "source": "TWSE ETF e添富",
-        "fetchedAt": "2026-10-23T07:21:58+08:00",
+        "fetchedAt": "2026-10-23T17:32:41+08:00",
         "navHistory": [
           {
             "date": "2026-09-08",
@@ -1291806,114 +1291806,114 @@ window.DATA = {
         ]
       },
       "shareholderDistribution": {
-        "date": "2026-10-08",
-        "totalHolders": 712143,
-        "totalShares": 1860540000,
+        "date": "2026-10-22",
+        "totalHolders": 718740,
+        "totalShares": 1876040000,
         "buckets": [
           {
             "label": "<1張",
-            "holders": 382218,
-            "shares": 108124940,
-            "peoplePct": 53.67,
+            "holders": 385850,
+            "shares": 109029590,
+            "peoplePct": 53.68,
             "holdingPct": 5.81
           },
           {
             "label": "1-5張",
-            "holders": 254380,
-            "shares": 544267435,
-            "peoplePct": 35.72,
-            "holdingPct": 29.25
+            "holders": 256955,
+            "shares": 549742022,
+            "peoplePct": 35.75,
+            "holdingPct": 29.3
           },
           {
             "label": "5-10張",
-            "holders": 43957,
-            "shares": 314640977,
-            "peoplePct": 6.17,
-            "holdingPct": 16.91
+            "holders": 44264,
+            "shares": 316785423,
+            "peoplePct": 6.16,
+            "holdingPct": 16.89
           },
           {
             "label": "10-15張",
-            "holders": 14410,
-            "shares": 177109263,
+            "holders": 14495,
+            "shares": 178131265,
             "peoplePct": 2.02,
-            "holdingPct": 9.52
+            "holdingPct": 9.5
           },
           {
             "label": "15-20張",
-            "holders": 6641,
-            "shares": 116641212,
+            "holders": 6686,
+            "shares": 117496100,
             "peoplePct": 0.93,
-            "holdingPct": 6.27
+            "holdingPct": 6.26
           },
           {
             "label": "20-30張",
-            "holders": 5514,
-            "shares": 134637449,
+            "holders": 5503,
+            "shares": 134373809,
             "peoplePct": 0.77,
-            "holdingPct": 7.24
+            "holdingPct": 7.16
           },
           {
             "label": "30-40張",
-            "holders": 2104,
-            "shares": 73059338,
-            "peoplePct": 0.3,
-            "holdingPct": 3.93
+            "holders": 2116,
+            "shares": 73498545,
+            "peoplePct": 0.29,
+            "holdingPct": 3.92
           },
           {
             "label": "40-50張",
-            "holders": 1035,
-            "shares": 46551065,
-            "peoplePct": 0.15,
-            "holdingPct": 2.5
+            "holders": 1029,
+            "shares": 46280114,
+            "peoplePct": 0.14,
+            "holdingPct": 2.47
           },
           {
             "label": "50-100張",
-            "holders": 1422,
-            "shares": 95125571,
-            "peoplePct": 0.2,
-            "holdingPct": 5.11
+            "holders": 1389,
+            "shares": 92597222,
+            "peoplePct": 0.19,
+            "holdingPct": 4.94
           },
           {
             "label": "100-200張",
-            "holders": 337,
-            "shares": 43869104,
+            "holders": 333,
+            "shares": 43058276,
             "peoplePct": 0.05,
-            "holdingPct": 2.36
+            "holdingPct": 2.3
           },
           {
             "label": "200-400張",
-            "holders": 67,
-            "shares": 18167466,
+            "holders": 62,
+            "shares": 16841061,
             "peoplePct": 0.01,
-            "holdingPct": 0.98
+            "holdingPct": 0.9
           },
           {
             "label": "400-600張",
-            "holders": 14,
-            "shares": 6709972,
+            "holders": 15,
+            "shares": 7152972,
             "peoplePct": 0.0,
-            "holdingPct": 0.36
+            "holdingPct": 0.38
           },
           {
             "label": "600-800張",
             "holders": 2,
-            "shares": 1353000,
+            "shares": 1440000,
             "peoplePct": 0.0,
-            "holdingPct": 0.07
+            "holdingPct": 0.08
           },
           {
             "label": "800-1千張",
             "holders": 3,
-            "shares": 2766200,
+            "shares": 2875200,
             "peoplePct": 0.0,
             "holdingPct": 0.15
           },
           {
             "label": "1千張以上",
-            "holders": 39,
-            "shares": 177517008,
+            "holders": 38,
+            "shares": 186738401,
             "peoplePct": 0.01,
-            "holdingPct": 9.54
+            "holdingPct": 9.95
           }
         ],
         "source": "TDCC 集保戶股權分散表"
@@ -1295628,7 +1295628,7 @@ window.DATA = {
         },
         {
           "date": "2026-10-22",
-          "fetched_at": "2026-10-23T07:21:09+08:00",
+          "fetched_at": "2026-10-23T17:31:07+08:00",
           "count": 3,
           "self": {
             "open": 36.98,
@@ -1295738,7 +1295738,7 @@ window.DATA = {
           "大型權值"
         ],
         "source": "TWSE ETF e添富",
-        "fetchedAt": "2026-10-23T07:21:59+08:00",
+        "fetchedAt": "2026-10-23T17:32:42+08:00",
         "navHistory": [
           {
             "date": "2026-09-08",
@@ -1295893,114 +1295893,114 @@ window.DATA = {
         ]
       },
       "shareholderDistribution": {
-        "date": "2026-10-08",
-        "totalHolders": 276971,
-        "totalShares": 6754848000,
+        "date": "2026-10-22",
+        "totalHolders": 348782,
+        "totalShares": 7779848000,
         "buckets": [
           {
             "label": "<1張",
-            "holders": 38060,
-            "shares": 11406849,
-            "peoplePct": 13.74,
-            "holdingPct": 0.17
+            "holders": 42474,
+            "shares": 13794744,
+            "peoplePct": 12.18,
+            "holdingPct": 0.18
           },
           {
             "label": "1-5張",
-            "holders": 115671,
-            "shares": 280203101,
-            "peoplePct": 41.76,
-            "holdingPct": 4.15
+            "holders": 151766,
+            "shares": 372911623,
+            "peoplePct": 43.51,
+            "holdingPct": 4.79
           },
           {
             "label": "5-10張",
-            "holders": 38688,
-            "shares": 302327205,
-            "peoplePct": 13.97,
-            "holdingPct": 4.48
+            "holders": 50517,
+            "shares": 394387041,
+            "peoplePct": 14.48,
+            "holdingPct": 5.07
           },
           {
             "label": "10-15張",
-            "holders": 18390,
-            "shares": 235013824,
-            "peoplePct": 6.64,
-            "holdingPct": 3.48
+            "holders": 23771,
+            "shares": 304380580,
+            "peoplePct": 6.82,
+            "holdingPct": 3.91
           },
           {
             "label": "15-20張",
-            "holders": 12257,
-            "shares": 222477043,
-            "peoplePct": 4.43,
-            "holdingPct": 3.29
+            "holders": 15802,
+            "shares": 287009938,
+            "peoplePct": 4.53,
+            "holdingPct": 3.69
           },
           {
             "label": "20-30張",
-            "holders": 15441,
-            "shares": 390208137,
-            "peoplePct": 5.57,
-            "holdingPct": 5.78
+            "holders": 19124,
+            "shares": 484242247,
+            "peoplePct": 5.48,
+            "holdingPct": 6.22
           },
           {
             "label": "30-40張",
-            "holders": 8448,
-            "shares": 299047542,
-            "peoplePct": 3.05,
-            "holdingPct": 4.43
+            "holders": 10290,
+            "shares": 364681357,
+            "peoplePct": 2.95,
+            "holdingPct": 4.69
           },
           {
             "label": "40-50張",
-            "holders": 6031,
-            "shares": 276427111,
-            "peoplePct": 2.18,
-            "holdingPct": 4.09
+            "holders": 7247,
+            "shares": 332487986,
+            "peoplePct": 2.08,
+            "holdingPct": 4.27
           },
           {
             "label": "50-100張",
-            "holders": 12797,
-            "shares": 917793974,
-            "peoplePct": 4.62,
-            "holdingPct": 13.59
+            "holders": 15078,
+            "shares": 1078964927,
+            "peoplePct": 4.32,
+            "holdingPct": 13.87
           },
           {
             "label": "100-200張",
-            "holders": 6763,
-            "shares": 945836602,
-            "peoplePct": 2.44,
-            "holdingPct": 14.0
+            "holders": 7826,
+            "shares": 1090499516,
+            "peoplePct": 2.24,
+            "holdingPct": 14.02
           },
           {
             "label": "200-400張",
-            "holders": 2964,
-            "shares": 810664180,
-            "peoplePct": 1.07,
-            "holdingPct": 12.0
+            "holders": 3321,
+            "shares": 908191990,
+            "peoplePct": 0.95,
+            "holdingPct": 11.67
           },
           {
             "label": "400-600張",
-            "holders": 725,
-            "shares": 354018675,
-            "peoplePct": 0.26,
-            "holdingPct": 5.24
+            "holders": 802,
+            "shares": 393445371,
+            "peoplePct": 0.23,
+            "holdingPct": 5.06
           },
           {
             "label": "600-800張",
-            "holders": 277,
-            "shares": 192391435,
-            "peoplePct": 0.1,
-            "holdingPct": 2.85
+            "holders": 297,
+            "shares": 205587637,
+            "peoplePct": 0.09,
+            "holdingPct": 2.64
           },
           {
             "label": "800-1千張",
-            "holders": 155,
-            "shares": 139169707,
-            "peoplePct": 0.06,
-            "holdingPct": 2.06
+            "holders": 158,
+            "shares": 142029550,
+            "peoplePct": 0.05,
+            "holdingPct": 1.83
           },
           {
             "label": "1千張以上",
-            "holders": 304,
-            "shares": 1377862615,
-            "peoplePct": 0.11,
-            "holdingPct": 20.4
+            "holders": 309,
+            "shares": 1407233493,
+            "peoplePct": 0.09,
+            "holdingPct": 18.09
           }
         ],
         "source": "TDCC 集保戶股權分散表"
@@ -1329509,7 +1329509,7 @@ window.DATA = {
         },
         {
           "date": "2026-10-21",
-          "fetched_at": "2026-10-23T07:21:05+08:00",
+          "fetched_at": "2026-10-23T17:31:07+08:00",
           "count": 31,
           "self": {
             "open": 83.25,
@@ -1329647,17 +1329647,17 @@ window.DATA = {
               "assetType": "stock",
               "weight": 4.5,
               "shares": 261703,
-              "open": 390.98,
-              "high": 402.96,
-              "low": 387.8,
-              "close": 397.05,
-              "prevClose": 394.35,
-              "change": 2.7,
-              "changePct": 0.68,
-              "amplitude": 3.84,
-              "volume": 2520600,
+              "open": 397.05,
+              "high": 408.4,
+              "low": 395.06,
+              "close": 405.96,
+              "prevClose": 397.05,
+              "change": 8.91,
+              "changePct": 2.24,
+              "amplitude": 3.36,
+              "volume": 3024400,
               "currency": "USD",
-              "quoteDate": "2026-10-20"
+              "quoteDate": "2026-10-21"
             },
             {
               "code": "TXN",
@@ -1329685,17 +1329685,17 @@ window.DATA = {
               "assetType": "stock",
               "weight": 4.19,
               "shares": 555919,
-              "open": 171.51,
-              "high": 177.05,
-              "low": 171.13,
-              "close": 175.71,
-              "prevClose": 173.53,
-              "change": 2.18,
-              "changePct": 1.26,
-              "amplitude": 3.41,
-              "volume": 6882500,
+              "open": 177.15,
+              "high": 178.99,
+              "low": 174.1,
+              "close": 177.96,
+              "prevClose": 175.71,
+              "change": 2.25,
+              "changePct": 1.28,
+              "amplitude": 2.78,
+              "volume": 7200200,
               "currency": "USD",
-              "quoteDate": "2026-10-20"
+              "quoteDate": "2026-10-21"
             },
             {
               "code": "TSM",
@@ -1329742,17 +1329742,17 @@ window.DATA = {
               "assetType": "stock",
               "weight": 3.97,
               "shares": 55880,
-              "open": 1633.66,
-              "high": 1654.21,
-              "low": 1613.54,
-              "close": 1630.84,
-              "prevClose": 1647.12,
-              "change": -16.28,
-              "changePct": -0.99,
-              "amplitude": 2.47,
-              "volume": 990600,
+              "open": 1680.53,
+              "high": 1687.81,
+              "low": 1661.62,
+              "close": 1676.69,
+              "prevClose": 1630.84,
+              "change": 45.85,
+              "changePct": 2.81,
+              "amplitude": 1.61,
+              "volume": 1243800,
               "currency": "USD",
-              "quoteDate": "2026-10-20"
+              "quoteDate": "2026-10-21"
             },
             {
               "code": "KLAC",
@@ -1329818,17 +1329818,17 @@ window.DATA = {
               "assetType": "stock",
               "weight": 2.87,
               "shares": 52783,
-              "open": 1232.85,
-              "high": 1284.87,
-              "low": 1222.29,
-              "close": 1248.74,
-              "prevClose": 1253.66,
-              "change": -4.92,
-              "changePct": -0.39,
-              "amplitude": 4.99,
-              "volume": 509200,
+              "open": 1265.58,
+              "high": 1288.27,
+              "low": 1259.87,
+              "close": 1283.32,
+              "prevClose": 1248.74,
+              "change": 34.58,
+              "changePct": 2.77,
+              "amplitude": 2.27,
+              "volume": 610500,
               "currency": "USD",
-              "quoteDate": "2026-10-20"
+              "quoteDate": "2026-10-21"
             },
             {
               "code": "NXPI",
@@ -1329837,17 +1329837,17 @@ window.DATA = {
               "assetType": "stock",
               "weight": 2.78,
               "shares": 270843,
-              "open": 227.69,
-              "high": 240.06,
-              "low": 226.7,
-              "close": 237.6,
-              "prevClose": 230.19,
-              "change": 7.41,
-              "changePct": 3.22,
-              "amplitude": 5.8,
-              "volume": 2955700,
+              "open": 237.17,
+              "high": 243.0,
+              "low": 236.05,
+              "close": 242.36,
+              "prevClose": 237.6,
+              "change": 4.76,
+              "changePct": 2.0,
+              "amplitude": 2.93,
+              "volume": 3125600,
               "currency": "USD",
-              "quoteDate": "2026-10-20"
+              "quoteDate": "2026-10-21"
             },
             {
               "code": "TER",
@@ -1329856,17 +1329856,17 @@ window.DATA = {
               "assetType": "stock",
               "weight": 2.46,
               "shares": 167922,
-              "open": 328.03,
-              "high": 342.98,
-              "low": 322.33,
-              "close": 336.59,
-              "prevClose": 335.53,
-              "change": 1.06,
-              "changePct": 0.32,
-              "amplitude": 6.15,
-              "volume": 2413100,
+              "open": 345.55,
+              "high": 351.95,
+              "low": 341.51,
+              "close": 345.49,
+              "prevClose": 336.59,
+              "change": 8.9,
+              "changePct": 2.64,
+              "amplitude": 3.1,
+              "volume": 2134200,
               "currency": "USD",
-              "quoteDate": "2026-10-20"
+              "quoteDate": "2026-10-21"
             },
             {
               "code": "ALAB",
@@ -1330008,17 +1330008,17 @@ window.DATA = {
               "assetType": "stock",
               "weight": 1.14,
               "shares": 224706,
-              "open": 118.22,
-              "high": 120.22,
-              "low": 115.31,
-              "close": 118.37,
-              "prevClose": 119.05,
-              "change": -0.68,
-              "changePct": -0.57,
-              "amplitude": 4.12,
-              "volume": 1416600,
+              "open": 121.5,
+              "high": 121.8,
+              "low": 119.16,
+              "close": 120.17,
+              "prevClose": 118.37,
+              "change": 1.8,
+              "changePct": 1.52,
+              "amplitude": 2.23,
+              "volume": 1558200,
               "currency": "USD",
-              "quoteDate": "2026-10-20"
+              "quoteDate": "2026-10-21"
             },
             {
               "code": "ENTG",
@@ -1330027,17 +1330027,17 @@ window.DATA = {
               "assetType": "stock",
               "weight": 1.03,
               "shares": 164119,
-              "open": 142.99,
-              "high": 147.72,
-              "low": 140.38,
-              "close": 142.9,
-              "prevClose": 144.52,
-              "change": -1.62,
-              "changePct": -1.12,
-              "amplitude": 5.08,
-              "volume": 1868700,
+              "open": 146.14,
+              "high": 149.78,
+              "low": 145.5,
+              "close": 147.69,
+              "prevClose": 142.9,
+              "change": 4.79,
+              "changePct": 3.35,
+              "amplitude": 3.0,
+              "volume": 1690300,
               "currency": "USD",
-              "quoteDate": "2026-10-20"
+              "quoteDate": "2026-10-21"
             },
             {
               "code": "TSEM",
@@ -1330046,17 +1330046,17 @@ window.DATA = {
               "assetType": "stock",
               "weight": 0.97,
               "shares": 121183,
-              "open": 193.52,
-              "high": 196.33,
-              "low": 178.91,
-              "close": 183.78,
-              "prevClose": 200.3,
-              "change": -16.52,
-              "changePct": -8.25,
-              "amplitude": 8.7,
-              "volume": 4332900,
+              "open": 188.47,
+              "high": 192.48,
+              "low": 184.21,
+              "close": 189.55,
+              "prevClose": 183.78,
+              "change": 5.77,
+              "changePct": 3.14,
+              "amplitude": 4.5,
+              "volume": 1962600,
               "currency": "USD",
-              "quoteDate": "2026-10-20"
+              "quoteDate": "2026-10-21"
             },
             {
               "code": "MTSI",
@@ -1330065,17 +1330065,17 @@ window.DATA = {
               "assetType": "stock",
               "weight": 0.95,
               "shares": 82028,
-              "open": 259.47,
-              "high": 272.26,
-              "low": 254.6,
-              "close": 262.93,
-              "prevClose": 265.79,
-              "change": -2.86,
-              "changePct": -1.08,
-              "amplitude": 6.64,
-              "volume": 1014700,
+              "open": 269.84,
+              "high": 274.33,
+              "low": 265.0,
+              "close": 273.05,
+              "prevClose": 262.93,
+              "change": 10.12,
+              "changePct": 3.85,
+              "amplitude": 3.55,
+              "volume": 1108800,
               "currency": "USD",
-              "quoteDate": "2026-10-20"
+              "quoteDate": "2026-10-21"
             },
             {
               "code": "SITM",
@@ -1330084,17 +1330084,17 @@ window.DATA = {
               "assetType": "stock",
               "weight": 0.64,
               "shares": 29753,
-              "open": 485.79,
-              "high": 505.88,
-              "low": 469.35,
-              "close": 497.11,
-              "prevClose": 495.75,
-              "change": 1.36,
-              "changePct": 0.27,
-              "amplitude": 7.37,
-              "volume": 408200,
+              "open": 515.0,
+              "high": 522.5,
+              "low": 504.3,
+              "close": 509.2,
+              "prevClose": 497.11,
+              "change": 12.09,
+              "changePct": 2.43,
+              "amplitude": 3.66,
+              "volume": 379900,
               "currency": "USD",
-              "quoteDate": "2026-10-20"
+              "quoteDate": "2026-10-21"
             },
             {
               "code": "LSCC",
@@ -1330103,17 +1330103,17 @@ window.DATA = {
               "assetType": "stock",
               "weight": 0.64,
               "shares": 140530,
-              "open": 106.91,
-              "high": 109.88,
-              "low": 104.36,
-              "close": 107.41,
-              "prevClose": 108.73,
-              "change": -1.32,
-              "changePct": -1.21,
-              "amplitude": 5.08,
-              "volume": 1451300,
+              "open": 109.59,
+              "high": 110.99,
+              "low": 107.11,
+              "close": 107.79,
+              "prevClose": 107.41,
+              "change": 0.38,
+              "changePct": 0.35,
+              "amplitude": 3.61,
+              "volume": 1679400,
               "currency": "USD",
-              "quoteDate": "2026-10-20"
+              "quoteDate": "2026-10-21"
             },
             {
               "code": "",
@@ -1330154,7 +1330154,7 @@ window.DATA = {
           "科技主題型"
         ],
         "source": "TWSE ETF e添富",
-        "fetchedAt": "2026-10-23T07:21:58+08:00",
+        "fetchedAt": "2026-10-23T17:32:41+08:00",
         "navHistory": [
           {
             "date": "2026-09-08",
@@ -1330304,114 +1330304,114 @@ window.DATA = {
         ]
       },
       "shareholderDistribution": {
-        "date": "2026-10-08",
-        "totalHolders": 178073,
-        "totalShares": 864965000,
+        "date": "2026-10-22",
+        "totalHolders": 192756,
+        "totalShares": 925465000,
         "buckets": [
           {
             "label": "<1張",
-            "holders": 72075,
-            "shares": 19734473,
-            "peoplePct": 40.47,
+            "holders": 76305,
+            "shares": 21108567,
+            "peoplePct": 39.59,
             "holdingPct": 2.28
           },
           {
             "label": "1-5張",
-            "holders": 79725,
-            "shares": 168296278,
-            "peoplePct": 44.77,
-            "holdingPct": 19.46
+            "holders": 87879,
+            "shares": 185233692,
+            "peoplePct": 45.59,
+            "holdingPct": 20.02
           },
           {
             "label": "5-10張",
-            "holders": 13769,
-            "shares": 104062794,
-            "peoplePct": 7.73,
-            "holdingPct": 12.03
+            "holders": 15041,
+            "shares": 113262234,
+            "peoplePct": 7.8,
+            "holdingPct": 12.24
           },
           {
             "label": "10-15張",
-            "holders": 4777,
-            "shares": 60029876,
-            "peoplePct": 2.68,
-            "holdingPct": 6.94
+            "holders": 5200,
+            "shares": 65437915,
+            "peoplePct": 2.7,
+            "holdingPct": 7.07
           },
           {
             "label": "15-20張",
-            "holders": 2488,
-            "shares": 44843198,
-            "peoplePct": 1.4,
-            "holdingPct": 5.18
+            "holders": 2711,
+            "shares": 48655753,
+            "peoplePct": 1.41,
+            "holdingPct": 5.26
           },
           {
             "label": "20-30張",
-            "holders": 2293,
-            "shares": 57421996,
-            "peoplePct": 1.29,
-            "holdingPct": 6.64
+            "holders": 2434,
+            "shares": 60940939,
+            "peoplePct": 1.26,
+            "holdingPct": 6.58
           },
           {
             "label": "30-40張",
-            "holders": 981,
-            "shares": 34701820,
-            "peoplePct": 0.55,
-            "holdingPct": 4.01
+            "holders": 1091,
+            "shares": 38562776,
+            "peoplePct": 0.57,
+            "holdingPct": 4.17
           },
           {
             "label": "40-50張",
-            "holders": 591,
-            "shares": 27256736,
+            "holders": 628,
+            "shares": 28973110,
             "peoplePct": 0.33,
-            "holdingPct": 3.15
+            "holdingPct": 3.13
           },
           {
             "label": "50-100張",
-            "holders": 929,
-            "shares": 64052402,
+            "holders": 1008,
+            "shares": 69406068,
             "peoplePct": 0.52,
-            "holdingPct": 7.41
+            "holdingPct": 7.5
           },
           {
             "label": "100-200張",
-            "holders": 282,
-            "shares": 38814273,
-            "peoplePct": 0.16,
-            "holdingPct": 4.49
+            "holders": 294,
+            "shares": 40362949,
+            "peoplePct": 0.15,
+            "holdingPct": 4.36
           },
           {
             "label": "200-400張",
             "holders": 100,
-            "shares": 27922022,
-            "peoplePct": 0.06,
-            "holdingPct": 3.23
+            "shares": 27541918,
+            "peoplePct": 0.05,
+            "holdingPct": 2.98
           },
           {
             "label": "400-600張",
-            "holders": 20,
-            "shares": 10217062,
+            "holders": 21,
+            "shares": 10720181,
             "peoplePct": 0.01,
-            "holdingPct": 1.18
+            "holdingPct": 1.16
           },
           {
             "label": "600-800張",
             "holders": 8,
-            "shares": 5606000,
+            "shares": 5571000,
             "peoplePct": 0.0,
-            "holdingPct": 0.65
+            "holdingPct": 0.6
           },
           {
             "label": "800-1千張",
-            "holders": 7,
-            "shares": 6242000,
+            "holders": 8,
+            "shares": 7090000,
             "peoplePct": 0.0,
-            "holdingPct": 0.72
+            "holdingPct": 0.77
           },
           {
             "label": "1千張以上",
             "holders": 28,
-            "shares": 195764070,
-            "peoplePct": 0.02,
-            "holdingPct": 22.63
+            "shares": 202597898,
+            "peoplePct": 0.01,
+            "holdingPct": 21.89
           }
         ],
         "source": "TDCC 集保戶股權分散表"
