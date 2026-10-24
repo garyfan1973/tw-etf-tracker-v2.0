@@ -13,7 +13,7 @@
   let financialPeriod = localStorage.getItem("financial-period") === "quarterly" ? "quarterly" : "annual";
   const maPeriods = [5, 10, 20, 60, 120, 240];
   const volumeMaPeriods = [5, 10];
-  const defaultRangeDays = Number(localStorage.getItem("etf-chart-range")) || 60;
+  const DEFAULT_RANGE_DAYS = 60;
   const indicatorNames = ["bollinger", "kd", "macd", "rsi", "williams", "dmi", "adl"];
   let marketBreadth = null, breadthPromise = null, breadthState = "loading";
   const breadthSupported = () => renderRequestKey.startsWith("TW|");
@@ -153,7 +153,7 @@
     (snapshotRows || []).forEach(row => { if (row?.date) merged.set(row.date, { ...merged.get(row.date), ...row }); });
     return [...merged.values()].filter(row => [row.open, row.high, row.low, row.close].every(value => value != null)).sort((a, b) => a.date.localeCompare(b.date));
   }
-  function resetViewport(key, days = defaultRangeDays) {
+  function resetViewport(key, days = Number(localStorage.getItem("etf-chart-range")) || DEFAULT_RANGE_DAYS) {
     const end = currentRows.length;
     viewport = { key, start:Math.max(0, end - Math.max(1, days)), end };
     updateRangeControls();
@@ -1071,18 +1071,42 @@
   }
   function zoomChart(factor, ratio) {
     if (currentRows.length < 6) return;
-    const span = viewport.end - viewport.start, nextSpan = Math.max(1, Math.min(currentRows.length, span * factor));
+    const span = viewport.end - viewport.start, nextSpan = Math.max(Math.min(6, currentRows.length), Math.min(currentRows.length, span * factor));
     const anchor = viewport.start + span * ratio;
     setViewport(anchor - nextSpan * ratio, anchor + nextSpan * (1 - ratio));
+  }
+  function panChart(bars) {
+    const span = viewport.end - viewport.start;
+    setViewport(viewport.start + bars, viewport.start + bars + span);
+  }
+  function resetChartRange() {
+    localStorage.setItem("etf-chart-range", String(DEFAULT_RANGE_DAYS));
+    setViewport(Math.max(0, currentRows.length - DEFAULT_RANGE_DAYS), currentRows.length);
+  }
+  function scrollWheelPixels(value, event, box) {
+    if (event.deltaMode === WheelEvent.DOM_DELTA_LINE) return value * 16;
+    if (event.deltaMode === WheelEvent.DOM_DELTA_PAGE) return value * box.clientHeight;
+    return value;
   }
   function initChartInteractions() {
     const box = $("chartBox"), pointers = new Map();
     box.addEventListener("contextmenu", event => { event.preventDefault(); setTooltipEnabled(false); });
     box.addEventListener("wheel", event => {
       if (!currentRows.length) return;
-      event.preventDefault();
-      const rect = box.getBoundingClientRect(), ratio = Math.max(0, Math.min(1, (event.clientX - rect.left) / rect.width));
-      zoomChart(Math.exp(event.deltaY * .0015), ratio);
+      const rect = box.getBoundingClientRect(), span = viewport.end - viewport.start;
+      if (event.ctrlKey || event.metaKey) {
+        event.preventDefault();
+        const ratio = Math.max(0, Math.min(1, (event.clientX - rect.left) / rect.width));
+        const delta = scrollWheelPixels(event.deltaY, event, box);
+        zoomChart(Math.exp(Math.max(-80, Math.min(80, delta)) * .002), ratio);
+        return;
+      }
+      const horizontalDelta = event.shiftKey && Math.abs(event.deltaX) < 1 ? event.deltaY : event.deltaX;
+      if (Math.abs(horizontalDelta) > 0) {
+        event.preventDefault();
+        const pixels = scrollWheelPixels(horizontalDelta, event, box);
+        panChart(pixels / Math.max(1, rect.width) * span);
+      }
     }, { passive:false });
     box.addEventListener("pointerdown", event => {
       if (event.button !== 0 || !currentRows.length) return;
@@ -1094,7 +1118,7 @@
         box.classList.add("dragging");
       } else if (pointers.size === 2) {
         const points = [...pointers.values()], distance = Math.abs(points[0].x - points[1].x);
-        pinchState = { distance:Math.max(20, distance), start:viewport.start, end:viewport.end };
+        pinchState = { distance:Math.max(20, Math.hypot(points[0].x - points[1].x, points[0].y - points[1].y)), start:viewport.start, end:viewport.end };
         dragState = null;
       }
     });
@@ -1110,7 +1134,7 @@
         return;
       }
       if (pointers.size === 2 && pinchState) {
-        const points = [...pointers.values()], distance = Math.max(20, Math.abs(points[0].x - points[1].x));
+        const points = [...pointers.values()], distance = Math.max(20, Math.hypot(points[0].x - points[1].x, points[0].y - points[1].y));
         const rect = box.getBoundingClientRect(), midpoint = (points[0].x + points[1].x) / 2;
         const ratio = Math.max(0, Math.min(1, (midpoint - rect.left) / rect.width));
         viewport.start = pinchState.start; viewport.end = pinchState.end;
@@ -1259,7 +1283,26 @@
     localStorage.setItem("etf-chart-range", String(days));
     setViewport(Math.max(0, currentRows.length - days), currentRows.length, true);
   }));
-  $("rangeReset")?.addEventListener("click", () => { resetViewport(viewport.key, defaultRangeDays); drawChart(); });
+  $("rangeReset")?.addEventListener("click", resetChartRange);
+  $("chartZoomOut")?.addEventListener("click", () => zoomChart(1.25, .5));
+  $("chartZoomIn")?.addEventListener("click", () => zoomChart(.8, .5));
+  $("chartPanLeft")?.addEventListener("click", () => panChart(-Math.max(1, Math.round((viewport.end - viewport.start) * .1))));
+  $("chartPanRight")?.addEventListener("click", () => panChart(Math.max(1, Math.round((viewport.end - viewport.start) * .1))));
+  $("chartLatest")?.addEventListener("click", () => {
+    const span = viewport.end - viewport.start;
+    setViewport(currentRows.length - span, currentRows.length);
+  });
+  $("chartBox")?.addEventListener("keydown", event => {
+    if (event.altKey || event.ctrlKey || event.metaKey) return;
+    if (["ArrowLeft", "ArrowRight", "Home", "+", "=", "-", "0"].includes(event.key)) event.preventDefault();
+    const span = viewport.end - viewport.start, step = Math.max(1, Math.round(span * .1));
+    if (event.key === "ArrowLeft") panChart(-step);
+    else if (event.key === "ArrowRight") panChart(step);
+    else if (event.key === "+" || event.key === "=") zoomChart(.8, .5);
+    else if (event.key === "-") zoomChart(1.25, .5);
+    else if (event.key === "Home") $("chartLatest")?.click();
+    else if (event.key === "0") resetChartRange();
+  });
   $("tooltipToggle")?.addEventListener("click", () => setTooltipEnabled(!tooltipEnabled));
   document.addEventListener("etfwatch:change", () => {
     const code = directAsset?.symbol || $("etfSelect")?.value || "", security = directAsset ? "__DIRECT__" : $("securitySelect")?.value || "__ETF__";
