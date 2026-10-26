@@ -768,7 +768,17 @@
         "shortBalance": 120,
         "offsetting": 6,
         "date": "2026-10-15"
-      }
+      },
+      "open": 169.0,
+      "high": 170.0,
+      "low": 161.0,
+      "close": 161.0,
+      "prevClose": 166.5,
+      "change": -5.5,
+      "changePct": -3.3,
+      "amplitude": 5.41,
+      "volume": 6236550.0,
+      "quoteDate": "2026-10-15"
     },
     {
       "code": "1216",
