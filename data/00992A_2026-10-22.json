@@ -1,6 +1,6 @@
 {
   "date": "2026-10-22",
-  "fetched_at": "2026-10-27T17:31:36+08:00",
+  "fetched_at": "2026-10-27T18:30:38+08:00",
   "count": 43,
   "self": {
     "open": 17.84,
@@ -1420,7 +1420,7 @@
       "change": 5.0,
       "changePct": 0.03,
       "amplitude": 6.56,
-      "volume": 374440.0,
+      "volume": 390440.0,
       "quoteDate": "2026-10-22",
       "margin": {
         "marginBuy": 9,
@@ -1587,7 +1587,7 @@
       "change": 0.5,
       "changePct": 0.31,
       "amplitude": 3.73,
-      "volume": 12645260.0,
+      "volume": 12767260.0,
       "quoteDate": "2026-10-22",
       "margin": {
         "marginBuy": 198,
@@ -1619,7 +1619,7 @@
       "change": 30.0,
       "changePct": 1.51,
       "amplitude": 3.53,
-      "volume": 366364.0,
+      "volume": 406364.0,
       "quoteDate": "2026-10-22",
       "margin": {
         "marginBuy": 8,
