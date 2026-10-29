@@ -193,6 +193,12 @@ begin
           'technicalPoints', 'supportZones', 'resistanceZones', 'tradePlan',
           'rating', 'invalidation', 'riskNotes'
         ])
+      or coalesce((jsonb_typeof(p_result -> 'financialReport') = 'object'
+        and (p_result -> 'financialReport') ?& array[
+          'symbol', 'market', 'period', 'headline', 'takeaway', 'growthAndProfit',
+          'cashFlowAndBalance', 'managementOutlook', 'risks', 'watchlist',
+          'missingData', 'sources', 'dataAsOf'
+        ]), false)
     )
   ) then
     raise exception 'INVALID_RESULT';

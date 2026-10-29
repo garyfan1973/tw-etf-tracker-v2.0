@@ -246,6 +246,30 @@
     .financial-atlas-loading,.financial-atlas-empty { display:grid; gap:6px; padding:20px 4px; color:var(--muted); }
     .financial-atlas-loading strong,.financial-atlas-empty strong { color:var(--text); font-size:16px; }
     .financial-atlas-loading .financial-atlas-kicker { color:#258f7b; }
+    .financial-report-button { padding:8px 13px; border:1px solid color-mix(in srgb,var(--accent) 38%,var(--border)); border-radius:10px; background:color-mix(in srgb,var(--accent) 11%,var(--card)); color:var(--text); font:inherit; font-size:12px; font-weight:750; cursor:pointer; }
+    .financial-report-button:hover:not(:disabled) { background:color-mix(in srgb,var(--accent) 20%,var(--card)); }
+    .financial-report-button:disabled { opacity:.55; cursor:wait; }
+    .financial-report-panel { margin-top:20px; padding:16px; border:1px solid color-mix(in srgb,var(--accent) 22%,var(--border)); border-radius:15px; background:color-mix(in srgb,var(--accent) 3%,var(--card)); }
+    .financial-report-panel-head { display:flex; align-items:center; justify-content:space-between; gap:12px; padding-bottom:12px; border-bottom:1px solid var(--border); }
+    .financial-report-panel-head h4 { margin:3px 0 0; color:var(--text); font-size:18px; }
+    .financial-report-panel-head > span,.financial-report-result-head p,.financial-report-disclaimer,.financial-report-sources li span { color:var(--muted); font-size:11px; }
+    .financial-report-result-head h4 { margin:4px 0; color:var(--text); font-size:20px; }
+    .financial-report-result-head p { margin:0; }
+    .financial-report-takeaway { margin:14px 0; padding:12px 14px; border-left:3px solid var(--accent); border-radius:0 10px 10px 0; background:color-mix(in srgb,var(--accent) 8%,var(--card)); color:var(--text); line-height:1.7; }
+    .financial-report-grid,.financial-report-bottom { display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:10px; margin-top:10px; }
+    .financial-report-grid article,.financial-report-bottom section { min-width:0; padding:12px; border:1px solid var(--border); border-radius:11px; background:var(--card); }
+    .financial-report-grid h5,.financial-report-bottom h5 { margin:0 0 7px; color:var(--text); font-size:13px; }
+    .financial-report-grid p,.financial-report-grid ul,.financial-report-bottom ul,.financial-report-bottom p { margin:0; color:var(--muted); font-size:12px; line-height:1.7; }
+    .financial-report-grid ul,.financial-report-bottom ul { padding-left:18px; }
+    .financial-report-grid li+li,.financial-report-bottom li+li { margin-top:4px; }
+    .financial-report-sources { margin-top:13px; color:var(--text); font-size:12px; }
+    .financial-report-sources ol { display:grid; gap:5px; margin:6px 0 0; padding-left:20px; }
+    .financial-report-sources a { color:var(--accent); overflow-wrap:anywhere; }
+    .financial-report-disclaimer { margin:11px 0 0; line-height:1.5; }
+    .financial-report-loading,.financial-report-status { margin:13px 0 0; color:var(--muted); font-size:12px; line-height:1.6; }
+    .financial-report-loading { display:grid; gap:5px; padding:12px; border-radius:10px; background:color-mix(in srgb,var(--accent) 7%,var(--card)); }
+    .financial-report-loading strong { color:var(--text); }
+    .financial-report-status.error { color:var(--down); }
     .ownership-pulse { margin-top:18px; padding-top:16px; border-top:1px solid var(--border); }
     .ownership-pulse-head { display:flex; justify-content:space-between; align-items:flex-start; gap:18px; padding:2px 2px 14px; border-bottom:1px solid color-mix(in srgb,#d97706 24%,var(--border)); }
     .ownership-pulse-kicker { color:#b45309; font-size:10px; font-weight:800; letter-spacing:.16em; }
@@ -298,8 +322,8 @@
     }
     :root[data-theme="dark"] .financial-atlas-badge { color:#d8fff2; background:#1d4b4a; }
     :root[data-theme="dark"] .financial-atlas-segment { background:color-mix(in srgb,#1d4b4a 28%,var(--card)); }
-    @media (max-width:850px) { .financial-atlas-grid { grid-template-columns:1fr; } .financial-atlas-asof { flex-basis:100%; margin-left:0; } }
-    @media (max-width:560px) { .financial-atlas-head { display:block; } .financial-atlas-badge { display:inline-block; margin-top:10px; } .financial-atlas-card-stat strong { font-size:15px; } .financial-atlas-chart svg { min-height:195px; } }
+    @media (max-width:850px) { .financial-atlas-grid,.financial-report-grid,.financial-report-bottom { grid-template-columns:1fr; } .financial-atlas-asof { flex-basis:100%; margin-left:0; } }
+    @media (max-width:560px) { .financial-atlas-head { display:block; } .financial-atlas-badge { display:inline-block; margin-top:10px; } .financial-atlas-card-stat strong { font-size:15px; } .financial-atlas-chart svg { min-height:195px; } .financial-report-panel { padding:12px; } .financial-report-panel-head { align-items:flex-start; flex-direction:column; } .financial-report-button { width:100%; } }
     .signal-confidence { display:grid; grid-template-columns:1fr auto; gap:5px 12px; font-size:13px; } .signal-confidence i { grid-column:1 / -1; height:7px; background:var(--border); border-radius:10px; overflow:hidden; } .signal-confidence b { display:block; height:100%; background:var(--accent); border-radius:inherit; } .signal-confidence small { grid-column:1 / -1; color:var(--muted); }
     .signal-notes { display:grid; grid-template-columns:1fr 1fr; gap:12px; margin-top:14px; } .signal-notes section { padding:12px; border-radius:10px; background:color-mix(in srgb, var(--down) 8%, var(--card)); } .signal-notes section.risk { background:color-mix(in srgb, var(--up) 8%, var(--card)); } .signal-notes h4 { margin:0 0 7px; font-size:13px; } .signal-notes ul { margin:0; padding-left:18px; color:var(--muted); font-size:12px; line-height:1.65; } .signal-notes p { color:var(--muted); font-size:12px; margin:0; }
     .signal-components { display:grid; grid-template-columns:repeat(4,1fr); gap:10px; } .signal-component { text-align:center; padding:12px 8px; border:1px solid var(--border); border-radius:11px; background:var(--bg); } .signal-component h4 { margin:0; font-size:13px; } .signal-component .signal-gauge-svg { max-width:230px; } .signal-component strong, .signal-component small { display:block; } .signal-component strong { margin-top:0; font-size:15px; } .signal-component small { margin-top:5px; color:var(--muted); font-size:11px; }

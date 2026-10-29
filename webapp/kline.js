@@ -8,6 +8,8 @@
   let renderRequestKey = "", viewport = { key:"", start:0, end:0 }, dragState = null, pinchState = null;
   let personalTrades = { key:"", markers:[], openShares:0, averageCost:null, currency:"" };
   let financialRequestKey = "";
+  let financialReportRequestKey = "";
+  const financialReports = new Map();
   let ownershipRequestKey = "", ownershipPayload = null, ownershipAsset = null, ownershipName = "";
   let financialChartMode = ["both", "bar", "line"].includes(localStorage.getItem("financial-chart-mode")) ? localStorage.getItem("financial-chart-mode") : "both";
   let financialPeriod = localStorage.getItem("financial-period") === "quarterly" ? "quarterly" : "annual";
@@ -647,6 +649,49 @@
   function financialCardShell({eyebrow, title, summary, legend, svg, tone = "mint", note = ""}) {
     return `<article class="financial-atlas-card tone-${tone}"><div class="financial-atlas-card-head"><div><span class="financial-atlas-eyebrow">${esc(eyebrow)}</span><h4>${esc(title)}</h4></div><div class="financial-atlas-card-stat">${summary}</div></div><div class="financial-atlas-legend">${legend}</div><div class="financial-atlas-chart">${svg}</div>${note ? `<p class="financial-atlas-card-note">${esc(note)}</p>` : ""}</article>`;
   }
+  function renderFinancialReport(report) {
+    const box = $("financialReportContent"); if (!box) return;
+    if (!report) { box.innerHTML = ""; return; }
+    const list = (items, empty) => items?.length
+      ? `<ul>${items.map(item => `<li>${esc(item)}</li>`).join("")}</ul>`
+      : `<p>${esc(empty)}</p>`;
+    box.innerHTML = `<div class="financial-report-result-head"><div><span class="financial-atlas-kicker">EVIDENCE-BASED REVIEW</span><h4>${esc(report.headline || "財報研究摘要")}</h4><p>${esc(report.companyName || report.symbol)}・${esc(report.period || "期間未能確認")}・資料整理至 ${esc(report.dataAsOf || "—")}</p></div></div>
+      <p class="financial-report-takeaway">${esc(report.takeaway || "")}</p>
+      <div class="financial-report-grid">
+        <article><h5>營收與獲利</h5><p>${esc(report.growthAndProfit || "未取得可核對資料")}</p></article>
+        <article><h5>現金流與財務體質</h5><p>${esc(report.cashFlowAndBalance || "未取得可核對資料")}</p></article>
+        <article><h5>管理層展望</h5><p>${esc(report.managementOutlook || "未取得公司展望資料")}</p></article>
+        <article><h5>風險觀察</h5>${list(report.risks, "未發現可核對的額外風險資訊")}</article>
+      </div>
+      <div class="financial-report-bottom"><section><h5>接下來追蹤</h5>${list(report.watchlist, "暫無追蹤項目")}</section>
+      <section><h5>目前資料缺口</h5>${list(report.missingData, "主要分析資料已取得")}</section></div>
+      <div class="financial-report-sources"><strong>資料來源</strong>${report.sources?.length ? `<ol>${report.sources.map(source => `<li><a href="${esc(source.url)}" target="_blank" rel="noopener noreferrer">${esc(source.title)}</a>${source.period ? ` <span>${esc(source.period)}</span>` : ""}</li>`).join("")}</ol>` : `<p>本次沒有取得可開啟的來源連結。</p>`}</div>
+      <p class="financial-report-disclaimer">報告依公開資料整理；資料日期與缺漏欄位請一併參考，不構成獲利保證。</p>`;
+  }
+  async function createFinancialReport(info, button) {
+    const key = `${info.symbol}|${info.market}`; financialReportRequestKey = key;
+    const box = $("financialReportContent"); if (!box || !button) return;
+    const auth = window.ETFAuth;
+    if (!auth?.isConfigured?.()) { box.innerHTML = `<p class="financial-report-status error">登入服務尚未設定，暫時無法產生財報分析。</p>`; return; }
+    if (!auth.user?.()) { auth.openLogin?.(); return; }
+    if (!auth.canUseChartAnalysis?.()) { box.innerHTML = `<p class="financial-report-status error">此功能需開通 AI 分析權限。</p>`; return; }
+    const client = auth.client?.();
+    const { data: { session } = {} } = client ? await client.auth.getSession() : {};
+    if (!session?.access_token) { auth.openLogin?.(); return; }
+    button.disabled = true;
+    box.innerHTML = `<div class="financial-report-loading"><strong>正在查核最新公開財報與公司資料…</strong><span>整理營收獲利、現金流、管理層展望與資料缺口，可能需要一分鐘。</span></div>`;
+    try {
+      const response = await fetch("/api/financial-report", { method:"POST", headers:{"Content-Type":"application/json",Authorization:`Bearer ${session.access_token}`}, body:JSON.stringify({symbol:info.symbol,market:info.market}), cache:"no-store" });
+      const result = await response.json().catch(() => ({}));
+      if (financialReportRequestKey !== key) return;
+      if (!response.ok || !result.ok) throw new Error(result.error || "財報研究暫時無法完成");
+      financialReports.set(key, result.report); renderFinancialReport(result.report);
+    } catch (error) {
+      if (financialReportRequestKey === key) box.innerHTML = `<p class="financial-report-status error">${esc(error.message || "財報研究暫時無法完成")}</p>`;
+    } finally {
+      button.disabled = false;
+    }
+  }
   function renderFinancialComboCard(rows, {metric, title, eyebrow, tone, barColor, lineColor, currency}) {
     const values = rows.map(row => financialMetricValue(row, metric)), yoy = rows.map((_, index) => financialGrowth(rows, index, metric)), latestIndex = values.length - 1;
     const scale = financialScale(values), yoyScale = financialScale(yoy.filter(Number.isFinite)), width = 560, height = 248, padL = 52, padR = 42, padT = 22, padB = 40, plotHeight = height - padT - padB, barWidth = Math.min(32, (width - padL - padR) / Math.max(rows.length, 1) * .55);
@@ -687,10 +732,15 @@
     return financialCardShell({eyebrow:"MARGIN PROFILE",title:"利潤結構",summary:`<strong>${esc(latestSummary)}</strong><span>最新${financialPeriod === "annual" ? "年度" : "季度"}</span>`,tone:"violet",svg,legend:series.map(item => `<span><i class="financial-atlas-line" style="background:${item.color}"></i>${item.label}</span>`).join(""),note:"三條線放在同一尺度，觀察產品組合、費用控制與最終獲利的傳導。"});
   }
   function renderFinancialAtlas(payload, name) {
+    financialReportRequestKey = "";
     const box = $("financialPanel"), rows = financialRows(payload), source = payload.source || {name:"Yahoo Finance",url:`https://finance.yahoo.com/quote/${encodeURIComponent(payload.symbol)}/financials/`};
     if (rows.length < 2) { box.innerHTML = `<div class="financial-atlas-empty">${esc(name)} 的${financialPeriod === "annual" ? "年度" : "季度"}財務資料不足，暫時無法建立趨勢圖。</div>`; return; }
     const periodLabel = financialPeriod === "annual" ? "年度" : "季度", availableAnnual = (payload.years || []).length > 1, availableQuarterly = (payload.quarters || []).length > 1;
-    box.innerHTML = `<div class="financial-atlas-head"><div><span class="financial-atlas-kicker">FINANCIAL PULSE</span><h3>財務脈動</h3><p>${esc(name)}・把成長、獲利與現金放在同一個視窗。</p></div><div class="financial-atlas-badge">${esc(payload.symbol)} <span>● ${periodLabel}</span></div></div><div class="financial-atlas-toolbar"><div class="financial-atlas-segment" role="group" aria-label="財報頻率"><span>頻率</span><button type="button" data-financial-period="annual" ${availableAnnual ? "" : "disabled"}>年度</button><button type="button" data-financial-period="quarterly" ${availableQuarterly ? "" : "disabled"}>季度</button></div><div class="financial-atlas-segment" role="group" aria-label="財報期間"><span>視窗</span>${[3,5,10].map(value => `<button type="button" data-financial-range="${value}">${value}Y</button>`).join("")}</div><span class="financial-atlas-asof">${esc(rows[0].year)} → ${esc(rows.at(-1).year)} · ${esc(payload.currency || rows.at(-1).currency || "幣別依來源")}</span></div><div class="financial-atlas-grid">${renderFinancialComboCard(rows,{metric:"revenue",title:"營收",eyebrow:"TOP LINE",tone:"mint",barColor:"var(--accent)",lineColor:"var(--up)",currency:rows.at(-1).currency})}${renderFinancialComboCard(rows,{metric:"netIncome",title:"淨利",eyebrow:"BOTTOM LINE",tone:"blue",barColor:"var(--down)",lineColor:"var(--accent)",currency:rows.at(-1).currency})}${renderFinancialCashCard(rows,rows.at(-1).currency)}${renderFinancialMarginCard(rows)}</div><p class="financial-atlas-note">${periodLabel}資料・長條顯示金額，折線顯示成長率；不同市場的幣別與會計期間不同，不宜直接比較絕對金額。資料來源：<a href="${esc(source.url)}" target="_blank" rel="noopener noreferrer">${esc(source.name)}</a>${financialPeriod === "quarterly" && payload.quarterlyMethod ? `・${payload.quarterlyMethod}` : ""}</p>`;
+    box.innerHTML = `<div class="financial-atlas-head"><div><span class="financial-atlas-kicker">FINANCIAL PULSE</span><h3>財務脈動</h3><p>${esc(name)}・把成長、獲利與現金放在同一個視窗。</p></div><div class="financial-atlas-badge">${esc(payload.symbol)} <span>● ${periodLabel}</span></div></div><div class="financial-atlas-toolbar"><div class="financial-atlas-segment" role="group" aria-label="財報頻率"><span>頻率</span><button type="button" data-financial-period="annual" ${availableAnnual ? "" : "disabled"}>年度</button><button type="button" data-financial-period="quarterly" ${availableQuarterly ? "" : "disabled"}>季度</button></div><div class="financial-atlas-segment" role="group" aria-label="財報期間"><span>視窗</span>${[3,5,10].map(value => `<button type="button" data-financial-range="${value}">${value}Y</button>`).join("")}</div><span class="financial-atlas-asof">${esc(rows[0].year)} → ${esc(rows.at(-1).year)} · ${esc(payload.currency || rows.at(-1).currency || "幣別依來源")}</span><button type="button" class="financial-report-button" data-financial-report>產生 AI 財報研究</button></div><div class="financial-atlas-grid">${renderFinancialComboCard(rows,{metric:"revenue",title:"營收",eyebrow:"TOP LINE",tone:"mint",barColor:"var(--accent)",lineColor:"var(--up)",currency:rows.at(-1).currency})}${renderFinancialComboCard(rows,{metric:"netIncome",title:"淨利",eyebrow:"BOTTOM LINE",tone:"blue",barColor:"var(--down)",lineColor:"var(--accent)",currency:rows.at(-1).currency})}${renderFinancialCashCard(rows,rows.at(-1).currency)}${renderFinancialMarginCard(rows)}</div><p class="financial-atlas-note">${periodLabel}資料・長條顯示金額，折線顯示成長率；不同市場的幣別與會計期間不同，不宜直接比較絕對金額。資料來源：<a href="${esc(source.url)}" target="_blank" rel="noopener noreferrer">${esc(source.name)}</a>${financialPeriod === "quarterly" && payload.quarterlyMethod ? `・${payload.quarterlyMethod}` : ""}</p><section class="financial-report-panel"><div class="financial-report-panel-head"><div><span class="financial-atlas-kicker">FINANCIAL RESEARCH</span><h4>AI 財報研究</h4></div><span>需 AI 分析權限；每次產生會使用一次額度</span></div><div id="financialReportContent" aria-live="polite"></div></section>`;
+    const savedReport = financialReports.get(`${payload.symbol}|${payload.market || "TW"}`);
+    if (savedReport) renderFinancialReport(savedReport);
+    const reportButton = box.querySelector("[data-financial-report]");
+    reportButton?.addEventListener("click", () => createFinancialReport({symbol:payload.symbol,market:payload.market || "TW"}, reportButton));
     box.querySelectorAll("[data-financial-period]").forEach(button => {
       const active = button.dataset.financialPeriod === financialPeriod; button.classList.toggle("active",active); button.setAttribute("aria-pressed",String(active));
       button.addEventListener("click", () => { financialPeriod = button.dataset.financialPeriod; localStorage.setItem("financial-period",financialPeriod); renderFinancialAtlas(payload,name); });
