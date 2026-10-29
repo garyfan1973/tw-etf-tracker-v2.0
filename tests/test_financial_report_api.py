@@ -8,7 +8,7 @@ from unittest import mock
 
 ROOT = Path(__file__).resolve().parents[1]
 sys.path.insert(0, str(ROOT))
-MODULE_PATH = ROOT / "webapp" / "api" / "financial-report.py"
+MODULE_PATH = ROOT / "webapp" / "api" / "_financial_report.py"
 SPEC = importlib.util.spec_from_file_location("financial_report_api", MODULE_PATH)
 API = importlib.util.module_from_spec(SPEC)
 SPEC.loader.exec_module(API)

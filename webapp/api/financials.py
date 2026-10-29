@@ -8,6 +8,11 @@ import json
 import re
 import urllib.request
 
+try:
+    from api._financial_report import FinancialReportMixin
+except ModuleNotFoundError:  # Unit tests import this module from the repository root.
+    from webapp.api._financial_report import FinancialReportMixin
+
 UA = "Mozilla/5.0 (compatible; ETFTracker/1.0)"
 MOPS_API = "https://mops.twse.com.tw/mops/api/"
 MOPS_SOURCE_URL = "https://mops.twse.com.tw/mops/#/web/t163sb04"
@@ -522,7 +527,7 @@ def fetch_financials(code, market):
     return fetch_yahoo_financials(code, market)
 
 
-class handler(BaseHTTPRequestHandler):
+class handler(FinancialReportMixin, BaseHTTPRequestHandler):
     def do_GET(self):
         query = parse_qs(urlparse(self.path).query)
         code = (query.get("code", [""])[0] or "").strip().upper()
@@ -540,7 +545,8 @@ class handler(BaseHTTPRequestHandler):
         body = json.dumps(payload, ensure_ascii=False).encode("utf-8")
         self.send_response(status)
         self.send_header("Content-Type", "application/json; charset=utf-8")
-        self.send_header("Cache-Control", "public, max-age=3600, s-maxage=21600, stale-while-revalidate=86400")
+        cache_policy = "no-store" if self.command == "POST" else "public, max-age=3600, s-maxage=21600, stale-while-revalidate=86400"
+        self.send_header("Cache-Control", cache_policy)
         self.send_header("Content-Length", str(len(body)))
         self.end_headers()
         self.wfile.write(body)

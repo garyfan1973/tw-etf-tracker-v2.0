@@ -1,7 +1,6 @@
 """Source-backed financial report summary for Taiwan and U.S. stocks."""
 from concurrent.futures import ThreadPoolExecutor
 from datetime import datetime, timezone, timedelta
-from http.server import BaseHTTPRequestHandler
 from urllib.parse import urlsplit
 import json
 import os
@@ -9,14 +8,6 @@ import re
 import sys
 import urllib.error
 import urllib.request
-
-try:
-    from api.financials import fetch_financials
-    from api._industry_context import fetch_twse_company_profile
-except ModuleNotFoundError:  # Unit tests import from the repository root.
-    from webapp.api.financials import fetch_financials
-    from webapp.api._industry_context import fetch_twse_company_profile
-
 
 OPENAI_URL = "https://api.openai.com/v1/responses"
 OPENAI_MODEL = os.getenv("OPENAI_MODEL", "gpt-5.4")
@@ -128,6 +119,12 @@ def compact_financials(payload):
 
 
 def build_context(symbol, market):
+    try:
+        from api.financials import fetch_financials
+        from api._industry_context import fetch_twse_company_profile
+    except ModuleNotFoundError:  # Unit tests import from the repository root.
+        from webapp.api.financials import fetch_financials
+        from webapp.api._industry_context import fetch_twse_company_profile
     financials, profile = None, None
     with ThreadPoolExecutor(max_workers=2) as executor:
         financial_task = executor.submit(fetch_financials, symbol, market)
@@ -236,7 +233,7 @@ def generate_report(context, api_key):
     return clean_report(report, response, context), response.get("model") or OPENAI_MODEL
 
 
-class handler(BaseHTTPRequestHandler):
+class FinancialReportMixin:
     def do_POST(self):
         token_match = re.fullmatch(r"Bearer\s+([^\s]+)", self.headers.get("Authorization", ""), re.I)
         token = token_match.group(1) if token_match else ""

@@ -681,7 +681,7 @@
     button.disabled = true;
     box.innerHTML = `<div class="financial-report-loading"><strong>正在查核最新公開財報與公司資料…</strong><span>整理營收獲利、現金流、管理層展望與資料缺口，可能需要一分鐘。</span></div>`;
     try {
-      const response = await fetch("/api/financial-report", { method:"POST", headers:{"Content-Type":"application/json",Authorization:`Bearer ${session.access_token}`}, body:JSON.stringify({symbol:info.symbol,market:info.market}), cache:"no-store" });
+      const response = await fetch("/api/financials", { method:"POST", headers:{"Content-Type":"application/json",Authorization:`Bearer ${session.access_token}`}, body:JSON.stringify({symbol:info.symbol,market:info.market}), cache:"no-store" });
       const result = await response.json().catch(() => ({}));
       if (financialReportRequestKey !== key) return;
       if (!response.ok || !result.ok) throw new Error(result.error || "財報研究暫時無法完成");

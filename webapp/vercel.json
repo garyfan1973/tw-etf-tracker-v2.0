@@ -7,7 +7,7 @@
     "api/investment-strategy.py": {
       "maxDuration": 120
     },
-    "api/financial-report.py": {
+    "api/financials.py": {
       "maxDuration": 120
     }
   }
