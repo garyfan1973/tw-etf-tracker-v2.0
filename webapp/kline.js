@@ -740,6 +740,13 @@
     const savedReport = financialReports.get(`${payload.symbol}|${payload.market || "TW"}`);
     if (savedReport) renderFinancialReport(savedReport);
     const reportButton = box.querySelector("[data-financial-report]");
+    const reportPanel = box.querySelector(".financial-report-panel");
+    if (reportButton && reportPanel) {
+      const intro = document.createElement("p");
+      intro.className = "financial-report-intro";
+      intro.textContent = savedReport ? "可重新查核並更新這份研究。每次產生會使用一次 AI 分析額度。" : "尚未產生報告。按下方按鈕，以最新可查到的公開資料整理分析，並附上來源與資料缺口。";
+      reportPanel.append(intro, reportButton);
+    }
     reportButton?.addEventListener("click", () => createFinancialReport({symbol:payload.symbol,market:payload.market || "TW"}, reportButton));
     box.querySelectorAll("[data-financial-period]").forEach(button => {
       const active = button.dataset.financialPeriod === financialPeriod; button.classList.toggle("active",active); button.setAttribute("aria-pressed",String(active));
