@@ -1,6 +1,6 @@
 {
   "date": "2026-10-30",
-  "fetched_at": "2026-10-30T23:30:41+08:00",
+  "fetched_at": "2026-10-31T05:20:37+08:00",
   "count": 52,
   "self": {
     "open": 104.8,
@@ -1870,16 +1870,6 @@
       }
     },
     {
-      "code": "",
-      "name": "臺股期貨 202611(FITXN*1.TF)",
-      "market": "",
-      "assetType": "future",
-      "weight": 0.2,
-      "quantity": 548.0,
-      "unit": "口",
-      "amount": null
-    },
-    {
       "code": "4904",
       "name": "遠傳",
       "market": "TW",
@@ -1917,6 +1907,16 @@
         "offsetting": 0,
         "date": "2026-10-30"
       }
+    },
+    {
+      "code": "",
+      "name": "臺股期貨 202611(FITXN*1.TF)",
+      "market": "",
+      "assetType": "future",
+      "weight": 0.2,
+      "quantity": 548.0,
+      "unit": "口",
+      "amount": null
     },
     {
       "code": "3045",

@@ -1,6 +1,6 @@
 {
   "date": "2026-10-30",
-  "fetched_at": "2026-10-30T23:30:42+08:00",
+  "fetched_at": "2026-10-31T05:20:38+08:00",
   "count": 41,
   "self": {
     "open": 32.42,
@@ -1115,6 +1115,14 @@
       }
     },
     {
+      "code": "",
+      "name": "台指期202611(FITXN*1.TF)",
+      "market": "",
+      "assetType": "stock",
+      "weight": 0.41,
+      "shares": 284
+    },
+    {
       "code": "9910",
       "name": "豐泰",
       "market": "TW",
@@ -1152,14 +1160,6 @@
         "offsetting": 0,
         "date": "2026-10-30"
       }
-    },
-    {
-      "code": "",
-      "name": "台指期202611(FITXN*1.TF)",
-      "market": "",
-      "assetType": "stock",
-      "weight": 0.41,
-      "shares": 284
     },
     {
       "code": "8112",
