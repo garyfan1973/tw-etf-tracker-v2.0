@@ -1,6 +1,6 @@
 {
   "date": "2026-10-30",
-  "fetched_at": "2026-10-30T19:31:02+08:00",
+  "fetched_at": "2026-10-30T20:30:47+08:00",
   "count": 44,
   "self": {
     "open": 15.87,
@@ -315,9 +315,9 @@
       "quoteDate": "2026-10-30",
       "inst": {
         "foreign": -15011,
-        "trust": 26173,
+        "trust": 37173,
         "dealer": -785,
-        "total": 10377,
+        "total": 21377,
         "date": "2026-10-30"
       },
       "margin": {
@@ -354,9 +354,9 @@
       "quoteDate": "2026-10-30",
       "inst": {
         "foreign": 573114,
-        "trust": -352281,
+        "trust": -444281,
         "dealer": -30912,
-        "total": 189921,
+        "total": 97921,
         "date": "2026-10-30"
       },
       "margin": {
@@ -840,9 +840,9 @@
       "quoteDate": "2026-10-30",
       "inst": {
         "foreign": -156568,
-        "trust": 47777,
+        "trust": -47223,
         "dealer": -75779,
-        "total": -184570,
+        "total": -279570,
         "date": "2026-10-30"
       },
       "margin": {
@@ -1021,9 +1021,9 @@
       "quoteDate": "2026-10-30",
       "inst": {
         "foreign": -12156113,
-        "trust": 7069554,
+        "trust": 7173554,
         "dealer": -72409,
-        "total": -5158968,
+        "total": -5054968,
         "date": "2026-10-30"
       },
       "margin": {
@@ -1241,9 +1241,9 @@
       "quoteDate": "2026-10-30",
       "inst": {
         "foreign": -10953626,
-        "trust": -472705,
+        "trust": -464205,
         "dealer": 32841,
-        "total": -11393490,
+        "total": -11384990,
         "date": "2026-10-30"
       },
       "margin": {
@@ -1546,9 +1546,9 @@
       "quoteDate": "2026-10-30",
       "inst": {
         "foreign": -4512016,
-        "trust": 1126252,
+        "trust": 1115321,
         "dealer": 195908,
-        "total": -3189856,
+        "total": -3200787,
         "date": "2026-10-30"
       },
       "margin": {
