@@ -38,7 +38,7 @@
       "change": -40.0,
       "changePct": -1.69,
       "amplitude": 1.48,
-      "volume": 39025068.0,
+      "volume": 41165068.0,
       "quoteDate": "2026-11-02",
       "inst": {
         "foreign": -15005014,
@@ -77,7 +77,7 @@
       "change": 55.0,
       "changePct": 1.4,
       "amplitude": 7.15,
-      "volume": 12226098.0,
+      "volume": 12465098.0,
       "quoteDate": "2026-11-02",
       "inst": {
         "foreign": -2879427,
@@ -116,7 +116,7 @@
       "change": 5.0,
       "changePct": 1.69,
       "amplitude": 9.29,
-      "volume": 85511499.0,
+      "volume": 85649499.0,
       "quoteDate": "2026-11-02",
       "inst": {
         "foreign": -4459399,
@@ -155,7 +155,7 @@
       "change": 30.0,
       "changePct": 0.64,
       "amplitude": 7.17,
-      "volume": 3059859.0,
+      "volume": 3374859.0,
       "quoteDate": "2026-11-02",
       "inst": {
         "foreign": -522310,
@@ -194,7 +194,7 @@
       "change": 8.0,
       "changePct": 0.81,
       "amplitude": 8.09,
-      "volume": 20775342.0,
+      "volume": 22382342.0,
       "quoteDate": "2026-11-02",
       "inst": {
         "foreign": -1239255,
@@ -272,7 +272,7 @@
       "change": -35.0,
       "changePct": -1.13,
       "amplitude": 4.04,
-      "volume": 2000136.0,
+      "volume": 2033136.0,
       "quoteDate": "2026-11-02",
       "inst": {
         "foreign": -129340,
@@ -311,7 +311,7 @@
       "change": 5.0,
       "changePct": 0.08,
       "amplitude": 5.54,
-      "volume": 1229293.0,
+      "volume": 1253293.0,
       "quoteDate": "2026-11-02",
       "inst": {
         "foreign": -297536,
@@ -453,7 +453,7 @@
       "change": -40.0,
       "changePct": -2.28,
       "amplitude": 4.84,
-      "volume": 3957201.0,
+      "volume": 3958201.0,
       "quoteDate": "2026-11-02",
       "inst": {
         "foreign": 151995,
@@ -570,7 +570,7 @@
       "change": -350.0,
       "changePct": -4.58,
       "amplitude": 6.02,
-      "volume": 2295805.0,
+      "volume": 2301005.0,
       "quoteDate": "2026-11-02",
       "inst": {
         "foreign": 7061,
@@ -719,7 +719,7 @@
       "change": 20.0,
       "changePct": 1.5,
       "amplitude": 8.24,
-      "volume": 21919409.0,
+      "volume": 22008409.0,
       "quoteDate": "2026-11-02",
       "inst": {
         "foreign": -2665402,
@@ -758,7 +758,7 @@
       "change": -2.0,
       "changePct": -1.24,
       "amplitude": 2.79,
-      "volume": 19632710.0,
+      "volume": 19701710.0,
       "quoteDate": "2026-11-02",
       "inst": {
         "foreign": -3938579,
@@ -797,7 +797,7 @@
       "change": -0.8,
       "changePct": -1.06,
       "amplitude": 3.03,
-      "volume": 46554762.0,
+      "volume": 47037762.0,
       "quoteDate": "2026-11-02",
       "inst": {
         "foreign": -6587115,
@@ -836,7 +836,7 @@
       "change": -1.5,
       "changePct": -1.35,
       "amplitude": 3.14,
-      "volume": 131726615.0,
+      "volume": 131924615.0,
       "quoteDate": "2026-11-02",
       "inst": {
         "foreign": 5060280,
@@ -992,7 +992,7 @@
       "change": 0.0,
       "changePct": 0.0,
       "amplitude": 4.95,
-      "volume": 3647751.0,
+      "volume": 3663751.0,
       "quoteDate": "2026-11-02",
       "inst": {
         "foreign": -18810,
@@ -1031,7 +1031,7 @@
       "change": 0.0,
       "changePct": 0.0,
       "amplitude": 6.15,
-      "volume": 2573964.0,
+      "volume": 2666964.0,
       "quoteDate": "2026-11-02",
       "inst": {
         "foreign": 107297,
@@ -1070,7 +1070,7 @@
       "change": -3.5,
       "changePct": -0.7,
       "amplitude": 4.58,
-      "volume": 33108205.0,
+      "volume": 33131205.0,
       "quoteDate": "2026-11-02",
       "inst": {
         "foreign": -1384268,
@@ -1141,7 +1141,7 @@
       "change": -55.0,
       "changePct": -4.35,
       "amplitude": 5.53,
-      "volume": 13374740.0,
+      "volume": 13389740.0,
       "quoteDate": "2026-11-02",
       "margin": {
         "marginBuy": 642,
@@ -1173,7 +1173,7 @@
       "change": 6.0,
       "changePct": 0.9,
       "amplitude": 7.04,
-      "volume": 24616153.0,
+      "volume": 24738153.0,
       "quoteDate": "2026-11-02",
       "inst": {
         "foreign": -5192096,
@@ -1419,7 +1419,7 @@
       "change": 5.5,
       "changePct": 2.24,
       "amplitude": 3.87,
-      "volume": 49834127.0,
+      "volume": 49948127.0,
       "quoteDate": "2026-11-02",
       "inst": {
         "foreign": 24200813,
@@ -1568,7 +1568,7 @@
       "change": -35.0,
       "changePct": -0.71,
       "amplitude": 5.05,
-      "volume": 609688.0,
+      "volume": 611688.0,
       "quoteDate": "2026-11-02",
       "inst": {
         "foreign": 8156,
