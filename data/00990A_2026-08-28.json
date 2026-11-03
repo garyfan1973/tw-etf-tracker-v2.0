@@ -658,7 +658,17 @@
         "shortBalance": 74,
         "offsetting": 1,
         "date": "2026-08-28"
-      }
+      },
+      "open": 1155.0,
+      "high": 1205.0,
+      "low": 1090.0,
+      "close": 1090.0,
+      "prevClose": 1210.0,
+      "change": -120.0,
+      "changePct": -9.92,
+      "amplitude": 9.5,
+      "volume": 11675271.0,
+      "quoteDate": "2026-08-28"
     },
     {
       "code": "AMZN",
@@ -775,7 +785,17 @@
         "shortBalance": 5,
         "offsetting": 1,
         "date": "2026-08-28"
-      }
+      },
+      "open": 4525.0,
+      "high": 4525.0,
+      "low": 4190.0,
+      "close": 4190.0,
+      "prevClose": 4655.0,
+      "change": -465.0,
+      "changePct": -9.99,
+      "amplitude": 7.2,
+      "volume": 1064746.0,
+      "quoteDate": "2026-08-28"
     },
     {
       "code": "SNDK",
