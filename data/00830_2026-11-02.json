@@ -1,6 +1,6 @@
 {
   "date": "2026-11-02",
-  "fetched_at": "2026-11-03T23:30:54+08:00",
+  "fetched_at": "2026-11-04T05:20:52+08:00",
   "count": 31,
   "self": {
     "open": 78.6,
@@ -51,7 +51,7 @@
       "change": -2.58,
       "changePct": -1.26,
       "amplitude": 4.07,
-      "volume": 118687200,
+      "volume": 119272200,
       "currency": "USD",
       "quoteDate": "2026-11-02"
     },
@@ -70,7 +70,7 @@
       "change": -3.85,
       "changePct": -1.18,
       "amplitude": 3.59,
-      "volume": 20239800,
+      "volume": 20326900,
       "currency": "USD",
       "quoteDate": "2026-11-02"
     },
@@ -89,7 +89,7 @@
       "change": -51.15,
       "changePct": -5.78,
       "amplitude": 7.1,
-      "volume": 29680300,
+      "volume": 29902100,
       "currency": "USD",
       "quoteDate": "2026-11-02"
     },
@@ -108,7 +108,7 @@
       "change": 1.18,
       "changePct": 0.39,
       "amplitude": 3.42,
-      "volume": 11063600,
+      "volume": 11078400,
       "currency": "USD",
       "quoteDate": "2026-11-02"
     },
@@ -146,7 +146,7 @@
       "change": -37.96,
       "changePct": -7.52,
       "amplitude": 9.26,
-      "volume": 31990800,
+      "volume": 32141000,
       "currency": "USD",
       "quoteDate": "2026-11-02"
     },
@@ -165,7 +165,7 @@
       "change": -7.5,
       "changePct": -1.85,
       "amplitude": 4.06,
-      "volume": 13149200,
+      "volume": 13190900,
       "currency": "USD",
       "quoteDate": "2026-11-02"
     },
@@ -184,7 +184,7 @@
       "change": -2.71,
       "changePct": -1.64,
       "amplitude": 4.89,
-      "volume": 10994600,
+      "volume": 11020300,
       "currency": "USD",
       "quoteDate": "2026-11-02"
     },
@@ -222,7 +222,7 @@
       "change": -4.8,
       "changePct": -3.04,
       "amplitude": 5.94,
-      "volume": 15143600,
+      "volume": 15158400,
       "currency": "USD",
       "quoteDate": "2026-11-02"
     },
@@ -241,7 +241,7 @@
       "change": -15.56,
       "changePct": -3.99,
       "amplitude": 6.65,
-      "volume": 7824900,
+      "volume": 7844400,
       "currency": "USD",
       "quoteDate": "2026-11-02"
     },
@@ -260,7 +260,7 @@
       "change": -24.99,
       "changePct": -12.72,
       "amplitude": 12.11,
-      "volume": 61258300,
+      "volume": 61467100,
       "currency": "USD",
       "quoteDate": "2026-11-02"
     },
@@ -279,7 +279,7 @@
       "change": -11.55,
       "changePct": -4.83,
       "amplitude": 7.94,
-      "volume": 11358400,
+      "volume": 11387100,
       "currency": "USD",
       "quoteDate": "2026-11-02"
     },
@@ -336,7 +336,7 @@
       "change": -5.79,
       "changePct": -8.8,
       "amplitude": 9.61,
-      "volume": 229466700,
+      "volume": 230689500,
       "currency": "USD",
       "quoteDate": "2026-11-02"
     },
@@ -393,7 +393,7 @@
       "change": -29.03,
       "changePct": -11.22,
       "amplitude": 12.17,
-      "volume": 5471000,
+      "volume": 5481400,
       "currency": "USD",
       "quoteDate": "2026-11-02"
     },
@@ -412,7 +412,7 @@
       "change": -10.37,
       "changePct": -4.93,
       "amplitude": 9.7,
-      "volume": 9569800,
+      "volume": 9592300,
       "currency": "USD",
       "quoteDate": "2026-11-02"
     },
@@ -431,7 +431,7 @@
       "change": -9.18,
       "changePct": -4.46,
       "amplitude": 5.39,
-      "volume": 6252700,
+      "volume": 6271500,
       "currency": "USD",
       "quoteDate": "2026-11-02"
     },
@@ -450,7 +450,7 @@
       "change": -1.56,
       "changePct": -2.18,
       "amplitude": 6.82,
-      "volume": 12509200,
+      "volume": 12562800,
       "currency": "USD",
       "quoteDate": "2026-11-02"
     },
@@ -469,7 +469,7 @@
       "change": -10.97,
       "changePct": -7.27,
       "amplitude": 9.36,
-      "volume": 8440700,
+      "volume": 8460900,
       "currency": "USD",
       "quoteDate": "2026-11-02"
     },
@@ -583,7 +583,7 @@
       "change": 2.47,
       "changePct": 2.66,
       "amplitude": 7.93,
-      "volume": 6658600,
+      "volume": 6687200,
       "currency": "USD",
       "quoteDate": "2026-11-02"
     },
