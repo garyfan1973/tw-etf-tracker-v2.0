@@ -150,9 +150,10 @@
     }
   }
   function mergePriceRows(historyRows, snapshotRows) {
+    if (window.TechnicalChartCore?.mergePriceRows) return window.TechnicalChartCore.mergePriceRows(historyRows, snapshotRows);
     const merged = new Map();
-    (historyRows || []).forEach(row => { if (row?.date) merged.set(row.date, row); });
-    (snapshotRows || []).forEach(row => { if (row?.date) merged.set(row.date, { ...merged.get(row.date), ...row }); });
+    (snapshotRows || []).forEach(row => { if (row?.date) merged.set(row.date, { ...row }); });
+    (historyRows || []).forEach(row => { if (row?.date) merged.set(row.date, { ...row }); });
     return [...merged.values()].filter(row => [row.open, row.high, row.low, row.close].every(value => value != null)).sort((a, b) => a.date.localeCompare(b.date));
   }
   function resetViewport(key, days = Number(localStorage.getItem("etf-chart-range")) || DEFAULT_RANGE_DAYS) {

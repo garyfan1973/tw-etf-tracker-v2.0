@@ -2,6 +2,7 @@
   "use strict";
   const NS="http://www.w3.org/2000/svg", finite=value=>Number.isFinite(Number(value));
   const esc=value=>String(value??"").replace(/[&<>"']/g,ch=>({"&":"&amp;","<":"&lt;",">":"&gt;","\"":"&quot;","'":"&#39;"}[ch]));
+  function mergePriceRows(historyRows,snapshotRows){const merged=new Map();(snapshotRows||[]).forEach(row=>{if(row?.date)merged.set(row.date,{...row});});(historyRows||[]).forEach(row=>{if(row?.date)merged.set(row.date,{...row});});return[...merged.values()].filter(row=>[row.open,row.high,row.low,row.close].every(value=>value!=null)).sort((a,b)=>a.date.localeCompare(b.date));}
   function movingAverage(rows,index,period){const values=rows.slice(Math.max(0,index-period+1),index+1).map(row=>Number(row.close));return values.length===period&&values.every(Number.isFinite)?values.reduce((a,b)=>a+b,0)/period:null;}
   function bollingerValues(rows,index,period=20,multiplier=2){const values=rows.slice(Math.max(0,index-period+1),index+1).map(row=>Number(row.close)).filter(Number.isFinite);if(values.length<2)return null;const mean=values.reduce((a,b)=>a+b,0)/values.length,deviation=Math.sqrt(values.reduce((sum,value)=>sum+(value-mean)**2,0)/values.length);return{mid:mean,upper:mean+multiplier*deviation,lower:mean-multiplier*deviation,sampleSize:values.length,warming:values.length<period};}
   function emaValues(rows,period){const alpha=2/(period+1),result=[];rows.forEach((row,index)=>{const close=Number(row.close),previous=result[index-1];result.push(Number.isFinite(close)?(previous==null?close:close*alpha+previous*(1-alpha)):null);});return result;}
@@ -64,5 +65,5 @@
       hit.addEventListener("pointerleave",()=>{crossX.setAttribute("visibility","hidden");crossY.setAttribute("visibility","hidden");tip.hidden=true;});
     }
   }
-  window.TechnicalChartCore={movingAverage,bollingerValues,emaValues,macdValues,rsiValues,kdValues,williamsValues,dmiValues,create:(target,options)=>new TechnicalChart(target,options)};
+  window.TechnicalChartCore={mergePriceRows,movingAverage,bollingerValues,emaValues,macdValues,rsiValues,kdValues,williamsValues,dmiValues,create:(target,options)=>new TechnicalChart(target,options)};
 })();

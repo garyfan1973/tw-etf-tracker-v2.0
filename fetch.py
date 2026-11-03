@@ -58,7 +58,7 @@ SOURCE_URL = "https://www.moneydj.com/ETF/X/Basic/Basic0007B.xdjhtm?etfid={etfid
 DIV_URL = "https://www.moneydj.com/ETF/X/Basic/Basic0005.xdjhtm?etfid={etfid}.tw"
 # 每日行情：使用指定日期的盤後行情，避免「最新行情」端點回傳舊交易日資料
 TWSE_QUOTE_URL = "https://www.twse.com.tw/rwd/zh/afterTrading/MI_INDEX?date={date}&type=ALLBUT0999&response=json"
-TPEX_QUOTE_URL = "https://www.tpex.org.tw/openapi/v1/tpex_mainboard_daily_close_quotes?date={date}"
+TPEX_QUOTE_URL = "https://www.tpex.org.tw/www/zh-tw/afterTrading/otc?date={date}&type=EW&response=json"
 # 三大法人買賣超（外資／投信／自營商）：指定日期盤後彙總（買賣超股數）
 TWSE_INST_URL = "https://www.twse.com.tw/rwd/zh/fund/T86?date={date}&selectType=ALLBUT0999&response=json"
 TPEX_INST_URL = "https://www.tpex.org.tw/openapi/v1/tpex_3itrade_hedge?date={date}"
@@ -200,6 +200,26 @@ def _twse_quote_rows(payload):
     return rows
 
 
+def _tpex_quote_rows(payload, data_date):
+    """從 TPEx 指定日期盤後 JSON 找出個股行情表。
+
+    OpenAPI 的 ``tpex_mainboard_daily_close_quotes`` 只提供最新交易日，且會
+    忽略額外的 date 參數。歷史回補必須使用 afterTrading/otc，並驗證回應
+    日期，避免把最新行情誤標成舊快照日期。
+    """
+    if not isinstance(payload, dict) or str(payload.get("date") or "") != data_date.replace("-", ""):
+        return []
+    rows = []
+    for table in payload.get("tables") or []:
+        fields = [re.sub(r"\s+", "", re.sub(r"<[^>]+>", "", str(field))) for field in table.get("fields") or []]
+        for values in table.get("data") or []:
+            row = dict(zip(fields, values))
+            required = ("代號", "開盤", "最高", "最低", "收盤")
+            if all(name in row for name in required):
+                rows.append(row)
+    return rows
+
+
 def _signed_change(row):
     """解析 TWSE 的漲跌方向與價差欄位。"""
     value = _num(row.get("漲跌價差") or row.get("漲跌") or row.get("Change"))
@@ -238,16 +258,17 @@ def fetch_quotes(data_date):
         print("  ! 上市行情抓取失敗：{}".format(exc))
     # 上櫃
     try:
-        for r in fetch_json(TPEX_QUOTE_URL.format(date=data_date.replace("-", ""))):
-            code = str(r.get("SecuritiesCompanyCode", "")).strip()
+        payload = fetch_json(TPEX_QUOTE_URL.format(date=data_date.replace("-", "/")))
+        for r in _tpex_quote_rows(payload, data_date):
+            code = str(r.get("代號", "")).strip()
             if not code:
                 continue
             q = _quote_fields(
-                _num(r.get("Open")), _num(r.get("High")),
-                _num(r.get("Low")), _num(r.get("Close")),
-                _num(r.get("Change")),
+                _num(r.get("開盤")), _num(r.get("最高")),
+                _num(r.get("最低")), _num(r.get("收盤")),
+                _num(r.get("漲跌")),
             )
-            q["volume"] = _num(r.get("TradingShares"))
+            q["volume"] = _num(r.get("成交股數"))
             q["quoteDate"] = data_date
             quotes.setdefault(code, q)  # 不覆蓋已有的上市資料
     except Exception as exc:

@@ -1,10 +1,47 @@
 import unittest
 from unittest.mock import patch
 
-from fetch import fetch_json_retry, fetch_twse_etf_nav, summarize_diff, validate_quote_dates
+from fetch import fetch_json_retry, fetch_quotes, fetch_twse_etf_nav, summarize_diff, validate_quote_dates
 
 
 class SummarizeDiffTests(unittest.TestCase):
+    @patch("fetch.fetch_json")
+    def test_fetch_quotes_uses_requested_tpex_history(self, fetch_json_mock):
+        fetch_json_mock.side_effect = [
+            {"tables": []},
+            {
+                "date": "20260803",
+                "tables": [{
+                    "fields": ["代號", "名稱", "收盤 ", "漲跌", "開盤 ", "最高 ", "最低", "成交股數  "],
+                    "data": [["3105", "穩懋", "311.00", "+16.50", "298.50", "320.50", "298.50", "18,250,000"]],
+                }],
+            },
+        ]
+
+        quotes = fetch_quotes("2026-08-03")
+
+        self.assertEqual(quotes["3105"], {
+            "open": 298.5, "high": 320.5, "low": 298.5, "close": 311.0,
+            "prevClose": 294.5, "change": 16.5, "changePct": 5.6,
+            "amplitude": 7.47, "volume": 18250000.0, "quoteDate": "2026-08-03",
+        })
+        self.assertIn("date=2026/08/03", fetch_json_mock.call_args_list[1].args[0])
+
+    @patch("fetch.fetch_json")
+    def test_fetch_quotes_rejects_tpex_response_for_another_date(self, fetch_json_mock):
+        fetch_json_mock.side_effect = [
+            {"tables": []},
+            {
+                "date": "20261103",
+                "tables": [{
+                    "fields": ["代號", "收盤 ", "漲跌", "開盤 ", "最高 ", "最低", "成交股數  "],
+                    "data": [["3105", "530.00", "-58.00", "555.00", "564.00", "530.00", "24,059,926"]],
+                }],
+            },
+        ]
+
+        self.assertNotIn("3105", fetch_quotes("2026-08-03"))
+
     def test_ignores_non_stock_assets_without_shares(self):
         previous = [
             {"code": "2330", "name": "台積電", "assetType": "stock", "shares": 100},
