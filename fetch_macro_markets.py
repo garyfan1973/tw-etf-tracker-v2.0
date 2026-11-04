@@ -20,6 +20,7 @@ TREASURY_CSV = "https://home.treasury.gov/resource-center/data-chart-center/inte
 TWSE_MARKET_STATISTICS = "https://www.twse.com.tw/rwd/zh/afterTrading/FMTQIK?date={date}&response=json"
 TWSE_INDEX_SNAPSHOT = "https://openapi.twse.com.tw/v1/exchangeReport/MI_INDEX"
 TWSE_BREADTH = "https://www.twse.com.tw/rwd/zh/afterTrading/MI_INDEX?date={date}&type=MS&response=json"
+TWSE_MARKET_MARGIN = "https://www.twse.com.tw/exchangeReport/MI_MARGN?date={date}&selectType=MS&response=json"
 TPEX_INDEX_SNAPSHOT = "https://www.tpex.org.tw/www/zh-tw/afterTrading/indexSummary?date=&response=json"
 USER_AGENT = "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36"
 US_MARKET_TIMEZONE = ZoneInfo("America/New_York")
@@ -454,6 +455,66 @@ def parse_twse_breadth(payload, date):
     raise ValueError("TWSE stock breadth counts missing")
 
 
+def parse_twse_market_margin(payload, date):
+    """Read the TWSE market summary, not the per-security margin table."""
+    if payload.get("stat") != "OK" or payload.get("date") != date.replace("-", ""):
+        raise ValueError("TWSE market margin date mismatch or unavailable")
+    expected = {
+        "融資(交易單位)": ("marginBalanceLots", "marginDeltaLots"),
+        "融券(交易單位)": ("shortBalanceLots", "shortDeltaLots"),
+        "融資金額(仟元)": ("marginBalanceThousandTwd", "marginDeltaThousandTwd"),
+    }
+    for table in payload.get("tables", []):
+        fields = table.get("fields") or []
+        if not all(name in fields for name in ("項目", "前日餘額", "今日餘額")):
+            continue
+        label_idx, prev_idx, now_idx = (fields.index(name) for name in ("項目", "前日餘額", "今日餘額"))
+        values = {}
+        for row in table.get("data") or []:
+            if len(row) <= max(label_idx, prev_idx, now_idx):
+                continue
+            keys = expected.get(str(row[label_idx]).strip())
+            if not keys:
+                continue
+            try:
+                previous = int(str(row[prev_idx]).replace(",", ""))
+                current = int(str(row[now_idx]).replace(",", ""))
+            except (TypeError, ValueError):
+                continue
+            if previous < 0 or current < 0:
+                continue
+            values[keys[0]] = current
+            values[keys[1]] = current - previous
+        if len(values) == 6:
+            return {"date": date, **values}
+    raise ValueError("TWSE market margin summary is incomplete")
+
+
+def update_twse_market_margin(previous, trading_dates):
+    dates = sorted(set(trading_dates))[-90:]
+    old_rows = {row["date"]: row for row in (previous or {}).get("rows", []) if row.get("date") in dates}
+    rows, failures = [], []
+    for date in dates:
+        if date in old_rows and date not in dates[-3:]:
+            rows.append(old_rows[date])
+            continue
+        try:
+            payload = json.loads(read_url(TWSE_MARKET_MARGIN.format(date=date.replace("-", "")), retries=2))
+            rows.append(parse_twse_market_margin(payload, date))
+        except (OSError, ValueError, KeyError, TypeError) as error:
+            if date in old_rows:
+                rows.append(old_rows[date])
+            else:
+                failures.append("{}: {}".format(date, error))
+    if failures:
+        print("TWSE market margin warnings: " + "; ".join(failures))
+    return {
+        "market": "TWSE", "name": "台灣上市大盤", "source": "臺灣證券交易所・信用交易統計",
+        "sourceUrl": "https://www.twse.com.tw/zh/trading/margin/mi-margn.html",
+        "asOf": rows[-1]["date"] if rows else None, "rows": rows,
+    }
+
+
 def update_twse_breadth(previous, trading_dates):
     """Keep a fixed origin. Missing sessions break ADL until backfilled."""
     previous = previous or {}
@@ -574,8 +635,9 @@ def main(backfill_twse_turnover=False):
         raise SystemExit("macro market data is incomplete: {}".format("; ".join(failures)))
     twii = next((item for item in indices if item["id"] == "twii"), {})
     breadth = update_twse_breadth(existing.get("marketBreadth"), [row["date"] for row in twii.get("rows", [])])
+    market_margin = update_twse_market_margin(existing.get("marketMargin"), [row["date"] for row in twii.get("rows", [])])
     payload = {
-        "marketBreadth": breadth,
+        "marketBreadth": breadth, "marketMargin": market_margin,
         "updatedAt": dt.datetime.now(dt.timezone.utc).replace(microsecond=0).isoformat().replace("+00:00", "Z"),
         "indices": indices, "currencies": currencies,
         "taiwanHighlights": taiwan_highlights,

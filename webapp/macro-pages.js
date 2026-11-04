@@ -112,14 +112,40 @@
     document.addEventListener("keydown",event=>{if(event.key==="Escape"&&panel.classList.contains("chart-expanded")){panel.classList.remove("chart-expanded");document.body.style.overflow="";button.setAttribute("aria-pressed","false");onChange?.();}});
   }
 
+  function initMarketMargin(data) {
+    const margin=data.marketMargin||{},rows=(margin.rows||[]).filter(row=>row.marginBalanceThousandTwd!=null&&row.shortBalanceLots!=null).sort((a,b)=>a.date.localeCompare(b.date));
+    const summary=$("marketMarginSummary"),chart=$("marketMarginChart"),table=$("marketMarginTable"),date=$("marketMarginDate");
+    if(!rows.length){date.textContent="目前沒有上市大盤資券資料";summary.innerHTML="";chart.innerHTML='<div class="chart-empty">證交所資料尚未取得</div>';table.innerHTML="";return;}
+    const latest=rows.at(-1),amount=value=>number(value/100000,2),signed=(value,convert)=>`${value>0?"+":""}${convert(value)}`;
+    const change=(value,convert)=>`<b class="${tone(value)}">${signed(value,convert)}</b>`;
+    date.textContent=`證交所信用交易統計・資料日 ${margin.asOf||latest.date}`;
+    summary.innerHTML=`<div class="market-margin-card"><span>融資金額餘額</span><strong>${amount(latest.marginBalanceThousandTwd)} 億元</strong><small>當日增減 ${change(latest.marginDeltaThousandTwd,amount)} 億元</small></div>`+
+      `<div class="market-margin-card"><span>融資張數餘額</span><strong>${number(latest.marginBalanceLots,0)} 張</strong><small>當日增減 ${change(latest.marginDeltaLots,value=>number(value,0))} 張</small></div>`+
+      `<div class="market-margin-card"><span>融券張數餘額</span><strong>${number(latest.shortBalanceLots,0)} 張</strong><small>當日增減 ${change(latest.shortDeltaLots,value=>number(value,0))} 張</small></div>`;
+    table.innerHTML='<table><thead><tr><th>交易日</th><th>融資金額（億元）</th><th>當日增減（億元）</th><th>融券餘額（張）</th><th>當日增減（張）</th></tr></thead><tbody>'+
+      rows.slice(-10).reverse().map(row=>`<tr><td>${esc(row.date)}</td><td>${amount(row.marginBalanceThousandTwd)}</td><td class="${tone(row.marginDeltaThousandTwd)}">${signed(row.marginDeltaThousandTwd,amount)}</td><td>${number(row.shortBalanceLots,0)}</td><td class="${tone(row.shortDeltaLots)}">${signed(row.shortDeltaLots,value=>number(value,0))}</td></tr>`).join("")+'</tbody></table>';
+    let metric="amount",days=20,chartView=null;
+    function renderChart(){
+      document.querySelectorAll("[data-margin-metric]").forEach(button=>button.classList.toggle("active",button.dataset.marginMetric===metric));
+      document.querySelectorAll("[data-margin-days]").forEach(button=>button.classList.toggle("active",Number(button.dataset.marginDays)===days));
+      const shown=rows.slice(-days),isAmount=metric==="amount",series=shown.map(row=>({date:row.date,close:isAmount?row.marginBalanceThousandTwd/100000:row.shortBalanceLots}));
+      const label=isAmount?"上市大盤融資金額餘額":"上市大盤融券張數餘額",unit=isAmount?" 億元":" 張",view=chartView||{start:0,end:series.length};
+      interactiveLineChart(chart,series,view,label,{digits:isAmount?2:0,ySuffix:unit,valueLabel:label},next=>{chartView=next;renderChart();});
+    }
+    $("marketMarginPanel").addEventListener("click",event=>{const metricButton=event.target.closest("[data-margin-metric]"),daysButton=event.target.closest("[data-margin-days]");if(metricButton){metric=metricButton.dataset.marginMetric;chartView=null;renderChart();}if(daysButton){days=Number(daysButton.dataset.marginDays);chartView=null;renderChart();}});
+    renderChart();
+  }
+
   function initIndices(data) {
     const cards=$("indexCards"),chart=$("indexChart"),title=$("chartTitle"),meta=$("chartMeta"),latest=$("indexLatest"),move=$("indexMove"),volume=$("indexVolume"),weekRange=$("indexWeekRange"),asOf=$("quoteAsOf"),panel=$("indexChartPanel");
+    initMarketMargin(data);
     let selected=data.indices[0],period="1Y",chartType="line",view=periodWindow(selected.rows,period);
     const groupFor=item=>item.region==="商品"?"commodities":item.region.startsWith("美國")?"us":"asia",groups=[{id:"asia",title:"亞洲市場",description:"台灣、日本與韓國主要股價指數"},{id:"us",title:"美股指數",description:"大型股、科技、半導體、小型股與市場波動"},{id:"commodities",title:"商品市場",description:"國際原油價格參考"}];
     function renderCards(){cards.innerHTML=groups.map(group=>{const rows=data.indices.filter(item=>groupFor(item)===group.id);return `<div class="index-group"><div class="index-group-head"><div><span>${esc(group.title)}</span><small>${esc(group.description)}</small></div><b>${rows.length} 項</b></div><div class="index-group-grid">${rows.map(item=>`<button class="market-card${item.id===selected.id?" active":""}" data-index-id="${esc(item.id)}"><span class="region">${esc(item.region)}</span><h2>${esc(item.name)}</h2><div class="quote">${number(item.latest,item.decimals ?? 2)}</div><div class="change ${tone(item.change)}">${Number(item.change)>0?"+":""}${number(item.change,item.decimals ?? 2)} ・ ${Number(item.changePct)>0?"+":""}${number(item.changePct,2)}%</div><small class="quote-basis">${esc(item.quoteLabel||"最近收盤")}・${esc(item.asOf)}${item.quoteTime?` ${esc(item.quoteTime)}`:""}</small></button>`).join("")}</div></div>`;}).join("")}
     renderCards();
     function renderChart(){interactiveIndexChart(chart,selected.rows,view,selected.name,chartType,selected.turnoverLabel||selected.volumeLabel||"",next=>{view=next;renderChart();});}
     function render() {
+      $("marketMarginPanel").hidden=selected.id!=="twii";
       cards.querySelectorAll("button").forEach(btn=>btn.classList.toggle("active",btn.dataset.indexId===selected.id));
       document.querySelectorAll("[data-period]").forEach(btn=>btn.classList.toggle("active",btn.dataset.period===period));
       title.textContent=selected.name;meta.textContent=`${selected.symbol}・${selected.currency||""}・${selected.source}`;asOf.textContent=`${selected.quoteLabel||"最近收盤"}｜${selected.asOf}`;latest.textContent=number(selected.latest,selected.decimals??2);
