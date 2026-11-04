@@ -1,0 +1,86 @@
+{
+  "date": "2026-11-04",
+  "fetched_at": "2026-11-04T18:32:24+08:00",
+  "count": 3,
+  "self": {
+    "open": 31.89,
+    "high": 32.0,
+    "low": 29.61,
+    "close": 30.85,
+    "prevClose": 31.48,
+    "change": -0.63,
+    "changePct": -2.0,
+    "amplitude": 7.59,
+    "volume": 534353652.0,
+    "quoteDate": "2026-11-04"
+  },
+  "selfInstitutional": {
+    "foreign": -2110534,
+    "trust": 500000,
+    "dealer": -298671788,
+    "total": -300282322,
+    "date": "2026-11-04"
+  },
+  "selfMargin": null,
+  "holdings": [
+    {
+      "code": "",
+      "name": "臺股期貨 202611(FITXN*1.TF)",
+      "market": "",
+      "assetType": "future",
+      "weight": 159.2,
+      "quantity": 50455.0,
+      "unit": "口",
+      "amount": null
+    },
+    {
+      "code": "2330",
+      "name": "台積電",
+      "market": "TW",
+      "assetType": "stock",
+      "weight": 37.62,
+      "shares": 45587000,
+      "open": 2320.0,
+      "high": 2320.0,
+      "low": 2235.0,
+      "close": 2260.0,
+      "prevClose": 2295.0,
+      "change": -35.0,
+      "changePct": -1.53,
+      "amplitude": 3.7,
+      "volume": 53879371.0,
+      "quoteDate": "2026-11-04",
+      "inst": {
+        "foreign": -21603811,
+        "trust": 3715164,
+        "dealer": 5966950,
+        "total": -11921697,
+        "date": "2026-11-04"
+      },
+      "margin": {
+        "marginBuy": 837,
+        "marginSell": 1455,
+        "marginCashRedemption": 255,
+        "marginPrevBalance": 35219,
+        "marginBalance": 34346,
+        "shortBuy": 1,
+        "shortSell": 99,
+        "shortStockRedemption": 0,
+        "shortPrevBalance": 13,
+        "shortBalance": 111,
+        "offsetting": 3,
+        "date": "2026-11-03"
+      }
+    },
+    {
+      "code": "",
+      "name": "台灣50ETF股票期貨 202611",
+      "market": "",
+      "assetType": "future",
+      "weight": 2.86,
+      "quantity": 7800.0,
+      "unit": "口",
+      "amount": null
+    }
+  ]
+}
