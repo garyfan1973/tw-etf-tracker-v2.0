@@ -1,5 +1,5 @@
 window.DATA = {
-  "generated_at": "2026-11-05T17:32:49+08:00",
+  "generated_at": "2026-11-05T18:34:34+08:00",
   "etfs": {
     "00981A": {
       "name": "主動統一台股增長",
@@ -117945,7 +117945,7 @@ window.DATA = {
         },
         {
           "date": "2026-11-04",
-          "fetched_at": "2026-11-05T17:30:29+08:00",
+          "fetched_at": "2026-11-05T18:30:51+08:00",
           "count": 52,
           "self": {
             "open": 25.24,
@@ -119947,7 +119947,7 @@ window.DATA = {
           "大型權值"
         ],
         "source": "TWSE ETF e添富",
-        "fetchedAt": "2026-11-05T17:32:23+08:00",
+        "fetchedAt": "2026-11-05T18:34:16+08:00",
         "navHistory": [
           {
             "date": "2026-09-21",
@@ -251580,7 +251580,7 @@ window.DATA = {
         },
         {
           "date": "2026-11-04",
-          "fetched_at": "2026-11-05T07:20:32+08:00",
+          "fetched_at": "2026-11-05T18:30:52+08:00",
           "count": 57,
           "self": {
             "open": 19.5,
@@ -253783,7 +253783,7 @@ window.DATA = {
               "change": -20.0,
               "changePct": -0.88,
               "amplitude": 2.21,
-              "volume": 41586145.0,
+              "volume": 45175145.0,
               "quoteDate": "2026-11-05",
               "inst": {
                 "foreign": -10252100,
@@ -254003,7 +254003,7 @@ window.DATA = {
               "change": -135.0,
               "changePct": -9.18,
               "amplitude": 9.52,
-              "volume": 5563825.0,
+              "volume": 5624825.0,
               "quoteDate": "2026-11-05",
               "inst": {
                 "foreign": 732012,
@@ -254042,7 +254042,7 @@ window.DATA = {
               "change": -455.0,
               "changePct": -9.99,
               "amplitude": 5.16,
-              "volume": 4697189.0,
+              "volume": 4701189.0,
               "quoteDate": "2026-11-05",
               "inst": {
                 "foreign": -710022,
@@ -254120,7 +254120,7 @@ window.DATA = {
               "change": -485.0,
               "changePct": -9.68,
               "amplitude": 7.68,
-              "volume": 2535944.0,
+              "volume": 2539944.0,
               "quoteDate": "2026-11-05",
               "inst": {
                 "foreign": 171684,
@@ -254386,7 +254386,7 @@ window.DATA = {
               "change": -55.0,
               "changePct": -8.77,
               "amplitude": 6.06,
-              "volume": 30881747.0,
+              "volume": 32029747.0,
               "quoteDate": "2026-11-05",
               "inst": {
                 "foreign": -10592137,
@@ -254425,7 +254425,7 @@ window.DATA = {
               "change": -14.5,
               "changePct": -6.42,
               "amplitude": 5.09,
-              "volume": 19216382.0,
+              "volume": 19280382.0,
               "quoteDate": "2026-11-05",
               "inst": {
                 "foreign": -693477,
@@ -254794,7 +254794,7 @@ window.DATA = {
               "change": -7.1,
               "changePct": -6.73,
               "amplitude": 6.26,
-              "volume": 160106197.0,
+              "volume": 160347197.0,
               "quoteDate": "2026-11-05",
               "inst": {
                 "foreign": -29248107,
@@ -255149,7 +255149,7 @@ window.DATA = {
               "change": -88.0,
               "changePct": -9.91,
               "amplitude": 6.53,
-              "volume": 28472022.0,
+              "volume": 28735022.0,
               "quoteDate": "2026-11-05",
               "inst": {
                 "foreign": -3825556,
@@ -255952,7 +255952,7 @@ window.DATA = {
           "大型權值"
         ],
         "source": "TWSE ETF e添富",
-        "fetchedAt": "2026-11-05T17:32:27+08:00",
+        "fetchedAt": "2026-11-05T18:34:21+08:00",
         "navHistory": [
           {
             "date": "2026-09-21",
@@ -325025,7 +325025,7 @@ window.DATA = {
         },
         {
           "date": "2026-11-03",
-          "fetched_at": "2026-11-05T17:31:00+08:00",
+          "fetched_at": "2026-11-05T18:31:17+08:00",
           "count": 38,
           "self": {
             "open": 13.5,
@@ -325978,7 +325978,7 @@ window.DATA = {
           "科技主題型"
         ],
         "source": "TWSE ETF e添富",
-        "fetchedAt": "2026-11-05T17:32:33+08:00",
+        "fetchedAt": "2026-11-05T18:34:25+08:00",
         "navHistory": [
           {
             "date": "2026-09-21",
@@ -420635,7 +420635,7 @@ window.DATA = {
         },
         {
           "date": "2026-11-04",
-          "fetched_at": "2026-11-05T17:31:00+08:00",
+          "fetched_at": "2026-11-05T18:31:18+08:00",
           "count": 44,
           "self": {
             "open": 14.96,
@@ -422340,7 +422340,7 @@ window.DATA = {
           "科技主題型"
         ],
         "source": "TWSE ETF e添富",
-        "fetchedAt": "2026-11-05T17:32:34+08:00",
+        "fetchedAt": "2026-11-05T18:34:25+08:00",
         "navHistory": [
           {
             "date": "2026-09-21",
@@ -538612,7 +538612,7 @@ window.DATA = {
         },
         {
           "date": "2026-11-04",
-          "fetched_at": "2026-11-05T17:31:01+08:00",
+          "fetched_at": "2026-11-05T18:31:18+08:00",
           "count": 53,
           "self": {
             "open": 13.06,
@@ -539868,17 +539868,17 @@ window.DATA = {
               "assetType": "stock",
               "weight": 0.95,
               "shares": 152000,
-              "open": 61.54,
-              "high": 61.82,
-              "low": 61.5,
-              "close": 61.44,
-              "prevClose": 61.2,
-              "change": 0.24,
-              "changePct": 0.39,
-              "amplitude": 0.52,
-              "volume": 5750,
+              "open": 61.86,
+              "high": 62.46,
+              "low": 61.7,
+              "close": 62.4,
+              "prevClose": 61.44,
+              "change": 0.96,
+              "changePct": 1.56,
+              "amplitude": 1.24,
+              "volume": 24420,
               "currency": "HKD",
-              "quoteDate": "2026-11-03",
+              "quoteDate": "2026-11-04",
               "inst": {
                 "foreign": 31675,
                 "trust": -12000,
@@ -540697,7 +540697,7 @@ window.DATA = {
           "高股息"
         ],
         "source": "TWSE ETF e添富",
-        "fetchedAt": "2026-11-05T17:32:38+08:00",
+        "fetchedAt": "2026-11-05T18:34:26+08:00",
         "navHistory": [
           {
             "date": "2026-09-21",
@@ -540838,6 +540838,11 @@ window.DATA = {
             "date": "2026-11-04",
             "nav": 12.84,
             "premiumPct": 0.16
+          },
+          {
+            "date": "2026-11-05",
+            "nav": 12.01,
+            "premiumPct": 0.42
           }
         ]
       },
@@ -664036,7 +664041,7 @@ window.DATA = {
         },
         {
           "date": "2026-11-04",
-          "fetched_at": "2026-11-05T17:31:01+08:00",
+          "fetched_at": "2026-11-05T18:31:18+08:00",
           "count": 52,
           "self": {
             "open": 101.55,
@@ -666086,7 +666091,7 @@ window.DATA = {
           "大型權值"
         ],
         "source": "TWSE ETF e添富",
-        "fetchedAt": "2026-11-05T17:32:41+08:00",
+        "fetchedAt": "2026-11-05T18:34:26+08:00",
         "navHistory": [
           {
             "date": "2026-09-21",
@@ -841929,7 +841934,7 @@ window.DATA = {
         },
         {
           "date": "2026-11-04",
-          "fetched_at": "2026-11-05T17:31:01+08:00",
+          "fetched_at": "2026-11-05T18:31:18+08:00",
           "count": 74,
           "self": {
             "open": 58.75,
@@ -844823,7 +844828,7 @@ window.DATA = {
           "科技主題型"
         ],
         "source": "TWSE ETF e添富",
-        "fetchedAt": "2026-11-05T17:32:41+08:00",
+        "fetchedAt": "2026-11-05T18:34:27+08:00",
         "navHistory": [
           {
             "date": "2026-09-21",
@@ -844964,6 +844969,11 @@ window.DATA = {
             "date": "2026-11-04",
             "nav": 57.55,
             "premiumPct": 0.35
+          },
+          {
+            "date": "2026-11-05",
+            "nav": 55.84,
+            "premiumPct": 0.11
           }
         ]
       },
@@ -967553,7 +967563,7 @@ window.DATA = {
         },
         {
           "date": "2026-11-04",
-          "fetched_at": "2026-11-05T17:31:01+08:00",
+          "fetched_at": "2026-11-05T18:31:19+08:00",
           "count": 51,
           "self": {
             "open": 53.65,
@@ -969621,7 +969631,7 @@ window.DATA = {
           "高股息"
         ],
         "source": "TWSE ETF e添富",
-        "fetchedAt": "2026-11-05T17:32:42+08:00",
+        "fetchedAt": "2026-11-05T18:34:28+08:00",
         "navHistory": [
           {
             "date": "2026-09-21",
@@ -1042436,7 +1042446,7 @@ window.DATA = {
         },
         {
           "date": "2026-11-04",
-          "fetched_at": "2026-11-05T17:31:02+08:00",
+          "fetched_at": "2026-11-05T18:31:19+08:00",
           "count": 30,
           "self": {
             "open": 34.0,
@@ -1043686,7 +1043696,7 @@ window.DATA = {
           "高股息"
         ],
         "source": "TWSE ETF e添富",
-        "fetchedAt": "2026-11-05T17:32:42+08:00",
+        "fetchedAt": "2026-11-05T18:34:29+08:00",
         "navHistory": [
           {
             "date": "2026-09-21",
@@ -1043827,6 +1043837,11 @@ window.DATA = {
             "date": "2026-11-04",
             "nav": 33.49,
             "premiumPct": 0.36
+          },
+          {
+            "date": "2026-11-05",
+            "nav": 32.94,
+            "premiumPct": 0.27
           }
         ]
       },
@@ -1117654,7 +1117669,7 @@ window.DATA = {
         },
         {
           "date": "2026-11-04",
-          "fetched_at": "2026-11-05T17:31:02+08:00",
+          "fetched_at": "2026-11-05T18:31:19+08:00",
           "count": 31,
           "self": {
             "open": 45.07,
@@ -1118893,7 +1118908,7 @@ window.DATA = {
           "科技主題型"
         ],
         "source": "TWSE ETF e添富",
-        "fetchedAt": "2026-11-05T17:32:44+08:00",
+        "fetchedAt": "2026-11-05T18:34:29+08:00",
         "navHistory": [
           {
             "date": "2026-09-21",
@@ -1119034,6 +1119049,11 @@ window.DATA = {
             "date": "2026-11-04",
             "nav": 44.02,
             "premiumPct": 0.27
+          },
+          {
+            "date": "2026-11-05",
+            "nav": 42.19,
+            "premiumPct": 0.19
           }
         ]
       },
@@ -1216717,7 +1216737,7 @@ window.DATA = {
         },
         {
           "date": "2026-11-04",
-          "fetched_at": "2026-11-05T17:31:02+08:00",
+          "fetched_at": "2026-11-05T18:31:19+08:00",
           "count": 41,
           "self": {
             "open": 31.87,
@@ -1218379,7 +1218399,7 @@ window.DATA = {
           "高股息"
         ],
         "source": "TWSE ETF e添富",
-        "fetchedAt": "2026-11-05T17:32:45+08:00",
+        "fetchedAt": "2026-11-05T18:34:30+08:00",
         "navHistory": [
           {
             "date": "2026-09-21",
@@ -1218520,6 +1218540,11 @@ window.DATA = {
             "date": "2026-11-04",
             "nav": 31.29,
             "premiumPct": -0.1
+          },
+          {
+            "date": "2026-11-05",
+            "nav": 31.19,
+            "premiumPct": 0.0
           }
         ]
       },
@@ -1338517,7 +1338542,7 @@ window.DATA = {
         },
         {
           "date": "2026-11-04",
-          "fetched_at": "2026-11-05T17:31:02+08:00",
+          "fetched_at": "2026-11-05T18:31:19+08:00",
           "count": 50,
           "self": {
             "open": 37.1,
@@ -1340504,7 +1340529,7 @@ window.DATA = {
           "大型權值"
         ],
         "source": "TWSE ETF e添富",
-        "fetchedAt": "2026-11-05T17:32:46+08:00",
+        "fetchedAt": "2026-11-05T18:34:30+08:00",
         "navHistory": [
           {
             "date": "2026-09-21",
@@ -1340644,6 +1340669,11 @@ window.DATA = {
           {
             "date": "2026-11-04",
             "nav": 36.51,
+            "premiumPct": 0.14
+          },
+          {
+            "date": "2026-11-05",
+            "nav": 35.3,
             "premiumPct": 0.14
           }
         ]
@@ -1456737,7 +1456767,7 @@ window.DATA = {
         },
         {
           "date": "2026-11-04",
-          "fetched_at": "2026-11-05T07:20:53+08:00",
+          "fetched_at": "2026-11-05T18:31:27+08:00",
           "count": 51,
           "self": {
             "open": 232.9,
@@ -1458775,7 +1458805,7 @@ window.DATA = {
               "change": -20.0,
               "changePct": -0.88,
               "amplitude": 2.21,
-              "volume": 41586145.0,
+              "volume": 45175145.0,
               "quoteDate": "2026-11-05",
               "inst": {
                 "foreign": -10252100,
@@ -1458853,7 +1458883,7 @@ window.DATA = {
               "change": -5.0,
               "changePct": -2.08,
               "amplitude": 3.12,
-              "volume": 49312663.0,
+              "volume": 50712663.0,
               "quoteDate": "2026-11-05",
               "inst": {
                 "foreign": -11173138,
@@ -1458931,7 +1458961,7 @@ window.DATA = {
               "change": -55.0,
               "changePct": -8.77,
               "amplitude": 6.06,
-              "volume": 30881747.0,
+              "volume": 32029747.0,
               "quoteDate": "2026-11-05",
               "inst": {
                 "foreign": -10592137,
@@ -1459048,7 +1459078,7 @@ window.DATA = {
               "change": -27.5,
               "changePct": -9.95,
               "amplitude": 7.23,
-              "volume": 94578083.0,
+              "volume": 94650083.0,
               "quoteDate": "2026-11-05",
               "inst": {
                 "foreign": -13436865,
@@ -1459087,7 +1459117,7 @@ window.DATA = {
               "change": -455.0,
               "changePct": -9.99,
               "amplitude": 5.16,
-              "volume": 4697189.0,
+              "volume": 4701189.0,
               "quoteDate": "2026-11-05",
               "inst": {
                 "foreign": -710022,
@@ -1459126,7 +1459156,7 @@ window.DATA = {
               "change": -7.1,
               "changePct": -6.73,
               "amplitude": 6.26,
-              "volume": 160106197.0,
+              "volume": 160347197.0,
               "quoteDate": "2026-11-05",
               "inst": {
                 "foreign": -29248107,
@@ -1459204,7 +1459234,7 @@ window.DATA = {
               "change": -88.0,
               "changePct": -9.91,
               "amplitude": 6.53,
-              "volume": 28472022.0,
+              "volume": 28735022.0,
               "quoteDate": "2026-11-05",
               "inst": {
                 "foreign": -3825556,
@@ -1459243,7 +1459273,7 @@ window.DATA = {
               "change": -0.15,
               "changePct": -0.37,
               "amplitude": 2.48,
-              "volume": 56568341.0,
+              "volume": 57548341.0,
               "quoteDate": "2026-11-05",
               "inst": {
                 "foreign": -14530211,
@@ -1459516,7 +1459546,7 @@ window.DATA = {
               "change": -44.5,
               "changePct": -9.91,
               "amplitude": 7.13,
-              "volume": 53293775.0,
+              "volume": 55147775.0,
               "quoteDate": "2026-11-05",
               "inst": {
                 "foreign": -8101387,
@@ -1459555,7 +1459585,7 @@ window.DATA = {
               "change": 0.0,
               "changePct": 0.0,
               "amplitude": 3.72,
-              "volume": 24315804.0,
+              "volume": 26053804.0,
               "quoteDate": "2026-11-05",
               "inst": {
                 "foreign": 4839218,
@@ -1459867,7 +1459897,7 @@ window.DATA = {
               "change": -135.0,
               "changePct": -9.18,
               "amplitude": 9.52,
-              "volume": 5563825.0,
+              "volume": 5624825.0,
               "quoteDate": "2026-11-05",
               "inst": {
                 "foreign": 732012,
@@ -1460062,7 +1460092,7 @@ window.DATA = {
               "change": -485.0,
               "changePct": -9.68,
               "amplitude": 7.68,
-              "volume": 2535944.0,
+              "volume": 2539944.0,
               "quoteDate": "2026-11-05",
               "inst": {
                 "foreign": 171684,
@@ -1460101,7 +1460131,7 @@ window.DATA = {
               "change": -14.5,
               "changePct": -6.42,
               "amplitude": 5.09,
-              "volume": 19216382.0,
+              "volume": 19280382.0,
               "quoteDate": "2026-11-05",
               "inst": {
                 "foreign": -693477,
@@ -1460452,7 +1460482,7 @@ window.DATA = {
               "change": -100.0,
               "changePct": -6.37,
               "amplitude": 8.6,
-              "volume": 4482743.0,
+              "volume": 4504743.0,
               "quoteDate": "2026-11-05",
               "inst": {
                 "foreign": -318881,
@@ -1460530,7 +1460560,7 @@ window.DATA = {
               "change": -108.0,
               "changePct": -10.0,
               "amplitude": 7.22,
-              "volume": 13927016.0,
+              "volume": 13971016.0,
               "quoteDate": "2026-11-05",
               "inst": {
                 "foreign": -961517,
@@ -1460771,7 +1460801,7 @@ window.DATA = {
           "大型權值"
         ],
         "source": "TWSE ETF e添富",
-        "fetchedAt": "2026-11-05T17:32:48+08:00",
+        "fetchedAt": "2026-11-05T18:34:32+08:00",
         "navHistory": [
           {
             "date": "2026-09-21",
@@ -1460912,6 +1460942,11 @@ window.DATA = {
             "date": "2026-11-04",
             "nav": 227.85,
             "premiumPct": 0.31
+          },
+          {
+            "date": "2026-11-05",
+            "nav": 221.74,
+            "premiumPct": 0.37
           }
         ]
       },
@@ -1465431,7 +1465466,7 @@ window.DATA = {
         },
         {
           "date": "2026-11-04",
-          "fetched_at": "2026-11-05T17:31:10+08:00",
+          "fetched_at": "2026-11-05T18:31:27+08:00",
           "count": 3,
           "self": {
             "open": 31.89,
@@ -1465541,7 +1465576,7 @@ window.DATA = {
           "大型權值"
         ],
         "source": "TWSE ETF e添富",
-        "fetchedAt": "2026-11-05T17:32:48+08:00",
+        "fetchedAt": "2026-11-05T18:34:33+08:00",
         "navHistory": [
           {
             "date": "2026-09-21",
@@ -1504248,6 +1504283,624 @@ window.DATA = {
               "shares": 9
             }
           ]
+        },
+        {
+          "date": "2026-11-04",
+          "fetched_at": "2026-11-05T18:31:27+08:00",
+          "count": 31,
+          "self": {
+            "open": 76.9,
+            "high": 77.1,
+            "low": 74.6,
+            "close": 76.8,
+            "prevClose": 75.5,
+            "change": 1.3,
+            "changePct": 1.72,
+            "amplitude": 3.31,
+            "volume": 19844134.0,
+            "quoteDate": "2026-11-04"
+          },
+          "selfInstitutional": {
+            "foreign": -1233942,
+            "trust": 0,
+            "dealer": -6917424,
+            "total": -8151366,
+            "date": "2026-11-04"
+          },
+          "selfMargin": {
+            "marginBuy": 687,
+            "marginSell": 752,
+            "marginCashRedemption": 9,
+            "marginPrevBalance": 11049,
+            "marginBalance": 10975,
+            "shortBuy": 2,
+            "shortSell": 65,
+            "shortStockRedemption": 0,
+            "shortPrevBalance": 10,
+            "shortBalance": 73,
+            "offsetting": 9,
+            "date": "2026-11-04"
+          },
+          "holdings": [
+            {
+              "code": "NVDA",
+              "name": "NVIDIA",
+              "market": "US",
+              "assetType": "stock",
+              "weight": 12.23,
+              "shares": 1361948,
+              "open": 203.5,
+              "high": 206.79,
+              "low": 199.68,
+              "close": 200.13,
+              "prevClose": 206.69,
+              "change": -6.56,
+              "changePct": -3.17,
+              "amplitude": 3.44,
+              "volume": 148337800,
+              "currency": "USD",
+              "quoteDate": "2026-11-04"
+            },
+            {
+              "code": "AVGO",
+              "name": "Broadcom",
+              "market": "US",
+              "assetType": "stock",
+              "weight": 9.88,
+              "shares": 676656,
+              "open": 326.86,
+              "high": 334.12,
+              "low": 321.74,
+              "close": 325.48,
+              "prevClose": 332.13,
+              "change": -6.65,
+              "changePct": -2.0,
+              "amplitude": 3.73,
+              "volume": 23824200,
+              "currency": "USD",
+              "quoteDate": "2026-11-04"
+            },
+            {
+              "code": "MU",
+              "name": "Micron",
+              "market": "US",
+              "assetType": "stock",
+              "weight": 7.46,
+              "shares": 209104,
+              "open": 823.0,
+              "high": 853.34,
+              "low": 782.0,
+              "close": 795.23,
+              "prevClose": 855.1,
+              "change": -59.87,
+              "changePct": -7.0,
+              "amplitude": 8.34,
+              "volume": 35391300,
+              "currency": "USD",
+              "quoteDate": "2026-11-04"
+            },
+            {
+              "code": "TXN",
+              "name": "Texas Instruments",
+              "market": "US",
+              "assetType": "stock",
+              "weight": 5.37,
+              "shares": 384183,
+              "open": 313.44,
+              "high": 317.2,
+              "low": 303.9,
+              "close": 311.49,
+              "prevClose": 312.49,
+              "change": -1.0,
+              "changePct": -0.32,
+              "amplitude": 4.26,
+              "volume": 10154100,
+              "currency": "USD",
+              "quoteDate": "2026-11-04"
+            },
+            {
+              "code": "ADI",
+              "name": "Analog Devices",
+              "market": "US",
+              "assetType": "stock",
+              "weight": 5.04,
+              "shares": 276791,
+              "open": 424.11,
+              "high": 424.99,
+              "low": 396.76,
+              "close": 406.24,
+              "prevClose": 419.79,
+              "change": -13.55,
+              "changePct": -3.23,
+              "amplitude": 6.72,
+              "volume": 5502600,
+              "currency": "USD",
+              "quoteDate": "2026-11-04"
+            },
+            {
+              "code": "AMD",
+              "name": "AMD",
+              "market": "US",
+              "assetType": "stock",
+              "weight": 4.67,
+              "shares": 212944,
+              "open": 485.25,
+              "high": 514.61,
+              "low": 476.5,
+              "close": 488.78,
+              "prevClose": 483.9,
+              "change": 4.88,
+              "changePct": 1.01,
+              "amplitude": 7.88,
+              "volume": 50826900,
+              "currency": "USD",
+              "quoteDate": "2026-11-04"
+            },
+            {
+              "code": "QCOM",
+              "name": "QUALCOMM",
+              "market": "US",
+              "assetType": "stock",
+              "weight": 4.57,
+              "shares": 587970,
+              "open": 166.51,
+              "high": 174.0,
+              "low": 162.75,
+              "close": 173.19,
+              "prevClose": 164.43,
+              "change": 8.76,
+              "changePct": 5.33,
+              "amplitude": 6.84,
+              "volume": 22121200,
+              "currency": "USD",
+              "quoteDate": "2026-11-04"
+            },
+            {
+              "code": "TSM",
+              "name": "TSMC(ADR)",
+              "market": "US",
+              "assetType": "stock",
+              "weight": 4.29,
+              "shares": 241349,
+              "open": 400.64,
+              "high": 410.59,
+              "low": 391.61,
+              "close": 395.75,
+              "prevClose": 404.8,
+              "change": -9.05,
+              "changePct": -2.24,
+              "amplitude": 4.69,
+              "volume": 14443300,
+              "currency": "USD",
+              "quoteDate": "2026-11-04"
+            },
+            {
+              "code": "ASML",
+              "name": "ASML Holding",
+              "market": "US",
+              "assetType": "stock",
+              "weight": 3.97,
+              "shares": 59102,
+              "open": 1512.25,
+              "high": 1532.24,
+              "low": 1478.96,
+              "close": 1496.3,
+              "prevClose": 1552.14,
+              "change": -55.84,
+              "changePct": -3.6,
+              "amplitude": 3.43,
+              "volume": 1974900,
+              "currency": "USD",
+              "quoteDate": "2026-11-04"
+            },
+            {
+              "code": "KLAC",
+              "name": "KLA",
+              "market": "US",
+              "assetType": "stock",
+              "weight": 3.84,
+              "shares": 571314,
+              "open": 153.78,
+              "high": 157.0,
+              "low": 147.39,
+              "close": 149.79,
+              "prevClose": 156.2,
+              "change": -6.41,
+              "changePct": -4.1,
+              "amplitude": 6.15,
+              "volume": 15930300,
+              "currency": "USD",
+              "quoteDate": "2026-11-04"
+            },
+            {
+              "code": "AMAT",
+              "name": "Applied Materials",
+              "market": "US",
+              "assetType": "stock",
+              "weight": 3.62,
+              "shares": 218672,
+              "open": 373.43,
+              "high": 383.65,
+              "low": 362.93,
+              "close": 369.4,
+              "prevClose": 381.92,
+              "change": -12.52,
+              "changePct": -3.28,
+              "amplitude": 5.43,
+              "volume": 7901700,
+              "currency": "USD",
+              "quoteDate": "2026-11-04"
+            },
+            {
+              "code": "NXPI",
+              "name": "NXP Semiconductors",
+              "market": "US",
+              "assetType": "stock",
+              "weight": 3.41,
+              "shares": 286817,
+              "open": 263.6,
+              "high": 272.08,
+              "low": 258.8,
+              "close": 265.01,
+              "prevClose": 262.79,
+              "change": 2.22,
+              "changePct": 0.84,
+              "amplitude": 5.05,
+              "volume": 5269700,
+              "currency": "USD",
+              "quoteDate": "2026-11-04"
+            },
+            {
+              "code": "MRVL",
+              "name": "Marvell",
+              "market": "US",
+              "assetType": "stock",
+              "weight": 3.4,
+              "shares": 473576,
+              "open": 165.26,
+              "high": 166.32,
+              "low": 154.78,
+              "close": 159.8,
+              "prevClose": 171.97,
+              "change": -12.17,
+              "changePct": -7.08,
+              "amplitude": 6.71,
+              "volume": 46352800,
+              "currency": "USD",
+              "quoteDate": "2026-11-04"
+            },
+            {
+              "code": "LRCX",
+              "name": "Lam Research",
+              "market": "US",
+              "assetType": "stock",
+              "weight": 3.3,
+              "shares": 332472,
+              "open": 227.79,
+              "high": 233.05,
+              "low": 218.5,
+              "close": 221.43,
+              "prevClose": 230.72,
+              "change": -9.29,
+              "changePct": -4.03,
+              "amplitude": 6.31,
+              "volume": 14578400,
+              "currency": "USD",
+              "quoteDate": "2026-11-04"
+            },
+            {
+              "code": "MPWR",
+              "name": "Monolithic Power Systems",
+              "market": "US",
+              "assetType": "stock",
+              "weight": 3.16,
+              "shares": 55896,
+              "open": 1335.1,
+              "high": 1337.91,
+              "low": 1213.5,
+              "close": 1261.08,
+              "prevClose": 1328.3,
+              "change": -67.22,
+              "changePct": -5.06,
+              "amplitude": 9.37,
+              "volume": 1233300,
+              "currency": "USD",
+              "quoteDate": "2026-11-04"
+            },
+            {
+              "code": "INTC",
+              "name": "Intel",
+              "market": "US",
+              "assetType": "stock",
+              "weight": 2.92,
+              "shares": 1118555,
+              "open": 58.67,
+              "high": 60.2,
+              "low": 56.77,
+              "close": 58.27,
+              "prevClose": 60.55,
+              "change": -2.28,
+              "changePct": -3.77,
+              "amplitude": 5.66,
+              "volume": 188619400,
+              "currency": "USD",
+              "quoteDate": "2026-11-04"
+            },
+            {
+              "code": "MCHP",
+              "name": "Microchip Technology",
+              "market": "US",
+              "assetType": "stock",
+              "weight": 2.09,
+              "shares": 616920,
+              "open": 78.39,
+              "high": 79.31,
+              "low": 73.55,
+              "close": 75.34,
+              "prevClose": 77.9,
+              "change": -2.56,
+              "changePct": -3.29,
+              "amplitude": 7.39,
+              "volume": 15015900,
+              "currency": "USD",
+              "quoteDate": "2026-11-04"
+            },
+            {
+              "code": "TER",
+              "name": "Teradyne",
+              "market": "US",
+              "assetType": "stock",
+              "weight": 2.0,
+              "shares": 177621,
+              "open": 264.74,
+              "high": 268.17,
+              "low": 245.94,
+              "close": 250.99,
+              "prevClose": 269.35,
+              "change": -18.36,
+              "changePct": -6.82,
+              "amplitude": 8.25,
+              "volume": 4436500,
+              "currency": "USD",
+              "quoteDate": "2026-11-04"
+            },
+            {
+              "code": "ALAB",
+              "name": "Astera Labs",
+              "market": "US",
+              "assetType": "stock",
+              "weight": 1.97,
+              "shares": 197099,
+              "open": 217.97,
+              "high": 233.53,
+              "low": 208.4,
+              "close": 223.27,
+              "prevClose": 233.62,
+              "change": -10.35,
+              "changePct": -4.43,
+              "amplitude": 10.76,
+              "volume": 8196900,
+              "currency": "USD",
+              "quoteDate": "2026-11-04"
+            },
+            {
+              "code": "COHR",
+              "name": "Coherent",
+              "market": "US",
+              "assetType": "stock",
+              "weight": 1.95,
+              "shares": 222488,
+              "open": 200.86,
+              "high": 205.51,
+              "low": 187.16,
+              "close": 195.09,
+              "prevClose": 207.49,
+              "change": -12.4,
+              "changePct": -5.98,
+              "amplitude": 8.84,
+              "volume": 11630800,
+              "currency": "USD",
+              "quoteDate": "2026-11-04"
+            },
+            {
+              "code": "ARM",
+              "name": "Arm",
+              "market": "US",
+              "assetType": "stock",
+              "weight": 1.42,
+              "shares": 165159,
+              "open": 201.98,
+              "high": 209.5,
+              "low": 189.88,
+              "close": 191.8,
+              "prevClose": 202.49,
+              "change": -10.69,
+              "changePct": -5.28,
+              "amplitude": 9.69,
+              "volume": 8807000,
+              "currency": "USD",
+              "quoteDate": "2026-11-04"
+            },
+            {
+              "code": "ON",
+              "name": "ON Semiconductor",
+              "market": "US",
+              "assetType": "stock",
+              "weight": 1.41,
+              "shares": 442303,
+              "open": 72.9,
+              "high": 74.19,
+              "low": 68.61,
+              "close": 71.24,
+              "prevClose": 72.6,
+              "change": -1.36,
+              "changePct": -1.87,
+              "amplitude": 7.69,
+              "volume": 10785800,
+              "currency": "USD",
+              "quoteDate": "2026-11-04"
+            },
+            {
+              "code": "CRDO",
+              "name": "Credo",
+              "market": "US",
+              "assetType": "stock",
+              "weight": 1.31,
+              "shares": 213515,
+              "open": 144.1,
+              "high": 149.45,
+              "low": 130.26,
+              "close": 136.5,
+              "prevClose": 150.91,
+              "change": -14.41,
+              "changePct": -9.55,
+              "amplitude": 12.72,
+              "volume": 10737800,
+              "currency": "USD",
+              "quoteDate": "2026-11-04"
+            },
+            {
+              "code": "Q",
+              "name": "Qnity",
+              "market": "US",
+              "assetType": "stock",
+              "weight": 1.27,
+              "shares": 237685,
+              "open": 120.0,
+              "high": 120.04,
+              "low": 112.5,
+              "close": 118.78,
+              "prevClose": 118.89,
+              "change": -0.11,
+              "changePct": -0.09,
+              "amplitude": 6.34,
+              "volume": 3277100,
+              "currency": "USD",
+              "quoteDate": "2026-11-04"
+            },
+            {
+              "code": "GFS",
+              "name": "GlobalFoundries",
+              "market": "US",
+              "assetType": "stock",
+              "weight": 1.13,
+              "shares": 623387,
+              "open": 41.53,
+              "high": 42.2,
+              "low": 39.03,
+              "close": 40.34,
+              "prevClose": 42.89,
+              "change": -2.55,
+              "changePct": -5.95,
+              "amplitude": 7.39,
+              "volume": 9876400,
+              "currency": "USD",
+              "quoteDate": "2026-11-04"
+            },
+            {
+              "code": "ENTG",
+              "name": "Entegris",
+              "market": "US",
+              "assetType": "stock",
+              "weight": 1.11,
+              "shares": 173598,
+              "open": 149.27,
+              "high": 152.17,
+              "low": 136.32,
+              "close": 142.87,
+              "prevClose": 152.76,
+              "change": -9.89,
+              "changePct": -6.47,
+              "amplitude": 10.38,
+              "volume": 2780500,
+              "currency": "USD",
+              "quoteDate": "2026-11-04"
+            },
+            {
+              "code": "TSEM",
+              "name": "Tower Semiconductor",
+              "market": "US",
+              "assetType": "stock",
+              "weight": 0.86,
+              "shares": 128182,
+              "open": 158.47,
+              "high": 159.98,
+              "low": 143.39,
+              "close": 148.8,
+              "prevClose": 163.06,
+              "change": -14.26,
+              "changePct": -8.75,
+              "amplitude": 10.17,
+              "volume": 4407100,
+              "currency": "USD",
+              "quoteDate": "2026-11-04"
+            },
+            {
+              "code": "MTSI",
+              "name": "MACOM Technology Solutions",
+              "market": "US",
+              "assetType": "stock",
+              "weight": 0.84,
+              "shares": 79921,
+              "open": 229.21,
+              "high": 233.59,
+              "low": 209.51,
+              "close": 233.13,
+              "prevClose": 235.49,
+              "change": -2.36,
+              "changePct": -1.0,
+              "amplitude": 10.23,
+              "volume": 3074000,
+              "currency": "USD",
+              "quoteDate": "2026-11-04"
+            },
+            {
+              "code": "LSCC",
+              "name": "Lattice Semiconductor",
+              "market": "US",
+              "assetType": "stock",
+              "weight": 0.72,
+              "shares": 148632,
+              "open": 104.84,
+              "high": 107.49,
+              "low": 99.21,
+              "close": 107.25,
+              "prevClose": 105.92,
+              "change": 1.33,
+              "changePct": 1.26,
+              "amplitude": 7.82,
+              "volume": 4293800,
+              "currency": "USD",
+              "quoteDate": "2026-11-04"
+            },
+            {
+              "code": "SITM",
+              "name": "SiTime",
+              "market": "US",
+              "assetType": "stock",
+              "weight": 0.57,
+              "shares": 31469,
+              "open": 437.46,
+              "high": 446.3,
+              "low": 393.72,
+              "close": 403.27,
+              "prevClose": 444.88,
+              "change": -41.61,
+              "changePct": -9.35,
+              "amplitude": 11.82,
+              "volume": 1377500,
+              "currency": "USD",
+              "quoteDate": "2026-11-04"
+            },
+            {
+              "code": "",
+              "name": "小型那斯達克100指數 2026/12",
+              "market": "",
+              "assetType": "stock",
+              "weight": 0.23,
+              "shares": 9
+            }
+          ]
         }
       ],
       "dividends": [
@@ -1504278,7 +1504931,7 @@ window.DATA = {
           "大型權值"
         ],
         "source": "TWSE ETF e添富",
-        "fetchedAt": "2026-11-05T17:32:47+08:00",
+        "fetchedAt": "2026-11-05T18:34:30+08:00",
         "navHistory": [
           {
             "date": "2026-09-21",
