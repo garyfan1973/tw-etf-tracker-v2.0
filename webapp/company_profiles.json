@@ -1637,6 +1637,13 @@
     "business": "臺灣上市公司；主要業務請參考公司網站。",
     "source": "臺灣證券交易所"
   },
+  "9602": {
+    "name": "TOHO",
+    "market": "JP",
+    "industry": "",
+    "business": "無代號海外成分股，暫無可用公開摘要。",
+    "source": ""
+  },
   "9904": {
     "name": "寶成",
     "market": "TW",
@@ -1695,6 +1702,14 @@
     "industry": "",
     "business": "無代號海外成分股，暫無可用公開摘要。",
     "source": ""
+  },
+  "AEM": {
+    "name": "Agnico Eagle Mines",
+    "market": "US",
+    "industry": "Gold",
+    "business": "Agnico Eagle Mines Limited, a gold mining company, engages in the exploration, development, and production of precious metals. It explores for gold, silver, copper, and zinc. The company’s mines are located in Canada, Australia, Finland, and Mexico; and with exploration and development activities in Canada, Australia, Europe, Latin America, and the United States. Agnico Eagle Mines Limited was incorporated in 1953 and is headquartered in Toronto, Canada.",
+    "source": "Stock Analysis",
+    "sector": "Materials"
   },
   "ALAB": {
     "name": "Astera Labs",
@@ -2385,6 +2400,14 @@
     "business": "Teradyne, Inc. engages in the design, development, manufacture, and sale of automated test systems and robotics products in the United States, Asia Pacific, Europe, the Middle East, and Africa. The company operates through Semiconductor Test, Robotics, and Other segments. The Semiconductor Test segment offers products and services for wafer level and device package testing, and system level testing of semiconductor devices in automotive, industrial, communications, consumer, smartphones, cloud, computer and electronic game, and other applications. This segment also provides FLEX test platform systems; J750 test system to address the volume semiconductor devices, including microcontrollers; Magnum platform that tests memory devices, such as flash memory and DRAM; and ETS platform for semiconductor manufacturers, and assembly and test subcontractors in the analog/mixed signal markets. It serves integrated device manufacturers that integrate the fabrication of silicon wafers into their business; fabless companies that outsource the manufacturing of silicon wafers; foundries; and semiconductor assembly and test providers. The Robotics segment provides collaborative robotic arms and autonomous mobile robots for manufacturing, logistics, and industrial customers. It also provides product test instruments which includes operations related to the design, manufacturing and marketing of products and services for defense/aerospace test, circuit-board test, wireless test systems, and silicon photonics testing. The company has a strategic collaboration with Tokyo Electron Limited for the development of a test cell solution for device screening in AI and data center applications. Teradyne, Inc. was incorporated in 1960 and is headquartered in North Reading, Massachusetts.",
     "source": "Stock Analysis",
     "sector": "Technology"
+  },
+  "THC": {
+    "name": "Tenet Healthcare",
+    "market": "US",
+    "industry": "Medical Care Facilities",
+    "business": "Tenet Healthcare Corporation operates as a diversified healthcare services company in the United States. The company operates through two segments: Hospital Operations and Services, and Ambulatory Care. Its general hospitals offer acute care services, operating and recovery rooms, radiology and respiratory therapy services, clinical laboratories, and pharmacies. The company also provides intensive and critical care, and/or coronary care units; cardiovascular, digestive disease, neurosciences, musculoskeletal, and obstetrics services; outpatient services, including physical therapy; tertiary care services, such as cardiothoracic surgery, complex spinal surgery, neonatal intensive care, and neurosurgery services; pediatric quaternary care services through heart, liver, and kidney transplants programs; and limb salvaging vascular procedure, acute level 1 trauma, intravascular stroke care, minimally invasive cardiac valve replacement, imaging technology, surgical robotic, and telemedicine access services. In addition, it offers a range of procedures and services comprising orthopedics, total joint replacement, and spinal and other musculoskeletal procedures; gastroenterology; pain management; otolaryngology; ophthalmology; and urology. Further, the company operates acute care and specialty hospitals, off-campus emergency departments, imaging centers, urgent care centers, and micro-hospitals, as well as ambulatory surgery centers and surgical hospitals. Tenet Healthcare Corporation was founded in 1967 and is headquartered in Dallas, Texas.",
+    "source": "Stock Analysis",
+    "sector": "Healthcare"
   },
   "TSEM": {
     "name": "Tower Semiconductor",
