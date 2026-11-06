@@ -1,5 +1,5 @@
 window.DATA = {
-  "generated_at": "2026-11-06T19:32:50+08:00",
+  "generated_at": "2026-11-06T20:32:42+08:00",
   "etfs": {
     "00981A": {
       "name": "主動統一台股增長",
@@ -121851,7 +121851,7 @@ window.DATA = {
         },
         {
           "date": "2026-11-06",
-          "fetched_at": "2026-11-06T19:30:34+08:00",
+          "fetched_at": "2026-11-06T20:30:51+08:00",
           "count": 51,
           "self": {
             "open": 20.75,
@@ -121932,9 +121932,9 @@ window.DATA = {
               "quoteDate": "2026-11-06",
               "inst": {
                 "foreign": -4535826,
-                "trust": 512029,
+                "trust": 556029,
                 "dealer": 798328,
-                "total": -3225469,
+                "total": -3181469,
                 "date": "2026-11-06"
               },
               "margin": {
@@ -122088,9 +122088,9 @@ window.DATA = {
               "quoteDate": "2026-11-06",
               "inst": {
                 "foreign": -104568,
-                "trust": 147014,
+                "trust": 224014,
                 "dealer": 58825,
-                "total": 101271,
+                "total": 178271,
                 "date": "2026-11-06"
               },
               "margin": {
@@ -122127,9 +122127,9 @@ window.DATA = {
               "quoteDate": "2026-11-06",
               "inst": {
                 "foreign": -11302289,
-                "trust": 1629642,
+                "trust": 1937642,
                 "dealer": 1653907,
-                "total": -8018740,
+                "total": -7710740,
                 "date": "2026-11-06"
               },
               "margin": {
@@ -122166,9 +122166,9 @@ window.DATA = {
               "quoteDate": "2026-11-06",
               "inst": {
                 "foreign": -881715,
-                "trust": -49462,
+                "trust": -660462,
                 "dealer": 313687,
-                "total": -617490,
+                "total": -1228490,
                 "date": "2026-11-06"
               },
               "margin": {
@@ -122474,9 +122474,9 @@ window.DATA = {
               "quoteDate": "2026-11-06",
               "inst": {
                 "foreign": -55931,
-                "trust": 46071,
+                "trust": 53071,
                 "dealer": -83676,
-                "total": -93536,
+                "total": -86536,
                 "date": "2026-11-06"
               },
               "margin": {
@@ -122513,9 +122513,9 @@ window.DATA = {
               "quoteDate": "2026-11-06",
               "inst": {
                 "foreign": -1489,
-                "trust": 16285,
+                "trust": 17695,
                 "dealer": 11321,
-                "total": 26117,
+                "total": 27527,
                 "date": "2026-11-06"
               },
               "margin": {
@@ -123212,9 +123212,9 @@ window.DATA = {
               "quoteDate": "2026-11-06",
               "inst": {
                 "foreign": 865372,
-                "trust": -540000,
+                "trust": -535000,
                 "dealer": -37699,
-                "total": 287673,
+                "total": 292673,
                 "date": "2026-11-06"
               },
               "margin": {
@@ -123251,9 +123251,9 @@ window.DATA = {
               "quoteDate": "2026-11-06",
               "inst": {
                 "foreign": 373560,
-                "trust": -163,
+                "trust": 4907,
                 "dealer": -163291,
-                "total": 210106,
+                "total": 215176,
                 "date": "2026-11-06"
               },
               "margin": {
@@ -123439,9 +123439,9 @@ window.DATA = {
               "quoteDate": "2026-11-06",
               "inst": {
                 "foreign": 38493,
-                "trust": 125320,
+                "trust": 15320,
                 "dealer": 120579,
-                "total": 284392,
+                "total": 174392,
                 "date": "2026-11-06"
               },
               "margin": {
@@ -123595,9 +123595,9 @@ window.DATA = {
               "quoteDate": "2026-11-06",
               "inst": {
                 "foreign": -667172,
-                "trust": 1290277,
+                "trust": 1281847,
                 "dealer": 2057416,
-                "total": 2680521,
+                "total": 2672091,
                 "date": "2026-11-06"
               },
               "margin": {
@@ -123808,7 +123808,7 @@ window.DATA = {
           "大型權值"
         ],
         "source": "TWSE ETF e添富",
-        "fetchedAt": "2026-11-06T19:32:43+08:00",
+        "fetchedAt": "2026-11-06T20:32:31+08:00",
         "navHistory": [
           {
             "date": "2026-09-22",
@@ -259771,7 +259771,7 @@ window.DATA = {
         },
         {
           "date": "2026-11-06",
-          "fetched_at": "2026-11-06T19:30:34+08:00",
+          "fetched_at": "2026-11-06T20:30:52+08:00",
           "count": 58,
           "self": {
             "open": 16.01,
@@ -259852,9 +259852,9 @@ window.DATA = {
               "quoteDate": "2026-11-06",
               "inst": {
                 "foreign": -4535826,
-                "trust": 512029,
+                "trust": 556029,
                 "dealer": 798328,
-                "total": -3225469,
+                "total": -3181469,
                 "date": "2026-11-06"
               },
               "margin": {
@@ -260072,9 +260072,9 @@ window.DATA = {
               "quoteDate": "2026-11-06",
               "inst": {
                 "foreign": 38493,
-                "trust": 125320,
+                "trust": 15320,
                 "dealer": 120579,
-                "total": 284392,
+                "total": 174392,
                 "date": "2026-11-06"
               },
               "margin": {
@@ -260150,9 +260150,9 @@ window.DATA = {
               "quoteDate": "2026-11-06",
               "inst": {
                 "foreign": 373560,
-                "trust": -163,
+                "trust": 4907,
                 "dealer": -163291,
-                "total": 210106,
+                "total": 215176,
                 "date": "2026-11-06"
               },
               "margin": {
@@ -260228,9 +260228,9 @@ window.DATA = {
               "quoteDate": "2026-11-06",
               "inst": {
                 "foreign": -33189,
-                "trust": 72009,
+                "trust": 95009,
                 "dealer": 10959,
-                "total": 49779,
+                "total": 72779,
                 "date": "2026-11-06"
               },
               "margin": {
@@ -260377,9 +260377,9 @@ window.DATA = {
               "quoteDate": "2026-11-06",
               "inst": {
                 "foreign": -1489,
-                "trust": 16285,
+                "trust": 17695,
                 "dealer": 11321,
-                "total": 26117,
+                "total": 27527,
                 "date": "2026-11-06"
               },
               "margin": {
@@ -260416,9 +260416,9 @@ window.DATA = {
               "quoteDate": "2026-11-06",
               "inst": {
                 "foreign": -11302289,
-                "trust": 1629642,
+                "trust": 1937642,
                 "dealer": 1653907,
-                "total": -8018740,
+                "total": -7710740,
                 "date": "2026-11-06"
               },
               "margin": {
@@ -260675,9 +260675,9 @@ window.DATA = {
               "quoteDate": "2026-11-06",
               "inst": {
                 "foreign": 1867557,
-                "trust": -197000,
+                "trust": -1286000,
                 "dealer": -66010,
-                "total": 1604547,
+                "total": 515547,
                 "date": "2026-11-06"
               },
               "margin": {
@@ -261743,9 +261743,9 @@ window.DATA = {
               "quoteDate": "2026-11-06",
               "inst": {
                 "foreign": -55931,
-                "trust": 46071,
+                "trust": 53071,
                 "dealer": -83676,
-                "total": -93536,
+                "total": -86536,
                 "date": "2026-11-06"
               },
               "margin": {
@@ -261892,9 +261892,9 @@ window.DATA = {
               "quoteDate": "2026-11-06",
               "inst": {
                 "foreign": 363145,
-                "trust": -6423616,
+                "trust": -6662616,
                 "dealer": 4217163,
-                "total": -1843308,
+                "total": -2082308,
                 "date": "2026-11-06"
               },
               "margin": {
@@ -262003,7 +262003,7 @@ window.DATA = {
           "大型權值"
         ],
         "source": "TWSE ETF e添富",
-        "fetchedAt": "2026-11-06T19:32:43+08:00",
+        "fetchedAt": "2026-11-06T20:32:31+08:00",
         "navHistory": [
           {
             "date": "2026-09-22",
@@ -332955,7 +332955,7 @@ window.DATA = {
         },
         {
           "date": "2026-11-05",
-          "fetched_at": "2026-11-06T17:30:47+08:00",
+          "fetched_at": "2026-11-06T20:31:15+08:00",
           "count": 37,
           "self": {
             "open": 13.3,
@@ -333869,7 +333869,7 @@ window.DATA = {
           "科技主題型"
         ],
         "source": "TWSE ETF e添富",
-        "fetchedAt": "2026-11-06T19:32:44+08:00",
+        "fetchedAt": "2026-11-06T20:32:32+08:00",
         "navHistory": [
           {
             "date": "2026-09-22",
@@ -431881,6 +431881,1672 @@ window.DATA = {
               }
             }
           ]
+        },
+        {
+          "date": "2026-11-06",
+          "fetched_at": "2026-11-06T20:31:15+08:00",
+          "count": 44,
+          "self": {
+            "open": 12.23,
+            "high": 12.95,
+            "low": 12.22,
+            "close": 12.62,
+            "prevClose": 13.57,
+            "change": -0.95,
+            "changePct": -7.0,
+            "amplitude": 5.38,
+            "volume": 137220416.0,
+            "quoteDate": "2026-11-06"
+          },
+          "selfInstitutional": {
+            "foreign": -36705800,
+            "trust": 0,
+            "dealer": 1554136,
+            "total": -35151664,
+            "date": "2026-11-06"
+          },
+          "selfMargin": null,
+          "holdings": [
+            {
+              "code": "2330",
+              "name": "台積電",
+              "market": "TW",
+              "assetType": "stock",
+              "weight": 7.21,
+              "shares": 1246000,
+              "open": 2020.0,
+              "high": 2195.0,
+              "low": 2020.0,
+              "close": 2135.0,
+              "prevClose": 2240.0,
+              "change": -105.0,
+              "changePct": -4.69,
+              "amplitude": 7.81,
+              "volume": 110714587.0,
+              "quoteDate": "2026-11-06",
+              "inst": {
+                "foreign": -22844481,
+                "trust": 4669484,
+                "dealer": 8701821,
+                "total": -9473176,
+                "date": "2026-11-06"
+              },
+              "margin": {
+                "marginBuy": 640,
+                "marginSell": 1157,
+                "marginCashRedemption": 31,
+                "marginPrevBalance": 35144,
+                "marginBalance": 34596,
+                "shortBuy": 4,
+                "shortSell": 35,
+                "shortStockRedemption": 0,
+                "shortPrevBalance": 16,
+                "shortBalance": 47,
+                "offsetting": 3,
+                "date": "2026-11-05"
+              }
+            },
+            {
+              "code": "3037",
+              "name": "欣興",
+              "market": "TW",
+              "assetType": "stock",
+              "weight": 5.97,
+              "shares": 3032000,
+              "open": 720.0,
+              "high": 771.0,
+              "low": 720.0,
+              "close": 727.0,
+              "prevClose": 800.0,
+              "change": -73.0,
+              "changePct": -9.12,
+              "amplitude": 6.38,
+              "volume": 37991238.0,
+              "quoteDate": "2026-11-06",
+              "inst": {
+                "foreign": -5859317,
+                "trust": 614106,
+                "dealer": 352302,
+                "total": -4892909,
+                "date": "2026-11-06"
+              },
+              "margin": {
+                "marginBuy": 793,
+                "marginSell": 1103,
+                "marginCashRedemption": 31,
+                "marginPrevBalance": 35371,
+                "marginBalance": 35030,
+                "shortBuy": 62,
+                "shortSell": 903,
+                "shortStockRedemption": 0,
+                "shortPrevBalance": 183,
+                "shortBalance": 1024,
+                "offsetting": 39,
+                "date": "2026-11-05"
+              }
+            },
+            {
+              "code": "2383",
+              "name": "台光電",
+              "market": "TW",
+              "assetType": "stock",
+              "weight": 5.79,
+              "shares": 560000,
+              "open": 3690.0,
+              "high": 3920.0,
+              "low": 3690.0,
+              "close": 3820.0,
+              "prevClose": 4100.0,
+              "change": -280.0,
+              "changePct": -6.83,
+              "amplitude": 5.61,
+              "volume": 6290670.0,
+              "quoteDate": "2026-11-06",
+              "inst": {
+                "foreign": -868554,
+                "trust": 483966,
+                "dealer": 28531,
+                "total": -356057,
+                "date": "2026-11-06"
+              },
+              "margin": {
+                "marginBuy": 474,
+                "marginSell": 558,
+                "marginCashRedemption": 3,
+                "marginPrevBalance": 3728,
+                "marginBalance": 3641,
+                "shortBuy": 18,
+                "shortSell": 108,
+                "shortStockRedemption": 0,
+                "shortPrevBalance": 32,
+                "shortBalance": 122,
+                "offsetting": 4,
+                "date": "2026-11-05"
+              }
+            },
+            {
+              "code": "3017",
+              "name": "奇鋐",
+              "market": "TW",
+              "assetType": "stock",
+              "weight": 5.76,
+              "shares": 921000,
+              "open": 2310.0,
+              "high": 2310.0,
+              "low": 2310.0,
+              "close": 2310.0,
+              "prevClose": 2565.0,
+              "change": -255.0,
+              "changePct": -9.94,
+              "amplitude": 0.0,
+              "volume": 2194175.0,
+              "quoteDate": "2026-11-06",
+              "inst": {
+                "foreign": -762807,
+                "trust": 405276,
+                "dealer": 218495,
+                "total": -139036,
+                "date": "2026-11-06"
+              },
+              "margin": {
+                "marginBuy": 87,
+                "marginSell": 346,
+                "marginCashRedemption": 3,
+                "marginPrevBalance": 3563,
+                "marginBalance": 3301,
+                "shortBuy": 3,
+                "shortSell": 10,
+                "shortStockRedemption": 0,
+                "shortPrevBalance": 11,
+                "shortBalance": 18,
+                "offsetting": 1,
+                "date": "2026-11-05"
+              }
+            },
+            {
+              "code": "3665",
+              "name": "貿聯-KY",
+              "market": "TW",
+              "assetType": "stock",
+              "weight": 5.67,
+              "shares": 1581000,
+              "open": 1325.0,
+              "high": 1370.0,
+              "low": 1325.0,
+              "close": 1325.0,
+              "prevClose": 1470.0,
+              "change": -145.0,
+              "changePct": -9.86,
+              "amplitude": 3.06,
+              "volume": 5035764.0,
+              "quoteDate": "2026-11-06",
+              "inst": {
+                "foreign": -310016,
+                "trust": 73020,
+                "dealer": 94547,
+                "total": -142449,
+                "date": "2026-11-06"
+              },
+              "margin": {
+                "marginBuy": 170,
+                "marginSell": 405,
+                "marginCashRedemption": 1,
+                "marginPrevBalance": 4128,
+                "marginBalance": 3892,
+                "shortBuy": 3,
+                "shortSell": 3,
+                "shortStockRedemption": 0,
+                "shortPrevBalance": 4,
+                "shortBalance": 4,
+                "offsetting": 2,
+                "date": "2026-11-05"
+              }
+            },
+            {
+              "code": "8996",
+              "name": "高力",
+              "market": "TW",
+              "assetType": "stock",
+              "weight": 5.57,
+              "shares": 1743000,
+              "open": 1165.0,
+              "high": 1240.0,
+              "low": 1165.0,
+              "close": 1180.0,
+              "prevClose": 1290.0,
+              "change": -110.0,
+              "changePct": -8.53,
+              "amplitude": 5.81,
+              "volume": 3531733.0,
+              "quoteDate": "2026-11-06",
+              "inst": {
+                "foreign": 73273,
+                "trust": 95046,
+                "dealer": -54098,
+                "total": 114221,
+                "date": "2026-11-06"
+              },
+              "margin": {
+                "marginBuy": 554,
+                "marginSell": 306,
+                "marginCashRedemption": 1,
+                "marginPrevBalance": 6932,
+                "marginBalance": 7179,
+                "shortBuy": 23,
+                "shortSell": 374,
+                "shortStockRedemption": 0,
+                "shortPrevBalance": 87,
+                "shortBalance": 438,
+                "offsetting": 0,
+                "date": "2026-11-05"
+              }
+            },
+            {
+              "code": "2345",
+              "name": "智邦",
+              "market": "TW",
+              "assetType": "stock",
+              "weight": 4.7,
+              "shares": 1355000,
+              "open": 1245.0,
+              "high": 1300.0,
+              "low": 1245.0,
+              "close": 1280.0,
+              "prevClose": 1380.0,
+              "change": -100.0,
+              "changePct": -7.25,
+              "amplitude": 3.99,
+              "volume": 5991597.0,
+              "quoteDate": "2026-11-06",
+              "inst": {
+                "foreign": -507002,
+                "trust": 391417,
+                "dealer": 182035,
+                "total": 66450,
+                "date": "2026-11-06"
+              },
+              "margin": {
+                "marginBuy": 61,
+                "marginSell": 284,
+                "marginCashRedemption": 1,
+                "marginPrevBalance": 2934,
+                "marginBalance": 2710,
+                "shortBuy": 1,
+                "shortSell": 4,
+                "shortStockRedemption": 0,
+                "shortPrevBalance": 4,
+                "shortBalance": 7,
+                "offsetting": 6,
+                "date": "2026-11-05"
+              }
+            },
+            {
+              "code": "2059",
+              "name": "川湖",
+              "market": "TW",
+              "assetType": "stock",
+              "weight": 4.47,
+              "shares": 218000,
+              "open": 7200.0,
+              "high": 7700.0,
+              "low": 7200.0,
+              "close": 7565.0,
+              "prevClose": 7995.0,
+              "change": -430.0,
+              "changePct": -5.38,
+              "amplitude": 6.25,
+              "volume": 1051122.0,
+              "quoteDate": "2026-11-06",
+              "inst": {
+                "foreign": -33189,
+                "trust": 95009,
+                "dealer": 10959,
+                "total": 72779,
+                "date": "2026-11-06"
+              },
+              "margin": {
+                "marginBuy": 7,
+                "marginSell": 75,
+                "marginCashRedemption": 0,
+                "marginPrevBalance": 593,
+                "marginBalance": 525,
+                "shortBuy": 0,
+                "shortSell": 1,
+                "shortStockRedemption": 0,
+                "shortPrevBalance": 0,
+                "shortBalance": 1,
+                "offsetting": 0,
+                "date": "2026-11-05"
+              }
+            },
+            {
+              "code": "1815",
+              "name": "富喬",
+              "market": "TW",
+              "assetType": "stock",
+              "weight": 4.02,
+              "shares": 12620868,
+              "open": 109.5,
+              "high": 125.5,
+              "low": 109.5,
+              "close": 117.5,
+              "prevClose": 121.5,
+              "change": -4.0,
+              "changePct": -3.29,
+              "amplitude": 13.17,
+              "volume": 108900000.0,
+              "quoteDate": "2026-11-06",
+              "margin": {
+                "marginBuy": 7593,
+                "marginSell": 13470,
+                "marginCashRedemption": 14,
+                "marginPrevBalance": 60664,
+                "marginBalance": 54773,
+                "shortBuy": 3857,
+                "shortSell": 1131,
+                "shortStockRedemption": 1,
+                "shortPrevBalance": 1813,
+                "shortBalance": 4538,
+                "offsetting": 91,
+                "date": "2026-11-06"
+              }
+            },
+            {
+              "code": "3008",
+              "name": "大立光",
+              "market": "TW",
+              "assetType": "stock",
+              "weight": 3.92,
+              "shares": 323000,
+              "open": 4075.0,
+              "high": 4570.0,
+              "low": 4075.0,
+              "close": 4480.0,
+              "prevClose": 4525.0,
+              "change": -45.0,
+              "changePct": -0.99,
+              "amplitude": 10.94,
+              "volume": 4020877.0,
+              "quoteDate": "2026-11-06",
+              "inst": {
+                "foreign": 373560,
+                "trust": 4907,
+                "dealer": -163291,
+                "total": 215176,
+                "date": "2026-11-06"
+              },
+              "margin": {
+                "marginBuy": 69,
+                "marginSell": 271,
+                "marginCashRedemption": 4,
+                "marginPrevBalance": 3584,
+                "marginBalance": 3378,
+                "shortBuy": 9,
+                "shortSell": 3,
+                "shortStockRedemption": 0,
+                "shortPrevBalance": 44,
+                "shortBalance": 38,
+                "offsetting": 4,
+                "date": "2026-11-05"
+              }
+            },
+            {
+              "code": "1303",
+              "name": "南亞",
+              "market": "TW",
+              "assetType": "stock",
+              "weight": 3.4,
+              "shares": 5245000,
+              "open": 224.5,
+              "high": 253.5,
+              "low": 224.5,
+              "close": 239.5,
+              "prevClose": 249.0,
+              "change": -9.5,
+              "changePct": -3.82,
+              "amplitude": 11.65,
+              "volume": 114669930.0,
+              "quoteDate": "2026-11-06",
+              "inst": {
+                "foreign": -7519382,
+                "trust": 3638817,
+                "dealer": 2616213,
+                "total": -1264352,
+                "date": "2026-11-06"
+              },
+              "margin": {
+                "marginBuy": 3133,
+                "marginSell": 5233,
+                "marginCashRedemption": 27,
+                "marginPrevBalance": 45207,
+                "marginBalance": 43080,
+                "shortBuy": 351,
+                "shortSell": 410,
+                "shortStockRedemption": 0,
+                "shortPrevBalance": 1591,
+                "shortBalance": 1650,
+                "offsetting": 54,
+                "date": "2026-11-05"
+              }
+            },
+            {
+              "code": "6223",
+              "name": "旺矽",
+              "market": "TW",
+              "assetType": "stock",
+              "weight": 3.4,
+              "shares": 364000,
+              "open": 3355.0,
+              "high": 3575.0,
+              "low": 3355.0,
+              "close": 3445.0,
+              "prevClose": 3725.0,
+              "change": -280.0,
+              "changePct": -7.52,
+              "amplitude": 5.91,
+              "volume": 1243000.0,
+              "quoteDate": "2026-11-06",
+              "margin": {
+                "marginBuy": 45,
+                "marginSell": 70,
+                "marginCashRedemption": 6,
+                "marginPrevBalance": 984,
+                "marginBalance": 953,
+                "shortBuy": 2,
+                "shortSell": 2,
+                "shortStockRedemption": 0,
+                "shortPrevBalance": 5,
+                "shortBalance": 5,
+                "offsetting": 0,
+                "date": "2026-11-06"
+              }
+            },
+            {
+              "code": "3443",
+              "name": "創意",
+              "market": "TW",
+              "assetType": "stock",
+              "weight": 3.39,
+              "shares": 202000,
+              "open": 5765.0,
+              "high": 6460.0,
+              "low": 5765.0,
+              "close": 6205.0,
+              "prevClose": 6405.0,
+              "change": -200.0,
+              "changePct": -3.12,
+              "amplitude": 10.85,
+              "volume": 4317418.0,
+              "quoteDate": "2026-11-06",
+              "inst": {
+                "foreign": -55931,
+                "trust": 53071,
+                "dealer": -83676,
+                "total": -86536,
+                "date": "2026-11-06"
+              },
+              "margin": {
+                "marginBuy": 301,
+                "marginSell": 523,
+                "marginCashRedemption": 1,
+                "marginPrevBalance": 4548,
+                "marginBalance": 4325,
+                "shortBuy": 28,
+                "shortSell": 82,
+                "shortStockRedemption": 0,
+                "shortPrevBalance": 168,
+                "shortBalance": 222,
+                "offsetting": 1,
+                "date": "2026-11-05"
+              }
+            },
+            {
+              "code": "8046",
+              "name": "南電",
+              "market": "TW",
+              "assetType": "stock",
+              "weight": 2.74,
+              "shares": 1157000,
+              "open": 875.0,
+              "high": 902.0,
+              "low": 875.0,
+              "close": 875.0,
+              "prevClose": 972.0,
+              "change": -97.0,
+              "changePct": -9.98,
+              "amplitude": 2.78,
+              "volume": 11924023.0,
+              "quoteDate": "2026-11-06",
+              "inst": {
+                "foreign": -107430,
+                "trust": 399185,
+                "dealer": 18741,
+                "total": 310496,
+                "date": "2026-11-06"
+              },
+              "margin": {
+                "marginBuy": 333,
+                "marginSell": 689,
+                "marginCashRedemption": 6,
+                "marginPrevBalance": 6288,
+                "marginBalance": 5926,
+                "shortBuy": 20,
+                "shortSell": 116,
+                "shortStockRedemption": 0,
+                "shortPrevBalance": 207,
+                "shortBalance": 303,
+                "offsetting": 6,
+                "date": "2026-11-05"
+              }
+            },
+            {
+              "code": "3189",
+              "name": "景碩",
+              "market": "TW",
+              "assetType": "stock",
+              "weight": 2.42,
+              "shares": 1334013,
+              "open": 666.0,
+              "high": 704.0,
+              "low": 666.0,
+              "close": 671.0,
+              "prevClose": 740.0,
+              "change": -69.0,
+              "changePct": -9.32,
+              "amplitude": 5.14,
+              "volume": 15577678.0,
+              "quoteDate": "2026-11-06",
+              "inst": {
+                "foreign": 323980,
+                "trust": -148000,
+                "dealer": -43064,
+                "total": 132916,
+                "date": "2026-11-06"
+              },
+              "margin": {
+                "marginBuy": 907,
+                "marginSell": 874,
+                "marginCashRedemption": 66,
+                "marginPrevBalance": 12382,
+                "marginBalance": 12349,
+                "shortBuy": 45,
+                "shortSell": 132,
+                "shortStockRedemption": 0,
+                "shortPrevBalance": 152,
+                "shortBalance": 239,
+                "offsetting": 6,
+                "date": "2026-11-05"
+              }
+            },
+            {
+              "code": "2454",
+              "name": "聯發科",
+              "market": "TW",
+              "assetType": "stock",
+              "weight": 2.38,
+              "shares": 259000,
+              "open": 3115.0,
+              "high": 3480.0,
+              "low": 3115.0,
+              "close": 3390.0,
+              "prevClose": 3460.0,
+              "change": -70.0,
+              "changePct": -2.02,
+              "amplitude": 10.55,
+              "volume": 23481216.0,
+              "quoteDate": "2026-11-06",
+              "inst": {
+                "foreign": -4535826,
+                "trust": 556029,
+                "dealer": 798328,
+                "total": -3181469,
+                "date": "2026-11-06"
+              },
+              "margin": {
+                "marginBuy": 442,
+                "marginSell": 1121,
+                "marginCashRedemption": 9,
+                "marginPrevBalance": 12579,
+                "marginBalance": 11891,
+                "shortBuy": 3,
+                "shortSell": 38,
+                "shortStockRedemption": 0,
+                "shortPrevBalance": 16,
+                "shortBalance": 51,
+                "offsetting": 11,
+                "date": "2026-11-05"
+              }
+            },
+            {
+              "code": "8021",
+              "name": "尖點",
+              "market": "TW",
+              "assetType": "stock",
+              "weight": 2.29,
+              "shares": 2740253,
+              "open": 306.5,
+              "high": 317.0,
+              "low": 306.5,
+              "close": 308.5,
+              "prevClose": 340.5,
+              "change": -32.0,
+              "changePct": -9.4,
+              "amplitude": 3.08,
+              "volume": 4925941.0,
+              "quoteDate": "2026-11-06",
+              "inst": {
+                "foreign": 478611,
+                "trust": 24000,
+                "dealer": 12999,
+                "total": 515610,
+                "date": "2026-11-06"
+              },
+              "margin": {
+                "marginBuy": 344,
+                "marginSell": 937,
+                "marginCashRedemption": 9,
+                "marginPrevBalance": 10485,
+                "marginBalance": 9883,
+                "shortBuy": 23,
+                "shortSell": 56,
+                "shortStockRedemption": 17,
+                "shortPrevBalance": 236,
+                "shortBalance": 252,
+                "offsetting": 1,
+                "date": "2026-11-05"
+              }
+            },
+            {
+              "code": "3231",
+              "name": "緯創",
+              "market": "TW",
+              "assetType": "stock",
+              "weight": 1.93,
+              "shares": 4454000,
+              "open": 152.0,
+              "high": 163.0,
+              "low": 152.0,
+              "close": 160.0,
+              "prevClose": 168.5,
+              "change": -8.5,
+              "changePct": -5.04,
+              "amplitude": 6.53,
+              "volume": 48190870.0,
+              "quoteDate": "2026-11-06",
+              "inst": {
+                "foreign": -3520515,
+                "trust": 550547,
+                "dealer": 1266079,
+                "total": -1703889,
+                "date": "2026-11-06"
+              },
+              "margin": {
+                "marginBuy": 893,
+                "marginSell": 1187,
+                "marginCashRedemption": 56,
+                "marginPrevBalance": 39525,
+                "marginBalance": 39175,
+                "shortBuy": 129,
+                "shortSell": 71,
+                "shortStockRedemption": 0,
+                "shortPrevBalance": 305,
+                "shortBalance": 247,
+                "offsetting": 9,
+                "date": "2026-11-05"
+              }
+            },
+            {
+              "code": "6669",
+              "name": "緯穎",
+              "market": "TW",
+              "assetType": "stock",
+              "weight": 1.86,
+              "shares": 440675,
+              "open": 1485.0,
+              "high": 1610.0,
+              "low": 1485.0,
+              "close": 1555.0,
+              "prevClose": 1650.0,
+              "change": -95.0,
+              "changePct": -5.76,
+              "amplitude": 7.58,
+              "volume": 7676494.0,
+              "quoteDate": "2026-11-06",
+              "inst": {
+                "foreign": -1489,
+                "trust": 17695,
+                "dealer": 11321,
+                "total": 27527,
+                "date": "2026-11-06"
+              },
+              "margin": {
+                "marginBuy": 115,
+                "marginSell": 487,
+                "marginCashRedemption": 12,
+                "marginPrevBalance": 4817,
+                "marginBalance": 4433,
+                "shortBuy": 0,
+                "shortSell": 1,
+                "shortStockRedemption": 0,
+                "shortPrevBalance": 230,
+                "shortBalance": 231,
+                "offsetting": 0,
+                "date": "2026-11-05"
+              }
+            },
+            {
+              "code": "2368",
+              "name": "金像電",
+              "market": "TW",
+              "assetType": "stock",
+              "weight": 1.67,
+              "shares": 759000,
+              "open": 782.0,
+              "high": 844.0,
+              "low": 782.0,
+              "close": 813.0,
+              "prevClose": 868.0,
+              "change": -55.0,
+              "changePct": -6.34,
+              "amplitude": 7.14,
+              "volume": 11665087.0,
+              "quoteDate": "2026-11-06",
+              "inst": {
+                "foreign": 410482,
+                "trust": 75283,
+                "dealer": -133525,
+                "total": 352240,
+                "date": "2026-11-06"
+              },
+              "margin": {
+                "marginBuy": 447,
+                "marginSell": 1515,
+                "marginCashRedemption": 14,
+                "marginPrevBalance": 9517,
+                "marginBalance": 8435,
+                "shortBuy": 47,
+                "shortSell": 99,
+                "shortStockRedemption": 0,
+                "shortPrevBalance": 88,
+                "shortBalance": 140,
+                "offsetting": 20,
+                "date": "2026-11-05"
+              }
+            },
+            {
+              "code": "6213",
+              "name": "聯茂",
+              "market": "TW",
+              "assetType": "stock",
+              "weight": 1.45,
+              "shares": 1079000,
+              "open": 496.0,
+              "high": 496.0,
+              "low": 496.0,
+              "close": 496.0,
+              "prevClose": 551.0,
+              "change": -55.0,
+              "changePct": -9.98,
+              "amplitude": 0.0,
+              "volume": 6364736.0,
+              "quoteDate": "2026-11-06",
+              "inst": {
+                "foreign": 1335081,
+                "trust": 8000,
+                "dealer": 327950,
+                "total": 1671031,
+                "date": "2026-11-06"
+              },
+              "margin": {
+                "marginBuy": 138,
+                "marginSell": 1005,
+                "marginCashRedemption": 10,
+                "marginPrevBalance": 20143,
+                "marginBalance": 19266,
+                "shortBuy": 150,
+                "shortSell": 127,
+                "shortStockRedemption": 0,
+                "shortPrevBalance": 524,
+                "shortBalance": 501,
+                "offsetting": 1209,
+                "date": "2026-11-05"
+              }
+            },
+            {
+              "code": "3081",
+              "name": "聯亞",
+              "market": "TW",
+              "assetType": "stock",
+              "weight": 1.41,
+              "shares": 298000,
+              "open": 1705.0,
+              "high": 1795.0,
+              "low": 1705.0,
+              "close": 1750.0,
+              "prevClose": 1890.0,
+              "change": -140.0,
+              "changePct": -7.41,
+              "amplitude": 4.76,
+              "volume": 3703000.0,
+              "quoteDate": "2026-11-06",
+              "margin": {
+                "marginBuy": 173,
+                "marginSell": 323,
+                "marginCashRedemption": 6,
+                "marginPrevBalance": 5405,
+                "marginBalance": 5249,
+                "shortBuy": 10,
+                "shortSell": 7,
+                "shortStockRedemption": 0,
+                "shortPrevBalance": 53,
+                "shortBalance": 56,
+                "offsetting": 6,
+                "date": "2026-11-06"
+              }
+            },
+            {
+              "code": "2360",
+              "name": "致茂",
+              "market": "TW",
+              "assetType": "stock",
+              "weight": 1.35,
+              "shares": 413000,
+              "open": 1205.0,
+              "high": 1205.0,
+              "low": 1205.0,
+              "close": 1205.0,
+              "prevClose": 1335.0,
+              "change": -130.0,
+              "changePct": -9.74,
+              "amplitude": 0.0,
+              "volume": 1774073.0,
+              "quoteDate": "2026-11-06",
+              "inst": {
+                "foreign": 38493,
+                "trust": 15320,
+                "dealer": 120579,
+                "total": 174392,
+                "date": "2026-11-06"
+              },
+              "margin": {
+                "marginBuy": 70,
+                "marginSell": 188,
+                "marginCashRedemption": 2,
+                "marginPrevBalance": 1383,
+                "marginBalance": 1263,
+                "shortBuy": 0,
+                "shortSell": 11,
+                "shortStockRedemption": 0,
+                "shortPrevBalance": 4,
+                "shortBalance": 15,
+                "offsetting": 1,
+                "date": "2026-11-05"
+              }
+            },
+            {
+              "code": "6274",
+              "name": "台燿",
+              "market": "TW",
+              "assetType": "stock",
+              "weight": 1.31,
+              "shares": 533000,
+              "open": 905.0,
+              "high": 928.0,
+              "low": 905.0,
+              "close": 906.0,
+              "prevClose": 1005.0,
+              "change": -99.0,
+              "changePct": -9.85,
+              "amplitude": 2.29,
+              "volume": 10228000.0,
+              "quoteDate": "2026-11-06",
+              "margin": {
+                "marginBuy": 1017,
+                "marginSell": 689,
+                "marginCashRedemption": 39,
+                "marginPrevBalance": 14319,
+                "marginBalance": 14608,
+                "shortBuy": 50,
+                "shortSell": 12,
+                "shortStockRedemption": 0,
+                "shortPrevBalance": 38,
+                "shortBalance": 76,
+                "offsetting": 5,
+                "date": "2026-11-06"
+              }
+            },
+            {
+              "code": "4958",
+              "name": "臻鼎-KY",
+              "market": "TW",
+              "assetType": "stock",
+              "weight": 1.21,
+              "shares": 1200000,
+              "open": 355.0,
+              "high": 383.0,
+              "low": 355.0,
+              "close": 373.0,
+              "prevClose": 394.0,
+              "change": -21.0,
+              "changePct": -5.33,
+              "amplitude": 7.11,
+              "volume": 28115245.0,
+              "quoteDate": "2026-11-06",
+              "inst": {
+                "foreign": -994568,
+                "trust": 452131,
+                "dealer": 96834,
+                "total": -445603,
+                "date": "2026-11-06"
+              },
+              "margin": {
+                "marginBuy": 1271,
+                "marginSell": 2282,
+                "marginCashRedemption": 25,
+                "marginPrevBalance": 31230,
+                "marginBalance": 30194,
+                "shortBuy": 38,
+                "shortSell": 67,
+                "shortStockRedemption": 0,
+                "shortPrevBalance": 94,
+                "shortBalance": 123,
+                "offsetting": 34,
+                "date": "2026-11-05"
+              }
+            },
+            {
+              "code": "3711",
+              "name": "日月光投控",
+              "market": "TW",
+              "assetType": "stock",
+              "weight": 1.08,
+              "shares": 755000,
+              "open": 515.0,
+              "high": 551.0,
+              "low": 515.0,
+              "close": 527.0,
+              "prevClose": 572.0,
+              "change": -45.0,
+              "changePct": -7.87,
+              "amplitude": 6.29,
+              "volume": 43145321.0,
+              "quoteDate": "2026-11-06",
+              "inst": {
+                "foreign": -11302289,
+                "trust": 1937642,
+                "dealer": 1653907,
+                "total": -7710740,
+                "date": "2026-11-06"
+              },
+              "margin": {
+                "marginBuy": 942,
+                "marginSell": 1017,
+                "marginCashRedemption": 11,
+                "marginPrevBalance": 11445,
+                "marginBalance": 11359,
+                "shortBuy": 108,
+                "shortSell": 24,
+                "shortStockRedemption": 0,
+                "shortPrevBalance": 182,
+                "shortBalance": 98,
+                "offsetting": 22,
+                "date": "2026-11-05"
+              }
+            },
+            {
+              "code": "6584",
+              "name": "南俊國際",
+              "market": "TW",
+              "assetType": "stock",
+              "weight": 1.06,
+              "shares": 1335000,
+              "open": 294.5,
+              "high": 294.5,
+              "low": 294.5,
+              "close": 294.5,
+              "prevClose": 327.0,
+              "change": -32.5,
+              "changePct": -9.94,
+              "amplitude": 0.0,
+              "volume": 375000.0,
+              "quoteDate": "2026-11-06",
+              "margin": {
+                "marginBuy": 34,
+                "marginSell": 171,
+                "marginCashRedemption": 2,
+                "marginPrevBalance": 1682,
+                "marginBalance": 1543,
+                "shortBuy": 12,
+                "shortSell": 5,
+                "shortStockRedemption": 0,
+                "shortPrevBalance": 8,
+                "shortBalance": 15,
+                "offsetting": 1,
+                "date": "2026-11-06"
+              }
+            },
+            {
+              "code": "2308",
+              "name": "台達電",
+              "market": "TW",
+              "assetType": "stock",
+              "weight": 1.0,
+              "shares": 350000,
+              "open": 1020.0,
+              "high": 1070.0,
+              "low": 1020.0,
+              "close": 1055.0,
+              "prevClose": 1130.0,
+              "change": -75.0,
+              "changePct": -6.64,
+              "amplitude": 4.42,
+              "volume": 34536298.0,
+              "quoteDate": "2026-11-06",
+              "inst": {
+                "foreign": -3651258,
+                "trust": 59754,
+                "dealer": 832425,
+                "total": -2759079,
+                "date": "2026-11-06"
+              },
+              "margin": {
+                "marginBuy": 326,
+                "marginSell": 1047,
+                "marginCashRedemption": 30,
+                "marginPrevBalance": 10282,
+                "marginBalance": 9531,
+                "shortBuy": 6,
+                "shortSell": 29,
+                "shortStockRedemption": 0,
+                "shortPrevBalance": 28,
+                "shortBalance": 51,
+                "offsetting": 7,
+                "date": "2026-11-05"
+              }
+            },
+            {
+              "code": "5274",
+              "name": "信驊",
+              "market": "TW",
+              "assetType": "stock",
+              "weight": 0.99,
+              "shares": 32000,
+              "open": 11375.0,
+              "high": 11375.0,
+              "low": 11375.0,
+              "close": 11375.0,
+              "prevClose": 12635.0,
+              "change": -1260.0,
+              "changePct": -9.97,
+              "amplitude": 0.0,
+              "volume": 219000.0,
+              "quoteDate": "2026-11-06",
+              "margin": {
+                "marginBuy": 25,
+                "marginSell": 26,
+                "marginCashRedemption": 0,
+                "marginPrevBalance": 186,
+                "marginBalance": 185,
+                "shortBuy": 0,
+                "shortSell": 0,
+                "shortStockRedemption": 0,
+                "shortPrevBalance": 0,
+                "shortBalance": 0,
+                "offsetting": 2,
+                "date": "2026-11-06"
+              }
+            },
+            {
+              "code": "3653",
+              "name": "健策",
+              "market": "TW",
+              "assetType": "stock",
+              "weight": 0.98,
+              "shares": 69000,
+              "open": 5225.0,
+              "high": 5400.0,
+              "low": 5225.0,
+              "close": 5225.0,
+              "prevClose": 5805.0,
+              "change": -580.0,
+              "changePct": -9.99,
+              "amplitude": 3.01,
+              "volume": 1621697.0,
+              "quoteDate": "2026-11-06",
+              "inst": {
+                "foreign": -104568,
+                "trust": 224014,
+                "dealer": 58825,
+                "total": 178271,
+                "date": "2026-11-06"
+              },
+              "margin": {
+                "marginBuy": 435,
+                "marginSell": 307,
+                "marginCashRedemption": 0,
+                "marginPrevBalance": 3411,
+                "marginBalance": 3539,
+                "shortBuy": 37,
+                "shortSell": 21,
+                "shortStockRedemption": 0,
+                "shortPrevBalance": 91,
+                "shortBalance": 75,
+                "offsetting": 0,
+                "date": "2026-11-05"
+              }
+            },
+            {
+              "code": "3026",
+              "name": "禾伸堂",
+              "market": "TW",
+              "assetType": "stock",
+              "weight": 0.73,
+              "shares": 567000,
+              "open": 475.5,
+              "high": 491.0,
+              "low": 475.5,
+              "close": 475.5,
+              "prevClose": 528.0,
+              "change": -52.5,
+              "changePct": -9.94,
+              "amplitude": 2.94,
+              "volume": 7927093.0,
+              "quoteDate": "2026-11-06",
+              "inst": {
+                "foreign": 820972,
+                "trust": -80000,
+                "dealer": 2206,
+                "total": 743178,
+                "date": "2026-11-06"
+              },
+              "margin": {
+                "marginBuy": 674,
+                "marginSell": 835,
+                "marginCashRedemption": 6,
+                "marginPrevBalance": 10628,
+                "marginBalance": 10461,
+                "shortBuy": 15,
+                "shortSell": 574,
+                "shortStockRedemption": 0,
+                "shortPrevBalance": 140,
+                "shortBalance": 699,
+                "offsetting": 12,
+                "date": "2026-11-05"
+              }
+            },
+            {
+              "code": "6187",
+              "name": "萬潤",
+              "market": "TW",
+              "assetType": "stock",
+              "weight": 0.65,
+              "shares": 278000,
+              "open": 864.0,
+              "high": 894.0,
+              "low": 864.0,
+              "close": 864.0,
+              "prevClose": 959.0,
+              "change": -95.0,
+              "changePct": -9.91,
+              "amplitude": 3.13,
+              "volume": 2620000.0,
+              "quoteDate": "2026-11-06",
+              "margin": {
+                "marginBuy": 110,
+                "marginSell": 246,
+                "marginCashRedemption": 5,
+                "marginPrevBalance": 2406,
+                "marginBalance": 2265,
+                "shortBuy": 104,
+                "shortSell": 1,
+                "shortStockRedemption": 0,
+                "shortPrevBalance": 5,
+                "shortBalance": 108,
+                "offsetting": 1,
+                "date": "2026-11-06"
+              }
+            },
+            {
+              "code": "6415",
+              "name": "矽力*-KY",
+              "market": "TW",
+              "assetType": "stock",
+              "weight": 0.62,
+              "shares": 590000,
+              "open": 371.0,
+              "high": 406.0,
+              "low": 371.0,
+              "close": 389.0,
+              "prevClose": 412.0,
+              "change": -23.0,
+              "changePct": -5.58,
+              "amplitude": 8.5,
+              "volume": 5390837.0,
+              "quoteDate": "2026-11-06",
+              "inst": {
+                "foreign": 33758,
+                "trust": 69000,
+                "dealer": -58744,
+                "total": 44014,
+                "date": "2026-11-06"
+              },
+              "margin": {
+                "marginBuy": 186,
+                "marginSell": 842,
+                "marginCashRedemption": 10,
+                "marginPrevBalance": 6243,
+                "marginBalance": 5577,
+                "shortBuy": 8,
+                "shortSell": 8,
+                "shortStockRedemption": 0,
+                "shortPrevBalance": 68,
+                "shortBalance": 68,
+                "offsetting": 2,
+                "date": "2026-11-05"
+              }
+            },
+            {
+              "code": "6515",
+              "name": "穎崴",
+              "market": "TW",
+              "assetType": "stock",
+              "weight": 0.51,
+              "shares": 57000,
+              "open": 3260.0,
+              "high": 3360.0,
+              "low": 3260.0,
+              "close": 3295.0,
+              "prevClose": 3620.0,
+              "change": -325.0,
+              "changePct": -8.98,
+              "amplitude": 2.76,
+              "volume": 624009.0,
+              "quoteDate": "2026-11-06",
+              "inst": {
+                "foreign": 102385,
+                "trust": -27000,
+                "dealer": 8071,
+                "total": 83456,
+                "date": "2026-11-06"
+              },
+              "margin": {
+                "marginBuy": 34,
+                "marginSell": 32,
+                "marginCashRedemption": 2,
+                "marginPrevBalance": 838,
+                "marginBalance": 838,
+                "shortBuy": 0,
+                "shortSell": 7,
+                "shortStockRedemption": 0,
+                "shortPrevBalance": 16,
+                "shortBalance": 23,
+                "offsetting": 0,
+                "date": "2026-11-05"
+              }
+            },
+            {
+              "code": "6139",
+              "name": "亞翔",
+              "market": "TW",
+              "assetType": "stock",
+              "weight": 0.51,
+              "shares": 351000,
+              "open": 511.0,
+              "high": 548.0,
+              "low": 511.0,
+              "close": 535.0,
+              "prevClose": 567.0,
+              "change": -32.0,
+              "changePct": -5.64,
+              "amplitude": 6.53,
+              "volume": 3965607.0,
+              "quoteDate": "2026-11-06",
+              "inst": {
+                "foreign": 511967,
+                "trust": 330606,
+                "dealer": -63710,
+                "total": 778863,
+                "date": "2026-11-06"
+              },
+              "margin": {
+                "marginBuy": 169,
+                "marginSell": 312,
+                "marginCashRedemption": 30,
+                "marginPrevBalance": 8847,
+                "marginBalance": 8674,
+                "shortBuy": 0,
+                "shortSell": 3,
+                "shortStockRedemption": 0,
+                "shortPrevBalance": 18,
+                "shortBalance": 21,
+                "offsetting": 2,
+                "date": "2026-11-05"
+              }
+            },
+            {
+              "code": "2357",
+              "name": "華碩",
+              "market": "TW",
+              "assetType": "stock",
+              "weight": 0.48,
+              "shares": 206000,
+              "open": 809.0,
+              "high": 875.0,
+              "low": 790.0,
+              "close": 859.0,
+              "prevClose": 867.0,
+              "change": -8.0,
+              "changePct": -0.92,
+              "amplitude": 9.8,
+              "volume": 5228495.0,
+              "quoteDate": "2026-11-06",
+              "inst": {
+                "foreign": -698883,
+                "trust": 304580,
+                "dealer": 516494,
+                "total": 122191,
+                "date": "2026-11-06"
+              },
+              "margin": {
+                "marginBuy": 62,
+                "marginSell": 36,
+                "marginCashRedemption": 0,
+                "marginPrevBalance": 1329,
+                "marginBalance": 1355,
+                "shortBuy": 0,
+                "shortSell": 2,
+                "shortStockRedemption": 0,
+                "shortPrevBalance": 17,
+                "shortBalance": 19,
+                "offsetting": 1,
+                "date": "2026-11-05"
+              }
+            },
+            {
+              "code": "2376",
+              "name": "技嘉",
+              "market": "TW",
+              "assetType": "stock",
+              "weight": 0.43,
+              "shares": 534000,
+              "open": 282.0,
+              "high": 306.0,
+              "low": 282.0,
+              "close": 298.0,
+              "prevClose": 313.0,
+              "change": -15.0,
+              "changePct": -4.79,
+              "amplitude": 7.67,
+              "volume": 9142516.0,
+              "quoteDate": "2026-11-06",
+              "inst": {
+                "foreign": 705581,
+                "trust": 211000,
+                "dealer": 51898,
+                "total": 968479,
+                "date": "2026-11-06"
+              },
+              "margin": {
+                "marginBuy": 145,
+                "marginSell": 233,
+                "marginCashRedemption": 0,
+                "marginPrevBalance": 6828,
+                "marginBalance": 6740,
+                "shortBuy": 38,
+                "shortSell": 26,
+                "shortStockRedemption": 0,
+                "shortPrevBalance": 2252,
+                "shortBalance": 2240,
+                "offsetting": 5,
+                "date": "2026-11-05"
+              }
+            },
+            {
+              "code": "2404",
+              "name": "漢唐",
+              "market": "TW",
+              "assetType": "stock",
+              "weight": 0.4,
+              "shares": 166000,
+              "open": 861.0,
+              "high": 914.0,
+              "low": 861.0,
+              "close": 886.0,
+              "prevClose": 956.0,
+              "change": -70.0,
+              "changePct": -7.32,
+              "amplitude": 5.54,
+              "volume": 2716474.0,
+              "quoteDate": "2026-11-06",
+              "inst": {
+                "foreign": 227582,
+                "trust": -128886,
+                "dealer": 33640,
+                "total": 132336,
+                "date": "2026-11-06"
+              },
+              "margin": {
+                "marginBuy": 37,
+                "marginSell": 43,
+                "marginCashRedemption": 0,
+                "marginPrevBalance": 1813,
+                "marginBalance": 1807,
+                "shortBuy": 3,
+                "shortSell": 7,
+                "shortStockRedemption": 0,
+                "shortPrevBalance": 4,
+                "shortBalance": 8,
+                "offsetting": 1,
+                "date": "2026-11-05"
+              }
+            },
+            {
+              "code": "8150",
+              "name": "南茂",
+              "market": "TW",
+              "assetType": "stock",
+              "weight": 0.39,
+              "shares": 2032000,
+              "open": 68.4,
+              "high": 73.0,
+              "low": 68.4,
+              "close": 70.1,
+              "prevClose": 76.0,
+              "change": -5.9,
+              "changePct": -7.76,
+              "amplitude": 6.05,
+              "volume": 19994516.0,
+              "quoteDate": "2026-11-06",
+              "inst": {
+                "foreign": -921764,
+                "trust": 11000,
+                "dealer": -378636,
+                "total": -1289400,
+                "date": "2026-11-06"
+              },
+              "margin": {
+                "marginBuy": 634,
+                "marginSell": 909,
+                "marginCashRedemption": 32,
+                "marginPrevBalance": 15987,
+                "marginBalance": 15680,
+                "shortBuy": 60,
+                "shortSell": 55,
+                "shortStockRedemption": 0,
+                "shortPrevBalance": 106,
+                "shortBalance": 101,
+                "offsetting": 82,
+                "date": "2026-11-05"
+              }
+            },
+            {
+              "code": "5289",
+              "name": "宜鼎",
+              "market": "TW",
+              "assetType": "stock",
+              "weight": 0.38,
+              "shares": 152952,
+              "open": 851.0,
+              "high": 949.0,
+              "low": 851.0,
+              "close": 928.0,
+              "prevClose": 945.0,
+              "change": -17.0,
+              "changePct": -1.8,
+              "amplitude": 10.37,
+              "volume": 2453000.0,
+              "quoteDate": "2026-11-06",
+              "margin": {
+                "marginBuy": 60,
+                "marginSell": 190,
+                "marginCashRedemption": 5,
+                "marginPrevBalance": 4659,
+                "marginBalance": 4524,
+                "shortBuy": 5,
+                "shortSell": 1,
+                "shortStockRedemption": 0,
+                "shortPrevBalance": 14,
+                "shortBalance": 18,
+                "offsetting": 2,
+                "date": "2026-11-06"
+              }
+            },
+            {
+              "code": "2301",
+              "name": "光寶科",
+              "market": "TW",
+              "assetType": "stock",
+              "weight": 0.37,
+              "shares": 693000,
+              "open": 190.5,
+              "high": 203.5,
+              "low": 190.5,
+              "close": 198.0,
+              "prevClose": 211.5,
+              "change": -13.5,
+              "changePct": -6.38,
+              "amplitude": 6.15,
+              "volume": 22710327.0,
+              "quoteDate": "2026-11-06",
+              "inst": {
+                "foreign": -3808831,
+                "trust": 388737,
+                "dealer": 1081843,
+                "total": -2338251,
+                "date": "2026-11-06"
+              },
+              "margin": {
+                "marginBuy": 762,
+                "marginSell": 847,
+                "marginCashRedemption": 22,
+                "marginPrevBalance": 13189,
+                "marginBalance": 13082,
+                "shortBuy": 37,
+                "shortSell": 17,
+                "shortStockRedemption": 0,
+                "shortPrevBalance": 49,
+                "shortBalance": 29,
+                "offsetting": 6,
+                "date": "2026-11-05"
+              }
+            },
+            {
+              "code": "3264",
+              "name": "欣銓",
+              "market": "TW",
+              "assetType": "stock",
+              "weight": 0.22,
+              "shares": 500000,
+              "open": 162.0,
+              "high": 168.5,
+              "low": 162.0,
+              "close": 164.5,
+              "prevClose": 179.5,
+              "change": -15.0,
+              "changePct": -8.36,
+              "amplitude": 3.62,
+              "volume": 14942000.0,
+              "quoteDate": "2026-11-06",
+              "margin": {
+                "marginBuy": 518,
+                "marginSell": 586,
+                "marginCashRedemption": 27,
+                "marginPrevBalance": 13147,
+                "marginBalance": 13052,
+                "shortBuy": 9,
+                "shortSell": 47,
+                "shortStockRedemption": 0,
+                "shortPrevBalance": 75,
+                "shortBalance": 37,
+                "offsetting": 3,
+                "date": "2026-11-06"
+              }
+            },
+            {
+              "code": "5347",
+              "name": "世界",
+              "market": "TW",
+              "assetType": "stock",
+              "weight": 0.2,
+              "shares": 629000,
+              "open": 113.5,
+              "high": 123.0,
+              "low": 113.5,
+              "close": 120.0,
+              "prevClose": 126.0,
+              "change": -6.0,
+              "changePct": -4.76,
+              "amplitude": 7.54,
+              "volume": 22416000.0,
+              "quoteDate": "2026-11-06",
+              "margin": {
+                "marginBuy": 266,
+                "marginSell": 1261,
+                "marginCashRedemption": 3,
+                "marginPrevBalance": 9996,
+                "marginBalance": 8998,
+                "shortBuy": 160,
+                "shortSell": 21,
+                "shortStockRedemption": 1,
+                "shortPrevBalance": 56,
+                "shortBalance": 194,
+                "offsetting": 14,
+                "date": "2026-11-06"
+              }
+            },
+            {
+              "code": "3131",
+              "name": "弘塑",
+              "market": "TW",
+              "assetType": "stock",
+              "weight": 0.0,
+              "shares": 1000,
+              "open": 1400.0,
+              "high": 1480.0,
+              "low": 1400.0,
+              "close": 1440.0,
+              "prevClose": 1555.0,
+              "change": -115.0,
+              "changePct": -7.4,
+              "amplitude": 5.14,
+              "volume": 432000.0,
+              "quoteDate": "2026-11-06",
+              "margin": {
+                "marginBuy": 13,
+                "marginSell": 26,
+                "marginCashRedemption": 0,
+                "marginPrevBalance": 402,
+                "marginBalance": 389,
+                "shortBuy": 0,
+                "shortSell": 0,
+                "shortStockRedemption": 0,
+                "shortPrevBalance": 13,
+                "shortBalance": 13,
+                "offsetting": 0,
+                "date": "2026-11-06"
+              }
+            }
+          ]
         }
       ],
       "dividends": [
@@ -431910,7 +433576,7 @@ window.DATA = {
           "科技主題型"
         ],
         "source": "TWSE ETF e添富",
-        "fetchedAt": "2026-11-06T19:32:44+08:00",
+        "fetchedAt": "2026-11-06T20:32:33+08:00",
         "navHistory": [
           {
             "date": "2026-09-22",
@@ -552297,7 +553963,7 @@ window.DATA = {
         },
         {
           "date": "2026-11-06",
-          "fetched_at": "2026-11-06T19:31:00+08:00",
+          "fetched_at": "2026-11-06T20:31:15+08:00",
           "count": 54,
           "self": {
             "open": 10.78,
@@ -552378,9 +554044,9 @@ window.DATA = {
               "quoteDate": "2026-11-06",
               "inst": {
                 "foreign": -4535826,
-                "trust": 512029,
+                "trust": 556029,
                 "dealer": 798328,
-                "total": -3225469,
+                "total": -3181469,
                 "date": "2026-11-06"
               },
               "margin": {
@@ -552456,9 +554122,9 @@ window.DATA = {
               "quoteDate": "2026-11-06",
               "inst": {
                 "foreign": -33189,
-                "trust": 72009,
+                "trust": 95009,
                 "dealer": 10959,
-                "total": 49779,
+                "total": 72779,
                 "date": "2026-11-06"
               },
               "margin": {
@@ -552576,9 +554242,9 @@ window.DATA = {
               "quoteDate": "2026-11-06",
               "inst": {
                 "foreign": -104568,
-                "trust": 147014,
+                "trust": 224014,
                 "dealer": 58825,
-                "total": 101271,
+                "total": 178271,
                 "date": "2026-11-06"
               },
               "margin": {
@@ -552764,9 +554430,9 @@ window.DATA = {
               "quoteDate": "2026-11-06",
               "inst": {
                 "foreign": -55931,
-                "trust": 46071,
+                "trust": 53071,
                 "dealer": -83676,
-                "total": -93536,
+                "total": -86536,
                 "date": "2026-11-06"
               },
               "margin": {
@@ -552842,9 +554508,9 @@ window.DATA = {
               "quoteDate": "2026-11-06",
               "inst": {
                 "foreign": 38493,
-                "trust": 125320,
+                "trust": 15320,
                 "dealer": 120579,
-                "total": 284392,
+                "total": 174392,
                 "date": "2026-11-06"
               },
               "margin": {
@@ -553219,9 +554885,9 @@ window.DATA = {
               "quoteDate": "2026-11-06",
               "inst": {
                 "foreign": 373560,
-                "trust": -163,
+                "trust": 4907,
                 "dealer": -163291,
-                "total": 210106,
+                "total": 215176,
                 "date": "2026-11-06"
               },
               "margin": {
@@ -553439,9 +555105,9 @@ window.DATA = {
               "quoteDate": "2026-11-06",
               "inst": {
                 "foreign": -881715,
-                "trust": -49462,
+                "trust": -660462,
                 "dealer": 313687,
-                "total": -617490,
+                "total": -1228490,
                 "date": "2026-11-06"
               },
               "margin": {
@@ -553549,9 +555215,9 @@ window.DATA = {
               "quoteDate": "2026-11-06",
               "inst": {
                 "foreign": -11302289,
-                "trust": 1629642,
+                "trust": 1937642,
                 "dealer": 1653907,
-                "total": -8018740,
+                "total": -7710740,
                 "date": "2026-11-06"
               },
               "margin": {
@@ -554365,7 +556031,7 @@ window.DATA = {
           "高股息"
         ],
         "source": "TWSE ETF e添富",
-        "fetchedAt": "2026-11-06T19:32:44+08:00",
+        "fetchedAt": "2026-11-06T20:32:35+08:00",
         "navHistory": [
           {
             "date": "2026-09-22",
@@ -681729,7 +683395,7 @@ window.DATA = {
         },
         {
           "date": "2026-11-06",
-          "fetched_at": "2026-11-06T19:31:00+08:00",
+          "fetched_at": "2026-11-06T20:31:15+08:00",
           "count": 52,
           "self": {
             "open": 89.95,
@@ -681810,9 +683476,9 @@ window.DATA = {
               "quoteDate": "2026-11-06",
               "inst": {
                 "foreign": -4535826,
-                "trust": 512029,
+                "trust": 556029,
                 "dealer": 798328,
-                "total": -3225469,
+                "total": -3181469,
                 "date": "2026-11-06"
               },
               "margin": {
@@ -681927,9 +683593,9 @@ window.DATA = {
               "quoteDate": "2026-11-06",
               "inst": {
                 "foreign": -11302289,
-                "trust": 1629642,
+                "trust": 1937642,
                 "dealer": 1653907,
-                "total": -8018740,
+                "total": -7710740,
                 "date": "2026-11-06"
               },
               "margin": {
@@ -682005,9 +683671,9 @@ window.DATA = {
               "quoteDate": "2026-11-06",
               "inst": {
                 "foreign": 363145,
-                "trust": -6423616,
+                "trust": -6662616,
                 "dealer": 4217163,
-                "total": -1843308,
+                "total": -2082308,
                 "date": "2026-11-06"
               },
               "margin": {
@@ -682278,9 +683944,9 @@ window.DATA = {
               "quoteDate": "2026-11-06",
               "inst": {
                 "foreign": -667172,
-                "trust": 1290277,
+                "trust": 1281847,
                 "dealer": 2057416,
-                "total": 2680521,
+                "total": 2672091,
                 "date": "2026-11-06"
               },
               "margin": {
@@ -682356,9 +684022,9 @@ window.DATA = {
               "quoteDate": "2026-11-06",
               "inst": {
                 "foreign": -5501696,
-                "trust": 2885652,
+                "trust": 2737652,
                 "dealer": 10005403,
-                "total": 7389359,
+                "total": 7241359,
                 "date": "2026-11-06"
               },
               "margin": {
@@ -682551,9 +684217,9 @@ window.DATA = {
               "quoteDate": "2026-11-06",
               "inst": {
                 "foreign": -881715,
-                "trust": -49462,
+                "trust": -660462,
                 "dealer": 313687,
-                "total": -617490,
+                "total": -1228490,
                 "date": "2026-11-06"
               },
               "margin": {
@@ -682707,9 +684373,9 @@ window.DATA = {
               "quoteDate": "2026-11-06",
               "inst": {
                 "foreign": -55931,
-                "trust": 46071,
+                "trust": 53071,
                 "dealer": -83676,
-                "total": -93536,
+                "total": -86536,
                 "date": "2026-11-06"
               },
               "margin": {
@@ -682785,9 +684451,9 @@ window.DATA = {
               "quoteDate": "2026-11-06",
               "inst": {
                 "foreign": -1489,
-                "trust": 16285,
+                "trust": 17695,
                 "dealer": 11321,
-                "total": 26117,
+                "total": 27527,
                 "date": "2026-11-06"
               },
               "margin": {
@@ -682902,9 +684568,9 @@ window.DATA = {
               "quoteDate": "2026-11-06",
               "inst": {
                 "foreign": -104568,
-                "trust": 147014,
+                "trust": 224014,
                 "dealer": 58825,
-                "total": 101271,
+                "total": 178271,
                 "date": "2026-11-06"
               },
               "margin": {
@@ -682980,9 +684646,9 @@ window.DATA = {
               "quoteDate": "2026-11-06",
               "inst": {
                 "foreign": 38493,
-                "trust": 125320,
+                "trust": 15320,
                 "dealer": 120579,
-                "total": 284392,
+                "total": 174392,
                 "date": "2026-11-06"
               },
               "margin": {
@@ -683019,9 +684685,9 @@ window.DATA = {
               "quoteDate": "2026-11-06",
               "inst": {
                 "foreign": -33189,
-                "trust": 72009,
+                "trust": 95009,
                 "dealer": 10959,
-                "total": 49779,
+                "total": 72779,
                 "date": "2026-11-06"
               },
               "margin": {
@@ -683058,9 +684724,9 @@ window.DATA = {
               "quoteDate": "2026-11-06",
               "inst": {
                 "foreign": 373560,
-                "trust": -163,
+                "trust": 4907,
                 "dealer": -163291,
-                "total": 210106,
+                "total": 215176,
                 "date": "2026-11-06"
               },
               "margin": {
@@ -683766,7 +685432,7 @@ window.DATA = {
           "大型權值"
         ],
         "source": "TWSE ETF e添富",
-        "fetchedAt": "2026-11-06T19:32:45+08:00",
+        "fetchedAt": "2026-11-06T20:32:36+08:00",
         "navHistory": [
           {
             "date": "2026-09-22",
@@ -865345,7 +867011,7 @@ window.DATA = {
         },
         {
           "date": "2026-11-06",
-          "fetched_at": "2026-11-06T19:31:00+08:00",
+          "fetched_at": "2026-11-06T20:31:16+08:00",
           "count": 74,
           "self": {
             "open": 50.35,
@@ -865426,9 +867092,9 @@ window.DATA = {
               "quoteDate": "2026-11-06",
               "inst": {
                 "foreign": -4535826,
-                "trust": 512029,
+                "trust": 556029,
                 "dealer": 798328,
-                "total": -3225469,
+                "total": -3181469,
                 "date": "2026-11-06"
               },
               "margin": {
@@ -865504,9 +867170,9 @@ window.DATA = {
               "quoteDate": "2026-11-06",
               "inst": {
                 "foreign": -11302289,
-                "trust": 1629642,
+                "trust": 1937642,
                 "dealer": 1653907,
-                "total": -8018740,
+                "total": -7710740,
                 "date": "2026-11-06"
               },
               "margin": {
@@ -865660,9 +867326,9 @@ window.DATA = {
               "quoteDate": "2026-11-06",
               "inst": {
                 "foreign": -667172,
-                "trust": 1290277,
+                "trust": 1281847,
                 "dealer": 2057416,
-                "total": 2680521,
+                "total": 2672091,
                 "date": "2026-11-06"
               },
               "margin": {
@@ -865738,9 +867404,9 @@ window.DATA = {
               "quoteDate": "2026-11-06",
               "inst": {
                 "foreign": -881715,
-                "trust": -49462,
+                "trust": -660462,
                 "dealer": 313687,
-                "total": -617490,
+                "total": -1228490,
                 "date": "2026-11-06"
               },
               "margin": {
@@ -865816,9 +867482,9 @@ window.DATA = {
               "quoteDate": "2026-11-06",
               "inst": {
                 "foreign": -55931,
-                "trust": 46071,
+                "trust": 53071,
                 "dealer": -83676,
-                "total": -93536,
+                "total": -86536,
                 "date": "2026-11-06"
               },
               "margin": {
@@ -865894,9 +867560,9 @@ window.DATA = {
               "quoteDate": "2026-11-06",
               "inst": {
                 "foreign": -1489,
-                "trust": 16285,
+                "trust": 17695,
                 "dealer": 11321,
-                "total": 26117,
+                "total": 27527,
                 "date": "2026-11-06"
               },
               "margin": {
@@ -865933,9 +867599,9 @@ window.DATA = {
               "quoteDate": "2026-11-06",
               "inst": {
                 "foreign": -104568,
-                "trust": 147014,
+                "trust": 224014,
                 "dealer": 58825,
-                "total": 101271,
+                "total": 178271,
                 "date": "2026-11-06"
               },
               "margin": {
@@ -866011,9 +867677,9 @@ window.DATA = {
               "quoteDate": "2026-11-06",
               "inst": {
                 "foreign": 373560,
-                "trust": -163,
+                "trust": 4907,
                 "dealer": -163291,
-                "total": 210106,
+                "total": 215176,
                 "date": "2026-11-06"
               },
               "margin": {
@@ -867474,9 +869140,9 @@ window.DATA = {
               "quoteDate": "2026-11-06",
               "inst": {
                 "foreign": 1890048,
-                "trust": 1000,
+                "trust": -776000,
                 "dealer": -174946,
-                "total": 1716102,
+                "total": 939102,
                 "date": "2026-11-06"
               },
               "margin": {
@@ -867669,9 +869335,9 @@ window.DATA = {
               "quoteDate": "2026-11-06",
               "inst": {
                 "foreign": 1867557,
-                "trust": -197000,
+                "trust": -1286000,
                 "dealer": -66010,
-                "total": 1604547,
+                "total": 515547,
                 "date": "2026-11-06"
               },
               "margin": {
@@ -868226,7 +869892,7 @@ window.DATA = {
           "科技主題型"
         ],
         "source": "TWSE ETF e添富",
-        "fetchedAt": "2026-11-06T19:32:46+08:00",
+        "fetchedAt": "2026-11-06T20:32:36+08:00",
         "navHistory": [
           {
             "date": "2026-09-22",
@@ -994961,7 +996627,7 @@ window.DATA = {
         },
         {
           "date": "2026-11-06",
-          "fetched_at": "2026-11-06T19:31:04+08:00",
+          "fetched_at": "2026-11-06T20:31:16+08:00",
           "count": 51,
           "self": {
             "open": 47.95,
@@ -995276,9 +996942,9 @@ window.DATA = {
               "quoteDate": "2026-11-06",
               "inst": {
                 "foreign": -667172,
-                "trust": 1290277,
+                "trust": 1281847,
                 "dealer": 2057416,
-                "total": 2680521,
+                "total": 2672091,
                 "date": "2026-11-06"
               },
               "margin": {
@@ -995393,9 +997059,9 @@ window.DATA = {
               "quoteDate": "2026-11-06",
               "inst": {
                 "foreign": -5501696,
-                "trust": 2885652,
+                "trust": 2737652,
                 "dealer": 10005403,
-                "total": 7389359,
+                "total": 7241359,
                 "date": "2026-11-06"
               },
               "margin": {
@@ -996134,9 +997800,9 @@ window.DATA = {
               "quoteDate": "2026-11-06",
               "inst": {
                 "foreign": -11302289,
-                "trust": 1629642,
+                "trust": 1937642,
                 "dealer": 1653907,
-                "total": -8018740,
+                "total": -7710740,
                 "date": "2026-11-06"
               },
               "margin": {
@@ -996212,9 +997878,9 @@ window.DATA = {
               "quoteDate": "2026-11-06",
               "inst": {
                 "foreign": -4535826,
-                "trust": 512029,
+                "trust": 556029,
                 "dealer": 798328,
-                "total": -3225469,
+                "total": -3181469,
                 "date": "2026-11-06"
               },
               "margin": {
@@ -997016,7 +998682,7 @@ window.DATA = {
           "高股息"
         ],
         "source": "TWSE ETF e添富",
-        "fetchedAt": "2026-11-06T19:32:46+08:00",
+        "fetchedAt": "2026-11-06T20:32:38+08:00",
         "navHistory": [
           {
             "date": "2026-09-22",
@@ -1072179,7 +1073845,7 @@ window.DATA = {
         },
         {
           "date": "2026-11-06",
-          "fetched_at": "2026-11-06T19:31:04+08:00",
+          "fetched_at": "2026-11-06T20:31:16+08:00",
           "count": 30,
           "self": {
             "open": 30.65,
@@ -1072260,9 +1073926,9 @@ window.DATA = {
               "quoteDate": "2026-11-06",
               "inst": {
                 "foreign": -667172,
-                "trust": 1290277,
+                "trust": 1281847,
                 "dealer": 2057416,
-                "total": 2680521,
+                "total": 2672091,
                 "date": "2026-11-06"
               },
               "margin": {
@@ -1072494,9 +1074160,9 @@ window.DATA = {
               "quoteDate": "2026-11-06",
               "inst": {
                 "foreign": 363145,
-                "trust": -6423616,
+                "trust": -6662616,
                 "dealer": 4217163,
-                "total": -1843308,
+                "total": -2082308,
                 "date": "2026-11-06"
               },
               "margin": {
@@ -1072660,9 +1074326,9 @@ window.DATA = {
               "quoteDate": "2026-11-06",
               "inst": {
                 "foreign": -4535826,
-                "trust": 512029,
+                "trust": 556029,
                 "dealer": 798328,
-                "total": -3225469,
+                "total": -3181469,
                 "date": "2026-11-06"
               },
               "margin": {
@@ -1072933,9 +1074599,9 @@ window.DATA = {
               "quoteDate": "2026-11-06",
               "inst": {
                 "foreign": -11302289,
-                "trust": 1629642,
+                "trust": 1937642,
                 "dealer": 1653907,
-                "total": -8018740,
+                "total": -7710740,
                 "date": "2026-11-06"
               },
               "margin": {
@@ -1073416,7 +1075082,7 @@ window.DATA = {
           "高股息"
         ],
         "source": "TWSE ETF e添富",
-        "fetchedAt": "2026-11-06T19:32:47+08:00",
+        "fetchedAt": "2026-11-06T20:32:38+08:00",
         "navHistory": [
           {
             "date": "2026-09-22",
@@ -1149787,7 +1151453,7 @@ window.DATA = {
         },
         {
           "date": "2026-11-06",
-          "fetched_at": "2026-11-06T19:31:04+08:00",
+          "fetched_at": "2026-11-06T20:31:17+08:00",
           "count": 31,
           "self": {
             "open": 38.11,
@@ -1149868,9 +1151534,9 @@ window.DATA = {
               "quoteDate": "2026-11-06",
               "inst": {
                 "foreign": -4535826,
-                "trust": 512029,
+                "trust": 556029,
                 "dealer": 798328,
-                "total": -3225469,
+                "total": -3181469,
                 "date": "2026-11-06"
               },
               "margin": {
@@ -1149985,9 +1151651,9 @@ window.DATA = {
               "quoteDate": "2026-11-06",
               "inst": {
                 "foreign": -667172,
-                "trust": 1290277,
+                "trust": 1281847,
                 "dealer": 2057416,
-                "total": 2680521,
+                "total": 2672091,
                 "date": "2026-11-06"
               },
               "margin": {
@@ -1150258,9 +1151924,9 @@ window.DATA = {
               "quoteDate": "2026-11-06",
               "inst": {
                 "foreign": -33189,
-                "trust": 72009,
+                "trust": 95009,
                 "dealer": 10959,
-                "total": 49779,
+                "total": 72779,
                 "date": "2026-11-06"
               },
               "margin": {
@@ -1150297,9 +1151963,9 @@ window.DATA = {
               "quoteDate": "2026-11-06",
               "inst": {
                 "foreign": 38493,
-                "trust": 125320,
+                "trust": 15320,
                 "dealer": 120579,
-                "total": 284392,
+                "total": 174392,
                 "date": "2026-11-06"
               },
               "margin": {
@@ -1150346,9 +1152012,9 @@ window.DATA = {
               "quoteDate": "2026-11-06",
               "inst": {
                 "foreign": 373560,
-                "trust": -163,
+                "trust": 4907,
                 "dealer": -163291,
-                "total": 210106,
+                "total": 215176,
                 "date": "2026-11-06"
               },
               "margin": {
@@ -1151013,7 +1152679,7 @@ window.DATA = {
           "科技主題型"
         ],
         "source": "TWSE ETF e添富",
-        "fetchedAt": "2026-11-06T19:32:47+08:00",
+        "fetchedAt": "2026-11-06T20:32:39+08:00",
         "navHistory": [
           {
             "date": "2026-09-22",
@@ -1252030,7 +1253696,7 @@ window.DATA = {
         },
         {
           "date": "2026-11-06",
-          "fetched_at": "2026-11-06T19:31:05+08:00",
+          "fetched_at": "2026-11-06T20:31:17+08:00",
           "count": 41,
           "self": {
             "open": 28.99,
@@ -1252072,9 +1253738,9 @@ window.DATA = {
               "quoteDate": "2026-11-06",
               "inst": {
                 "foreign": 363145,
-                "trust": -6423616,
+                "trust": -6662616,
                 "dealer": 4217163,
-                "total": -1843308,
+                "total": -2082308,
                 "date": "2026-11-06"
               },
               "margin": {
@@ -1252189,9 +1253855,9 @@ window.DATA = {
               "quoteDate": "2026-11-06",
               "inst": {
                 "foreign": -667172,
-                "trust": 1290277,
+                "trust": 1281847,
                 "dealer": 2057416,
-                "total": 2680521,
+                "total": 2672091,
                 "date": "2026-11-06"
               },
               "margin": {
@@ -1253679,7 +1255345,7 @@ window.DATA = {
           "高股息"
         ],
         "source": "TWSE ETF e添富",
-        "fetchedAt": "2026-11-06T19:32:47+08:00",
+        "fetchedAt": "2026-11-06T20:32:39+08:00",
         "navHistory": [
           {
             "date": "2026-09-22",
@@ -1377716,7 +1379382,7 @@ window.DATA = {
         },
         {
           "date": "2026-11-06",
-          "fetched_at": "2026-11-06T19:31:06+08:00",
+          "fetched_at": "2026-11-06T20:31:18+08:00",
           "count": 50,
           "self": {
             "open": 32.17,
@@ -1377797,9 +1379463,9 @@ window.DATA = {
               "quoteDate": "2026-11-06",
               "inst": {
                 "foreign": -4535826,
-                "trust": 512029,
+                "trust": 556029,
                 "dealer": 798328,
-                "total": -3225469,
+                "total": -3181469,
                 "date": "2026-11-06"
               },
               "margin": {
@@ -1377914,9 +1379580,9 @@ window.DATA = {
               "quoteDate": "2026-11-06",
               "inst": {
                 "foreign": -11302289,
-                "trust": 1629642,
+                "trust": 1937642,
                 "dealer": 1653907,
-                "total": -8018740,
+                "total": -7710740,
                 "date": "2026-11-06"
               },
               "margin": {
@@ -1377953,9 +1379619,9 @@ window.DATA = {
               "quoteDate": "2026-11-06",
               "inst": {
                 "foreign": 363145,
-                "trust": -6423616,
+                "trust": -6662616,
                 "dealer": 4217163,
-                "total": -1843308,
+                "total": -2082308,
                 "date": "2026-11-06"
               },
               "margin": {
@@ -1378304,9 +1379970,9 @@ window.DATA = {
               "quoteDate": "2026-11-06",
               "inst": {
                 "foreign": -1489,
-                "trust": 16285,
+                "trust": 17695,
                 "dealer": 11321,
-                "total": 26117,
+                "total": 27527,
                 "date": "2026-11-06"
               },
               "margin": {
@@ -1378382,9 +1380048,9 @@ window.DATA = {
               "quoteDate": "2026-11-06",
               "inst": {
                 "foreign": -881715,
-                "trust": -49462,
+                "trust": -660462,
                 "dealer": 313687,
-                "total": -617490,
+                "total": -1228490,
                 "date": "2026-11-06"
               },
               "margin": {
@@ -1378421,9 +1380087,9 @@ window.DATA = {
               "quoteDate": "2026-11-06",
               "inst": {
                 "foreign": -5501696,
-                "trust": 2885652,
+                "trust": 2737652,
                 "dealer": 10005403,
-                "total": 7389359,
+                "total": 7241359,
                 "date": "2026-11-06"
               },
               "margin": {
@@ -1378499,9 +1380165,9 @@ window.DATA = {
               "quoteDate": "2026-11-06",
               "inst": {
                 "foreign": -667172,
-                "trust": 1290277,
+                "trust": 1281847,
                 "dealer": 2057416,
-                "total": 2680521,
+                "total": 2672091,
                 "date": "2026-11-06"
               },
               "margin": {
@@ -1378655,9 +1380321,9 @@ window.DATA = {
               "quoteDate": "2026-11-06",
               "inst": {
                 "foreign": 373560,
-                "trust": -163,
+                "trust": 4907,
                 "dealer": -163291,
-                "total": 210106,
+                "total": 215176,
                 "date": "2026-11-06"
               },
               "margin": {
@@ -1378782,9 +1380448,9 @@ window.DATA = {
               "quoteDate": "2026-11-06",
               "inst": {
                 "foreign": -55931,
-                "trust": 46071,
+                "trust": 53071,
                 "dealer": -83676,
-                "total": -93536,
+                "total": -86536,
                 "date": "2026-11-06"
               },
               "margin": {
@@ -1378860,9 +1380526,9 @@ window.DATA = {
               "quoteDate": "2026-11-06",
               "inst": {
                 "foreign": -104568,
-                "trust": 147014,
+                "trust": 224014,
                 "dealer": 58825,
-                "total": 101271,
+                "total": 178271,
                 "date": "2026-11-06"
               },
               "margin": {
@@ -1378899,9 +1380565,9 @@ window.DATA = {
               "quoteDate": "2026-11-06",
               "inst": {
                 "foreign": -33189,
-                "trust": 72009,
+                "trust": 95009,
                 "dealer": 10959,
-                "total": 49779,
+                "total": 72779,
                 "date": "2026-11-06"
               },
               "margin": {
@@ -1379172,9 +1380838,9 @@ window.DATA = {
               "quoteDate": "2026-11-06",
               "inst": {
                 "foreign": 38493,
-                "trust": 125320,
+                "trust": 15320,
                 "dealer": 120579,
-                "total": 284392,
+                "total": 174392,
                 "date": "2026-11-06"
               },
               "margin": {
@@ -1379690,7 +1381356,7 @@ window.DATA = {
           "大型權值"
         ],
         "source": "TWSE ETF e添富",
-        "fetchedAt": "2026-11-06T19:32:48+08:00",
+        "fetchedAt": "2026-11-06T20:32:40+08:00",
         "navHistory": [
           {
             "date": "2026-09-22",
@@ -1499925,6 +1501591,1993 @@ window.DATA = {
               }
             }
           ]
+        },
+        {
+          "date": "2026-11-06",
+          "fetched_at": "2026-11-06T20:31:26+08:00",
+          "count": 51,
+          "self": {
+            "open": 203.0,
+            "high": 217.7,
+            "low": 201.1,
+            "close": 210.1,
+            "prevClose": 222.55,
+            "change": -12.45,
+            "changePct": -5.59,
+            "amplitude": 7.46,
+            "volume": 20972896.0,
+            "quoteDate": "2026-11-06"
+          },
+          "selfInstitutional": {
+            "foreign": -578669,
+            "trust": 64000,
+            "dealer": -8346164,
+            "total": -8860833,
+            "date": "2026-11-06"
+          },
+          "selfMargin": null,
+          "holdings": [
+            {
+              "code": "2330",
+              "name": "台積電",
+              "market": "TW",
+              "assetType": "stock",
+              "weight": 58.84,
+              "shares": 112416064,
+              "open": 2020.0,
+              "high": 2195.0,
+              "low": 2020.0,
+              "close": 2135.0,
+              "prevClose": 2240.0,
+              "change": -105.0,
+              "changePct": -4.69,
+              "amplitude": 7.81,
+              "volume": 110714587.0,
+              "quoteDate": "2026-11-06",
+              "inst": {
+                "foreign": -22844481,
+                "trust": 4669484,
+                "dealer": 8701821,
+                "total": -9473176,
+                "date": "2026-11-06"
+              },
+              "margin": {
+                "marginBuy": 640,
+                "marginSell": 1157,
+                "marginCashRedemption": 31,
+                "marginPrevBalance": 35144,
+                "marginBalance": 34596,
+                "shortBuy": 4,
+                "shortSell": 35,
+                "shortStockRedemption": 0,
+                "shortPrevBalance": 16,
+                "shortBalance": 47,
+                "offsetting": 3,
+                "date": "2026-11-05"
+              }
+            },
+            {
+              "code": "2454",
+              "name": "聯發科",
+              "market": "TW",
+              "assetType": "stock",
+              "weight": 5.62,
+              "shares": 6759042,
+              "open": 3115.0,
+              "high": 3480.0,
+              "low": 3115.0,
+              "close": 3390.0,
+              "prevClose": 3460.0,
+              "change": -70.0,
+              "changePct": -2.02,
+              "amplitude": 10.55,
+              "volume": 23481216.0,
+              "quoteDate": "2026-11-06",
+              "inst": {
+                "foreign": -4535826,
+                "trust": 556029,
+                "dealer": 798328,
+                "total": -3181469,
+                "date": "2026-11-06"
+              },
+              "margin": {
+                "marginBuy": 442,
+                "marginSell": 1121,
+                "marginCashRedemption": 9,
+                "marginPrevBalance": 12579,
+                "marginBalance": 11891,
+                "shortBuy": 3,
+                "shortSell": 38,
+                "shortStockRedemption": 0,
+                "shortPrevBalance": 16,
+                "shortBalance": 51,
+                "offsetting": 11,
+                "date": "2026-11-05"
+              }
+            },
+            {
+              "code": "2317",
+              "name": "鴻海",
+              "market": "TW",
+              "assetType": "stock",
+              "weight": 3.09,
+              "shares": 56063679,
+              "open": 213.0,
+              "high": 227.5,
+              "low": 212.5,
+              "close": 224.5,
+              "prevClose": 235.0,
+              "change": -10.5,
+              "changePct": -4.47,
+              "amplitude": 6.38,
+              "volume": 89094382.0,
+              "quoteDate": "2026-11-06",
+              "inst": {
+                "foreign": -14082465,
+                "trust": 2101744,
+                "dealer": 4266715,
+                "total": -7714006,
+                "date": "2026-11-06"
+              },
+              "margin": {
+                "marginBuy": 823,
+                "marginSell": 812,
+                "marginCashRedemption": 30,
+                "marginPrevBalance": 53792,
+                "marginBalance": 53773,
+                "shortBuy": 71,
+                "shortSell": 201,
+                "shortStockRedemption": 0,
+                "shortPrevBalance": 423,
+                "shortBalance": 553,
+                "offsetting": 2,
+                "date": "2026-11-05"
+              }
+            },
+            {
+              "code": "2308",
+              "name": "台達電",
+              "market": "TW",
+              "assetType": "stock",
+              "weight": 2.29,
+              "shares": 8865581,
+              "open": 1020.0,
+              "high": 1070.0,
+              "low": 1020.0,
+              "close": 1055.0,
+              "prevClose": 1130.0,
+              "change": -75.0,
+              "changePct": -6.64,
+              "amplitude": 4.42,
+              "volume": 34536298.0,
+              "quoteDate": "2026-11-06",
+              "inst": {
+                "foreign": -3651258,
+                "trust": 59754,
+                "dealer": 832425,
+                "total": -2759079,
+                "date": "2026-11-06"
+              },
+              "margin": {
+                "marginBuy": 326,
+                "marginSell": 1047,
+                "marginCashRedemption": 30,
+                "marginPrevBalance": 10282,
+                "marginBalance": 9531,
+                "shortBuy": 6,
+                "shortSell": 29,
+                "shortStockRedemption": 0,
+                "shortPrevBalance": 28,
+                "shortBalance": 51,
+                "offsetting": 7,
+                "date": "2026-11-05"
+              }
+            },
+            {
+              "code": "3711",
+              "name": "日月光投控",
+              "market": "TW",
+              "assetType": "stock",
+              "weight": 1.97,
+              "shares": 15233577,
+              "open": 515.0,
+              "high": 551.0,
+              "low": 515.0,
+              "close": 527.0,
+              "prevClose": 572.0,
+              "change": -45.0,
+              "changePct": -7.87,
+              "amplitude": 6.29,
+              "volume": 43145321.0,
+              "quoteDate": "2026-11-06",
+              "inst": {
+                "foreign": -11302289,
+                "trust": 1937642,
+                "dealer": 1653907,
+                "total": -7710740,
+                "date": "2026-11-06"
+              },
+              "margin": {
+                "marginBuy": 942,
+                "marginSell": 1017,
+                "marginCashRedemption": 11,
+                "marginPrevBalance": 11445,
+                "marginBalance": 11359,
+                "shortBuy": 108,
+                "shortSell": 24,
+                "shortStockRedemption": 0,
+                "shortPrevBalance": 182,
+                "shortBalance": 98,
+                "offsetting": 22,
+                "date": "2026-11-05"
+              }
+            },
+            {
+              "code": "2891",
+              "name": "中信金",
+              "market": "TW",
+              "assetType": "stock",
+              "weight": 1.46,
+              "shares": 81227506,
+              "open": 69.2,
+              "high": 74.4,
+              "low": 67.5,
+              "close": 73.4,
+              "prevClose": 74.9,
+              "change": -1.5,
+              "changePct": -2.0,
+              "amplitude": 9.21,
+              "volume": 58648967.0,
+              "quoteDate": "2026-11-06",
+              "inst": {
+                "foreign": -15869537,
+                "trust": 8430935,
+                "dealer": 12014254,
+                "total": 4575652,
+                "date": "2026-11-06"
+              },
+              "margin": {
+                "marginBuy": 161,
+                "marginSell": 240,
+                "marginCashRedemption": 0,
+                "marginPrevBalance": 2543,
+                "marginBalance": 2464,
+                "shortBuy": 20,
+                "shortSell": 72,
+                "shortStockRedemption": 0,
+                "shortPrevBalance": 191,
+                "shortBalance": 243,
+                "offsetting": 0,
+                "date": "2026-11-05"
+              }
+            },
+            {
+              "code": "2881",
+              "name": "富邦金",
+              "market": "TW",
+              "assetType": "stock",
+              "weight": 1.39,
+              "shares": 38295543,
+              "open": 140.5,
+              "high": 151.0,
+              "low": 140.0,
+              "close": 148.0,
+              "prevClose": 155.5,
+              "change": -7.5,
+              "changePct": -4.82,
+              "amplitude": 7.07,
+              "volume": 48407737.0,
+              "quoteDate": "2026-11-06",
+              "inst": {
+                "foreign": 363145,
+                "trust": -6662616,
+                "dealer": 4217163,
+                "total": -2082308,
+                "date": "2026-11-06"
+              },
+              "margin": {
+                "marginBuy": 147,
+                "marginSell": 160,
+                "marginCashRedemption": 0,
+                "marginPrevBalance": 5669,
+                "marginBalance": 5656,
+                "shortBuy": 19,
+                "shortSell": 49,
+                "shortStockRedemption": 0,
+                "shortPrevBalance": 436,
+                "shortBalance": 466,
+                "offsetting": 0,
+                "date": "2026-11-05"
+              }
+            },
+            {
+              "code": "1303",
+              "name": "南亞",
+              "market": "TW",
+              "assetType": "stock",
+              "weight": 1.33,
+              "shares": 22616502,
+              "open": 224.5,
+              "high": 253.5,
+              "low": 224.5,
+              "close": 239.5,
+              "prevClose": 249.0,
+              "change": -9.5,
+              "changePct": -3.82,
+              "amplitude": 11.65,
+              "volume": 114669930.0,
+              "quoteDate": "2026-11-06",
+              "inst": {
+                "foreign": -7519382,
+                "trust": 3638817,
+                "dealer": 2616213,
+                "total": -1264352,
+                "date": "2026-11-06"
+              },
+              "margin": {
+                "marginBuy": 3133,
+                "marginSell": 5233,
+                "marginCashRedemption": 27,
+                "marginPrevBalance": 45207,
+                "marginBalance": 43080,
+                "shortBuy": 351,
+                "shortSell": 410,
+                "shortStockRedemption": 0,
+                "shortPrevBalance": 1591,
+                "shortBalance": 1650,
+                "offsetting": 54,
+                "date": "2026-11-05"
+              }
+            },
+            {
+              "code": "2383",
+              "name": "台光電",
+              "market": "TW",
+              "assetType": "stock",
+              "weight": 1.25,
+              "shares": 1334000,
+              "open": 3690.0,
+              "high": 3920.0,
+              "low": 3690.0,
+              "close": 3820.0,
+              "prevClose": 4100.0,
+              "change": -280.0,
+              "changePct": -6.83,
+              "amplitude": 5.61,
+              "volume": 6290670.0,
+              "quoteDate": "2026-11-06",
+              "inst": {
+                "foreign": -868554,
+                "trust": 483966,
+                "dealer": 28531,
+                "total": -356057,
+                "date": "2026-11-06"
+              },
+              "margin": {
+                "marginBuy": 474,
+                "marginSell": 558,
+                "marginCashRedemption": 3,
+                "marginPrevBalance": 3728,
+                "marginBalance": 3641,
+                "shortBuy": 18,
+                "shortSell": 108,
+                "shortStockRedemption": 0,
+                "shortPrevBalance": 32,
+                "shortBalance": 122,
+                "offsetting": 4,
+                "date": "2026-11-05"
+              }
+            },
+            {
+              "code": "2303",
+              "name": "聯電",
+              "market": "TW",
+              "assetType": "stock",
+              "weight": 1.21,
+              "shares": 53555891,
+              "open": 88.6,
+              "high": 94.6,
+              "low": 88.6,
+              "close": 92.0,
+              "prevClose": 98.4,
+              "change": -6.4,
+              "changePct": -6.5,
+              "amplitude": 6.1,
+              "volume": 204952329.0,
+              "quoteDate": "2026-11-06",
+              "inst": {
+                "foreign": -1857351,
+                "trust": 2153772,
+                "dealer": -415758,
+                "total": -119337,
+                "date": "2026-11-06"
+              },
+              "margin": {
+                "marginBuy": 6421,
+                "marginSell": 11443,
+                "marginCashRedemption": 390,
+                "marginPrevBalance": 148369,
+                "marginBalance": 142957,
+                "shortBuy": 240,
+                "shortSell": 198,
+                "shortStockRedemption": 3,
+                "shortPrevBalance": 835,
+                "shortBalance": 790,
+                "offsetting": 105,
+                "date": "2026-11-05"
+              }
+            },
+            {
+              "code": "2882",
+              "name": "國泰金",
+              "market": "TW",
+              "assetType": "stock",
+              "weight": 1.14,
+              "shares": 43788200,
+              "open": 103.5,
+              "high": 109.0,
+              "low": 101.0,
+              "close": 106.0,
+              "prevClose": 112.0,
+              "change": -6.0,
+              "changePct": -5.36,
+              "amplitude": 7.14,
+              "volume": 48650356.0,
+              "quoteDate": "2026-11-06",
+              "inst": {
+                "foreign": -11225526,
+                "trust": 3900582,
+                "dealer": 5065860,
+                "total": -2259084,
+                "date": "2026-11-06"
+              },
+              "margin": {
+                "marginBuy": 148,
+                "marginSell": 292,
+                "marginCashRedemption": 0,
+                "marginPrevBalance": 4946,
+                "marginBalance": 4802,
+                "shortBuy": 2,
+                "shortSell": 36,
+                "shortStockRedemption": 0,
+                "shortPrevBalance": 1606,
+                "shortBalance": 1640,
+                "offsetting": 0,
+                "date": "2026-11-05"
+              }
+            },
+            {
+              "code": "3037",
+              "name": "欣興",
+              "market": "TW",
+              "assetType": "stock",
+              "weight": 1.08,
+              "shares": 6057000,
+              "open": 720.0,
+              "high": 771.0,
+              "low": 720.0,
+              "close": 727.0,
+              "prevClose": 800.0,
+              "change": -73.0,
+              "changePct": -9.12,
+              "amplitude": 6.38,
+              "volume": 37991238.0,
+              "quoteDate": "2026-11-06",
+              "inst": {
+                "foreign": -5859317,
+                "trust": 614106,
+                "dealer": 352302,
+                "total": -4892909,
+                "date": "2026-11-06"
+              },
+              "margin": {
+                "marginBuy": 793,
+                "marginSell": 1103,
+                "marginCashRedemption": 31,
+                "marginPrevBalance": 35371,
+                "marginBalance": 35030,
+                "shortBuy": 62,
+                "shortSell": 903,
+                "shortStockRedemption": 0,
+                "shortPrevBalance": 183,
+                "shortBalance": 1024,
+                "offsetting": 39,
+                "date": "2026-11-05"
+              }
+            },
+            {
+              "code": "2887",
+              "name": "台新新光金",
+              "market": "TW",
+              "assetType": "stock",
+              "weight": 1.01,
+              "shares": 107599005,
+              "open": 36.75,
+              "high": 39.25,
+              "low": 36.3,
+              "close": 38.45,
+              "prevClose": 40.1,
+              "change": -1.65,
+              "changePct": -4.11,
+              "amplitude": 7.36,
+              "volume": 137248228.0,
+              "quoteDate": "2026-11-06",
+              "inst": {
+                "foreign": -5802372,
+                "trust": 8818888,
+                "dealer": 14562767,
+                "total": 17579283,
+                "date": "2026-11-06"
+              },
+              "margin": {
+                "marginBuy": 508,
+                "marginSell": 358,
+                "marginCashRedemption": 3,
+                "marginPrevBalance": 39625,
+                "marginBalance": 39772,
+                "shortBuy": 21,
+                "shortSell": 47,
+                "shortStockRedemption": 0,
+                "shortPrevBalance": 1203,
+                "shortBalance": 1229,
+                "offsetting": 2,
+                "date": "2026-11-05"
+              }
+            },
+            {
+              "code": "2382",
+              "name": "廣達",
+              "market": "TW",
+              "assetType": "stock",
+              "weight": 0.86,
+              "shares": 12135301,
+              "open": 275.0,
+              "high": 294.5,
+              "low": 272.0,
+              "close": 290.5,
+              "prevClose": 300.0,
+              "change": -9.5,
+              "changePct": -3.17,
+              "amplitude": 7.5,
+              "volume": 37213665.0,
+              "quoteDate": "2026-11-06",
+              "inst": {
+                "foreign": -667172,
+                "trust": 1281847,
+                "dealer": 2057416,
+                "total": 2672091,
+                "date": "2026-11-06"
+              },
+              "margin": {
+                "marginBuy": 37,
+                "marginSell": 347,
+                "marginCashRedemption": 2,
+                "marginPrevBalance": 15284,
+                "marginBalance": 14972,
+                "shortBuy": 6,
+                "shortSell": 46,
+                "shortStockRedemption": 0,
+                "shortPrevBalance": 39,
+                "shortBalance": 79,
+                "offsetting": 1,
+                "date": "2026-11-05"
+              }
+            },
+            {
+              "code": "2885",
+              "name": "元大金",
+              "market": "TW",
+              "assetType": "stock",
+              "weight": 0.86,
+              "shares": 52649834,
+              "open": 65.0,
+              "high": 68.6,
+              "low": 62.2,
+              "close": 66.9,
+              "prevClose": 69.1,
+              "change": -2.2,
+              "changePct": -3.18,
+              "amplitude": 9.26,
+              "volume": 57573482.0,
+              "quoteDate": "2026-11-06",
+              "inst": {
+                "foreign": -16327915,
+                "trust": 2821903,
+                "dealer": 7113171,
+                "total": -6392841,
+                "date": "2026-11-06"
+              },
+              "margin": {
+                "marginBuy": 53,
+                "marginSell": 46,
+                "marginCashRedemption": 0,
+                "marginPrevBalance": 1064,
+                "marginBalance": 1071,
+                "shortBuy": 0,
+                "shortSell": 0,
+                "shortStockRedemption": 0,
+                "shortPrevBalance": 1,
+                "shortBalance": 1,
+                "offsetting": 3,
+                "date": "2026-11-05"
+              }
+            },
+            {
+              "code": "2884",
+              "name": "玉山金",
+              "market": "TW",
+              "assetType": "stock",
+              "weight": 0.85,
+              "shares": 73380867,
+              "open": 46.4,
+              "high": 47.75,
+              "low": 44.35,
+              "close": 47.0,
+              "prevClose": 47.95,
+              "change": -0.95,
+              "changePct": -1.98,
+              "amplitude": 7.09,
+              "volume": 51430060.0,
+              "quoteDate": "2026-11-06",
+              "inst": {
+                "foreign": -5501696,
+                "trust": 2737652,
+                "dealer": 10005403,
+                "total": 7241359,
+                "date": "2026-11-06"
+              },
+              "margin": {
+                "marginBuy": 272,
+                "marginSell": 154,
+                "marginCashRedemption": 0,
+                "marginPrevBalance": 4500,
+                "marginBalance": 4618,
+                "shortBuy": 11,
+                "shortSell": 38,
+                "shortStockRedemption": 0,
+                "shortPrevBalance": 289,
+                "shortBalance": 316,
+                "offsetting": 10,
+                "date": "2026-11-05"
+              }
+            },
+            {
+              "code": "3017",
+              "name": "奇鋐",
+              "market": "TW",
+              "assetType": "stock",
+              "weight": 0.83,
+              "shares": 1469000,
+              "open": 2310.0,
+              "high": 2310.0,
+              "low": 2310.0,
+              "close": 2310.0,
+              "prevClose": 2565.0,
+              "change": -255.0,
+              "changePct": -9.94,
+              "amplitude": 0.0,
+              "volume": 2194175.0,
+              "quoteDate": "2026-11-06",
+              "inst": {
+                "foreign": -762807,
+                "trust": 405276,
+                "dealer": 218495,
+                "total": -139036,
+                "date": "2026-11-06"
+              },
+              "margin": {
+                "marginBuy": 87,
+                "marginSell": 346,
+                "marginCashRedemption": 3,
+                "marginPrevBalance": 3563,
+                "marginBalance": 3301,
+                "shortBuy": 3,
+                "shortSell": 10,
+                "shortStockRedemption": 0,
+                "shortPrevBalance": 11,
+                "shortBalance": 18,
+                "offsetting": 1,
+                "date": "2026-11-05"
+              }
+            },
+            {
+              "code": "2345",
+              "name": "智邦",
+              "market": "TW",
+              "assetType": "stock",
+              "weight": 0.71,
+              "shares": 2275000,
+              "open": 1245.0,
+              "high": 1300.0,
+              "low": 1245.0,
+              "close": 1280.0,
+              "prevClose": 1380.0,
+              "change": -100.0,
+              "changePct": -7.25,
+              "amplitude": 3.99,
+              "volume": 5991597.0,
+              "quoteDate": "2026-11-06",
+              "inst": {
+                "foreign": -507002,
+                "trust": 391417,
+                "dealer": 182035,
+                "total": 66450,
+                "date": "2026-11-06"
+              },
+              "margin": {
+                "marginBuy": 61,
+                "marginSell": 284,
+                "marginCashRedemption": 1,
+                "marginPrevBalance": 2934,
+                "marginBalance": 2710,
+                "shortBuy": 1,
+                "shortSell": 4,
+                "shortStockRedemption": 0,
+                "shortPrevBalance": 4,
+                "shortBalance": 7,
+                "offsetting": 6,
+                "date": "2026-11-05"
+              }
+            },
+            {
+              "code": "2886",
+              "name": "兆豐金",
+              "market": "TW",
+              "assetType": "stock",
+              "weight": 0.71,
+              "shares": 54267130,
+              "open": 51.6,
+              "high": 54.3,
+              "low": 50.4,
+              "close": 53.5,
+              "prevClose": 54.0,
+              "change": -0.5,
+              "changePct": -0.93,
+              "amplitude": 7.22,
+              "volume": 35722703.0,
+              "quoteDate": "2026-11-06",
+              "inst": {
+                "foreign": -6071666,
+                "trust": 3335961,
+                "dealer": 8678134,
+                "total": 5942429,
+                "date": "2026-11-06"
+              },
+              "margin": {
+                "marginBuy": 152,
+                "marginSell": 31,
+                "marginCashRedemption": 0,
+                "marginPrevBalance": 1876,
+                "marginBalance": 1997,
+                "shortBuy": 0,
+                "shortSell": 14,
+                "shortStockRedemption": 0,
+                "shortPrevBalance": 97,
+                "shortBalance": 111,
+                "offsetting": 1,
+                "date": "2026-11-05"
+              }
+            },
+            {
+              "code": "2412",
+              "name": "中華電",
+              "market": "TW",
+              "assetType": "stock",
+              "weight": 0.7,
+              "shares": 17517072,
+              "open": 158.0,
+              "high": 164.0,
+              "low": 156.5,
+              "close": 163.5,
+              "prevClose": 161.5,
+              "change": 2.0,
+              "changePct": 1.24,
+              "amplitude": 4.64,
+              "volume": 28469310.0,
+              "quoteDate": "2026-11-06",
+              "inst": {
+                "foreign": 2759967,
+                "trust": 2466633,
+                "dealer": 1925064,
+                "total": 7151664,
+                "date": "2026-11-06"
+              },
+              "margin": {
+                "marginBuy": 1066,
+                "marginSell": 256,
+                "marginCashRedemption": 0,
+                "marginPrevBalance": 1838,
+                "marginBalance": 2648,
+                "shortBuy": 17,
+                "shortSell": 129,
+                "shortStockRedemption": 0,
+                "shortPrevBalance": 190,
+                "shortBalance": 302,
+                "offsetting": 41,
+                "date": "2026-11-05"
+              }
+            },
+            {
+              "code": "2327",
+              "name": "國巨*",
+              "market": "TW",
+              "assetType": "stock",
+              "weight": 0.66,
+              "shares": 7229728,
+              "open": 364.5,
+              "high": 382.0,
+              "low": 364.5,
+              "close": 374.0,
+              "prevClose": 404.5,
+              "change": -30.5,
+              "changePct": -7.54,
+              "amplitude": 4.33,
+              "volume": 56815671.0,
+              "quoteDate": "2026-11-06",
+              "inst": {
+                "foreign": -881715,
+                "trust": -660462,
+                "dealer": 313687,
+                "total": -1228490,
+                "date": "2026-11-06"
+              },
+              "margin": {
+                "marginBuy": 2003,
+                "marginSell": 2350,
+                "marginCashRedemption": 79,
+                "marginPrevBalance": 43456,
+                "marginBalance": 43030,
+                "shortBuy": 69,
+                "shortSell": 959,
+                "shortStockRedemption": 0,
+                "shortPrevBalance": 337,
+                "shortBalance": 1227,
+                "offsetting": 39,
+                "date": "2026-11-05"
+              }
+            },
+            {
+              "code": "2357",
+              "name": "華碩",
+              "market": "TW",
+              "assetType": "stock",
+              "weight": 0.65,
+              "shares": 3098657,
+              "open": 809.0,
+              "high": 875.0,
+              "low": 790.0,
+              "close": 859.0,
+              "prevClose": 867.0,
+              "change": -8.0,
+              "changePct": -0.92,
+              "amplitude": 9.8,
+              "volume": 5228495.0,
+              "quoteDate": "2026-11-06",
+              "inst": {
+                "foreign": -698883,
+                "trust": 304580,
+                "dealer": 516494,
+                "total": 122191,
+                "date": "2026-11-06"
+              },
+              "margin": {
+                "marginBuy": 62,
+                "marginSell": 36,
+                "marginCashRedemption": 0,
+                "marginPrevBalance": 1329,
+                "marginBalance": 1355,
+                "shortBuy": 0,
+                "shortSell": 2,
+                "shortStockRedemption": 0,
+                "shortPrevBalance": 17,
+                "shortBalance": 19,
+                "offsetting": 1,
+                "date": "2026-11-05"
+              }
+            },
+            {
+              "code": "2890",
+              "name": "永豐金",
+              "market": "TW",
+              "assetType": "stock",
+              "weight": 0.64,
+              "shares": 62223134,
+              "open": 39.85,
+              "high": 42.15,
+              "low": 38.9,
+              "close": 41.7,
+              "prevClose": 42.9,
+              "change": -1.2,
+              "changePct": -2.8,
+              "amplitude": 7.58,
+              "volume": 43855263.0,
+              "quoteDate": "2026-11-06",
+              "inst": {
+                "foreign": -9713432,
+                "trust": 7590249,
+                "dealer": 3516082,
+                "total": 1392899,
+                "date": "2026-11-06"
+              },
+              "margin": {
+                "marginBuy": 2344,
+                "marginSell": 225,
+                "marginCashRedemption": 0,
+                "marginPrevBalance": 4328,
+                "marginBalance": 6447,
+                "shortBuy": 2,
+                "shortSell": 74,
+                "shortStockRedemption": 0,
+                "shortPrevBalance": 380,
+                "shortBalance": 452,
+                "offsetting": 0,
+                "date": "2026-11-05"
+              }
+            },
+            {
+              "code": "2883",
+              "name": "凱基金",
+              "market": "TW",
+              "assetType": "stock",
+              "weight": 0.6,
+              "shares": 72305545,
+              "open": 31.6,
+              "high": 34.15,
+              "low": 31.1,
+              "close": 33.65,
+              "prevClose": 34.35,
+              "change": -0.7,
+              "changePct": -2.04,
+              "amplitude": 8.88,
+              "volume": 62885200.0,
+              "quoteDate": "2026-11-06",
+              "inst": {
+                "foreign": -7610450,
+                "trust": 2676613,
+                "dealer": 10692547,
+                "total": 5758710,
+                "date": "2026-11-06"
+              },
+              "margin": {
+                "marginBuy": 315,
+                "marginSell": 145,
+                "marginCashRedemption": 5,
+                "marginPrevBalance": 9675,
+                "marginBalance": 9840,
+                "shortBuy": 6,
+                "shortSell": 87,
+                "shortStockRedemption": 0,
+                "shortPrevBalance": 177,
+                "shortBalance": 258,
+                "offsetting": 4,
+                "date": "2026-11-05"
+              }
+            },
+            {
+              "code": "3443",
+              "name": "創意",
+              "market": "TW",
+              "assetType": "stock",
+              "weight": 0.56,
+              "shares": 368000,
+              "open": 5765.0,
+              "high": 6460.0,
+              "low": 5765.0,
+              "close": 6205.0,
+              "prevClose": 6405.0,
+              "change": -200.0,
+              "changePct": -3.12,
+              "amplitude": 10.85,
+              "volume": 4317418.0,
+              "quoteDate": "2026-11-06",
+              "inst": {
+                "foreign": -55931,
+                "trust": 53071,
+                "dealer": -83676,
+                "total": -86536,
+                "date": "2026-11-06"
+              },
+              "margin": {
+                "marginBuy": 301,
+                "marginSell": 523,
+                "marginCashRedemption": 1,
+                "marginPrevBalance": 4548,
+                "marginBalance": 4325,
+                "shortBuy": 28,
+                "shortSell": 82,
+                "shortStockRedemption": 0,
+                "shortPrevBalance": 168,
+                "shortBalance": 222,
+                "offsetting": 1,
+                "date": "2026-11-05"
+              }
+            },
+            {
+              "code": "3231",
+              "name": "緯創",
+              "market": "TW",
+              "assetType": "stock",
+              "weight": 0.54,
+              "shares": 13864000,
+              "open": 152.0,
+              "high": 163.0,
+              "low": 152.0,
+              "close": 160.0,
+              "prevClose": 168.5,
+              "change": -8.5,
+              "changePct": -5.04,
+              "amplitude": 6.53,
+              "volume": 48190870.0,
+              "quoteDate": "2026-11-06",
+              "inst": {
+                "foreign": -3520515,
+                "trust": 550547,
+                "dealer": 1266079,
+                "total": -1703889,
+                "date": "2026-11-06"
+              },
+              "margin": {
+                "marginBuy": 893,
+                "marginSell": 1187,
+                "marginCashRedemption": 56,
+                "marginPrevBalance": 39525,
+                "marginBalance": 39175,
+                "shortBuy": 129,
+                "shortSell": 71,
+                "shortStockRedemption": 0,
+                "shortPrevBalance": 305,
+                "shortBalance": 247,
+                "offsetting": 9,
+                "date": "2026-11-05"
+              }
+            },
+            {
+              "code": "6669",
+              "name": "緯穎",
+              "market": "TW",
+              "assetType": "stock",
+              "weight": 0.54,
+              "shares": 1423085,
+              "open": 1485.0,
+              "high": 1610.0,
+              "low": 1485.0,
+              "close": 1555.0,
+              "prevClose": 1650.0,
+              "change": -95.0,
+              "changePct": -5.76,
+              "amplitude": 7.58,
+              "volume": 7676494.0,
+              "quoteDate": "2026-11-06",
+              "inst": {
+                "foreign": -1489,
+                "trust": 17695,
+                "dealer": 11321,
+                "total": 27527,
+                "date": "2026-11-06"
+              },
+              "margin": {
+                "marginBuy": 115,
+                "marginSell": 487,
+                "marginCashRedemption": 12,
+                "marginPrevBalance": 4817,
+                "marginBalance": 4433,
+                "shortBuy": 0,
+                "shortSell": 1,
+                "shortStockRedemption": 0,
+                "shortPrevBalance": 230,
+                "shortBalance": 231,
+                "offsetting": 0,
+                "date": "2026-11-05"
+              }
+            },
+            {
+              "code": "2892",
+              "name": "第一金",
+              "market": "TW",
+              "assetType": "stock",
+              "weight": 0.52,
+              "shares": 51422640,
+              "open": 40.5,
+              "high": 41.45,
+              "low": 38.8,
+              "close": 40.95,
+              "prevClose": 42.25,
+              "change": -1.3,
+              "changePct": -3.08,
+              "amplitude": 6.27,
+              "volume": 47606886.0,
+              "quoteDate": "2026-11-06",
+              "inst": {
+                "foreign": 6663281,
+                "trust": 2095858,
+                "dealer": 5440681,
+                "total": 14199820,
+                "date": "2026-11-06"
+              },
+              "margin": {
+                "marginBuy": 257,
+                "marginSell": 37,
+                "marginCashRedemption": 0,
+                "marginPrevBalance": 2416,
+                "marginBalance": 2636,
+                "shortBuy": 3,
+                "shortSell": 15,
+                "shortStockRedemption": 0,
+                "shortPrevBalance": 114,
+                "shortBalance": 126,
+                "offsetting": 0,
+                "date": "2026-11-05"
+              }
+            },
+            {
+              "code": "3653",
+              "name": "健策",
+              "market": "TW",
+              "assetType": "stock",
+              "weight": 0.51,
+              "shares": 400000,
+              "open": 5225.0,
+              "high": 5400.0,
+              "low": 5225.0,
+              "close": 5225.0,
+              "prevClose": 5805.0,
+              "change": -580.0,
+              "changePct": -9.99,
+              "amplitude": 3.01,
+              "volume": 1621697.0,
+              "quoteDate": "2026-11-06",
+              "inst": {
+                "foreign": -104568,
+                "trust": 224014,
+                "dealer": 58825,
+                "total": 178271,
+                "date": "2026-11-06"
+              },
+              "margin": {
+                "marginBuy": 435,
+                "marginSell": 307,
+                "marginCashRedemption": 0,
+                "marginPrevBalance": 3411,
+                "marginBalance": 3539,
+                "shortBuy": 37,
+                "shortSell": 21,
+                "shortStockRedemption": 0,
+                "shortPrevBalance": 91,
+                "shortBalance": 75,
+                "offsetting": 0,
+                "date": "2026-11-05"
+              }
+            },
+            {
+              "code": "2880",
+              "name": "華南金",
+              "market": "TW",
+              "assetType": "stock",
+              "weight": 0.51,
+              "shares": 42630416,
+              "open": 48.0,
+              "high": 50.2,
+              "low": 45.35,
+              "close": 48.95,
+              "prevClose": 49.6,
+              "change": -0.65,
+              "changePct": -1.31,
+              "amplitude": 9.78,
+              "volume": 28848299.0,
+              "quoteDate": "2026-11-06",
+              "inst": {
+                "foreign": -7059402,
+                "trust": 3206541,
+                "dealer": 7809955,
+                "total": 3957094,
+                "date": "2026-11-06"
+              },
+              "margin": {
+                "marginBuy": 175,
+                "marginSell": 15,
+                "marginCashRedemption": 1,
+                "marginPrevBalance": 589,
+                "marginBalance": 748,
+                "shortBuy": 14,
+                "shortSell": 14,
+                "shortStockRedemption": 1,
+                "shortPrevBalance": 95,
+                "shortBalance": 94,
+                "offsetting": 0,
+                "date": "2026-11-05"
+              }
+            },
+            {
+              "code": "2360",
+              "name": "致茂",
+              "market": "TW",
+              "assetType": "stock",
+              "weight": 0.5,
+              "shares": 1692000,
+              "open": 1205.0,
+              "high": 1205.0,
+              "low": 1205.0,
+              "close": 1205.0,
+              "prevClose": 1335.0,
+              "change": -130.0,
+              "changePct": -9.74,
+              "amplitude": 0.0,
+              "volume": 1774073.0,
+              "quoteDate": "2026-11-06",
+              "inst": {
+                "foreign": 38493,
+                "trust": 15320,
+                "dealer": 120579,
+                "total": 174392,
+                "date": "2026-11-06"
+              },
+              "margin": {
+                "marginBuy": 70,
+                "marginSell": 188,
+                "marginCashRedemption": 2,
+                "marginPrevBalance": 1383,
+                "marginBalance": 1263,
+                "shortBuy": 0,
+                "shortSell": 11,
+                "shortStockRedemption": 0,
+                "shortPrevBalance": 4,
+                "shortBalance": 15,
+                "offsetting": 1,
+                "date": "2026-11-05"
+              }
+            },
+            {
+              "code": "2408",
+              "name": "南亞科",
+              "market": "TW",
+              "assetType": "stock",
+              "weight": 0.5,
+              "shares": 5922000,
+              "open": 324.0,
+              "high": 356.0,
+              "low": 324.0,
+              "close": 343.5,
+              "prevClose": 360.0,
+              "change": -16.5,
+              "changePct": -4.58,
+              "amplitude": 8.89,
+              "volume": 64777286.0,
+              "quoteDate": "2026-11-06",
+              "inst": {
+                "foreign": 5623654,
+                "trust": 106162,
+                "dealer": -182356,
+                "total": 5547460,
+                "date": "2026-11-06"
+              },
+              "margin": {
+                "marginBuy": 2906,
+                "marginSell": 2751,
+                "marginCashRedemption": 112,
+                "marginPrevBalance": 58126,
+                "marginBalance": 58169,
+                "shortBuy": 149,
+                "shortSell": 1924,
+                "shortStockRedemption": 0,
+                "shortPrevBalance": 1210,
+                "shortBalance": 2985,
+                "offsetting": 22,
+                "date": "2026-11-05"
+              }
+            },
+            {
+              "code": "3008",
+              "name": "大立光",
+              "market": "TW",
+              "assetType": "stock",
+              "weight": 0.47,
+              "shares": 430468,
+              "open": 4075.0,
+              "high": 4570.0,
+              "low": 4075.0,
+              "close": 4480.0,
+              "prevClose": 4525.0,
+              "change": -45.0,
+              "changePct": -0.99,
+              "amplitude": 10.94,
+              "volume": 4020877.0,
+              "quoteDate": "2026-11-06",
+              "inst": {
+                "foreign": 373560,
+                "trust": 4907,
+                "dealer": -163291,
+                "total": 215176,
+                "date": "2026-11-06"
+              },
+              "margin": {
+                "marginBuy": 69,
+                "marginSell": 271,
+                "marginCashRedemption": 4,
+                "marginPrevBalance": 3584,
+                "marginBalance": 3378,
+                "shortBuy": 9,
+                "shortSell": 3,
+                "shortStockRedemption": 0,
+                "shortPrevBalance": 44,
+                "shortBalance": 38,
+                "offsetting": 4,
+                "date": "2026-11-05"
+              }
+            },
+            {
+              "code": "2059",
+              "name": "川湖",
+              "market": "TW",
+              "assetType": "stock",
+              "weight": 0.47,
+              "shares": 253000,
+              "open": 7200.0,
+              "high": 7700.0,
+              "low": 7200.0,
+              "close": 7565.0,
+              "prevClose": 7995.0,
+              "change": -430.0,
+              "changePct": -5.38,
+              "amplitude": 6.25,
+              "volume": 1051122.0,
+              "quoteDate": "2026-11-06",
+              "inst": {
+                "foreign": -33189,
+                "trust": 95009,
+                "dealer": 10959,
+                "total": 72779,
+                "date": "2026-11-06"
+              },
+              "margin": {
+                "marginBuy": 7,
+                "marginSell": 75,
+                "marginCashRedemption": 0,
+                "marginPrevBalance": 593,
+                "marginBalance": 525,
+                "shortBuy": 0,
+                "shortSell": 1,
+                "shortStockRedemption": 0,
+                "shortPrevBalance": 0,
+                "shortBalance": 1,
+                "offsetting": 0,
+                "date": "2026-11-05"
+              }
+            },
+            {
+              "code": "6446",
+              "name": "藥華藥",
+              "market": "TW",
+              "assetType": "stock",
+              "weight": 0.45,
+              "shares": 1443000,
+              "open": 1075.0,
+              "high": 1295.0,
+              "low": 1075.0,
+              "close": 1270.0,
+              "prevClose": 1185.0,
+              "change": 85.0,
+              "changePct": 7.17,
+              "amplitude": 18.57,
+              "volume": 7197762.0,
+              "quoteDate": "2026-11-06",
+              "inst": {
+                "foreign": 836399,
+                "trust": 413052,
+                "dealer": 122659,
+                "total": 1372110,
+                "date": "2026-11-06"
+              },
+              "margin": {
+                "marginBuy": 198,
+                "marginSell": 324,
+                "marginCashRedemption": 8,
+                "marginPrevBalance": 7887,
+                "marginBalance": 7753,
+                "shortBuy": 2,
+                "shortSell": 1,
+                "shortStockRedemption": 0,
+                "shortPrevBalance": 15,
+                "shortBalance": 14,
+                "offsetting": 2,
+                "date": "2026-11-05"
+              }
+            },
+            {
+              "code": "2301",
+              "name": "光寶科",
+              "market": "TW",
+              "assetType": "stock",
+              "weight": 0.44,
+              "shares": 8979000,
+              "open": 190.5,
+              "high": 203.5,
+              "low": 190.5,
+              "close": 198.0,
+              "prevClose": 211.5,
+              "change": -13.5,
+              "changePct": -6.38,
+              "amplitude": 6.15,
+              "volume": 22710327.0,
+              "quoteDate": "2026-11-06",
+              "inst": {
+                "foreign": -3808831,
+                "trust": 388737,
+                "dealer": 1081843,
+                "total": -2338251,
+                "date": "2026-11-06"
+              },
+              "margin": {
+                "marginBuy": 762,
+                "marginSell": 847,
+                "marginCashRedemption": 22,
+                "marginPrevBalance": 13189,
+                "marginBalance": 13082,
+                "shortBuy": 37,
+                "shortSell": 17,
+                "shortStockRedemption": 0,
+                "shortPrevBalance": 49,
+                "shortBalance": 29,
+                "offsetting": 6,
+                "date": "2026-11-05"
+              }
+            },
+            {
+              "code": "1216",
+              "name": "統一",
+              "market": "TW",
+              "assetType": "stock",
+              "weight": 0.43,
+              "shares": 22687765,
+              "open": 78.3,
+              "high": 80.3,
+              "low": 76.8,
+              "close": 76.8,
+              "prevClose": 80.9,
+              "change": -4.1,
+              "changePct": -5.07,
+              "amplitude": 4.33,
+              "volume": 18019042.0,
+              "quoteDate": "2026-11-06",
+              "inst": {
+                "foreign": -2353257,
+                "trust": 457820,
+                "dealer": 3789261,
+                "total": 1893824,
+                "date": "2026-11-06"
+              },
+              "margin": {
+                "marginBuy": 160,
+                "marginSell": 35,
+                "marginCashRedemption": 0,
+                "marginPrevBalance": 411,
+                "marginBalance": 536,
+                "shortBuy": 3,
+                "shortSell": 2,
+                "shortStockRedemption": 0,
+                "shortPrevBalance": 19,
+                "shortBalance": 18,
+                "offsetting": 0,
+                "date": "2026-11-05"
+              }
+            },
+            {
+              "code": "2344",
+              "name": "華邦電",
+              "market": "TW",
+              "assetType": "stock",
+              "weight": 0.42,
+              "shares": 14203000,
+              "open": 115.0,
+              "high": 123.5,
+              "low": 115.0,
+              "close": 120.5,
+              "prevClose": 127.5,
+              "change": -7.0,
+              "changePct": -5.49,
+              "amplitude": 6.67,
+              "volume": 84220829.0,
+              "quoteDate": "2026-11-06",
+              "inst": {
+                "foreign": 5872868,
+                "trust": -4620407,
+                "dealer": 2372403,
+                "total": 3624864,
+                "date": "2026-11-06"
+              },
+              "margin": {
+                "marginBuy": 4353,
+                "marginSell": 7088,
+                "marginCashRedemption": 134,
+                "marginPrevBalance": 105969,
+                "marginBalance": 103100,
+                "shortBuy": 357,
+                "shortSell": 1988,
+                "shortStockRedemption": 0,
+                "shortPrevBalance": 1728,
+                "shortBalance": 3359,
+                "offsetting": 58,
+                "date": "2026-11-05"
+              }
+            },
+            {
+              "code": "5880",
+              "name": "合庫金",
+              "market": "TW",
+              "assetType": "stock",
+              "weight": 0.34,
+              "shares": 49266411,
+              "open": 27.35,
+              "high": 28.35,
+              "low": 26.65,
+              "close": 27.9,
+              "prevClose": 28.5,
+              "change": -0.6,
+              "changePct": -2.11,
+              "amplitude": 5.96,
+              "volume": 32173499.0,
+              "quoteDate": "2026-11-06",
+              "inst": {
+                "foreign": -1207277,
+                "trust": 1189780,
+                "dealer": 4649193,
+                "total": 4631696,
+                "date": "2026-11-06"
+              },
+              "margin": {
+                "marginBuy": 69,
+                "marginSell": 10,
+                "marginCashRedemption": 0,
+                "marginPrevBalance": 2492,
+                "marginBalance": 2551,
+                "shortBuy": 19,
+                "shortSell": 20,
+                "shortStockRedemption": 0,
+                "shortPrevBalance": 91,
+                "shortBalance": 92,
+                "offsetting": 1,
+                "date": "2026-11-05"
+              }
+            },
+            {
+              "code": "4958",
+              "name": "臻鼎-KY",
+              "market": "TW",
+              "assetType": "stock",
+              "weight": 0.33,
+              "shares": 3626000,
+              "open": 355.0,
+              "high": 383.0,
+              "low": 355.0,
+              "close": 373.0,
+              "prevClose": 394.0,
+              "change": -21.0,
+              "changePct": -5.33,
+              "amplitude": 7.11,
+              "volume": 28115245.0,
+              "quoteDate": "2026-11-06",
+              "inst": {
+                "foreign": -994568,
+                "trust": 452131,
+                "dealer": 96834,
+                "total": -445603,
+                "date": "2026-11-06"
+              },
+              "margin": {
+                "marginBuy": 1271,
+                "marginSell": 2282,
+                "marginCashRedemption": 25,
+                "marginPrevBalance": 31230,
+                "marginBalance": 30194,
+                "shortBuy": 38,
+                "shortSell": 67,
+                "shortStockRedemption": 0,
+                "shortPrevBalance": 94,
+                "shortBalance": 123,
+                "offsetting": 34,
+                "date": "2026-11-05"
+              }
+            },
+            {
+              "code": "2368",
+              "name": "金像電",
+              "market": "TW",
+              "assetType": "stock",
+              "weight": 0.32,
+              "shares": 1598000,
+              "open": 782.0,
+              "high": 844.0,
+              "low": 782.0,
+              "close": 813.0,
+              "prevClose": 868.0,
+              "change": -55.0,
+              "changePct": -6.34,
+              "amplitude": 7.14,
+              "volume": 11665087.0,
+              "quoteDate": "2026-11-06",
+              "inst": {
+                "foreign": 410482,
+                "trust": 75283,
+                "dealer": -133525,
+                "total": 352240,
+                "date": "2026-11-06"
+              },
+              "margin": {
+                "marginBuy": 447,
+                "marginSell": 1515,
+                "marginCashRedemption": 14,
+                "marginPrevBalance": 9517,
+                "marginBalance": 8435,
+                "shortBuy": 47,
+                "shortSell": 99,
+                "shortStockRedemption": 0,
+                "shortPrevBalance": 88,
+                "shortBalance": 140,
+                "offsetting": 20,
+                "date": "2026-11-05"
+              }
+            },
+            {
+              "code": "2603",
+              "name": "長榮",
+              "market": "TW",
+              "assetType": "stock",
+              "weight": 0.3,
+              "shares": 4987000,
+              "open": 240.0,
+              "high": 249.0,
+              "low": 236.5,
+              "close": 246.5,
+              "prevClose": 259.0,
+              "change": -12.5,
+              "changePct": -4.83,
+              "amplitude": 4.83,
+              "volume": 17268314.0,
+              "quoteDate": "2026-11-06",
+              "inst": {
+                "foreign": -3972337,
+                "trust": 1217580,
+                "dealer": 902470,
+                "total": -1852287,
+                "date": "2026-11-06"
+              },
+              "margin": {
+                "marginBuy": 314,
+                "marginSell": 225,
+                "marginCashRedemption": 7,
+                "marginPrevBalance": 7547,
+                "marginBalance": 7629,
+                "shortBuy": 54,
+                "shortSell": 22,
+                "shortStockRedemption": 1,
+                "shortPrevBalance": 530,
+                "shortBalance": 497,
+                "offsetting": 3,
+                "date": "2026-11-05"
+              }
+            },
+            {
+              "code": "2395",
+              "name": "研華",
+              "market": "TW",
+              "assetType": "stock",
+              "weight": 0.29,
+              "shares": 2116538,
+              "open": 537.0,
+              "high": 561.0,
+              "low": 537.0,
+              "close": 552.0,
+              "prevClose": 596.0,
+              "change": -44.0,
+              "changePct": -7.38,
+              "amplitude": 4.03,
+              "volume": 6769005.0,
+              "quoteDate": "2026-11-06",
+              "inst": {
+                "foreign": -325410,
+                "trust": 60076,
+                "dealer": 193257,
+                "total": -72077,
+                "date": "2026-11-06"
+              },
+              "margin": {
+                "marginBuy": 45,
+                "marginSell": 59,
+                "marginCashRedemption": 1,
+                "marginPrevBalance": 1369,
+                "marginBalance": 1354,
+                "shortBuy": 14,
+                "shortSell": 8,
+                "shortStockRedemption": 0,
+                "shortPrevBalance": 32,
+                "shortBalance": 26,
+                "offsetting": 1,
+                "date": "2026-11-05"
+              }
+            },
+            {
+              "code": "3665",
+              "name": "貿聯-KY",
+              "market": "TW",
+              "assetType": "stock",
+              "weight": 0.27,
+              "shares": 820000,
+              "open": 1325.0,
+              "high": 1370.0,
+              "low": 1325.0,
+              "close": 1325.0,
+              "prevClose": 1470.0,
+              "change": -145.0,
+              "changePct": -9.86,
+              "amplitude": 3.06,
+              "volume": 5035764.0,
+              "quoteDate": "2026-11-06",
+              "inst": {
+                "foreign": -310016,
+                "trust": 73020,
+                "dealer": 94547,
+                "total": -142449,
+                "date": "2026-11-06"
+              },
+              "margin": {
+                "marginBuy": 170,
+                "marginSell": 405,
+                "marginCashRedemption": 1,
+                "marginPrevBalance": 4128,
+                "marginBalance": 3892,
+                "shortBuy": 3,
+                "shortSell": 3,
+                "shortStockRedemption": 0,
+                "shortPrevBalance": 4,
+                "shortBalance": 4,
+                "offsetting": 2,
+                "date": "2026-11-05"
+              }
+            },
+            {
+              "code": "2449",
+              "name": "京元電子",
+              "market": "TW",
+              "assetType": "stock",
+              "weight": 0.26,
+              "shares": 5241950,
+              "open": 206.0,
+              "high": 212.5,
+              "low": 206.0,
+              "close": 206.0,
+              "prevClose": 228.5,
+              "change": -22.5,
+              "changePct": -9.85,
+              "amplitude": 2.84,
+              "volume": 28179612.0,
+              "quoteDate": "2026-11-06",
+              "inst": {
+                "foreign": -8234284,
+                "trust": 92189,
+                "dealer": 368221,
+                "total": -7773874,
+                "date": "2026-11-06"
+              },
+              "margin": {
+                "marginBuy": 669,
+                "marginSell": 1299,
+                "marginCashRedemption": 81,
+                "marginPrevBalance": 25470,
+                "marginBalance": 24759,
+                "shortBuy": 83,
+                "shortSell": 56,
+                "shortStockRedemption": 0,
+                "shortPrevBalance": 215,
+                "shortBalance": 188,
+                "offsetting": 7,
+                "date": "2026-11-05"
+              }
+            },
+            {
+              "code": "",
+              "name": "2026/11台股指數期貨(FITXN*1.TF)",
+              "market": "",
+              "assetType": "future",
+              "weight": 0.25,
+              "quantity": 131.0,
+              "unit": "口",
+              "amount": null
+            },
+            {
+              "code": "8046",
+              "name": "南電",
+              "market": "TW",
+              "assetType": "stock",
+              "weight": 0.25,
+              "shares": 1150000,
+              "open": 875.0,
+              "high": 902.0,
+              "low": 875.0,
+              "close": 875.0,
+              "prevClose": 972.0,
+              "change": -97.0,
+              "changePct": -9.98,
+              "amplitude": 2.78,
+              "volume": 11924023.0,
+              "quoteDate": "2026-11-06",
+              "inst": {
+                "foreign": -107430,
+                "trust": 399185,
+                "dealer": 18741,
+                "total": 310496,
+                "date": "2026-11-06"
+              },
+              "margin": {
+                "marginBuy": 333,
+                "marginSell": 689,
+                "marginCashRedemption": 6,
+                "marginPrevBalance": 6288,
+                "marginBalance": 5926,
+                "shortBuy": 20,
+                "shortSell": 116,
+                "shortStockRedemption": 0,
+                "shortPrevBalance": 207,
+                "shortBalance": 303,
+                "offsetting": 6,
+                "date": "2026-11-05"
+              }
+            },
+            {
+              "code": "7769",
+              "name": "鴻勁",
+              "market": "TW",
+              "assetType": "stock",
+              "weight": 0.24,
+              "shares": 261000,
+              "open": 3585.0,
+              "high": 3800.0,
+              "low": 3585.0,
+              "close": 3675.0,
+              "prevClose": 3980.0,
+              "change": -305.0,
+              "changePct": -7.66,
+              "amplitude": 5.4,
+              "volume": 1699923.0,
+              "quoteDate": "2026-11-06",
+              "inst": {
+                "foreign": -218585,
+                "trust": 226079,
+                "dealer": 23881,
+                "total": 31375,
+                "date": "2026-11-06"
+              },
+              "margin": {
+                "marginBuy": 16,
+                "marginSell": 47,
+                "marginCashRedemption": 0,
+                "marginPrevBalance": 545,
+                "marginBalance": 514,
+                "shortBuy": 0,
+                "shortSell": 0,
+                "shortStockRedemption": 2,
+                "shortPrevBalance": 4,
+                "shortBalance": 2,
+                "offsetting": 1,
+                "date": "2026-11-05"
+              }
+            },
+            {
+              "code": "4904",
+              "name": "遠傳",
+              "market": "TW",
+              "assetType": "stock",
+              "weight": 0.22,
+              "shares": 8144506,
+              "open": 112.5,
+              "high": 112.5,
+              "low": 107.0,
+              "close": 112.0,
+              "prevClose": 112.5,
+              "change": -0.5,
+              "changePct": -0.44,
+              "amplitude": 4.89,
+              "volume": 11595321.0,
+              "quoteDate": "2026-11-06",
+              "inst": {
+                "foreign": -3340173,
+                "trust": 2834295,
+                "dealer": 1729133,
+                "total": 1223255,
+                "date": "2026-11-06"
+              },
+              "margin": {
+                "marginBuy": 46,
+                "marginSell": 16,
+                "marginCashRedemption": 0,
+                "marginPrevBalance": 263,
+                "marginBalance": 293,
+                "shortBuy": 3,
+                "shortSell": 6,
+                "shortStockRedemption": 0,
+                "shortPrevBalance": 17,
+                "shortBalance": 20,
+                "offsetting": 1,
+                "date": "2026-11-05"
+              }
+            },
+            {
+              "code": "3045",
+              "name": "台灣大",
+              "market": "TW",
+              "assetType": "stock",
+              "weight": 0.21,
+              "shares": 6487368,
+              "open": 130.0,
+              "high": 133.5,
+              "low": 128.5,
+              "close": 133.0,
+              "prevClose": 132.5,
+              "change": 0.5,
+              "changePct": 0.38,
+              "amplitude": 3.77,
+              "volume": 13687348.0,
+              "quoteDate": "2026-11-06",
+              "inst": {
+                "foreign": -2470740,
+                "trust": 2519235,
+                "dealer": 1187573,
+                "total": 1236068,
+                "date": "2026-11-06"
+              },
+              "margin": {
+                "marginBuy": 196,
+                "marginSell": 55,
+                "marginCashRedemption": 12,
+                "marginPrevBalance": 203,
+                "marginBalance": 332,
+                "shortBuy": 0,
+                "shortSell": 0,
+                "shortStockRedemption": 0,
+                "shortPrevBalance": 191,
+                "shortBalance": 191,
+                "offsetting": 0,
+                "date": "2026-11-05"
+              }
+            },
+            {
+              "code": "6505",
+              "name": "台塑化",
+              "market": "TW",
+              "assetType": "stock",
+              "weight": 0.11,
+              "shares": 5267203,
+              "open": 79.2,
+              "high": 86.8,
+              "low": 79.2,
+              "close": 85.7,
+              "prevClose": 87.9,
+              "change": -2.2,
+              "changePct": -2.5,
+              "amplitude": 8.65,
+              "volume": 42823762.0,
+              "quoteDate": "2026-11-06",
+              "inst": {
+                "foreign": 6445749,
+                "trust": -5517810,
+                "dealer": 281477,
+                "total": 1209416,
+                "date": "2026-11-06"
+              },
+              "margin": {
+                "marginBuy": 1114,
+                "marginSell": 913,
+                "marginCashRedemption": 8,
+                "marginPrevBalance": 7779,
+                "marginBalance": 7972,
+                "shortBuy": 256,
+                "shortSell": 140,
+                "shortStockRedemption": 0,
+                "shortPrevBalance": 594,
+                "shortBalance": 478,
+                "offsetting": 27,
+                "date": "2026-11-05"
+              }
+            }
+          ]
         }
       ],
       "dividends": [
@@ -1499975,7 +1503628,7 @@ window.DATA = {
           "大型權值"
         ],
         "source": "TWSE ETF e添富",
-        "fetchedAt": "2026-11-06T19:32:49+08:00",
+        "fetchedAt": "2026-11-06T20:32:41+08:00",
         "navHistory": [
           {
             "date": "2026-09-22",
@@ -1504838,7 +1508491,7 @@ window.DATA = {
         },
         {
           "date": "2026-11-06",
-          "fetched_at": "2026-11-06T19:31:14+08:00",
+          "fetched_at": "2026-11-06T20:31:26+08:00",
           "count": 3,
           "self": {
             "open": 24.44,
@@ -1504935,7 +1508588,7 @@ window.DATA = {
           "大型權值"
         ],
         "source": "TWSE ETF e添富",
-        "fetchedAt": "2026-11-06T19:32:49+08:00",
+        "fetchedAt": "2026-11-06T20:32:41+08:00",
         "navHistory": [
           {
             "date": "2026-09-22",
@@ -1544263,7 +1547916,7 @@ window.DATA = {
         },
         {
           "date": "2026-11-05",
-          "fetched_at": "2026-11-06T19:31:13+08:00",
+          "fetched_at": "2026-11-06T20:31:26+08:00",
           "count": 31,
           "self": {
             "open": 74.4,
@@ -1544904,11 +1548557,11 @@ window.DATA = {
         "fundSizeHundredMillion": 732.63,
         "beneficiaryTenThousands": 19.56,
         "tags": [
-          "科技主題型",
-          "大型權值"
+          "大型權值",
+          "科技主題型"
         ],
         "source": "TWSE ETF e添富",
-        "fetchedAt": "2026-11-06T19:32:48+08:00",
+        "fetchedAt": "2026-11-06T20:32:40+08:00",
         "navHistory": [
           {
             "date": "2026-09-22",
