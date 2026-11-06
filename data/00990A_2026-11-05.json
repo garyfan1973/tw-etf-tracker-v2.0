@@ -1,6 +1,6 @@
 {
   "date": "2026-11-05",
-  "fetched_at": "2026-11-06T23:30:51+08:00",
+  "fetched_at": "2026-11-07T05:20:48+08:00",
   "count": 37,
   "self": {
     "open": 13.3,
@@ -51,7 +51,7 @@
       "change": -19.87,
       "changePct": -3.58,
       "amplitude": 4.49,
-      "volume": 42355300,
+      "volume": 42507900,
       "currency": "USD",
       "quoteDate": "2026-11-05"
     },
@@ -70,7 +70,7 @@
       "change": -18.53,
       "changePct": -9.26,
       "amplitude": 7.39,
-      "volume": 303158900,
+      "volume": 306127800,
       "currency": "USD",
       "quoteDate": "2026-11-05"
     },
@@ -89,7 +89,7 @@
       "change": -32.88,
       "changePct": -16.41,
       "amplitude": 16.37,
-      "volume": 37102400,
+      "volume": 37634000,
       "currency": "USD",
       "quoteDate": "2026-11-05"
     },
@@ -108,7 +108,7 @@
       "change": -16.71,
       "changePct": -9.73,
       "amplitude": 8.53,
-      "volume": 49779900,
+      "volume": 50014300,
       "currency": "USD",
       "quoteDate": "2026-11-05"
     },
@@ -127,7 +127,7 @@
       "change": -84.38,
       "changePct": -17.26,
       "amplitude": 11.07,
-      "volume": 70453900,
+      "volume": 71237400,
       "currency": "USD",
       "quoteDate": "2026-11-05"
     },
@@ -146,7 +146,7 @@
       "change": -5.82,
       "changePct": -2.19,
       "amplitude": 7.88,
-      "volume": 85365600,
+      "volume": 85796800,
       "currency": "USD",
       "quoteDate": "2026-11-05"
     },
@@ -165,7 +165,7 @@
       "change": -24.92,
       "changePct": -3.96,
       "amplitude": 8.13,
-      "volume": 28514900,
+      "volume": 28676200,
       "currency": "USD",
       "quoteDate": "2026-11-05"
     },
@@ -184,7 +184,7 @@
       "change": -6.36,
       "changePct": -2.2,
       "amplitude": 6.41,
-      "volume": 53043900,
+      "volume": 53412800,
       "currency": "USD",
       "quoteDate": "2026-11-05"
     },
@@ -203,7 +203,7 @@
       "change": -9.28,
       "changePct": -6.06,
       "amplitude": 9.44,
-      "volume": 12210500,
+      "volume": 12231200,
       "currency": "USD",
       "quoteDate": "2026-11-05"
     },
@@ -261,7 +261,7 @@
       "change": -23.8,
       "changePct": -9.88,
       "amplitude": 7.75,
-      "volume": 17764500,
+      "volume": 17832200,
       "currency": "USD",
       "quoteDate": "2026-11-05"
     },
@@ -299,7 +299,7 @@
       "change": -12.3,
       "changePct": -9.05,
       "amplitude": 8.45,
-      "volume": 169197900,
+      "volume": 171356200,
       "currency": "USD",
       "quoteDate": "2026-11-05"
     },
@@ -375,7 +375,7 @@
       "change": -5.34,
       "changePct": -1.53,
       "amplitude": 3.81,
-      "volume": 75457100,
+      "volume": 75678900,
       "currency": "USD",
       "quoteDate": "2026-11-05"
     },
@@ -394,7 +394,7 @@
       "change": -21.06,
       "changePct": -7.25,
       "amplitude": 4.42,
-      "volume": 8058800,
+      "volume": 8071800,
       "currency": "USD",
       "quoteDate": "2026-11-05"
     },
@@ -452,7 +452,7 @@
       "change": -138.84,
       "changePct": -17.46,
       "amplitude": 14.06,
-      "volume": 76740500,
+      "volume": 77872700,
       "currency": "USD",
       "quoteDate": "2026-11-05"
     },
@@ -549,7 +549,7 @@
       "change": -22.07,
       "changePct": -8.28,
       "amplitude": 7.06,
-      "volume": 8463400,
+      "volume": 8594300,
       "currency": "USD",
       "quoteDate": "2026-11-05"
     },
@@ -587,7 +587,7 @@
       "change": -33.95,
       "changePct": -10.43,
       "amplitude": 7.34,
-      "volume": 53594200,
+      "volume": 53835500,
       "currency": "USD",
       "quoteDate": "2026-11-05"
     },
@@ -645,7 +645,7 @@
       "change": -41.5,
       "changePct": -10.77,
       "amplitude": 9.38,
-      "volume": 79133000,
+      "volume": 79675500,
       "currency": "USD",
       "quoteDate": "2026-11-05"
     },
@@ -760,7 +760,7 @@
       "change": -19.32,
       "changePct": -10.82,
       "amplitude": 7.51,
-      "volume": 14821900,
+      "volume": 14856900,
       "currency": "USD",
       "quoteDate": "2026-11-05"
     },
