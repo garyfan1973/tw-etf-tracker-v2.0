@@ -1,6 +1,6 @@
 {
   "date": "2026-11-06",
-  "fetched_at": "2026-11-06T17:30:59+08:00",
+  "fetched_at": "2026-11-06T19:31:00+08:00",
   "count": 54,
   "self": {
     "open": 10.78,
@@ -888,10 +888,10 @@
       "high": 63.02,
       "low": 62.12,
       "close": 62.24,
-      "prevClose": 62.4,
-      "change": -0.16,
-      "changePct": -0.26,
-      "amplitude": 1.44,
+      "prevClose": 63.0,
+      "change": -0.76,
+      "changePct": -1.21,
+      "amplitude": 1.43,
       "volume": 8725,
       "currency": "HKD",
       "quoteDate": "2026-11-06",
