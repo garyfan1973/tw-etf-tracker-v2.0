@@ -261,16 +261,30 @@ import { createClient } from "https://cdn.jsdelivr.net/npm/@supabase/supabase-js
     let captchaWidget = null;
     let captchaToken = "";
     const close = () => (m.style.display = "none");
+    const resetCaptcha = () => {
+      captchaToken = "";
+      if (captchaWidget !== null && window.turnstile) window.turnstile.reset(captchaWidget);
+    };
     m.querySelector("#authClose").onclick = close;
     m.onclick = (e) => { if (e.target === m) close(); };
 
     m.querySelector("#authLogin").onclick = async () => {
+      if (!captchaToken) {
+        msg.style.color = "var(--up)"; msg.textContent = "請先完成 CAPTCHA 驗證。"; return;
+      }
       msg.style.color = "var(--muted)"; msg.textContent = "登入中…";
-      const { error } = await sb.auth.signInWithPassword({
-        email: email.value.trim(), password: pass.value,
-      });
-      if (error) { msg.style.color = "var(--up)"; msg.textContent = "登入失敗：" + error.message; }
-      else close();
+      try {
+        const { error } = await sb.auth.signInWithPassword({
+          email: email.value.trim(), password: pass.value,
+          options: { captchaToken },
+        });
+        if (error) { msg.style.color = "var(--up)"; msg.textContent = "登入失敗：" + error.message; }
+        else close();
+      } catch (error) {
+        msg.style.color = "var(--up)"; msg.textContent = "登入失敗：" + (error.message || "網路或服務暫時無法連線");
+      } finally {
+        resetCaptcha();
+      }
     };
     m.querySelector("#authSignup").onclick = async () => {
       if (!window.SUPABASE_CAPTCHA_SITE_KEY) {
@@ -280,17 +294,19 @@ import { createClient } from "https://cdn.jsdelivr.net/npm/@supabase/supabase-js
         msg.style.color = "var(--up)"; msg.textContent = "請先完成 CAPTCHA 驗證。"; return;
       }
       msg.style.color = "var(--muted)"; msg.textContent = "註冊中…";
-      const { data, error } = await sb.auth.signUp({
-        email: email.value.trim(), password: pass.value,
-        options: { captchaToken },
-      });
-      if (error) {
-        msg.style.color = "var(--up)"; msg.textContent = "註冊失敗：" + error.message;
-        if (captchaWidget !== null && window.turnstile) window.turnstile.reset(captchaWidget);
-        captchaToken = "";
+      try {
+        const { data, error } = await sb.auth.signUp({
+          email: email.value.trim(), password: pass.value,
+          options: { captchaToken },
+        });
+        if (error) { msg.style.color = "var(--up)"; msg.textContent = "註冊失敗：" + error.message; }
+        else if (data.session) close();  // 未開驗證信 → 直接登入
+        else { msg.style.color = "var(--down)"; msg.textContent = "註冊成功，請至信箱收驗證信後再登入。"; }
+      } catch (error) {
+        msg.style.color = "var(--up)"; msg.textContent = "註冊失敗：" + (error.message || "網路或服務暫時無法連線");
+      } finally {
+        resetCaptcha();
       }
-      else if (data.session) close();  // 未開驗證信 → 直接登入
-      else { msg.style.color = "var(--down)"; msg.textContent = "註冊成功，請至信箱收驗證信後再登入。"; }
     };
 
     async function renderCaptcha() {
