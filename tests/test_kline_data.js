@@ -36,3 +36,14 @@ test("daily change keeps valid explicit zero values", () => {
 
   assert.deepEqual(window.TechnicalChartCore.dailyChange(rows), { change:0, changePct:0 });
 });
+
+test("daily history takes precedence over an incorrect zero quote snapshot", () => {
+  const rows = [
+    { date:"2026-11-05", close:12.06 },
+    { date:"2026-11-06", close:11.18, change:0, changePct:0, prevClose:11.18 },
+  ];
+
+  const quote = window.TechnicalChartCore.dailyChange(rows);
+  assert.ok(Math.abs(quote.change - (-0.88)) < 1e-9);
+  assert.ok(Math.abs(quote.changePct - (-7.296849088)) < 1e-6);
+});
