@@ -29,6 +29,33 @@ class MarketMarginTests(unittest.TestCase):
         self.assertEqual(row["shortBalanceLots"], 246812)
         self.assertEqual(row["shortDeltaLots"], -11149)
 
+    def test_estimates_listed_market_maintenance_ratio_from_balances_and_closes(self):
+        margin_payload = report(amount_now="1,000,000")
+        margin_payload["tables"].append({
+            "fields": ["代號", "今日餘額"],
+            "data": [["2330", "1,000"], ["0050", "2,000"]],
+        })
+        quote_payload = {
+            "stat": "OK", "date": "20261104",
+            "tables": [{"fields": ["證券代號", "收盤價"], "data": [["2330", "10"], ["0050", "20"]]}],
+        }
+        estimate = markets.parse_twse_market_maintenance_ratio(margin_payload, quote_payload, "2026-11-04")
+        self.assertEqual(estimate["maintenanceRatioEstimate"], 5.0)
+        self.assertEqual(estimate["maintenanceCoveragePct"], 100.0)
+
+    def test_does_not_estimate_when_price_coverage_is_too_low(self):
+        margin_payload = report(amount_now="1,000,000")
+        margin_payload["tables"].append({
+            "fields": ["代號", "今日餘額"],
+            "data": [["2330", "100"], ["0050", "9,900"]],
+        })
+        quote_payload = {
+            "stat": "OK", "date": "20261104",
+            "tables": [{"fields": ["證券代號", "收盤價"], "data": [["2330", "10"]]}],
+        }
+        with self.assertRaises(ValueError):
+            markets.parse_twse_market_maintenance_ratio(margin_payload, quote_payload, "2026-11-04")
+
     def test_rejects_wrong_date_and_incomplete_summary(self):
         with self.assertRaises(ValueError):
             markets.parse_twse_market_margin(report("20261103"), "2026-11-04")
@@ -42,7 +69,12 @@ class MarketMarginTests(unittest.TestCase):
         with patch.object(markets, "read_url", side_effect=OSError("offline")):
             result = markets.update_twse_market_margin({"rows": [old]}, ["2026-11-04"])
         self.assertEqual(result["rows"], [old])
-        with patch.object(markets, "read_url", return_value=json.dumps(report())):
+        refreshed_payload = report()
+        refreshed_payload["tables"].append({"fields": ["代號", "今日餘額"], "data": [["0050", "1,000"]]})
+        quote_payload = {"stat": "OK", "date": "20261104", "tables": [{
+            "fields": ["證券代號", "收盤價"], "data": [["0050", "50"]],
+        }]}
+        with patch.object(markets, "read_url", side_effect=[json.dumps(refreshed_payload), json.dumps(quote_payload)]):
             refreshed = markets.update_twse_market_margin({"rows": [old]}, ["2026-11-04"])
         self.assertEqual(refreshed["rows"][0]["marginBalanceThousandTwd"], 596945870)
 

@@ -20,7 +20,8 @@ TREASURY_CSV = "https://home.treasury.gov/resource-center/data-chart-center/inte
 TWSE_MARKET_STATISTICS = "https://www.twse.com.tw/rwd/zh/afterTrading/FMTQIK?date={date}&response=json"
 TWSE_INDEX_SNAPSHOT = "https://openapi.twse.com.tw/v1/exchangeReport/MI_INDEX"
 TWSE_BREADTH = "https://www.twse.com.tw/rwd/zh/afterTrading/MI_INDEX?date={date}&type=MS&response=json"
-TWSE_MARKET_MARGIN = "https://www.twse.com.tw/exchangeReport/MI_MARGN?date={date}&selectType=MS&response=json"
+TWSE_ALL_MARGIN = "https://www.twse.com.tw/exchangeReport/MI_MARGN?date={date}&selectType=ALL&response=json"
+TWSE_ALL_QUOTES = "https://www.twse.com.tw/rwd/zh/afterTrading/MI_INDEX?date={date}&type=ALLBUT0999&response=json"
 TPEX_INDEX_SNAPSHOT = "https://www.tpex.org.tw/www/zh-tw/afterTrading/indexSummary?date=&response=json"
 USER_AGENT = "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36"
 US_MARKET_TIMEZONE = ZoneInfo("America/New_York")
@@ -490,6 +491,68 @@ def parse_twse_market_margin(payload, date):
     raise ValueError("TWSE market margin summary is incomplete")
 
 
+def parse_twse_market_maintenance_ratio(margin_payload, quote_payload, date):
+    """Estimate listed-market maintenance ratio from financed shares and closes.
+
+    This is a market-level proxy, not the actual account-level ratio used by
+    brokers. The latter includes each account's real loan principal, short
+    positions, and collateral.
+    """
+    expected_date = date.replace("-", "")
+    for payload, label in ((margin_payload, "margin"), (quote_payload, "quote")):
+        if payload.get("stat") != "OK" or payload.get("date") != expected_date:
+            raise ValueError("TWSE {} date mismatch or unavailable".format(label))
+
+    margin_row = parse_twse_market_margin(margin_payload, date)
+    margin_table = next((table for table in margin_payload.get("tables", [])
+                         if "代號" in (table.get("fields") or [])
+                         and "今日餘額" in (table.get("fields") or [])), None)
+    quote_table = next((table for table in quote_payload.get("tables", [])
+                        if "證券代號" in (table.get("fields") or [])
+                        and "收盤價" in (table.get("fields") or [])), None)
+    if not margin_table or not quote_table:
+        raise ValueError("TWSE per-security margin or quote table missing")
+
+    margin_fields, quote_fields = margin_table["fields"], quote_table["fields"]
+    code_idx, balance_idx = margin_fields.index("代號"), margin_fields.index("今日餘額")
+    quote_code_idx, close_idx = quote_fields.index("證券代號"), quote_fields.index("收盤價")
+    closes = {}
+    for row in quote_table.get("data", []):
+        if len(row) <= max(quote_code_idx, close_idx):
+            continue
+        close = number(str(row[close_idx]).replace(",", ""))
+        if close is not None and close > 0:
+            closes[str(row[quote_code_idx]).strip()] = close
+
+    total_balance_lots = covered_balance_lots = market_value_twd = 0
+    for row in margin_table.get("data", []):
+        if len(row) <= max(code_idx, balance_idx):
+            continue
+        code = str(row[code_idx]).strip()
+        if not re.fullmatch(r"\d{4,6}", code):
+            continue
+        try:
+            balance_lots = int(str(row[balance_idx]).replace(",", ""))
+        except (TypeError, ValueError):
+            continue
+        if balance_lots <= 0:
+            continue
+        total_balance_lots += balance_lots
+        close = closes.get(code)
+        if close is not None:
+            covered_balance_lots += balance_lots
+            market_value_twd += balance_lots * 1000 * close
+
+    coverage_pct = covered_balance_lots / total_balance_lots * 100 if total_balance_lots else 0
+    financing_balance_twd = margin_row["marginBalanceThousandTwd"] * 1000
+    if financing_balance_twd <= 0 or coverage_pct < 95:
+        raise ValueError("TWSE listed-market margin data price coverage is incomplete")
+    return {
+        "maintenanceRatioEstimate": round(market_value_twd / financing_balance_twd * 100, 2),
+        "maintenanceCoveragePct": round(coverage_pct, 2),
+    }
+
+
 def update_twse_market_margin(previous, trading_dates):
     dates = sorted(set(trading_dates))[-90:]
     old_rows = {row["date"]: row for row in (previous or {}).get("rows", []) if row.get("date") in dates}
@@ -499,8 +562,11 @@ def update_twse_market_margin(previous, trading_dates):
             rows.append(old_rows[date])
             continue
         try:
-            payload = json.loads(read_url(TWSE_MARKET_MARGIN.format(date=date.replace("-", "")), retries=2))
-            rows.append(parse_twse_market_margin(payload, date))
+            payload = json.loads(read_url(TWSE_ALL_MARGIN.format(date=date.replace("-", "")), retries=2))
+            row = parse_twse_market_margin(payload, date)
+            quote_payload = json.loads(read_url(TWSE_ALL_QUOTES.format(date=date.replace("-", "")), retries=2))
+            row.update(parse_twse_market_maintenance_ratio(payload, quote_payload, date))
+            rows.append(row)
         except (OSError, ValueError, KeyError, TypeError) as error:
             if date in old_rows:
                 rows.append(old_rows[date])

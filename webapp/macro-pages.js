@@ -121,9 +121,10 @@
     date.textContent=`證交所信用交易統計・資料日 ${margin.asOf||latest.date}`;
     summary.innerHTML=`<div class="market-margin-card"><span>融資金額餘額</span><strong>${amount(latest.marginBalanceThousandTwd)} 億元</strong><small>當日增減 ${change(latest.marginDeltaThousandTwd,amount)} 億元</small></div>`+
       `<div class="market-margin-card"><span>融資張數餘額</span><strong>${number(latest.marginBalanceLots,0)} 張</strong><small>當日增減 ${change(latest.marginDeltaLots,value=>number(value,0))} 張</small></div>`+
-      `<div class="market-margin-card"><span>融券張數餘額</span><strong>${number(latest.shortBalanceLots,0)} 張</strong><small>當日增減 ${change(latest.shortDeltaLots,value=>number(value,0))} 張</small></div>`;
-    table.innerHTML='<table><thead><tr><th>交易日</th><th>融資金額（億元）</th><th>當日增減（億元）</th><th>融券餘額（張）</th><th>當日增減（張）</th></tr></thead><tbody>'+
-      rows.slice(-10).reverse().map(row=>`<tr><td>${esc(row.date)}</td><td>${amount(row.marginBalanceThousandTwd)}</td><td class="${tone(row.marginDeltaThousandTwd)}">${signed(row.marginDeltaThousandTwd,amount)}</td><td>${number(row.shortBalanceLots,0)}</td><td class="${tone(row.shortDeltaLots)}">${signed(row.shortDeltaLots,value=>number(value,0))}</td></tr>`).join("")+'</tbody></table>';
+      `<div class="market-margin-card"><span>融券張數餘額</span><strong>${number(latest.shortBalanceLots,0)} 張</strong><small>當日增減 ${change(latest.shortDeltaLots,value=>number(value,0))} 張</small></div>`+
+      `<div class="market-margin-card market-maintenance-card"><span>上市大盤融資維持率（估算）</span><strong>${latest.maintenanceRatioEstimate==null?"—":`${number(latest.maintenanceRatioEstimate,2)}%`}</strong><small>${latest.maintenanceCoveragePct==null?"尚無可用估算資料":`收盤價涵蓋 ${number(latest.maintenanceCoveragePct,1)}% 融資餘額`}</small></div>`;
+    table.innerHTML='<table><thead><tr><th>交易日</th><th>融資金額（億元）</th><th>當日增減（億元）</th><th>融券餘額（張）</th><th>當日增減（張）</th><th>融資維持率估算</th></tr></thead><tbody>'+
+      rows.slice(-10).reverse().map(row=>`<tr><td>${esc(row.date)}</td><td>${amount(row.marginBalanceThousandTwd)}</td><td class="${tone(row.marginDeltaThousandTwd)}">${signed(row.marginDeltaThousandTwd,amount)}</td><td>${number(row.shortBalanceLots,0)}</td><td class="${tone(row.shortDeltaLots)}">${signed(row.shortDeltaLots,value=>number(value,0))}</td><td>${row.maintenanceRatioEstimate==null?"—":`${number(row.maintenanceRatioEstimate,2)}%`}</td></tr>`).join("")+'</tbody></table>';
     let metric="amount",days=20,chartView=null;
     function renderChart(){
       document.querySelectorAll("[data-margin-metric]").forEach(button=>button.classList.toggle("active",button.dataset.marginMetric===metric));

@@ -35,7 +35,7 @@
 .market-margin-head h2{margin:3px 0 4px;font-size:21px}
 .market-margin-head p,.market-margin-note{margin:0;color:var(--muted);font-size:11px;line-height:1.6}
 .market-margin-head a{color:var(--accent);font-size:12px;font-weight:700;text-decoration:none;white-space:nowrap}
-.market-margin-summary{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:10px;margin:17px 0}
+.market-margin-summary{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:10px;margin:17px 0}
 .market-margin-card{padding:14px;border:1px solid var(--border);border-radius:11px;background:var(--bg)}
 .market-margin-card span,.market-margin-card small{display:block;color:var(--muted);font-size:11px}
 .market-margin-card strong{display:block;margin:5px 0;font-size:23px;font-variant-numeric:tabular-nums}
@@ -53,6 +53,7 @@
 .market-margin-table th{color:var(--muted);font-weight:700}
 .market-margin-table td.up{color:var(--up)}.market-margin-table td.down{color:var(--down)}
 .market-margin-note{margin-top:12px}
+.market-maintenance-card{border-color:color-mix(in srgb,var(--accent) 35%,var(--border));background:color-mix(in srgb,var(--accent) 5%,var(--bg))}
 @media(max-width:680px){.market-margin-head{flex-direction:column;gap:7px}.market-margin-summary{grid-template-columns:1fr}.market-margin-card strong{font-size:20px}.market-margin-chart{min-height:260px}.market-margin-chart .interactive-chart{min-height:260px}}
 .video-channel-section.is-pinned{border-color:color-mix(in srgb,var(--accent) 45%,var(--border));background:linear-gradient(145deg,color-mix(in srgb,var(--accent) 6%,var(--card)),var(--card) 50%)}.video-pin{display:inline-flex;margin-left:7px;padding:2px 6px;border-radius:999px;background:var(--soft);color:var(--accent);font-size:9px;vertical-align:middle}
 
