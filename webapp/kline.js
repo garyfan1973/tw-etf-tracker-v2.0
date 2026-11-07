@@ -853,9 +853,8 @@
     if (window.MarketChart) { window.MarketChart.currentAsset = { ...info }; window.MarketChart.currentRows = currentRows.slice(); }
     if (ownershipPayload && ownershipRequestKey === `${info.symbol}|${info.market}|${info.assetType}`) renderOwnershipPanel(ownershipPayload,name,currentRows);
     if ($("chartQuote") && currentRows.length) {
-      const latest = currentRows.at(-1), previous = currentRows.at(-2), reference = Number.isFinite(Number(latest.prevClose)) ? Number(latest.prevClose) : Number(previous?.close);
-      const change = Number.isFinite(Number(latest.change)) ? Number(latest.change) : Number.isFinite(reference) ? Number(latest.close) - reference : null;
-      const changePct = Number.isFinite(Number(latest.changePct)) ? Number(latest.changePct) : reference && change != null ? change / reference * 100 : null;
+      const latest = currentRows.at(-1), quote = window.TechnicalChartCore?.dailyChange(currentRows) || { change:null, changePct:null };
+      const { change, changePct } = quote;
       const tone = change > 0 ? "price-up" : change < 0 ? "price-down" : "";
       const arrow = change > 0 ? "▲" : change < 0 ? "▼" : "";
       $("chartQuote").innerHTML = `<span class="price ${tone}">${price(latest.close)}</span><span class="change ${tone}">${arrow} ${change == null ? "—" : `${change >= 0 ? "+" : ""}${price(change)}`}　${changePct == null ? "—" : `${changePct >= 0 ? "+" : ""}${changePct.toFixed(2)}%`}</span>`;
