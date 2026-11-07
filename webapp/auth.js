@@ -237,7 +237,8 @@ import { createClient } from "https://cdn.jsdelivr.net/npm/@supabase/supabase-js
     const m = document.createElement("div");
     m.id = "authModal";
     m.style.cssText =
-      "display:none;position:fixed;inset:0;background:rgba(0,0,0,.45);z-index:100;align-items:center;justify-content:center;";
+      // Keep the login dialog above the site-wide membership gate (z-index: 9999).
+      "display:none;position:fixed;inset:0;background:rgba(0,0,0,.45);z-index:10000;align-items:center;justify-content:center;";
     m.innerHTML =
       '<div style="background:var(--card);color:var(--text);border:1px solid var(--border);border-radius:14px;padding:20px;width:320px;max-width:92vw;">' +
       '<div style="font-size:16px;font-weight:700;margin-bottom:12px;">會員登入 / 註冊</div>' +
