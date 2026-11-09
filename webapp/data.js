@@ -1,5 +1,5 @@
 window.DATA = {
-  "generated_at": "2026-11-09T23:31:32+08:00",
+  "generated_at": "2026-11-10T05:25:30+08:00",
   "etfs": {
     "00981A": {
       "name": "主動統一台股增長",
@@ -123788,7 +123788,7 @@ window.DATA = {
         },
         {
           "date": "2026-11-09",
-          "fetched_at": "2026-11-09T23:30:31+08:00",
+          "fetched_at": "2026-11-10T05:20:46+08:00",
           "count": 51,
           "self": {
             "open": 22.18,
@@ -125752,13 +125752,13 @@ window.DATA = {
         "securityType": "主動式ETF",
         "issuer": "統一證券投資信託股份有限公司",
         "index": "臺灣證券交易所發行量加權股價報酬指數",
-        "fundSizeHundredMillion": 2332.95,
+        "fundSizeHundredMillion": 2542.0,
         "beneficiaryTenThousands": 100.24,
         "tags": [
           "大型權值"
         ],
         "source": "TWSE ETF e添富",
-        "fetchedAt": "2026-11-09T23:31:23+08:00",
+        "fetchedAt": "2026-11-10T05:25:27+08:00",
         "navHistory": [
           {
             "date": "2026-09-29",
@@ -263915,7 +263915,7 @@ window.DATA = {
         },
         {
           "date": "2026-11-09",
-          "fetched_at": "2026-11-09T23:30:31+08:00",
+          "fetched_at": "2026-11-10T05:21:01+08:00",
           "count": 58,
           "self": {
             "open": 17.15,
@@ -266167,14 +266167,14 @@ window.DATA = {
         "securityType": "主動式ETF",
         "issuer": "群益證券投資信託股份有限公司",
         "index": "無",
-        "fundSizeHundredMillion": 390.25,
+        "fundSizeHundredMillion": 421.73,
         "beneficiaryTenThousands": 18.0,
         "tags": [
           "中小型權值",
           "大型權值"
         ],
         "source": "TWSE ETF e添富",
-        "fetchedAt": "2026-11-09T23:31:24+08:00",
+        "fetchedAt": "2026-11-10T05:25:27+08:00",
         "navHistory": [
           {
             "date": "2026-09-29",
@@ -338024,7 +338024,7 @@ window.DATA = {
         },
         {
           "date": "2026-11-06",
-          "fetched_at": "2026-11-09T23:30:43+08:00",
+          "fetched_at": "2026-11-10T05:21:28+08:00",
           "count": 37,
           "self": {
             "open": 12.0,
@@ -438622,7 +438622,7 @@ window.DATA = {
         },
         {
           "date": "2026-11-09",
-          "fetched_at": "2026-11-09T23:30:44+08:00",
+          "fetched_at": "2026-11-10T05:21:43+08:00",
           "count": 43,
           "self": {
             "open": 12.97,
@@ -562720,7 +562720,7 @@ window.DATA = {
         },
         {
           "date": "2026-11-09",
-          "fetched_at": "2026-11-09T23:30:44+08:00",
+          "fetched_at": "2026-11-10T05:21:59+08:00",
           "count": 54,
           "self": {
             "open": 11.52,
@@ -563617,17 +563617,17 @@ window.DATA = {
               "assetType": "stock",
               "weight": 1.39,
               "shares": 236000,
-              "open": 62.96,
-              "high": 62.96,
-              "low": 62.64,
-              "close": 62.78,
-              "prevClose": 62.24,
-              "change": 0.54,
-              "changePct": 0.87,
-              "amplitude": 0.51,
-              "volume": 1775,
+              "open": 63.0,
+              "high": 63.02,
+              "low": 62.12,
+              "close": 62.24,
+              "prevClose": 63.0,
+              "change": -0.76,
+              "changePct": -1.21,
+              "amplitude": 1.43,
+              "volume": 8600,
               "currency": "HKD",
-              "quoteDate": "2026-11-09",
+              "quoteDate": "2026-11-06",
               "inst": {
                 "foreign": 13411,
                 "trust": 4091,
@@ -694179,7 +694179,7 @@ window.DATA = {
         },
         {
           "date": "2026-11-09",
-          "fetched_at": "2026-11-09T23:30:44+08:00",
+          "fetched_at": "2026-11-10T05:22:14+08:00",
           "count": 52,
           "self": {
             "open": 95.65,
@@ -880666,7 +880666,7 @@ window.DATA = {
         },
         {
           "date": "2026-11-09",
-          "fetched_at": "2026-11-09T23:30:44+08:00",
+          "fetched_at": "2026-11-10T05:22:31+08:00",
           "count": 74,
           "self": {
             "open": 54.9,
@@ -1012285,7 +1012285,7 @@ window.DATA = {
         },
         {
           "date": "2026-11-09",
-          "fetched_at": "2026-11-09T23:30:45+08:00",
+          "fetched_at": "2026-11-10T05:22:46+08:00",
           "count": 51,
           "self": {
             "open": 50.8,
@@ -1090680,7 +1090680,7 @@ window.DATA = {
         },
         {
           "date": "2026-11-09",
-          "fetched_at": "2026-11-09T23:30:45+08:00",
+          "fetched_at": "2026-11-10T05:23:02+08:00",
           "count": 30,
           "self": {
             "open": 32.35,
@@ -1169490,7 +1169490,7 @@ window.DATA = {
         },
         {
           "date": "2026-11-09",
-          "fetched_at": "2026-11-09T23:30:45+08:00",
+          "fetched_at": "2026-11-10T05:23:17+08:00",
           "count": 31,
           "self": {
             "open": 41.25,
@@ -1273330,7 +1273330,7 @@ window.DATA = {
         },
         {
           "date": "2026-11-09",
-          "fetched_at": "2026-11-09T23:30:45+08:00",
+          "fetched_at": "2026-11-10T05:23:33+08:00",
           "count": 41,
           "self": {
             "open": 30.34,
@@ -1400966,7 +1400966,7 @@ window.DATA = {
         },
         {
           "date": "2026-11-09",
-          "fetched_at": "2026-11-09T23:30:45+08:00",
+          "fetched_at": "2026-11-10T05:23:48+08:00",
           "count": 50,
           "self": {
             "open": 34.56,
@@ -1525181,7 +1525181,7 @@ window.DATA = {
         },
         {
           "date": "2026-11-09",
-          "fetched_at": "2026-11-09T23:30:53+08:00",
+          "fetched_at": "2026-11-10T05:24:26+08:00",
           "count": 51,
           "self": {
             "open": 217.8,
@@ -1532180,7 +1532180,7 @@ window.DATA = {
         },
         {
           "date": "2026-11-09",
-          "fetched_at": "2026-11-09T23:30:53+08:00",
+          "fetched_at": "2026-11-10T05:24:41+08:00",
           "count": 3,
           "self": {
             "open": 27.78,
@@ -1572226,7 +1572226,7 @@ window.DATA = {
         },
         {
           "date": "2026-11-06",
-          "fetched_at": "2026-11-09T23:30:52+08:00",
+          "fetched_at": "2026-11-10T05:24:10+08:00",
           "count": 31,
           "self": {
             "open": 66.9,

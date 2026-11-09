@@ -4,13 +4,13 @@
     "securityType": "主動式ETF",
     "issuer": "統一證券投資信託股份有限公司",
     "index": "臺灣證券交易所發行量加權股價報酬指數",
-    "fundSizeHundredMillion": 2332.95,
+    "fundSizeHundredMillion": 2542.0,
     "beneficiaryTenThousands": 100.24,
     "tags": [
       "大型權值"
     ],
     "source": "TWSE ETF e添富",
-    "fetchedAt": "2026-11-09T23:31:23+08:00",
+    "fetchedAt": "2026-11-10T05:25:27+08:00",
     "navHistory": [
       {
         "date": "2026-09-29",
@@ -154,14 +154,14 @@
     "securityType": "主動式ETF",
     "issuer": "群益證券投資信託股份有限公司",
     "index": "無",
-    "fundSizeHundredMillion": 390.25,
+    "fundSizeHundredMillion": 421.73,
     "beneficiaryTenThousands": 18.0,
     "tags": [
       "中小型權值",
       "大型權值"
     ],
     "source": "TWSE ETF e添富",
-    "fetchedAt": "2026-11-09T23:31:24+08:00",
+    "fetchedAt": "2026-11-10T05:25:27+08:00",
     "navHistory": [
       {
         "date": "2026-09-29",
