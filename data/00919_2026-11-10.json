@@ -1,6 +1,6 @@
 {
   "date": "2026-11-10",
-  "fetched_at": "2026-11-10T17:31:59+08:00",
+  "fetched_at": "2026-11-10T18:31:22+08:00",
   "count": 41,
   "self": {
     "open": 31.27,
@@ -38,7 +38,7 @@
       "change": -0.5,
       "changePct": -0.33,
       "amplitude": 3.58,
-      "volume": 18998632.0,
+      "volume": 19383632.0,
       "quoteDate": "2026-11-10",
       "inst": {
         "foreign": 193024,
@@ -116,7 +116,7 @@
       "change": -2.2,
       "changePct": -2.9,
       "amplitude": 3.56,
-      "volume": 36917627.0,
+      "volume": 37205627.0,
       "quoteDate": "2026-11-10",
       "inst": {
         "foreign": -9754496,
@@ -233,7 +233,7 @@
       "change": 24.0,
       "changePct": 2.79,
       "amplitude": 5.0,
-      "volume": 2972339.0,
+      "volume": 3028339.0,
       "quoteDate": "2026-11-10",
       "inst": {
         "foreign": 221847,
