@@ -1,5 +1,5 @@
 window.DATA = {
-  "generated_at": "2026-11-10T23:31:52+08:00",
+  "generated_at": "2026-11-11T05:21:27+08:00",
   "etfs": {
     "00981A": {
       "name": "主動統一台股增長",
@@ -125725,7 +125725,7 @@ window.DATA = {
         },
         {
           "date": "2026-11-10",
-          "fetched_at": "2026-11-10T23:30:30+08:00",
+          "fetched_at": "2026-11-11T05:20:24+08:00",
           "count": 51,
           "self": {
             "open": 24.01,
@@ -127695,7 +127695,7 @@ window.DATA = {
           "大型權值"
         ],
         "source": "TWSE ETF e添富",
-        "fetchedAt": "2026-11-10T23:31:35+08:00",
+        "fetchedAt": "2026-11-11T05:21:24+08:00",
         "navHistory": [
           {
             "date": "2026-09-29",
@@ -268061,7 +268061,7 @@ window.DATA = {
         },
         {
           "date": "2026-11-10",
-          "fetched_at": "2026-11-10T23:30:30+08:00",
+          "fetched_at": "2026-11-11T05:20:24+08:00",
           "count": 58,
           "self": {
             "open": 18.63,
@@ -270316,11 +270316,11 @@ window.DATA = {
         "fundSizeHundredMillion": 444.77,
         "beneficiaryTenThousands": 18.0,
         "tags": [
-          "大型權值",
-          "中小型權值"
+          "中小型權值",
+          "大型權值"
         ],
         "source": "TWSE ETF e添富",
-        "fetchedAt": "2026-11-10T23:31:36+08:00",
+        "fetchedAt": "2026-11-11T05:21:24+08:00",
         "navHistory": [
           {
             "date": "2026-09-29",
@@ -343073,7 +343073,7 @@ window.DATA = {
         },
         {
           "date": "2026-11-09",
-          "fetched_at": "2026-11-10T23:30:42+08:00",
+          "fetched_at": "2026-11-11T05:20:35+08:00",
           "count": 36,
           "self": {
             "open": 12.64,
@@ -343124,7 +343124,7 @@ window.DATA = {
               "change": 14.57,
               "changePct": 2.75,
               "amplitude": 1.81,
-              "volume": 25295600,
+              "volume": 25337400,
               "currency": "USD",
               "quoteDate": "2026-11-09"
             },
@@ -343143,7 +343143,7 @@ window.DATA = {
               "change": 59.54,
               "changePct": 13.26,
               "amplitude": 10.46,
-              "volume": 50987800,
+              "volume": 51261000,
               "currency": "USD",
               "quoteDate": "2026-11-09"
             },
@@ -343162,7 +343162,7 @@ window.DATA = {
               "change": -7.97,
               "changePct": -4.27,
               "amplitude": 5.19,
-              "volume": 459116500,
+              "volume": 462719300,
               "currency": "USD",
               "quoteDate": "2026-11-09"
             },
@@ -343181,7 +343181,7 @@ window.DATA = {
               "change": 20.64,
               "changePct": 11.91,
               "amplitude": 11.16,
-              "volume": 16697900,
+              "volume": 16802500,
               "currency": "USD",
               "quoteDate": "2026-11-09"
             },
@@ -343200,7 +343200,7 @@ window.DATA = {
               "change": 8.82,
               "changePct": 5.5,
               "amplitude": 6.13,
-              "volume": 23801800,
+              "volume": 23856900,
               "currency": "USD",
               "quoteDate": "2026-11-09"
             },
@@ -343219,7 +343219,7 @@ window.DATA = {
               "change": 31.22,
               "changePct": 5.12,
               "amplitude": 2.83,
-              "volume": 19106400,
+              "volume": 19143300,
               "currency": "USD",
               "quoteDate": "2026-11-09"
             },
@@ -343238,7 +343238,7 @@ window.DATA = {
               "change": 7.63,
               "changePct": 2.94,
               "amplitude": 3.25,
-              "volume": 51419400,
+              "volume": 51523200,
               "currency": "USD",
               "quoteDate": "2026-11-09"
             },
@@ -343257,7 +343257,7 @@ window.DATA = {
               "change": 3.37,
               "changePct": 1.18,
               "amplitude": 2.92,
-              "volume": 36349900,
+              "volume": 36497900,
               "currency": "USD",
               "quoteDate": "2026-11-09"
             },
@@ -343334,7 +343334,7 @@ window.DATA = {
               "change": 7.8,
               "changePct": 5.81,
               "amplitude": 5.83,
-              "volume": 103045300,
+              "volume": 103473200,
               "currency": "USD",
               "quoteDate": "2026-11-09"
             },
@@ -343353,7 +343353,7 @@ window.DATA = {
               "change": 11.68,
               "changePct": 5.38,
               "amplitude": 6.91,
-              "volume": 8519900,
+              "volume": 8530100,
               "currency": "USD",
               "quoteDate": "2026-11-09"
             },
@@ -343506,7 +343506,7 @@ window.DATA = {
               "change": 8.32,
               "changePct": 2.43,
               "amplitude": 2.21,
-              "volume": 48691200,
+              "volume": 48753100,
               "currency": "USD",
               "quoteDate": "2026-11-09"
             },
@@ -343622,7 +343622,7 @@ window.DATA = {
               "change": 43.15,
               "changePct": 6.25,
               "amplitude": 7.98,
-              "volume": 31935900,
+              "volume": 32172100,
               "currency": "USD",
               "quoteDate": "2026-11-09"
             },
@@ -343699,7 +343699,7 @@ window.DATA = {
               "change": 25.79,
               "changePct": 8.78,
               "amplitude": 6.39,
-              "volume": 36603900,
+              "volume": 36685300,
               "currency": "USD",
               "quoteDate": "2026-11-09"
             },
@@ -343718,7 +343718,7 @@ window.DATA = {
               "change": 19.83,
               "changePct": 5.54,
               "amplitude": 6.19,
-              "volume": 36266000,
+              "volume": 36341400,
               "currency": "USD",
               "quoteDate": "2026-11-09"
             },
@@ -343968,7 +343968,7 @@ window.DATA = {
           "科技主題型"
         ],
         "source": "TWSE ETF e添富",
-        "fetchedAt": "2026-11-10T23:31:36+08:00",
+        "fetchedAt": "2026-11-11T05:21:24+08:00",
         "navHistory": [
           {
             "date": "2026-09-29",
@@ -445304,7 +445304,7 @@ window.DATA = {
         },
         {
           "date": "2026-11-10",
-          "fetched_at": "2026-11-10T23:30:42+08:00",
+          "fetched_at": "2026-11-11T05:20:36+08:00",
           "count": 44,
           "self": {
             "open": 14.26,
@@ -571489,7 +571489,7 @@ window.DATA = {
         },
         {
           "date": "2026-11-10",
-          "fetched_at": "2026-11-10T23:30:43+08:00",
+          "fetched_at": "2026-11-11T05:20:36+08:00",
           "count": 53,
           "self": {
             "open": 12.31,
@@ -572376,17 +572376,17 @@ window.DATA = {
               "assetType": "stock",
               "weight": 1.37,
               "shares": 236000,
-              "open": 63.14,
-              "high": 63.14,
-              "low": 62.8,
-              "close": 63.12,
-              "prevClose": 62.78,
-              "change": 0.34,
-              "changePct": 0.54,
-              "amplitude": 0.54,
-              "volume": 30275,
+              "open": 62.96,
+              "high": 62.96,
+              "low": 62.64,
+              "close": 62.78,
+              "prevClose": 62.24,
+              "change": 0.54,
+              "changePct": 0.87,
+              "amplitude": 0.51,
+              "volume": 1775,
               "currency": "HKD",
-              "quoteDate": "2026-11-10",
+              "quoteDate": "2026-11-09",
               "inst": {
                 "foreign": 100460,
                 "trust": 32375,
@@ -704953,7 +704953,7 @@ window.DATA = {
         },
         {
           "date": "2026-11-10",
-          "fetched_at": "2026-11-10T23:30:43+08:00",
+          "fetched_at": "2026-11-11T05:20:36+08:00",
           "count": 52,
           "self": {
             "open": 99.55,
@@ -894313,7 +894313,7 @@ window.DATA = {
         },
         {
           "date": "2026-11-10",
-          "fetched_at": "2026-11-10T23:30:43+08:00",
+          "fetched_at": "2026-11-11T05:20:36+08:00",
           "count": 74,
           "self": {
             "open": 57.5,
@@ -1027937,7 +1027937,7 @@ window.DATA = {
         },
         {
           "date": "2026-11-10",
-          "fetched_at": "2026-11-10T23:30:43+08:00",
+          "fetched_at": "2026-11-11T05:20:37+08:00",
           "count": 51,
           "self": {
             "open": 52.7,
@@ -1107511,7 +1107511,7 @@ window.DATA = {
         },
         {
           "date": "2026-11-10",
-          "fetched_at": "2026-11-10T23:30:43+08:00",
+          "fetched_at": "2026-11-11T05:20:37+08:00",
           "count": 30,
           "self": {
             "open": 33.3,
@@ -1187525,7 +1187525,7 @@ window.DATA = {
         },
         {
           "date": "2026-11-10",
-          "fetched_at": "2026-11-10T23:30:44+08:00",
+          "fetched_at": "2026-11-11T05:20:37+08:00",
           "count": 31,
           "self": {
             "open": 43.85,
@@ -1292964,7 +1292964,7 @@ window.DATA = {
         },
         {
           "date": "2026-11-10",
-          "fetched_at": "2026-11-10T23:30:44+08:00",
+          "fetched_at": "2026-11-11T05:20:37+08:00",
           "count": 41,
           "self": {
             "open": 31.27,
@@ -1422552,7 +1422552,7 @@ window.DATA = {
         },
         {
           "date": "2026-11-10",
-          "fetched_at": "2026-11-10T23:30:44+08:00",
+          "fetched_at": "2026-11-11T05:20:37+08:00",
           "count": 50,
           "self": {
             "open": 36.41,
@@ -1548772,7 +1548772,7 @@ window.DATA = {
         },
         {
           "date": "2026-11-10",
-          "fetched_at": "2026-11-10T23:30:51+08:00",
+          "fetched_at": "2026-11-11T05:20:46+08:00",
           "count": 51,
           "self": {
             "open": 228.5,
@@ -1555875,7 +1555875,7 @@ window.DATA = {
         },
         {
           "date": "2026-11-10",
-          "fetched_at": "2026-11-10T23:30:51+08:00",
+          "fetched_at": "2026-11-11T05:20:46+08:00",
           "count": 3,
           "self": {
             "open": 30.26,
@@ -1596544,7 +1596544,7 @@ window.DATA = {
         },
         {
           "date": "2026-11-09",
-          "fetched_at": "2026-11-10T23:30:51+08:00",
+          "fetched_at": "2026-11-11T05:20:44+08:00",
           "count": 31,
           "self": {
             "open": 68.6,
@@ -1596595,7 +1596595,7 @@ window.DATA = {
               "change": -7.97,
               "changePct": -4.27,
               "amplitude": 5.19,
-              "volume": 459116500,
+              "volume": 462719300,
               "currency": "USD",
               "quoteDate": "2026-11-09"
             },
@@ -1596614,7 +1596614,7 @@ window.DATA = {
               "change": 25.79,
               "changePct": 8.78,
               "amplitude": 6.39,
-              "volume": 36603900,
+              "volume": 36685300,
               "currency": "USD",
               "quoteDate": "2026-11-09"
             },
@@ -1596633,7 +1596633,7 @@ window.DATA = {
               "change": 43.15,
               "changePct": 6.25,
               "amplitude": 7.98,
-              "volume": 31935900,
+              "volume": 32172100,
               "currency": "USD",
               "quoteDate": "2026-11-09"
             },
@@ -1596690,7 +1596690,7 @@ window.DATA = {
               "change": 59.54,
               "changePct": 13.26,
               "amplitude": 10.46,
-              "volume": 50987800,
+              "volume": 51261000,
               "currency": "USD",
               "quoteDate": "2026-11-09"
             },
@@ -1596709,7 +1596709,7 @@ window.DATA = {
               "change": 6.06,
               "changePct": 3.66,
               "amplitude": 7.85,
-              "volume": 16485600,
+              "volume": 16502800,
               "currency": "USD",
               "quoteDate": "2026-11-09"
             },
@@ -1596728,7 +1596728,7 @@ window.DATA = {
               "change": 13.18,
               "changePct": 3.51,
               "amplitude": 3.74,
-              "volume": 15600400,
+              "volume": 15644500,
               "currency": "USD",
               "quoteDate": "2026-11-09"
             },
@@ -1596785,7 +1596785,7 @@ window.DATA = {
               "change": 37.83,
               "changePct": 11.37,
               "amplitude": 9.78,
-              "volume": 10988300,
+              "volume": 11002700,
               "currency": "USD",
               "quoteDate": "2026-11-09"
             },
@@ -1596823,7 +1596823,7 @@ window.DATA = {
               "change": 20.87,
               "changePct": 10.41,
               "amplitude": 9.41,
-              "volume": 16744100,
+              "volume": 16756700,
               "currency": "USD",
               "quoteDate": "2026-11-09"
             },
@@ -1596861,7 +1596861,7 @@ window.DATA = {
               "change": 13.4,
               "changePct": 9.49,
               "amplitude": 10.93,
-              "volume": 33517400,
+              "volume": 33768200,
               "currency": "USD",
               "quoteDate": "2026-11-09"
             },
@@ -1596880,7 +1596880,7 @@ window.DATA = {
               "change": 3.09,
               "changePct": 5.49,
               "amplitude": 7.46,
-              "volume": 146433500,
+              "volume": 147250200,
               "currency": "USD",
               "quoteDate": "2026-11-09"
             },
@@ -1596899,7 +1596899,7 @@ window.DATA = {
               "change": 32.38,
               "changePct": 16.79,
               "amplitude": 16.75,
-              "volume": 14957100,
+              "volume": 15015900,
               "currency": "USD",
               "quoteDate": "2026-11-09"
             },
@@ -1596937,7 +1596937,7 @@ window.DATA = {
               "change": 26.16,
               "changePct": 13.72,
               "amplitude": 12.99,
-              "volume": 7174900,
+              "volume": 7187800,
               "currency": "USD",
               "quoteDate": "2026-11-09"
             },
@@ -1596975,7 +1596975,7 @@ window.DATA = {
               "change": 11.68,
               "changePct": 6.69,
               "amplitude": 8.78,
-              "volume": 6140100,
+              "volume": 6179300,
               "currency": "USD",
               "quoteDate": "2026-11-09"
             },
@@ -1597032,7 +1597032,7 @@ window.DATA = {
               "change": 12.38,
               "changePct": 10.27,
               "amplitude": 12.13,
-              "volume": 9124500,
+              "volume": 9150400,
               "currency": "USD",
               "quoteDate": "2026-11-09"
             },
