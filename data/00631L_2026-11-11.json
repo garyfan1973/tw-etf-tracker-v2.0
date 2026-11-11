@@ -1,6 +1,6 @@
 {
   "date": "2026-11-11",
-  "fetched_at": "2026-11-11T20:31:15+08:00",
+  "fetched_at": "2026-11-11T21:31:07+08:00",
   "count": 4,
   "self": {
     "open": 31.11,
@@ -21,7 +21,20 @@
     "total": 101364753,
     "date": "2026-11-11"
   },
-  "selfMargin": null,
+  "selfMargin": {
+    "marginBuy": 18862,
+    "marginSell": 33150,
+    "marginCashRedemption": 363,
+    "marginPrevBalance": 347430,
+    "marginBalance": 332779,
+    "shortBuy": 1854,
+    "shortSell": 4965,
+    "shortStockRedemption": 10000,
+    "shortPrevBalance": 37272,
+    "shortBalance": 30383,
+    "offsetting": 1735,
+    "date": "2026-11-11"
+  },
   "holdings": [
     {
       "code": "",
@@ -58,18 +71,18 @@
         "date": "2026-11-11"
       },
       "margin": {
-        "marginBuy": 812,
-        "marginSell": 955,
-        "marginCashRedemption": 13,
-        "marginPrevBalance": 34716,
-        "marginBalance": 34560,
-        "shortBuy": 22,
-        "shortSell": 17,
-        "shortStockRedemption": 0,
-        "shortPrevBalance": 96,
-        "shortBalance": 91,
-        "offsetting": 5,
-        "date": "2026-11-10"
+        "marginBuy": 415,
+        "marginSell": 2423,
+        "marginCashRedemption": 29,
+        "marginPrevBalance": 34560,
+        "marginBalance": 32523,
+        "shortBuy": 2,
+        "shortSell": 20,
+        "shortStockRedemption": 16,
+        "shortPrevBalance": 91,
+        "shortBalance": 93,
+        "offsetting": 7,
+        "date": "2026-11-11"
       }
     },
     {
