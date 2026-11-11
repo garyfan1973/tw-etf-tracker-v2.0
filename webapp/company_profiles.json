@@ -1766,6 +1766,14 @@
     "source": "Stock Analysis",
     "sector": "Technology"
   },
+  "APP": {
+    "name": "Applovin",
+    "market": "US",
+    "industry": "Advertising Agencies",
+    "business": "AppLovin Corporation provides end-to-end artificial intelligence-powered advertising solutions for businesses in the United States and internationally. It operates through two segments, Advertising and Apps. The company offers Axon Ads Manager, a suite of marketing solutions that enables developers to automate, optimize, and manage marketing efforts; MAX, an in-app bidding technology that optimizes the value of a publisher’s advertising inventory by running a real-time competitive auction; Adjust, a measurement and analytics marketing platform; and Wurl, a connected TV platform, which distributes streaming video for content companies, provides advertising and publishing solutions. It serves individuals, small and independent businesses, enterprises, advertisers and advertising networks, mobile app publishers, and indie studio developers. The company was incorporated in 2011 and is headquartered in Palo Alto, California.",
+    "source": "Stock Analysis",
+    "sector": "Communication Services"
+  },
   "ARM": {
     "name": "Arm",
     "market": "US",
@@ -1928,6 +1936,14 @@
     "market": "US",
     "industry": "Semiconductor Equipment & Materials",
     "business": "FormFactor, Inc. designs, manufactures, and sells probe cards, analytical probes, probe stations, thermal systems, cryogenic systems, and related services in the United States, South Korea, Taiwan, China, Japan, Singapore, Europe, Malaysia, and internationally. It operates in two segments: Probe Cards and Systems segments. The company provides probe cards to test various semiconductor device types, including systems- on-chip products, such as graphics, central, digital processing units, and other custom application-specific processing units; mobile application processors, microprocessors, and microcontrollers; network devices, which include switches and network processing units; dynamic random-access memory; radio-frequency amplifiers and filters; antenna-in-package devices; analog and mixed-signal integrated circuits; image sensors; co-packaged optical integrated circuits; NAND flash memory; NOR flash memory; and quantum computer processor devices. It also offers analytical probes, which are used for device characterization, electrical simulation model development, failure analysis, and prototype design debugging; probe stations, a critical tool for the development of new generations of semiconductor and electro-optical processes and designs; and thermal subsystems, which include thermal chucks and other test systems used in probe stations and other applications for precise temperature management. In addition, the company provides cryogenic systems, which includes the manufacture of precision cryogenic instruments and semiconductor test and measurement systems; and services and support, including installation services. Further, it offers on-site probe card maintenance and service training, seminars, and telephone support services. It sells its products through direct sales force, manufacturers’ representatives, and distributors. It has a strategic collaboration with Teradyne. The company was incorporated in 1993 and is headquartered in Livermore, California.",
+    "source": "Stock Analysis",
+    "sector": "Technology"
+  },
+  "FROG": {
+    "name": "JFrog",
+    "market": "US",
+    "industry": "Software - Application",
+    "business": "JFrog Ltd. provides software supply chain platform in the United States, Israel, India, and internationally. The company offers JFrog Artifactory, a package repository that allows teams and organizations to store, update, and manage software packages; JFrog Curation functions as a guardian outside the software development pipeline, controlling the admission of packages into an organization, from open source or public repositories; JFrog Xray, scans JFrog Artifactory to secure all software packages; JFrog Advanced Security, an optional add-on for select JFrog subscriptions; and JFrog Runtime Security, an optional add-on for select JFrog subscriptions to work with other JFrog Security solutions. It also provides JFrog ML, a platform-integrated solution designed for data science and MLOps teams to transform and store data, build, train, and deploy models, and monitor the entire Machine Learning pipeline; JFrog AI Catalog, an extension of JFrog Curation functionality that allows companies to secure, govern, consume and deploy AI technologies; JFrog AppTrust, an optional component with application risk governance of DevGovOps requirements; JFrog Distribution that provides software package distribution; and JFrog Connect, a device management solution that allows companies to manage software updates and monitor performance in IoT device fleets. In addition, the company offers JFrog Pro that provides access to the universal version of JFrog Artifactory and ongoing updates, upgrades, and bug fixes; JFrog Pro X, a self-managed-only subscription; JFrog Enterprise X, offers cluster configuration, federated repositories, multi-region replication, larger enterprise-scale deployments, service-level agreement support, and deeper security; and JFrog Enterprise Plus, a full platform subscription option. It serves technology, financial services, retail, healthcare, and telecommunications organizations. JFrog Ltd. was incorporated in 2008 and is headquartered in Sunnyvale, California with additional office in Netanya, Israel.",
     "source": "Stock Analysis",
     "sector": "Technology"
   },
@@ -3250,6 +3266,13 @@
   },
   "臺股期貨 202611(FITXN*1.TF)": {
     "name": "臺股期貨 202611(FITXN*1.TF)",
+    "market": "",
+    "industry": "",
+    "business": "無代號海外成分股，暫無可用公開摘要。",
+    "source": ""
+  },
+  "臺股期貨 202612(FITXN*1.TF)": {
+    "name": "臺股期貨 202612(FITXN*1.TF)",
     "market": "",
     "industry": "",
     "business": "無代號海外成分股，暫無可用公開摘要。",
