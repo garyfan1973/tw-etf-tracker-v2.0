@@ -1,5 +1,5 @@
 window.DATA = {
-  "generated_at": "2026-11-11T19:32:12+08:00",
+  "generated_at": "2026-11-11T20:32:35+08:00",
   "etfs": {
     "00981A": {
       "name": "主動統一台股增長",
@@ -127662,7 +127662,7 @@ window.DATA = {
         },
         {
           "date": "2026-11-11",
-          "fetched_at": "2026-11-11T19:30:45+08:00",
+          "fetched_at": "2026-11-11T20:30:43+08:00",
           "count": 51,
           "self": {
             "open": 24.65,
@@ -127704,9 +127704,9 @@ window.DATA = {
               "quoteDate": "2026-11-11",
               "inst": {
                 "foreign": 6038319,
-                "trust": 1542276,
+                "trust": 2385276,
                 "dealer": 148895,
-                "total": 7729490,
+                "total": 8572490,
                 "date": "2026-11-11"
               },
               "margin": {
@@ -127743,9 +127743,9 @@ window.DATA = {
               "quoteDate": "2026-11-11",
               "inst": {
                 "foreign": -426151,
-                "trust": 591144,
+                "trust": 589693,
                 "dealer": 160127,
-                "total": 325120,
+                "total": 323669,
                 "date": "2026-11-11"
               },
               "margin": {
@@ -127782,9 +127782,9 @@ window.DATA = {
               "quoteDate": "2026-11-11",
               "inst": {
                 "foreign": -748852,
-                "trust": 385075,
+                "trust": 491075,
                 "dealer": -1404,
-                "total": -365181,
+                "total": -259181,
                 "date": "2026-11-11"
               },
               "margin": {
@@ -127860,9 +127860,9 @@ window.DATA = {
               "quoteDate": "2026-11-11",
               "inst": {
                 "foreign": -2624029,
-                "trust": 609837,
+                "trust": 591837,
                 "dealer": 119097,
-                "total": -1895095,
+                "total": -1913095,
                 "date": "2026-11-11"
               },
               "margin": {
@@ -127970,9 +127970,9 @@ window.DATA = {
               "quoteDate": "2026-11-11",
               "inst": {
                 "foreign": -1011526,
-                "trust": 326609,
+                "trust": 327470,
                 "dealer": 269389,
-                "total": -415528,
+                "total": -414667,
                 "date": "2026-11-11"
               },
               "margin": {
@@ -128009,9 +128009,9 @@ window.DATA = {
               "quoteDate": "2026-11-11",
               "inst": {
                 "foreign": -2693905,
-                "trust": 750167,
+                "trust": 747967,
                 "dealer": 480458,
-                "total": -1463280,
+                "total": -1465480,
                 "date": "2026-11-11"
               },
               "margin": {
@@ -128048,9 +128048,9 @@ window.DATA = {
               "quoteDate": "2026-11-11",
               "inst": {
                 "foreign": 2431834,
-                "trust": -4083857,
+                "trust": -4655857,
                 "dealer": 227191,
-                "total": -1424832,
+                "total": -1996832,
                 "date": "2026-11-11"
               },
               "margin": {
@@ -128087,9 +128087,9 @@ window.DATA = {
               "quoteDate": "2026-11-11",
               "inst": {
                 "foreign": -3143354,
-                "trust": 779051,
+                "trust": 788551,
                 "dealer": 98528,
-                "total": -2265775,
+                "total": -2256275,
                 "date": "2026-11-11"
               },
               "margin": {
@@ -128363,9 +128363,9 @@ window.DATA = {
               "quoteDate": "2026-11-11",
               "inst": {
                 "foreign": 1427602,
-                "trust": -1209335,
+                "trust": -1111335,
                 "dealer": -27416,
-                "total": 190851,
+                "total": 288851,
                 "date": "2026-11-11"
               },
               "margin": {
@@ -129140,9 +129140,9 @@ window.DATA = {
               "quoteDate": "2026-11-11",
               "inst": {
                 "foreign": -2278252,
-                "trust": 682067,
+                "trust": 673553,
                 "dealer": -117948,
-                "total": -1714133,
+                "total": -1722647,
                 "date": "2026-11-11"
               },
               "margin": {
@@ -129619,7 +129619,7 @@ window.DATA = {
           "大型權值"
         ],
         "source": "TWSE ETF e添富",
-        "fetchedAt": "2026-11-11T19:31:56+08:00",
+        "fetchedAt": "2026-11-11T20:32:19+08:00",
         "navHistory": [
           {
             "date": "2026-09-29",
@@ -272194,7 +272194,7 @@ window.DATA = {
         },
         {
           "date": "2026-11-11",
-          "fetched_at": "2026-11-11T19:30:45+08:00",
+          "fetched_at": "2026-11-11T20:30:43+08:00",
           "count": 58,
           "self": {
             "open": 19.06,
@@ -272236,9 +272236,9 @@ window.DATA = {
               "quoteDate": "2026-11-11",
               "inst": {
                 "foreign": 6038319,
-                "trust": 1542276,
+                "trust": 2385276,
                 "dealer": 148895,
-                "total": 7729490,
+                "total": 8572490,
                 "date": "2026-11-11"
               },
               "margin": {
@@ -272275,9 +272275,9 @@ window.DATA = {
               "quoteDate": "2026-11-11",
               "inst": {
                 "foreign": -426151,
-                "trust": 591144,
+                "trust": 589693,
                 "dealer": 160127,
-                "total": 325120,
+                "total": 323669,
                 "date": "2026-11-11"
               },
               "margin": {
@@ -272644,9 +272644,9 @@ window.DATA = {
               "quoteDate": "2026-11-11",
               "inst": {
                 "foreign": -88639,
-                "trust": 15000,
+                "trust": 30000,
                 "dealer": -3350,
-                "total": -76989,
+                "total": -61989,
                 "date": "2026-11-11"
               },
               "margin": {
@@ -272722,9 +272722,9 @@ window.DATA = {
               "quoteDate": "2026-11-11",
               "inst": {
                 "foreign": -748852,
-                "trust": 385075,
+                "trust": 491075,
                 "dealer": -1404,
-                "total": -365181,
+                "total": -259181,
                 "date": "2026-11-11"
               },
               "margin": {
@@ -272800,9 +272800,9 @@ window.DATA = {
               "quoteDate": "2026-11-11",
               "inst": {
                 "foreign": -2693905,
-                "trust": 750167,
+                "trust": 747967,
                 "dealer": 480458,
-                "total": -1463280,
+                "total": -1465480,
                 "date": "2026-11-11"
               },
               "margin": {
@@ -272839,9 +272839,9 @@ window.DATA = {
               "quoteDate": "2026-11-11",
               "inst": {
                 "foreign": 1427602,
-                "trust": -1209335,
+                "trust": -1111335,
                 "dealer": -27416,
-                "total": 190851,
+                "total": 288851,
                 "date": "2026-11-11"
               },
               "margin": {
@@ -272878,9 +272878,9 @@ window.DATA = {
               "quoteDate": "2026-11-11",
               "inst": {
                 "foreign": -1563372,
-                "trust": 439793,
+                "trust": 425112,
                 "dealer": -78276,
-                "total": -1201855,
+                "total": -1216536,
                 "date": "2026-11-11"
               },
               "margin": {
@@ -273059,9 +273059,9 @@ window.DATA = {
               "quoteDate": "2026-11-11",
               "inst": {
                 "foreign": 821461,
-                "trust": -490000,
+                "trust": -483000,
                 "dealer": -23141,
-                "total": 308320,
+                "total": 315320,
                 "date": "2026-11-11"
               },
               "margin": {
@@ -273563,9 +273563,9 @@ window.DATA = {
               "quoteDate": "2026-11-11",
               "inst": {
                 "foreign": -2624029,
-                "trust": 609837,
+                "trust": 591837,
                 "dealer": 119097,
-                "total": -1895095,
+                "total": -1913095,
                 "date": "2026-11-11"
               },
               "margin": {
@@ -274440,7 +274440,7 @@ window.DATA = {
           "大型權值"
         ],
         "source": "TWSE ETF e添富",
-        "fetchedAt": "2026-11-11T19:31:57+08:00",
+        "fetchedAt": "2026-11-11T20:32:20+08:00",
         "navHistory": [
           {
             "date": "2026-09-29",
@@ -348087,7 +348087,7 @@ window.DATA = {
         },
         {
           "date": "2026-11-10",
-          "fetched_at": "2026-11-11T19:30:57+08:00",
+          "fetched_at": "2026-11-11T20:31:01+08:00",
           "count": 37,
           "self": {
             "open": 13.1,
@@ -349001,7 +349001,7 @@ window.DATA = {
           "科技主題型"
         ],
         "source": "TWSE ETF e添富",
-        "fetchedAt": "2026-11-11T19:31:57+08:00",
+        "fetchedAt": "2026-11-11T20:32:21+08:00",
         "navHistory": [
           {
             "date": "2026-09-29",
@@ -452028,7 +452028,7 @@ window.DATA = {
         },
         {
           "date": "2026-11-11",
-          "fetched_at": "2026-11-11T19:30:57+08:00",
+          "fetched_at": "2026-11-11T20:31:02+08:00",
           "count": 43,
           "self": {
             "open": 14.68,
@@ -452070,9 +452070,9 @@ window.DATA = {
               "quoteDate": "2026-11-11",
               "inst": {
                 "foreign": 6038319,
-                "trust": 1542276,
+                "trust": 2385276,
                 "dealer": 148895,
-                "total": 7729490,
+                "total": 8572490,
                 "date": "2026-11-11"
               },
               "margin": {
@@ -452109,9 +452109,9 @@ window.DATA = {
               "quoteDate": "2026-11-11",
               "inst": {
                 "foreign": -748852,
-                "trust": 385075,
+                "trust": 491075,
                 "dealer": -1404,
-                "total": -365181,
+                "total": -259181,
                 "date": "2026-11-11"
               },
               "margin": {
@@ -452226,9 +452226,9 @@ window.DATA = {
               "quoteDate": "2026-11-11",
               "inst": {
                 "foreign": -2624029,
-                "trust": 609837,
+                "trust": 591837,
                 "dealer": 119097,
-                "total": -1895095,
+                "total": -1913095,
                 "date": "2026-11-11"
               },
               "margin": {
@@ -452304,9 +452304,9 @@ window.DATA = {
               "quoteDate": "2026-11-11",
               "inst": {
                 "foreign": -1011526,
-                "trust": 326609,
+                "trust": 327470,
                 "dealer": 269389,
-                "total": -415528,
+                "total": -414667,
                 "date": "2026-11-11"
               },
               "margin": {
@@ -452382,9 +452382,9 @@ window.DATA = {
               "quoteDate": "2026-11-11",
               "inst": {
                 "foreign": -88639,
-                "trust": 15000,
+                "trust": 30000,
                 "dealer": -3350,
-                "total": -76989,
+                "total": -61989,
                 "date": "2026-11-11"
               },
               "margin": {
@@ -452492,9 +452492,9 @@ window.DATA = {
               "quoteDate": "2026-11-11",
               "inst": {
                 "foreign": -12876968,
-                "trust": 9510100,
+                "trust": 15637100,
                 "dealer": 318155,
-                "total": -3048713,
+                "total": 3078287,
                 "date": "2026-11-11"
               },
               "margin": {
@@ -452563,9 +452563,9 @@ window.DATA = {
               "quoteDate": "2026-11-11",
               "inst": {
                 "foreign": -426151,
-                "trust": 591144,
+                "trust": 589693,
                 "dealer": 160127,
-                "total": 325120,
+                "total": 323669,
                 "date": "2026-11-11"
               },
               "margin": {
@@ -452836,9 +452836,9 @@ window.DATA = {
               "quoteDate": "2026-11-11",
               "inst": {
                 "foreign": 1427602,
-                "trust": -1209335,
+                "trust": -1111335,
                 "dealer": -27416,
-                "total": 190851,
+                "total": 288851,
                 "date": "2026-11-11"
               },
               "margin": {
@@ -453095,9 +453095,9 @@ window.DATA = {
               "quoteDate": "2026-11-11",
               "inst": {
                 "foreign": -2693905,
-                "trust": 750167,
+                "trust": 747967,
                 "dealer": 480458,
-                "total": -1463280,
+                "total": -1465480,
                 "date": "2026-11-11"
               },
               "margin": {
@@ -453134,9 +453134,9 @@ window.DATA = {
               "quoteDate": "2026-11-11",
               "inst": {
                 "foreign": -3143354,
-                "trust": 779051,
+                "trust": 788551,
                 "dealer": 98528,
-                "total": -2265775,
+                "total": -2256275,
                 "date": "2026-11-11"
               },
               "margin": {
@@ -453503,9 +453503,9 @@ window.DATA = {
               "quoteDate": "2026-11-11",
               "inst": {
                 "foreign": -1563372,
-                "trust": 439793,
+                "trust": 425112,
                 "dealer": -78276,
-                "total": -1201855,
+                "total": -1216536,
                 "date": "2026-11-11"
               },
               "margin": {
@@ -453695,7 +453695,7 @@ window.DATA = {
           "科技主題型"
         ],
         "source": "TWSE ETF e添富",
-        "fetchedAt": "2026-11-11T19:31:58+08:00",
+        "fetchedAt": "2026-11-11T20:32:23+08:00",
         "navHistory": [
           {
             "date": "2026-09-29",
@@ -580216,7 +580216,7 @@ window.DATA = {
         },
         {
           "date": "2026-11-11",
-          "fetched_at": "2026-11-11T19:30:58+08:00",
+          "fetched_at": "2026-11-11T20:31:04+08:00",
           "count": 53,
           "self": {
             "open": 12.71,
@@ -580258,9 +580258,9 @@ window.DATA = {
               "quoteDate": "2026-11-11",
               "inst": {
                 "foreign": 6038319,
-                "trust": 1542276,
+                "trust": 2385276,
                 "dealer": 148895,
-                "total": 7729490,
+                "total": 8572490,
                 "date": "2026-11-11"
               },
               "margin": {
@@ -580297,9 +580297,9 @@ window.DATA = {
               "quoteDate": "2026-11-11",
               "inst": {
                 "foreign": -426151,
-                "trust": 591144,
+                "trust": 589693,
                 "dealer": 160127,
-                "total": 325120,
+                "total": 323669,
                 "date": "2026-11-11"
               },
               "margin": {
@@ -580375,9 +580375,9 @@ window.DATA = {
               "quoteDate": "2026-11-11",
               "inst": {
                 "foreign": -88639,
-                "trust": 15000,
+                "trust": 30000,
                 "dealer": -3350,
-                "total": -76989,
+                "total": -61989,
                 "date": "2026-11-11"
               },
               "margin": {
@@ -580414,9 +580414,9 @@ window.DATA = {
               "quoteDate": "2026-11-11",
               "inst": {
                 "foreign": -748852,
-                "trust": 385075,
+                "trust": 491075,
                 "dealer": -1404,
-                "total": -365181,
+                "total": -259181,
                 "date": "2026-11-11"
               },
               "margin": {
@@ -580453,9 +580453,9 @@ window.DATA = {
               "quoteDate": "2026-11-11",
               "inst": {
                 "foreign": -12876968,
-                "trust": 9510100,
+                "trust": 15637100,
                 "dealer": 318155,
-                "total": -3048713,
+                "total": 3078287,
                 "date": "2026-11-11"
               },
               "margin": {
@@ -580673,9 +580673,9 @@ window.DATA = {
               "quoteDate": "2026-11-11",
               "inst": {
                 "foreign": -2624029,
-                "trust": 609837,
+                "trust": 591837,
                 "dealer": 119097,
-                "total": -1895095,
+                "total": -1913095,
                 "date": "2026-11-11"
               },
               "margin": {
@@ -580907,9 +580907,9 @@ window.DATA = {
               "quoteDate": "2026-11-11",
               "inst": {
                 "foreign": -3143354,
-                "trust": 779051,
+                "trust": 788551,
                 "dealer": 98528,
-                "total": -2265775,
+                "total": -2256275,
                 "date": "2026-11-11"
               },
               "margin": {
@@ -581064,9 +581064,9 @@ window.DATA = {
               "quoteDate": "2026-11-11",
               "inst": {
                 "foreign": -94512,
-                "trust": -1000,
+                "trust": -3089,
                 "dealer": 17616,
-                "total": -77896,
+                "total": -79985,
                 "date": "2026-11-11"
               }
             },
@@ -581199,9 +581199,9 @@ window.DATA = {
               "quoteDate": "2026-11-11",
               "inst": {
                 "foreign": -1011526,
-                "trust": 326609,
+                "trust": 327470,
                 "dealer": 269389,
-                "total": -415528,
+                "total": -414667,
                 "date": "2026-11-11"
               },
               "margin": {
@@ -581348,9 +581348,9 @@ window.DATA = {
               "quoteDate": "2026-11-11",
               "inst": {
                 "foreign": 2431834,
-                "trust": -4083857,
+                "trust": -4655857,
                 "dealer": 227191,
-                "total": -1424832,
+                "total": -1996832,
                 "date": "2026-11-11"
               },
               "margin": {
@@ -581419,9 +581419,9 @@ window.DATA = {
               "quoteDate": "2026-11-11",
               "inst": {
                 "foreign": -2693905,
-                "trust": 750167,
+                "trust": 747967,
                 "dealer": 480458,
-                "total": -1463280,
+                "total": -1465480,
                 "date": "2026-11-11"
               },
               "margin": {
@@ -582274,7 +582274,7 @@ window.DATA = {
           "高股息"
         ],
         "source": "TWSE ETF e添富",
-        "fetchedAt": "2026-11-11T19:31:58+08:00",
+        "fetchedAt": "2026-11-11T20:32:23+08:00",
         "navHistory": [
           {
             "date": "2026-09-29",
@@ -715668,7 +715668,7 @@ window.DATA = {
         },
         {
           "date": "2026-11-11",
-          "fetched_at": "2026-11-11T19:30:58+08:00",
+          "fetched_at": "2026-11-11T20:31:04+08:00",
           "count": 52,
           "self": {
             "open": 101.0,
@@ -715710,9 +715710,9 @@ window.DATA = {
               "quoteDate": "2026-11-11",
               "inst": {
                 "foreign": 6038319,
-                "trust": 1542276,
+                "trust": 2385276,
                 "dealer": 148895,
-                "total": 7729490,
+                "total": 8572490,
                 "date": "2026-11-11"
               },
               "margin": {
@@ -715749,9 +715749,9 @@ window.DATA = {
               "quoteDate": "2026-11-11",
               "inst": {
                 "foreign": -426151,
-                "trust": 591144,
+                "trust": 589693,
                 "dealer": 160127,
-                "total": 325120,
+                "total": 323669,
                 "date": "2026-11-11"
               },
               "margin": {
@@ -715827,9 +715827,9 @@ window.DATA = {
               "quoteDate": "2026-11-11",
               "inst": {
                 "foreign": -3143354,
-                "trust": 779051,
+                "trust": 788551,
                 "dealer": 98528,
-                "total": -2265775,
+                "total": -2256275,
                 "date": "2026-11-11"
               },
               "margin": {
@@ -715866,9 +715866,9 @@ window.DATA = {
               "quoteDate": "2026-11-11",
               "inst": {
                 "foreign": -2693905,
-                "trust": 750167,
+                "trust": 747967,
                 "dealer": 480458,
-                "total": -1463280,
+                "total": -1465480,
                 "date": "2026-11-11"
               },
               "margin": {
@@ -715905,9 +715905,9 @@ window.DATA = {
               "quoteDate": "2026-11-11",
               "inst": {
                 "foreign": -12876968,
-                "trust": 9510100,
+                "trust": 15637100,
                 "dealer": 318155,
-                "total": -3048713,
+                "total": 3078287,
                 "date": "2026-11-11"
               },
               "margin": {
@@ -716100,9 +716100,9 @@ window.DATA = {
               "quoteDate": "2026-11-11",
               "inst": {
                 "foreign": -2624029,
-                "trust": 609837,
+                "trust": 591837,
                 "dealer": 119097,
-                "total": -1895095,
+                "total": -1913095,
                 "date": "2026-11-11"
               },
               "margin": {
@@ -716178,9 +716178,9 @@ window.DATA = {
               "quoteDate": "2026-11-11",
               "inst": {
                 "foreign": -748852,
-                "trust": 385075,
+                "trust": 491075,
                 "dealer": -1404,
-                "total": -365181,
+                "total": -259181,
                 "date": "2026-11-11"
               },
               "margin": {
@@ -716295,9 +716295,9 @@ window.DATA = {
               "quoteDate": "2026-11-11",
               "inst": {
                 "foreign": -2278252,
-                "trust": 682067,
+                "trust": 673553,
                 "dealer": -117948,
-                "total": -1714133,
+                "total": -1722647,
                 "date": "2026-11-11"
               },
               "margin": {
@@ -716334,9 +716334,9 @@ window.DATA = {
               "quoteDate": "2026-11-11",
               "inst": {
                 "foreign": -1011526,
-                "trust": 326609,
+                "trust": 327470,
                 "dealer": 269389,
-                "total": -415528,
+                "total": -414667,
                 "date": "2026-11-11"
               },
               "margin": {
@@ -716412,9 +716412,9 @@ window.DATA = {
               "quoteDate": "2026-11-11",
               "inst": {
                 "foreign": 2431834,
-                "trust": -4083857,
+                "trust": -4655857,
                 "dealer": 227191,
-                "total": -1424832,
+                "total": -1996832,
                 "date": "2026-11-11"
               },
               "margin": {
@@ -716763,9 +716763,9 @@ window.DATA = {
               "quoteDate": "2026-11-11",
               "inst": {
                 "foreign": 1427602,
-                "trust": -1209335,
+                "trust": -1111335,
                 "dealer": -27416,
-                "total": 190851,
+                "total": 288851,
                 "date": "2026-11-11"
               },
               "margin": {
@@ -716919,9 +716919,9 @@ window.DATA = {
               "quoteDate": "2026-11-11",
               "inst": {
                 "foreign": -88639,
-                "trust": 15000,
+                "trust": 30000,
                 "dealer": -3350,
-                "total": -76989,
+                "total": -61989,
                 "date": "2026-11-11"
               },
               "margin": {
@@ -716958,9 +716958,9 @@ window.DATA = {
               "quoteDate": "2026-11-11",
               "inst": {
                 "foreign": -1563372,
-                "trust": 439793,
+                "trust": 425112,
                 "dealer": -78276,
-                "total": -1201855,
+                "total": -1216536,
                 "date": "2026-11-11"
               },
               "margin": {
@@ -717075,9 +717075,9 @@ window.DATA = {
               "quoteDate": "2026-11-11",
               "inst": {
                 "foreign": -5874029,
-                "trust": 356005,
+                "trust": 336005,
                 "dealer": 133066,
-                "total": -5384958,
+                "total": -5404958,
                 "date": "2026-11-11"
               },
               "margin": {
@@ -717348,9 +717348,9 @@ window.DATA = {
               "quoteDate": "2026-11-11",
               "inst": {
                 "foreign": 821461,
-                "trust": -490000,
+                "trust": -483000,
                 "dealer": -23141,
-                "total": 308320,
+                "total": 315320,
                 "date": "2026-11-11"
               },
               "margin": {
@@ -717705,7 +717705,7 @@ window.DATA = {
           "大型權值"
         ],
         "source": "TWSE ETF e添富",
-        "fetchedAt": "2026-11-11T19:32:00+08:00",
+        "fetchedAt": "2026-11-11T20:32:25+08:00",
         "navHistory": [
           {
             "date": "2026-09-29",
@@ -907888,7 +907888,7 @@ window.DATA = {
         },
         {
           "date": "2026-11-11",
-          "fetched_at": "2026-11-11T19:30:58+08:00",
+          "fetched_at": "2026-11-11T20:31:05+08:00",
           "count": 74,
           "self": {
             "open": 58.2,
@@ -907930,9 +907930,9 @@ window.DATA = {
               "quoteDate": "2026-11-11",
               "inst": {
                 "foreign": 6038319,
-                "trust": 1542276,
+                "trust": 2385276,
                 "dealer": 148895,
-                "total": 7729490,
+                "total": 8572490,
                 "date": "2026-11-11"
               },
               "margin": {
@@ -907969,9 +907969,9 @@ window.DATA = {
               "quoteDate": "2026-11-11",
               "inst": {
                 "foreign": -426151,
-                "trust": 591144,
+                "trust": 589693,
                 "dealer": 160127,
-                "total": 325120,
+                "total": 323669,
                 "date": "2026-11-11"
               },
               "margin": {
@@ -908047,9 +908047,9 @@ window.DATA = {
               "quoteDate": "2026-11-11",
               "inst": {
                 "foreign": -2693905,
-                "trust": 750167,
+                "trust": 747967,
                 "dealer": 480458,
-                "total": -1463280,
+                "total": -1465480,
                 "date": "2026-11-11"
               },
               "margin": {
@@ -908164,9 +908164,9 @@ window.DATA = {
               "quoteDate": "2026-11-11",
               "inst": {
                 "foreign": -2624029,
-                "trust": 609837,
+                "trust": 591837,
                 "dealer": 119097,
-                "total": -1895095,
+                "total": -1913095,
                 "date": "2026-11-11"
               },
               "margin": {
@@ -908203,9 +908203,9 @@ window.DATA = {
               "quoteDate": "2026-11-11",
               "inst": {
                 "foreign": -748852,
-                "trust": 385075,
+                "trust": 491075,
                 "dealer": -1404,
-                "total": -365181,
+                "total": -259181,
                 "date": "2026-11-11"
               },
               "margin": {
@@ -908242,9 +908242,9 @@ window.DATA = {
               "quoteDate": "2026-11-11",
               "inst": {
                 "foreign": -2278252,
-                "trust": 682067,
+                "trust": 673553,
                 "dealer": -117948,
-                "total": -1714133,
+                "total": -1722647,
                 "date": "2026-11-11"
               },
               "margin": {
@@ -908281,9 +908281,9 @@ window.DATA = {
               "quoteDate": "2026-11-11",
               "inst": {
                 "foreign": 2431834,
-                "trust": -4083857,
+                "trust": -4655857,
                 "dealer": 227191,
-                "total": -1424832,
+                "total": -1996832,
                 "date": "2026-11-11"
               },
               "margin": {
@@ -908476,9 +908476,9 @@ window.DATA = {
               "quoteDate": "2026-11-11",
               "inst": {
                 "foreign": 1427602,
-                "trust": -1209335,
+                "trust": -1111335,
                 "dealer": -27416,
-                "total": 190851,
+                "total": 288851,
                 "date": "2026-11-11"
               },
               "margin": {
@@ -908593,9 +908593,9 @@ window.DATA = {
               "quoteDate": "2026-11-11",
               "inst": {
                 "foreign": -1563372,
-                "trust": 439793,
+                "trust": 425112,
                 "dealer": -78276,
-                "total": -1201855,
+                "total": -1216536,
                 "date": "2026-11-11"
               },
               "margin": {
@@ -908632,9 +908632,9 @@ window.DATA = {
               "quoteDate": "2026-11-11",
               "inst": {
                 "foreign": -5874029,
-                "trust": 356005,
+                "trust": 336005,
                 "dealer": 133066,
-                "total": -5384958,
+                "total": -5404958,
                 "date": "2026-11-11"
               },
               "margin": {
@@ -908915,9 +908915,9 @@ window.DATA = {
               "quoteDate": "2026-11-11",
               "inst": {
                 "foreign": 821461,
-                "trust": -490000,
+                "trust": -483000,
                 "dealer": -23141,
-                "total": 308320,
+                "total": 315320,
                 "date": "2026-11-11"
               },
               "margin": {
@@ -909500,9 +909500,9 @@ window.DATA = {
               "quoteDate": "2026-11-11",
               "inst": {
                 "foreign": -94512,
-                "trust": -1000,
+                "trust": -3089,
                 "dealer": 17616,
-                "total": -77896,
+                "total": -79985,
                 "date": "2026-11-11"
               },
               "margin": {
@@ -910017,9 +910017,9 @@ window.DATA = {
               "quoteDate": "2026-11-11",
               "inst": {
                 "foreign": -5267624,
-                "trust": -347000,
+                "trust": -1706000,
                 "dealer": 190067,
-                "total": -5424557,
+                "total": -6783557,
                 "date": "2026-11-11"
               },
               "margin": {
@@ -910769,7 +910769,7 @@ window.DATA = {
           "科技主題型"
         ],
         "source": "TWSE ETF e添富",
-        "fetchedAt": "2026-11-11T19:32:00+08:00",
+        "fetchedAt": "2026-11-11T20:32:26+08:00",
         "navHistory": [
           {
             "date": "2026-09-29",
@@ -1043504,7 +1043504,7 @@ window.DATA = {
         },
         {
           "date": "2026-11-11",
-          "fetched_at": "2026-11-11T19:30:59+08:00",
+          "fetched_at": "2026-11-11T20:31:05+08:00",
           "count": 51,
           "self": {
             "open": 52.5,
@@ -1043546,9 +1043546,9 @@ window.DATA = {
               "quoteDate": "2026-11-11",
               "inst": {
                 "foreign": -12876968,
-                "trust": 9510100,
+                "trust": 15637100,
                 "dealer": 318155,
-                "total": -3048713,
+                "total": 3078287,
                 "date": "2026-11-11"
               },
               "margin": {
@@ -1043858,9 +1043858,9 @@ window.DATA = {
               "quoteDate": "2026-11-11",
               "inst": {
                 "foreign": -2278252,
-                "trust": 682067,
+                "trust": 673553,
                 "dealer": -117948,
-                "total": -1714133,
+                "total": -1722647,
                 "date": "2026-11-11"
               },
               "margin": {
@@ -1043936,9 +1043936,9 @@ window.DATA = {
               "quoteDate": "2026-11-11",
               "inst": {
                 "foreign": -5874029,
-                "trust": 356005,
+                "trust": 336005,
                 "dealer": 133066,
-                "total": -5384958,
+                "total": -5404958,
                 "date": "2026-11-11"
               },
               "margin": {
@@ -1044287,9 +1044287,9 @@ window.DATA = {
               "quoteDate": "2026-11-11",
               "inst": {
                 "foreign": -1563372,
-                "trust": 439793,
+                "trust": 425112,
                 "dealer": -78276,
-                "total": -1201855,
+                "total": -1216536,
                 "date": "2026-11-11"
               },
               "margin": {
@@ -1044638,9 +1044638,9 @@ window.DATA = {
               "quoteDate": "2026-11-11",
               "inst": {
                 "foreign": -2693905,
-                "trust": 750167,
+                "trust": 747967,
                 "dealer": 480458,
-                "total": -1463280,
+                "total": -1465480,
                 "date": "2026-11-11"
               },
               "margin": {
@@ -1044716,9 +1044716,9 @@ window.DATA = {
               "quoteDate": "2026-11-11",
               "inst": {
                 "foreign": -426151,
-                "trust": 591144,
+                "trust": 589693,
                 "dealer": 160127,
-                "total": 325120,
+                "total": 323669,
                 "date": "2026-11-11"
               },
               "margin": {
@@ -1045559,7 +1045559,7 @@ window.DATA = {
           "高股息"
         ],
         "source": "TWSE ETF e添富",
-        "fetchedAt": "2026-11-11T19:32:01+08:00",
+        "fetchedAt": "2026-11-11T20:32:26+08:00",
         "navHistory": [
           {
             "date": "2026-09-29",
@@ -1124244,7 +1124244,7 @@ window.DATA = {
         },
         {
           "date": "2026-11-11",
-          "fetched_at": "2026-11-11T19:30:59+08:00",
+          "fetched_at": "2026-11-11T20:31:05+08:00",
           "count": 30,
           "self": {
             "open": 33.21,
@@ -1124325,9 +1124325,9 @@ window.DATA = {
               "quoteDate": "2026-11-11",
               "inst": {
                 "foreign": -2278252,
-                "trust": 682067,
+                "trust": 673553,
                 "dealer": -117948,
-                "total": -1714133,
+                "total": -1722647,
                 "date": "2026-11-11"
               },
               "margin": {
@@ -1124637,9 +1124637,9 @@ window.DATA = {
               "quoteDate": "2026-11-11",
               "inst": {
                 "foreign": -426151,
-                "trust": 591144,
+                "trust": 589693,
                 "dealer": 160127,
-                "total": 325120,
+                "total": 323669,
                 "date": "2026-11-11"
               },
               "margin": {
@@ -1124881,9 +1124881,9 @@ window.DATA = {
               "quoteDate": "2026-11-11",
               "inst": {
                 "foreign": -2693905,
-                "trust": 750167,
+                "trust": 747967,
                 "dealer": 480458,
-                "total": -1463280,
+                "total": -1465480,
                 "date": "2026-11-11"
               },
               "margin": {
@@ -1124998,9 +1124998,9 @@ window.DATA = {
               "quoteDate": "2026-11-11",
               "inst": {
                 "foreign": -1563372,
-                "trust": 439793,
+                "trust": 425112,
                 "dealer": -78276,
-                "total": -1201855,
+                "total": -1216536,
                 "date": "2026-11-11"
               },
               "margin": {
@@ -1125477,11 +1125477,11 @@ window.DATA = {
         "fundSizeHundredMillion": 6491.68,
         "beneficiaryTenThousands": 174.82,
         "tags": [
-          "公司治理及ESG",
-          "高股息"
+          "高股息",
+          "公司治理及ESG"
         ],
         "source": "TWSE ETF e添富",
-        "fetchedAt": "2026-11-11T19:32:02+08:00",
+        "fetchedAt": "2026-11-11T20:32:27+08:00",
         "navHistory": [
           {
             "date": "2026-09-29",
@@ -1205449,7 +1205449,7 @@ window.DATA = {
         },
         {
           "date": "2026-11-11",
-          "fetched_at": "2026-11-11T19:30:59+08:00",
+          "fetched_at": "2026-11-11T20:31:05+08:00",
           "count": 31,
           "self": {
             "open": 44.39,
@@ -1205491,9 +1205491,9 @@ window.DATA = {
               "quoteDate": "2026-11-11",
               "inst": {
                 "foreign": 6038319,
-                "trust": 1542276,
+                "trust": 2385276,
                 "dealer": 148895,
-                "total": 7729490,
+                "total": 8572490,
                 "date": "2026-11-11"
               },
               "margin": {
@@ -1205530,9 +1205530,9 @@ window.DATA = {
               "quoteDate": "2026-11-11",
               "inst": {
                 "foreign": -426151,
-                "trust": 591144,
+                "trust": 589693,
                 "dealer": 160127,
-                "total": 325120,
+                "total": 323669,
                 "date": "2026-11-11"
               },
               "margin": {
@@ -1205608,9 +1205608,9 @@ window.DATA = {
               "quoteDate": "2026-11-11",
               "inst": {
                 "foreign": -3143354,
-                "trust": 779051,
+                "trust": 788551,
                 "dealer": 98528,
-                "total": -2265775,
+                "total": -2256275,
                 "date": "2026-11-11"
               },
               "margin": {
@@ -1205686,9 +1205686,9 @@ window.DATA = {
               "quoteDate": "2026-11-11",
               "inst": {
                 "foreign": -748852,
-                "trust": 385075,
+                "trust": 491075,
                 "dealer": -1404,
-                "total": -365181,
+                "total": -259181,
                 "date": "2026-11-11"
               },
               "margin": {
@@ -1205725,9 +1205725,9 @@ window.DATA = {
               "quoteDate": "2026-11-11",
               "inst": {
                 "foreign": -2278252,
-                "trust": 682067,
+                "trust": 673553,
                 "dealer": -117948,
-                "total": -1714133,
+                "total": -1722647,
                 "date": "2026-11-11"
               },
               "margin": {
@@ -1205764,9 +1205764,9 @@ window.DATA = {
               "quoteDate": "2026-11-11",
               "inst": {
                 "foreign": -1011526,
-                "trust": 326609,
+                "trust": 327470,
                 "dealer": 269389,
-                "total": -415528,
+                "total": -414667,
                 "date": "2026-11-11"
               },
               "margin": {
@@ -1205803,9 +1205803,9 @@ window.DATA = {
               "quoteDate": "2026-11-11",
               "inst": {
                 "foreign": -2624029,
-                "trust": 609837,
+                "trust": 591837,
                 "dealer": 119097,
-                "total": -1895095,
+                "total": -1913095,
                 "date": "2026-11-11"
               },
               "margin": {
@@ -1205881,9 +1205881,9 @@ window.DATA = {
               "quoteDate": "2026-11-11",
               "inst": {
                 "foreign": -88639,
-                "trust": 15000,
+                "trust": 30000,
                 "dealer": -3350,
-                "total": -76989,
+                "total": -61989,
                 "date": "2026-11-11"
               },
               "margin": {
@@ -1206675,7 +1206675,7 @@ window.DATA = {
           "科技主題型"
         ],
         "source": "TWSE ETF e添富",
-        "fetchedAt": "2026-11-11T19:32:03+08:00",
+        "fetchedAt": "2026-11-11T20:32:28+08:00",
         "navHistory": [
           {
             "date": "2026-09-29",
@@ -1312474,7 +1312474,7 @@ window.DATA = {
         },
         {
           "date": "2026-11-11",
-          "fetched_at": "2026-11-11T19:30:59+08:00",
+          "fetched_at": "2026-11-11T20:31:06+08:00",
           "count": 41,
           "self": {
             "open": 30.95,
@@ -1312633,9 +1312633,9 @@ window.DATA = {
               "quoteDate": "2026-11-11",
               "inst": {
                 "foreign": -2278252,
-                "trust": 682067,
+                "trust": 673553,
                 "dealer": -117948,
-                "total": -1714133,
+                "total": -1722647,
                 "date": "2026-11-11"
               },
               "margin": {
@@ -1314123,7 +1314123,7 @@ window.DATA = {
           "高股息"
         ],
         "source": "TWSE ETF e添富",
-        "fetchedAt": "2026-11-11T19:32:05+08:00",
+        "fetchedAt": "2026-11-11T20:32:28+08:00",
         "navHistory": [
           {
             "date": "2026-09-29",
@@ -1444001,7 +1444001,7 @@ window.DATA = {
         },
         {
           "date": "2026-11-11",
-          "fetched_at": "2026-11-11T19:30:59+08:00",
+          "fetched_at": "2026-11-11T20:31:06+08:00",
           "count": 50,
           "self": {
             "open": 36.87,
@@ -1444043,9 +1444043,9 @@ window.DATA = {
               "quoteDate": "2026-11-11",
               "inst": {
                 "foreign": 6038319,
-                "trust": 1542276,
+                "trust": 2385276,
                 "dealer": 148895,
-                "total": 7729490,
+                "total": 8572490,
                 "date": "2026-11-11"
               },
               "margin": {
@@ -1444082,9 +1444082,9 @@ window.DATA = {
               "quoteDate": "2026-11-11",
               "inst": {
                 "foreign": -426151,
-                "trust": 591144,
+                "trust": 589693,
                 "dealer": 160127,
-                "total": 325120,
+                "total": 323669,
                 "date": "2026-11-11"
               },
               "margin": {
@@ -1444160,9 +1444160,9 @@ window.DATA = {
               "quoteDate": "2026-11-11",
               "inst": {
                 "foreign": -3143354,
-                "trust": 779051,
+                "trust": 788551,
                 "dealer": 98528,
-                "total": -2265775,
+                "total": -2256275,
                 "date": "2026-11-11"
               },
               "margin": {
@@ -1444199,9 +1444199,9 @@ window.DATA = {
               "quoteDate": "2026-11-11",
               "inst": {
                 "foreign": -2693905,
-                "trust": 750167,
+                "trust": 747967,
                 "dealer": 480458,
-                "total": -1463280,
+                "total": -1465480,
                 "date": "2026-11-11"
               },
               "margin": {
@@ -1444316,9 +1444316,9 @@ window.DATA = {
               "quoteDate": "2026-11-11",
               "inst": {
                 "foreign": -12876968,
-                "trust": 9510100,
+                "trust": 15637100,
                 "dealer": 318155,
-                "total": -3048713,
+                "total": 3078287,
                 "date": "2026-11-11"
               },
               "margin": {
@@ -1444472,9 +1444472,9 @@ window.DATA = {
               "quoteDate": "2026-11-11",
               "inst": {
                 "foreign": -748852,
-                "trust": 385075,
+                "trust": 491075,
                 "dealer": -1404,
-                "total": -365181,
+                "total": -259181,
                 "date": "2026-11-11"
               },
               "margin": {
@@ -1444589,9 +1444589,9 @@ window.DATA = {
               "quoteDate": "2026-11-11",
               "inst": {
                 "foreign": 1427602,
-                "trust": -1209335,
+                "trust": -1111335,
                 "dealer": -27416,
-                "total": 190851,
+                "total": 288851,
                 "date": "2026-11-11"
               },
               "margin": {
@@ -1444628,9 +1444628,9 @@ window.DATA = {
               "quoteDate": "2026-11-11",
               "inst": {
                 "foreign": 2431834,
-                "trust": -4083857,
+                "trust": -4655857,
                 "dealer": 227191,
-                "total": -1424832,
+                "total": -1996832,
                 "date": "2026-11-11"
               },
               "margin": {
@@ -1444667,9 +1444667,9 @@ window.DATA = {
               "quoteDate": "2026-11-11",
               "inst": {
                 "foreign": -2624029,
-                "trust": 609837,
+                "trust": 591837,
                 "dealer": 119097,
-                "total": -1895095,
+                "total": -1913095,
                 "date": "2026-11-11"
               },
               "margin": {
@@ -1444745,9 +1444745,9 @@ window.DATA = {
               "quoteDate": "2026-11-11",
               "inst": {
                 "foreign": -1011526,
-                "trust": 326609,
+                "trust": 327470,
                 "dealer": 269389,
-                "total": -415528,
+                "total": -414667,
                 "date": "2026-11-11"
               },
               "margin": {
@@ -1444823,9 +1444823,9 @@ window.DATA = {
               "quoteDate": "2026-11-11",
               "inst": {
                 "foreign": -2278252,
-                "trust": 682067,
+                "trust": 673553,
                 "dealer": -117948,
-                "total": -1714133,
+                "total": -1722647,
                 "date": "2026-11-11"
               },
               "margin": {
@@ -1444950,9 +1444950,9 @@ window.DATA = {
               "quoteDate": "2026-11-11",
               "inst": {
                 "foreign": -1563372,
-                "trust": 439793,
+                "trust": 425112,
                 "dealer": -78276,
-                "total": -1201855,
+                "total": -1216536,
                 "date": "2026-11-11"
               },
               "margin": {
@@ -1445145,9 +1445145,9 @@ window.DATA = {
               "quoteDate": "2026-11-11",
               "inst": {
                 "foreign": -88639,
-                "trust": 15000,
+                "trust": 30000,
                 "dealer": -3350,
-                "total": -76989,
+                "total": -61989,
                 "date": "2026-11-11"
               },
               "margin": {
@@ -1445723,9 +1445723,9 @@ window.DATA = {
               "quoteDate": "2026-11-11",
               "inst": {
                 "foreign": 821461,
-                "trust": -490000,
+                "trust": -483000,
                 "dealer": -23141,
-                "total": 308320,
+                "total": 315320,
                 "date": "2026-11-11"
               },
               "margin": {
@@ -1445975,7 +1445975,7 @@ window.DATA = {
           "大型權值"
         ],
         "source": "TWSE ETF e添富",
-        "fetchedAt": "2026-11-11T19:32:07+08:00",
+        "fetchedAt": "2026-11-11T20:32:30+08:00",
         "navHistory": [
           {
             "date": "2026-09-29",
@@ -1572213,7 +1572213,7 @@ window.DATA = {
         },
         {
           "date": "2026-11-11",
-          "fetched_at": "2026-11-11T19:31:07+08:00",
+          "fetched_at": "2026-11-11T20:31:15+08:00",
           "count": 51,
           "self": {
             "open": 231.7,
@@ -1572255,9 +1572255,9 @@ window.DATA = {
               "quoteDate": "2026-11-11",
               "inst": {
                 "foreign": 6038319,
-                "trust": 1542276,
+                "trust": 2385276,
                 "dealer": 148895,
-                "total": 7729490,
+                "total": 8572490,
                 "date": "2026-11-11"
               },
               "margin": {
@@ -1572294,9 +1572294,9 @@ window.DATA = {
               "quoteDate": "2026-11-11",
               "inst": {
                 "foreign": -426151,
-                "trust": 591144,
+                "trust": 589693,
                 "dealer": 160127,
-                "total": 325120,
+                "total": 323669,
                 "date": "2026-11-11"
               },
               "margin": {
@@ -1572372,9 +1572372,9 @@ window.DATA = {
               "quoteDate": "2026-11-11",
               "inst": {
                 "foreign": -3143354,
-                "trust": 779051,
+                "trust": 788551,
                 "dealer": 98528,
-                "total": -2265775,
+                "total": -2256275,
                 "date": "2026-11-11"
               },
               "margin": {
@@ -1572411,9 +1572411,9 @@ window.DATA = {
               "quoteDate": "2026-11-11",
               "inst": {
                 "foreign": -2693905,
-                "trust": 750167,
+                "trust": 747967,
                 "dealer": 480458,
-                "total": -1463280,
+                "total": -1465480,
                 "date": "2026-11-11"
               },
               "margin": {
@@ -1572450,9 +1572450,9 @@ window.DATA = {
               "quoteDate": "2026-11-11",
               "inst": {
                 "foreign": -12876968,
-                "trust": 9510100,
+                "trust": 15637100,
                 "dealer": 318155,
-                "total": -3048713,
+                "total": 3078287,
                 "date": "2026-11-11"
               },
               "margin": {
@@ -1572645,9 +1572645,9 @@ window.DATA = {
               "quoteDate": "2026-11-11",
               "inst": {
                 "foreign": -2624029,
-                "trust": 609837,
+                "trust": 591837,
                 "dealer": 119097,
-                "total": -1895095,
+                "total": -1913095,
                 "date": "2026-11-11"
               },
               "margin": {
@@ -1572723,9 +1572723,9 @@ window.DATA = {
               "quoteDate": "2026-11-11",
               "inst": {
                 "foreign": -748852,
-                "trust": 385075,
+                "trust": 491075,
                 "dealer": -1404,
-                "total": -365181,
+                "total": -259181,
                 "date": "2026-11-11"
               },
               "margin": {
@@ -1572840,9 +1572840,9 @@ window.DATA = {
               "quoteDate": "2026-11-11",
               "inst": {
                 "foreign": -2278252,
-                "trust": 682067,
+                "trust": 673553,
                 "dealer": -117948,
-                "total": -1714133,
+                "total": -1722647,
                 "date": "2026-11-11"
               },
               "margin": {
@@ -1572879,9 +1572879,9 @@ window.DATA = {
               "quoteDate": "2026-11-11",
               "inst": {
                 "foreign": -1011526,
-                "trust": 326609,
+                "trust": 327470,
                 "dealer": 269389,
-                "total": -415528,
+                "total": -414667,
                 "date": "2026-11-11"
               },
               "margin": {
@@ -1572957,9 +1572957,9 @@ window.DATA = {
               "quoteDate": "2026-11-11",
               "inst": {
                 "foreign": 2431834,
-                "trust": -4083857,
+                "trust": -4655857,
                 "dealer": 227191,
-                "total": -1424832,
+                "total": -1996832,
                 "date": "2026-11-11"
               },
               "margin": {
@@ -1573308,9 +1573308,9 @@ window.DATA = {
               "quoteDate": "2026-11-11",
               "inst": {
                 "foreign": 1427602,
-                "trust": -1209335,
+                "trust": -1111335,
                 "dealer": -27416,
-                "total": 190851,
+                "total": 288851,
                 "date": "2026-11-11"
               },
               "margin": {
@@ -1573464,9 +1573464,9 @@ window.DATA = {
               "quoteDate": "2026-11-11",
               "inst": {
                 "foreign": -88639,
-                "trust": 15000,
+                "trust": 30000,
                 "dealer": -3350,
-                "total": -76989,
+                "total": -61989,
                 "date": "2026-11-11"
               },
               "margin": {
@@ -1573581,9 +1573581,9 @@ window.DATA = {
               "quoteDate": "2026-11-11",
               "inst": {
                 "foreign": -1563372,
-                "trust": 439793,
+                "trust": 425112,
                 "dealer": -78276,
-                "total": -1201855,
+                "total": -1216536,
                 "date": "2026-11-11"
               },
               "margin": {
@@ -1573620,9 +1573620,9 @@ window.DATA = {
               "quoteDate": "2026-11-11",
               "inst": {
                 "foreign": -5874029,
-                "trust": 356005,
+                "trust": 336005,
                 "dealer": 133066,
-                "total": -5384958,
+                "total": -5404958,
                 "date": "2026-11-11"
               },
               "margin": {
@@ -1573893,9 +1573893,9 @@ window.DATA = {
               "quoteDate": "2026-11-11",
               "inst": {
                 "foreign": 821461,
-                "trust": -490000,
+                "trust": -483000,
                 "dealer": -23141,
-                "total": 308320,
+                "total": 315320,
                 "date": "2026-11-11"
               },
               "margin": {
@@ -1574247,7 +1574247,7 @@ window.DATA = {
           "大型權值"
         ],
         "source": "TWSE ETF e添富",
-        "fetchedAt": "2026-11-11T19:32:11+08:00",
+        "fetchedAt": "2026-11-11T20:32:32+08:00",
         "navHistory": [
           {
             "date": "2026-09-29",
@@ -1579407,7 +1579407,7 @@ window.DATA = {
         },
         {
           "date": "2026-11-11",
-          "fetched_at": "2026-11-11T19:31:07+08:00",
+          "fetched_at": "2026-11-11T20:31:15+08:00",
           "count": 4,
           "self": {
             "open": 31.11,
@@ -1579459,9 +1579459,9 @@ window.DATA = {
               "quoteDate": "2026-11-11",
               "inst": {
                 "foreign": 6038319,
-                "trust": 1542276,
+                "trust": 2385276,
                 "dealer": 148895,
-                "total": 7729490,
+                "total": 8572490,
                 "date": "2026-11-11"
               },
               "margin": {
@@ -1579514,7 +1579514,7 @@ window.DATA = {
           "大型權值"
         ],
         "source": "TWSE ETF e添富",
-        "fetchedAt": "2026-11-11T19:32:11+08:00",
+        "fetchedAt": "2026-11-11T20:32:32+08:00",
         "navHistory": [
           {
             "date": "2026-09-29",
@@ -1620696,7 +1620696,7 @@ window.DATA = {
         },
         {
           "date": "2026-11-10",
-          "fetched_at": "2026-11-11T19:31:07+08:00",
+          "fetched_at": "2026-11-11T20:31:13+08:00",
           "count": 31,
           "self": {
             "open": 72.45,
@@ -1621341,7 +1621341,7 @@ window.DATA = {
           "科技主題型"
         ],
         "source": "TWSE ETF e添富",
-        "fetchedAt": "2026-11-11T19:32:09+08:00",
+        "fetchedAt": "2026-11-11T20:32:31+08:00",
         "navHistory": [
           {
             "date": "2026-09-29",
