@@ -1,5 +1,5 @@
 window.DATA = {
-  "generated_at": "2026-11-14T07:21:37+08:00",
+  "generated_at": "2026-11-14T17:31:49+08:00",
   "etfs": {
     "00981A": {
       "name": "主動統一台股增長",
@@ -131536,7 +131536,7 @@ window.DATA = {
         },
         {
           "date": "2026-11-13",
-          "fetched_at": "2026-11-14T07:20:32+08:00",
+          "fetched_at": "2026-11-14T17:30:32+08:00",
           "count": 51,
           "self": {
             "open": 24.88,
@@ -133501,12 +133501,12 @@ window.DATA = {
         "issuer": "統一證券投資信託股份有限公司",
         "index": "臺灣證券交易所發行量加權股價報酬指數",
         "fundSizeHundredMillion": 2752.02,
-        "beneficiaryTenThousands": 100.24,
+        "beneficiaryTenThousands": 101.01,
         "tags": [
           "大型權值"
         ],
         "source": "TWSE ETF e添富",
-        "fetchedAt": "2026-11-14T07:21:31+08:00",
+        "fetchedAt": "2026-11-14T17:31:44+08:00",
         "navHistory": [
           {
             "date": "2026-09-30",
@@ -280494,7 +280494,7 @@ window.DATA = {
         },
         {
           "date": "2026-11-13",
-          "fetched_at": "2026-11-14T07:20:32+08:00",
+          "fetched_at": "2026-11-14T17:30:32+08:00",
           "count": 58,
           "self": {
             "open": 19.69,
@@ -282747,13 +282747,13 @@ window.DATA = {
         "issuer": "群益證券投資信託股份有限公司",
         "index": "無",
         "fundSizeHundredMillion": 470.27,
-        "beneficiaryTenThousands": 18.0,
+        "beneficiaryTenThousands": 18.16,
         "tags": [
           "大型權值",
           "中小型權值"
         ],
         "source": "TWSE ETF e添富",
-        "fetchedAt": "2026-11-14T07:21:31+08:00",
+        "fetchedAt": "2026-11-14T17:31:44+08:00",
         "navHistory": [
           {
             "date": "2026-09-30",
@@ -359103,12 +359103,12 @@ window.DATA = {
         "issuer": "元大證券投資信託股份有限公司",
         "index": "無",
         "fundSizeHundredMillion": 300.18,
-        "beneficiaryTenThousands": 11.56,
+        "beneficiaryTenThousands": 11.46,
         "tags": [
           "科技主題型"
         ],
         "source": "TWSE ETF e添富",
-        "fetchedAt": "2026-11-14T07:21:31+08:00",
+        "fetchedAt": "2026-11-14T17:31:46+08:00",
         "navHistory": [
           {
             "date": "2026-09-30",
@@ -465526,7 +465526,7 @@ window.DATA = {
         },
         {
           "date": "2026-11-13",
-          "fetched_at": "2026-11-14T07:20:45+08:00",
+          "fetched_at": "2026-11-14T17:30:32+08:00",
           "count": 45,
           "self": {
             "open": 14.97,
@@ -597886,7 +597886,7 @@ window.DATA = {
         },
         {
           "date": "2026-11-13",
-          "fetched_at": "2026-11-14T07:20:46+08:00",
+          "fetched_at": "2026-11-14T17:30:33+08:00",
           "count": 51,
           "self": {
             "open": 13.0,
@@ -737312,7 +737312,7 @@ window.DATA = {
         },
         {
           "date": "2026-11-13",
-          "fetched_at": "2026-11-14T07:20:46+08:00",
+          "fetched_at": "2026-11-14T17:30:33+08:00",
           "count": 52,
           "self": {
             "open": 102.85,
@@ -935286,7 +935286,7 @@ window.DATA = {
         },
         {
           "date": "2026-11-13",
-          "fetched_at": "2026-11-14T07:20:47+08:00",
+          "fetched_at": "2026-11-14T17:30:33+08:00",
           "count": 74,
           "self": {
             "open": 59.5,
@@ -1074920,7 +1074920,7 @@ window.DATA = {
         },
         {
           "date": "2026-11-13",
-          "fetched_at": "2026-11-14T07:20:47+08:00",
+          "fetched_at": "2026-11-14T17:30:33+08:00",
           "count": 51,
           "self": {
             "open": 53.15,
@@ -1158026,7 +1158026,7 @@ window.DATA = {
         },
         {
           "date": "2026-11-13",
-          "fetched_at": "2026-11-14T07:20:47+08:00",
+          "fetched_at": "2026-11-14T17:30:34+08:00",
           "count": 30,
           "self": {
             "open": 33.35,
@@ -1241647,7 +1241647,7 @@ window.DATA = {
         },
         {
           "date": "2026-11-13",
-          "fetched_at": "2026-11-14T07:20:47+08:00",
+          "fetched_at": "2026-11-14T17:30:34+08:00",
           "count": 31,
           "self": {
             "open": 45.31,
@@ -1351878,7 +1351878,7 @@ window.DATA = {
         },
         {
           "date": "2026-11-13",
-          "fetched_at": "2026-11-14T07:20:48+08:00",
+          "fetched_at": "2026-11-14T17:30:34+08:00",
           "count": 41,
           "self": {
             "open": 31.07,
@@ -1487317,7 +1487317,7 @@ window.DATA = {
         },
         {
           "date": "2026-11-13",
-          "fetched_at": "2026-11-14T07:20:48+08:00",
+          "fetched_at": "2026-11-14T17:30:34+08:00",
           "count": 50,
           "self": {
             "open": 37.73,
@@ -1619547,7 +1619547,7 @@ window.DATA = {
         },
         {
           "date": "2026-11-13",
-          "fetched_at": "2026-11-14T07:20:56+08:00",
+          "fetched_at": "2026-11-14T17:30:51+08:00",
           "count": 51,
           "self": {
             "open": 236.05,
@@ -1626992,7 +1626992,7 @@ window.DATA = {
         },
         {
           "date": "2026-11-13",
-          "fetched_at": "2026-11-14T07:20:56+08:00",
+          "fetched_at": "2026-11-14T17:30:51+08:00",
           "count": 5,
           "self": {
             "open": 32.33,
@@ -1669550,7 +1669550,7 @@ window.DATA = {
         },
         {
           "date": "2026-11-12",
-          "fetched_at": "2026-11-14T07:20:55+08:00",
+          "fetched_at": "2026-11-14T17:30:51+08:00",
           "count": 31,
           "self": {
             "open": 75.35,
