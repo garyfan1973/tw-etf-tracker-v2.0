@@ -10,13 +10,8 @@
       "大型權值"
     ],
     "source": "TWSE ETF e添富",
-    "fetchedAt": "2026-11-15T23:32:03+08:00",
+    "fetchedAt": "2026-11-16T05:21:37+08:00",
     "navHistory": [
-      {
-        "date": "2026-10-01",
-        "nav": 31.17,
-        "premiumPct": -0.55
-      },
       {
         "date": "2026-10-02",
         "nav": 31.63,
@@ -167,17 +162,12 @@
     "fundSizeHundredMillion": 470.27,
     "beneficiaryTenThousands": 18.16,
     "tags": [
-      "大型權值",
-      "中小型權值"
+      "中小型權值",
+      "大型權值"
     ],
     "source": "TWSE ETF e添富",
-    "fetchedAt": "2026-11-15T23:32:03+08:00",
+    "fetchedAt": "2026-11-16T05:21:38+08:00",
     "navHistory": [
-      {
-        "date": "2026-10-01",
-        "nav": 23.29,
-        "premiumPct": -0.6
-      },
       {
         "date": "2026-10-02",
         "nav": 23.87,
