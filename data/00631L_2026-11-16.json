@@ -1,0 +1,106 @@
+{
+  "date": "2026-11-16",
+  "fetched_at": "2026-11-16T19:31:13+08:00",
+  "count": 5,
+  "self": {
+    "open": 31.25,
+    "high": 31.37,
+    "low": 27.95,
+    "close": 27.95,
+    "prevClose": 31.92,
+    "change": -3.97,
+    "changePct": -12.44,
+    "amplitude": 10.71,
+    "volume": 678825245.0,
+    "quoteDate": "2026-11-16"
+  },
+  "selfInstitutional": {
+    "foreign": -23981809,
+    "trust": -234000,
+    "dealer": -191795892,
+    "total": -216011701,
+    "date": "2026-11-16"
+  },
+  "selfMargin": null,
+  "holdings": [
+    {
+      "code": "",
+      "name": "臺股期貨 202612(FITXN*1.TF)",
+      "market": "",
+      "assetType": "future",
+      "weight": 96.44,
+      "quantity": 32175.0,
+      "unit": "口",
+      "amount": null
+    },
+    {
+      "code": "",
+      "name": "臺股期貨 202611(FITXN*1.TF)",
+      "market": "",
+      "assetType": "future",
+      "weight": 59.82,
+      "quantity": 20000.0,
+      "unit": "口",
+      "amount": null
+    },
+    {
+      "code": "2330",
+      "name": "台積電",
+      "market": "TW",
+      "assetType": "stock",
+      "weight": 41.07,
+      "shares": 50555000,
+      "open": 2340.0,
+      "high": 2350.0,
+      "low": 2215.0,
+      "close": 2215.0,
+      "prevClose": 2350.0,
+      "change": -135.0,
+      "changePct": -5.74,
+      "amplitude": 5.74,
+      "volume": 52604545.0,
+      "quoteDate": "2026-11-16",
+      "inst": {
+        "foreign": -8466493,
+        "trust": -2291342,
+        "dealer": 3085864,
+        "total": -7671971,
+        "date": "2026-11-16"
+      },
+      "margin": {
+        "marginBuy": 680,
+        "marginSell": 477,
+        "marginCashRedemption": 83,
+        "marginPrevBalance": 32256,
+        "marginBalance": 32376,
+        "shortBuy": 20,
+        "shortSell": 5,
+        "shortStockRedemption": 9,
+        "shortPrevBalance": 74,
+        "shortBalance": 50,
+        "offsetting": 3,
+        "date": "2026-11-13"
+      }
+    },
+    {
+      "code": "",
+      "name": "台灣50ETF股票期貨 202612",
+      "market": "",
+      "assetType": "future",
+      "weight": 1.83,
+      "quantity": 5200.0,
+      "unit": "口",
+      "amount": null
+    },
+    {
+      "code": "",
+      "name": "台灣50ETF股票期貨 202611",
+      "market": "",
+      "assetType": "future",
+      "weight": 1.72,
+      "quantity": 4900.0,
+      "unit": "口",
+      "amount": null
+    }
+  ]
+}
