@@ -258,8 +258,22 @@
     "business": "無代號海外成分股，暫無可用公開摘要。",
     "source": ""
   },
+  "2026/12台股指數期貨(FITXN*1.TF)": {
+    "name": "2026/12台股指數期貨(FITXN*1.TF)",
+    "market": "",
+    "industry": "",
+    "business": "無代號海外成分股，暫無可用公開摘要。",
+    "source": ""
+  },
   "2026/12富邦科技ETF期貨(FIVHF*1.TF)": {
     "name": "2026/12富邦科技ETF期貨(FIVHF*1.TF)",
+    "market": "",
+    "industry": "",
+    "business": "無代號海外成分股，暫無可用公開摘要。",
+    "source": ""
+  },
+  "2026/12電子指數期貨(FITEN*1.TF)": {
+    "name": "2026/12電子指數期貨(FITEN*1.TF)",
     "market": "",
     "industry": "",
     "business": "無代號海外成分股，暫無可用公開摘要。",
@@ -1538,6 +1552,13 @@
     "industry": "",
     "business": "無代號海外成分股，暫無可用公開摘要。",
     "source": ""
+  },
+  "7722": {
+    "name": "LINEPAY",
+    "market": "TW",
+    "industry": "數位雲端業",
+    "business": "臺灣上市公司；主要業務請參考公司網站。",
+    "source": "臺灣證券交易所"
   },
   "7734": {
     "name": "印能科技",
