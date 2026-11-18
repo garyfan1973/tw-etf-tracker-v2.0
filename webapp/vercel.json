@@ -1,5 +1,9 @@
 {
   "functions": {
+    "api/valuation.py": {
+      "maxDuration": 120,
+      "includeFiles": "{trade_assets.json,price-history/valuation/**}"
+    },
     "api/chart-analysis.py": {
       "maxDuration": 120,
       "includeFiles": "skills/stock-analysis-standard/**"

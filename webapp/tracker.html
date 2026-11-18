@@ -4,6 +4,7 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>投資研究工作台｜台股、美股與 ETF</title>
+  <link rel="stylesheet" href="valuation-river.css?v=20261118-1">
   <style>
     /* 淺色（預設）；--detail 為展開明細的底色，刻意跟 --card 區隔 */
     :root, :root[data-theme="light"] {
@@ -853,6 +854,10 @@
     <div id="selectedEtfSummary" class="selected-etf-summary"></div>
     <section id="marketOverviewPanel" class="market-overview-panel" style="display:none;"></section>
     <section id="marketFinancialPanel" class="market-financial-panel" style="display:none;">
+      <details id="valuationAccordion" class="data-accordion">
+        <summary>估值河流圖 · 本益比／股價淨值比</summary>
+        <div class="accordion-body"><div id="valuationRiver">請先選擇台灣上市、上櫃個股。</div></div>
+      </details>
       <details class="data-accordion" open>
         <summary>營收、獲利、現金流與利潤結構</summary>
         <div class="accordion-body"><div id="financialPanel" class="financial-panel"></div></div>
@@ -973,7 +978,9 @@
   <script src="data.js"></script>
   <script src="etf-holdings-index.js?v=20260829"></script>
   <script src="technical-chart-core.js?v=20261107-daily-change-fix"></script>
-  <script src="kline.js?v=20261107-daily-change-fix"></script>
+  <script src="valuation-river-core.js?v=20261118-1"></script>
+  <script src="valuation-river.js?v=20261118-1"></script>
+  <script src="kline.js?v=20261118-valuation-river"></script>
   <script src="market-message.js?v=20260926-latest-news"></script>
   <script src="investment-strategy-launcher.js?v=20260914-1"></script>
   <script src="https://cdn.jsdelivr.net/npm/html2canvas@1.4.1/dist/html2canvas.min.js" integrity="sha512-BNaRQnYJYiPSqHHDb58B0yaPfCu+Wgds8Gp/gU33kqBtgNS4tSPHuGibyoeqMV/TJlSKda6FXzoEyYGjTe+vXA==" crossorigin="anonymous"></script>

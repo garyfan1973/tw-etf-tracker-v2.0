@@ -761,6 +761,7 @@
   async function renderFinancials(code, security, name) {
     const box = $("financialPanel"); if (!box) return;
     const info = securityInfo(code, security), key = `${info.symbol}|${info.market}`; financialRequestKey = key;
+    window.ValuationRiver?.setAsset(info);
     if (info.assetType === "etf") { box.style.display = "none"; box.innerHTML = ""; return; }
     box.style.display = "block";
     box.innerHTML = `<div class="financial-atlas-loading"><span class="financial-atlas-kicker">FINANCIAL PULSE</span><strong>正在整理 ${esc(name)} 的財務節奏…</strong><span>同步讀取營收、獲利、現金流與利潤率。</span></div>`;

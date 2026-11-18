@@ -240,6 +240,9 @@ def main():
     from scripts.build_analysis_catalog import build_catalog
     catalog = build_catalog(BASE_DIR)
     print("analysis catalog: {} assets".format(len(catalog["assets"])))
+    # Kept under price-history so both existing batch commit lists include it.
+    from fetch_valuation_history import update_saved
+    update_saved()
 
 
 if __name__ == "__main__":
