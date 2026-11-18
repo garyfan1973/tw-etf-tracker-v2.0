@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
   <title>指數資訊｜投資研究工作台</title>
-  <link rel="stylesheet" href="market-pages.css?v=20261107-maintenance">
+  <link rel="stylesheet" href="market-pages.css?v=20261118-institutional-amounts">
   <script>(function(){var t=localStorage.getItem("etf-theme");if(t)document.documentElement.dataset.theme=t})();</script>
   <script src="config.js"></script>
   <script src="market-nav.js" defer></script>
@@ -49,5 +49,11 @@
     <div id="marketMarginTable" class="market-margin-table"></div>
     <p class="market-margin-note">融資金額單位為億元；融券單位為張。每日增減依當日報表的「今日餘額－前日餘額」計算。融資維持率是以各上市標的融資餘額乘收盤價估算市值，再除以上市融資金額餘額；它不是券商依個人信用帳戶計算的實際整戶維持率，不能用來判斷個人追繳或處分。證交所可能於次日修正前日餘額。</p>
   </section>
-</div><script src="theme.js"></script><script type="module" src="auth.js?v=20261107-captcha-login"></script><script src="macro-pages.js?v=20261107-maintenance"></script><script src="market-heatmap.js?v=20260903"></script><script src="member-gate.js?v=20260926"></script></body>
+  <section id="marketInstitutionalPanel" class="panel market-margin-panel" aria-labelledby="marketInstitutionalTitle" hidden>
+    <div class="market-margin-head"><div><div class="eyebrow">TWSE MARKET INSTITUTIONAL FLOW</div><h2 id="marketInstitutionalTitle">上市大盤三大法人買賣金額</h2><p id="marketInstitutionalDate">資料載入中…</p></div><a href="https://www.twse.com.tw/zh/trading/foreign/bfi82u.html" target="_blank" rel="noopener noreferrer">證交所原始資料 ↗</a></div>
+    <div id="marketInstitutionalSummary" class="market-margin-summary"></div>
+    <div id="marketInstitutionalTable" class="market-margin-table"></div>
+    <p class="market-margin-note">金額單位為億元；買賣超＝買進－賣出。自營商合計自行買賣與避險；三大法人合計依證交所報表（外資自營商不重複計入）。資料為上市集中市場日報，不含上櫃市場。</p>
+  </section>
+</div><script src="theme.js"></script><script type="module" src="auth.js?v=20261107-captcha-login"></script><script src="macro-pages.js?v=20261118-institutional-amounts"></script><script src="market-heatmap.js?v=20260903"></script><script src="member-gate.js?v=20260926"></script></body>
 </html>

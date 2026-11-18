@@ -137,9 +137,22 @@
     renderChart();
   }
 
+  function initMarketInstitutional(data) {
+    const block=data.marketInstitutional||{},rows=(block.rows||[]).slice().sort((a,b)=>a.date.localeCompare(b.date));
+    const summary=$("marketInstitutionalSummary"),table=$("marketInstitutionalTable"),date=$("marketInstitutionalDate");
+    if(!rows.length){date.textContent="目前沒有上市大盤三大法人資料";summary.innerHTML="";table.innerHTML='<div class="chart-empty">證交所法人資料尚未取得</div>';return;}
+    const amount=value=>number(value/100000000,2),signed=value=>`${value>0?"+":""}${amount(value)}`,latest=rows.at(-1);
+    const investors=[{key:"foreign",label:"外資（不含外資自營商）"},{key:"trust",label:"投信"},{key:"dealer",label:"自營商"}];
+    date.textContent=`證交所三大法人買賣金額統計表・資料日 ${block.asOf||latest.date}`;
+    summary.innerHTML=investors.map(item=>{const buy=latest[`${item.key}BuyTwd`],sell=latest[`${item.key}SellTwd`],net=latest[`${item.key}NetTwd`];return `<div class="market-margin-card"><span>${item.label}・買進／賣出</span><strong>${amount(buy)}／${amount(sell)} 億</strong><small>買賣超 <b class="${tone(net)}">${signed(net)} 億元</b></small></div>`;}).join("")+`<div class="market-margin-card"><span>三大法人合計買賣超</span><strong class="${tone(latest.totalNetTwd)}">${signed(latest.totalNetTwd)} 億元</strong><small>${latest.date}・買進 ${amount(latest.totalBuyTwd)} 億／賣出 ${amount(latest.totalSellTwd)} 億</small></div>`;
+    const cols=[...investors.map(item=>[item.label,`${item.key}NetTwd`]),["三大法人合計","totalNetTwd"]];
+    table.innerHTML='<table><thead><tr><th>交易日</th>'+cols.map(([label])=>`<th>${esc(label)}淨額（億元）</th>`).join("")+'</tr></thead><tbody>'+rows.slice(-7).reverse().map(row=>`<tr><td>${esc(row.date)}</td>${cols.map(([,key])=>`<td class="${tone(row[key])}">${signed(row[key])}</td>`).join("")}</tr>`).join("")+'</tbody></table>';
+  }
+
   function initIndices(data) {
     const cards=$("indexCards"),chart=$("indexChart"),title=$("chartTitle"),meta=$("chartMeta"),latest=$("indexLatest"),move=$("indexMove"),volume=$("indexVolume"),weekRange=$("indexWeekRange"),asOf=$("quoteAsOf"),panel=$("indexChartPanel");
     initMarketMargin(data);
+    initMarketInstitutional(data);
     let selected=data.indices[0],period="1Y",chartType="line",view=periodWindow(selected.rows,period);
     const groupFor=item=>item.region==="商品"?"commodities":item.region.startsWith("美國")?"us":"asia",groups=[{id:"asia",title:"亞洲市場",description:"台灣、日本與韓國主要股價指數"},{id:"us",title:"美股指數",description:"大型股、科技、半導體、小型股與市場波動"},{id:"commodities",title:"商品市場",description:"國際原油價格參考"}];
     function renderCards(){cards.innerHTML=groups.map(group=>{const rows=data.indices.filter(item=>groupFor(item)===group.id);return `<div class="index-group"><div class="index-group-head"><div><span>${esc(group.title)}</span><small>${esc(group.description)}</small></div><b>${rows.length} 項</b></div><div class="index-group-grid">${rows.map(item=>`<button class="market-card${item.id===selected.id?" active":""}" data-index-id="${esc(item.id)}"><span class="region">${esc(item.region)}</span><h2>${esc(item.name)}</h2><div class="quote">${number(item.latest,item.decimals ?? 2)}</div><div class="change ${tone(item.change)}">${Number(item.change)>0?"+":""}${number(item.change,item.decimals ?? 2)} ・ ${Number(item.changePct)>0?"+":""}${number(item.changePct,2)}%</div><small class="quote-basis">${esc(item.quoteLabel||"最近收盤")}・${esc(item.asOf)}${item.quoteTime?` ${esc(item.quoteTime)}`:""}</small></button>`).join("")}</div></div>`;}).join("")}
@@ -147,6 +160,7 @@
     function renderChart(){interactiveIndexChart(chart,selected.rows,view,selected.name,chartType,selected.turnoverLabel||selected.volumeLabel||"",next=>{view=next;renderChart();});}
     function render() {
       $("marketMarginPanel").hidden=selected.id!=="twii";
+      $("marketInstitutionalPanel").hidden=selected.id!=="twii";
       cards.querySelectorAll("button").forEach(btn=>btn.classList.toggle("active",btn.dataset.indexId===selected.id));
       document.querySelectorAll("[data-period]").forEach(btn=>btn.classList.toggle("active",btn.dataset.period===period));
       title.textContent=selected.name;meta.textContent=`${selected.symbol}・${selected.currency||""}・${selected.source}`;asOf.textContent=`${selected.quoteLabel||"最近收盤"}｜${selected.asOf}`;latest.textContent=number(selected.latest,selected.decimals??2);

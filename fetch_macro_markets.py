@@ -22,6 +22,7 @@ TWSE_INDEX_SNAPSHOT = "https://openapi.twse.com.tw/v1/exchangeReport/MI_INDEX"
 TWSE_BREADTH = "https://www.twse.com.tw/rwd/zh/afterTrading/MI_INDEX?date={date}&type=MS&response=json"
 TWSE_ALL_MARGIN = "https://www.twse.com.tw/exchangeReport/MI_MARGN?date={date}&selectType=ALL&response=json"
 TWSE_ALL_QUOTES = "https://www.twse.com.tw/rwd/zh/afterTrading/MI_INDEX?date={date}&type=ALLBUT0999&response=json"
+TWSE_INSTITUTIONAL_AMOUNTS = "https://www.twse.com.tw/rwd/zh/fund/BFI82U?dayDate={date}&response=json&type=day"
 TPEX_INDEX_SNAPSHOT = "https://www.tpex.org.tw/www/zh-tw/afterTrading/indexSummary?date=&response=json"
 USER_AGENT = "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36"
 US_MARKET_TIMEZONE = ZoneInfo("America/New_York")
@@ -581,6 +582,63 @@ def update_twse_market_margin(previous, trading_dates):
     }
 
 
+def parse_twse_institutional_amounts(payload, date):
+    """Parse the TWSE market-wide institutional trading-value summary (NTD)."""
+    if payload.get("stat") != "OK" or payload.get("date") != date.replace("-", ""):
+        raise ValueError("TWSE institutional amount date mismatch or unavailable")
+    fields = payload.get("fields") or []
+    if not all(name in fields for name in ("單位名稱", "買進金額", "賣出金額", "買賣差額")):
+        raise ValueError("TWSE institutional amount fields are incomplete")
+    label_idx, buy_idx, sell_idx, net_idx = (fields.index(name) for name in ("單位名稱", "買進金額", "賣出金額", "買賣差額"))
+    values = {}
+    for row in payload.get("data") or []:
+        if len(row) <= max(label_idx, buy_idx, sell_idx, net_idx):
+            continue
+        label = str(row[label_idx]).strip()
+        try:
+            values[label] = tuple(int(str(row[index]).replace(",", "")) for index in (buy_idx, sell_idx, net_idx))
+        except (TypeError, ValueError):
+            continue
+    required = ("自營商(自行買賣)", "自營商(避險)", "投信", "外資及陸資(不含外資自營商)", "合計")
+    if any(label not in values for label in required):
+        raise ValueError("TWSE institutional amount report is incomplete")
+    dealer_proprietary, dealer_hedge = values[required[0]], values[required[1]]
+    dealer = tuple(dealer_proprietary[index] + dealer_hedge[index] for index in range(3))
+    foreign, trust, total = values[required[3]], values["投信"], values["合計"]
+    return {
+        "date": date,
+        "foreignBuyTwd": foreign[0], "foreignSellTwd": foreign[1], "foreignNetTwd": foreign[2],
+        "trustBuyTwd": trust[0], "trustSellTwd": trust[1], "trustNetTwd": trust[2],
+        "dealerBuyTwd": dealer[0], "dealerSellTwd": dealer[1], "dealerNetTwd": dealer[2],
+        "totalBuyTwd": total[0], "totalSellTwd": total[1], "totalNetTwd": total[2],
+    }
+
+
+def update_twse_institutional_amounts(previous, trading_dates):
+    dates = sorted(set(trading_dates))[-7:]
+    old_rows = {row["date"]: row for row in (previous or {}).get("rows", []) if row.get("date") in dates}
+    rows, failures = [], []
+    for date in dates:
+        if date in old_rows and date not in dates[-3:]:
+            rows.append(old_rows[date])
+            continue
+        try:
+            url = TWSE_INSTITUTIONAL_AMOUNTS.format(date=date.replace("-", ""))
+            rows.append(parse_twse_institutional_amounts(json.loads(read_url(url, retries=2)), date))
+        except (OSError, ValueError, KeyError, TypeError) as error:
+            if date in old_rows:
+                rows.append(old_rows[date])
+            else:
+                failures.append("{}: {}".format(date, error))
+    if failures:
+        print("TWSE institutional amount warnings: " + "; ".join(failures))
+    return {
+        "market": "TWSE", "name": "上市大盤三大法人", "source": "臺灣證券交易所・三大法人買賣金額統計表",
+        "sourceUrl": "https://www.twse.com.tw/zh/trading/foreign/bfi82u.html",
+        "asOf": rows[-1]["date"] if rows else None, "rows": rows,
+    }
+
+
 def update_twse_breadth(previous, trading_dates):
     """Keep a fixed origin. Missing sessions break ADL until backfilled."""
     previous = previous or {}
@@ -702,8 +760,9 @@ def main(backfill_twse_turnover=False):
     twii = next((item for item in indices if item["id"] == "twii"), {})
     breadth = update_twse_breadth(existing.get("marketBreadth"), [row["date"] for row in twii.get("rows", [])])
     market_margin = update_twse_market_margin(existing.get("marketMargin"), [row["date"] for row in twii.get("rows", [])])
+    market_institutional = update_twse_institutional_amounts(existing.get("marketInstitutional"), [row["date"] for row in twii.get("rows", [])])
     payload = {
-        "marketBreadth": breadth, "marketMargin": market_margin,
+        "marketBreadth": breadth, "marketMargin": market_margin, "marketInstitutional": market_institutional,
         "updatedAt": dt.datetime.now(dt.timezone.utc).replace(microsecond=0).isoformat().replace("+00:00", "Z"),
         "indices": indices, "currencies": currencies,
         "taiwanHighlights": taiwan_highlights,

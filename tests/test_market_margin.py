@@ -78,6 +78,36 @@ class MarketMarginTests(unittest.TestCase):
             refreshed = markets.update_twse_market_margin({"rows": [old]}, ["2026-11-04"])
         self.assertEqual(refreshed["rows"][0]["marginBalanceThousandTwd"], 596945870)
 
+    def test_parses_market_wide_institutional_buy_sell_amounts(self):
+        payload = {
+            "stat": "OK", "date": "20261104",
+            "fields": ["單位名稱", "買進金額", "賣出金額", "買賣差額"],
+            "data": [
+                ["自營商(自行買賣)", "100", "80", "20"],
+                ["自營商(避險)", "30", "40", "-10"],
+                ["投信", "200", "150", "50"],
+                ["外資及陸資(不含外資自營商)", "1,000", "1,200", "-200"],
+                ["外資自營商", "0", "0", "0"],
+                ["合計", "1,330", "1,470", "-140"],
+            ],
+        }
+        row = markets.parse_twse_institutional_amounts(payload, "2026-11-04")
+        self.assertEqual(row["foreignNetTwd"], -200)
+        self.assertEqual(row["trustNetTwd"], 50)
+        self.assertEqual(row["dealerBuyTwd"], 130)
+        self.assertEqual(row["dealerSellTwd"], 120)
+        self.assertEqual(row["dealerNetTwd"], 10)
+        self.assertEqual(row["totalNetTwd"], -140)
+
+    def test_institutional_amount_update_keeps_seven_sessions_and_old_rows_on_errors(self):
+        dates = [f"2026-11-{day:02}" for day in range(1, 11)]
+        old = {"date": dates[-1], "foreignNetTwd": 5}
+        with patch.object(markets, "read_url", side_effect=OSError("offline")):
+            result = markets.update_twse_institutional_amounts({"rows": [old]}, dates)
+        self.assertEqual(len(result["rows"]), 1)
+        self.assertEqual(result["rows"][0], old)
+        self.assertEqual(result["asOf"], dates[-1])
+
 
 if __name__ == "__main__":
     unittest.main()
