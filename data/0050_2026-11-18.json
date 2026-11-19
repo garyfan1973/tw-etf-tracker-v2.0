@@ -1,6 +1,6 @@
 {
   "date": "2026-11-18",
-  "fetched_at": "2026-11-19T18:30:55+08:00",
+  "fetched_at": "2026-11-19T19:31:50+08:00",
   "count": 52,
   "self": {
     "open": 95.7,
@@ -1207,45 +1207,6 @@
       }
     },
     {
-      "code": "3008",
-      "name": "大立光",
-      "market": "TW",
-      "assetType": "stock",
-      "weight": 0.46,
-      "shares": 2469716,
-      "open": 4820.0,
-      "high": 4820.0,
-      "low": 4205.0,
-      "close": 4410.0,
-      "prevClose": 4515.0,
-      "change": -105.0,
-      "changePct": -2.33,
-      "amplitude": 13.62,
-      "volume": 2419864.0,
-      "quoteDate": "2026-11-18",
-      "inst": {
-        "foreign": -205636,
-        "trust": 54276,
-        "dealer": -7456,
-        "total": -158816,
-        "date": "2026-11-18"
-      },
-      "margin": {
-        "marginBuy": 104,
-        "marginSell": 109,
-        "marginCashRedemption": 1,
-        "marginPrevBalance": 2643,
-        "marginBalance": 2637,
-        "shortBuy": 18,
-        "shortSell": 1,
-        "shortStockRedemption": 0,
-        "shortPrevBalance": 96,
-        "shortBalance": 79,
-        "offsetting": 0,
-        "date": "2026-11-18"
-      }
-    },
-    {
       "code": "2408",
       "name": "南亞科",
       "market": "TW",
@@ -1281,6 +1242,45 @@
         "shortPrevBalance": 1450,
         "shortBalance": 956,
         "offsetting": 63,
+        "date": "2026-11-18"
+      }
+    },
+    {
+      "code": "3008",
+      "name": "大立光",
+      "market": "TW",
+      "assetType": "stock",
+      "weight": 0.46,
+      "shares": 2469716,
+      "open": 4820.0,
+      "high": 4820.0,
+      "low": 4205.0,
+      "close": 4410.0,
+      "prevClose": 4515.0,
+      "change": -105.0,
+      "changePct": -2.33,
+      "amplitude": 13.62,
+      "volume": 2419864.0,
+      "quoteDate": "2026-11-18",
+      "inst": {
+        "foreign": -205636,
+        "trust": 54276,
+        "dealer": -7456,
+        "total": -158816,
+        "date": "2026-11-18"
+      },
+      "margin": {
+        "marginBuy": 104,
+        "marginSell": 109,
+        "marginCashRedemption": 1,
+        "marginPrevBalance": 2643,
+        "marginBalance": 2637,
+        "shortBuy": 18,
+        "shortSell": 1,
+        "shortStockRedemption": 0,
+        "shortPrevBalance": 96,
+        "shortBalance": 79,
+        "offsetting": 0,
         "date": "2026-11-18"
       }
     },
