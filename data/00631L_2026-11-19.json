@@ -1,6 +1,6 @@
 {
   "date": "2026-11-19",
-  "fetched_at": "2026-11-19T17:31:28+08:00",
+  "fetched_at": "2026-11-19T18:31:10+08:00",
   "count": 3,
   "self": {
     "open": 26.73,
@@ -48,7 +48,7 @@
       "change": -75.0,
       "changePct": -3.45,
       "amplitude": 4.83,
-      "volume": 52868314.0,
+      "volume": 56582314.0,
       "quoteDate": "2026-11-19",
       "inst": {
         "foreign": -8634761,
