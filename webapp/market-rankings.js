@@ -74,7 +74,7 @@
   $('rankingSearch').addEventListener('input',event=>{state.query=event.target.value;shown=20;render();});
   $('rankingMore').addEventListener('click',()=>{shown+=20;render();});
   $('rankingRefresh').addEventListener('click',()=>load());
-  const refresh=()=>{if(!document.hidden&&!busy&&state.mode==='live'&&$('rankingAuto').checked)load();};
+  const refresh=()=>{if(!document.hidden&&!panel.hidden&&!busy&&state.mode==='live'&&$('rankingAuto').checked)load();};
   setInterval(refresh,30000);setInterval(freshness,5000);document.addEventListener('visibilitychange',()=>{if(Date.now()-lastAttempt>=30000)refresh();});
   load();
 })();

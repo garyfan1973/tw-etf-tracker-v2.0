@@ -6,7 +6,7 @@
   <link id="themePaletteStyles" rel="stylesheet" href="theme-palettes.css?v=20261123-contrast">
   <title>指數資訊｜投資研究工作台</title>
   <link rel="stylesheet" href="market-pages.css?v=20261123-credit-risk">
-  <link rel="stylesheet" href="market-rankings.css?v=20261123-limit-colors">
+  <link rel="stylesheet" href="market-rankings.css?v=20261123-credit-ranking">
   <script>(function(){var t=localStorage.getItem("etf-theme"),p=localStorage.getItem("etf-palette");if(t)document.documentElement.dataset.theme=t;if(p)document.documentElement.dataset.palette=p})();</script>
   <script src="config.js"></script>
   <script src="market-nav.js" defer></script>
@@ -21,7 +21,9 @@
   <div id="pageError" class="error" hidden></div>
   <a class="futures-entry" href="taiwan-futures.html"><span><b>TX · MTX · TMF</b><strong>台指期資訊</strong><small>一般盤、夜盤、期限結構、法人部位與 Put/Call Ratio</small></span><em>查看完整資料 →</em></a>
   <section id="indexCards" class="index-groups" aria-label="重要市場指數"></section>
-  <section id="marketRankingsPanel" class="panel rankings-panel" aria-labelledby="rankingTitle" aria-busy="true">
+  <section class="panel rankings-panel" aria-label="台股排行">
+    <div class="ranking-category-tabs" role="tablist" aria-label="排行類別"><button id="quoteRankingsTab" type="button" role="tab" aria-selected="true" aria-controls="marketRankingsPanel" data-ranking-category="quotes">行情排行</button><button id="creditRankingsTab" type="button" role="tab" aria-selected="false" aria-controls="creditRankingsPanel" tabindex="-1" data-ranking-category="credit">融資／融券排行</button></div>
+    <div id="marketRankingsPanel" role="tabpanel" aria-labelledby="quoteRankingsTab" aria-busy="true">
     <div class="ranking-head"><div><div class="eyebrow">TAIWAN MARKET RANKINGS</div><h2 id="rankingTitle">台股行情排行</h2><p>上市、上櫃股票與 ETF，掌握市場成交與漲跌焦點。</p></div><div class="ranking-refresh"><span id="rankingStatus" role="status">行情載入中…</span><button id="rankingRefresh" type="button">重新整理</button></div></div>
     <div class="ranking-updates"><label>行情來源<select id="rankingMode"><option value="live">盤中快照</option><option value="close">官方收盤</option></select></label><label><input id="rankingAuto" type="checkbox" checked>每 30 秒更新</label><span id="rankingAge"></span></div>
     <div class="ranking-metrics" role="group" aria-label="行情排行指標"><button type="button" data-ranking-metric="volume" aria-pressed="true">成交量</button><button type="button" data-ranking-metric="gain" aria-pressed="false">漲幅</button><button type="button" data-ranking-metric="loss" aria-pressed="false">跌幅</button><button type="button" data-ranking-metric="spread" aria-pressed="false">價差</button><button type="button" data-ranking-metric="price" aria-pressed="false">股價</button><button type="button" data-ranking-metric="turnover" aria-pressed="false">成交金額</button></div>
@@ -33,6 +35,19 @@
     <div class="ranking-footer"><span id="rankingCount" aria-live="polite"></span><button id="rankingMore" class="ranking-more" type="button" hidden>再顯示 20 檔</button></div>
     <p class="ranking-note"><span id="rankingSourceNote">正在確認來源與資料時間。</span> <a id="rankingSourceLink" href="https://tw.stock.yahoo.com/rank/volume" target="_blank" rel="noopener noreferrer" hidden>Yahoo 股市來源 ↗</a></p>
     <p class="ranking-note">僅比較新台幣股票與 ETF，不含權證、ETN 與外幣交易櫃台；排除無成交標的。價差＝當日最高－最低；1 張＝1,000 股／受益權單位。成交金額使用來源累計數值。官方收盤來源：<a href="https://www.twse.com.tw/zh/trading/historical/mi-index.html" target="_blank" rel="noopener noreferrer">證交所 ↗</a> · <a href="https://www.tpex.org.tw/zh-tw/mainboard/trading/info/mi-pricing/historical.html" target="_blank" rel="noopener noreferrer">櫃買中心 ↗</a></p>
+    </div>
+    <div id="creditRankingsPanel" role="tabpanel" aria-labelledby="creditRankingsTab" aria-busy="false" hidden>
+      <div class="ranking-head"><div><div class="eyebrow">TAIWAN CREDIT RANKINGS</div><h2>融資／融券排行</h2><p>官方盤後資券餘額與當日增減；金額以同日收盤價估算部位市值。</p></div><div class="ranking-refresh"><span id="creditStatus" role="status">切換頁籤後載入</span><button id="creditRefresh" type="button">重新整理資券</button></div></div>
+      <div class="credit-options"><div class="ranking-markets" role="group" aria-label="資券類型"><button type="button" data-credit-side="margin" aria-pressed="true">融資</button><button type="button" data-credit-side="short" aria-pressed="false">融券</button></div><div class="ranking-markets" role="group" aria-label="資券排行單位"><button type="button" data-credit-unit="lots" aria-pressed="true">張數</button><button type="button" data-credit-unit="value" aria-pressed="false">金額（估算市值）</button></div><label>排行<select id="creditOrder"><option value="increase">當日增加</option><option value="decrease">當日減少</option><option value="balance">餘額</option></select></label></div>
+      <div class="ranking-controls"><div class="ranking-markets" role="group" aria-label="資券排行市場"><button type="button" data-credit-market="all" aria-pressed="true">合併</button><button type="button" data-credit-market="TWSE" aria-pressed="false">上市</button><button type="button" data-credit-market="TPEX" aria-pressed="false">上櫃</button></div><div class="ranking-filters"><label>標的<select id="creditKind"><option value="all">股票＋ETF</option><option value="stock">股票</option><option value="etf">ETF</option></select></label><label>搜尋<input id="creditSearch" type="search" placeholder="代號或名稱" autocomplete="off"></label></div></div>
+      <div class="ranking-table-head"><h3 id="creditTableTitle">融資餘額增加排行 · 張數</h3><span id="creditDate" class="ranking-date">資料日期確認中…</span></div>
+      <p id="creditCoverage" class="ranking-coverage"></p><div id="creditError" class="error" role="alert" hidden></div>
+      <div class="ranking-scroll" tabindex="0" role="region" aria-label="融資融券排行表格，可左右捲動"><table class="ranking-table credit-ranking-table" aria-labelledby="creditTableTitle"><thead><tr><th scope="col">名次</th><th scope="col">股名／股號</th><th scope="col">同日收盤價</th><th scope="col" id="creditBalanceHeader">融資餘額（張）</th><th scope="col" id="creditDeltaHeader">融資增減（張）</th><th scope="col" id="creditValueHeader">融資餘額估算市值（億）</th><th scope="col" id="creditDeltaValueHeader">融資增減估算金額（億）</th></tr></thead><tbody id="creditRows"><tr><td colspan="7" class="ranking-empty">切換頁籤後載入資券排行…</td></tr></tbody></table></div>
+      <div class="ranking-footer"><span id="creditCount" aria-live="polite"></span><button id="creditMore" class="ranking-more" type="button" hidden>再顯示 20 檔資券</button></div>
+      <p class="ranking-note">張數採官方交易單位，1 張＝1,000 股／受益權單位；當日增減＝今日餘額－前日餘額（含現金／現券償還及官方調整），不是單純買進－賣出。僅比較新台幣股票與 ETF，不含借券賣出、權證、ETN、特別股及外幣櫃台。</p>
+      <p class="ranking-note credit-value-note">金額為估算：餘額估算市值＝餘額張數 × 1,000 × 同日收盤價；增減估算金額＝增減張數 × 1,000 × 同日收盤價。不是實際融資借款餘額、融券賣出所得或市值每日損益。沒有同日有效收盤價時顯示「—」，不以其他日期價格替代。</p>
+      <p class="ranking-note">資料來源：<a href="https://www.twse.com.tw/zh/trading/margin/mi-margn.html" target="_blank" rel="noopener noreferrer">證交所融資融券 ↗</a> · <a href="https://www.tpex.org.tw/zh-tw/mainboard/trading/margin-trading/transactions.html" target="_blank" rel="noopener noreferrer">櫃買中心融資融券 ↗</a>。兩市場採同一交易日；新資料尚未公布或更新失敗時保留既有完整資料與原日期。</p>
+    </div>
   </section>
   <section class="panel market-heatmap-panel" aria-labelledby="heatmapTitle">
     <div class="market-heatmap-head"><div><div class="eyebrow">TAIWAN MARKET HEATMAP</div><h2 id="heatmapTitle">台股即時熱力圖</h2><p>快速掌握成交熱門個股的漲跌分布；紅色上漲、綠色下跌。</p></div><div class="market-heatmap-actions"><div class="market-heatmap-tabs" role="tablist"><button class="active" type="button" data-heat-market="TWSE" role="tab" aria-selected="true">上市</button><button type="button" data-heat-market="TPEX" role="tab" aria-selected="false">上櫃</button></div><span id="heatmapStatus">熱力圖載入中…</span></div></div>
@@ -75,5 +90,5 @@
     <div id="marketInstitutionalTable" class="market-margin-table"></div>
     <p class="market-margin-note">金額單位為億元；買賣超＝買進－賣出。自營商合計自行買賣與避險；三大法人合計依證交所報表（外資自營商不重複計入）。資料為上市集中市場日報，不含上櫃市場。</p>
   </section>
-</div><script src="theme.js?v=20261123-contrast"></script><script type="module" src="auth.js?v=20261107-captcha-login"></script><script src="macro-pages.js?v=20261123-credit-risk"></script><script src="market-rankings-core.js?v=20261123-limit-colors"></script><script src="market-rankings.js?v=20261123-limit-colors"></script><script src="market-heatmap.js?v=20260903"></script><script src="member-gate.js?v=20260926"></script></body>
+</div><script src="theme.js?v=20261123-contrast"></script><script type="module" src="auth.js?v=20261107-captcha-login"></script><script src="macro-pages.js?v=20261123-credit-risk"></script><script src="market-rankings-core.js?v=20261123-limit-colors"></script><script src="market-rankings.js?v=20261123-credit-ranking"></script><script src="credit-rankings-core.js?v=20261123-1"></script><script src="credit-rankings.js?v=20261123-1"></script><script src="market-heatmap.js?v=20260903"></script><script src="member-gate.js?v=20260926"></script></body>
 </html>
