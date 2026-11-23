@@ -243,6 +243,8 @@ def main():
     # Kept under price-history so both existing batch commit lists include it.
     from fetch_valuation_history import update_saved
     update_saved()
+    from fetch_market_flow import update_market_flow
+    update_market_flow()
 
 
 if __name__ == "__main__":
