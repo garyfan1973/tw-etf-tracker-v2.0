@@ -4,8 +4,8 @@ import json
 import time
 
 try:
-    from _market_rankings import build_payload
-except ImportError:
+    from api._market_rankings import build_payload
+except ModuleNotFoundError:
     from webapp.api._market_rankings import build_payload
 
 _cache = None

@@ -1,4 +1,6 @@
 import tempfile
+import subprocess
+import sys
 import unittest
 from pathlib import Path
 from unittest.mock import patch
@@ -20,6 +22,14 @@ def otc_quote(**extra):
 
 
 class MarketRankingsTests(unittest.TestCase):
+    def test_handler_imports_from_the_vercel_project_root(self):
+        result = subprocess.run([
+            sys.executable, '-c',
+            'from api.market_rankings import handler; from api._market_rankings import saved_snapshot; '
+            'assert callable(handler.do_GET); assert saved_snapshot() is not None',
+        ], cwd=Path(__file__).parents[1] / 'webapp', capture_output=True, text=True)
+        self.assertEqual(result.returncode, 0, result.stderr)
+
     def test_numeric_quotes_have_actual_turnover_high_low_and_reference_based_change(self):
         block = rankings.parse_quotes([quote()], 'TWSE')
         row = block['rows'][0]
