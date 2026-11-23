@@ -736,6 +736,8 @@ def update_twse_breadth(previous, trading_dates):
 
 
 def main(backfill_twse_turnover=False):
+    from fetch_market_rankings import update_saved as update_rankings
+    update_rankings()
     existing = load_existing()
     old_indices = by_key(existing.get("indices"), "id")
     old_currencies = by_key(existing.get("currencies"), "code")

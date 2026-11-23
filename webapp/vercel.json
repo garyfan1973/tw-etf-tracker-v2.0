@@ -1,5 +1,9 @@
 {
   "functions": {
+    "api/market_rankings.py": {
+      "maxDuration": 30,
+      "includeFiles": "price-history/market-rankings/latest.json"
+    },
     "api/valuation.py": {
       "maxDuration": 120,
       "includeFiles": "{trade_assets.json,price-history/valuation/**}"
