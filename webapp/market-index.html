@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
   <title>指數資訊｜投資研究工作台</title>
-  <link rel="stylesheet" href="market-pages.css?v=20261118-institutional-amounts">
+  <link rel="stylesheet" href="market-pages.css?v=20261123-credit-risk">
   <script>(function(){var t=localStorage.getItem("etf-theme");if(t)document.documentElement.dataset.theme=t})();</script>
   <script src="config.js"></script>
   <script src="market-nav.js" defer></script>
@@ -44,6 +44,10 @@
   <section id="marketMarginPanel" class="panel market-margin-panel" aria-labelledby="marketMarginTitle">
     <div class="market-margin-head"><div><div class="eyebrow">TWSE MARKET MARGIN</div><h2 id="marketMarginTitle">上市大盤資券餘額</h2><p id="marketMarginDate">資料載入中…</p></div><a href="https://www.twse.com.tw/zh/trading/margin/mi-margn.html" target="_blank" rel="noopener noreferrer">證交所原始資料 ↗</a></div>
     <div id="marketMarginSummary" class="market-margin-summary"></div>
+    <div class="market-credit-head"><h3>全市場信用交易風險 <small>上市＋上櫃</small></h3><a href="https://www.twse.com.tw/dashboard/zh/credit/margin.html" target="_blank" rel="noopener noreferrer">證交所臺股儀表板 ↗</a></div>
+    <p id="marketCreditDate" class="market-credit-date">資料載入中…</p>
+    <div id="marketCreditSummary" class="market-margin-summary market-credit-summary"></div>
+    <p class="market-margin-note market-credit-note">整戶維持率採證交所公布的全市場擔保維持率，合併融資、融券與擔保品計算。追繳戶數為截至資料日低於追繳門檻的戶數，並非當日新增戶數；兩項均涵蓋上市及上櫃市場，不代表個別投資人的帳戶狀況。</p>
     <div class="market-margin-controls"><div class="market-margin-switch" role="group" aria-label="資券趨勢指標"><button type="button" data-margin-metric="amount" class="active">融資金額</button><button type="button" data-margin-metric="short">融券張數</button></div><div class="market-margin-switch" role="group" aria-label="資券趨勢期間"><button type="button" data-margin-days="20" class="active">近 20 日</button><button type="button" data-margin-days="60">近 60 日</button></div></div>
     <div id="marketMarginChart" class="market-margin-chart"></div>
     <div id="marketMarginTable" class="market-margin-table"></div>
@@ -55,5 +59,5 @@
     <div id="marketInstitutionalTable" class="market-margin-table"></div>
     <p class="market-margin-note">金額單位為億元；買賣超＝買進－賣出。自營商合計自行買賣與避險；三大法人合計依證交所報表（外資自營商不重複計入）。資料為上市集中市場日報，不含上櫃市場。</p>
   </section>
-</div><script src="theme.js"></script><script type="module" src="auth.js?v=20261107-captcha-login"></script><script src="macro-pages.js?v=20261118-institutional-amounts"></script><script src="market-heatmap.js?v=20260903"></script><script src="member-gate.js?v=20260926"></script></body>
+</div><script src="theme.js"></script><script type="module" src="auth.js?v=20261107-captcha-login"></script><script src="macro-pages.js?v=20261123-credit-risk"></script><script src="market-heatmap.js?v=20260903"></script><script src="member-gate.js?v=20260926"></script></body>
 </html>

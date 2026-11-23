@@ -20,6 +20,42 @@ def report(date="20261104", amount_now="596,945,870", amount_prev="599,774,466")
 
 
 class MarketMarginTests(unittest.TestCase):
+    def test_official_credit_risk_uses_dashboard_call_count_not_new_calls(self):
+        payload = {"stat": "OK", "date": "20261120", "data": [
+            {"date": "20261120", "keepRate": 151.78, "belowAccNum": 6462, "callAccNum": 6186},
+            {"date": "20261119", "keepRate": 156.18, "belowAccNum": 2947, "callAccNum": 2500},
+        ]}
+        rows = markets.parse_twse_credit_risk(payload)
+        self.assertEqual(rows[-1], {"date": "2026-11-20", "maintenanceRatio": 151.78, "marginCallAccounts": 6462})
+        self.assertEqual(rows[0]["date"], "2026-11-19")
+
+    def test_official_credit_risk_preserves_zero_and_rejects_missing_or_invalid_values(self):
+        raw = {"date": "20261120", "keepRate": 151.78, "belowAccNum": 0}
+        payload = {"stat": "OK", "date": "20261120", "data": [raw]}
+        self.assertEqual(markets.parse_twse_credit_risk(payload)[0]["marginCallAccounts"], 0)
+        for key, value in [("keepRate", None), ("keepRate", float("nan")), ("keepRate", 0),
+                           ("belowAccNum", None), ("belowAccNum", -1), ("belowAccNum", 2.5),
+                           ("belowAccNum", True), ("date", "20261121")]:
+            with self.subTest(key=key, value=value), self.assertRaises(ValueError):
+                markets.parse_twse_credit_risk({**payload, "data": [{**raw, key: value}]})
+        with self.assertRaises(ValueError):
+            markets.parse_twse_credit_risk({**payload, "date": "20261123"})
+        with self.assertRaises(ValueError):
+            markets.parse_twse_credit_risk({**payload, "data": [raw, raw]})
+
+    def test_credit_risk_refreshes_revisions_and_retains_previous_data_on_failure(self):
+        old = {"date": "2026-11-20", "maintenanceRatio": 152.0, "marginCallAccounts": 6400}
+        previous = {"rows": [old]}
+        for error in [OSError("offline"), ValueError("invalid JSON")]:
+            with patch.object(markets, "read_url", side_effect=error):
+                self.assertEqual(markets.update_twse_credit_risk(previous)["rows"], [old])
+        with patch.object(markets, "read_url", return_value=json.dumps({"stat": "OK", "date": "20261120", "data": [
+            {"date": "20261120", "keepRate": 151.78, "belowAccNum": 6462},
+        ]})):
+            result = markets.update_twse_credit_risk(previous)
+        self.assertEqual(result["asOf"], "2026-11-20")
+        self.assertEqual(result["rows"][0]["marginCallAccounts"], 6462)
+
     def test_parses_market_summary_and_uses_reported_previous_balance(self):
         row = markets.parse_twse_market_margin(report(), "2026-11-04")
         self.assertEqual(row["marginBalanceThousandTwd"], 596945870)

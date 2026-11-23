@@ -5,6 +5,7 @@ import csv
 import datetime as dt
 import io
 import json
+import math
 import os
 import re
 import time
@@ -23,6 +24,7 @@ TWSE_BREADTH = "https://www.twse.com.tw/rwd/zh/afterTrading/MI_INDEX?date={date}
 TWSE_ALL_MARGIN = "https://www.twse.com.tw/exchangeReport/MI_MARGN?date={date}&selectType=ALL&response=json"
 TWSE_ALL_QUOTES = "https://www.twse.com.tw/rwd/zh/afterTrading/MI_INDEX?date={date}&type=ALLBUT0999&response=json"
 TWSE_INSTITUTIONAL_AMOUNTS = "https://www.twse.com.tw/rwd/zh/fund/BFI82U?dayDate={date}&response=json&type=day"
+TWSE_CREDIT_RISK = "https://www.twse.com.tw/rwd/zh/marginTrading/BFIJ3U_TREND?response=json&days=60"
 TPEX_INDEX_SNAPSHOT = "https://www.tpex.org.tw/www/zh-tw/afterTrading/indexSummary?date=&response=json"
 USER_AGENT = "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36"
 US_MARKET_TIMEZONE = ZoneInfo("America/New_York")
@@ -582,6 +584,52 @@ def update_twse_market_margin(previous, trading_dates):
     }
 
 
+def parse_twse_credit_risk(payload):
+    """Use the dashboard's whole-market ratio and displayed call-account count.
+
+    The dashboard labels belowAccNum as 追繳戶數; callAccNum is a different
+    series and must not be substituted. These figures cover TWSE + TPEx.
+    """
+    if payload.get("stat") != "OK" or not payload.get("data"):
+        raise ValueError("TWSE credit risk data unavailable")
+    anchor = dt.datetime.strptime(payload["date"], "%Y%m%d").date()
+    if anchor > dt.datetime.now(ZoneInfo("Asia/Taipei")).date():
+        raise ValueError("TWSE credit risk date is in the future")
+    rows = {}
+    for raw in payload["data"]:
+        date = dt.datetime.strptime(raw["date"], "%Y%m%d").date()
+        if raw["date"] != date.strftime("%Y%m%d") or date > anchor:
+            raise ValueError("TWSE credit risk row date mismatch")
+        ratio, accounts = raw.get("keepRate"), raw.get("belowAccNum")
+        for value in (ratio, accounts):
+            if isinstance(value, bool) or not isinstance(value, (int, float)) or not math.isfinite(value) or value < 0:
+                raise ValueError("TWSE credit risk value missing or invalid")
+        if ratio <= 0 or accounts != int(accounts) or date.isoformat() in rows:
+            raise ValueError("TWSE credit risk ratio, count or date invalid")
+        rows[date.isoformat()] = {
+            "date": date.isoformat(), "maintenanceRatio": round(ratio, 2),
+            "marginCallAccounts": int(accounts),
+        }
+    if max(rows) != anchor.isoformat():
+        raise ValueError("TWSE credit risk latest date mismatch")
+    return [rows[date] for date in sorted(rows)]
+
+
+def update_twse_credit_risk(previous):
+    rows = {row["date"]: row for row in (previous or {}).get("rows", [])}
+    try:
+        payload = json.loads(read_url(TWSE_CREDIT_RISK, retries=2))
+        rows.update({row["date"]: row for row in parse_twse_credit_risk(payload)})
+    except (OSError, ValueError, KeyError, TypeError) as error:
+        print("TWSE credit risk warning: {}".format(error))
+    recent = [rows[date] for date in sorted(rows)[-90:]]
+    return {
+        "market": "TWSE+TPEx", "source": "臺灣證券交易所・臺股儀表板",
+        "sourceUrl": "https://www.twse.com.tw/dashboard/zh/credit/margin.html",
+        "asOf": recent[-1]["date"] if recent else None, "rows": recent,
+    }
+
+
 def parse_twse_institutional_amounts(payload, date):
     """Parse the TWSE market-wide institutional trading-value summary (NTD)."""
     if payload.get("stat") != "OK" or payload.get("date") != date.replace("-", ""):
@@ -760,9 +808,10 @@ def main(backfill_twse_turnover=False):
     twii = next((item for item in indices if item["id"] == "twii"), {})
     breadth = update_twse_breadth(existing.get("marketBreadth"), [row["date"] for row in twii.get("rows", [])])
     market_margin = update_twse_market_margin(existing.get("marketMargin"), [row["date"] for row in twii.get("rows", [])])
+    market_credit_risk = update_twse_credit_risk(existing.get("marketCreditRisk"))
     market_institutional = update_twse_institutional_amounts(existing.get("marketInstitutional"), [row["date"] for row in twii.get("rows", [])])
     payload = {
-        "marketBreadth": breadth, "marketMargin": market_margin, "marketInstitutional": market_institutional,
+        "marketBreadth": breadth, "marketMargin": market_margin, "marketCreditRisk": market_credit_risk, "marketInstitutional": market_institutional,
         "updatedAt": dt.datetime.now(dt.timezone.utc).replace(microsecond=0).isoformat().replace("+00:00", "Z"),
         "indices": indices, "currencies": currencies,
         "taiwanHighlights": taiwan_highlights,

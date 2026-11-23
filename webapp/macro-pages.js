@@ -113,6 +113,7 @@
   }
 
   function initMarketMargin(data) {
+    initMarketCreditRisk(data);
     const margin=data.marketMargin||{},rows=(margin.rows||[]).filter(row=>row.marginBalanceThousandTwd!=null&&row.shortBalanceLots!=null).sort((a,b)=>a.date.localeCompare(b.date));
     const summary=$("marketMarginSummary"),chart=$("marketMarginChart"),table=$("marketMarginTable"),date=$("marketMarginDate");
     if(!rows.length){date.textContent="目前沒有上市大盤資券資料";summary.innerHTML="";chart.innerHTML='<div class="chart-empty">證交所資料尚未取得</div>';table.innerHTML="";return;}
@@ -135,6 +136,16 @@
     }
     $("marketMarginPanel").addEventListener("click",event=>{const metricButton=event.target.closest("[data-margin-metric]"),daysButton=event.target.closest("[data-margin-days]");if(metricButton){metric=metricButton.dataset.marginMetric;chartView=null;renderChart();}if(daysButton){days=Number(daysButton.dataset.marginDays);chartView=null;renderChart();}});
     renderChart();
+  }
+
+  function initMarketCreditRisk(data) {
+    const rows=(data.marketCreditRisk?.rows||[]).slice().sort((a,b)=>a.date.localeCompare(b.date));
+    const latest=rows.at(-1),previous=rows.at(-2),summary=$("marketCreditSummary"),date=$("marketCreditDate");
+    const ratio=latest?.maintenanceRatio,accounts=latest?.marginCallAccounts;
+    date.textContent=latest?`證交所官方統計・資料日 ${latest.date}${data.marketMargin?.asOf&&data.marketMargin.asOf!==latest.date?`（上市資券資料日 ${data.marketMargin.asOf}，公布時間不同）`:""}`:"證交所官方資料尚未取得";
+    const delta=(value,prior,digits,unit)=>value==null||prior==null?"尚無前一資料日可比較":`較前一資料日 ${value-prior>0?"+":""}${number(value-prior,digits)} ${unit}`;
+    summary.innerHTML=`<div class="market-margin-card market-maintenance-card"><span>整戶維持率（全市場官方）</span><strong>${ratio==null?"—":`${number(ratio,2)}%`}</strong><small>${delta(ratio,previous?.maintenanceRatio,2,"個百分點")}</small><small>證交所名稱：全市場擔保維持率</small></div>`+
+      `<div class="market-margin-card"><span>追繳戶數（全市場官方）</span><strong>${accounts==null?"—":`${number(accounts,0)} 戶`}</strong><small>${delta(accounts,previous?.marginCallAccounts,0,"戶")}</small><small>截至資料日低於追繳門檻之戶數</small></div>`;
   }
 
   function initMarketInstitutional(data) {
