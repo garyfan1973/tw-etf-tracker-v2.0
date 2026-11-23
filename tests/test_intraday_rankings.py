@@ -83,11 +83,17 @@ class IntradayRankingsTests(unittest.TestCase):
         instance.path = '/api/market_rankings?mode=live&metric=volume&market=all'
         sent = [];instance.send_json = lambda payload, status: sent.append((payload, status))
         closing = {'quoteType': 'officialClose', 'rows': [{'close': 100, 'volume': 2000}]}
-        with patch.object(api, '_cache', {}), patch.object(api, 'load_snapshot', side_effect=ValueError('stale')), patch.object(api, 'build_payload', return_value=closing):
+        with patch.object(api, '_cache', {}), patch.object(api, 'load_snapshot', side_effect=ValueError('stale')), patch.object(api, 'saved_snapshot', return_value=closing):
             instance.do_GET()
         self.assertEqual(sent[0][1], 200)
         self.assertEqual(sent[0][0]['rows'], closing['rows'])
         self.assertTrue(sent[0][0]['intradayUnavailable'])
+
+    def test_official_close_uses_saved_snapshot_without_slow_upstream_requests(self):
+        saved = {'quoteType': 'officialClose', 'asOf': '2026-11-20', 'rows': []}
+        with patch.object(api, 'saved_snapshot', return_value=saved), patch.object(api, 'build_payload') as fetch:
+            self.assertEqual(api.closing_payload(), {**saved, 'fallback': True})
+            fetch.assert_not_called()
 
     def test_handler_does_not_share_cached_rankings_between_markets(self):
         instance = api.handler.__new__(api.handler)

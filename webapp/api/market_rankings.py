@@ -5,13 +5,20 @@ import time
 from urllib.parse import parse_qs, urlparse
 
 try:
-    from api._market_rankings import build_payload
+    from api._market_rankings import build_payload, saved_snapshot
     from api._intraday_rankings import load_snapshot, METRICS, MARKETS
 except ModuleNotFoundError:
-    from webapp.api._market_rankings import build_payload
+    from webapp.api._market_rankings import build_payload, saved_snapshot
     from webapp.api._intraday_rankings import load_snapshot, METRICS, MARKETS
 
 _cache = {}
+
+
+def closing_payload():
+    # The daily batch maintains this official same-session snapshot. Use it
+    # immediately so an unavailable live feed cannot cause a second long wait.
+    saved = saved_snapshot()
+    return {**saved, 'fallback': True} if saved else build_payload()
 
 
 class handler(BaseHTTPRequestHandler):
@@ -29,9 +36,9 @@ class handler(BaseHTTPRequestHandler):
                 try:
                     payload = load_snapshot(metric, market)
                 except Exception:
-                    payload = {**build_payload(), 'intradayUnavailable': True}
+                    payload = {**closing_payload(), 'intradayUnavailable': True}
             else:
-                payload = build_payload()
+                payload = closing_payload()
             ttl = 15 if mode == 'live' else 30 if payload.get('fallback') else 120
             _cache[key] = (time.monotonic() + ttl, payload)
             self.send_json(payload, 200)
