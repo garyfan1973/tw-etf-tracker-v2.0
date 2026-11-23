@@ -19,6 +19,9 @@
   }
   const matches=(payload,state)=>payload.quoteType==='officialClose'||state.mode==='live'&&payload.metric===state.metric&&payload.market===state.market;
   const older=(next,previous)=>previous&&next.quoteType===previous.quoteType&&(next.asOf<previous.asOf||next.quoteType==='intradaySnapshot'&&next.metric===previous.metric&&next.market===previous.market&&Date.parse(next.sourceTime)<Date.parse(previous.sourceTime));
-  const api={finite,metrics,rank,valid,matches,older};
+  // Only explicit current-price flags count; dayHigh/dayLow flags can describe
+  // an earlier touch and percentages differ across instrument types.
+  const limitState=row=>row.limitUp===true&&row.limitDown!==true?'up':row.limitDown===true&&row.limitUp!==true?'down':'';
+  const api={finite,metrics,rank,valid,matches,older,limitState};
   if(typeof module!=='undefined'&&module.exports)module.exports=api;else root.MarketRankingsCore=api;
 })(typeof window==='undefined'?globalThis:window);

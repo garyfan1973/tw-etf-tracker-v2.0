@@ -47,6 +47,22 @@ class IntradayRankingsTests(unittest.TestCase):
                     self.assertEqual(p['market'], market)
                     self.assertEqual(p['metric'], metric)
 
+    def test_only_explicit_current_price_flags_mark_price_limits(self):
+        cases = [
+            ({'limitUp': True, 'changePercent': '+9.95%'}, (True, False)),
+            ({'limitDown': True, 'changePercent': '-9.96%'}, (False, True)),
+            ({'limitUp': True, 'changePercent': '+20%'}, (True, False)),
+            ({'dayHighLimitUp': True, 'dayLowLimitDown': True}, (False, False)),
+            ({'changePercent': '+10%'}, (False, False)),
+            ({'limitUp': 'false', 'limitDown': 1}, (False, False)),
+        ]
+        for overrides, expected in cases:
+            with self.subTest(overrides=overrides):
+                result = live.parse_snapshot(page(store(list=[row(**overrides)])), 'volume', 'all', NOW)['rows'][0]
+                self.assertEqual((result['limitUp'], result['limitDown']), expected)
+        with self.assertRaises(ValueError):
+            live.parse_snapshot(page(store(list=[row(limitUp=True, limitDown=True)])), 'volume', 'all', NOW)
+
     def test_stale_prior_session_future_and_unzoned_timestamps_are_rejected(self):
         for timestamp in ['2026-11-20T13:30:00+08:00', '2026-11-23T12:04:59+08:00',
                           '2026-11-23T12:12:00+08:00', '2026-11-23T12:09:00']:

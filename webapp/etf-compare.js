@@ -239,7 +239,7 @@
   document.querySelectorAll("[data-market]").forEach(button=>button.addEventListener("click",()=>setMarket(button.dataset.market)));
   ["A","B"].forEach(side=>$("asset"+side).addEventListener("input",()=>updateInputMeta(side)));
   $("swapAssets").onclick=()=>{const a=$("assetA").value;$("assetA").value=$("assetB").value;$("assetB").value=a;updateInputMeta("A");updateInputMeta("B");};
-  $("runCompare").onclick=run;$("themeToggle").onclick=()=>{const next=document.documentElement.dataset.theme==="dark"?"light":"dark";document.documentElement.dataset.theme=next;localStorage.setItem("etf-theme",next);$("themeToggle").textContent=next==="dark"?"☀️":"🌙";};
+  $("runCompare").onclick=run;
   document.querySelectorAll("[data-range]").forEach(button=>button.addEventListener("click",()=>{if(lastComparison)renderChart(lastComparison[0],lastComparison[1],button.dataset.range);}));
   document.addEventListener("DOMContentLoaded",init);
 })();

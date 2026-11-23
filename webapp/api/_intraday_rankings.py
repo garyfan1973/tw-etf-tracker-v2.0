@@ -65,12 +65,16 @@ def parse_snapshot(html, metric, market, now=None):
             raise ValueError('ranking position outside top 100')
         change = numeric(raw.get('change'))
         pct = numeric(str(raw.get('changePercent', '')).replace('%', ''))
+        limit_up, limit_down = raw.get('limitUp') is True, raw.get('limitDown') is True
+        if limit_up and limit_down:
+            raise ValueError('conflicting current price limit flags')
         rows.append({
             'code': code, 'name': str(raw['name']), 'exchange': exchange,
             'kind': 'etf' if code.startswith('00') else 'stock', 'close': price,
             'change': change, 'changePct': pct, 'changeNote': '' if change is not None else str(raw.get('change') or '—'),
             'high': high, 'low': low, 'spread': round(high - low, 6) if high is not None and low is not None and high >= low > 0 else None,
             'volume': volume, 'turnover': amount_k * 1000, 'sourceRank': source_rank,
+            'limitUp': limit_up, 'limitDown': limit_down,
         })
     return {
         'schemaVersion': 1, 'quoteType': 'intradaySnapshot', 'asOf': source_time.date().isoformat(),

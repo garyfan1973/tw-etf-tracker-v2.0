@@ -1,11 +1,13 @@
 <!doctype html>
 <html lang="zh-Hant">
 <head>
-  <meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <link id="themePaletteStyles" rel="stylesheet" href="theme-palettes.css?v=20261123-contrast">
   <title>指數資訊｜投資研究工作台</title>
   <link rel="stylesheet" href="market-pages.css?v=20261123-credit-risk">
-  <link rel="stylesheet" href="market-rankings.css?v=20261123-intraday">
-  <script>(function(){var t=localStorage.getItem("etf-theme");if(t)document.documentElement.dataset.theme=t})();</script>
+  <link rel="stylesheet" href="market-rankings.css?v=20261123-limit-colors">
+  <script>(function(){var t=localStorage.getItem("etf-theme"),p=localStorage.getItem("etf-palette");if(t)document.documentElement.dataset.theme=t;if(p)document.documentElement.dataset.palette=p})();</script>
   <script src="config.js"></script>
   <script src="market-nav.js" defer></script>
 </head>
@@ -25,6 +27,7 @@
     <div class="ranking-metrics" role="group" aria-label="行情排行指標"><button type="button" data-ranking-metric="volume" aria-pressed="true">成交量</button><button type="button" data-ranking-metric="gain" aria-pressed="false">漲幅</button><button type="button" data-ranking-metric="loss" aria-pressed="false">跌幅</button><button type="button" data-ranking-metric="spread" aria-pressed="false">價差</button><button type="button" data-ranking-metric="price" aria-pressed="false">股價</button><button type="button" data-ranking-metric="turnover" aria-pressed="false">成交金額</button></div>
     <div class="ranking-controls"><div class="ranking-markets" role="group" aria-label="行情排行市場"><button type="button" data-ranking-market="all" aria-pressed="true">合併</button><button type="button" data-ranking-market="TWSE" aria-pressed="false">上市</button><button type="button" data-ranking-market="TPEX" aria-pressed="false">上櫃</button></div><div class="ranking-filters"><label>標的<select id="rankingKind"><option value="all">股票＋ETF</option><option value="stock">股票</option><option value="etf">ETF</option></select></label><label>搜尋<input id="rankingSearch" type="search" placeholder="代號或名稱" autocomplete="off"></label></div></div>
     <div class="ranking-table-head"><h3 id="rankingTableTitle">成交量排行</h3><span id="rankingDate" class="ranking-date">資料日期確認中…</span></div>
+    <div class="ranking-limit-key"><span><b class="ranking-limit-badge ranking-limit-up">漲停</b>紅底白字</span><span><b class="ranking-limit-badge ranking-limit-down">跌停</b>綠底白字</span><span>依盤中來源目前成交價旗標標示</span></div>
     <p id="rankingCoverage" class="ranking-coverage"></p><div id="rankingError" class="error" role="alert" hidden></div>
     <div class="ranking-scroll" tabindex="0" role="region" aria-label="行情排行表格，可左右捲動"><table class="ranking-table" aria-labelledby="rankingTableTitle"><thead><tr><th scope="col">名次</th><th scope="col">股名／股號</th><th scope="col" id="rankingPriceHeader">成交價</th><th scope="col">漲跌</th><th scope="col">漲跌幅 %</th><th scope="col">最高</th><th scope="col">最低</th><th scope="col">價差</th><th scope="col">成交量（張）</th><th scope="col">成交金額（億）</th></tr></thead><tbody id="rankingRows"><tr><td colspan="10" class="ranking-empty">正在取得排行資料…</td></tr></tbody></table></div>
     <div class="ranking-footer"><span id="rankingCount" aria-live="polite"></span><button id="rankingMore" class="ranking-more" type="button" hidden>再顯示 20 檔</button></div>
@@ -72,5 +75,5 @@
     <div id="marketInstitutionalTable" class="market-margin-table"></div>
     <p class="market-margin-note">金額單位為億元；買賣超＝買進－賣出。自營商合計自行買賣與避險；三大法人合計依證交所報表（外資自營商不重複計入）。資料為上市集中市場日報，不含上櫃市場。</p>
   </section>
-</div><script src="theme.js"></script><script type="module" src="auth.js?v=20261107-captcha-login"></script><script src="macro-pages.js?v=20261123-credit-risk"></script><script src="market-rankings-core.js?v=20261123-intraday"></script><script src="market-rankings.js?v=20261123-intraday"></script><script src="market-heatmap.js?v=20260903"></script><script src="member-gate.js?v=20260926"></script></body>
+</div><script src="theme.js?v=20261123-contrast"></script><script type="module" src="auth.js?v=20261107-captcha-login"></script><script src="macro-pages.js?v=20261123-credit-risk"></script><script src="market-rankings-core.js?v=20261123-limit-colors"></script><script src="market-rankings.js?v=20261123-limit-colors"></script><script src="market-heatmap.js?v=20260903"></script><script src="member-gate.js?v=20260926"></script></body>
 </html>

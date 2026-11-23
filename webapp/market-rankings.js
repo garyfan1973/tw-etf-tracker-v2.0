@@ -32,7 +32,10 @@
     $('rankingSourceLink').hidden=!live;
     if(live)$('rankingSourceLink').href=data.sourceUrl;
     $('rankingCount').textContent=`顯示 ${Math.min(shown,rows.length)}／${fmt(rows.length,0)} 檔${live?'（來源榜單內）':state.query||state.kind!=='all'?'（篩選後排行）':''}`;
-    $('rankingRows').innerHTML=rows.slice(0,shown).map((row,index)=>`<tr><td class="ranking-position">${index+1}</td><td class="ranking-security"><a href="kline.html?market=TW&amp;symbol=${encodeURIComponent(row.code)}">${esc(row.name)}</a><small>${esc(row.code)} · ${row.exchange==='TWSE'?'上市':'上櫃'}${row.kind==='etf'?' · ETF':''}</small></td><td class="${tone(row.change)}">${fmt(row.close)}</td><td class="${tone(row.change)}">${row.change==null?esc(row.changeNote||'—'):signed(row.change)}</td><td class="${tone(row.changePct)}">${signed(row.changePct,'%')}</td><td>${fmt(row.high)}</td><td>${fmt(row.low)}</td><td>${fmt(row.spread)}</td><td>${fmt(C.finite(row.volume)?row.volume/1000:null,3)}</td><td>${fmt(C.finite(row.turnover)?row.turnover/1e8:null,4)}</td></tr>`).join('')||'<tr><td colspan="10" class="ranking-empty">沒有符合條件的標的；盤中搜尋僅限來源榜單。</td></tr>';
+    $('rankingRows').innerHTML=rows.slice(0,shown).map((row,index)=>{
+      const limit=C.limitState(row),limitClass=limit?` ranking-limit-${limit}`:'',badge=limit?`<span class="ranking-limit-badge ranking-limit-${limit}">${limit==='up'?'漲停':'跌停'}</span>`:'';
+      return `<tr><td class="ranking-position">${index+1}</td><td class="ranking-security"><a href="kline.html?market=TW&amp;symbol=${encodeURIComponent(row.code)}">${esc(row.name)}</a>${badge}<small>${esc(row.code)} · ${row.exchange==='TWSE'?'上市':'上櫃'}${row.kind==='etf'?' · ETF':''}</small></td><td class="${tone(row.change)}${limitClass}">${fmt(row.close)}</td><td class="${tone(row.change)}${limitClass}">${row.change==null?esc(row.changeNote||'—'):signed(row.change)}</td><td class="${tone(row.changePct)}${limitClass}">${signed(row.changePct,'%')}</td><td>${fmt(row.high)}</td><td>${fmt(row.low)}</td><td>${fmt(row.spread)}</td><td>${fmt(C.finite(row.volume)?row.volume/1000:null,3)}</td><td>${fmt(C.finite(row.turnover)?row.turnover/1e8:null,4)}</td></tr>`;
+    }).join('')||'<tr><td colspan="10" class="ranking-empty">沒有符合條件的標的；盤中搜尋僅限來源榜單。</td></tr>';
     $('rankingMore').hidden=shown>=rows.length;freshness();
   }
   async function read(url,signal){

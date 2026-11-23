@@ -1,0 +1,26 @@
+/* Standard high-contrast presets. Existing page palettes remain unchanged. */
+:root[data-palette="standard"],:root[data-palette="standard"][data-theme="light"]{
+  color-scheme:light;--bg:#f4f6fa;--card:#fff;--text:#111827;--muted:#526174;--border:#cbd5e1;--accent:#165dff;--soft:#eaf0ff;--detail:#edf2fa;--chip:#e8efff;
+  --up:#d51d37;--down:#008547;--new:#1763cf;--removed:#687385;--chip-big:#ce2742;--chip-small:#008547;--chip-price:#165dff;--shadow:0 8px 28px rgba(15,23,42,.1);
+  --ma5:#b87900;--ma10:#007fa3;--ma20:#8b3bc4;--ma60:#00875a;--ma120:#c52d4f;--ma240:#526174;--vol5:#007fa3;--vol10:#b33a8b;--kd-k:#007c91;--kd-d:#bc327c;--bb:#b87900;--bb-mid:#8f5a00;--macd:#8b3bc4;--macd-signal:#ce2742;--rsi5:#006ac9;--rsi10:#8438bf;--williams:#a06c00;--dmi-plus:#008547;--dmi-minus:#ce2742;--adx:#7533bf;--trade-buy:#006ac9;--trade-sell:#ce2742;--trade-cost:#8438bf;--a:#165dff;--b:#008f82;
+}
+:root[data-palette="standard"][data-theme="dark"]{
+  color-scheme:dark;--bg:#080c12;--card:#111827;--text:#f8fafc;--muted:#b6c2d2;--border:#3b4a60;--accent:#79a7ff;--soft:#1c2b45;--detail:#192438;--chip:#1c2b45;
+  --up:#ff526a;--down:#3be49a;--new:#79a7ff;--removed:#a5b1c2;--chip-big:#ff6a80;--chip-small:#3be49a;--chip-price:#79a7ff;--shadow:0 10px 30px rgba(0,0,0,.3);
+  --ma5:#ffd04f;--ma10:#39d3f5;--ma20:#d197ff;--ma60:#3be49a;--ma120:#ff7690;--ma240:#b6c2d2;--vol5:#39d3f5;--vol10:#ff8bd1;--kd-k:#39d3f5;--kd-d:#ff8bd1;--bb:#ffd04f;--bb-mid:#e9b737;--macd:#d197ff;--macd-signal:#ff7690;--rsi5:#7ac3ff;--rsi10:#d197ff;--williams:#ffd04f;--dmi-plus:#3be49a;--dmi-minus:#ff7690;--adx:#d197ff;--trade-buy:#7ac3ff;--trade-sell:#ff7690;--trade-cost:#d197ff;--a:#79a7ff;--b:#3be49a;
+}
+@media(prefers-color-scheme:dark){:root[data-palette="standard"]:not([data-theme="light"]){
+  color-scheme:dark;--bg:#080c12;--card:#111827;--text:#f8fafc;--muted:#b6c2d2;--border:#3b4a60;--accent:#79a7ff;--soft:#1c2b45;--detail:#192438;--chip:#1c2b45;
+  --up:#ff526a;--down:#3be49a;--new:#79a7ff;--removed:#a5b1c2;--chip-big:#ff6a80;--chip-small:#3be49a;--chip-price:#79a7ff;--shadow:0 10px 30px rgba(0,0,0,.3);
+  --ma5:#ffd04f;--ma10:#39d3f5;--ma20:#d197ff;--ma60:#3be49a;--ma120:#ff7690;--ma240:#b6c2d2;--vol5:#39d3f5;--vol10:#ff8bd1;--kd-k:#39d3f5;--kd-d:#ff8bd1;--bb:#ffd04f;--bb-mid:#e9b737;--macd:#d197ff;--macd-signal:#ff7690;--rsi5:#7ac3ff;--rsi10:#d197ff;--williams:#ffd04f;--dmi-plus:#3be49a;--dmi-minus:#ff7690;--adx:#d197ff;--trade-buy:#7ac3ff;--trade-sell:#ff7690;--trade-cost:#d197ff;--a:#79a7ff;--b:#3be49a;
+}}
+.palette-picker{position:relative;display:inline-block;flex:0 0 auto;color:var(--text);z-index:75}
+.palette-picker summary{list-style:none;padding:6px 10px;border:1px solid var(--border);border-radius:8px;background:var(--card);color:var(--muted);cursor:pointer;font:inherit;font-size:12px;white-space:nowrap}
+.palette-picker summary::-webkit-details-marker{display:none}.palette-picker summary:before{content:"◐";margin-right:5px;color:var(--accent)}
+.palette-picker .palette-menu{position:absolute;z-index:80;right:0;top:calc(100% + 6px);display:grid;gap:4px;min-width:164px;max-height:70vh;overflow-y:auto;padding:7px;border:1px solid var(--border);border-radius:10px;background:var(--card);box-shadow:0 12px 28px rgba(15,23,42,.2)}
+.palette-picker .palette-menu button{display:flex;align-items:center;gap:7px;padding:7px 8px;border:0;border-radius:7px;background:transparent;color:var(--text);font:inherit;font-size:12px;text-align:left;cursor:pointer;white-space:nowrap}
+.palette-picker .palette-menu button:hover,.palette-picker .palette-menu button.active{background:var(--detail,var(--soft));color:var(--accent)}
+.palette-menu .palette-group-label{padding:4px 8px;color:var(--muted);font-size:10px}.palette-menu i{display:inline-block;width:14px;height:14px;flex:0 0 auto;border-radius:50%;background:#91a5b4}
+.palette-menu button[data-palette="standard"][data-palette-theme="light"] i{background:#fff;box-shadow:inset 0 0 0 1px #a8b3c5,inset 6px 0 #165dff}
+.palette-menu button[data-palette="standard"][data-palette-theme="dark"] i{background:#080c12;box-shadow:inset 0 0 0 1px #a8b3c5,inset 6px 0 #79a7ff}
+.palette-picker :is(summary,button):focus-visible{outline:2px solid var(--accent);outline-offset:3px}

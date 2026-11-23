@@ -28,4 +28,10 @@ assert.equal(C.valid({...live,sourceTime:'unknown'}),false);
 assert.equal(C.older({...live,sourceTime:'2026-11-23T11:59:00+08:00'},live),true,'old cached snapshots never replace fresher quotes');
 assert.equal(C.older({quoteType:'officialClose',asOf:'2026-11-20'},live),false,'a labeled closing fallback is allowed');
 assert.deepEqual(C.rank([{...rows[0],sourceRank:2},{...rows[1],sourceRank:1}],{...state,mode:'live'}).map(r=>r.sourceRank),[1,2],'preserve authoritative provider ranking');
-console.log('intraday rankings: scoped lists, source times, cache regression protection and provider ordering passed');
+assert.equal(C.limitState({limitUp:true,changePct:9.95}),'up');
+assert.equal(C.limitState({limitDown:true,changePct:-9.96}),'down');
+assert.equal(C.limitState({limitUp:true,changePct:20}),'up','ETF price limits are not inferred from a 10% threshold');
+for(const row of [{changePct:10},{dayHighLimitUp:true},{dayLowLimitDown:true},{limitUp:'true'},{limitUp:true,limitDown:true},{}]){
+  assert.equal(C.limitState(row),'','unverified, historical or conflicting flags never imply a current price limit');
+}
+console.log('intraday rankings: scoped lists, source times, cache regression protection, provider ordering and current price limits passed');
