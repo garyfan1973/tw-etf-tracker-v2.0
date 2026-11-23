@@ -7,12 +7,18 @@
     return rows.filter(row=>(state.market==='all'||row.exchange===state.market)&&
       (state.kind==='all'||row.kind===state.kind)&&(!q||`${row.code} ${row.name}`.toLowerCase().includes(q))&&
       finite(row[metric.field])&&(state.metric!=='gain'||row.changePct>0)&&(state.metric!=='loss'||row.changePct<0))
-      .sort((a,b)=>(state.metric==='loss'?a[metric.field]-b[metric.field]:b[metric.field]-a[metric.field])||a.code.localeCompare(b.code)||a.exchange.localeCompare(b.exchange));
+      .sort((a,b)=>(state.mode==='live'&&finite(a.sourceRank)&&finite(b.sourceRank)?a.sourceRank-b.sourceRank:(state.metric==='loss'?a[metric.field]-b[metric.field]:b[metric.field]-a[metric.field]))||a.code.localeCompare(b.code)||a.exchange.localeCompare(b.exchange));
   }
   function valid(payload){
-    return payload?.schemaVersion===1&&payload.quoteType==='officialClose'&&/^\d{4}-\d{2}-\d{2}$/.test(payload.asOf)&&
-      Array.isArray(payload.rows)&&payload.rows.length>0&&['TWSE','TPEX'].every(exchange=>payload.rows.some(row=>row.exchange===exchange));
+    if(payload?.schemaVersion!==1||!/^\d{4}-\d{2}-\d{2}$/.test(payload.asOf)||!Array.isArray(payload.rows))return false;
+    if(payload.quoteType==='officialClose')return payload.rows.length>0&&['TWSE','TPEX'].every(exchange=>payload.rows.some(row=>row.exchange===exchange));
+    return payload.quoteType==='intradaySnapshot'&&payload.rankingScope==='providerTop100'&&!!metrics[payload.metric]&&
+      ['all','TWSE','TPEX'].includes(payload.market)&&Number.isFinite(Date.parse(payload.sourceTime))&&
+      finite(payload.sourceRows)&&payload.sourceRows>=payload.rows.length&&payload.sourceRows<=100&&
+      payload.rows.every(row=>['TWSE','TPEX'].includes(row.exchange)&&(payload.market==='all'||payload.market===row.exchange));
   }
-  const api={finite,metrics,rank,valid};
+  const matches=(payload,state)=>payload.quoteType==='officialClose'||state.mode==='live'&&payload.metric===state.metric&&payload.market===state.market;
+  const older=(next,previous)=>previous&&next.quoteType===previous.quoteType&&(next.asOf<previous.asOf||next.quoteType==='intradaySnapshot'&&next.metric===previous.metric&&next.market===previous.market&&Date.parse(next.sourceTime)<Date.parse(previous.sourceTime));
+  const api={finite,metrics,rank,valid,matches,older};
   if(typeof module!=='undefined'&&module.exports)module.exports=api;else root.MarketRankingsCore=api;
 })(typeof window==='undefined'?globalThis:window);

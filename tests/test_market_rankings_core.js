@@ -19,3 +19,13 @@ assert.equal(C.rank([{...rows[0],volume:null},{...rows[1],volume:NaN}],state).le
 assert.equal(C.valid({schemaVersion:1,quoteType:'officialClose',asOf:'2026-11-20',rows}),true);
 assert.equal(C.valid({schemaVersion:1,quoteType:'officialClose',asOf:'2026-11-20',rows:rows.filter(row=>row.exchange==='TWSE')}),false,'partial-market data cannot masquerade as combined coverage');
 console.log('market rankings: six sort modes, market/type/search filters, missing values and complete-session contract passed');
+const live={schemaVersion:1,quoteType:'intradaySnapshot',asOf:'2026-11-23',sourceTime:'2026-11-23T12:00:00+08:00',metric:'volume',market:'TPEX',rankingScope:'providerTop100',sourceRows:1,rows:[{...rows[2],sourceRank:1}]};
+assert.equal(C.valid(live),true,'a provider-ranked OTC list is valid without listed rows');
+assert.equal(C.matches(live,{mode:'live',metric:'volume',market:'all'}),false,'OTC snapshot cannot answer a combined-market request');
+assert.equal(C.matches(live,{mode:'live',metric:'price',market:'TPEX'}),false,'volume leaders cannot substitute for price leaders');
+assert.equal(C.matches(live,{mode:'close',metric:'volume',market:'TPEX'}),false);
+assert.equal(C.valid({...live,sourceTime:'unknown'}),false);
+assert.equal(C.older({...live,sourceTime:'2026-11-23T11:59:00+08:00'},live),true,'old cached snapshots never replace fresher quotes');
+assert.equal(C.older({quoteType:'officialClose',asOf:'2026-11-20'},live),false,'a labeled closing fallback is allowed');
+assert.deepEqual(C.rank([{...rows[0],sourceRank:2},{...rows[1],sourceRank:1}],{...state,mode:'live'}).map(r=>r.sourceRank),[1,2],'preserve authoritative provider ranking');
+console.log('intraday rankings: scoped lists, source times, cache regression protection and provider ordering passed');

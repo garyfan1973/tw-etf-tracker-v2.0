@@ -1,6 +1,7 @@
 .ranking-head,.ranking-controls,.ranking-table-head,.ranking-footer{display:flex;align-items:center;justify-content:space-between;gap:14px;flex-wrap:wrap}
 .ranking-head h2{font-size:21px;margin:3px 0 4px}.ranking-head p{font-size:12px;color:var(--muted);margin:0}
 .ranking-refresh{display:flex;align-items:center;gap:10px}.ranking-refresh span,.ranking-date,.ranking-coverage,.ranking-footer span{font-size:11px;color:var(--muted)}
+.ranking-updates{display:flex;align-items:center;gap:16px;flex-wrap:wrap;margin-top:14px;font-size:11px;color:var(--muted)}.ranking-updates label{display:flex;align-items:center;gap:7px}.ranking-updates select{font:inherit;background:var(--soft);color:var(--text);padding:6px 8px;border:1px solid var(--border);border-radius:7px}.ranking-updates input{accent-color:var(--accent)}.ranking-updates .ranking-stale{color:var(--up)}
 .rankings-panel button{font:inherit;cursor:pointer}.rankings-panel button:disabled{cursor:wait;opacity:.6}
 .ranking-refresh button,.ranking-more{border:1px solid var(--border);border-radius:8px;background:var(--bg);color:var(--text);padding:7px 12px;font-size:12px}
 .ranking-metrics{display:flex;gap:22px;border-bottom:1px solid var(--border);margin:20px 0 16px;overflow-x:auto}

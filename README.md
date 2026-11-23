@@ -144,6 +144,7 @@
 - 上市大盤資券：`fetch_macro_markets.py` 從 TWSE MI_MARGN 的市場信用交易統計更新 `market_data.json` 的 `marketMargin`，保存最近 90 個交易日；指數資訊頁顯示融資金額、融資張數與融券張數餘額、當日增減及趨勢。每日增減採同一份報表的今日餘額減前日餘額，並於後續更新重抓最近三個交易日以反映修正。
 - 全市場信用風險：同一排程從證交所臺股儀表板 `BFIJ3U_TREND` 更新 `marketCreditRisk`，每次重抓近 60 個交易日並保留最多 90 日。指數頁資券區塊顯示官方整戶擔保維持率（`keepRate`）及追繳戶數（依官方畫面採 `belowAccNum`，不是當日新增的 `callAccNum`），涵蓋上市＋上櫃；各自顯示資料日與前一資料日變化，與上市融資維持率估算分開。來源失敗保留舊值及原日期，無資料顯示「—」。[官方定義與資料](https://www.twse.com.tw/dashboard/zh/credit/margin.html)。
 - 台股行情排行：指數頁提供成交量、漲幅、跌幅、價差（最高－最低）、股價、成交金額排行，可切換上市／上櫃／合併、股票／ETF 與搜尋，點擊標的可開啟 K 線。`api/market_rankings` 取得 TWSE `STOCK_DAY_ALL` 與 TPEx `tpex_mainboard_daily_close_quotes` 最新官方收盤，僅合併同一交易日；這是盤後資料，並非盤中即時報價。排除無成交標的、權證、ETN、特別股及外幣 ETF 櫃台；成交量以股／單位除以 1,000 換算張，成交金額直接使用官方數值。除權息等無數值漲跌者不推算漲跌幅。API 暫時失敗或兩市場日期不同時，退回已保存的完整收盤資料並保留日期；`fetch_macro_markets.py` 會透過 `fetch_market_rankings.py` 隨每日排程更新 `webapp/price-history/market-rankings/latest.json`，不完整的資料不覆蓋舊快照。
+- 盤中排行：指數頁預設「盤中快照」，透過 `api/market_rankings?mode=live&metric=volume&market=all` 讀取 Yahoo 股市公開排行頁的 JSON `TableStore`（不執行頁面 JavaScript）。六指標、三市場各自取來源前 100 名；搜尋與股票／ETF 篩選只在當榜內進行，完整篩選仍可切換「官方收盤」。使用來源 `rankTime` 標示台北報價時間、快照年齡及可能延遲；畫面可見且啟用自動更新時每 30 秒重查，API／CDN 盤中快取為 15 秒。拒絕錯誤市場、指標、期間、非今日或盤中超過 5 分鐘的來源快照，整份退回官方收盤並明確標示；不混用盤中價格與昨日成交量。成交金額採來源 `turnoverK × 1,000`，不以成交量乘現價估算。上游改版或不可用時依原日期提供收盤備援；這是可能延遲的盤中榜單快照，非逐筆即時行情。
 - 台股財報：公開資訊觀測站，使用 2013 年至今的營收、營業利益、淨利、基本 EPS 與現金流量表；畫面名稱簡化為「EPS」及各項現金流。
 - 海外個股財報：Yahoo Finance，EPS 使用基本 EPS，並補充營業／投資／融資現金流、自由現金流與期末現金（依資料來源可用性顯示）。
 - 海外行情：Yahoo Finance 日線資料。
