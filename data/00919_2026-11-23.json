@@ -1,6 +1,6 @@
 {
   "date": "2026-11-23",
-  "fetched_at": "2026-11-24T17:32:17+08:00",
+  "fetched_at": "2026-11-24T18:31:30+08:00",
   "count": 41,
   "self": {
     "open": 26.8,
@@ -1427,9 +1427,9 @@
       }
     },
     {
-      "code": "",
-      "name": "台指期202612(FITXN*1.TF)",
-      "market": "",
+      "code": "FITXN12",
+      "name": "台指期202612",
+      "market": "TF",
       "assetType": "stock",
       "weight": 0.32,
       "shares": 232
