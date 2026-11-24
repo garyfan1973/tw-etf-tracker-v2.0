@@ -1,6 +1,6 @@
 {
   "date": "2026-11-23",
-  "fetched_at": "2026-11-24T07:21:21+08:00",
+  "fetched_at": "2026-11-24T17:32:24+08:00",
   "count": 51,
   "self": {
     "open": 188.8,
@@ -1987,9 +1987,9 @@
       }
     },
     {
-      "code": "",
-      "name": "2026/12台股指數期貨(FITXN*1.TF)",
-      "market": "",
+      "code": "FITXN12",
+      "name": "2026/12台股指數期貨",
+      "market": "TF",
       "assetType": "future",
       "weight": 0.09,
       "quantity": 49.0,

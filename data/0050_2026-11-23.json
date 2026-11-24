@@ -1,6 +1,6 @@
 {
   "date": "2026-11-23",
-  "fetched_at": "2026-11-24T07:20:53+08:00",
+  "fetched_at": "2026-11-24T17:32:14+08:00",
   "count": 52,
   "self": {
     "open": 84.4,
@@ -1948,9 +1948,9 @@
       }
     },
     {
-      "code": "",
-      "name": "臺股期貨 202612(FITXN*1.TF)",
-      "market": "",
+      "code": "FITXN12",
+      "name": "臺股期貨 202612",
+      "market": "TF",
       "assetType": "future",
       "weight": 0.12,
       "quantity": 358.0,

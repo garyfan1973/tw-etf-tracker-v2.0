@@ -2007,6 +2007,27 @@
     "business": "無代號海外成分股，暫無可用公開摘要。",
     "source": ""
   },
+  "FITEN12": {
+    "name": "2026/12電子指數期貨",
+    "market": "TF",
+    "industry": "",
+    "business": "無代號海外成分股，暫無可用公開摘要。",
+    "source": ""
+  },
+  "FITXN12": {
+    "name": "臺股期貨 202612",
+    "market": "TF",
+    "industry": "",
+    "business": "無代號海外成分股，暫無可用公開摘要。",
+    "source": ""
+  },
+  "FIVHF12": {
+    "name": "2026/12富邦科技ETF期貨",
+    "market": "TF",
+    "industry": "",
+    "business": "無代號海外成分股，暫無可用公開摘要。",
+    "source": ""
+  },
   "FIVN": {
     "name": "Five9",
     "market": "US",

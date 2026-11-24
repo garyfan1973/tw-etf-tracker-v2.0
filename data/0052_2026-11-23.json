@@ -1,6 +1,6 @@
 {
   "date": "2026-11-23",
-  "fetched_at": "2026-11-24T07:20:59+08:00",
+  "fetched_at": "2026-11-24T17:32:14+08:00",
   "count": 74,
   "self": {
     "open": 48.24,
@@ -973,9 +973,9 @@
       }
     },
     {
-      "code": "",
-      "name": "2026/12電子指數期貨(FITEN*1.TF)",
-      "market": "",
+      "code": "FITEN12",
+      "name": "2026/12電子指數期貨",
+      "market": "TF",
       "assetType": "future",
       "weight": 0.34,
       "quantity": 51.0,
@@ -1958,9 +1958,9 @@
       }
     },
     {
-      "code": "",
-      "name": "2026/12富邦科技ETF期貨(FIVHF*1.TF)",
-      "market": "",
+      "code": "FIVHF12",
+      "name": "2026/12富邦科技ETF期貨",
+      "market": "TF",
       "assetType": "future",
       "weight": 0.11,
       "quantity": 300.0,
