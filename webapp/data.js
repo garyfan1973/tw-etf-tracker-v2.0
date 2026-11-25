@@ -1,5 +1,5 @@
 window.DATA = {
-  "generated_at": "2026-11-25T23:32:54+08:00",
+  "generated_at": "2026-11-26T05:21:46+08:00",
   "etfs": {
     "00981A": {
       "name": "主動統一台股增長",
@@ -147071,7 +147071,7 @@ window.DATA = {
         },
         {
           "date": "2026-11-25",
-          "fetched_at": "2026-11-25T23:30:47+08:00",
+          "fetched_at": "2026-11-26T05:20:34+08:00",
           "count": 52,
           "self": {
             "open": 20.56,
@@ -149080,7 +149080,7 @@ window.DATA = {
           "大型權值"
         ],
         "source": "TWSE ETF e添富",
-        "fetchedAt": "2026-11-25T23:32:40+08:00",
+        "fetchedAt": "2026-11-26T05:21:38+08:00",
         "navHistory": [
           {
             "date": "2026-10-12",
@@ -314940,7 +314940,7 @@ window.DATA = {
         },
         {
           "date": "2026-11-25",
-          "fetched_at": "2026-11-25T23:30:47+08:00",
+          "fetched_at": "2026-11-26T05:20:35+08:00",
           "count": 55,
           "self": {
             "open": 15.46,
@@ -317089,7 +317089,7 @@ window.DATA = {
           "中小型權值"
         ],
         "source": "TWSE ETF e添富",
-        "fetchedAt": "2026-11-25T23:32:41+08:00",
+        "fetchedAt": "2026-11-26T05:21:39+08:00",
         "navHistory": [
           {
             "date": "2026-10-12",
@@ -399359,7 +399359,7 @@ window.DATA = {
         },
         {
           "date": "2026-11-24",
-          "fetched_at": "2026-11-25T23:31:14+08:00",
+          "fetched_at": "2026-11-26T05:20:47+08:00",
           "count": 35,
           "self": {
             "open": 13.11,
@@ -399410,7 +399410,7 @@ window.DATA = {
               "change": 3.63,
               "changePct": 0.74,
               "amplitude": 2.72,
-              "volume": 23086900,
+              "volume": 23104500,
               "currency": "USD",
               "quoteDate": "2026-11-24"
             },
@@ -399429,7 +399429,7 @@ window.DATA = {
               "change": -3.05,
               "changePct": -1.08,
               "amplitude": 2.04,
-              "volume": 33820500,
+              "volume": 33924200,
               "currency": "USD",
               "quoteDate": "2026-11-24"
             },
@@ -399448,7 +399448,7 @@ window.DATA = {
               "change": -3.1,
               "changePct": -1.21,
               "amplitude": 1.97,
-              "volume": 33845600,
+              "volume": 33920700,
               "currency": "USD",
               "quoteDate": "2026-11-24"
             },
@@ -399467,7 +399467,7 @@ window.DATA = {
               "change": -7.78,
               "changePct": -1.3,
               "amplitude": 2.69,
-              "volume": 12149700,
+              "volume": 12181600,
               "currency": "USD",
               "quoteDate": "2026-11-24"
             },
@@ -399525,7 +399525,7 @@ window.DATA = {
               "change": 4.99,
               "changePct": 1.43,
               "amplitude": 2.44,
-              "volume": 41214200,
+              "volume": 41270400,
               "currency": "USD",
               "quoteDate": "2026-11-24"
             },
@@ -399563,7 +399563,7 @@ window.DATA = {
               "change": -11.74,
               "changePct": -6.98,
               "amplitude": 7.59,
-              "volume": 13603400,
+              "volume": 13680200,
               "currency": "USD",
               "quoteDate": "2026-11-24"
             },
@@ -399582,7 +399582,7 @@ window.DATA = {
               "change": 1.89,
               "changePct": 0.9,
               "amplitude": 3.54,
-              "volume": 17605800,
+              "volume": 17624500,
               "currency": "USD",
               "quoteDate": "2026-11-24"
             },
@@ -399735,7 +399735,7 @@ window.DATA = {
               "change": 1.82,
               "changePct": 1.14,
               "amplitude": 3.39,
-              "volume": 20659100,
+              "volume": 20703300,
               "currency": "USD",
               "quoteDate": "2026-11-24"
             },
@@ -399792,7 +399792,7 @@ window.DATA = {
               "change": -12.47,
               "changePct": -3.98,
               "amplitude": 3.63,
-              "volume": 31199400,
+              "volume": 31269900,
               "currency": "USD",
               "quoteDate": "2026-11-24"
             },
@@ -399907,7 +399907,7 @@ window.DATA = {
               "change": -40.19,
               "changePct": -8.86,
               "amplitude": 7.25,
-              "volume": 46075500,
+              "volume": 46230400,
               "currency": "USD",
               "quoteDate": "2026-11-24"
             },
@@ -399983,7 +399983,7 @@ window.DATA = {
               "change": -77.91,
               "changePct": -11.01,
               "amplitude": 7.04,
-              "volume": 38858600,
+              "volume": 39141400,
               "currency": "USD",
               "quoteDate": "2026-11-24"
             },
@@ -400119,7 +400119,7 @@ window.DATA = {
               "change": -19.57,
               "changePct": -9.07,
               "amplitude": 9.18,
-              "volume": 6987200,
+              "volume": 7047300,
               "currency": "USD",
               "quoteDate": "2026-11-24"
             },
@@ -400157,7 +400157,7 @@ window.DATA = {
               "change": -17.67,
               "changePct": -16.97,
               "amplitude": 11.16,
-              "volume": 6717200,
+              "volume": 6729100,
               "currency": "USD",
               "quoteDate": "2026-11-24"
             },
@@ -400195,7 +400195,7 @@ window.DATA = {
           "科技主題型"
         ],
         "source": "TWSE ETF e添富",
-        "fetchedAt": "2026-11-25T23:32:42+08:00",
+        "fetchedAt": "2026-11-26T05:21:39+08:00",
         "navHistory": [
           {
             "date": "2026-10-12",
@@ -520211,7 +520211,7 @@ window.DATA = {
         },
         {
           "date": "2026-11-25",
-          "fetched_at": "2026-11-25T23:31:14+08:00",
+          "fetched_at": "2026-11-26T05:20:47+08:00",
           "count": 44,
           "self": {
             "open": 11.85,
@@ -521937,7 +521937,7 @@ window.DATA = {
           "科技主題型"
         ],
         "source": "TWSE ETF e添富",
-        "fetchedAt": "2026-11-25T23:32:43+08:00",
+        "fetchedAt": "2026-11-26T05:21:40+08:00",
         "navHistory": [
           {
             "date": "2026-10-12",
@@ -667833,7 +667833,7 @@ window.DATA = {
         },
         {
           "date": "2026-11-25",
-          "fetched_at": "2026-11-25T23:31:14+08:00",
+          "fetched_at": "2026-11-26T05:20:47+08:00",
           "count": 51,
           "self": {
             "open": 10.56,
@@ -668535,17 +668535,17 @@ window.DATA = {
               "assetType": "stock",
               "weight": 1.54,
               "shares": 296000,
-              "open": 56.28,
-              "high": 56.9,
-              "low": 56.24,
-              "close": 56.48,
-              "prevClose": 57.72,
-              "change": -1.24,
-              "changePct": -2.15,
-              "amplitude": 1.14,
-              "volume": 8350,
+              "open": 58.56,
+              "high": 58.56,
+              "low": 57.72,
+              "close": 57.72,
+              "prevClose": 57.62,
+              "change": 0.1,
+              "changePct": 0.17,
+              "amplitude": 1.46,
+              "volume": 13475,
               "currency": "HKD",
-              "quoteDate": "2026-11-25",
+              "quoteDate": "2026-11-24",
               "inst": {
                 "foreign": 23061,
                 "trust": 0,
@@ -669825,7 +669825,7 @@ window.DATA = {
           "高股息"
         ],
         "source": "TWSE ETF e添富",
-        "fetchedAt": "2026-11-25T23:32:44+08:00",
+        "fetchedAt": "2026-11-26T05:21:40+08:00",
         "navHistory": [
           {
             "date": "2026-10-12",
@@ -823339,7 +823339,7 @@ window.DATA = {
         },
         {
           "date": "2026-11-25",
-          "fetched_at": "2026-11-25T23:31:15+08:00",
+          "fetched_at": "2026-11-26T05:20:48+08:00",
           "count": 52,
           "self": {
             "open": 91.7,
@@ -825389,7 +825389,7 @@ window.DATA = {
           "大型權值"
         ],
         "source": "TWSE ETF e添富",
-        "fetchedAt": "2026-11-25T23:32:45+08:00",
+        "fetchedAt": "2026-11-26T05:21:41+08:00",
         "navHistory": [
           {
             "date": "2026-10-12",
@@ -1044272,7 +1044272,7 @@ window.DATA = {
         },
         {
           "date": "2026-11-25",
-          "fetched_at": "2026-11-25T23:31:15+08:00",
+          "fetched_at": "2026-11-26T05:20:48+08:00",
           "count": 74,
           "self": {
             "open": 52.55,
@@ -1047166,7 +1047166,7 @@ window.DATA = {
           "科技主題型"
         ],
         "source": "TWSE ETF e添富",
-        "fetchedAt": "2026-11-25T23:32:46+08:00",
+        "fetchedAt": "2026-11-26T05:21:41+08:00",
         "navHistory": [
           {
             "date": "2026-10-12",
@@ -1199921,7 +1199921,7 @@ window.DATA = {
         },
         {
           "date": "2026-11-25",
-          "fetched_at": "2026-11-25T23:31:15+08:00",
+          "fetched_at": "2026-11-26T05:20:48+08:00",
           "count": 51,
           "self": {
             "open": 46.96,
@@ -1201989,7 +1201989,7 @@ window.DATA = {
           "高股息"
         ],
         "source": "TWSE ETF e添富",
-        "fetchedAt": "2026-11-25T23:32:46+08:00",
+        "fetchedAt": "2026-11-26T05:21:42+08:00",
         "navHistory": [
           {
             "date": "2026-10-12",
@@ -1292644,7 +1292644,7 @@ window.DATA = {
         },
         {
           "date": "2026-11-25",
-          "fetched_at": "2026-11-25T23:31:15+08:00",
+          "fetched_at": "2026-11-26T05:20:48+08:00",
           "count": 33,
           "self": {
             "open": 29.57,
@@ -1293993,11 +1293993,11 @@ window.DATA = {
         "fundSizeHundredMillion": 5794.71,
         "beneficiaryTenThousands": 180.58,
         "tags": [
-          "公司治理及ESG",
-          "高股息"
+          "高股息",
+          "公司治理及ESG"
         ],
         "source": "TWSE ETF e添富",
-        "fetchedAt": "2026-11-25T23:32:47+08:00",
+        "fetchedAt": "2026-11-26T05:21:42+08:00",
         "navHistory": [
           {
             "date": "2026-10-12",
@@ -1385965,7 +1385965,7 @@ window.DATA = {
         },
         {
           "date": "2026-11-25",
-          "fetched_at": "2026-11-25T23:31:16+08:00",
+          "fetched_at": "2026-11-26T05:20:48+08:00",
           "count": 31,
           "self": {
             "open": 39.58,
@@ -1387204,7 +1387204,7 @@ window.DATA = {
           "科技主題型"
         ],
         "source": "TWSE ETF e添富",
-        "fetchedAt": "2026-11-25T23:32:48+08:00",
+        "fetchedAt": "2026-11-26T05:21:42+08:00",
         "navHistory": [
           {
             "date": "2026-10-12",
@@ -1508953,7 +1508953,7 @@ window.DATA = {
         },
         {
           "date": "2026-11-25",
-          "fetched_at": "2026-11-25T23:31:16+08:00",
+          "fetched_at": "2026-11-26T05:20:49+08:00",
           "count": 41,
           "self": {
             "open": 28.37,
@@ -1510615,7 +1510615,7 @@ window.DATA = {
           "高股息"
         ],
         "source": "TWSE ETF e添富",
-        "fetchedAt": "2026-11-25T23:32:48+08:00",
+        "fetchedAt": "2026-11-26T05:21:43+08:00",
         "navHistory": [
           {
             "date": "2026-10-12",
@@ -1659973,7 +1659973,7 @@ window.DATA = {
         },
         {
           "date": "2026-11-25",
-          "fetched_at": "2026-11-25T23:31:16+08:00",
+          "fetched_at": "2026-11-26T05:20:49+08:00",
           "count": 50,
           "self": {
             "open": 32.92,
@@ -1661960,7 +1661960,7 @@ window.DATA = {
           "大型權值"
         ],
         "source": "TWSE ETF e添富",
-        "fetchedAt": "2026-11-25T23:32:49+08:00",
+        "fetchedAt": "2026-11-26T05:21:43+08:00",
         "navHistory": [
           {
             "date": "2026-10-12",
@@ -1808208,7 +1808208,7 @@ window.DATA = {
         },
         {
           "date": "2026-11-25",
-          "fetched_at": "2026-11-25T23:31:23+08:00",
+          "fetched_at": "2026-11-26T05:20:56+08:00",
           "count": 51,
           "self": {
             "open": 205.05,
@@ -1810248,7 +1810248,7 @@ window.DATA = {
           "大型權值"
         ],
         "source": "TWSE ETF e添富",
-        "fetchedAt": "2026-11-25T23:32:51+08:00",
+        "fetchedAt": "2026-11-26T05:21:44+08:00",
         "navHistory": [
           {
             "date": "2026-10-12",
@@ -1816478,7 +1816478,7 @@ window.DATA = {
         },
         {
           "date": "2026-11-25",
-          "fetched_at": "2026-11-25T23:31:24+08:00",
+          "fetched_at": "2026-11-26T05:20:56+08:00",
           "count": 3,
           "self": {
             "open": 24.34,
@@ -1816588,7 +1816588,7 @@ window.DATA = {
           "大型權值"
         ],
         "source": "TWSE ETF e添富",
-        "fetchedAt": "2026-11-25T23:32:53+08:00",
+        "fetchedAt": "2026-11-26T05:21:44+08:00",
         "navHistory": [
           {
             "date": "2026-10-12",
@@ -1863960,7 +1863960,7 @@ window.DATA = {
         },
         {
           "date": "2026-11-24",
-          "fetched_at": "2026-11-25T23:31:23+08:00",
+          "fetched_at": "2026-11-26T05:20:56+08:00",
           "count": 31,
           "self": {
             "open": 73.45,
@@ -1864011,7 +1864011,7 @@ window.DATA = {
               "change": -9.67,
               "changePct": -5.86,
               "amplitude": 5.71,
-              "volume": 383594200,
+              "volume": 386223600,
               "currency": "USD",
               "quoteDate": "2026-11-24"
             },
@@ -1864030,7 +1864030,7 @@ window.DATA = {
               "change": -12.47,
               "changePct": -3.98,
               "amplitude": 3.63,
-              "volume": 31199400,
+              "volume": 31269900,
               "currency": "USD",
               "quoteDate": "2026-11-24"
             },
@@ -1864049,7 +1864049,7 @@ window.DATA = {
               "change": -77.91,
               "changePct": -11.01,
               "amplitude": 7.04,
-              "volume": 38858600,
+              "volume": 39141400,
               "currency": "USD",
               "quoteDate": "2026-11-24"
             },
@@ -1864106,7 +1864106,7 @@ window.DATA = {
               "change": -40.19,
               "changePct": -8.86,
               "amplitude": 7.25,
-              "volume": 46075500,
+              "volume": 46230400,
               "currency": "USD",
               "quoteDate": "2026-11-24"
             },
@@ -1864144,7 +1864144,7 @@ window.DATA = {
               "change": -14.4,
               "changePct": -3.96,
               "amplitude": 4.8,
-              "volume": 17206300,
+              "volume": 17256900,
               "currency": "USD",
               "quoteDate": "2026-11-24"
             },
@@ -1864201,7 +1864201,7 @@ window.DATA = {
               "change": -23.11,
               "changePct": -6.66,
               "amplitude": 6.69,
-              "volume": 8402200,
+              "volume": 8429100,
               "currency": "USD",
               "quoteDate": "2026-11-24"
             },
@@ -1864258,7 +1864258,7 @@ window.DATA = {
               "change": -13.6,
               "changePct": -6.48,
               "amplitude": 6.07,
-              "volume": 13973300,
+              "volume": 13983800,
               "currency": "USD",
               "quoteDate": "2026-11-24"
             },
@@ -1864277,7 +1864277,7 @@ window.DATA = {
               "change": -13.17,
               "changePct": -9.1,
               "amplitude": 8.71,
-              "volume": 28020900,
+              "volume": 28181700,
               "currency": "USD",
               "quoteDate": "2026-11-24"
             },
@@ -1864296,7 +1864296,7 @@ window.DATA = {
               "change": -4.86,
               "changePct": -8.15,
               "amplitude": 6.7,
-              "volume": 132167700,
+              "volume": 132667900,
               "currency": "USD",
               "quoteDate": "2026-11-24"
             },
@@ -1864315,7 +1864315,7 @@ window.DATA = {
               "change": -19.57,
               "changePct": -9.07,
               "amplitude": 9.18,
-              "volume": 6987200,
+              "volume": 7047300,
               "currency": "USD",
               "quoteDate": "2026-11-24"
             },
@@ -1864353,7 +1864353,7 @@ window.DATA = {
               "change": -30.82,
               "changePct": -13.88,
               "amplitude": 12.04,
-              "volume": 6633500,
+              "volume": 6661900,
               "currency": "USD",
               "quoteDate": "2026-11-24"
             },
@@ -1864410,7 +1864410,7 @@ window.DATA = {
               "change": -15.11,
               "changePct": -8.55,
               "amplitude": 7.41,
-              "volume": 5618800,
+              "volume": 5634600,
               "currency": "USD",
               "quoteDate": "2026-11-24"
             },
@@ -1864448,7 +1864448,7 @@ window.DATA = {
               "change": -16.0,
               "changePct": -13.07,
               "amplitude": 10.32,
-              "volume": 8201500,
+              "volume": 8243300,
               "currency": "USD",
               "quoteDate": "2026-11-24"
             },
@@ -1864601,11 +1864601,11 @@ window.DATA = {
         "fundSizeHundredMillion": 678.82,
         "beneficiaryTenThousands": 20.52,
         "tags": [
-          "大型權值",
-          "科技主題型"
+          "科技主題型",
+          "大型權值"
         ],
         "source": "TWSE ETF e添富",
-        "fetchedAt": "2026-11-25T23:32:50+08:00",
+        "fetchedAt": "2026-11-26T05:21:44+08:00",
         "navHistory": [
           {
             "date": "2026-10-12",
