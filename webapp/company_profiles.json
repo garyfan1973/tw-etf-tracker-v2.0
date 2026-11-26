@@ -3,14 +3,14 @@
     "name": "SK hynix",
     "market": "KS",
     "industry": "",
-    "business": "無代號海外成分股，暫無可用公開摘要。",
+    "business": "尚無可用公開摘要。",
     "source": ""
   },
   "005930": {
     "name": "SAMSUNG ELEC",
     "market": "KS",
     "industry": "",
-    "business": "無代號海外成分股，暫無可用公開摘要。",
+    "business": "尚無可用公開摘要。",
     "source": ""
   },
   "009150": {
@@ -114,9 +114,9 @@
   "1785": {
     "name": "光洋科",
     "market": "TW",
-    "industry": "",
-    "business": "無代號海外成分股，暫無可用公開摘要。",
-    "source": ""
+    "industry": "其他電子業",
+    "business": "臺灣上櫃公司；主要業務請參考公司網站。",
+    "source": "櫃檯買賣中心"
   },
   "1802": {
     "name": "台玻",
@@ -128,9 +128,9 @@
   "1815": {
     "name": "富喬",
     "market": "TW",
-    "industry": "",
-    "business": "無代號海外成分股，暫無可用公開摘要。",
-    "source": ""
+    "industry": "電子零組件業",
+    "business": "臺灣上櫃公司；主要業務請參考公司網站。",
+    "source": "櫃檯買賣中心"
   },
   "2002": {
     "name": "中鋼",
@@ -143,147 +143,147 @@
     "name": "2026/08台股指數期貨",
     "market": "",
     "industry": "",
-    "business": "無代號海外成分股，暫無可用公開摘要。",
+    "business": "尚無可用公開摘要。",
     "source": ""
   },
   "2026/08富邦科技ETF期貨": {
     "name": "2026/08富邦科技ETF期貨",
     "market": "",
     "industry": "",
-    "business": "無代號海外成分股，暫無可用公開摘要。",
+    "business": "尚無可用公開摘要。",
     "source": ""
   },
   "2026/08電子指數期貨": {
     "name": "2026/08電子指數期貨",
     "market": "",
     "industry": "",
-    "business": "無代號海外成分股，暫無可用公開摘要。",
+    "business": "尚無可用公開摘要。",
     "source": ""
   },
   "2026/09台股指數期貨": {
     "name": "2026/09台股指數期貨",
     "market": "",
     "industry": "",
-    "business": "無代號海外成分股，暫無可用公開摘要。",
+    "business": "尚無可用公開摘要。",
     "source": ""
   },
   "2026/09台股指數期貨(FITXN*1)": {
     "name": "2026/09台股指數期貨(FITXN*1)",
     "market": "",
     "industry": "",
-    "business": "無代號海外成分股，暫無可用公開摘要。",
+    "business": "尚無可用公開摘要。",
     "source": ""
   },
   "2026/09台股指數期貨(FITXN*1.TF)": {
     "name": "2026/09台股指數期貨(FITXN*1.TF)",
     "market": "",
     "industry": "",
-    "business": "無代號海外成分股，暫無可用公開摘要。",
+    "business": "尚無可用公開摘要。",
     "source": ""
   },
   "2026/09富邦科技ETF期貨": {
     "name": "2026/09富邦科技ETF期貨",
     "market": "",
     "industry": "",
-    "business": "無代號海外成分股，暫無可用公開摘要。",
+    "business": "尚無可用公開摘要。",
     "source": ""
   },
   "2026/09富邦科技ETF期貨(FIVHF*1)": {
     "name": "2026/09富邦科技ETF期貨(FIVHF*1)",
     "market": "",
     "industry": "",
-    "business": "無代號海外成分股，暫無可用公開摘要。",
+    "business": "尚無可用公開摘要。",
     "source": ""
   },
   "2026/09富邦科技ETF期貨(FIVHF*1.TF)": {
     "name": "2026/09富邦科技ETF期貨(FIVHF*1.TF)",
     "market": "",
     "industry": "",
-    "business": "無代號海外成分股，暫無可用公開摘要。",
+    "business": "尚無可用公開摘要。",
     "source": ""
   },
   "2026/09電子指數期貨": {
     "name": "2026/09電子指數期貨",
     "market": "",
     "industry": "",
-    "business": "無代號海外成分股，暫無可用公開摘要。",
+    "business": "尚無可用公開摘要。",
     "source": ""
   },
   "2026/09電子指數期貨(FITEN*1)": {
     "name": "2026/09電子指數期貨(FITEN*1)",
     "market": "",
     "industry": "",
-    "business": "無代號海外成分股，暫無可用公開摘要。",
+    "business": "尚無可用公開摘要。",
     "source": ""
   },
   "2026/09電子指數期貨(FITEN*1.TF)": {
     "name": "2026/09電子指數期貨(FITEN*1.TF)",
     "market": "",
     "industry": "",
-    "business": "無代號海外成分股，暫無可用公開摘要。",
+    "business": "尚無可用公開摘要。",
     "source": ""
   },
   "2026/10台股指數期貨(FITXN*1.TF)": {
     "name": "2026/10台股指數期貨(FITXN*1.TF)",
     "market": "",
     "industry": "",
-    "business": "無代號海外成分股，暫無可用公開摘要。",
+    "business": "尚無可用公開摘要。",
     "source": ""
   },
   "2026/10富邦科技ETF期貨(FIVHF*1.TF)": {
     "name": "2026/10富邦科技ETF期貨(FIVHF*1.TF)",
     "market": "",
     "industry": "",
-    "business": "無代號海外成分股，暫無可用公開摘要。",
+    "business": "尚無可用公開摘要。",
     "source": ""
   },
   "2026/10電子指數期貨(FITEN*1.TF)": {
     "name": "2026/10電子指數期貨(FITEN*1.TF)",
     "market": "",
     "industry": "",
-    "business": "無代號海外成分股，暫無可用公開摘要。",
+    "business": "尚無可用公開摘要。",
     "source": ""
   },
   "2026/11台股指數期貨(FITXN*1.TF)": {
     "name": "2026/11台股指數期貨(FITXN*1.TF)",
     "market": "",
     "industry": "",
-    "business": "無代號海外成分股，暫無可用公開摘要。",
+    "business": "尚無可用公開摘要。",
     "source": ""
   },
   "2026/11富邦科技ETF期貨(FIVHF*1.TF)": {
     "name": "2026/11富邦科技ETF期貨(FIVHF*1.TF)",
     "market": "",
     "industry": "",
-    "business": "無代號海外成分股，暫無可用公開摘要。",
+    "business": "尚無可用公開摘要。",
     "source": ""
   },
   "2026/11電子指數期貨(FITEN*1.TF)": {
     "name": "2026/11電子指數期貨(FITEN*1.TF)",
     "market": "",
     "industry": "",
-    "business": "無代號海外成分股，暫無可用公開摘要。",
+    "business": "尚無可用公開摘要。",
     "source": ""
   },
   "2026/12台股指數期貨(FITXN*1.TF)": {
     "name": "2026/12台股指數期貨(FITXN*1.TF)",
     "market": "",
     "industry": "",
-    "business": "無代號海外成分股，暫無可用公開摘要。",
+    "business": "尚無可用公開摘要。",
     "source": ""
   },
   "2026/12富邦科技ETF期貨(FIVHF*1.TF)": {
     "name": "2026/12富邦科技ETF期貨(FIVHF*1.TF)",
     "market": "",
     "industry": "",
-    "business": "無代號海外成分股，暫無可用公開摘要。",
+    "business": "尚無可用公開摘要。",
     "source": ""
   },
   "2026/12電子指數期貨(FITEN*1.TF)": {
     "name": "2026/12電子指數期貨(FITEN*1.TF)",
     "market": "",
     "industry": "",
-    "business": "無代號海外成分股，暫無可用公開摘要。",
+    "business": "尚無可用公開摘要。",
     "source": ""
   },
   "2027": {
@@ -717,7 +717,7 @@
     "name": "Kioxia Holdings",
     "market": "JP",
     "industry": "",
-    "business": "無代號海外成分股，暫無可用公開摘要。",
+    "business": "尚無可用公開摘要。",
     "source": ""
   },
   "2880": {
@@ -898,9 +898,9 @@
   "3081": {
     "name": "聯亞",
     "market": "TW",
-    "industry": "",
-    "business": "無代號海外成分股，暫無可用公開摘要。",
-    "source": ""
+    "industry": "通信網路業",
+    "business": "臺灣上櫃公司；主要業務請參考公司網站。",
+    "source": "櫃檯買賣中心"
   },
   "3090": {
     "name": "日電貿",
@@ -912,16 +912,16 @@
   "3105": {
     "name": "穩懋",
     "market": "TW",
-    "industry": "",
-    "business": "無代號海外成分股，暫無可用公開摘要。",
-    "source": ""
+    "industry": "半導體業",
+    "business": "臺灣上櫃公司；主要業務請參考公司網站。",
+    "source": "櫃檯買賣中心"
   },
   "3131": {
     "name": "弘塑",
     "market": "TW",
-    "industry": "",
-    "business": "無代號海外成分股，暫無可用公開摘要。",
-    "source": ""
+    "industry": "半導體業",
+    "business": "臺灣上櫃公司；主要業務請參考公司網站。",
+    "source": "櫃檯買賣中心"
   },
   "3167": {
     "name": "大量",
@@ -940,9 +940,9 @@
   "3211": {
     "name": "順達",
     "market": "TW",
-    "industry": "",
-    "business": "無代號海外成分股，暫無可用公開摘要。",
-    "source": ""
+    "industry": "電腦及週邊設備業",
+    "business": "臺灣上櫃公司；主要業務請參考公司網站。",
+    "source": "櫃檯買賣中心"
   },
   "3231": {
     "name": "緯創",
@@ -954,44 +954,44 @@
   "3260": {
     "name": "威剛",
     "market": "TW",
-    "industry": "",
-    "business": "無代號海外成分股，暫無可用公開摘要。",
-    "source": ""
+    "industry": "半導體業",
+    "business": "臺灣上櫃公司；主要業務請參考公司網站。",
+    "source": "櫃檯買賣中心"
   },
   "3264": {
     "name": "欣銓",
     "market": "TW",
-    "industry": "",
-    "business": "無代號海外成分股，暫無可用公開摘要。",
-    "source": ""
+    "industry": "半導體業",
+    "business": "臺灣上櫃公司；主要業務請參考公司網站。",
+    "source": "櫃檯買賣中心"
   },
   "3265": {
     "name": "台星科",
     "market": "TW",
-    "industry": "",
-    "business": "無代號海外成分股，暫無可用公開摘要。",
-    "source": ""
+    "industry": "半導體業",
+    "business": "臺灣上櫃公司；主要業務請參考公司網站。",
+    "source": "櫃檯買賣中心"
   },
   "3293": {
     "name": "鈊象",
     "market": "TW",
-    "industry": "",
-    "business": "無代號海外成分股，暫無可用公開摘要。",
-    "source": ""
+    "industry": "其他業",
+    "business": "臺灣上櫃公司；主要業務請參考公司網站。",
+    "source": "櫃檯買賣中心"
   },
   "3363": {
     "name": "上詮",
     "market": "TW",
-    "industry": "",
-    "business": "無代號海外成分股，暫無可用公開摘要。",
-    "source": ""
+    "industry": "通信網路業",
+    "business": "臺灣上櫃公司；主要業務請參考公司網站。",
+    "source": "櫃檯買賣中心"
   },
   "3374": {
     "name": "精材",
     "market": "TW",
-    "industry": "",
-    "business": "無代號海外成分股，暫無可用公開摘要。",
-    "source": ""
+    "industry": "半導體業",
+    "business": "臺灣上櫃公司；主要業務請參考公司網站。",
+    "source": "櫃檯買賣中心"
   },
   "3376": {
     "name": "新日興",
@@ -1024,16 +1024,16 @@
   "3491": {
     "name": "昇達科",
     "market": "TW",
-    "industry": "",
-    "business": "無代號海外成分股，暫無可用公開摘要。",
-    "source": ""
+    "industry": "通信網路業",
+    "business": "臺灣上櫃公司；主要業務請參考公司網站。",
+    "source": "櫃檯買賣中心"
   },
   "3529": {
     "name": "力旺",
     "market": "TW",
-    "industry": "",
-    "business": "無代號海外成分股，暫無可用公開摘要。",
-    "source": ""
+    "industry": "半導體業",
+    "business": "臺灣上櫃公司；主要業務請參考公司網站。",
+    "source": "櫃檯買賣中心"
   },
   "3532": {
     "name": "台勝科",
@@ -1116,14 +1116,14 @@
     "name": "Resonac",
     "market": "JP",
     "industry": "",
-    "business": "無代號海外成分股，暫無可用公開摘要。",
+    "business": "尚無可用公開摘要。",
     "source": ""
   },
   "4062": {
     "name": "IBIDEN",
     "market": "JP",
     "industry": "",
-    "business": "無代號海外成分股，暫無可用公開摘要。",
+    "business": "尚無可用公開摘要。",
     "source": ""
   },
   "4441": {
@@ -1143,9 +1143,9 @@
   "4749": {
     "name": "新應材",
     "market": "TW",
-    "industry": "",
-    "business": "無代號海外成分股，暫無可用公開摘要。",
-    "source": ""
+    "industry": "半導體業",
+    "business": "臺灣上櫃公司；主要業務請參考公司網站。",
+    "source": "櫃檯買賣中心"
   },
   "4763": {
     "name": "材料*-KY",
@@ -1192,16 +1192,16 @@
   "4966": {
     "name": "譜瑞-KY",
     "market": "TW",
-    "industry": "",
-    "business": "無代號海外成分股，暫無可用公開摘要。",
-    "source": ""
+    "industry": "半導體業",
+    "business": "臺灣上櫃公司；主要業務請參考公司網站。",
+    "source": "櫃檯買賣中心"
   },
   "4979": {
     "name": "華星光",
     "market": "TW",
-    "industry": "",
-    "business": "無代號海外成分股，暫無可用公開摘要。",
-    "source": ""
+    "industry": "通信網路業",
+    "business": "臺灣上櫃公司；主要業務請參考公司網站。",
+    "source": "櫃檯買賣中心"
   },
   "5269": {
     "name": "祥碩",
@@ -1213,30 +1213,30 @@
   "5274": {
     "name": "信驊",
     "market": "TW",
-    "industry": "",
-    "business": "無代號海外成分股，暫無可用公開摘要。",
-    "source": ""
+    "industry": "半導體業",
+    "business": "臺灣上櫃公司；主要業務請參考公司網站。",
+    "source": "櫃檯買賣中心"
   },
   "5289": {
     "name": "宜鼎",
     "market": "TW",
-    "industry": "",
-    "business": "無代號海外成分股，暫無可用公開摘要。",
-    "source": ""
+    "industry": "電腦及週邊設備業",
+    "business": "臺灣上櫃公司；主要業務請參考公司網站。",
+    "source": "櫃檯買賣中心"
   },
   "5347": {
     "name": "世界",
     "market": "TW",
-    "industry": "",
-    "business": "無代號海外成分股，暫無可用公開摘要。",
-    "source": ""
+    "industry": "半導體業",
+    "business": "臺灣上櫃公司；主要業務請參考公司網站。",
+    "source": "櫃檯買賣中心"
   },
   "5425": {
     "name": "台半",
     "market": "TW",
-    "industry": "",
-    "business": "無代號海外成分股，暫無可用公開摘要。",
-    "source": ""
+    "industry": "半導體業",
+    "business": "臺灣上櫃公司；主要業務請參考公司網站。",
+    "source": "櫃檯買賣中心"
   },
   "5434": {
     "name": "崇越",
@@ -1248,9 +1248,9 @@
   "5483": {
     "name": "中美晶",
     "market": "TW",
-    "industry": "",
-    "business": "無代號海外成分股，暫無可用公開摘要。",
-    "source": ""
+    "industry": "半導體業",
+    "business": "臺灣上櫃公司；主要業務請參考公司網站。",
+    "source": "櫃檯買賣中心"
   },
   "5522": {
     "name": "遠雄",
@@ -1262,15 +1262,15 @@
   "5536": {
     "name": "聖暉*",
     "market": "TW",
-    "industry": "",
-    "business": "無代號海外成分股，暫無可用公開摘要。",
-    "source": ""
+    "industry": "其他電子業",
+    "business": "臺灣上櫃公司；主要業務請參考公司網站。",
+    "source": "櫃檯買賣中心"
   },
   "5706": {
     "name": "Mitsui Kinzoku",
     "market": "JP",
     "industry": "",
-    "business": "無代號海外成分股，暫無可用公開摘要。",
+    "business": "尚無可用公開摘要。",
     "source": ""
   },
   "5871": {
@@ -1298,15 +1298,15 @@
     "name": "Recruit Holdings",
     "market": "JP",
     "industry": "",
-    "business": "無代號海外成分股，暫無可用公開摘要。",
+    "business": "尚無可用公開摘要。",
     "source": ""
   },
   "6121": {
     "name": "新普",
     "market": "TW",
-    "industry": "",
-    "business": "無代號海外成分股，暫無可用公開摘要。",
-    "source": ""
+    "industry": "電腦及週邊設備業",
+    "business": "臺灣上櫃公司；主要業務請參考公司網站。",
+    "source": "櫃檯買賣中心"
   },
   "6139": {
     "name": "亞翔",
@@ -1318,9 +1318,9 @@
   "6147": {
     "name": "頎邦",
     "market": "TW",
-    "industry": "",
-    "business": "無代號海外成分股，暫無可用公開摘要。",
-    "source": ""
+    "industry": "半導體業",
+    "business": "臺灣上櫃公司；主要業務請參考公司網站。",
+    "source": "櫃檯買賣中心"
   },
   "6177": {
     "name": "達麗",
@@ -1332,9 +1332,9 @@
   "6187": {
     "name": "萬潤",
     "market": "TW",
-    "industry": "",
-    "business": "無代號海外成分股，暫無可用公開摘要。",
-    "source": ""
+    "industry": "半導體業",
+    "business": "臺灣上櫃公司；主要業務請參考公司網站。",
+    "source": "櫃檯買賣中心"
   },
   "6191": {
     "name": "精成科",
@@ -1395,9 +1395,9 @@
   "6274": {
     "name": "台燿",
     "market": "TW",
-    "industry": "",
-    "business": "無代號海外成分股，暫無可用公開摘要。",
-    "source": ""
+    "industry": "電子零組件業",
+    "business": "臺灣上櫃公司；主要業務請參考公司網站。",
+    "source": "櫃檯買賣中心"
   },
   "6278": {
     "name": "台表科",
@@ -1444,9 +1444,9 @@
   "6488": {
     "name": "環球晶",
     "market": "TW",
-    "industry": "",
-    "business": "無代號海外成分股，暫無可用公開摘要。",
-    "source": ""
+    "industry": "半導體業",
+    "business": "臺灣上櫃公司；主要業務請參考公司網站。",
+    "source": "櫃檯買賣中心"
   },
   "6505": {
     "name": "台塑化",
@@ -1458,9 +1458,9 @@
   "6510": {
     "name": "精測",
     "market": "TW",
-    "industry": "",
-    "business": "無代號海外成分股，暫無可用公開摘要。",
-    "source": ""
+    "industry": "半導體業",
+    "business": "臺灣上櫃公司；主要業務請參考公司網站。",
+    "source": "櫃檯買賣中心"
   },
   "6515": {
     "name": "穎崴",
@@ -1486,16 +1486,16 @@
   "6584": {
     "name": "南俊國際",
     "market": "TW",
-    "industry": "",
-    "business": "無代號海外成分股，暫無可用公開摘要。",
-    "source": ""
+    "industry": "電子零組件業",
+    "business": "臺灣上櫃公司；主要業務請參考公司網站。",
+    "source": "櫃檯買賣中心"
   },
   "6640": {
     "name": "均華",
     "market": "TW",
-    "industry": "",
-    "business": "無代號海外成分股，暫無可用公開摘要。",
-    "source": ""
+    "industry": "半導體業",
+    "business": "臺灣上櫃公司；主要業務請參考公司網站。",
+    "source": "櫃檯買賣中心"
   },
   "6669": {
     "name": "緯穎",
@@ -1536,7 +1536,7 @@
     "name": "Renesas Electronics",
     "market": "JP",
     "industry": "",
-    "business": "無代號海外成分股，暫無可用公開摘要。",
+    "business": "尚無可用公開摘要。",
     "source": ""
   },
   "6770": {
@@ -1571,7 +1571,7 @@
     "name": "Advantest",
     "market": "JP",
     "industry": "",
-    "business": "無代號海外成分股，暫無可用公開摘要。",
+    "business": "尚無可用公開摘要。",
     "source": ""
   },
   "6890": {
@@ -1585,21 +1585,21 @@
     "name": "Lasertec Corporation",
     "market": "JP",
     "industry": "",
-    "business": "無代號海外成分股，暫無可用公開摘要。",
+    "business": "尚無可用公開摘要。",
     "source": ""
   },
   "6976": {
     "name": "TAIYO YUDEN",
     "market": "JP",
     "industry": "",
-    "business": "無代號海外成分股，暫無可用公開摘要。",
+    "business": "尚無可用公開摘要。",
     "source": ""
   },
   "6981": {
     "name": "Murata Mfg.",
     "market": "JP",
     "industry": "",
-    "business": "無代號海外成分股，暫無可用公開摘要。",
+    "business": "尚無可用公開摘要。",
     "source": ""
   },
   "7722": {
@@ -1612,9 +1612,9 @@
   "7734": {
     "name": "印能科技",
     "market": "TW",
-    "industry": "",
-    "business": "無代號海外成分股，暫無可用公開摘要。",
-    "source": ""
+    "industry": "半導體業",
+    "business": "臺灣上櫃公司；主要業務請參考公司網站。",
+    "source": "櫃檯買賣中心"
   },
   "7750": {
     "name": "新代",
@@ -1626,9 +1626,9 @@
   "7751": {
     "name": "竑騰",
     "market": "TW",
-    "industry": "",
-    "business": "無代號海外成分股，暫無可用公開摘要。",
-    "source": ""
+    "industry": "半導體業",
+    "business": "臺灣上櫃公司；主要業務請參考公司網站。",
+    "source": "櫃檯買賣中心"
   },
   "7769": {
     "name": "鴻勁",
@@ -1647,15 +1647,15 @@
   "7828": {
     "name": "創新服務",
     "market": "TW",
-    "industry": "",
-    "business": "無代號海外成分股，暫無可用公開摘要。",
-    "source": ""
+    "industry": "半導體業",
+    "business": "臺灣上櫃公司；主要業務請參考公司網站。",
+    "source": "櫃檯買賣中心"
   },
   "7974": {
     "name": "Nintendo",
     "market": "JP",
     "industry": "",
-    "business": "無代號海外成分股，暫無可用公開摘要。",
+    "business": "尚無可用公開摘要。",
     "source": ""
   },
   "8016": {
@@ -1717,16 +1717,16 @@
   "8299": {
     "name": "群聯",
     "market": "TW",
-    "industry": "",
-    "business": "無代號海外成分股，暫無可用公開摘要。",
-    "source": ""
+    "industry": "半導體業",
+    "business": "臺灣上櫃公司；主要業務請參考公司網站。",
+    "source": "櫃檯買賣中心"
   },
   "8358": {
     "name": "金居",
     "market": "TW",
-    "industry": "",
-    "business": "無代號海外成分股，暫無可用公開摘要。",
-    "source": ""
+    "industry": "電子零組件業",
+    "business": "臺灣上櫃公司；主要業務請參考公司網站。",
+    "source": "櫃檯買賣中心"
   },
   "8454": {
     "name": "富邦媒",
@@ -1746,7 +1746,7 @@
     "name": "TOHO",
     "market": "JP",
     "industry": "",
-    "business": "無代號海外成分股，暫無可用公開摘要。",
+    "business": "尚無可用公開摘要。",
     "source": ""
   },
   "9904": {
@@ -1805,7 +1805,7 @@
     "name": "AEHR TEST SYSTEMS",
     "market": "",
     "industry": "",
-    "business": "無代號海外成分股，暫無可用公開摘要。",
+    "business": "尚無可用公開摘要。",
     "source": ""
   },
   "AEM": {
@@ -1908,7 +1908,7 @@
     "name": "AXT INC",
     "market": "",
     "industry": "",
-    "business": "無代號海外成分股，暫無可用公開摘要。",
+    "business": "尚無可用公開摘要。",
     "source": ""
   },
   "AXTI": {
@@ -1947,7 +1947,7 @@
     "name": "CLOUDFLARE INC - CLASS A",
     "market": "",
     "industry": "",
-    "business": "無代號海外成分股，暫無可用公開摘要。",
+    "business": "尚無可用公開摘要。",
     "source": ""
   },
   "CLS": {
@@ -2018,28 +2018,28 @@
     "name": "FASTLY INC - CLASS A",
     "market": "",
     "industry": "",
-    "business": "無代號海外成分股，暫無可用公開摘要。",
+    "business": "尚無可用公開摘要。",
     "source": ""
   },
   "FITEN12": {
     "name": "2026/12電子指數期貨",
     "market": "TF",
     "industry": "",
-    "business": "無代號海外成分股，暫無可用公開摘要。",
+    "business": "尚無可用公開摘要。",
     "source": ""
   },
   "FITXN12": {
     "name": "臺股期貨 202612",
     "market": "TF",
     "industry": "",
-    "business": "無代號海外成分股，暫無可用公開摘要。",
+    "business": "尚無可用公開摘要。",
     "source": ""
   },
   "FIVHF12": {
     "name": "2026/12富邦科技ETF期貨",
     "market": "TF",
     "industry": "",
-    "business": "無代號海外成分股，暫無可用公開摘要。",
+    "business": "尚無可用公開摘要。",
     "source": ""
   },
   "FIVN": {
@@ -2078,7 +2078,7 @@
     "name": "FURUKAWA ELECTRIC CO LTD",
     "market": "",
     "industry": "",
-    "business": "無代號海外成分股，暫無可用公開摘要。",
+    "business": "尚無可用公開摘要。",
     "source": ""
   },
   "GE": {
@@ -2149,7 +2149,7 @@
     "name": "INFINEON TECHNOLOGIES AG",
     "market": "",
     "industry": "",
-    "business": "無代號海外成分股，暫無可用公開摘要。",
+    "business": "尚無可用公開摘要。",
     "source": ""
   },
   "INTC": {
@@ -2460,7 +2460,7 @@
     "name": "SERVICENOW INC",
     "market": "",
     "industry": "",
-    "business": "無代號海外成分股，暫無可用公開摘要。",
+    "business": "尚無可用公開摘要。",
     "source": ""
   },
   "SHOP": {
@@ -2667,889 +2667,889 @@
     "name": "世界",
     "market": "",
     "industry": "",
-    "business": "無代號海外成分股，暫無可用公開摘要。",
+    "business": "尚無可用公開摘要。",
     "source": ""
   },
   "世芯-KY": {
     "name": "世芯-KY",
     "market": "",
     "industry": "",
-    "business": "無代號海外成分股，暫無可用公開摘要。",
+    "business": "尚無可用公開摘要。",
     "source": ""
   },
   "中美晶": {
     "name": "中美晶",
     "market": "",
     "industry": "",
-    "business": "無代號海外成分股，暫無可用公開摘要。",
+    "business": "尚無可用公開摘要。",
     "source": ""
   },
   "亞翔": {
     "name": "亞翔",
     "market": "",
     "industry": "",
-    "business": "無代號海外成分股，暫無可用公開摘要。",
+    "business": "尚無可用公開摘要。",
     "source": ""
   },
   "信驊": {
     "name": "信驊",
     "market": "",
     "industry": "",
-    "business": "無代號海外成分股，暫無可用公開摘要。",
+    "business": "尚無可用公開摘要。",
     "source": ""
   },
   "健策": {
     "name": "健策",
     "market": "",
     "industry": "",
-    "business": "無代號海外成分股，暫無可用公開摘要。",
+    "business": "尚無可用公開摘要。",
     "source": ""
   },
   "元大金": {
     "name": "元大金",
     "market": "",
     "industry": "",
-    "business": "無代號海外成分股，暫無可用公開摘要。",
+    "business": "尚無可用公開摘要。",
     "source": ""
   },
   "兆豐金": {
     "name": "兆豐金",
     "market": "",
     "industry": "",
-    "business": "無代號海外成分股，暫無可用公開摘要。",
+    "business": "尚無可用公開摘要。",
     "source": ""
   },
   "光寶科": {
     "name": "光寶科",
     "market": "",
     "industry": "",
-    "business": "無代號海外成分股，暫無可用公開摘要。",
+    "business": "尚無可用公開摘要。",
     "source": ""
   },
   "光洋科": {
     "name": "光洋科",
     "market": "",
     "industry": "",
-    "business": "無代號海外成分股，暫無可用公開摘要。",
+    "business": "尚無可用公開摘要。",
     "source": ""
   },
   "全新": {
     "name": "全新",
     "market": "",
     "industry": "",
-    "business": "無代號海外成分股，暫無可用公開摘要。",
+    "business": "尚無可用公開摘要。",
     "source": ""
   },
   "創意": {
     "name": "創意",
     "market": "",
     "industry": "",
-    "business": "無代號海外成分股，暫無可用公開摘要。",
+    "business": "尚無可用公開摘要。",
     "source": ""
   },
   "創見": {
     "name": "創見",
     "market": "",
     "industry": "",
-    "business": "無代號海外成分股，暫無可用公開摘要。",
+    "business": "尚無可用公開摘要。",
     "source": ""
   },
   "力成": {
     "name": "力成",
     "market": "",
     "industry": "",
-    "business": "無代號海外成分股，暫無可用公開摘要。",
+    "business": "尚無可用公開摘要。",
     "source": ""
   },
   "力旺": {
     "name": "力旺",
     "market": "",
     "industry": "",
-    "business": "無代號海外成分股，暫無可用公開摘要。",
+    "business": "尚無可用公開摘要。",
     "source": ""
   },
   "南亞": {
     "name": "南亞",
     "market": "",
     "industry": "",
-    "business": "無代號海外成分股，暫無可用公開摘要。",
+    "business": "尚無可用公開摘要。",
     "source": ""
   },
   "南俊國際": {
     "name": "南俊國際",
     "market": "",
     "industry": "",
-    "business": "無代號海外成分股，暫無可用公開摘要。",
+    "business": "尚無可用公開摘要。",
     "source": ""
   },
   "南茂": {
     "name": "南茂",
     "market": "",
     "industry": "",
-    "business": "無代號海外成分股，暫無可用公開摘要。",
+    "business": "尚無可用公開摘要。",
     "source": ""
   },
   "南電": {
     "name": "南電",
     "market": "",
     "industry": "",
-    "business": "無代號海外成分股，暫無可用公開摘要。",
+    "business": "尚無可用公開摘要。",
     "source": ""
   },
   "台光電": {
     "name": "台光電",
     "market": "",
     "industry": "",
-    "business": "無代號海外成分股，暫無可用公開摘要。",
+    "business": "尚無可用公開摘要。",
     "source": ""
   },
   "台半": {
     "name": "台半",
     "market": "",
     "industry": "",
-    "business": "無代號海外成分股，暫無可用公開摘要。",
+    "business": "尚無可用公開摘要。",
     "source": ""
   },
   "台指期202609": {
     "name": "台指期202609",
     "market": "",
     "industry": "",
-    "business": "無代號海外成分股，暫無可用公開摘要。",
+    "business": "尚無可用公開摘要。",
     "source": ""
   },
   "台指期202609(FITXN*1)": {
     "name": "台指期202609(FITXN*1)",
     "market": "",
     "industry": "",
-    "business": "無代號海外成分股，暫無可用公開摘要。",
+    "business": "尚無可用公開摘要。",
     "source": ""
   },
   "台指期202609(FITXN*1.TF)": {
     "name": "台指期202609(FITXN*1.TF)",
     "market": "",
     "industry": "",
-    "business": "無代號海外成分股，暫無可用公開摘要。",
+    "business": "尚無可用公開摘要。",
     "source": ""
   },
   "台指期202610(FITXN*1.TF)": {
     "name": "台指期202610(FITXN*1.TF)",
     "market": "",
     "industry": "",
-    "business": "無代號海外成分股，暫無可用公開摘要。",
+    "business": "尚無可用公開摘要。",
     "source": ""
   },
   "台指期202611(FITXN*1.TF)": {
     "name": "台指期202611(FITXN*1.TF)",
     "market": "",
     "industry": "",
-    "business": "無代號海外成分股，暫無可用公開摘要。",
+    "business": "尚無可用公開摘要。",
     "source": ""
   },
   "台指期202612(FITXN*1.TF)": {
     "name": "台指期202612(FITXN*1.TF)",
     "market": "",
     "industry": "",
-    "business": "無代號海外成分股，暫無可用公開摘要。",
+    "business": "尚無可用公開摘要。",
     "source": ""
   },
   "台指期貨 2026/08": {
     "name": "台指期貨 2026/08",
     "market": "",
     "industry": "",
-    "business": "無代號海外成分股，暫無可用公開摘要。",
+    "business": "尚無可用公開摘要。",
     "source": ""
   },
   "台指期貨 2026/09": {
     "name": "台指期貨 2026/09",
     "market": "",
     "industry": "",
-    "business": "無代號海外成分股，暫無可用公開摘要。",
+    "business": "尚無可用公開摘要。",
     "source": ""
   },
   "台指期貨 2026/09(FITXN*1)": {
     "name": "台指期貨 2026/09(FITXN*1)",
     "market": "",
     "industry": "",
-    "business": "無代號海外成分股，暫無可用公開摘要。",
+    "business": "尚無可用公開摘要。",
     "source": ""
   },
   "台指期貨 2026/09(FITXN*1.TF)": {
     "name": "台指期貨 2026/09(FITXN*1.TF)",
     "market": "",
     "industry": "",
-    "business": "無代號海外成分股，暫無可用公開摘要。",
+    "business": "尚無可用公開摘要。",
     "source": ""
   },
   "台指期貨 2026/10(FITXN*1.TF)": {
     "name": "台指期貨 2026/10(FITXN*1.TF)",
     "market": "",
     "industry": "",
-    "business": "無代號海外成分股，暫無可用公開摘要。",
+    "business": "尚無可用公開摘要。",
     "source": ""
   },
   "台指期貨 2026/11(FITXN*1.TF)": {
     "name": "台指期貨 2026/11(FITXN*1.TF)",
     "market": "",
     "industry": "",
-    "business": "無代號海外成分股，暫無可用公開摘要。",
+    "business": "尚無可用公開摘要。",
     "source": ""
   },
   "台指期貨 2026/12(FITXN*1.TF)": {
     "name": "台指期貨 2026/12(FITXN*1.TF)",
     "market": "",
     "industry": "",
-    "business": "無代號海外成分股，暫無可用公開摘要。",
+    "business": "尚無可用公開摘要。",
     "source": ""
   },
   "台指期貨(B)": {
     "name": "台指期貨(B)",
     "market": "",
     "industry": "",
-    "business": "無代號海外成分股，暫無可用公開摘要。",
+    "business": "尚無可用公開摘要。",
     "source": ""
   },
   "台指期貨(B) 2026/08": {
     "name": "台指期貨(B) 2026/08",
     "market": "",
     "industry": "",
-    "business": "無代號海外成分股，暫無可用公開摘要。",
+    "business": "尚無可用公開摘要。",
     "source": ""
   },
   "台指期貨(B) 2026/09": {
     "name": "台指期貨(B) 2026/09",
     "market": "",
     "industry": "",
-    "business": "無代號海外成分股，暫無可用公開摘要。",
+    "business": "尚無可用公開摘要。",
     "source": ""
   },
   "台指選擇權 2026/10": {
     "name": "台指選擇權 2026/10",
     "market": "",
     "industry": "",
-    "business": "無代號海外成分股，暫無可用公開摘要。",
+    "business": "尚無可用公開摘要。",
     "source": ""
   },
   "台星科": {
     "name": "台星科",
     "market": "",
     "industry": "",
-    "business": "無代號海外成分股，暫無可用公開摘要。",
+    "business": "尚無可用公開摘要。",
     "source": ""
   },
   "台灣50ETF股票期貨 202608": {
     "name": "台灣50ETF股票期貨 202608",
     "market": "",
     "industry": "",
-    "business": "無代號海外成分股，暫無可用公開摘要。",
+    "business": "尚無可用公開摘要。",
     "source": ""
   },
   "台灣50ETF股票期貨 202609": {
     "name": "台灣50ETF股票期貨 202609",
     "market": "",
     "industry": "",
-    "business": "無代號海外成分股，暫無可用公開摘要。",
+    "business": "尚無可用公開摘要。",
     "source": ""
   },
   "台灣50ETF股票期貨 202610": {
     "name": "台灣50ETF股票期貨 202610",
     "market": "",
     "industry": "",
-    "business": "無代號海外成分股，暫無可用公開摘要。",
+    "business": "尚無可用公開摘要。",
     "source": ""
   },
   "台灣50ETF股票期貨 202611": {
     "name": "台灣50ETF股票期貨 202611",
     "market": "",
     "industry": "",
-    "business": "無代號海外成分股，暫無可用公開摘要。",
+    "business": "尚無可用公開摘要。",
     "source": ""
   },
   "台灣50ETF股票期貨 202612": {
     "name": "台灣50ETF股票期貨 202612",
     "market": "",
     "industry": "",
-    "business": "無代號海外成分股，暫無可用公開摘要。",
+    "business": "尚無可用公開摘要。",
     "source": ""
   },
   "台燿": {
     "name": "台燿",
     "market": "",
     "industry": "",
-    "business": "無代號海外成分股，暫無可用公開摘要。",
+    "business": "尚無可用公開摘要。",
     "source": ""
   },
   "台積電": {
     "name": "台積電",
     "market": "",
     "industry": "",
-    "business": "無代號海外成分股，暫無可用公開摘要。",
+    "business": "尚無可用公開摘要。",
     "source": ""
   },
   "台股期貨": {
     "name": "台股期貨",
     "market": "",
     "industry": "",
-    "business": "無代號海外成分股，暫無可用公開摘要。",
+    "business": "尚無可用公開摘要。",
     "source": ""
   },
   "台股期貨 2026/09": {
     "name": "台股期貨 2026/09",
     "market": "",
     "industry": "",
-    "business": "無代號海外成分股，暫無可用公開摘要。",
+    "business": "尚無可用公開摘要。",
     "source": ""
   },
   "台股期貨 2026/09(FITXN*1)": {
     "name": "台股期貨 2026/09(FITXN*1)",
     "market": "",
     "industry": "",
-    "business": "無代號海外成分股，暫無可用公開摘要。",
+    "business": "尚無可用公開摘要。",
     "source": ""
   },
   "台股期貨 2026/09(FITXN*1.TF)": {
     "name": "台股期貨 2026/09(FITXN*1.TF)",
     "market": "",
     "industry": "",
-    "business": "無代號海外成分股，暫無可用公開摘要。",
+    "business": "尚無可用公開摘要。",
     "source": ""
   },
   "台股期貨 2026/10(FITXN*1.TF)": {
     "name": "台股期貨 2026/10(FITXN*1.TF)",
     "market": "",
     "industry": "",
-    "business": "無代號海外成分股，暫無可用公開摘要。",
+    "business": "尚無可用公開摘要。",
     "source": ""
   },
   "台股期貨 2026/11(FITXN*1.TF)": {
     "name": "台股期貨 2026/11(FITXN*1.TF)",
     "market": "",
     "industry": "",
-    "business": "無代號海外成分股，暫無可用公開摘要。",
+    "business": "尚無可用公開摘要。",
     "source": ""
   },
   "台股期貨 2026/12(FITXN*1.TF)": {
     "name": "台股期貨 2026/12(FITXN*1.TF)",
     "market": "",
     "industry": "",
-    "business": "無代號海外成分股，暫無可用公開摘要。",
+    "business": "尚無可用公開摘要。",
     "source": ""
   },
   "台表科": {
     "name": "台表科",
     "market": "",
     "industry": "",
-    "business": "無代號海外成分股，暫無可用公開摘要。",
+    "business": "尚無可用公開摘要。",
     "source": ""
   },
   "台達電": {
     "name": "台達電",
     "market": "",
     "industry": "",
-    "business": "無代號海外成分股，暫無可用公開摘要。",
+    "business": "尚無可用公開摘要。",
     "source": ""
   },
   "啟諾迪電子公司": {
     "name": "啟諾迪電子公司",
     "market": "",
     "industry": "",
-    "business": "無代號海外成分股，暫無可用公開摘要。",
+    "business": "尚無可用公開摘要。",
     "source": ""
   },
   "國巨*": {
     "name": "國巨*",
     "market": "",
     "industry": "",
-    "business": "無代號海外成分股，暫無可用公開摘要。",
+    "business": "尚無可用公開摘要。",
     "source": ""
   },
   "大毅": {
     "name": "大毅",
     "market": "",
     "industry": "",
-    "business": "無代號海外成分股，暫無可用公開摘要。",
+    "business": "尚無可用公開摘要。",
     "source": ""
   },
   "大立光": {
     "name": "大立光",
     "market": "",
     "industry": "",
-    "business": "無代號海外成分股，暫無可用公開摘要。",
+    "business": "尚無可用公開摘要。",
     "source": ""
   },
   "大聯大": {
     "name": "大聯大",
     "market": "",
     "industry": "",
-    "business": "無代號海外成分股，暫無可用公開摘要。",
+    "business": "尚無可用公開摘要。",
     "source": ""
   },
   "奇鋐": {
     "name": "奇鋐",
     "market": "",
     "industry": "",
-    "business": "無代號海外成分股，暫無可用公開摘要。",
+    "business": "尚無可用公開摘要。",
     "source": ""
   },
   "宜鼎": {
     "name": "宜鼎",
     "market": "",
     "industry": "",
-    "business": "無代號海外成分股，暫無可用公開摘要。",
+    "business": "尚無可用公開摘要。",
     "source": ""
   },
   "富喬": {
     "name": "富喬",
     "market": "",
     "industry": "",
-    "business": "無代號海外成分股，暫無可用公開摘要。",
+    "business": "尚無可用公開摘要。",
     "source": ""
   },
   "富邦金": {
     "name": "富邦金",
     "market": "",
     "industry": "",
-    "business": "無代號海外成分股，暫無可用公開摘要。",
+    "business": "尚無可用公開摘要。",
     "source": ""
   },
   "小型那斯達克100指數 2026/09": {
     "name": "小型那斯達克100指數 2026/09",
     "market": "",
     "industry": "",
-    "business": "無代號海外成分股，暫無可用公開摘要。",
+    "business": "尚無可用公開摘要。",
     "source": ""
   },
   "小型那斯達克100指數 2026/12": {
     "name": "小型那斯達克100指數 2026/12",
     "market": "",
     "industry": "",
-    "business": "無代號海外成分股，暫無可用公開摘要。",
+    "business": "尚無可用公開摘要。",
     "source": ""
   },
   "尖點": {
     "name": "尖點",
     "market": "",
     "industry": "",
-    "business": "無代號海外成分股，暫無可用公開摘要。",
+    "business": "尚無可用公開摘要。",
     "source": ""
   },
   "川湖": {
     "name": "川湖",
     "market": "",
     "industry": "",
-    "business": "無代號海外成分股，暫無可用公開摘要。",
+    "business": "尚無可用公開摘要。",
     "source": ""
   },
   "帆宣": {
     "name": "帆宣",
     "market": "",
     "industry": "",
-    "business": "無代號海外成分股，暫無可用公開摘要。",
+    "business": "尚無可用公開摘要。",
     "source": ""
   },
   "微星": {
     "name": "微星",
     "market": "",
     "industry": "",
-    "business": "無代號海外成分股，暫無可用公開摘要。",
+    "business": "尚無可用公開摘要。",
     "source": ""
   },
   "志聖": {
     "name": "志聖",
     "market": "",
     "industry": "",
-    "business": "無代號海外成分股，暫無可用公開摘要。",
+    "business": "尚無可用公開摘要。",
     "source": ""
   },
   "愛普*": {
     "name": "愛普*",
     "market": "",
     "industry": "",
-    "business": "無代號海外成分股，暫無可用公開摘要。",
+    "business": "尚無可用公開摘要。",
     "source": ""
   },
   "技嘉": {
     "name": "技嘉",
     "market": "",
     "industry": "",
-    "business": "無代號海外成分股，暫無可用公開摘要。",
+    "business": "尚無可用公開摘要。",
     "source": ""
   },
   "振大環球": {
     "name": "振大環球",
     "market": "",
     "industry": "",
-    "business": "無代號海外成分股，暫無可用公開摘要。",
+    "business": "尚無可用公開摘要。",
     "source": ""
   },
   "文曄": {
     "name": "文曄",
     "market": "",
     "industry": "",
-    "business": "無代號海外成分股，暫無可用公開摘要。",
+    "business": "尚無可用公開摘要。",
     "source": ""
   },
   "日月光投控": {
     "name": "日月光投控",
     "market": "",
     "industry": "",
-    "business": "無代號海外成分股，暫無可用公開摘要。",
+    "business": "尚無可用公開摘要。",
     "source": ""
   },
   "日電貿": {
     "name": "日電貿",
     "market": "",
     "industry": "",
-    "business": "無代號海外成分股，暫無可用公開摘要。",
+    "business": "尚無可用公開摘要。",
     "source": ""
   },
   "旺矽": {
     "name": "旺矽",
     "market": "",
     "industry": "",
-    "business": "無代號海外成分股，暫無可用公開摘要。",
+    "business": "尚無可用公開摘要。",
     "source": ""
   },
   "昇達科": {
     "name": "昇達科",
     "market": "",
     "industry": "",
-    "business": "無代號海外成分股，暫無可用公開摘要。",
+    "business": "尚無可用公開摘要。",
     "source": ""
   },
   "景碩": {
     "name": "景碩",
     "market": "",
     "industry": "",
-    "business": "無代號海外成分股，暫無可用公開摘要。",
+    "business": "尚無可用公開摘要。",
     "source": ""
   },
   "智邦": {
     "name": "智邦",
     "market": "",
     "industry": "",
-    "business": "無代號海外成分股，暫無可用公開摘要。",
+    "business": "尚無可用公開摘要。",
     "source": ""
   },
   "楠梓電": {
     "name": "楠梓電",
     "market": "",
     "industry": "",
-    "business": "無代號海外成分股，暫無可用公開摘要。",
+    "business": "尚無可用公開摘要。",
     "source": ""
   },
   "欣興": {
     "name": "欣興",
     "market": "",
     "industry": "",
-    "business": "無代號海外成分股，暫無可用公開摘要。",
+    "business": "尚無可用公開摘要。",
     "source": ""
   },
   "欣銓": {
     "name": "欣銓",
     "market": "",
     "industry": "",
-    "business": "無代號海外成分股，暫無可用公開摘要。",
+    "business": "尚無可用公開摘要。",
     "source": ""
   },
   "漢唐": {
     "name": "漢唐",
     "market": "",
     "industry": "",
-    "business": "無代號海外成分股，暫無可用公開摘要。",
+    "business": "尚無可用公開摘要。",
     "source": ""
   },
   "環球晶": {
     "name": "環球晶",
     "market": "",
     "industry": "",
-    "business": "無代號海外成分股，暫無可用公開摘要。",
+    "business": "尚無可用公開摘要。",
     "source": ""
   },
   "矽創": {
     "name": "矽創",
     "market": "",
     "industry": "",
-    "business": "無代號海外成分股，暫無可用公開摘要。",
+    "business": "尚無可用公開摘要。",
     "source": ""
   },
   "矽格": {
     "name": "矽格",
     "market": "",
     "industry": "",
-    "business": "無代號海外成分股，暫無可用公開摘要。",
+    "business": "尚無可用公開摘要。",
     "source": ""
   },
   "研華": {
     "name": "研華",
     "market": "",
     "industry": "",
-    "business": "無代號海外成分股，暫無可用公開摘要。",
+    "business": "尚無可用公開摘要。",
     "source": ""
   },
   "碩天": {
     "name": "碩天",
     "market": "",
     "industry": "",
-    "business": "無代號海外成分股，暫無可用公開摘要。",
+    "business": "尚無可用公開摘要。",
     "source": ""
   },
   "神達": {
     "name": "神達",
     "market": "",
     "industry": "",
-    "business": "無代號海外成分股，暫無可用公開摘要。",
+    "business": "尚無可用公開摘要。",
     "source": ""
   },
   "禾伸堂": {
     "name": "禾伸堂",
     "market": "",
     "industry": "",
-    "business": "無代號海外成分股，暫無可用公開摘要。",
+    "business": "尚無可用公開摘要。",
     "source": ""
   },
   "穩懋": {
     "name": "穩懋",
     "market": "",
     "industry": "",
-    "business": "無代號海外成分股，暫無可用公開摘要。",
+    "business": "尚無可用公開摘要。",
     "source": ""
   },
   "立隆電": {
     "name": "立隆電",
     "market": "",
     "industry": "",
-    "business": "無代號海外成分股，暫無可用公開摘要。",
+    "business": "尚無可用公開摘要。",
     "source": ""
   },
   "精誠": {
     "name": "精誠",
     "market": "",
     "industry": "",
-    "business": "無代號海外成分股，暫無可用公開摘要。",
+    "business": "尚無可用公開摘要。",
     "source": ""
   },
   "緯創": {
     "name": "緯創",
     "market": "",
     "industry": "",
-    "business": "無代號海外成分股，暫無可用公開摘要。",
+    "business": "尚無可用公開摘要。",
     "source": ""
   },
   "緯穎": {
     "name": "緯穎",
     "market": "",
     "industry": "",
-    "business": "無代號海外成分股，暫無可用公開摘要。",
+    "business": "尚無可用公開摘要。",
     "source": ""
   },
   "聖暉*": {
     "name": "聖暉*",
     "market": "",
     "industry": "",
-    "business": "無代號海外成分股，暫無可用公開摘要。",
+    "business": "尚無可用公開摘要。",
     "source": ""
   },
   "聯亞": {
     "name": "聯亞",
     "market": "",
     "industry": "",
-    "business": "無代號海外成分股，暫無可用公開摘要。",
+    "business": "尚無可用公開摘要。",
     "source": ""
   },
   "聯發科": {
     "name": "聯發科",
     "market": "",
     "industry": "",
-    "business": "無代號海外成分股，暫無可用公開摘要。",
+    "business": "尚無可用公開摘要。",
     "source": ""
   },
   "聯茂": {
     "name": "聯茂",
     "market": "",
     "industry": "",
-    "business": "無代號海外成分股，暫無可用公開摘要。",
+    "business": "尚無可用公開摘要。",
     "source": ""
   },
   "聯電": {
     "name": "聯電",
     "market": "",
     "industry": "",
-    "business": "無代號海外成分股，暫無可用公開摘要。",
+    "business": "尚無可用公開摘要。",
     "source": ""
   },
   "致茂": {
     "name": "致茂",
     "market": "",
     "industry": "",
-    "business": "無代號海外成分股，暫無可用公開摘要。",
+    "business": "尚無可用公開摘要。",
     "source": ""
   },
   "臺股期貨 202608": {
     "name": "臺股期貨 202608",
     "market": "",
     "industry": "",
-    "business": "無代號海外成分股，暫無可用公開摘要。",
+    "business": "尚無可用公開摘要。",
     "source": ""
   },
   "臺股期貨 202609": {
     "name": "臺股期貨 202609",
     "market": "",
     "industry": "",
-    "business": "無代號海外成分股，暫無可用公開摘要。",
+    "business": "尚無可用公開摘要。",
     "source": ""
   },
   "臺股期貨 202609(FITXN*1)": {
     "name": "臺股期貨 202609(FITXN*1)",
     "market": "",
     "industry": "",
-    "business": "無代號海外成分股，暫無可用公開摘要。",
+    "business": "尚無可用公開摘要。",
     "source": ""
   },
   "臺股期貨 202609(FITXN*1.TF)": {
     "name": "臺股期貨 202609(FITXN*1.TF)",
     "market": "",
     "industry": "",
-    "business": "無代號海外成分股，暫無可用公開摘要。",
+    "business": "尚無可用公開摘要。",
     "source": ""
   },
   "臺股期貨 202610(FITXN*1.TF)": {
     "name": "臺股期貨 202610(FITXN*1.TF)",
     "market": "",
     "industry": "",
-    "business": "無代號海外成分股，暫無可用公開摘要。",
+    "business": "尚無可用公開摘要。",
     "source": ""
   },
   "臺股期貨 202611(FITXN*1.TF)": {
     "name": "臺股期貨 202611(FITXN*1.TF)",
     "market": "",
     "industry": "",
-    "business": "無代號海外成分股，暫無可用公開摘要。",
+    "business": "尚無可用公開摘要。",
     "source": ""
   },
   "臺股期貨 202612(FITXN*1.TF)": {
     "name": "臺股期貨 202612(FITXN*1.TF)",
     "market": "",
     "industry": "",
-    "business": "無代號海外成分股，暫無可用公開摘要。",
+    "business": "尚無可用公開摘要。",
     "source": ""
   },
   "臻鼎-KY": {
     "name": "臻鼎-KY",
     "market": "",
     "industry": "",
-    "business": "無代號海外成分股，暫無可用公開摘要。",
+    "business": "尚無可用公開摘要。",
     "source": ""
   },
   "興勤": {
     "name": "興勤",
     "market": "",
     "industry": "",
-    "business": "無代號海外成分股，暫無可用公開摘要。",
+    "business": "尚無可用公開摘要。",
     "source": ""
   },
   "華城": {
     "name": "華城",
     "market": "",
     "industry": "",
-    "business": "無代號海外成分股，暫無可用公開摘要。",
+    "business": "尚無可用公開摘要。",
     "source": ""
   },
   "華碩": {
     "name": "華碩",
     "market": "",
     "industry": "",
-    "business": "無代號海外成分股，暫無可用公開摘要。",
+    "business": "尚無可用公開摘要。",
     "source": ""
   },
   "萬潤": {
     "name": "萬潤",
     "market": "",
     "industry": "",
-    "business": "無代號海外成分股，暫無可用公開摘要。",
+    "business": "尚無可用公開摘要。",
     "source": ""
   },
   "藥華藥": {
     "name": "藥華藥",
     "market": "",
     "industry": "",
-    "business": "無代號海外成分股，暫無可用公開摘要。",
+    "business": "尚無可用公開摘要。",
     "source": ""
   },
   "貿聯-KY": {
     "name": "貿聯-KY",
     "market": "",
     "industry": "",
-    "business": "無代號海外成分股，暫無可用公開摘要。",
+    "business": "尚無可用公開摘要。",
     "source": ""
   },
   "辛耘": {
     "name": "辛耘",
     "market": "",
     "industry": "",
-    "business": "無代號海外成分股，暫無可用公開摘要。",
+    "business": "尚無可用公開摘要。",
     "source": ""
   },
   "達麗": {
     "name": "達麗",
     "market": "",
     "industry": "",
-    "business": "無代號海外成分股，暫無可用公開摘要。",
+    "business": "尚無可用公開摘要。",
     "source": ""
   },
   "邁科": {
     "name": "邁科",
     "market": "",
     "industry": "",
-    "business": "無代號海外成分股，暫無可用公開摘要。",
+    "business": "尚無可用公開摘要。",
     "source": ""
   },
   "金居": {
     "name": "金居",
     "market": "",
     "industry": "",
-    "business": "無代號海外成分股，暫無可用公開摘要。",
+    "business": "尚無可用公開摘要。",
     "source": ""
   },
   "鉅祥": {
     "name": "鉅祥",
     "market": "",
     "industry": "",
-    "business": "無代號海外成分股，暫無可用公開摘要。",
+    "business": "尚無可用公開摘要。",
     "source": ""
   },
   "長華*": {
     "name": "長華*",
     "market": "",
     "industry": "",
-    "business": "無代號海外成分股，暫無可用公開摘要。",
+    "business": "尚無可用公開摘要。",
     "source": ""
   },
   "順德": {
     "name": "順德",
     "market": "",
     "industry": "",
-    "business": "無代號海外成分股，暫無可用公開摘要。",
+    "business": "尚無可用公開摘要。",
     "source": ""
   },
   "騰輝電子-KY": {
     "name": "騰輝電子-KY",
     "market": "",
     "industry": "",
-    "business": "無代號海外成分股，暫無可用公開摘要。",
+    "business": "尚無可用公開摘要。",
     "source": ""
   },
   "高力": {
     "name": "高力",
     "market": "",
     "industry": "",
-    "business": "無代號海外成分股，暫無可用公開摘要。",
+    "business": "尚無可用公開摘要。",
     "source": ""
   },
   "鴻勁": {
     "name": "鴻勁",
     "market": "",
     "industry": "",
-    "business": "無代號海外成分股，暫無可用公開摘要。",
+    "business": "尚無可用公開摘要。",
     "source": ""
   }
 }
