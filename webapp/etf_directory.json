@@ -1,5 +1,5 @@
 {
-  "updated_at": "2026-11-26T21:20:28+00:00",
+  "updated_at": "2026-11-26T22:20:29+00:00",
   "sources": [
     "https://openapi.twse.com.tw/v1/opendata/t187ap47_L",
     "https://www.tpex.org.tw/openapi/v1/tpex_mainboard_quotes"
@@ -1833,6 +1833,16 @@
     {
       "code": "009833",
       "name": "野村韓國科技30",
+      "market": "上市"
+    },
+    {
+      "code": "009834",
+      "name": "貝萊德世界黃金",
+      "market": "上市"
+    },
+    {
+      "code": "009835",
+      "name": "貝萊德世界礦業",
       "market": "上市"
     },
     {
