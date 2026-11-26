@@ -2,7 +2,7 @@
 """更新 ETF 成分股的產業別與主要產品／業務摘要。
 
 資料來源：
-* 台股：臺灣證券交易所公開公司基本資料（產業別、公司名稱、網址）。
+* 台灣上市／上櫃公司：臺灣證券交易所及櫃檯買賣中心公開公司基本資料（產業別、公司名稱、網址）。
 * 海外：Stock Analysis 公開公司介紹頁（產業、部門與業務摘要）。
 
 產出的 JSON 是前端的補充資料；單一來源查不到時仍保留該成分股，避免網頁缺列。
@@ -65,6 +65,42 @@ def fetch_twse_profiles():
     return {str(r.get("公司代號", "")).strip(): r for r in rows if r.get("公司代號")}
 
 
+def fetch_tpex_profiles():
+    rows = get_json("https://www.tpex.org.tw/openapi/v1/mopsfin_t187ap03_O")
+    return {
+        str(r.get("SecuritiesCompanyCode", "")).strip(): r
+        for r in rows
+        if r.get("SecuritiesCompanyCode")
+    }
+
+
+def build_company_profile(holding, twse, tpex):
+    code, market = holding["code"], holding["market"]
+    profile = {"name": holding["name"], "market": market, "industry": "", "business": "", "source": ""}
+    try:
+        if market == "TW" and code in twse:
+            row = twse[code]
+            profile["industry"] = TWSE_INDUSTRIES.get(str(row.get("產業別", "")).strip(), "其他業")
+            profile["business"] = "臺灣上市公司；主要業務請參考公司網站。"
+            profile["source"] = "臺灣證券交易所"
+        elif market == "TW" and code in tpex:
+            row = tpex[code]
+            profile["industry"] = TWSE_INDUSTRIES.get(str(row.get("SecuritiesIndustryCode", "")).strip(), "其他業")
+            profile["business"] = "臺灣上櫃公司；主要業務請參考公司網站。"
+            profile["source"] = "櫃檯買賣中心"
+        elif market == "US" and code:
+            profile.update(stockanalysis_profile(code))
+        elif code == "8035" and market == "JP":
+            profile.update({"industry": "半導體設備", "business": "生產半導體製造設備與相關電子設備。", "source": "公司公開資料整理"})
+        elif code == "009150" and market == "KS":
+            profile.update({"industry": "電子零組件", "business": "生產相機模組、封裝基板與高頻元件等電子零組件。", "source": "公司公開資料整理"})
+        else:
+            profile["business"] = "尚無可用公開摘要。"
+    except Exception as exc:
+        print("! {} {}: {}".format(code or holding.get("name", ""), holding.get("name", ""), exc))
+    return profile
+
+
 def stockanalysis_profile(symbol):
     page = get_text("https://stockanalysis.com/stocks/" + urllib.parse.quote(symbol.lower()) + "/company/")
     industry = re.search(r'industry:\{value:"([^"]+)', page)
@@ -86,28 +122,12 @@ def stockanalysis_profile(symbol):
 def main():
     holdings = load_holdings()
     twse = fetch_twse_profiles()
+    tpex = fetch_tpex_profiles()
     profiles = {}
     for key, h in sorted(holdings.items()):
-        code, market = h["code"], h["market"]
-        profile = {"name": h["name"], "market": market, "industry": "", "business": "", "source": ""}
-        try:
-            if market == "TW" and code in twse:
-                row = twse[code]
-                profile["industry"] = TWSE_INDUSTRIES.get(str(row.get("產業別", "")).strip(), "其他業")
-                profile["business"] = "臺灣上市公司；主要業務請參考公司網站。"
-                profile["source"] = "臺灣證券交易所"
-            elif market == "US" and code:
-                profile.update(stockanalysis_profile(code))
-            elif code == "8035" and market == "JP":
-                profile.update({"industry": "半導體設備", "business": "生產半導體製造設備與相關電子設備。", "source": "公司公開資料整理"})
-            elif code == "009150" and market == "KS":
-                profile.update({"industry": "電子零組件", "business": "生產相機模組、封裝基板與高頻元件等電子零組件。", "source": "公司公開資料整理"})
-            else:
-                profile["business"] = "無代號海外成分股，暫無可用公開摘要。"
-        except Exception as exc:
-            print("! {} {}: {}".format(code or key, h["name"], exc))
+        profile = build_company_profile(h, twse, tpex)
         profiles[key] = profile
-        if market == "US":
+        if h["market"] == "US":
             time.sleep(0.2)
     OUT.write_text(json.dumps(profiles, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
     print("已更新 {} 筆公司資料：{}".format(len(profiles), OUT))
