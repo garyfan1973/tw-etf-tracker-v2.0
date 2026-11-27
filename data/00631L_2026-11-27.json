@@ -1,6 +1,6 @@
 {
   "date": "2026-11-27",
-  "fetched_at": "2026-11-27T20:31:45+08:00",
+  "fetched_at": "2026-11-27T21:31:46+08:00",
   "count": 3,
   "self": {
     "open": 25.52,
@@ -21,7 +21,20 @@
     "total": 87469655,
     "date": "2026-11-27"
   },
-  "selfMargin": null,
+  "selfMargin": {
+    "marginBuy": 15485,
+    "marginSell": 36853,
+    "marginCashRedemption": 255,
+    "marginPrevBalance": 432435,
+    "marginBalance": 410812,
+    "shortBuy": 1257,
+    "shortSell": 5180,
+    "shortStockRedemption": 0,
+    "shortPrevBalance": 17116,
+    "shortBalance": 21039,
+    "offsetting": 1563,
+    "date": "2026-11-27"
+  },
   "holdings": [
     {
       "code": "FITXN12",
@@ -58,18 +71,18 @@
         "date": "2026-11-27"
       },
       "margin": {
-        "marginBuy": 895,
-        "marginSell": 908,
-        "marginCashRedemption": 25,
-        "marginPrevBalance": 29305,
-        "marginBalance": 29267,
-        "shortBuy": 21,
-        "shortSell": 4,
+        "marginBuy": 190,
+        "marginSell": 1219,
+        "marginCashRedemption": 47,
+        "marginPrevBalance": 29267,
+        "marginBalance": 28191,
+        "shortBuy": 0,
+        "shortSell": 17,
         "shortStockRedemption": 2,
-        "shortPrevBalance": 46,
-        "shortBalance": 27,
-        "offsetting": 5,
-        "date": "2026-11-26"
+        "shortPrevBalance": 27,
+        "shortBalance": 42,
+        "offsetting": 21,
+        "date": "2026-11-27"
       }
     },
     {
